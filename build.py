@@ -29,11 +29,15 @@ X_ITEMS_PATH = os.path.join(HERE, "x_items.json")
 
 # ---- chatter / news sources -------------------------------------------------
 # kind: reddit | exploit | vendor | news ; flt: keyword filter regex applied to title+summary
-KW = re.compile(r"CVE-\d{4}-\d{4,7}|exploit|0[- ]?day|zero[- ]?day|\bpoc\b|proof[- ]of[- ]concept|\brce\b|"
-                r"vulnerab|\bflaw\b|backdoor|actively|in the wild|ransomware|patch", re.I)
-REDDIT_KW = re.compile(r"CVE-\d{4}-\d{4,7}|exploit|0[- ]?day|zero[- ]?day|\bpoc\b|proof[- ]of[- ]concept|\brce\b", re.I)
+# Incident / breach wording lives in ONE place: ai_rules.INCIDENT_TERMS
+INCIDENT_PAT = AIR.INCIDENT_PAT
+INCIDENT_RX = re.compile(INCIDENT_PAT, re.I)
+_CVE_KW = (r"CVE-\d{4}-\d{4,7}|exploit|0[- ]?day|zero[- ]?day|\bpoc\b|proof[- ]of[- ]concept|\brce\b|"
+           r"vulnerab|\bflaw\b|backdoor|actively|in the wild|ransomware|patch")
+KW = re.compile(_CVE_KW + "|" + INCIDENT_PAT, re.I)
+REDDIT_KW = re.compile(r"CVE-\d{4}-\d{4,7}|exploit|0[- ]?day|zero[- ]?day|\bpoc\b|proof[- ]of[- ]concept|\brce\b|" + INCIDENT_PAT, re.I)
 AI_SEC_KW = re.compile(r"CVE-\d{4}-\d{4,7}|vulnerab|exploit|jailbreak|prompt[- ]injection|backdoor|malicious|\brce\b|"
-                       r"supply[- ]chain|poison|sandbox escape|\bcve\b", re.I)
+                       r"supply[- ]chain|poison|sandbox escape|\bcve\b|" + INCIDENT_PAT, re.I)
 FEEDS = [
     # name, kind, url, keyword filter (None=keep all), max items
     ("r/netsec", "reddit", "https://www.reddit.com/r/netsec/new/.rss?limit=100", REDDIT_KW, 40),
@@ -501,6 +505,7 @@ def main():
     for c in chatter:
         c["ai_angle"] = AIR.classify(c["title"] + " " + c["summary"] + " " + c.pop("_ai", ""), feed=c["source"])
         c["linked"] = [x for x in c["cves"] if x in ids]
+        c["incident"] = bool(INCIDENT_RX.search(c["title"] + " " + c["summary"]))
     mentions = {}
     for c in chatter:
         for x in c["linked"]:

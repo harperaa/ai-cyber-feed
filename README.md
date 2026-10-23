@@ -26,6 +26,20 @@ VMware/Broadcom, Oracle, Adobe, Citrix, SAP, Linux kernel, OpenSSL, Apache, ngin
 WordPress, Docker/Kubernetes, popular npm/PyPI/etc. packages, …) is heuristic: CPE vendor/product + keywords. Edit `RULES` to extend.
 The page filters by severity, source, vendor, "exploited in the wild", "major vendors only", with search and sorting.
 
+## Incidents & breaches (non-CVE news) and X search guidance
+Not every important event has a CVE (e.g. the Oct 2026 Railway breach). The single editable vocabulary is `INCIDENT_TERMS` in `ai_rules.py`;
+`build.py` derives `KW` (news feeds), `REDDIT_KW` and `AI_SEC_KW` from it, tags matching chatter items `incident: true`
+(shown as an "Incident" badge and an "Incidents & breaches" filter on the Chatter tab) and the AI "impact" rule
+"breach touching AI provider / inference keys" uses the same verbs. Incident items about major platforms (cloud/dev platforms, SaaS, AI providers)
+can also be promoted to Summary focus cards with an empty `cves` list.
+
+**X queries for the hourly routine** (run each, plus the CVE/exploit queries, and write hits to `x_items.json`; use `cves: []` when none):
+`hacked`, `breached`, `breach`, `data breach`, `compromised`, `cyberattack` / `"cyber attack"` / `attacked`, `intrusion`, `"unauthorized access"`,
+`"data theft"`, `exfiltrated`, `leak` / `leaked` / `"exposed data"`, `stolen`, `"credential theft"`, `"account takeover"`, `"ransomware attack"`,
+`extortion`, `defaced`, `"supply chain attack"`, `backdoored`, `"malicious package"`, `infostealer`, `"rotate keys"` / `"rotate secrets"` / `"revoke keys"`,
+`"urges users to"`, `"rotate your"`. Combine with major names where useful (e.g. `(hacked OR breached) (Railway OR Vercel OR GitHub OR npm OR PyPI OR OpenAI OR Anthropic OR "Hugging Face" OR AWS OR Azure OR Cloudflare)`)
+and AI terms (`"API keys" (stolen OR leaked) (OpenAI OR Anthropic)`).
+
 ## Failure handling
 - HTTP retries with exponential backoff on 403/429/5xx/timeouts (honours `Retry-After`); NVD is throttled (6.5 s between requests, 0.8 s with a key).
 - Every source's last good data is kept in `cache/state.json`. If a source fails, its previous items are reused and

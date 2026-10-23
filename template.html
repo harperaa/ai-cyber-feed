@@ -119,6 +119,7 @@ h2.sh{font-size:1.1rem;margin:22px 0 6px}
     <select id="csrc" aria-label="Source"><option value="">All sources</option></select>
     <select id="cven" aria-label="Vendor"><option value="">All vendors</option></select>
     <select id="csort" aria-label="Sort"><option value="ai">AI first, then newest</option><option value="date">Newest</option></select>
+    <label class="chip" style="padding:2px 8px"><input type="checkbox" id="cinc"> Incidents &amp; breaches</label>
     <label><input type="checkbox" id="ccve"> Has CVE</label>
     <label><input type="checkbox" id="clnk"> Linked to a feed record</label>
     <span class="count" id="ccnt"></span>
@@ -215,7 +216,7 @@ const KL={reddit:'Reddit',exploit:'Exploit-DB',vendor:'Vendor advisory',news:'Ne
 let cshown=PAGE,ccur=[];
 function cFiltered(){
   const q=$('cq').value.trim().toLowerCase(),k=$('ckind').value,s=$('csrc').value,v=$('cven').value;
-  const r=D.chatter.filter(c=>aiMatch(c,$('cai').value)&&(!k||c.kind===k)&&(!s||c.source===s)&&(!v||c.vendors.includes(v))&&(!$('ccve').checked||c.cves.length)&&(!$('clnk').checked||c.linked.length)
+  const r=D.chatter.filter(c=>aiMatch(c,$('cai').value)&&(!k||c.kind===k)&&(!s||c.source===s)&&(!v||c.vendors.includes(v))&&(!$('cinc').checked||c.incident)&&(!$('ccve').checked||c.cves.length)&&(!$('clnk').checked||c.linked.length)
    &&(!q||(c.title+' '+c.summary+' '+c.cves.join(' ')+' '+c.author+' '+c.source).toLowerCase().includes(q)));
   if($('csort').value==='ai')r.sort((a,b)=>(aiRank(b)-aiRank(a))||(a.date<b.date?1:a.date>b.date?-1:0));
   return r;
@@ -225,6 +226,7 @@ function cRow(c){
   const t=el('div','top');
   t.appendChild(el('span','badge src',KL[c.kind]||c.kind));
   t.appendChild(el('span','badge vend',c.source));
+  if(c.incident)t.appendChild(el('span','badge src','Incident'));
   aiBadges(c,t);
   t.appendChild(link(c.url,c.title,'id'));
   d.appendChild(t);
@@ -321,7 +323,7 @@ const TABS={s:'summary',v:'vulns',c:'chatter'};
 function showTab(w){['s','v','c'].forEach(k=>{$('p-'+k).hidden=w!==k;$('t-'+k).setAttribute('aria-selected',w===k)});history.replaceState(null,'','#'+TABS[w])}
 $('t-s').onclick=()=>showTab('s');$('t-v').onclick=()=>showTab('v');$('t-c').onclick=()=>showTab('c');
 ['q','fsev','fsrc','fven','fai','fsort','fex','fmajor'].forEach(i=>$(i).addEventListener('input',vReset));
-['cq','ckind','csrc','cven','cai','csort','ccve','clnk'].forEach(i=>$(i).addEventListener('input',cReset));
+['cq','ckind','csrc','cven','cai','csort','cinc','ccve','clnk'].forEach(i=>$(i).addEventListener('input',cReset));
 (function(){
   const t=el('table','st');const h=el('tr');['Source','Status','Items','Last success / fetched','Note'].forEach(x=>h.appendChild(el('th',null,x)));t.appendChild(h);
   Object.entries(D.sources).forEach(([k,s])=>{const r=el('tr');r.appendChild(el('td',null,k.replace('chatter:','chatter: ')));r.appendChild(el('td','s-'+s.status,s.status));r.appendChild(el('td',null,String(s.count??'')));r.appendChild(el('td',null,(s.fetched_at||s.last_success||'—').replace('T',' ')));r.appendChild(el('td',null,s.error||''));t.appendChild(r)});

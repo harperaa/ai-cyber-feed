@@ -79,6 +79,23 @@ PRODUCT = [
     ("vector DB", r"\bvector (?:database|db|store)s?\b|\bchroma ?db\b|\bqdrant\b|\bweaviate\b|\bmilvus\b|\bpinecone\b|\blancedb\b|\bfaiss\b"),
 ]
 
+# ---- incident / breach vocabulary: ONE editable list, used by build.py (KW, REDDIT_KW, AI_SEC_KW, "Incident" tag)
+# and by the AI "impact" breach rule below. Add a regex fragment here and every filter picks it up.
+INCIDENT_TERMS = [
+    r"\bbreach(?:ed|es|ing)?\b", r"\bhack(?:ed|er|ers|ing|s)?\b", r"\bcompromis(?:e|ed|es|ing)\b|\bcompromise\b",
+    r"cyber ?-?attack(?:s|ed|ers?)?\b", r"\battack(?:ed|s)?\b[^.]{0,30}\b(?:platform|provider|users|customers|servers?|infrastructure)\b",
+    r"\bintrusions?\b", r"unauthori[sz]ed (?:access|party|parties|third|actor|user|login)",
+    r"data (?:theft|leaks?|exposure|breach\w*)|\bexfiltrat\w+", r"\bleak(?:ed|s|ing)?\b", r"\bexposed (?:data|secrets?|credentials?|keys?|tokens?|databases?|buckets?)",
+    r"\bstolen\b|\bsteal(?:s|ing)?\b|\bstole\b|\btheft\b", r"credential (?:theft|stuffing|harvesting|dump)\w*", r"account takeovers?|\bATO\b",
+    r"ransomware (?:attack|gang|group)s?|\bransom\w*", r"\bextortion\w*|\bextort\w*", r"\bdefac(?:ed|ement|ing)\b",
+    r"supply[- ]chain (?:attack|compromise|breach)s?", r"\bbackdoor(?:ed|s)?\b", r"malicious (?:packages?|extensions?|npm|pypi|versions?|releases?)",
+    r"\binfostealers?\b|\binfo-stealers?\b|\bmalware\b", r"\bincidents?\b",
+    r"\b(?:rotate|revoke|reset)\b[^.]{0,30}\b(?:keys?|secrets?|credentials?|tokens?|passwords?|env(?:ironment)? vars?|variables)\b",
+    r"\burges? (?:all )?(?:users|customers|developers)\b", r"\b(?:warns?|tells?) (?:users|customers|developers|devs)\b",
+]
+INCIDENT_PAT = "|".join(f"(?:{t})" for t in INCIDENT_TERMS)
+INCIDENT_VERBS = r"(?:breach\w*|hack\w*|compromis\w+|cyber ?-?attack\w*|intrusion|unauthori[sz]ed|leak\w*|stolen|stole|steal\w*|exfiltrat\w+|data theft|extort\w*|backdoor\w*|revoke|rotate|takeover)"
+
 # ---- impact: AI-related abuse / impact -----------------------------------------------------------
 IMPACT = [
     ("attackers using AI", r"\b(?:attackers?|threat actors?|hackers?|criminals?|scammers?|apt\d*|groups?|malware)\b" + GAP(45) + r"\b(?:us(?:e|es|ed|ing)|leverag\w+|abus\w+|weaponi[sz]\w+|employ\w*|rely\w*|turn\w*)\b" + GAP(25) + r"\b" + MODEL + r"\b"),
@@ -89,8 +106,10 @@ IMPACT = [
     ("AI infrastructure exposed / leaked secrets", r"\b(?:exposed|open|unauthenticated|unprotected|internet[- ]facing)\b" + GAP(25) + r"\b(?:ollama|llm|ai (?:server|infrastructure|cluster|endpoint)s?|gpu|inference|comfyui|jupyter|mlflow|ray)\b|"
                                                    r"\b" + AI + r"[- ](?:infrastructure|secrets|api keys?|credentials|tokens?|agents?)\b" + GAP(30) + r"\b(?:exposed|leak\w*|stolen|theft|drain\w*|exfiltrat\w+)\b|"
                                                    r"\b(?:drain|steal|hijack|abus)\w*\b" + GAP(30) + r"\b" + AI + r" agents?\b|\bdistillation attack\b|\bllmjacking\b|\bAPI keys? (?:for|to) (?:openai|anthropic|llm)"),
-    ("Railway platform breach (AI inference keys at risk)", r"\brailway(?:\.com|\.app)?\b" + GAP(80) + r"\b(?:breach\w*|hack\w*|compromis\w+|cyber ?attack\w*|incident|unauthori[sz]ed|leak\w*|stolen|drain\w*|rotate|revoke)\b|"
-                                                   r"\b(?:breach\w*|hack\w*|compromis\w+|cyber ?attack\w*|unauthori[sz]ed|rotate|revoke)\b" + GAP(80) + r"\brailway(?:\.com|\.app)?\b"),
+    ("Railway platform breach (AI inference keys at risk)", r"\brailway(?:\.com|\.app)?\b" + GAP(80) + r"\b(?:breach\w*|hack\w*|compromis\w+|cyber ?-?attack\w*|incident|intrud\w+|unauthori[sz]ed|leak\w*|stolen|drain\w*|rotat\w+|revoke\w*|secrets?|credentials?)\b|"
+                                                   r"\b(?:breach\w*|hack\w*|compromis\w+|cyber ?-?attack\w*|intrud\w+|unauthori[sz]ed|rotat\w+|revoke\w*)\b" + GAP(80) + r"\brailway(?:\.com|\.app)?\b"),
+    ("breach touching AI provider / inference keys", r"\b" + INCIDENT_VERBS + r"\b" + GAP(80) + r"\b(?:openai|anthropic|hugging ?face|mistral|cohere|replicate|together ?ai|groq|inference (?:providers?|keys?|platforms?|endpoints?)|(?:ai|llm|model) (?:providers?|platforms?|vendors?|labs?)|(?:openai|anthropic|llm|ai|inference|model) (?:api )?(?:keys?|credentials|tokens))\b|"
+                                                   r"\b(?:openai|anthropic|hugging ?face|mistral|cohere|replicate|together ?ai|groq|inference (?:providers?|platforms?)|(?:ai|llm|model) (?:providers?|platforms?|vendors?|labs?))\b" + GAP(60) + r"\b" + INCIDENT_VERBS + r"\b"),
 ]
 
 # Hand-curated angles for specific CVE ids (use for things heuristics cannot know). type, why, optional source url
