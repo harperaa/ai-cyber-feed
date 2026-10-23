@@ -14,7 +14,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 
-UA = "vuln-feed/1.0 (+static vulnerability feed builder; no tracking)"
+UA = "ai-cyber-feed/1.1 (+static vulnerability feed builder; no tracking)"
 CVE_RE = re.compile(r"CVE-\d{4}-\d{4,7}", re.I)
 
 
@@ -248,16 +248,18 @@ def fetch_kev():
 
 
 # ----------------------------------------------------------------- GitHub advisories
-def fetch_ghsa(days, token=None, max_pages=10):
+def fetch_ghsa(days, token=None, max_pages=10, severities=("critical", "high"), affects=None):
     since = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%d")
     headers = {"Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"}
     if token:
         headers["Authorization"] = "Bearer " + token
     items, err = {}, None
-    for sev in ("critical", "high"):
-        url = "https://api.github.com/advisories?" + urllib.parse.urlencode({
-            "severity": sev, "type": "reviewed", "per_page": 100,
-            "updated": ">=" + since, "sort": "updated", "direction": "desc"})
+    for sev in severities:
+        q = {"severity": sev, "type": "reviewed", "per_page": 100,
+             "updated": ">=" + since, "sort": "updated", "direction": "desc"}
+        if affects:
+            q["affects"] = ",".join(affects)
+        url = "https://api.github.com/advisories?" + urllib.parse.urlencode(q)
         pages = 0
         while url and pages < max_pages:
             try:

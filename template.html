@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Vuln Feed — exploited &amp; high/critical vulnerabilities</title>
-<meta name="description" content="High/critical CVEs, CISA KEV, GitHub advisories and exploit chatter for major vendors. Updated several times a day.">
-<link rel="alternate" type="application/rss+xml" title="Vuln Feed" href="feed.xml">
+<title>AI Cyber Feed — AI-flagged, exploited &amp; high/critical vulnerabilities</title>
+<meta name="description" content="AI Cyber Feed: high/critical CVEs, CISA KEV, GitHub advisories and exploit chatter, with AI-related vulnerabilities (AI-found, AI software, AI abuse) flagged and prioritized. Updated hourly.">
+<link rel="alternate" type="application/rss+xml" title="AI Cyber Feed" href="feed.xml">
 <style>
 :root{--bg:#f6f7f9;--card:#fff;--fg:#1b1f24;--mut:#5b6672;--bd:#dde1e6;--ac:#2158d6;--crit:#b4132b;--high:#c25b00;--ex:#7a0a8c;--ok:#1a7f37;--warn:#9a6700}
 @media(prefers-color-scheme:dark){:root{--bg:#0e1116;--card:#161b22;--fg:#e6edf3;--mut:#8b98a5;--bd:#2b333d;--ac:#6ea0ff;--crit:#ff6b7f;--high:#ffa657;--ex:#d8a3ff;--ok:#3fb950;--warn:#d29922}}
@@ -19,8 +19,8 @@ h1{font-size:1.45rem;margin:0 0 2px}
 .stats{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
 .stat{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:6px 12px;font-size:.85rem}
 .stat b{display:block;font-size:1.15rem}
-.tabs{display:flex;gap:4px;margin:10px 0 0;border-bottom:1px solid var(--bd)}
-.tab{background:none;border:0;border-bottom:3px solid transparent;color:var(--mut);padding:8px 12px;font:inherit;cursor:pointer}
+.tabs{display:flex;gap:4px;margin:10px 0 0;border-bottom:1px solid var(--bd);overflow-x:auto;scrollbar-width:none}
+.tab{white-space:nowrap;flex:0 0 auto;background:none;border:0;border-bottom:3px solid transparent;color:var(--mut);padding:8px 12px;font:inherit;cursor:pointer}
 .tab[aria-selected=true]{color:var(--fg);border-color:var(--ac);font-weight:600}
 .filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:10px;margin:12px 0;position:sticky;top:0;z-index:5}
 .filters input[type=search],.filters select{padding:6px 8px;border:1px solid var(--bd);border-radius:6px;background:var(--bg);color:var(--fg);font:inherit;min-width:0}
@@ -42,6 +42,14 @@ h1{font-size:1.45rem;margin:0 0 2px}
 .meta{color:var(--mut);font-size:.8rem;display:flex;flex-wrap:wrap;gap:4px 14px}
 .unv{background:#fff7e0;border:1px solid #e3c25a;color:#5c4400;border-radius:8px;padding:8px 12px;margin:10px 0;font-size:.88rem}
 @media(prefers-color-scheme:dark){.unv{background:#2a2410;border-color:#6b5a1a;color:#e8d89a}}
+.ai-cause{color:#fff;background:#c2185b;border-color:#c2185b}
+.ai-product{color:#fff;background:#00796b;border-color:#00796b}
+.ai-impact{color:#fff;background:#b26a00;border-color:#b26a00}
+@media(prefers-color-scheme:dark){.ai-cause{background:#e0457f;border-color:#e0457f;color:#1b1f24}.ai-product{background:#2bb3a3;border-color:#2bb3a3;color:#0e1116}.ai-impact{background:#e0a030;border-color:#e0a030;color:#0e1116}}
+.item.aic{border-left:4px solid #c2185b}.item.aip{border-left:4px solid #00796b}.item.aii{border-left:4px solid #b26a00}
+.aisec{background:var(--card);border:1px solid var(--bd);border-left:5px solid #c2185b;border-radius:8px;padding:10px 14px;margin:12px 0}
+.aisec h2{margin:0 0 4px;font-size:1.05rem}
+.aisec ul{margin:6px 0 0;padding-left:18px}.aisec li{margin:4px 0}
 .chip{font-size:.75rem;border:1px solid var(--bd);border-radius:6px;padding:0 6px;cursor:pointer;background:var(--bg);color:var(--ac)}
 button.more{display:block;margin:14px auto;padding:8px 18px;border-radius:8px;border:1px solid var(--bd);background:var(--card);color:var(--fg);font:inherit;cursor:pointer}
 .empty{color:var(--mut);text-align:center;padding:30px}
@@ -50,29 +58,50 @@ table.st{border-collapse:collapse;width:100%;font-size:.82rem;margin-top:8px}
 .st td,.st th{border-bottom:1px solid var(--bd);padding:4px 6px;text-align:left;vertical-align:top}
 .s-ok{color:var(--ok)}.s-stale,.s-partial{color:var(--warn)}.s-failed{color:var(--crit)}
 footer{color:var(--mut);font-size:.8rem;padding-bottom:30px}
-@media(max-width:600px){.count{margin-left:0;width:100%}.filters select{flex:1 1 45%}}
+.banner{background:var(--card);border:1px solid var(--bd);border-left:5px solid var(--ac);border-radius:8px;padding:12px 14px;margin:12px 0;font-size:1.05rem;line-height:1.4}
+.banner.pend{border-left-color:var(--warn);color:var(--mut)}
+.stamp{color:var(--mut);font-size:.82rem;margin:4px 0 8px}
+.stamp .stale{color:var(--warn);font-weight:600}
+h2.sh{font-size:1.1rem;margin:22px 0 6px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:10px}
+.cards .item{margin:0}
+.card .ttl{font-weight:700;font-size:1rem;margin:6px 0 2px}
+.card .why{margin:4px 0}
+.card .act{margin:6px 0;padding:6px 10px;background:var(--bg);border:1px solid var(--bd);border-radius:6px;font-size:.92rem}
+.card .act b{color:var(--ok)}
+.card .cvs{display:flex;flex-wrap:wrap;gap:4px 6px;margin-top:6px;align-items:center}
+.nl{list-style:none;margin:0;padding:0}
+.nl li{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:8px 12px;margin:6px 0}
+.nl .nb{color:var(--mut);font-size:.9rem;margin-top:2px}
+.wl{margin:0;padding-left:20px}.wl li{margin:4px 0}
+@media(max-width:600px){.count{margin-left:0;width:100%}.filters select{flex:1 1 45%}.banner{font-size:1rem}.cards{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header>
-  <h1>🛡️ Vuln Feed</h1>
-  <div class="sub">High/Critical (CVSS ≥ 7.0) CVEs, CISA KEV and GitHub advisories for major vendors &amp; packages.
-    Last updated (UTC): <b id="upd">__UPDATED__</b> · <a href="feed.xml">RSS</a> · <a href="data.json">data.json</a></div>
+  <h1>🛡️ AI Cyber Feed</h1>
+  <div class="sub">All high/critical (CVSS ≥ 7.0) CVEs, CISA KEV and GitHub advisories for major vendors &amp; packages, with <b>AI-related</b> items flagged and listed first.
+    Feed last updated (UTC, hourly): <b id="upd">__UPDATED__</b> · <a href="feed.xml">RSS</a> · <a href="data.json">data.json</a></div>
   <div class="stats" id="stats"></div>
   <div class="tabs" role="tablist">
-    <button class="tab" role="tab" id="t-v" aria-selected="true">Vulnerabilities</button>
+    <button class="tab" role="tab" id="t-s" aria-selected="true">Summary</button>
+    <button class="tab" role="tab" id="t-v" aria-selected="false">Vulnerabilities</button>
     <button class="tab" role="tab" id="t-c" aria-selected="false">Chatter &amp; exploit news <span id="cc"></span></button>
   </div>
 </header>
 <main>
 <!--__NOSCRIPT__-->
-<section id="p-v">
+<section id="p-s">
+  <div id="sum"></div>
+</section>
+<section id="p-v" hidden>
   <div class="filters">
     <input type="search" id="q" placeholder="Search CVE, product, text…" aria-label="Search">
     <select id="fsev" aria-label="Severity"><option value="">All severities</option><option>CRITICAL</option><option>HIGH</option><option>MEDIUM</option></select>
     <select id="fsrc" aria-label="Source"><option value="">All sources</option><option value="NVD">NVD</option><option value="KEV">CISA KEV</option><option value="GHSA">GitHub advisories</option></select>
     <select id="fven" aria-label="Vendor"><option value="">All vendors / packages</option></select>
-    <select id="fsort" aria-label="Sort"><option value="act">Newest activity</option><option value="score">Highest score</option><option value="epss">Highest EPSS</option><option value="kev">Newest KEV addition</option></select>
+    <select id="fai" aria-label="AI angle"><option value="">AI angle: all</option><option value="any">AI-related only</option><option value="cause">AI cause (AI-found / AI exploit)</option><option value="product">AI product (AI/ML software)</option><option value="impact">AI impact / abuse</option><option value="none">Non-AI only</option></select>
+    <select id="fsort" aria-label="Sort"><option value="ai">AI first (cause › product › impact, then exploited, severity)</option><option value="act">Newest activity</option><option value="score">Highest score</option><option value="epss">Highest EPSS</option><option value="kev">Newest KEV addition</option></select>
     <label><input type="checkbox" id="fex"> Exploited in the wild</label>
     <label><input type="checkbox" id="fmajor"> Major vendors only</label>
     <span class="count" id="cnt"></span>
@@ -85,9 +114,11 @@ footer{color:var(--mut);font-size:.8rem;padding-bottom:30px}
     CVE ids are extracted automatically; a “✓ in feed” chip links to the matching record.</div>
   <div class="filters">
     <input type="search" id="cq" placeholder="Search title, CVE, author…" aria-label="Search chatter">
-    <select id="ckind" aria-label="Type"><option value="">All types</option><option value="reddit">Reddit</option><option value="exploit">Exploit-DB</option><option value="vendor">Vendor advisories</option><option value="news">Security news</option><option value="x">X</option></select>
+    <select id="ckind" aria-label="Type"><option value="">All types</option><option value="reddit">Reddit</option><option value="exploit">Exploit-DB</option><option value="vendor">Vendor advisories</option><option value="news">Security news</option><option value="ai">AI security</option><option value="x">X</option></select>
+    <select id="cai" aria-label="AI angle"><option value="">AI angle: all</option><option value="any">AI-related only</option><option value="cause">AI cause</option><option value="product">AI product</option><option value="impact">AI impact</option><option value="none">Non-AI only</option></select>
     <select id="csrc" aria-label="Source"><option value="">All sources</option></select>
     <select id="cven" aria-label="Vendor"><option value="">All vendors</option></select>
+    <select id="csort" aria-label="Sort"><option value="ai">AI first, then newest</option><option value="date">Newest</option></select>
     <label><input type="checkbox" id="ccve"> Has CVE</label>
     <label><input type="checkbox" id="clnk"> Linked to a feed record</label>
     <span class="count" id="ccnt"></span>
@@ -102,14 +133,23 @@ footer{color:var(--mut);font-size:.8rem;padding-bottom:30px}
   <a href="https://github.com/advisories">GitHub Advisory Database</a>, <a href="https://www.first.org/epss/">FIRST EPSS</a>.
   Vendor tagging is heuristic (CPE + keywords) and may be incomplete. This site is informational; verify against vendor advisories before acting.
 </footer>
+<script id="summary-data" type="application/json">/*__SUMMARY__*/null</script>
 <script id="data" type="application/json">/*__DATA__*/null</script>
 <script>
 "use strict";
 const D=JSON.parse(document.getElementById('data').textContent.replace(/^\/\*__DATA__\*\//,''));
+const SUM=JSON.parse(document.getElementById('summary-data').textContent.replace(/^\/\*__SUMMARY__\*\//,''));
 const $=id=>document.getElementById(id);
 const PAGE=100;
 function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e}
 function link(href,text,cls){const a=el('a',cls,text);if(/^https?:\/\//i.test(href||'')){a.href=href;a.target='_blank';a.rel='noopener noreferrer'}return a}
+const AIR={cause:3,product:2,impact:1},AIL={cause:'AI cause',product:'AI product',impact:'AI impact'};
+function aiRank(x){return Math.max(0,...(x.ai_angle||[]).map(a=>AIR[a.type]||0))}
+function aiHas(x,t){return (x.ai_angle||[]).some(a=>a.type===t)}
+function aiMatch(x,f){return !f||(f==='any'?!!(x.ai_angle&&x.ai_angle.length):f==='none'?!(x.ai_angle&&x.ai_angle.length):aiHas(x,f))}
+const AITIP={cause:'AI cause: found by AI, AI-generated/assisted exploit or AI attack tooling',product:'AI product: vulnerability in AI/ML software',impact:'AI impact: AI-related abuse or impact'};
+function aiBadges(x,parent){(x.ai_angle||[]).forEach(a=>{const b=el('span','badge ai-'+a.type,'🤖 '+AIL[a.type]);b.title=(AITIP[a.type]||'')+(a.why?' — '+a.why:'');parent.appendChild(b)})}
+function aiBorder(x){const r=aiRank(x);return r===3?' aic':r===2?' aip':r===1?' aii':''}
 function d10(s){return s?s.slice(0,10):''}
 function ago(s){if(!s)return'';const m=(Date.now()-Date.parse(s))/60000;if(m<60)return Math.max(1,Math.round(m))+'m ago';if(m<1440)return Math.round(m/60)+'h ago';return Math.round(m/1440)+'d ago'}
 const MAJOR=new Set();
@@ -121,25 +161,28 @@ fillSel('fven',vset);fillSel('cven',cvset);fillSel('csrc',csset);
 
 // stats
 const C=D.counts;
-[['Records',C.vulnerabilities],['Critical',C.critical],['Exploited in wild',C.exploited_in_wild],['NVD high/crit',C.nvd_high_critical],['CISA KEV (recent)',C.cisa_kev_recent],['GitHub advisories',C.github_advisories],['Chatter items',C.chatter_items]]
+[['Records',C.vulnerabilities],['Critical',C.critical],['Exploited in wild',C.exploited_in_wild],['NVD high/crit',C.nvd_high_critical],['CISA KEV (recent)',C.cisa_kev_recent],['GitHub advisories',C.github_advisories],['AI-flagged CVEs',C.ai_vulns?C.ai_vulns.total:0],['Chatter items',C.chatter_items]]
  .forEach(([k,v])=>{const s=el('div','stat');s.appendChild(el('b',null,String(v)));s.appendChild(document.createTextNode(k));$('stats').appendChild(s)});
 $('cc').textContent='('+D.chatter.length+')';
 
 // ---- vulnerabilities
 let vshown=PAGE,vcur=[];
 function vFiltered(){
-  const q=$('q').value.trim().toLowerCase(),sev=$('fsev').value,src=$('fsrc').value,ven=$('fven').value,ex=$('fex').checked,mj=$('fmajor').checked,so=$('fsort').value;
-  let r=D.vulnerabilities.filter(v=>(!sev||v.severity===sev)&&(!src||v.sources.includes(src))&&(!ven||v.vendors.includes(ven))&&(!ex||v.exploited)&&(!mj||v.vendors.length)
+  const q=$('q').value.trim().toLowerCase(),sev=$('fsev').value,src=$('fsrc').value,ven=$('fven').value,ex=$('fex').checked,mj=$('fmajor').checked,so=$('fsort').value,ai=$('fai').value;
+  let r=D.vulnerabilities.filter(v=>(!sev||v.severity===sev)&&(!src||v.sources.includes(src))&&(!ven||v.vendors.includes(ven))&&(!ex||v.exploited)&&(!mj||v.vendors.length)&&aiMatch(v,ai)
     &&(!q||(v.id+' '+v.product+' '+v.description+' '+v.vendors.join(' ')+' '+(v.ghsa_id||'')).toLowerCase().includes(q)));
   const k={act:v=>v.activity,score:v=>v.score||0,epss:v=>v.epss||0,kev:v=>v.kev_added||''}[so];
-  r.sort((a,b)=>k(a)<k(b)?1:k(a)>k(b)?-1:0);
+  const SV={CRITICAL:3,HIGH:2,MEDIUM:1};
+  if(so==='ai')r.sort((a,b)=>(aiRank(b)-aiRank(a))||((b.exploited?1:0)-(a.exploited?1:0))||((SV[b.severity]||0)-(SV[a.severity]||0))||((b.epss||0)-(a.epss||0))||((b.score||0)-(a.score||0))||(a.activity<b.activity?1:a.activity>b.activity?-1:0));
+  else r.sort((a,b)=>k(a)<k(b)?1:k(a)>k(b)?-1:0);
   return r;
 }
 function vRow(v){
-  const d=el('article','item'+(v.exploited?' ex':''));
+  const d=el('article','item'+(v.exploited?' ex':'')+aiBorder(v));
   const t=el('div','top');
   t.appendChild(link(v.primary_url,v.id,'id'));
   t.appendChild(el('span','badge '+v.severity,v.severity+(v.score?' '+v.score.toFixed(1):'')));
+  aiBadges(v,t);
   if(v.exploited)t.appendChild(el('span','badge exb','EXPLOITED'));
   if(v.ransomware)t.appendChild(el('span','badge rw','RANSOMWARE'));
   if(v.epss!=null)t.appendChild(el('span','badge src','EPSS '+(v.epss*100).toFixed(v.epss<0.01?2:1)+'%'));
@@ -147,6 +190,7 @@ function vRow(v){
   if(v.sources.length===1&&v.links.KEV&&v.exploited&&v.sources[0]!=='KEV'){}
   d.appendChild(t);
   if(v.product)d.appendChild(el('div','prod',v.product));
+  if(v.ai_angle&&v.ai_angle.length){const w=el('div','meta');v.ai_angle.forEach(a=>w.appendChild(el('span',null,'🤖 '+AIL[a.type]+': '+a.why)));d.appendChild(w)}
   d.appendChild(el('div','desc',v.description));
   const m=el('div','meta');
   if(v.published)m.appendChild(el('span',null,'Published '+d10(v.published)));
@@ -167,18 +211,21 @@ function vRender(){
 function vReset(){vshown=PAGE;vcur=vFiltered();vRender()}
 
 // ---- chatter
-const KL={reddit:'Reddit',exploit:'Exploit-DB',vendor:'Vendor advisory',news:'News',x:'X'};
+const KL={reddit:'Reddit',exploit:'Exploit-DB',vendor:'Vendor advisory',news:'News',ai:'AI security',x:'X'};
 let cshown=PAGE,ccur=[];
 function cFiltered(){
   const q=$('cq').value.trim().toLowerCase(),k=$('ckind').value,s=$('csrc').value,v=$('cven').value;
-  return D.chatter.filter(c=>(!k||c.kind===k)&&(!s||c.source===s)&&(!v||c.vendors.includes(v))&&(!$('ccve').checked||c.cves.length)&&(!$('clnk').checked||c.linked.length)
+  const r=D.chatter.filter(c=>aiMatch(c,$('cai').value)&&(!k||c.kind===k)&&(!s||c.source===s)&&(!v||c.vendors.includes(v))&&(!$('ccve').checked||c.cves.length)&&(!$('clnk').checked||c.linked.length)
    &&(!q||(c.title+' '+c.summary+' '+c.cves.join(' ')+' '+c.author+' '+c.source).toLowerCase().includes(q)));
+  if($('csort').value==='ai')r.sort((a,b)=>(aiRank(b)-aiRank(a))||(a.date<b.date?1:a.date>b.date?-1:0));
+  return r;
 }
 function cRow(c){
-  const d=el('article','item');
+  const d=el('article','item'+aiBorder(c));
   const t=el('div','top');
   t.appendChild(el('span','badge src',KL[c.kind]||c.kind));
   t.appendChild(el('span','badge vend',c.source));
+  aiBadges(c,t);
   t.appendChild(link(c.url,c.title,'id'));
   d.appendChild(t);
   if(c.summary&&c.summary!==c.title)d.appendChild(el('div','desc',c.summary));
@@ -201,18 +248,90 @@ function cRender(){
 }
 function cReset(){cshown=PAGE;ccur=cFiltered();cRender()}
 
+// ---- summary
+const VIDS=new Set(D.vulnerabilities.map(v=>v.id));
+function cveChip(id){
+  const w=el('span','cve');
+  if(VIDS.has(id)){const x=el('span','chip','🔎 '+id);x.title='Show this record in the Vulnerabilities tab';x.setAttribute('role','button');x.tabIndex=0;
+    const go=()=>{showTab('v');$('q').value=id;vReset();window.scrollTo(0,0)};x.onclick=go;x.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}};w.appendChild(x);
+    w.appendChild(document.createTextNode(' '));w.appendChild(link('https://nvd.nist.gov/vuln/detail/'+id,'NVD','chip'));}
+  else w.appendChild(link('https://nvd.nist.gov/vuln/detail/'+id,id+' ↗ NVD','chip'));
+  return w;
+}
+function fAI(f){return (f.ai_angle||[]).map(x=>typeof x==='string'?x:(x&&x.type)).filter(x=>AIR[x]).sort((a,b)=>AIR[b]-AIR[a])}
+function fRank(f){const a=fAI(f);return a.length?AIR[a[0]]:0}
+function typeBadges(types,parent,note){types.forEach(x=>{const b=el('span','badge ai-'+x,'🤖 '+AIL[x]);b.title=(AITIP[x]||'')+(note?' — '+note:'');parent.appendChild(b)})}
+function goVulns(ai){showTab('v');$('fai').value=ai;$('fsort').value='ai';vReset();window.scrollTo(0,0)}
+function sumCard(f){
+  const sev=String(f.severity||'').toUpperCase();
+  const d=el('article','item card'+(f.exploited?' ex':'')+(fRank(f)===3?' aic':fRank(f)===2?' aip':fRank(f)===1?' aii':''));
+  const t=el('div','top');
+  typeBadges(fAI(f),t,f.ai_note);
+  if(sev)t.appendChild(el('span','badge '+(sev==='CRITICAL'||sev==='HIGH'?sev:'UNKNOWN'),sev));
+  if(f.exploited)t.appendChild(el('span','badge exb','EXPLOITED'));
+  if(f.vendor)t.appendChild(el('span','badge vend',f.vendor));
+  d.appendChild(t);
+  const h=el('div','ttl');h.appendChild(f.url?link(f.url,f.title,'id'):document.createTextNode(f.title||''));d.appendChild(h);
+  if(f.why)d.appendChild(el('div','why',f.why));
+  if(f.ai_note&&fAI(f).length){const n=el('div','why');n.appendChild(el('b',null,'🤖 AI angle: '));n.appendChild(document.createTextNode(f.ai_note));d.appendChild(n)}
+  if(f.action){const a=el('div','act');a.appendChild(el('b',null,'Do: '));a.appendChild(document.createTextNode(f.action));d.appendChild(a)}
+  if((f.cves||[]).length){const c=el('div','cvs');f.cves.forEach(id=>c.appendChild(cveChip(id)));d.appendChild(c)}
+  return d;
+}
+function renderSummary(){
+  const R=$('sum');R.textContent='';
+  if(!SUM||typeof SUM!=='object'){
+    R.appendChild(el('div','banner pend','⏳ Summary pending — the first “what to focus on” summary has not been published yet. It is rewritten every 4 hours. In the meantime, browse the Vulnerabilities and Chatter tabs.'));
+    return;
+  }
+  const st=el('div','stamp');
+  const ts=SUM.updated_at?Date.parse(SUM.updated_at):NaN;
+  st.appendChild(document.createTextNode('Summary updated (UTC): '));
+  st.appendChild(el('b',null,isNaN(ts)?(SUM.updated_at||'unknown'):new Date(ts).toISOString().slice(0,16).replace('T',' ')+' UTC'));
+  st.appendChild(document.createTextNode(' · refreshed every 4 hours'));
+  if(!isNaN(ts)){st.appendChild(document.createTextNode(' ('+ago(SUM.updated_at)+')'));if(Date.now()-ts>9*3600e3)st.appendChild(el('span','stale',' — may be out of date'))}
+  st.appendChild(document.createTextNode(' · feed data refreshes hourly (see “Feed last updated” above).'));
+  if(SUM.next_update_note)st.appendChild(el('div',null,SUM.next_update_note));
+  R.appendChild(st);
+
+  const F0=(SUM.focus||[]).map((f,i)=>[f,i]).sort((a,b)=>(fRank(b[0])-fRank(a[0]))||(a[1]-b[1])).map(x=>x[0]);
+  const AC=D.counts.ai_vulns||{total:0,cause:0,product:0,impact:0},aiF=F0.filter(f=>fRank(f)>0);
+  if(SUM.ai_headline||aiF.length||AC.total){
+    const s=el('div','aisec');s.appendChild(el('h2',null,'🤖 AI angle'));
+    if(SUM.ai_headline)s.appendChild(el('div',null,SUM.ai_headline));
+    const row=el('div','top');row.style.marginTop='8px';
+    [['cause',AC.cause],['product',AC.product],['impact',AC.impact]].forEach(([k,n])=>{const b=el('span','badge ai-'+k,'🤖 '+AIL[k]+' · '+n+' CVE'+(n===1?'':'s'));b.style.cursor='pointer';b.title='Show these in the Vulnerabilities tab';b.onclick=()=>goVulns(k);row.appendChild(b)});
+    const all=el('span','chip','Show all '+AC.total+' AI-related CVEs →');all.onclick=()=>goVulns('any');row.appendChild(all);
+    s.appendChild(row);
+    if(aiF.length){const u=el('ul');aiF.forEach(f=>{const li=el('li');typeBadges(fAI(f),li,f.ai_note);li.appendChild(document.createTextNode(' '));li.appendChild(f.url?link(f.url,f.title,'id'):el('b',null,f.title));if(f.ai_note)li.appendChild(el('div','src',f.ai_note));u.appendChild(li)});s.appendChild(u)}
+    R.appendChild(s);
+  }
+  if(SUM.headline)R.appendChild(el('div','banner',SUM.headline));
+  const F=F0;
+  if(F.length){R.appendChild(el('h2','sh','🎯 Focus now'));const g=el('div','cards');F.forEach(f=>g.appendChild(sumCard(f)));R.appendChild(g)}
+  const N=SUM.news||[];
+  if(N.length){R.appendChild(el('h2','sh','📰 News'));const u=el('ul','nl');N.forEach(n=>{const li=el('li');const t=el('div');t.appendChild(n.url?link(n.url,n.title,'id'):el('b',null,n.title));if(n.source)t.appendChild(el('span','badge vend',n.source)).style.marginLeft='6px';li.appendChild(t);if(n.blurb)li.appendChild(el('div','nb',n.blurb));u.appendChild(li)});R.appendChild(u)}
+  const W=SUM.watch||[];
+  if(W.length){R.appendChild(el('h2','sh','👀 Watching'));const u=el('ul','wl');W.forEach(w=>u.appendChild(el('li',null,w)));R.appendChild(u)}
+}
+renderSummary();
+
 // ---- tabs, status
-function showTab(w){$('p-v').hidden=w!=='v';$('p-c').hidden=w!=='c';$('t-v').setAttribute('aria-selected',w==='v');$('t-c').setAttribute('aria-selected',w==='c');history.replaceState(null,'','#'+w)}
-$('t-v').onclick=()=>showTab('v');$('t-c').onclick=()=>showTab('c');
-['q','fsev','fsrc','fven','fsort','fex','fmajor'].forEach(i=>$(i).addEventListener('input',vReset));
-['cq','ckind','csrc','cven','ccve','clnk'].forEach(i=>$(i).addEventListener('input',cReset));
+const TABS={s:'summary',v:'vulns',c:'chatter'};
+function showTab(w){['s','v','c'].forEach(k=>{$('p-'+k).hidden=w!==k;$('t-'+k).setAttribute('aria-selected',w===k)});history.replaceState(null,'','#'+TABS[w])}
+$('t-s').onclick=()=>showTab('s');$('t-v').onclick=()=>showTab('v');$('t-c').onclick=()=>showTab('c');
+['q','fsev','fsrc','fven','fai','fsort','fex','fmajor'].forEach(i=>$(i).addEventListener('input',vReset));
+['cq','ckind','csrc','cven','cai','csort','ccve','clnk'].forEach(i=>$(i).addEventListener('input',cReset));
 (function(){
   const t=el('table','st');const h=el('tr');['Source','Status','Items','Last success / fetched','Note'].forEach(x=>h.appendChild(el('th',null,x)));t.appendChild(h);
   Object.entries(D.sources).forEach(([k,s])=>{const r=el('tr');r.appendChild(el('td',null,k.replace('chatter:','chatter: ')));r.appendChild(el('td','s-'+s.status,s.status));r.appendChild(el('td',null,String(s.count??'')));r.appendChild(el('td',null,(s.fetched_at||s.last_success||'—').replace('T',' ')));r.appendChild(el('td',null,s.error||''));t.appendChild(r)});
   $('status').appendChild(t);
 })();
 vReset();cReset();
-if(location.hash==='#c')showTab('c');
+function fromHash(){const h=location.hash.replace('#','').toLowerCase();
+  const w={summary:'s',s:'s',v:'v',vulns:'v',vulnerabilities:'v',c:'c',chatter:'c'}[h]||'s';
+  ['s','v','c'].forEach(k=>{$('p-'+k).hidden=w!==k;$('t-'+k).setAttribute('aria-selected',w===k)})}
+fromHash();window.addEventListener('hashchange',fromHash);
 </script>
 </body>
 </html>

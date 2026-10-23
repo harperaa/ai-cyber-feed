@@ -1,9 +1,10 @@
-# vuln-feed
+# AI Cyber Feed
 
 Static-site generator: one command builds a responsive `index.html`, `data.json` and RSS `feed.xml`
-listing recent high/critical vulnerabilities and exploit activity. Python 3.9+ standard library only, no paid APIs.
+listing recent high/critical vulnerabilities and exploit activity, with AI-related items flagged and sorted first. Python 3.9+ standard library only, no paid APIs.
 
-    python3 build.py        # output in ./public  (index.html, data.json, feed.xml)
+    python3 build.py        # output in ./public  (index.html, data.json, feed.xml, summary.json)
+    SITE_URL=https://harperaa.github.io/ai-cyber-feed python3 build.py --out docs   # what GitHub Pages serves
 
 Serve/preview: `python3 -m http.server -d public 8000`. Nothing is published by this tool.
 
@@ -45,3 +46,38 @@ Env vars (optional): `NVD_API_KEY` (free, faster NVD), `GITHUB_TOKEN` (higher Gi
 - Reddit RSS rate-limits (HTTP 429) aggressively; failed subreddits fall back to cached items.
 - MSRC items are kept only if the CVE is already in the feed or the text says exploited/zero-day.
 - Informational only; verify against vendor advisories.
+
+## AI angle (`ai_rules.py`)
+Every CVE record and chatter item gets `ai_angle`: `null` or a list (highest priority first) of
+`{"type": "cause|product|impact", "why": "<matched rule / snippet>"}`.
+- **cause** – vuln found by AI, AI-generated/assisted exploit, AI-written code flaw, AI attack tooling (highest priority)
+- **product** – vuln in AI/ML software (LLM runtimes, ML frameworks, MCP servers, AI coding agents, vector DBs, AI vendor products, prompt injection / model supply chain)
+- **impact** – AI-related abuse/impact (attackers using AI, deepfake/AI phishing, AI supply chain, exposed AI infrastructure)
+
+Rules are plain regex lists plus package-name and CPE lists in `ai_rules.py`; `MANUAL` pins angles for specific CVE ids
+(e.g. PHP2Shell, AI-discovered) and `FEED_DEFAULT` marks AI-security-only feeds. The page has AI badges, an "AI angle" filter and an
+"AI first" default sort (cause > product > impact, then exploited, severity, EPSS). `data.json -> counts.ai_vulns / ai_chatter` hold the totals.
+Extra AI sources: GHSA advisories for ~70 ML packages (`affects=` query, incl. medium), r/LocalLLaMA and r/MachineLearning (security-keyword filtered),
+OWASP GenAI, Embrace The Red, Simon Willison's prompt-injection feed, Trail of Bits and Wiz blogs.
+
+## Summary tab (`summary.json`)
+The first tab ("Summary", deep link `#summary`) is rendered from a **hand-written** `summary.json` next to `build.py`
+(rewritten about every 4 hours; the feed itself refreshes hourly). `build.py` copies it to `docs/summary.json` and embeds it in the page;
+if the file is absent the tab shows a friendly "summary pending" message. Schema:
+
+    {
+      "updated_at": "2026-10-23T11:00:00Z",        // ISO UTC; shown as "Summary updated (UTC)"
+      "next_update_note": "text",
+      "headline": "1-2 sentences",
+      "ai_headline": "1-2 sentences on the AI angle",
+      "focus": [{                                    // rendered AI-cause first, then AI-product, AI-impact, then the rest
+        "title": "", "severity": "critical|high", "exploited": true, "cves": ["CVE-..."], "vendor": "",
+        "why": "1-2 sentences", "action": "what to do (e.g. patch version)", "url": "https://...",
+        "ai_angle": ["cause|product|impact"],        // [] if none
+        "ai_note": "short why-the-AI-angle"
+      }],
+      "news":  [{"title": "", "source": "", "url": "", "blurb": ""}],
+      "watch": ["short strings"]
+    }
+
+CVE ids in a focus card filter the Vulnerabilities tab when the record is in the feed (plus an NVD link), otherwise link to NVD.

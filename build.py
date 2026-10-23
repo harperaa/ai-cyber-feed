@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""Static vulnerability feed generator.
+"""AI Cyber Feed: static vulnerability / exploit feed generator with AI-angle flagging (see ai_rules.py).
 
-    python3 build.py            # fetch everything, write ./public/{index.html,data.json,feed.xml}
+    python3 build.py            # fetch everything, write ./public/{index.html,data.json,feed.xml,summary.json}
 
 Options: --out DIR  --days N  --kev-days N  --skip a,b  --cache-only
 Env:     NVD_API_KEY, GITHUB_TOKEN (optional, raise rate limits), SITE_URL (for RSS links)
 No paid APIs; standard library only.
 """
 import argparse
+import shutil
 import json
 import os
 import re
@@ -17,6 +18,7 @@ from datetime import datetime, timedelta, timezone
 from email.utils import format_datetime
 from xml.sax.saxutils import escape
 
+import ai_rules as AIR
 import sources as S
 from sources import FetchError, log
 from vendors import tag_vendors
@@ -30,6 +32,8 @@ X_ITEMS_PATH = os.path.join(HERE, "x_items.json")
 KW = re.compile(r"CVE-\d{4}-\d{4,7}|exploit|0[- ]?day|zero[- ]?day|\bpoc\b|proof[- ]of[- ]concept|\brce\b|"
                 r"vulnerab|\bflaw\b|backdoor|actively|in the wild|ransomware|patch", re.I)
 REDDIT_KW = re.compile(r"CVE-\d{4}-\d{4,7}|exploit|0[- ]?day|zero[- ]?day|\bpoc\b|proof[- ]of[- ]concept|\brce\b", re.I)
+AI_SEC_KW = re.compile(r"CVE-\d{4}-\d{4,7}|vulnerab|exploit|jailbreak|prompt[- ]injection|backdoor|malicious|\brce\b|"
+                       r"supply[- ]chain|poison|sandbox escape|\bcve\b", re.I)
 FEEDS = [
     # name, kind, url, keyword filter (None=keep all), max items
     ("r/netsec", "reddit", "https://www.reddit.com/r/netsec/new/.rss?limit=100", REDDIT_KW, 40),
@@ -48,6 +52,14 @@ FEEDS = [
     ("SecurityWeek", "news", "https://feeds.feedburner.com/securityweek", KW, 30),
     ("Krebs on Security", "news", "https://krebsonsecurity.com/feed/", None, 15),
     ("Project Zero", "news", "https://projectzero.google/feed.xml", None, 10),
+    # --- AI-security sources (kind "ai" = AI security blogs; Reddit ML subs filtered for security keywords)
+    ("r/LocalLLaMA", "reddit", "https://www.reddit.com/r/LocalLLaMA/new/.rss?limit=100", AI_SEC_KW, 30),
+    ("r/MachineLearning", "reddit", "https://www.reddit.com/r/MachineLearning/new/.rss?limit=100", AI_SEC_KW, 30),
+    ("OWASP GenAI", "ai", "https://genai.owasp.org/feed/", None, 15),
+    ("Embrace The Red", "ai", "https://embracethered.com/blog/index.xml", None, 15),
+    ("Simon Willison (prompt injection)", "ai", "https://simonwillison.net/tags/prompt-injection.atom", None, 15),
+    ("Trail of Bits", "news", "https://blog.trailofbits.com/feed/", KW, 15),
+    ("Wiz Blog", "news", "https://www.wiz.io/feed/rss.xml", KW, 15),
 ]
 
 # ---------------------------------------------------------------------------
@@ -151,6 +163,17 @@ def run_sources(args, cache, now):
         else:
             cache["ghsa"] = items
             ok("ghsa", len(items))
+    # GHSA: dedicated pass for AI/ML packages (also medium severity), merged into the same cache ------
+    if not ("ghsa" in skip or args.cache_only):
+        log("GitHub advisories (AI/ML packages) ...")
+        try:
+            mitems, merr = S.fetch_ghsa(args.days, os.environ.get("GITHUB_TOKEN"), max_pages=5,
+                                        severities=("critical", "high", "medium"), affects=AIR.ML_QUERY_PACKAGES)
+        except Exception as e:  # noqa
+            mitems, merr = {}, f"unexpected: {e!r}"
+        cache.setdefault("ghsa", {}).update(mitems)
+        status["ghsa:ml-packages"] = ({"status": "partial" if merr else "ok", "count": len(mitems),
+                                       "fetched_at": S.iso(now), **({"error": merr[:300]} if merr else {})})
     # prune old
     cache["ghsa"] = {k: v for k, v in cache.get("ghsa", {}).items() if recent(v.get("modified"), cutoff)}
     cache["nvd"] = {k: v for k, v in cache.get("nvd", {}).items() if recent(v.get("modified"), cutoff)}
@@ -223,6 +246,7 @@ def run_sources(args, cache, now):
                 "summary": summ if summ != title else "",
                 "author": S.strip_html(e["author"], 60), "date": S.iso(d), "cves": cves,
                 "vendors": tag_vendors(title + " " + summ + " " + name),
+                "_ai": text[:2000],
             })
         out.sort(key=lambda x: x["date"], reverse=True)
         chat[name] = out[: max(cap * (4 if flt == "msrc" else 1), cap)]
@@ -313,6 +337,8 @@ def merge(cache, args, now, status):
                     r["modified"] = x["modified"] or r["modified"]
                     r["links"]["NVD"] = "https://nvd.nist.gov/vuln/detail/" + cid
     out = []
+    pk_all = {cid: r.get("_pk", []) for cid, r in recs.items()}
+    cpes_all = {cid: list(r.get("cpes", [])) for cid, r in recs.items()}
     for cid, r in recs.items():
         if not r["sources"]:
             continue
@@ -336,6 +362,9 @@ def merge(cache, args, now, status):
         r["severity"] = r.get("severity") or "UNKNOWN"
         dates = [r.get("modified"), r.get("published"), r.get("kev_added")]
         r["activity"] = max(d for d in dates if d)
+        txt = " ".join([r["description"], r["product"], r.get("kev_name", ""), " ".join(r.get("packages", [])),
+                        " ".join(r.get("cpes", []))])
+        r["ai_angle"] = AIR.classify(txt, packages=pk_all.get(cid, []), cpes=cpes_all.get(cid, []), cve_ids=[cid])
         out.append(r)
     out.sort(key=lambda r: r["activity"], reverse=True)
     return out
@@ -358,9 +387,12 @@ def attach_epss(vulns, cache, args):
 def build_rss(vulns, now, site_url):
     items = []
     top = sorted(vulns, key=lambda v: (v["activity"]), reverse=True)
-    top = [v for v in top if v["exploited"] or v["severity"] == "CRITICAL"][:60]
+    top = [v for v in top if v["exploited"] or v["severity"] == "CRITICAL" or v.get("ai_angle")]
+    top = sorted(top, key=lambda v: AIR.rank(v.get("ai_angle")), reverse=True)[:60]  # AI-first (stable: newest first inside)
     for v in top:
         flags = []
+        if v.get("ai_angle"):
+            flags.append("AI:" + "/".join(a["type"] for a in v["ai_angle"]))
         if v["exploited"]:
             flags.append("EXPLOITED")
         flags.append(f"{v['severity']} {v['score'] if v.get('score') else ''}".strip())
@@ -377,7 +409,7 @@ def build_rss(vulns, now, site_url):
                 "".join(f"<category>{escape(t)}</category>" for t in v["vendors"][:4])))
     home = site_url or "https://example.invalid/"
     return ('<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">'
-            "<channel><title>Vuln Feed - exploited &amp; critical vulnerabilities</title>"
+            "<channel><title>AI Cyber Feed - AI-flagged, exploited &amp; critical vulnerabilities</title>"
             f"<link>{escape(home)}</link><description>Exploited-in-the-wild and critical CVEs from NVD, CISA KEV "
             "and GitHub advisories</description><language>en</language>"
             f"<lastBuildDate>{format_datetime(now)}</lastBuildDate>"
@@ -390,7 +422,29 @@ def esc(s):
     return escape(str(s), {'"': "&quot;"})
 
 
-def build_html(data):
+SUMMARY_PATH = os.path.join(HERE, "summary.json")
+
+
+def load_summary():
+    """Hand-written summary.json (see README). Returns None if absent/invalid -> page shows 'summary pending'."""
+    try:
+        with open(SUMMARY_PATH, encoding="utf-8") as f:
+            s = json.load(f)
+        return s if isinstance(s, dict) else None
+    except FileNotFoundError:
+        return None
+    except (OSError, ValueError) as e:
+        log("WARNING: summary.json unreadable:", e)
+        return None
+
+
+def js_safe(obj):
+    p = json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
+    return p.replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026") \
+            .replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
+
+
+def build_html(data, summary=None):
     tpl = open(os.path.join(HERE, "template.html"), encoding="utf-8").read()
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
     payload = payload.replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026") \
@@ -405,7 +459,12 @@ def build_html(data):
         for v in top)
     nos = ("<noscript><p>JavaScript is required for filtering. Top items:</p><table><tr><th>CVE</th><th>Severity</th>"
            "<th>Exploited</th><th>Product</th><th>Description</th></tr>" + rows + "</table></noscript>")
-    return (tpl.replace("/*__DATA__*/null", payload).replace("<!--__NOSCRIPT__-->", nos)
+    if summary:
+        items = "".join("<li><b>%s</b> (%s%s) &mdash; %s</li>" % (
+            esc(f.get("title", "")), esc(f.get("severity", "")), ", exploited" if f.get("exploited") else "",
+            esc(f.get("action", ""))) for f in summary.get("focus", []) if isinstance(f, dict))
+        nos += ("<noscript><h2>Summary</h2><p>%s</p><ul>%s</ul></noscript>" % (esc(summary.get("headline", "")), items))
+    return (tpl.replace("/*__SUMMARY__*/null", js_safe(summary)).replace("/*__DATA__*/null", payload).replace("<!--__NOSCRIPT__-->", nos)
                .replace("__UPDATED__", esc(data["generated_at"].replace("T", " ").replace("Z", " UTC"))))
 
 
@@ -430,7 +489,7 @@ def main():
             v["epss"], v["epss_pct"] = e
     x_items, x_status = load_x_items(now)
     status["chatter:X"] = x_status
-    chatter = [c for items in cache.get("chatter", {}).values() for c in items] + x_items
+    chatter = [dict(c) for items in cache.get("chatter", {}).values() for c in items] + x_items
     ids = {v["id"] for v in vulns}
     # MSRC: keep only entries that matter (CVE already in feed / actively exploited wording)
     chatter = [c for c in chatter if not (c["source"] == "Microsoft MSRC" and not
@@ -440,6 +499,7 @@ def main():
         drop = {id(c) for c in msrc[60:]}
         chatter = [c for c in chatter if id(c) not in drop]
     for c in chatter:
+        c["ai_angle"] = AIR.classify(c["title"] + " " + c["summary"] + " " + c.pop("_ai", ""), feed=c["source"])
         c["linked"] = [x for x in c["cves"] if x in ids]
     mentions = {}
     for c in chatter:
@@ -458,6 +518,10 @@ def main():
         "exploited_in_wild": sum(v["exploited"] for v in vulns),
         "critical": sum(v["severity"] == "CRITICAL" for v in vulns),
         "chatter_items": len(chatter),
+        "ai_vulns": {"total": sum(bool(v["ai_angle"]) for v in vulns),
+                     **{t: sum(any(a["type"] == t for a in (v["ai_angle"] or [])) for v in vulns) for t in AIR.RANK}},
+        "ai_chatter": {"total": sum(bool(c["ai_angle"]) for c in chatter),
+                       **{t: sum(any(a["type"] == t for a in (c["ai_angle"] or [])) for c in chatter) for t in AIR.RANK}},
         "chatter_by_source": {s: sum(1 for c in chatter if c["source"] == s) for s in sorted({c["source"] for c in chatter})},
     }
     data = {
@@ -468,8 +532,14 @@ def main():
     save_json(CACHE_PATH, cache)  # persist fetched state first, so outputs can be re-rendered
     os.makedirs(args.out, exist_ok=True)
     save_json(os.path.join(args.out, "data.json"), data)
+    summary = load_summary()
+    dst = os.path.join(args.out, "summary.json")
+    if summary is not None:
+        shutil.copyfile(SUMMARY_PATH, dst)
+    elif os.path.exists(dst):
+        os.remove(dst)
     with open(os.path.join(args.out, "index.html"), "w", encoding="utf-8") as f:
-        f.write(build_html(data))
+        f.write(build_html(data, summary))
     with open(os.path.join(args.out, "feed.xml"), "w", encoding="utf-8") as f:
         f.write(build_rss(vulns, now, os.environ.get("SITE_URL", "")))
     log("\nDone:", json.dumps(counts, indent=1))

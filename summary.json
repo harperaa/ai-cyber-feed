@@ -1,0 +1,209 @@
+{
+  "updated_at": "2026-10-23T10:56:00Z",
+  "next_update_note": "Next summary expected within about 4 hours. Compiled by hand from the feed's NVD/CISA KEV data plus the news and X/Reddit chatter below; unverified chatter is marked as such.",
+  "headline": "PHP2Shell (unauthenticated RCE in PHP itself) is under broad scan/exploit attempts, and Arista VeloCloud Orchestrator has a third exploited zero-day in four months. Patch PHP, VCO, Plex and BeyondTrust first, then GitLab, FortiSIEM, Node.js and Laravel.",
+  "focus": [
+    {
+      "title": "PHP2Shell: unauthenticated RCE in the PHP runtime",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-109618",
+        "CVE-2026-109619"
+      ],
+      "vendor": "PHP",
+      "why": "Two flaws in the PHP engine (CVSS 9.8 in NVD, 9.2 CVSS v4) allow unauthenticated remote code execution via crafted HTTP requests, so WordPress, Drupal and Joomla sites are exposed even with clean app code. Cloudflare saw millions of exploit attempts by early Oct 22; Amazon saw a first attempt on Oct 17, four days before the patch. Public PoCs exist, but several honeypot operators report no confirmed successful RCE yet, and the pair is not in the CISA KEV data this feed pulls.",
+      "action": "Upgrade to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35 (check the runtime serving web traffic, including containers; php -v may only show the CLI). For 7.4, 8.0 and 8.1 the PHP security team provided source backports, so use your vendor's patched package or move to a supported branch. Hunt logs back to Oct 17.",
+      "url": "https://www.php2shell.com/",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "The bugs were found and turned into a working RCE with AI: Wiz Research used Wiz Atlas, Gemini 4 Argon and GPT-5.6-Sol, Calif used an LLM audit, and OpenAI (Codex Security) reported the same root cause (php2shell.com, PHP Foundation)."
+    },
+    {
+      "title": "Ray (AI compute engine): browser-based RCE exploited, in CISA KEV",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [
+        "CVE-2025-62593"
+      ],
+      "vendor": "Anyscale / Ray",
+      "why": "CVSS 9.4. Developers running Ray as a development tool can be hit by RCE from a malicious web page (Firefox and Safari), because the only guard was a User-Agent starting with \"Mozilla\". CISA added it to KEV on Aug 17, 2026, and it is still being modified in NVD this week.",
+      "action": "Upgrade Ray to 2.52.0 or later, and do not expose Ray dashboards/job APIs to browsers on developer machines or untrusted networks.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-62593",
+      "ai_angle": [
+        "product"
+      ],
+      "ai_note": "Ray is an AI/ML compute engine, and this is the only AI-software CVE in the feed's CISA KEV set."
+    },
+    {
+      "title": "LiteLLM 1.107.0 backdoored on PyPI and Docker (AI supply chain)",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [],
+      "vendor": "LiteLLM",
+      "why": "The release pipeline was compromised on Oct 21 (via stolen GitHub CLI OAuth tokens of three engineers) and shipped a credential stealer plus a backdoor daemon that runs on Python start-up (cook.pth). It harvests cloud tokens, private keys, browser data and AI tooling credential files. PyPI quarantined the package and Docker images were removed.",
+      "action": "If 1.107.0 was installed or pulled, revoke and replace exposed credentials from a clean environment and pin version 1.106.2 by digest. No CVE has been assigned in our data.",
+      "url": "https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html",
+      "ai_angle": [
+        "product",
+        "impact"
+      ],
+      "ai_note": "LiteLLM is a widely used LLM gateway; the malware specifically targets AI-tool credentials and LiteLLM proxy configs, making this an AI supply-chain attack."
+    },
+    {
+      "title": "Arista VeloCloud Orchestrator: SQL injection zero-day exploited",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-114625"
+      ],
+      "vendor": "Arista (VeloCloud)",
+      "why": "CVSS 9.9. Any user who can log in to VCO, even with the read-only Enterprise role, can gain operator-level privileges. Arista says it is being exploited; this is the third exploited VCO flaw since late July, and releases that fixed the earlier two are still affected.",
+      "action": "On-prem VCO: upgrade to 5.2.3.18, 6.1.3.10 or 6.4.2.12 (Hosted/Dedicated already patched). Until then restrict VCO web access to admin networks, block the two attacker IPs in Arista's advisory and review recent admin activity.",
+      "url": "https://thehackernews.com/2026/10/arista-warns-of-critical-velocloud-sql.html",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
+      "title": "Plex2Shell: Plex Media Server exploit chain added to CISA KEV",
+      "severity": "high",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-96652",
+        "CVE-2026-96654",
+        "CVE-2026-96655",
+        "CVE-2026-96656"
+      ],
+      "vendor": "Plex",
+      "why": "Four chained flaws (highest CVSS 8.6) give unauthenticated RCE; attackers are already using them to install cryptominers and proxy malware. CISA added them to KEV on Oct 20.",
+      "action": "Update Plex Media Server to 1.43.3.10861 or later (released Aug 3, 2026). CISA's federal deadline is Oct 23 for CVE-2026-96654 and CVE-2026-96656, Nov 3 for the other two.",
+      "url": "https://thehackernews.com/2026/10/cisa-orders-federal-agencies-to-patch.html",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
+      "title": "BeyondTrust Remote Support: critical flaw exploited (CISA KEV)",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-102764"
+      ],
+      "vendor": "BeyondTrust",
+      "why": "CVSS 9.8. The product's internal components did not validate the origin of messages they received, which could let an attacker perform file operations on the appliance. CISA added it to KEV on Oct 16.",
+      "action": "Apply BeyondTrust's fix per its advisory (no fixed version is stated in the feed data). CISA's deadline for federal agencies was Oct 19, so treat as overdue.",
+      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2026-102764",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
+      "title": "GitLab: CVSS 10.0 unauthenticated RCE (self-managed)",
+      "severity": "critical",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-110264"
+      ],
+      "vendor": "GitLab",
+      "why": "An integer overflow in the Ruby (Onigmo) regex compiler can let an unauthenticated user run code on the server; every version from 7.0 on is affected. GitLab reports no attacks yet and it is not in CISA KEV as of Oct 22. Instances patched on Oct 12 are in range again.",
+      "action": "Upgrade self-managed GitLab to 19.5.1, 19.4.3, 19.3.6, 19.2.9, 19.1.9, 19.0.10 or 18.11.13 (older: 18.11.13). No workaround. GitLab.com is already fixed. Note 19.4.3/19.3.6 run DB migrations (downtime on single-node).",
+      "url": "https://thehackernews.com/2026/10/critical-gitlab-flaw-cvss-100-could.html",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
+      "title": "Fortinet FortiSIEM: unauthenticated RCE with public PoC",
+      "severity": "critical",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-106173"
+      ],
+      "vendor": "Fortinet",
+      "why": "CVSS 9.4 path traversal via the gRPC service on TCP 27918 turns into file overwrite and code execution. Horizon3.ai published a PoC on Oct 20. A honeypot operator (Previdian, on X, unverified) reports an exploitation attempt on Oct 23.",
+      "action": "FortiSIEM 7.5.0: upgrade to 7.5.1 or later (7.6 is not affected). Restrict access to port 27918.",
+      "url": "https://thehackernews.com/2026/10/critical-fortisiem-flaw-gets-public.html",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
+      "title": "Node.js: Brotli decoder RCE (\"Node2Shell\")",
+      "severity": "critical",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-111497"
+      ],
+      "vendor": "Node.js",
+      "why": "Crafted Brotli data can run code via Node's bundled decoder (22.x, 24.x, 26.x), reachable through fetch() responses or middleware such as Express 5 body parsers. Imperva demonstrated RCE on Node 24.22.0 (not on every attempt); no exploitation in the wild reported as of Oct 22.",
+      "action": "Update to the patched Node.js release for your line (24.22.1 for 24.x), including container images that bundle Node. Move off 20.x and older, which get no fix. No in-runtime workaround.",
+      "url": "https://thehackernews.com/2026/10/researchers-demonstrate-node2shell-rce.html",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
+      "title": "Laravel TokenGuard: API authentication bypass",
+      "severity": "critical",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-114509"
+      ],
+      "vendor": "Laravel",
+      "why": "CVSS 9.2. On MySQL/MariaDB, a crafted non-string credential can match another user's record, letting an unauthenticated attacker authenticate as an existing user on any route using the TokenGuard.",
+      "action": "Upgrade Laravel to 13.29.0 or 12.68.0.",
+      "url": "https://thehackernews.com/2026/10/threatsday-ai-secrets-leak-pingcap.html",
+      "ai_angle": [],
+      "ai_note": ""
+    }
+  ],
+  "news": [
+    {
+      "title": "Amazon says PHP2Shell exploitation began 4 days before patches",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/amazon-says-php2shell-exploitation-began-4-days-before-patches/",
+      "blurb": "Amazon Threat Intelligence's honeypot saw an attempt on Oct 17; details also leaked a day early, so hunting should start before the patch date."
+    },
+    {
+      "title": "PHP2Shell exploit attempts hit millions as attackers try to deploy Mirai malware",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/10/php2shell-exploit-attempts-hit-millions.html",
+      "blurb": "Mostly scanning and failed payload delivery so far; VulnCheck says it built an ASLR-bypass exploit for production configs, so the barrier is falling."
+    },
+    {
+      "title": "Qilin and INC ransomware groups exploit Palo Alto Networks flaw to bypass MFA",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/10/qilin-and-inc-ransomware-groups-exploit.html",
+      "blurb": "CVE-2026-0257 (CVSS 7.8) in PAN-OS and Prisma Access, patched in May 2026, is still being exploited to set up unauthorized VPN connections."
+    },
+    {
+      "title": "Popular WordPress SEO plugin Rank Math PRO hijacked to deliver self-restoring backdoor",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/10/popular-wordpress-seo-plugin-rank-math.html",
+      "blurb": "Copies downloaded or updated between 20:02 UTC Oct 15 and 07:12 UTC Oct 16 contained malware; treat those sites as compromised."
+    },
+    {
+      "title": "Critical x402 SDK flaw could let malicious APIs drain AI agents' token balances",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/10/critical-x402-sdk-flaw-could-let.html",
+      "blurb": "V12 says the SDKs' default client set no spending limit until releases on Aug 18 added one, so auto-signing agents could be drained."
+    },
+    {
+      "title": "OpenCode flaw lets malicious MCP servers execute code during sign-in on Windows and WSL",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/10/opencode-flaw-lets-malicious-mcp.html",
+      "blurb": "A malicious or hijacked MCP server could run code on a developer's machine at sign-in; fixed in OpenCode 1.18.33."
+    },
+    {
+      "title": "I built a full-chain Chrome exploit in 6 days using only gpt-5.6-sol (XBOW AMA)",
+      "source": "r/cybersecurity (unverified)",
+      "url": "https://www.reddit.com/r/cybersecurity/comments/1xbo6o3/i_built_a_fullchain_chrome_exploit_in_6_days/",
+      "blurb": "XBOW's team lead describes chaining three vulnerabilities to RCE and a Chrome sandbox escape with an AI model, earning a $250,000 Chrome VRP reward."
+    }
+  ],
+  "watch": [
+    "AI/ML software criticals this week: vLLM CVE-2026-114053 (9.2, fixed in 0.31.0; needs trust_remote_code and a malicious model revision), NVIDIA Triton Inference Server CVE-2026-47606 (9.1, path traversal) and Milvus CVE-2026-26190 (9.8, unauthenticated metrics-port API).",
+    "CISA KEV also gained Siemens Software Center CVE-2026-110936 (DLL sideloading, used in ClickFix attacks) and SiteGuard Server Edition CVE-2026-106931 (OS command injection) on Oct 20; federal deadlines are Oct 23 and Nov 3.",
+    "Atlassian Data Center products: CVE-2026-21589 (critical 9.3, unauthenticated file access) was added to KEV on Oct 15; Atlassian's October bulletin also lists 176 entries incl. 14 critical in third-party components.",
+    "Linux KSMBD: two CVSS 9.0 RCE flaws (ZDI-CAN-33774, ZDI-CAN-33549) were disclosed on public mailing lists with no mainline kernel fix yet.",
+    "PHP: an X post from @ThePHPF suggests setting session.upload_progress.enabled=0 until the next release to block another unlikely RCE vector (CVE-2026-115560). Unverified chatter.",
+    "Also reported today: Oracle Java CVE-2026-91403 (9.1) alert and Pillow EPS/Ghostscript command execution CVE-2026-112900."
+  ],
+  "ai_headline": "AI is on both sides today: PHP2Shell was found and weaponised with frontier-AI help (Wiz Research, Calif, OpenAI), an exploited flaw in the Ray AI compute engine is in CISA KEV, and the LiteLLM LLM-gateway package was backdoored to steal AI-tooling credentials."
+}
