@@ -89,6 +89,8 @@ IMPACT = [
     ("AI infrastructure exposed / leaked secrets", r"\b(?:exposed|open|unauthenticated|unprotected|internet[- ]facing)\b" + GAP(25) + r"\b(?:ollama|llm|ai (?:server|infrastructure|cluster|endpoint)s?|gpu|inference|comfyui|jupyter|mlflow|ray)\b|"
                                                    r"\b" + AI + r"[- ](?:infrastructure|secrets|api keys?|credentials|tokens?|agents?)\b" + GAP(30) + r"\b(?:exposed|leak\w*|stolen|theft|drain\w*|exfiltrat\w+)\b|"
                                                    r"\b(?:drain|steal|hijack|abus)\w*\b" + GAP(30) + r"\b" + AI + r" agents?\b|\bdistillation attack\b|\bllmjacking\b|\bAPI keys? (?:for|to) (?:openai|anthropic|llm)"),
+    ("Railway platform breach (AI inference keys at risk)", r"\brailway(?:\.com|\.app)?\b" + GAP(80) + r"\b(?:breach\w*|hack\w*|compromis\w+|cyber ?attack\w*|incident|unauthori[sz]ed|leak\w*|stolen|drain\w*|rotate|revoke)\b|"
+                                                   r"\b(?:breach\w*|hack\w*|compromis\w+|cyber ?attack\w*|unauthori[sz]ed|rotate|revoke)\b" + GAP(80) + r"\brailway(?:\.com|\.app)?\b"),
 ]
 
 # Hand-curated angles for specific CVE ids (use for things heuristics cannot know). type, why, optional source url

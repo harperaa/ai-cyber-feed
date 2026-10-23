@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-23T12:50:00Z",
-  "next_update_note": "Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus the news and X/Reddit chatter below; unverified chatter is marked as such. Changes since 10:56 UTC: PHP confirmed a separate unpatched RCE path (CVE-2026-115560, mitigation only), Pillow 13.0.0 criticals (one found with Claude) added as a focus item, Laravel moved to the watch list.",
-  "headline": "PHP2Shell (unauthenticated RCE in PHP itself) is still drawing millions of exploit attempts, and PHP now warns of a separate, unpatched RCE path that needs a one-line config change. Patch PHP, Arista VCO, Plex (CISA deadline today for two CVEs) and BeyondTrust first, then GitLab, FortiSIEM, Node.js and Pillow.",
+  "updated_at": "2026-10-23T12:52:19Z",
+  "next_update_note": "Changes in this update: added the Railway platform breach (Oct 21) as a focus card with two news items; Node.js moved to the watch list. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus the news and X/Reddit chatter below; unverified chatter is marked as such. Changes since 10:56 UTC: PHP confirmed a separate unpatched RCE path (CVE-2026-115560, mitigation only), Pillow 13.0.0 criticals (one found with Claude) added as a focus item, Laravel moved to the watch list.",
+  "headline": "Railway (hosting platform) was breached: customer env vars and secrets may be exposed, so rotate everything if you deploy there. PHP2Shell (unauthenticated RCE in PHP itself) is still drawing millions of exploit attempts, and PHP now warns of a separate, unpatched RCE path that needs a one-line config change. Patch PHP, Arista VCO, Plex (CISA deadline today for two CVEs) and BeyondTrust first, then GitLab, FortiSIEM, Node.js and Pillow.",
   "focus": [
     {
       "title": "PHP2Shell: unauthenticated RCE in the PHP runtime",
@@ -69,6 +69,20 @@
         "impact"
       ],
       "ai_note": "LiteLLM is a widely used LLM gateway; the malware specifically targets AI-tool credentials and LiteLLM proxy configs, making this an AI supply-chain attack."
+    },
+    {
+      "title": "Railway platform breach: customer environment variables and secrets may be exposed",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Railway",
+      "why": "Railway detected anomalous activity on Oct 21, 2026 on systems storing customer environment variables. An unauthorized third party may have accessed encrypted env vars and, for some, obtained decrypted contents (API keys, database and registry credentials). Railway calls it part of a series of attacks on platform companies aiming to compromise AI inference providers and notified upstream providers to revoke keys. Root cause is not disclosed and no source says the attackers used AI. Unverified X chatter claims ~$371k in crypto was drained across 19 chains from bot wallets and links it to PHP2Shell; others dispute that.",
+      "action": "If you deploy on Railway: rotate every environment variable and secret now (especially OpenAI, Anthropic and other inference keys, database and registry credentials), reconnect GitHub (tokens were reset), redeploy bucket services (S3 credentials were reset), and review logs for abuse. Watch for Railway's postmortem.",
+      "url": "https://blog.railway.com/p/security-disclosure-wednesday-october-21st",
+      "ai_angle": [
+        "impact"
+      ],
+      "ai_note": "AI impact only: Railway says the attacks target AI inference providers, so stolen inference API keys are at risk. No source says the attackers used AI."
     },
     {
       "title": "Arista VeloCloud Orchestrator: SQL injection zero-day exploited",
@@ -142,23 +156,21 @@
       "url": "https://thehackernews.com/2026/10/critical-fortisiem-flaw-gets-public.html",
       "ai_angle": [],
       "ai_note": ""
-    },
-    {
-      "title": "Node.js: Brotli decoder RCE (\"Node2Shell\")",
-      "severity": "critical",
-      "exploited": false,
-      "cves": [
-        "CVE-2026-111497"
-      ],
-      "vendor": "Node.js",
-      "why": "Crafted Brotli data can run code via Node's bundled decoder (22.x, 24.x, 26.x), reachable through fetch() responses or middleware such as Express 5 body parsers. Imperva demonstrated RCE on Node 24.22.0 (not on every attempt); no exploitation in the wild reported as of Oct 22.",
-      "action": "Update to the patched Node.js release for your line (24.22.1 for 24.x), including container images that bundle Node. Move off 20.x and older, which get no fix. No in-runtime workaround.",
-      "url": "https://thehackernews.com/2026/10/researchers-demonstrate-node2shell-rce.html",
-      "ai_angle": [],
-      "ai_note": ""
     }
   ],
   "news": [
+    {
+      "title": "Developer platform Railway urges all users to revoke secret keys after cyberattack",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/22/developer-platform-railway-urges-all-users-to-revoke-secret-keys-after-cyberattack/",
+      "blurb": "Railway says an unauthorized party may have read customer environment variables and calls it part of attacks on platform companies targeting AI inference providers."
+    },
+    {
+      "title": "Railway warns devs to rotate secrets after potential breach",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/railway-warns-devs-to-rotate-secrets-after-potential-breach/",
+      "blurb": "Railway reset bucket S3 credentials and GitHub tokens, paused builds then restored them in stages, and will publish a postmortem; root cause not yet disclosed."
+    },
     {
       "title": "PHP warns of another unpatched RCE two days after emergency PHP2Shell patches",
       "source": "The Hacker News",
@@ -190,18 +202,6 @@
       "blurb": "Arista's CVE-2026-114625 SQL injection lets any logged-in VCO user escalate to operator; on-prem fixes are out."
     },
     {
-      "title": "Qilin and INC ransomware groups exploit Palo Alto Networks flaw to bypass MFA",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/10/qilin-and-inc-ransomware-groups-exploit.html",
-      "blurb": "CVE-2026-0257 (CVSS 7.8) in PAN-OS and Prisma Access, patched in May 2026, is still being exploited to set up unauthorized VPN connections."
-    },
-    {
-      "title": "OpenCode flaw lets malicious MCP servers execute code during sign-in on Windows and WSL",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/10/opencode-flaw-lets-malicious-mcp.html",
-      "blurb": "A malicious or hijacked MCP server could run code on a developer's machine at sign-in; fixed in OpenCode 1.18.33."
-    },
-    {
       "title": "I built a full-chain Chrome exploit in 6 days using only gpt-5.6-sol (XBOW AMA)",
       "source": "r/cybersecurity (unverified)",
       "url": "https://www.reddit.com/r/cybersecurity/comments/1xbo6o3/i_built_a_fullchain_chrome_exploit_in_6_days/",
@@ -209,13 +209,15 @@
     }
   ],
   "watch": [
+    "Node.js Brotli decoder RCE (\"Node2Shell\") dropped from the focus list this round but still needs patching; check the Vulnerabilities tab.",
     "Laravel TokenGuard CVE-2026-114509 (9.2): on MySQL/MariaDB a crafted non-string credential can authenticate as another user; upgrade to Laravel 13.29.0 or 12.68.0.",
     "AI/ML software criticals this week: vLLM CVE-2026-114053 (9.2, fixed in 0.31.0; needs trust_remote_code and a malicious model revision), NVIDIA Triton Inference Server CVE-2026-47606 (9.1, path traversal) and Milvus CVE-2026-26190 (9.8, unauthenticated metrics-port API).",
     "CISA KEV also gained Siemens Software Center CVE-2026-110936 (DLL sideloading, used in ClickFix attacks) and SiteGuard Server Edition CVE-2026-106931 (OS command injection) on Oct 20; federal deadlines are today (Oct 23) and Nov 3.",
     "Atlassian Data Center products: CVE-2026-21589 (critical 9.3, unauthenticated file access) was added to KEV on Oct 15; Atlassian's October bulletin also lists 176 entries incl. 14 critical in third-party components.",
     "Linux KSMBD: two CVSS 9.0 RCE flaws (ZDI-CAN-33774, ZDI-CAN-33549) were disclosed on public mailing lists with no mainline kernel fix yet; SANS Stormcast covered them today. Disable ksmbd if you don't need in-kernel SMB.",
     "Oracle Java CVE-2026-91403 (9.1) alert is circulating on X; check Oracle's advisory for affected versions (unverified chatter).",
-    "AI on defence: an X user says Opus 5.5 found and contained an XMRig cryptominer running as root on one of their agent servers (unverified chatter)."
+    "AI on defence: an X user says Opus 5.5 found and contained an XMRig cryptominer running as root on one of their agent servers (unverified chatter).",
+    "Unverified X chatter on the Railway breach: an investigator claims ~$371k of crypto drained across 19 chains from bot wallets, and some link it to PHP2Shell. Unconfirmed and refuted by others."
   ],
-  "ai_headline": "AI keeps finding the bugs: PHP2Shell was found and weaponised with frontier-AI help, and one of the new critical Pillow image-library flaws was found by Anthropic using Claude. On the AI-product side, an exploited Ray flaw is in CISA KEV and the backdoored LiteLLM 1.107.0 release steals AI-tooling credentials."
+  "ai_headline": "New: Railway says the attack on it is part of a series aimed at AI inference providers, so stolen inference API keys are the risk (AI impact; no source says AI was used by the attackers). AI keeps finding the bugs: PHP2Shell was found and weaponised with frontier-AI help, and one of the new critical Pillow image-library flaws was found by Anthropic using Claude. On the AI-product side, an exploited Ray flaw is in CISA KEV and the backdoored LiteLLM 1.107.0 release steals AI-tooling credentials."
 }
