@@ -442,13 +442,40 @@ def load_summary():
         return None
 
 
+ARCHIVE_DIR = os.path.join(HERE, "summary_archive")
+ARCHIVE_INLINE_MAX = 150_000  # bytes of JSON; above this the page lazy-loads summary_archive.json instead of inlining
+
+
+def load_archive(current=None):
+    """All archived summaries (summary_archive/*.json, see archive_summary.py), newest first, NOT capped.
+    The current summary is excluded (it is shown at the top)."""
+    out, seen = [], set()
+    cur = (current or {}).get("updated_at")
+    for fn in sorted(os.listdir(ARCHIVE_DIR)) if os.path.isdir(ARCHIVE_DIR) else []:
+        if not fn.endswith(".json"):
+            continue
+        try:
+            with open(os.path.join(ARCHIVE_DIR, fn), encoding="utf-8") as f:
+                s = json.load(f)
+        except (OSError, ValueError):
+            log("WARNING: unreadable archive file", fn)
+            continue
+        ts = s.get("updated_at") if isinstance(s, dict) else None
+        if not ts or ts == cur or ts in seen:
+            continue
+        seen.add(ts)
+        out.append(s)
+    out.sort(key=lambda s: s["updated_at"], reverse=True)
+    return out
+
+
 def js_safe(obj):
     p = json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
     return p.replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026") \
             .replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
 
 
-def build_html(data, summary=None):
+def build_html(data, summary=None, archive=None):
     tpl = open(os.path.join(HERE, "template.html"), encoding="utf-8").read()
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
     payload = payload.replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026") \
@@ -468,7 +495,10 @@ def build_html(data, summary=None):
             esc(f.get("title", "")), esc(f.get("severity", "")), ", exploited" if f.get("exploited") else "",
             esc(f.get("action", ""))) for f in summary.get("focus", []) if isinstance(f, dict))
         nos += ("<noscript><h2>Summary</h2><p>%s</p><ul>%s</ul></noscript>" % (esc(summary.get("headline", "")), items))
-    return (tpl.replace("/*__SUMMARY__*/null", js_safe(summary)).replace("/*__DATA__*/null", payload).replace("<!--__NOSCRIPT__-->", nos)
+    archive = archive or []
+    inline = len(json.dumps(archive, ensure_ascii=False)) <= ARCHIVE_INLINE_MAX
+    arch_js = js_safe({"count": len(archive), "url": "summary_archive.json", "entries": archive if inline else None})
+    return (tpl.replace("/*__SUMMARY__*/null", js_safe(summary)).replace("/*__ARCHIVE__*/null", arch_js).replace("/*__DATA__*/null", payload).replace("<!--__NOSCRIPT__-->", nos)
                .replace("__UPDATED__", esc(data["generated_at"].replace("T", " ").replace("Z", " UTC"))))
 
 
@@ -543,8 +573,11 @@ def main():
         shutil.copyfile(SUMMARY_PATH, dst)
     elif os.path.exists(dst):
         os.remove(dst)
+    archive = load_archive(summary)
+    save_json(os.path.join(args.out, "summary_archive.json"), archive)
+    log("summary archive: %d earlier summaries" % len(archive))
     with open(os.path.join(args.out, "index.html"), "w", encoding="utf-8") as f:
-        f.write(build_html(data, summary))
+        f.write(build_html(data, summary, archive))
     with open(os.path.join(args.out, "feed.xml"), "w", encoding="utf-8") as f:
         f.write(build_rss(vulns, now, os.environ.get("SITE_URL", "")))
     log("\nDone:", json.dumps(counts, indent=1))

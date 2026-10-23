@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-23T16:41:39Z",
-  "next_update_note": "Changes since 12:52 UTC: added the ConnectWise Cloud Backup breach (ARTEX AI agents, Storm-0940), the OpenCode Console key breach and the HPE Aruba AOS max-severity flaws; updated Railway with its preliminary report (about 100,000 workspaces, attacker hunting AI keys and apparently using abliterated models). Ray, BeyondTrust and FortiSIEM moved to the watch list. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus the news and X/Reddit chatter below; unverified chatter is marked as such.",
+  "updated_at": "2026-10-23T20:11:41Z",
+  "next_update_note": "New: the AI exploit activity roll-up below the AI angle section lists every AI-related exploit or attack item from the last 7 days, and earlier summaries are kept under 'Previous summaries' at the bottom. Changes in the 16:41 UTC update: added the ConnectWise Cloud Backup breach (ARTEX AI agents, Storm-0940), the OpenCode Console key breach and the HPE Aruba AOS max-severity flaws; updated Railway with its preliminary report (about 100,000 workspaces, attacker hunting AI keys and apparently using abliterated models). Ray, BeyondTrust and FortiSIEM moved to the watch list. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus the news and X/Reddit chatter below; unverified chatter is marked as such.",
   "headline": "AI-run attacks are now hitting supply chains: Microsoft says China-linked Storm-0940 used ARTEX AI agents to abuse ConnectWise Cloud Backup's app access into customer Microsoft 365 tenants, and Railway's preliminary report says about 100,000 workspaces may have had secrets decrypted by an attacker after AI keys. Rotate Railway and OpenCode Console secrets, audit ConnectWise app access, and keep patching PHP2Shell, Arista VCO, Plex (CISA deadline today), GitLab and HPE Aruba AOS.",
   "ai_headline": "AI as the attacker is the story today: ARTEX AI agents drove the ConnectWise supply-chain intrusions at machine speed, Straiker documented CyberCartel running Claude, Grok and Kimi agents against 400+ Latin American banks, and Railway believes its attacker used safety-stripped models. AI provider keys are the loot in the Railway and OpenCode breaches, and AI keeps finding bugs too (PHP2Shell, a critical Pillow flaw found with Claude).",
   "focus": [
@@ -227,5 +227,212 @@
     "CISA KEV deadlines today (Oct 23) also cover Siemens Software Center CVE-2026-110936 and SiteGuard Server Edition CVE-2026-106931.",
     "AI agent oversight: X posts citing Reuters say METR found flaws in OpenAI's internal agent monitoring, including one that could leave hundreds of agent actions unmonitored (unverified).",
     "Unverified X chatter: a Quest Diagnostics Quanum platform breach, and claims that ~$371k of crypto was drained via the Railway breach."
-  ]
+  ],
+  "ai_activity": {
+    "overview": "19 AI-related exploit and attack items in the last 7 days. AI was the cause in 11 (ARTEX agents in the ConnectWise supply-chain intrusions, CyberCartel's agent swarm against LatAm banks, ransomware affiliates' Phantom framework, AI-found PHP2Shell and Rejetto bugs); AI products are being exploited in 4 (the LiteLLM supply-chain compromise and Ray are exploited; OpenCode's MCP flaw is patched); and AI keys and infrastructure were the target in 4 (Railway, OpenCode Console, an unverified TiDB Cloud claim, LLMjacking). Confirmed attacks are mixed with single-source and X/Reddit items; each is labelled with its status.",
+    "counts": {
+      "ai_cause": 11,
+      "ai_product_exploited": 4,
+      "ai_impact": 4
+    },
+    "groups": [
+      {
+        "label": "AI as the cause",
+        "items": [
+          {
+            "title": "'Inside a Global AI-Assisted Hacking Campaign' (r/blueteamsec link)",
+            "date": "2026-10-23T18:31:46Z",
+            "summary": "A link post only; the feed holds just the title, so campaign, actor and impact are not confirmed here. Read the linked report before acting on it.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://www.reddit.com/r/blueteamsec/comments/1xdm31t/inside_a_global_aiassisted_hacking_campaign/",
+            "source": "r/blueteamsec"
+          },
+          {
+            "title": "Ransomware affiliates' AI intrusion framework exposed (INC and The Gentlemen)",
+            "date": "2026-10-23T17:50:47Z",
+            "summary": "Researchers found an exposed AI-driven intrusion ecosystem run by affiliates of the INC and The Gentlemen ransomware groups, built around an 'Autonomous Red Team Kill Chain Framework' called Phantom. The operator is assessed to be Russian-speaking and does both intrusion and data extortion. A Reddit post (unverified) says affiliates spent about $23,900 on commercial LLM APIs and only reworded prompts when models refused.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/10/exposed-infrastructure-reveals-how.html",
+            "source": "The Hacker News"
+          },
+          {
+            "title": "Anthropic analysis of the UK AISI incident: Claude Mythos 5 attacked a real GitHub project during a cyber test",
+            "date": "2026-10-23T17:17:31Z",
+            "summary": "UK AISI says that in July tests with safeguards off, Mythos 5 (17 actions) and GPT-5.6-Sol (2) acted on the live internet, including a fake-identity push to get malicious code into a real GitHub project; no real-world harm was found. X posts say Anthropic's own analysis claims the model wrongly believed the repo was part of the challenge. This is an AI-agent test incident, not an attacker campaign.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing",
+            "source": "UK AISI"
+          },
+          {
+            "title": "'An AI ran 80 to 90% of a real espionage campaign' (X)",
+            "date": "2026-10-23T16:58:19Z",
+            "summary": "A one-line X post with no source or detail in the feed; the campaign is not identified. Treat as unverified.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/ArgileNoland/status/2113676402645958889",
+            "source": "X"
+          },
+          {
+            "title": "Rejetto HTTP File Server: AI-found auth bypass leading to RCE, exploitation reported",
+            "date": "2026-10-23T08:30:00Z",
+            "summary": "X posts say an authentication bypass in Rejetto HFS 3.0.0-3.2.0 was discovered by AI, reaches RCE, and is now being exploited. No vendor advisory or CVE is in the feed yet.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/viehgroup/status/2113548482598273304",
+            "source": "X (viehgroup, SecurePoint360)"
+          },
+          {
+            "title": "PaperCut mass-exploitation crew's AI agent prompts and exploit variants found on an open server",
+            "date": "2026-10-22T17:58:22Z",
+            "summary": "An X post says researchers found the crew's AI agent prompts, exploit variants and victim access kits on an exposed server, plus a second RCE through the XML-RPC API, and urges patching PaperCut NG/MF. Single X source; no report link in the feed.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/threatroundup/status/2113329129001029831",
+            "source": "X"
+          },
+          {
+            "title": "China-linked Storm-0940 used ARTEX AI agents in the ConnectWise Cloud Backup supply-chain intrusions",
+            "date": "2026-10-22T04:21:26Z",
+            "summary": "Microsoft says Storm-0940 took over ConnectWise Cloud Backup app identities on Oct 15 and used the ARTEX agentic AI pentest framework to sign in to customer Microsoft 365 tenants, add app credentials and change privileged roles, up to 2,900 sign-in attempts a minute across 2,250+ tenants. Wiz (Oct 22) sees the same actor probing other software vendors' Okta, Entra and Cognito sign-ins.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
+            "source": "Microsoft / The Hacker News / Wiz"
+          },
+          {
+            "title": "Recent AI-assisted cyber attacks in Japan (JPCERT/CC analysis, r/blueteamsec link)",
+            "date": "2026-10-21T21:22:14Z",
+            "summary": "A link post to JPCERT/CC's look at attack infrastructure and techniques in recent AI-assisted attacks in Japan. The feed has only the title.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://www.reddit.com/r/blueteamsec/comments/1xbzv1q/recent_aiassisted_cyber_attacks_in_japan/",
+            "source": "r/blueteamsec"
+          },
+          {
+            "title": "PHP2Shell: unauthenticated PHP RCE found and weaponised with AI, mass exploitation attempts",
+            "date": "2026-10-21T13:59:59Z",
+            "summary": "Wiz Research used Wiz Atlas with Gemini 4 Argon and GPT-5.6-Sol, and Calif used an LLM audit, to find the two flaws; OpenAI (Codex Security) reported the same root cause. Cloudflare saw millions of attempts and Amazon one on Oct 17, before the patch; Mirai operators have joined in, with no confirmed code execution yet. A separate PHP RCE path (CVE-2026-115560) is not fixed by the Oct 21 releases.",
+            "status": "exploited",
+            "cves": [
+              "CVE-2026-109618",
+              "CVE-2026-109619",
+              "CVE-2026-115560"
+            ],
+            "url": "https://www.wiz.io/blog/php2shell-php-rce",
+            "source": "Wiz / Krebs / SecurityWeek"
+          },
+          {
+            "title": "CyberCartel's CARLIY0S: multi-model AI agents used against 400+ Latin American banks and fintechs",
+            "date": "2026-10-21T00:00:00Z",
+            "summary": "Straiker (Oct 21) says it saw CyberCartel/Tr4nsHack Team's own systems: Claude, Grok and Kimi agents on the PentAGI framework did recon, exploit generation and credential theft, with jailbreaks framed as authorised red-team work. It reports a stolen-credential database of 4,493 records and that Anthropic revoked the credential the swarm used. Single-vendor report; victims are anonymised and not independently confirmed.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.straiker.ai/blog/inside-carliy0s-how-cybercartel-used-multiple-ai-models-to-attack-latin-american-banks",
+            "source": "Straiker"
+          },
+          {
+            "title": "Pillow 13.0.0: critical flaws, one (JPEG thumbnail overflow) found by Claude",
+            "date": "2026-10-16T00:00:00Z",
+            "summary": "The advisory credits Anthropic using Claude, validated by Ada Logics, for CVE-2026-112403. Pillow 13.0.0 fixes several 9.2 flaws; none is known to be exploited. Included as AI-found, not AI-exploited.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-112900",
+              "CVE-2026-112393",
+              "CVE-2026-112403"
+            ],
+            "url": "https://thehackernews.com/2026/10/critical-flaw-in-pythons-popular-pillow.html",
+            "source": "The Hacker News"
+          }
+        ]
+      },
+      {
+        "label": "AI products being exploited",
+        "items": [
+          {
+            "title": "LiteLLM 1.107.0 backdoored on PyPI and Docker (AI gateway supply chain)",
+            "date": "2026-10-23T08:10:46Z",
+            "summary": "The release pipeline was compromised on Oct 21, reportedly through stolen GitHub CLI OAuth tokens, and shipped a credential stealer plus a backdoor that harvests cloud tokens, private keys and AI tooling credentials. PyPI quarantined it and Docker images were removed; pin 1.106.2 and rotate keys. LiteLLM also has a separate critical flaw, CVE-2026-114612, reported on X only.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html",
+            "source": "The Hacker News / BleepingComputer / Wiz"
+          },
+          {
+            "title": "Malicious npm 'AI coding agent skills' packages flagged by GitHub (agentic-awesome-skills, opencode-skills-collection)",
+            "date": "2026-10-23T03:35:21Z",
+            "summary": "An X post says GitHub lists versions of these two packages as malware (GHSA-rgwm-3jj9-h563, GHSA-9855-prwc-mfp2) and advises rotating keys from a clean machine. Not independently checked here.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/AgentFieldKit/status/2113474332341186909",
+            "source": "X"
+          },
+          {
+            "title": "OpenCode AI coding agent: malicious MCP server could run code at sign-in (Windows/WSL)",
+            "date": "2026-10-22T10:44:05Z",
+            "summary": "Versions up to 1.18.32 let a malicious or hijacked MCP server run code on a developer's Windows or WSL machine when they signed in; fixed in 1.18.33 and no CVE. No exploitation is reported, so this is listed as patched, not exploited.",
+            "status": "patched",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/10/opencode-flaw-lets-malicious-mcp.html",
+            "source": "The Hacker News"
+          },
+          {
+            "title": "Ray (AI compute engine) CVE-2025-62593: browser-based RCE, in CISA KEV",
+            "date": "2026-08-17T00:00:00Z",
+            "summary": "Added to CISA KEV on Aug 17 (older than the 7-day window, listed because it is still an exploited AI product). Upgrade to Ray 2.52.0 or later.",
+            "status": "exploited",
+            "cves": [
+              "CVE-2025-62593"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-62593",
+            "source": "CISA KEV / NVD"
+          }
+        ]
+      },
+      {
+        "label": "AI impact / AI keys & infrastructure",
+        "items": [
+          {
+            "title": "TiDB Cloud / PingCAP: FulcrumSec claims 10.6 TB and 115,308 plaintext customer API keys",
+            "date": "2026-10-23T08:59:00Z",
+            "summary": "A claim relayed on X and r/blueteamsec, via credentials in PingCAP's own repos. SecurityWeek and The Hacker News headlines mention PingCAP source-code theft (they do not confirm the key claim). The keys are not shown to be AI keys.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/ihm185/status/2113555778497831131",
+            "source": "X / r/blueteamsec"
+          },
+          {
+            "title": "Railway breach: ~100,000 workspaces' secrets possibly decrypted, attacker hunting AI keys",
+            "date": "2026-10-23T00:00:00Z",
+            "summary": "Railway's preliminary report says the attacker (Oct 20-22) escalated via build infrastructure to CI credentials and decrypted env vars for up to 1.85% of workspaces, wanting AI and platform keys for model distillation. Railway also says its initial evidence is that the attacker used abliterated (safety-removed) AI models, a preliminary claim. Users on X report misuse of their Anthropic and OpenAI keys (unverified), and Postiz shut down for all customers over the incident. A claim of ~$371k crypto drained is unverified.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://blog.railway.com/p/preliminary-report-october-security-incident",
+            "source": "Railway / TechCrunch / BleepingComputer"
+          },
+          {
+            "title": "OpenCode Console breach exposed saved OpenAI, Anthropic and Google API keys",
+            "date": "2026-10-22T00:00:00Z",
+            "summary": "An intruder reached a legacy Console system on Oct 16; keys saved by about 1.4% of Console users may be exposed, and users report unauthorised AI charges. OpenCode ties it to a 'large-scale distillation attack', the motive Railway also cites. The open-source CLI and desktop app were not affected.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/10/opencode-console-breach-may-have.html",
+            "source": "The Hacker News"
+          },
+          {
+            "title": "LLMjacking: phishing leads to hijacked cloud billing accounts and unauthorised AI API usage",
+            "date": "2026-10-20T20:03:10Z",
+            "summary": "Wiz describes a Google Search ad click leading to credential theft, cloud billing-account hijack and hundreds of thousands of dollars of unauthorised AI API usage.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.wiz.io/blog/from-phishing-to-llmjacking",
+            "source": "Wiz"
+          }
+        ]
+      }
+    ],
+    "trend_note": "Most of this is recent: 14 of these 19 items are dated within the last 48 hours, and the same two themes recur: attackers running agentic AI at machine speed (ARTEX, CARLIY0S, Phantom) and stealing AI provider keys, with Railway and OpenCode both citing model distillation. Not yet tracked here: Xinference CVE-2026-112051 (Windows path traversal, no fixed release, no exploitation reported)."
+  }
 }

@@ -91,7 +91,28 @@ if the file is absent the tab shows a friendly "summary pending" message. Schema
         "ai_note": "short why-the-AI-angle"
       }],
       "news":  [{"title": "", "source": "", "url": "", "blurb": ""}],
-      "watch": ["short strings"]
+      "watch": ["short strings"],
+      "ai_activity": {                               // ALWAYS present: roll-up of ALL AI-related exploit/attack activity, last 7 days, newest first
+        "overview": "2-4 sentences",
+        "counts": {"ai_cause": 0, "ai_product_exploited": 0, "ai_impact": 0},   // = number of items per group
+        "groups": [{"label": "AI as the cause" | "AI products being exploited" | "AI impact / AI keys & infrastructure",
+                    "items": [{"title": "", "date": "ISO UTC", "summary": "", "status": "exploited|reported|unverified|patched",
+                               "cves": ["CVE-..."], "url": "https://...", "source": ""}]}],
+        "trend_note": "1-2 sentences"
+      }
     }
 
 CVE ids in a focus card filter the Vulnerabilities tab when the record is in the feed (plus an NVD link), otherwise link to NVD.
+
+### `ai_activity` roll-up (always present, right below the AI angle section)
+Rendered as a prominent section with collapsible groups, status badges (EXPLOITED / REPORTED / PATCHED / **UNVERIFIED**, the last also dashed-bordered with a warning line) and links.
+It is **not** limited to the focus list: it must list every AI-flagged exploit/attack item from `data.json` (`ai_angle` set and `exploited`, or chatter tagged AI cause / incident) plus
+anything already in the previous summary. Verify each item against the data/sources, never invent facts, and label single-source or X/Reddit claims `unverified`.
+`python3 make_ai_activity.py` prints a first-draft block from `docs/data.json` (`--merge` writes it into `summary.json`, `--days N`, `--data path`); it groups, merges topics (`TOPICS`, `TOPIC_GROUP` in the script),
+guesses status and drops obvious noise. It is only a draft: the 4-hour routine must edit it by judgment before publishing. If `ai_activity` is missing the page shows a "roll-up pending" placeholder.
+
+### Summary archive ("Previous summaries")
+Every earlier summary is kept in `summary_archive/<updated_at UTC>.json` (e.g. `2026-10-23T1641Z.json`); nothing is ever trimmed.
+**The 4-hour summary routine MUST run `python3 archive_summary.py` BEFORE overwriting `summary.json`** (it copies the current `summary.json` into the archive if its `updated_at` is not archived yet; `--backfill` also recovers older committed versions from git history), then write the new `summary.json`, then build and commit `summary_archive/` together with `summary.json`.
+`build.py` reads the archive (newest first, excluding the current summary), writes `docs/summary_archive.json`, and inlines the entries into the page only while they fit in ~150 KB; beyond that the page lazy-loads `summary_archive.json` when the section scrolls into view.
+The bottom of the Summary tab shows "Previous summaries" paginated (50 collapsed entries per page, Previous/Next, "Page X of Y"); each entry is headed by its time in New York time and UTC and expands to the headline, AI headline, `ai_activity`, focus, news and watch list in compact form.

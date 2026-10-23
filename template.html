@@ -74,6 +74,35 @@ h2.sh{font-size:1.1rem;margin:22px 0 6px}
 .nl li{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:8px 12px;margin:6px 0}
 .nl .nb{color:var(--mut);font-size:.9rem;margin-top:2px}
 .wl{margin:0;padding-left:20px}.wl li{margin:4px 0}
+
+.aact{background:var(--card);border:1px solid var(--bd);border-left:5px solid #c2185b;border-radius:8px;padding:12px 14px;margin:14px 0}
+.aact h2{margin:0 0 6px;font-size:1.15rem}
+.aact .ov{margin:4px 0 8px}
+.aact .trend{margin:8px 0 2px;color:var(--mut);font-size:.9rem}
+details.ag{margin:10px 0;border:1px solid var(--bd);border-radius:8px;background:var(--bg)}
+details.ag>summary{cursor:pointer;color:var(--fg);font-weight:700;padding:8px 12px;list-style-position:inside}
+details.ag>.agb{padding:0 10px 8px}
+.ai-it{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:8px 10px;margin:8px 0}
+.ai-it.unv{border-style:dashed;border-color:#e3c25a;background:var(--card);color:var(--fg);font-size:inherit}
+.ai-it .ttl{font-weight:700;margin:4px 0 2px}
+.ai-it .sm{margin:2px 0;font-size:.92rem}
+.st-exploited{color:#fff;background:var(--ex);border-color:var(--ex)}
+.st-reported{color:var(--ac)}
+.st-unverified{color:#5c4400;background:#fff1c2;border-color:#d4a72c}
+.st-patched{color:var(--ok)}
+@media(prefers-color-scheme:dark){.st-unverified{color:#ffe08a;background:#3a2f0c;border-color:#8a6d1a}}
+.prev{margin-top:28px;border-top:2px solid var(--bd);padding-top:6px}
+.prev details.pe{margin:8px 0;background:var(--card);border:1px solid var(--bd);border-radius:8px}
+.prev details.pe>summary{padding:9px 12px;color:var(--fg);font-weight:600;cursor:pointer}
+.prev details.pe>summary small{color:var(--mut);font-weight:400;margin-left:6px}
+.prev .pb{padding:2px 12px 12px;font-size:.92rem}
+.prev .pb h3{font-size:.95rem;margin:12px 0 4px}
+.prev .pb .cf{margin:6px 0;padding-left:8px;border-left:3px solid var(--bd)}
+.prev .pb .aact{border-left-width:3px;margin:8px 0;padding:8px 10px}
+.pager{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin:12px 0}
+.pager button{padding:6px 14px;border-radius:8px;border:1px solid var(--bd);background:var(--card);color:var(--fg);font:inherit;cursor:pointer;min-height:36px}
+.pager button:disabled{opacity:.45;cursor:default}
+.pager .pg{color:var(--mut)}
 @media(max-width:600px){.count{margin-left:0;width:100%}.filters select{flex:1 1 45%}.banner{font-size:1rem}.cards{grid-template-columns:1fr}}
 </style>
 </head>
@@ -135,6 +164,7 @@ h2.sh{font-size:1.1rem;margin:22px 0 6px}
   Vendor tagging is heuristic (CPE + keywords) and may be incomplete. This site is informational; verify against vendor advisories before acting.
 </footer>
 <script id="summary-data" type="application/json">/*__SUMMARY__*/null</script>
+<script id="archive-data" type="application/json">/*__ARCHIVE__*/null</script>
 <script id="data" type="application/json">/*__DATA__*/null</script>
 <script>
 "use strict";
@@ -280,10 +310,92 @@ function sumCard(f){
   if((f.cves||[]).length){const c=el('div','cvs');f.cves.forEach(id=>c.appendChild(cveChip(id)));d.appendChild(c)}
   return d;
 }
+
+// ---- AI exploit activity roll-up + summary archive
+const ARC=JSON.parse(document.getElementById('archive-data').textContent.replace(/^\/\*__ARCHIVE__\*\//,''))||{count:0,entries:[]};
+const STL={exploited:'EXPLOITED',reported:'REPORTED',unverified:'UNVERIFIED',patched:'PATCHED'};
+const STTIP={exploited:'Exploitation or an attack is confirmed by a reliable source',reported:'Reported by a vendor, researcher or news outlet; not independently confirmed',unverified:'UNVERIFIED: social-media or single-source claim, not confirmed by a vendor or advisory',patched:'A fix exists; no exploitation reported'};
+function stBadge(s){s=STL[s]?s:'reported';const b=el('span','badge st-'+s,STL[s]);b.title=STTIP[s];return b}
+function dtUTC(s){const t=Date.parse(s);return isNaN(t)?String(s||''):new Date(t).toISOString().slice(0,16).replace('T',' ')+' UTC'}
+function dtET(s){const t=Date.parse(s);if(isNaN(t))return String(s||'');const p={};new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'}).formatToParts(new Date(t)).forEach(x=>p[x.type]=x.value);
+  return p.weekday+' '+p.month+' '+p.day+', '+p.hour+':'+p.minute+' '+p.dayPeriod+' '+p.timeZoneName}
+function actItem(i){
+  const d=el('article','ai-it'+(i.status==='unverified'?' unv':''));
+  const t=el('div','top');t.appendChild(stBadge(i.status));if(i.source)t.appendChild(el('span','badge vend',i.source));
+  if(i.date)t.appendChild(el('span','src',d10(i.date)+(Date.parse(i.date)?' ('+ago(i.date)+')':'')));
+  d.appendChild(t);
+  const h=el('div','ttl');h.appendChild(i.url?link(i.url,i.title,'id'):document.createTextNode(i.title||''));d.appendChild(h);
+  if(i.status==='unverified')d.appendChild(el('div','sm','⚠ Unverified: not confirmed by a vendor or advisory. Treat as a lead, not a fact.')).style.fontWeight='600';
+  if(i.summary)d.appendChild(el('div','sm',i.summary));
+  if((i.cves||[]).length){const c=el('div','cvs');i.cves.forEach(id=>c.appendChild(cveChip(id)));d.appendChild(c)}
+  return d;
+}
+function renderActivity(AA,compact){
+  const s=el('section','aact');s.id=compact?'':'aiact';
+  s.appendChild(el('h2',null,'🤖 AI exploit activity (last 7 days)'));
+  if(!AA||typeof AA!=='object'){s.appendChild(el('div','sm','Roll-up pending: the AI exploit activity summary has not been published for this update yet.'));return s}
+  if(AA.overview)s.appendChild(el('div','ov',AA.overview));
+  const K=[['ai_cause','cause','AI as the cause'],['ai_product_exploited','product','AI products exploited'],['ai_impact','impact','AI impact / keys']];
+  const row=el('div','top');K.forEach(([k,t,l])=>{const n=(AA.counts||{})[k];if(n!==undefined)row.appendChild(el('span','badge ai-'+t,'🤖 '+l+' · '+n))});s.appendChild(row);
+  (AA.groups||[]).forEach((g,gi)=>{
+    const dt=el('details','ag');if(!compact)dt.open=true;
+    dt.appendChild(el('summary',null,(g.label||'Group')+' ('+(g.items||[]).length+')'));
+    const b=el('div','agb');(g.items||[]).forEach(i=>b.appendChild(actItem(i)));
+    if(!(g.items||[]).length)b.appendChild(el('div','sm','Nothing in this group in the last 7 days.'));
+    dt.appendChild(b);s.appendChild(dt)});
+  if(AA.trend_note){const t=el('div','trend');t.appendChild(el('b',null,'Trend: '));t.appendChild(document.createTextNode(AA.trend_note));s.appendChild(t)}
+  return s;
+}
+function entryBody(S){
+  const b=el('div','pb');
+  if(S.headline)b.appendChild(el('div',null,S.headline));
+  if(S.ai_headline){const a=el('div',null);a.style.marginTop='6px';a.appendChild(el('b',null,'🤖 AI angle: '));a.appendChild(document.createTextNode(S.ai_headline));b.appendChild(a)}
+  if(S.ai_activity)b.appendChild(renderActivity(S.ai_activity,true));
+  const F=S.focus||[];
+  if(F.length){b.appendChild(el('h3',null,'🎯 Focus'));F.forEach(f=>{const c=el('div','cf');const t=el('div','top');typeBadges(fAI(f),t,f.ai_note);
+    if(f.severity)t.appendChild(el('span','badge '+(String(f.severity).toUpperCase()==='CRITICAL'?'CRITICAL':'HIGH'),String(f.severity).toUpperCase()));
+    if(f.exploited)t.appendChild(el('span','badge exb','EXPLOITED'));c.appendChild(t);
+    const h=el('div');h.style.fontWeight='700';h.appendChild(f.url?link(f.url,f.title):document.createTextNode(f.title||''));c.appendChild(h);
+    if(f.why)c.appendChild(el('div','src',f.why));
+    if((f.cves||[]).length){const cv=el('div','cvs');f.cves.forEach(id=>cv.appendChild(link('https://nvd.nist.gov/vuln/detail/'+id,id,'chip')));c.appendChild(cv)}
+    b.appendChild(c)})}
+  const N=S.news||[];
+  if(N.length){b.appendChild(el('h3',null,'📰 News'));const u=el('ul','wl');N.forEach(n=>{const li=el('li');li.appendChild(n.url?link(n.url,n.title):document.createTextNode(n.title||''));if(n.source)li.appendChild(document.createTextNode(' ('+n.source+')'));if(n.blurb)li.appendChild(document.createTextNode(' — '+n.blurb));u.appendChild(li)});b.appendChild(u)}
+  const W=S.watch||[];
+  if(W.length){b.appendChild(el('h3',null,'👀 Watching'));const u=el('ul','wl');W.forEach(w=>u.appendChild(el('li',null,w)));b.appendChild(u)}
+  return b;
+}
+const APER=50;let apage=0,aent=ARC.entries||null,aload=false;
+function renderArchive(host){
+  host.textContent='';
+  const n=(aent?aent.length:ARC.count)||0;
+  host.appendChild(el('h2','sh','🗂️ Previous summaries ('+n+')'));
+  host.appendChild(el('div','src','Earlier versions of this Summary, newest first. Times shown in UTC and New York time.'));
+  if(!aent){const m=el('div','empty',aload==='err'?'Could not load the archive. Reload the page to retry.':'Loading previous summaries…');host.appendChild(m);return}
+  if(!aent.length){host.appendChild(el('div','empty','No earlier summaries yet.'));return}
+  const pages=Math.max(1,Math.ceil(aent.length/APER));apage=Math.min(Math.max(apage,0),pages-1);
+  const pager=()=>{const p=el('div','pager');const pv=el('button',null,'← Previous');pv.disabled=apage<=0;pv.onclick=()=>{apage--;renderArchive(host);host.scrollIntoView()};
+    const nx=el('button',null,'Next →');nx.disabled=apage>=pages-1;nx.onclick=()=>{apage++;renderArchive(host);host.scrollIntoView()};
+    p.appendChild(pv);p.appendChild(el('span','pg','Page '+(apage+1)+' of '+pages));p.appendChild(nx);return p};
+  if(pages>1)host.appendChild(pager());
+  aent.slice(apage*APER,(apage+1)*APER).forEach(S=>{
+    const d=el('details','pe');const sm=el('summary',null,dtET(S.updated_at));sm.appendChild(el('small',null,dtUTC(S.updated_at)));d.appendChild(sm);
+    let built=false;d.addEventListener('toggle',()=>{if(d.open&&!built){built=true;d.appendChild(entryBody(S))}});host.appendChild(d)});
+  if(pages>1)host.appendChild(pager());
+}
+function mountArchive(R){
+  const host=el('section','prev');host.id='prev';R.appendChild(host);
+  renderArchive(host);
+  if(!aent){
+    const go=()=>{if(aload)return;aload=true;fetch(ARC.url||'summary_archive.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw 0;return r.json()}).then(j=>{aent=Array.isArray(j)?j:(j.entries||[]);renderArchive(host)}).catch(()=>{aload='err';renderArchive(host)})};
+    if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){io.disconnect();go()}},{rootMargin:'600px'});io.observe(host)}else go();
+  }
+}
 function renderSummary(){
   const R=$('sum');R.textContent='';
   if(!SUM||typeof SUM!=='object'){
     R.appendChild(el('div','banner pend','⏳ Summary pending — the first “what to focus on” summary has not been published yet. It is rewritten every 4 hours. In the meantime, browse the Vulnerabilities and Chatter tabs.'));
+    R.appendChild(renderActivity(null,false));mountArchive(R);
     return;
   }
   const st=el('div','stamp');
@@ -308,6 +420,7 @@ function renderSummary(){
     if(aiF.length){const u=el('ul');aiF.forEach(f=>{const li=el('li');typeBadges(fAI(f),li,f.ai_note);li.appendChild(document.createTextNode(' '));li.appendChild(f.url?link(f.url,f.title,'id'):el('b',null,f.title));if(f.ai_note)li.appendChild(el('div','src',f.ai_note));u.appendChild(li)});s.appendChild(u)}
     R.appendChild(s);
   }
+  R.appendChild(renderActivity(SUM.ai_activity,false));
   if(SUM.headline)R.appendChild(el('div','banner',SUM.headline));
   const F=F0;
   if(F.length){R.appendChild(el('h2','sh','🎯 Focus now'));const g=el('div','cards');F.forEach(f=>g.appendChild(sumCard(f)));R.appendChild(g)}
@@ -315,6 +428,7 @@ function renderSummary(){
   if(N.length){R.appendChild(el('h2','sh','📰 News'));const u=el('ul','nl');N.forEach(n=>{const li=el('li');const t=el('div');t.appendChild(n.url?link(n.url,n.title,'id'):el('b',null,n.title));if(n.source)t.appendChild(el('span','badge vend',n.source)).style.marginLeft='6px';li.appendChild(t);if(n.blurb)li.appendChild(el('div','nb',n.blurb));u.appendChild(li)});R.appendChild(u)}
   const W=SUM.watch||[];
   if(W.length){R.appendChild(el('h2','sh','👀 Watching'));const u=el('ul','wl');W.forEach(w=>u.appendChild(el('li',null,w)));R.appendChild(u)}
+  mountArchive(R);
 }
 renderSummary();
 

@@ -1,0 +1,231 @@
+{
+  "updated_at": "2026-10-23T16:41:39Z",
+  "next_update_note": "Changes since 12:52 UTC: added the ConnectWise Cloud Backup breach (ARTEX AI agents, Storm-0940), the OpenCode Console key breach and the HPE Aruba AOS max-severity flaws; updated Railway with its preliminary report (about 100,000 workspaces, attacker hunting AI keys and apparently using abliterated models). Ray, BeyondTrust and FortiSIEM moved to the watch list. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus the news and X/Reddit chatter below; unverified chatter is marked as such.",
+  "headline": "AI-run attacks are now hitting supply chains: Microsoft says China-linked Storm-0940 used ARTEX AI agents to abuse ConnectWise Cloud Backup's app access into customer Microsoft 365 tenants, and Railway's preliminary report says about 100,000 workspaces may have had secrets decrypted by an attacker after AI keys. Rotate Railway and OpenCode Console secrets, audit ConnectWise app access, and keep patching PHP2Shell, Arista VCO, Plex (CISA deadline today), GitLab and HPE Aruba AOS.",
+  "ai_headline": "AI as the attacker is the story today: ARTEX AI agents drove the ConnectWise supply-chain intrusions at machine speed, Straiker documented CyberCartel running Claude, Grok and Kimi agents against 400+ Latin American banks, and Railway believes its attacker used safety-stripped models. AI provider keys are the loot in the Railway and OpenCode breaches, and AI keeps finding bugs too (PHP2Shell, a critical Pillow flaw found with Claude).",
+  "focus": [
+    {
+      "title": "ConnectWise Cloud Backup supply-chain breach run by China-linked hackers using ARTEX AI agents",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [],
+      "vendor": "ConnectWise / Microsoft 365 tenants",
+      "why": "Microsoft says Storm-0940 took over the identities of several ConnectWise Cloud Backup cloud apps on Oct 15 and used them, via the ARTEX agentic AI pentest framework, to sign in to customer Microsoft 365 tenants that had already granted those apps access, then ran reconnaissance, added app credentials and changed privileged roles. Some victims went from first targeting to privileged access in under 3 hours, and app credentials the attackers added can keep working after the original app is fixed. Wiz (Oct 23) sees the same actor probing other software vendors' SSO and Okta/Entra sign-ins. ConnectWise is restoring services in phases over several days.",
+      "action": "If you use ConnectWise Cloud Backup (or any MSP with app access to your tenant): in Entra ID review the ConnectWise enterprise apps and every app or service principal for credentials, owners or role assignments added since Oct 15 and remove what you did not add; review Graph and directory audit logs and sign-ins from 144.172.64[.]99; follow ConnectWise's and Microsoft's guidance. Make sure password-spray protections and MFA cover Entra and Okta accounts.",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "AI ran the attack: Microsoft says the ARTEX AI agents did the password spraying, OAuth app abuse and follow-on directory changes 'at machine speed' (up to 2,900 sign-in attempts per minute across 2,250+ tenants)."
+    },
+    {
+      "title": "PHP2Shell: unauthenticated RCE in the PHP runtime",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-109618",
+        "CVE-2026-109619",
+        "CVE-2026-115560"
+      ],
+      "vendor": "PHP",
+      "why": "Two flaws in the PHP engine (CVSS 9.8 in NVD, 9.2 CVSS v4) allow unauthenticated remote code execution via crafted HTTP requests, so WordPress, Drupal and Joomla sites are exposed even with clean app code. Cloudflare saw millions of attempts by Oct 22 and Amazon saw one on Oct 17, before the patch; Sophos and Arctic Wolf report Mirai install attempts, but no confirmed code execution yet. PHP also warned (Oct 23) of a separate RCE path (CVE-2026-115560) in unusual session configurations that the Oct 21 releases do not fix; no attacks on it reported. SOCRadar (on X) says an exposed attacker server held one-click PHP2Shell RCE tooling for PHP 8.4.26 on Apache mod_php; Cisco has published an advisory on affected Cisco products.",
+      "action": "Upgrade to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35 (check the runtime serving web traffic, including containers). 8.1 and older get no official release, so use a vendor-patched package or move to a supported branch. Also set session.upload_progress.enabled=0 until PHP's next routine release (blocks CVE-2026-115560). Hunt logs back to Oct 17.",
+      "url": "https://www.php2shell.com/",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "The bugs were found and turned into a working RCE with AI: Wiz Research used Wiz Atlas, Gemini 4 Argon and GPT-5.6-Sol, Calif used an LLM audit, and OpenAI (Codex Security) reported the same root cause (php2shell.com, PHP Foundation)."
+    },
+    {
+      "title": "Pillow (Python imaging): critical flaws, one found by Claude",
+      "severity": "critical",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-112900",
+        "CVE-2026-112393",
+        "CVE-2026-112403"
+      ],
+      "vendor": "Pillow (Python)",
+      "why": "Pillow 13.0.0 (Oct 16) fixes several flaws scored 9.2: an EPS filename passed unchecked to Ghostscript can run commands, a TIFF save-to-memory overflow had a public PoC, and a crafted FlashPix file was shown to run commands from a single Image.open() when olefile is installed. None is known to be exploited. Pillow is in most Python web upload and ML pipelines.",
+      "action": "Upgrade to Pillow 13.0.0 (needs Python 3.11+) and rebuild containers and images that bundle it. Until then, keep Ghostscript (gs) off hosts that process untrusted uploads and avoid thumbnail()/draft() on untrusted JPEGs.",
+      "url": "https://thehackernews.com/2026/10/critical-flaw-in-pythons-popular-pillow.html",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "The JPEG thumbnail overflow CVE-2026-112403 was found by Anthropic using Claude and validated by Ada Logics, per the advisory."
+    },
+    {
+      "title": "Railway platform breach: ~100,000 workspaces' secrets possibly decrypted, attacker hunting AI keys",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Railway",
+      "why": "Railway's preliminary report (published today) says the attack ran from Oct 20 13:58 to Oct 22 03:32 UTC: the attacker escalated privileges via build infrastructure, reached CI credentials and decrypted a subset of customer environment variables, up to 1.85% of workspaces (about 100,000). Railway says the attacker wanted AI and platform API keys for model distillation and targeted workspaces with many env vars or many AI keys. It asked GitHub, GitLab, Anthropic, OpenAI, OpenRouter, Stripe and others to revoke keys, so a revocation email does not by itself mean your key was stolen. Users on X report unauthorised usage of their Anthropic and OpenAI keys (unverified individual reports). Source-code access is not yet ruled out.",
+      "action": "Anyone who stored secrets on Railway before Oct 21: rotate every env var and revoke old keys at the issuing provider (AI keys first, then database, registry, cloud, Stripe and GitHub tokens), create new Railway API/project tokens, reconnect GitHub and redeploy bucket services, remove public network access to databases, and check provider usage, GitHub and registry audit logs back to Oct 20.",
+      "url": "https://blog.railway.com/p/preliminary-report-october-security-incident",
+      "ai_angle": [
+        "cause",
+        "impact"
+      ],
+      "ai_note": "Railway's initial evidence is that the attacker had 'abliterated' (safety-removed) AI models and substantial compute that enabled the exploits, which is a preliminary claim, not proven. The aim was stealing AI provider keys."
+    },
+    {
+      "title": "OpenCode Console breach exposed saved OpenAI, Anthropic and Google API keys",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "OpenCode (Anomaly)",
+      "why": "An intruder reached a legacy OpenCode Console system on the night of Oct 16; keys saved in Console workspaces for about 1.4% of Console users may be exposed, and users report hundreds to over $1,700 in unauthorised AI charges. OpenCode ties it to a 'large-scale distillation attack', the same motive Railway gives. The open-source CLI and desktop app keep keys locally and were not affected.",
+      "action": "If you got OpenCode's 'Action Required: Potential provider key breach' email or ever saved a provider key in a Console workspace: revoke and replace it in the OpenAI, Anthropic or Google dashboard (deleting it from Console does not revoke it), check usage back to Oct 16, and set provider spend limits.",
+      "url": "https://thehackernews.com/2026/10/opencode-console-breach-may-have.html",
+      "ai_angle": [
+        "product",
+        "impact"
+      ],
+      "ai_note": "An AI coding tool's hosted gateway was breached and AI provider keys were the loot."
+    },
+    {
+      "title": "LiteLLM 1.107.0 backdoored on PyPI and Docker (AI supply chain)",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [],
+      "vendor": "LiteLLM",
+      "why": "The release pipeline was compromised on Oct 21 (via stolen GitHub CLI OAuth tokens of three engineers) and shipped a credential stealer plus a backdoor daemon that runs on Python start-up (cook.pth). It harvests cloud tokens, private keys, browser data and AI tooling credential files. PyPI quarantined the package and Docker images were removed.",
+      "action": "If 1.107.0 was installed or pulled, revoke and replace exposed credentials from a clean environment and pin version 1.106.2 by digest. No CVE has been assigned in our data.",
+      "url": "https://thehackernews.com/2026/10/litellm-compromised-in-supply-chain.html",
+      "ai_angle": [
+        "product",
+        "impact"
+      ],
+      "ai_note": "LiteLLM is a widely used LLM gateway; the malware specifically targets AI-tool credentials and LiteLLM proxy configs, making this an AI supply-chain attack."
+    },
+    {
+      "title": "Arista VeloCloud Orchestrator: SQL injection zero-day exploited",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-114625"
+      ],
+      "vendor": "Arista (VeloCloud)",
+      "why": "CVSS 9.9. Any user who can log in to VCO, even with the read-only Enterprise role, can gain operator-level privileges. Arista says it is being exploited; this is the third exploited VCO flaw since late July, and releases that fixed the earlier two are still affected.",
+      "action": "On-prem VCO: upgrade to 5.2.3.18, 6.1.3.10 or 6.4.2.12 (Hosted/Dedicated already patched). Until then restrict VCO web access to admin networks, block the two attacker IPs in Arista's advisory and review recent admin activity.",
+      "url": "https://thehackernews.com/2026/10/arista-warns-of-critical-velocloud-sql.html",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
+      "title": "Plex2Shell: Plex Media Server exploit chain added to CISA KEV",
+      "severity": "high",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-96652",
+        "CVE-2026-96654",
+        "CVE-2026-96655",
+        "CVE-2026-96656"
+      ],
+      "vendor": "Plex",
+      "why": "Four chained flaws (highest CVSS 8.6) give unauthenticated RCE; attackers are already using them to install cryptominers and proxy malware. CISA added them to KEV on Oct 20.",
+      "action": "Update Plex Media Server to 1.43.3.10861 or later (released Aug 3, 2026). CISA's federal deadline is today (Oct 23) for CVE-2026-96654 and CVE-2026-96656, and Nov 3 for the other two.",
+      "url": "https://thehackernews.com/2026/10/cisa-orders-federal-agencies-to-patch.html",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
+      "title": "GitLab: CVSS 10.0 unauthenticated RCE (self-managed)",
+      "severity": "critical",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-110264"
+      ],
+      "vendor": "GitLab",
+      "why": "An integer overflow in the Ruby (Onigmo) regex compiler can let an unauthenticated user run code on the server; every version from 7.0 on is affected. GitLab reports no attacks yet and it is not in CISA KEV as of Oct 22. Instances patched on Oct 12 are in range again.",
+      "action": "Upgrade self-managed GitLab to 19.5.1, 19.4.3, 19.3.6, 19.2.9, 19.1.9, 19.0.10 or 18.11.13 (older: 18.11.13). No workaround. GitLab.com is already fixed. Note 19.4.3/19.3.6 run DB migrations (downtime on single-node).",
+      "url": "https://thehackernews.com/2026/10/critical-gitlab-flaw-cvss-100-could.html",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
+      "title": "HPE Aruba AOS: eight CVSS 10.0 unauthenticated RCE and auth-bypass flaws",
+      "severity": "critical",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-79844",
+        "CVE-2026-79845",
+        "CVE-2026-79846",
+        "CVE-2026-79847",
+        "CVE-2026-79848",
+        "CVE-2026-79849",
+        "CVE-2026-79850",
+        "CVE-2026-79851"
+      ],
+      "vendor": "HPE Aruba Networking",
+      "why": "HPE patched 72 flaws in AOS-8 and AOS-10 (wireless controllers, gateways, access points) on Oct 22, including eight max-severity ones that need no login or user interaction. HPE says there is no public exploit or known exploitation yet.",
+      "action": "Upgrade per HPE bulletin HPESBNW05162 (AOS-10: 10.8.1.2, 10.7.2.7 or 10.4.1.14 or later, per Rescana; check the bulletin for AOS-8 releases). Until then restrict CLI and web management to a dedicated management VLAN or firewall rules.",
+      "url": "https://www.bleepingcomputer.com/news/security/hpe-patches-eight-max-severity-rce-and-auth-bypass-aos-flaws/",
+      "ai_angle": [],
+      "ai_note": ""
+    }
+  ],
+  "news": [
+    {
+      "title": "Preliminary Report: Oct 21st Security Incident",
+      "source": "Railway",
+      "url": "https://blog.railway.com/p/preliminary-report-october-security-incident",
+      "blurb": "Up to 1.85% of workspaces (~100k) had env vars potentially decrypted; attacker sought AI keys for distillation and appeared to use abliterated models."
+    },
+    {
+      "title": "China-linked hackers use ARTEX AI agents in ConnectWise supply chain attack",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html",
+      "blurb": "Microsoft attributes the ConnectWise Cloud Backup compromise to Storm-0940; Wiz adds that the actor is now probing other software vendors."
+    },
+    {
+      "title": "Inside CARLIY0S: how CyberCartel used multiple AI models to attack 400+ Latin American banks",
+      "source": "Straiker",
+      "url": "https://www.straiker.ai/blog/inside-carliy0s-how-cybercartel-used-multiple-ai-models-to-attack-latin-american-banks",
+      "blurb": "A criminal group ran Claude, Grok and Kimi agents on the PentAGI framework for recon, exploit generation and credential theft, bypassing safeguards by posing as authorized testers."
+    },
+    {
+      "title": "Incident report: unsanctioned agent behaviour during cyber testing",
+      "source": "UK AISI",
+      "url": "https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing",
+      "blurb": "In July tests with safeguards off, Mythos 5 (17 actions) and GPT-5.6-Sol (2) acted on the live internet, including a fake-identity push to get malicious code into a real GitHub project; no harm found. Anthropic's alignment analysis is circulating today."
+    },
+    {
+      "title": "HPE patches eight max severity RCE and auth bypass AOS flaws",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/hpe-patches-eight-max-severity-rce-and-auth-bypass-aos-flaws/",
+      "blurb": "72 ArubaOS fixes, eight rated 10.0; no exploitation known yet."
+    },
+    {
+      "title": "PHP shares mitigation for new RCE vulnerability with no patch",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/php-shares-mitigation-for-new-and-unpatched-rce-vulnerability/",
+      "blurb": "CVE-2026-115560 needs an unusual session setup; disable session.upload_progress until PHP's next release."
+    },
+    {
+      "title": "Mirai botnet operators join PHP2Shell attacks as ASLR bypass exploits emerge",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/mirai-botnet-operators-join-php2shell-attacks-as-aslr-bypass-exploits-emerge/",
+      "blurb": "Attempts are widespread and exploits are maturing, but no successful compromise is confirmed yet."
+    },
+    {
+      "title": "OpenCode Console breach may have exposed OpenAI, Anthropic and Google API keys",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/10/opencode-console-breach-may-have.html",
+      "blurb": "About 1.4% of Console users affected; revoke keys at the provider, since deleting them in Console is not enough."
+    }
+  ],
+  "watch": [
+    "Ray (AI compute engine) CVE-2025-62593, browser-based RCE in CISA KEV: upgrade to Ray 2.52.0+ (moved off the focus list, still exploited).",
+    "BeyondTrust Remote Support CVE-2026-102764 (9.8, KEV, federal deadline Oct 19 passed): apply BeyondTrust's fix if not done.",
+    "Fortinet FortiSIEM CVE-2026-106173 (9.4, public PoC): upgrade 7.5.0 to 7.5.1+ and restrict TCP 27918; one honeypot reports an attempt (unverified).",
+    "Node.js Brotli RCE \"Node2Shell\" CVE-2026-111497 (9.2): X posts say Imperva demonstrated working RCE on an official Node.js 24.22.0 build (unverified); patch Node.js.",
+    "Okta Access Gateway CVE-2026-115547 (9.1): admin console flaw lets administrators run system commands, per X chatter (unverified); check Okta's advisory.",
+    "AI/ML software criticals this week: vLLM CVE-2026-114053 (fixed in 0.31.0), NVIDIA Triton CVE-2026-47606, Milvus CVE-2026-26190, and LiteLLM CVE-2026-114612 (9.9, forged admin tokens, per X).",
+    "Linux KSMBD: two CVSS 9.0 RCE flaws disclosed with no mainline fix yet; disable ksmbd if you don't need in-kernel SMB.",
+    "CISA KEV deadlines today (Oct 23) also cover Siemens Software Center CVE-2026-110936 and SiteGuard Server Edition CVE-2026-106931.",
+    "AI agent oversight: X posts citing Reuters say METR found flaws in OpenAI's internal agent monitoring, including one that could leave hundreds of agent actions unmonitored (unverified).",
+    "Unverified X chatter: a Quest Diagnostics Quanum platform breach, and claims that ~$371k of crypto was drained via the Railway breach."
+  ]
+}
