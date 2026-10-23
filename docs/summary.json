@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-23T10:56:00Z",
-  "next_update_note": "Next summary expected within about 4 hours. Compiled by hand from the feed's NVD/CISA KEV data plus the news and X/Reddit chatter below; unverified chatter is marked as such.",
-  "headline": "PHP2Shell (unauthenticated RCE in PHP itself) is under broad scan/exploit attempts, and Arista VeloCloud Orchestrator has a third exploited zero-day in four months. Patch PHP, VCO, Plex and BeyondTrust first, then GitLab, FortiSIEM, Node.js and Laravel.",
+  "updated_at": "2026-10-23T12:50:00Z",
+  "next_update_note": "Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus the news and X/Reddit chatter below; unverified chatter is marked as such. Changes since 10:56 UTC: PHP confirmed a separate unpatched RCE path (CVE-2026-115560, mitigation only), Pillow 13.0.0 criticals (one found with Claude) added as a focus item, Laravel moved to the watch list.",
+  "headline": "PHP2Shell (unauthenticated RCE in PHP itself) is still drawing millions of exploit attempts, and PHP now warns of a separate, unpatched RCE path that needs a one-line config change. Patch PHP, Arista VCO, Plex (CISA deadline today for two CVEs) and BeyondTrust first, then GitLab, FortiSIEM, Node.js and Pillow.",
   "focus": [
     {
       "title": "PHP2Shell: unauthenticated RCE in the PHP runtime",
@@ -9,16 +9,35 @@
       "exploited": true,
       "cves": [
         "CVE-2026-109618",
-        "CVE-2026-109619"
+        "CVE-2026-109619",
+        "CVE-2026-115560"
       ],
       "vendor": "PHP",
-      "why": "Two flaws in the PHP engine (CVSS 9.8 in NVD, 9.2 CVSS v4) allow unauthenticated remote code execution via crafted HTTP requests, so WordPress, Drupal and Joomla sites are exposed even with clean app code. Cloudflare saw millions of exploit attempts by early Oct 22; Amazon saw a first attempt on Oct 17, four days before the patch. Public PoCs exist, but several honeypot operators report no confirmed successful RCE yet, and the pair is not in the CISA KEV data this feed pulls.",
-      "action": "Upgrade to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35 (check the runtime serving web traffic, including containers; php -v may only show the CLI). For 7.4, 8.0 and 8.1 the PHP security team provided source backports, so use your vendor's patched package or move to a supported branch. Hunt logs back to Oct 17.",
+      "why": "Two flaws in the PHP engine (CVSS 9.8 in NVD, 9.2 CVSS v4) allow unauthenticated remote code execution via crafted HTTP requests, so WordPress, Drupal and Joomla sites are exposed even with clean app code. Cloudflare saw millions of attempts by Oct 22 and Amazon saw one on Oct 17, before the patch; Sophos and Arctic Wolf report Mirai install attempts, but no confirmed code execution yet. New today: PHP warned of a separate RCE path (CVE-2026-115560) in unusual session configurations that the Oct 21 releases do not fix; no attacks on it reported.",
+      "action": "Upgrade to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35 (check the runtime serving web traffic, including containers). 8.1 and older get no official release, so use a vendor-patched package or move to a supported branch. Also set session.upload_progress.enabled=0 until PHP's next routine release (blocks CVE-2026-115560). Hunt logs back to Oct 17.",
       "url": "https://www.php2shell.com/",
       "ai_angle": [
         "cause"
       ],
       "ai_note": "The bugs were found and turned into a working RCE with AI: Wiz Research used Wiz Atlas, Gemini 4 Argon and GPT-5.6-Sol, Calif used an LLM audit, and OpenAI (Codex Security) reported the same root cause (php2shell.com, PHP Foundation)."
+    },
+    {
+      "title": "Pillow (Python imaging): critical flaws, one found by Claude",
+      "severity": "critical",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-112900",
+        "CVE-2026-112393",
+        "CVE-2026-112403"
+      ],
+      "vendor": "Pillow (Python)",
+      "why": "Pillow 13.0.0 (Oct 16) fixes several flaws scored 9.2: an EPS filename passed unchecked to Ghostscript can run commands, a TIFF save-to-memory overflow had a public PoC, and a crafted FlashPix file was shown to run commands from a single Image.open() when olefile is installed. None is known to be exploited. Pillow is in most Python web upload and ML pipelines.",
+      "action": "Upgrade to Pillow 13.0.0 (needs Python 3.11+) and rebuild containers and images that bundle it. Until then, keep Ghostscript (gs) off hosts that process untrusted uploads and avoid thumbnail()/draft() on untrusted JPEGs.",
+      "url": "https://thehackernews.com/2026/10/critical-flaw-in-pythons-popular-pillow.html",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "The JPEG thumbnail overflow CVE-2026-112403 was found by Anthropic using Claude and validated by Ada Logics, per the advisory."
     },
     {
       "title": "Ray (AI compute engine): browser-based RCE exploited, in CISA KEV",
@@ -77,7 +96,7 @@
       ],
       "vendor": "Plex",
       "why": "Four chained flaws (highest CVSS 8.6) give unauthenticated RCE; attackers are already using them to install cryptominers and proxy malware. CISA added them to KEV on Oct 20.",
-      "action": "Update Plex Media Server to 1.43.3.10861 or later (released Aug 3, 2026). CISA's federal deadline is Oct 23 for CVE-2026-96654 and CVE-2026-96656, Nov 3 for the other two.",
+      "action": "Update Plex Media Server to 1.43.3.10861 or later (released Aug 3, 2026). CISA's federal deadline is today (Oct 23) for CVE-2026-96654 and CVE-2026-96656, Nov 3 for the other two.",
       "url": "https://thehackernews.com/2026/10/cisa-orders-federal-agencies-to-patch.html",
       "ai_angle": [],
       "ai_note": ""
@@ -90,7 +109,7 @@
         "CVE-2026-102764"
       ],
       "vendor": "BeyondTrust",
-      "why": "CVSS 9.8. The product's internal components did not validate the origin of messages they received, which could let an attacker perform file operations on the appliance. CISA added it to KEV on Oct 16.",
+      "why": "CVSS 9.8. The product's internal components did not validate the origin of messages they received, which could let an attacker perform file operations on the appliance. CISA added it to KEV on Oct 16. One X post attributes the attacks to the espionage group UNC5221 (unverified).",
       "action": "Apply BeyondTrust's fix per its advisory (no fixed version is stated in the feed data). CISA's deadline for federal agencies was Oct 19, so treat as overdue.",
       "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2026-102764",
       "ai_angle": [],
@@ -137,23 +156,21 @@
       "url": "https://thehackernews.com/2026/10/researchers-demonstrate-node2shell-rce.html",
       "ai_angle": [],
       "ai_note": ""
-    },
-    {
-      "title": "Laravel TokenGuard: API authentication bypass",
-      "severity": "critical",
-      "exploited": false,
-      "cves": [
-        "CVE-2026-114509"
-      ],
-      "vendor": "Laravel",
-      "why": "CVSS 9.2. On MySQL/MariaDB, a crafted non-string credential can match another user's record, letting an unauthenticated attacker authenticate as an existing user on any route using the TokenGuard.",
-      "action": "Upgrade Laravel to 13.29.0 or 12.68.0.",
-      "url": "https://thehackernews.com/2026/10/threatsday-ai-secrets-leak-pingcap.html",
-      "ai_angle": [],
-      "ai_note": ""
     }
   ],
   "news": [
+    {
+      "title": "PHP warns of another unpatched RCE two days after emergency PHP2Shell patches",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/10/urgent-php-warns-of-another-unpatched.html",
+      "blurb": "CVE-2026-115560 only hits apps that switch the session serializer at runtime; PHP recommends session.upload_progress.enabled=0 until its next routine release."
+    },
+    {
+      "title": "Critical flaw in Python's popular Pillow image library allows code execution via a crafted image",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/10/critical-flaw-in-pythons-popular-pillow.html",
+      "blurb": "Pillow 13.0.0 fixes EPS, TIFF and JPEG flaws scored 9.2; one was found by Anthropic using Claude."
+    },
     {
       "title": "Amazon says PHP2Shell exploitation began 4 days before patches",
       "source": "BleepingComputer",
@@ -167,22 +184,16 @@
       "blurb": "Mostly scanning and failed payload delivery so far; VulnCheck says it built an ASLR-bypass exploit for production configs, so the barrier is falling."
     },
     {
+      "title": "Attackers exploit third VeloCloud Orchestrator zero-day in four months",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/attackers-exploit-third-velocloud-orchestrator-zero-day-in-four-months/",
+      "blurb": "Arista's CVE-2026-114625 SQL injection lets any logged-in VCO user escalate to operator; on-prem fixes are out."
+    },
+    {
       "title": "Qilin and INC ransomware groups exploit Palo Alto Networks flaw to bypass MFA",
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/10/qilin-and-inc-ransomware-groups-exploit.html",
       "blurb": "CVE-2026-0257 (CVSS 7.8) in PAN-OS and Prisma Access, patched in May 2026, is still being exploited to set up unauthorized VPN connections."
-    },
-    {
-      "title": "Popular WordPress SEO plugin Rank Math PRO hijacked to deliver self-restoring backdoor",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/10/popular-wordpress-seo-plugin-rank-math.html",
-      "blurb": "Copies downloaded or updated between 20:02 UTC Oct 15 and 07:12 UTC Oct 16 contained malware; treat those sites as compromised."
-    },
-    {
-      "title": "Critical x402 SDK flaw could let malicious APIs drain AI agents' token balances",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/10/critical-x402-sdk-flaw-could-let.html",
-      "blurb": "V12 says the SDKs' default client set no spending limit until releases on Aug 18 added one, so auto-signing agents could be drained."
     },
     {
       "title": "OpenCode flaw lets malicious MCP servers execute code during sign-in on Windows and WSL",
@@ -198,12 +209,13 @@
     }
   ],
   "watch": [
+    "Laravel TokenGuard CVE-2026-114509 (9.2): on MySQL/MariaDB a crafted non-string credential can authenticate as another user; upgrade to Laravel 13.29.0 or 12.68.0.",
     "AI/ML software criticals this week: vLLM CVE-2026-114053 (9.2, fixed in 0.31.0; needs trust_remote_code and a malicious model revision), NVIDIA Triton Inference Server CVE-2026-47606 (9.1, path traversal) and Milvus CVE-2026-26190 (9.8, unauthenticated metrics-port API).",
-    "CISA KEV also gained Siemens Software Center CVE-2026-110936 (DLL sideloading, used in ClickFix attacks) and SiteGuard Server Edition CVE-2026-106931 (OS command injection) on Oct 20; federal deadlines are Oct 23 and Nov 3.",
+    "CISA KEV also gained Siemens Software Center CVE-2026-110936 (DLL sideloading, used in ClickFix attacks) and SiteGuard Server Edition CVE-2026-106931 (OS command injection) on Oct 20; federal deadlines are today (Oct 23) and Nov 3.",
     "Atlassian Data Center products: CVE-2026-21589 (critical 9.3, unauthenticated file access) was added to KEV on Oct 15; Atlassian's October bulletin also lists 176 entries incl. 14 critical in third-party components.",
-    "Linux KSMBD: two CVSS 9.0 RCE flaws (ZDI-CAN-33774, ZDI-CAN-33549) were disclosed on public mailing lists with no mainline kernel fix yet.",
-    "PHP: an X post from @ThePHPF suggests setting session.upload_progress.enabled=0 until the next release to block another unlikely RCE vector (CVE-2026-115560). Unverified chatter.",
-    "Also reported today: Oracle Java CVE-2026-91403 (9.1) alert and Pillow EPS/Ghostscript command execution CVE-2026-112900."
+    "Linux KSMBD: two CVSS 9.0 RCE flaws (ZDI-CAN-33774, ZDI-CAN-33549) were disclosed on public mailing lists with no mainline kernel fix yet; SANS Stormcast covered them today. Disable ksmbd if you don't need in-kernel SMB.",
+    "Oracle Java CVE-2026-91403 (9.1) alert is circulating on X; check Oracle's advisory for affected versions (unverified chatter).",
+    "AI on defence: an X user says Opus 5.5 found and contained an XMRig cryptominer running as root on one of their agent servers (unverified chatter)."
   ],
-  "ai_headline": "AI is on both sides today: PHP2Shell was found and weaponised with frontier-AI help (Wiz Research, Calif, OpenAI), an exploited flaw in the Ray AI compute engine is in CISA KEV, and the LiteLLM LLM-gateway package was backdoored to steal AI-tooling credentials."
+  "ai_headline": "AI keeps finding the bugs: PHP2Shell was found and weaponised with frontier-AI help, and one of the new critical Pillow image-library flaws was found by Anthropic using Claude. On the AI-product side, an exploited Ray flaw is in CISA KEV and the backdoored LiteLLM 1.107.0 release steals AI-tooling credentials."
 }
