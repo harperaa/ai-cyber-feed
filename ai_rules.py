@@ -39,6 +39,8 @@ CAUSE = [
     ("AI-powered attack tooling", r"\b(?:" + AI + r"|agentic|autonomous|llm)[- ]?(?:powered|driven|enabled|based)?[- ]?(?:malware|ransomware|attack|hacking|exploit(?:ation)? (?:tool|framework|agent)|offensive|pentest\w*|red[- ]team)\b"),
     ("frontier models used for exploit work", r"\bfrontier (?:ai )?models?\b|\bfull[- ]chain\b" + GAP(60) + r"\b(?:gpt|claude|gemini|llm|ai)\b"),
     ("AI vuln-research programs", r"\b(?:project glasswing|big sleep|codex security|patch the planet|xbow|aixcc|codemender|openai aardvark|mythos preview|vulnerability discovery (?:by|with) ai)\b"),
+    ("AI agent ran the intrusion", r"\b(?:" + AI + r"|llm)[- ]?agents?\b" + GAP(25) + r"\b(?:ran|running|runs|conducted|conducting|performed|performing|carried out|executed|executing)\b" + GAP(20) + r"\b(?:intrusions?|attacks?|breach\w*|hacks?|compromises?|kill[- ]chain)\b"),
+    ("AI coding tool leaked the secret", r"\b(?:claude code|copilot|codex|cursor agent|gemini cli|coding agent)\b" + GAP(30) + r"\b(?:embedded|leaked|exposed|logged|printed|echoed)\b" + GAP(30) + r"\b(?:tokens?|secrets?|credentials?|api keys?)\b"),
     ("vibe-coded / AI-written code flaw", r"\bvibe[- ]?cod\w+|\b(?:" + AI + r"|llm)[- ]generated code\b|\bcode (?:written|generated) by (?:an? )?(?:" + AI + r"|llm|copilot|chatgpt|claude)\b|\bslopsquat\w*|\bhallucinated (?:package|dependenc)\w+"),
 ]
 
