@@ -1,5 +1,46 @@
 [
  {
+  "url": "https://x.com/XavierRiveraX/status/2113712258656137598",
+  "author": "XavierRiveraX",
+  "text": "AWS fixed a validator gap in the run_script tool of its managed AWS MCP Server (CVE-2026-115845). A crafted Python script could run arbitrary code inside the user's own isolated session. Fixed service-side, no action needed.",
+  "created_at": "2026-10-23T19:20:47.000Z",
+  "cves": [
+   "CVE-2026-115845"
+  ]
+ },
+ {
+  "url": "https://x.com/morphisec/status/2113592542671294774",
+  "author": "morphisec",
+  "text": "OpenCode MCP Server RCE: Malicious tool servers execute code on developer Windows machines during sign-in. A critical RCE flaw in OpenCode (versions <=1.18.32) allows a malicious MCP tool server to run PowerShell at OAuth sign-in. Fixed in 1.18.33, no CVE.",
+  "created_at": "2026-10-23T11:25:05.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/infinitelogins/status/2113617357385965628",
+  "author": "infinitelogins",
+  "text": "Johann Rehberger (@wunderwuzzi23) shows how one trailing dot bypassed Copilot's protected-file checks in Visual Studio and SSMS (CVE-2026-103572). Windows treats settings.json. as settings.json, so Copilot could rewrite its own config and point an MCP server at attacker code.",
+  "created_at": "2026-10-23T13:03:41.000Z",
+  "cves": [
+   "CVE-2026-103572"
+  ]
+ },
+ {
+  "url": "https://x.com/ihm185/status/2113555778497831131",
+  "author": "ihm185",
+  "text": "FulcrumSec claims it pulled 10.6 TB out of TiDB Cloud, including 115,308 customer API keys stored in plaintext. The way in, per the writeup: credentials sitting in PingCAP's own repos. Still a claim. If you're a tenant, rotate keys today.",
+  "created_at": "2026-10-23T08:59:00.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/SecWireDaily/status/2113631613103825036",
+  "author": "SecWireDaily",
+  "text": "CRITICAL: Node2Shell (CVE-2026-111497, CVSS 9.2) is an out-of-bounds write in the Brotli decoder bundled with Node.js that can lead to RCE. Imperva ran code on an official Node.js build. No in-the-wild attacks reported yet. Update Node 22, 24 or 26.",
+  "created_at": "2026-10-23T14:00:20.000Z",
+  "cves": [
+   "CVE-2026-111497"
+  ]
+ },
+ {
   "url": "https://x.com/DailyDarkWeb/status/2113365371248144517",
   "author": "DailyDarkWeb",
   "text": "Arista VeloCloud Orchestrator zero-day actively exploited (CVE-2026-114625): SQL injection in on-prem VCO SD-WAN management portal, Security Advisory 0199.",
@@ -53,13 +94,6 @@
   "cves": []
  },
  {
-  "url": "https://x.com/socradar/status/2113665530729214176",
-  "author": "socradar",
-  "text": "Last 24 hours in cyber: actively exploited VeloCloud zero-day, 2 unpatched Linux KSMBD flaws.",
-  "created_at": "2026-10-23T16:15:07Z",
-  "cves": []
- },
- {
   "url": "https://x.com/BytesNora/status/2113491917535072291",
   "author": "BytesNora",
   "text": "Siemens Software Center (CVE-2026-110936) actively exploited.",
@@ -67,13 +101,6 @@
   "cves": [
    "CVE-2026-110936"
   ]
- },
- {
-  "url": "https://x.com/YourAnon_irc/status/2113472765277684087",
-  "author": "YourAnon_irc",
-  "text": "Node.js updates address critical DNS/TLS flaws; PHP RCE zero-days actively exploited.",
-  "created_at": "2026-10-23T03:29:08Z",
-  "cves": []
  },
  {
   "url": "https://x.com/aryaniyaps/status/2113659498619686935",
@@ -143,13 +170,6 @@
   "author": "FpeSre",
   "text": "GhostAction trading GitHub Actions OIDC tokens for AWS roles across roughly 12,000 repositories via a fake font file supply chain attack.",
   "created_at": "2026-10-23T13:40:56Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/AlwinPaldano/status/2113555587648877012",
-  "author": "AlwinPaldano",
-  "text": "8 security incidents in 72 hours: PHP2Shell, GitLab RCE, eMudhra CA keys, LiteLLM supply-chain attack, Plex2Shell, Railway secrets breach, TiDB/PingCAP breach claims, Node.js RCE and TLS bypasses.",
-  "created_at": "2026-10-23T08:58:14Z",
   "cves": []
  },
  {
@@ -233,13 +253,6 @@
   ]
  },
  {
-  "url": "https://x.com/arncof/status/2113455557826818500",
-  "author": "arncof",
-  "text": "PHP and Node.js shipped critical fixes on Oct 21. PHP: unauth RCE, CVSS 9.2. Node: 10 CVEs, one RCE found by AI. NGINX: 5 CVEs.",
-  "created_at": "2026-10-23T02:20:45Z",
-  "cves": []
- },
- {
   "url": "https://x.com/SecurePoint360/status/2113249813508628548",
   "author": "SecurePoint360",
   "text": "Exploitation hits Rejetto HFS vulnerability discovered by AI.",
@@ -265,13 +278,6 @@
   "author": "pepeanalyst",
   "text": "Bitcoin Core is speeding up vulnerability disclosures for security flaws easily found by AI tools, ditching multi-month delays on fix reveals.",
   "created_at": "2026-10-23T14:25:50Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/AIFlow_ML/status/2113409311120724379",
-  "author": "AIFlow_ML",
-  "text": "In 18 days: LiteLLM shipped a stealer, an npm worm hit an AI-agent SDK, GitHub repos got poisoned workflows, a CA had guessable keys, and BIND patched a DNS RCE.",
-  "created_at": "2026-10-22T23:16:59Z",
   "cves": []
  },
  {
