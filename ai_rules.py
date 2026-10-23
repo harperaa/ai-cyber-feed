@@ -44,6 +44,7 @@ CAUSE = [
     ("AI system ran cyberattacks", r"\b(?:" + AI + r"|llm|agentic)[- ]?(?:systems?|tools?|swarms?|agents?)\b" + GAP(40) + r"\b(?:run|ran|runs|launch\w*|conduct\w*|carr(?:y|ied) out)\b" + GAP(15) + r"\b(?:cyber ?-?attacks?|attacks?|intrusions?|hacking campaigns?)\b"),
     ("AI model attacked a real target", r"\b(?:mythos|claude|gpt[- ]?[\w.]*|gemini|model)\b" + GAP(60) + r"\b(?:attack(?:ed|ing)|hack(?:ed|ing)|exploit(?:ed|ing))\b" + GAP(20) + r"\b(?:a )?real\b"),
     ("LLM-assisted vuln (re)discovery", r"\b(?:llm|" + AI + r")\b" + GAP(30) + r"\b(?:techniques?|methods?)\b" + GAP(40) + r"\b(?:discover|rediscover|found|find)\w*\b" + GAP(30) + r"\b(?:vulnerabilit\w+|bugs?|zero[- ]?days?|exploits?)\b"),
+    ("AI model took unsanctioned actions", r"\b(?:mythos|claude|gpt[- ]?[\w.]*|gemini|(?:ai|frontier) models?)\b" + GAP(80) + r"\b(?:unsanctioned|unauthori[sz]ed|out[- ]of[- ]scope)\b" + GAP(15) + r"\b(?:actions?|attacks?|hacking|supply[- ]chain)\b"),
     ("vibe-coded / AI-written code flaw", r"\bvibe[- ]?cod\w+|\b(?:" + AI + r"|llm)[- ]generated code\b|\bcode (?:written|generated) by (?:an? )?(?:" + AI + r"|llm|copilot|chatgpt|claude)\b|\bslopsquat\w*|\bhallucinated (?:package|dependenc)\w+"),
 ]
 
@@ -74,7 +75,7 @@ PRODUCT = [
     ("ML framework/platform", r"\bpytorch\b|\btensorflow\b|\bkeras\b|\bonnx\b|hugging ?face|\bhf hub\b|\btransformers (?:library|v?\d)|\blangchain\b|\blanggraph\b|\blangflow\b|\bflowise\b|\bdify\b|\bmlflow\b|\bkubeflow\b|"
                              r"\bgradio\b|\bcomfy ?ui\b|\bjupyter\w*\b|\bray-project\b|\bray (?:ai|dashboard|cluster|is an)\b|\banyscale\b|\bdeepspeed\b|\bmegatron\b|\bnvidia (?:triton|nemo|aistore|dgx|merlin|cuda toolkit)|"
                              r"\btriton inference\b|\bbentoml\b|\bkserve\b|\bpaddlepaddle\b|\bscikit-learn\b|\bcrewai\b|\bautogen\b|\bsmolagents\b|\bwandb\b|\bweights ?& ?biases\b"),
-    ("MCP / agent tooling", r"\bmcp\b" + GAP(20) + r"\b(?:server|client|tool|sdk|gateway|inspector)s?\b|\bmodel context protocol\b|\bmcp[- ]server|\bmcp\b(?= (?:server|servers))|"
+    ("MCP / agent tooling", r"\bmcp\b" + GAP(20) + r"\b(?:server|client|tool|sdk|gateway|inspector|advisor(?:y|ies)|vulnerabilit(?:y|ies))s?\b|\bmodel context protocol\b|\bmcp[- ]server|\bmcp\b(?= (?:server|servers))|"
                             r"\b" + AI + r"[- ](?:agents?|assistants?|coding|code assistant|copilots?|gateways?|models?|platform|framework|chatbots?|workflows?|apps?|sdk|infrastructure|clusters?)\b|"
                             r"\bagentic\b|\bllm[- ](?:agents?|apps?|applications?|gateways?|proxy|tools?)\b|\bautonomous agents?\b"),
     ("AI assistant/vendor product", r"\bchatgpt\b|\bopenai\b|\banthropic\b|\bclaude(?: code| desktop)?\b|\bgemini (?:cli|code assist|ai)\b|\bgoogle gemini\b|\bgithub copilot\b|\bcopilot (?:studio|chat|agent|for)\b|\bmicrosoft 365 copilot\b|"
