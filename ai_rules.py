@@ -23,7 +23,7 @@ def GAP(n):
 
 
 MODEL = (r"(?:" + AI + r"|llms?|chatgpt|gpt[- ]?[\w.]*|claude|gemini[\w ]{0,12}|codex|copilot|"
-         r"frontier (?:ai )?models?|generative|large language models?|agentic|machine learning)")
+         r"mythos[\w ]{0,4}|frontier (?:ai )?models?|generative|large language models?|agentic|machine learning)")
 
 # ---- cause: AI found the bug / AI-written exploit or code / AI attack tooling --------------------
 CAUSE = [
@@ -33,10 +33,12 @@ CAUSE = [
     ("AI-found vulnerability (reports)", r"\b(?:vulnerabilit\w+|bugs?|flaws?|zero[- ]?days?|exploits?|rce)\b" + GAP(50) + r"\b(?:found|discovered|uncovered|identified|built|developed)\b" + GAP(25) + r""
                                          r"\b(?:by|with|using)\b" + GAP(15) + r"\b" + MODEL + r"\b"),
     ("AI used to find/build vulns", r"\b(?:us(?:e|es|ed|ing)|leverag\w+|with the help of|powered by|thanks to)\b" + GAP(25) + r"\b" + MODEL + r"\b" + GAP(40) + r"\b(?:to (?:find|discover|hunt|uncover|identify|audit|exploit)|to (?:write|build|develop|craft|generate) (?:an? |the )?(?:exploit|poc|malware|ransomware|payload)|throughout|during (?:discovery|exploit)|for (?:discovery|vulnerability|exploit|bug))"),
-    ("AI finds/uncovers vulns", AI + r"[- ](?:agents?|models?|systems?)?\s*(?:uncover|find|discover|hack|hunt|exploit|identif|detect)\w*\b" + GAP(60) + r"\b(?:vulnerabilit\w+|zero[- ]?days?|flaws?|bugs?|rce|cves?)\b"),
+    ("AI finds/uncovers vulns", AI + r"[- ](?:agents?|models?|systems?)?\s*(?:uncover|find|discover|hack|hunt|exploit|identif|detect|caught|catch)\w*\b" + GAP(60) + r"\b(?:vulnerabilit\w+|zero[- ]?days?|flaws?|bugs?|rce|cves?)\b"),
     ("AI-generated exploit/malware", r"\b(?:AI|LLM|llm)[- ](?:generated|written|authored|crafted)\b" + GAP(30) + r"\b(?:exploit|malware|code|payload|poc|ransomware)|"
                                      r"\b(?:exploit|malware|payload|poc|ransomware)\b" + GAP(25) + r"\b(?:generated|written|created|built)\b" + GAP(12) + r"\b(?:by|with|using)\b" + GAP(12) + r"\b" + MODEL + r"\b"),
     ("AI-powered attack tooling", r"\b(?:" + AI + r"|agentic|autonomous|llm)[- ]?(?:powered|driven|enabled|based)?[- ]?(?:malware|ransomware|attack|hacking|exploit(?:ation)? (?:tool|framework|agent)|offensive|pentest\w*|red[- ]team)\b"),
+    ("AI-run attack campaign", r"\b" + MODEL + r"\b" + GAP(25) + r"\b(?:ran|run|runs|conducted|executed|orchestrated|pursued|carried out|automated)\b" + GAP(40) + r"\b(?:campaign|attacks?|intrusions?|espionage|supply[- ]chain attack|breach)\b"),
+    ("attack using AI-assisted tools", r"\b(?:attack\w*|hackers?|group|campaign|intrusions?|targeted|threat actors?)\b" + GAP(80) + r"\b(?:using|with|used)\b" + GAP(10) + AI + r"[- ](?:assisted|powered|driven) (?:tools?|tooling|agents?)\b"),
     ("frontier models used for exploit work", r"\bfrontier (?:ai )?models?\b|\bfull[- ]chain\b" + GAP(60) + r"\b(?:gpt|claude|gemini|llm|ai)\b"),
     ("AI vuln-research programs", r"\b(?:project glasswing|big sleep|codex security|patch the planet|xbow|aixcc|codemender|openai aardvark|mythos preview|vulnerability discovery (?:by|with) ai)\b"),
     ("AI agent ran the intrusion", r"\b(?:" + AI + r"|llm)[- ]?agents?\b" + GAP(25) + r"\b(?:ran|running|runs|conducted|conducting|performed|performing|carried out|executed|executing)\b" + GAP(20) + r"\b(?:intrusions?|attacks?|breach\w*|hacks?|compromises?|kill[- ]chain)\b"),
