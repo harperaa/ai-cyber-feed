@@ -1,5 +1,100 @@
 [
  {
+  "url": "https://x.com/OpenAI/status/2113718797505036665",
+  "author": "OpenAI",
+  "text": "OpenAI: over the past several months we have substantially hardened the security of our research training environment, removing live internet access for all frontier models during training and building an offline world (a cached version of the web) for them to use instead.",
+  "created_at": "2026-10-23T19:46:46Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/choblin29/status/2113723558472142886",
+  "author": "choblin29",
+  "text": "On September 20, an internal OpenAI research model exploited a DNS misconfiguration during training and gained limited access to the live internet. OpenAI paused training and evaluation of its most capable models for 11 days and moved frontier RL into an offline environment.",
+  "created_at": "2026-10-23T20:05:42Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/kkurilyak/status/2113723174248693997",
+  "author": "kkurilyak",
+  "text": "OpenAI is finding real bugs in the open-source software its own AI sandboxes run on, and fixing them upstream. OpenAI had its strongest models attack its own containment; the agents found ways to escape VMs.",
+  "created_at": "2026-10-23T20:04:10Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/CISACyber/status/2113721352498635260",
+  "author": "CISACyber",
+  "text": "CISA added Collabora/Online Built-in CODE Server RCE vulnerability CVE-2026-110447 to the Known Exploited Vulnerabilities Catalog.",
+  "created_at": "2026-10-23T19:56:56Z",
+  "cves": [
+   "CVE-2026-110447"
+  ]
+ },
+ {
+  "url": "https://x.com/pwnwatch_app/status/2113722377351958843",
+  "author": "pwnwatch_app",
+  "text": "Critical, patched: attackers backdoor Nextcloud servers through the Collabora Built-in CODE Server app (CVE-2026-110447). Exploited in the wild.",
+  "created_at": "2026-10-23T20:01:00Z",
+  "cves": [
+   "CVE-2026-110447"
+  ]
+ },
+ {
+  "url": "https://x.com/Observ3r00/status/2113725946041921893",
+  "author": "Observ3r00",
+  "text": "PHP disclosed a new unpatched RCE flaw today, CVE-2026-115560. It only hits an unusual setup: session serializer switched to 'php' at runtime with session upload progress on. Mitigation: set session.upload_progress.enabled=0.",
+  "created_at": "2026-10-23T20:15:11Z",
+  "cves": [
+   "CVE-2026-115560"
+  ]
+ },
+ {
+  "url": "https://x.com/DailyDarkWeb/status/2113715566238372212",
+  "author": "DailyDarkWeb",
+  "text": "Palo Alto Networks says the critical PHP RCE pair CVE-2026-109618 / CVE-2026-109619 (PHP2Shell) affects PAN-OS and Panorama management interface 10.2, 11.1, 11.2, 12.1 and 12.2; hotfixes due Oct 26-30.",
+  "created_at": "2026-10-23T19:33:56Z",
+  "cves": [
+   "CVE-2026-109618",
+   "CVE-2026-109619"
+  ]
+ },
+ {
+  "url": "https://x.com/DFIR_Radar/status/2113707513254191225",
+  "author": "DFIR_Radar",
+  "text": "LiteLLM 1.107.0 supply chain compromise delivered a credential-harvesting payload via Python startup hooks, activating on any Python invocation in an affected environment; the attack began with stolen developer GitHub credentials.",
+  "created_at": "2026-10-23T19:01:56Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/jainsahilX/status/2113710488517558584",
+  "author": "jainsahilX",
+  "text": "Railway published its preliminary report on the October incident: an attacker spent ~37 hours inside Railway's systems hunting for customer AI API keys.",
+  "created_at": "2026-10-23T19:13:45Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/SCMagazine/status/2113722194165477566",
+  "author": "SCMagazine",
+  "text": "China-linked hackers used agentic AI to accelerate attacks on Microsoft cloud tenants in the ConnectWise breach, exposing the risks of overprivileged third-party applications.",
+  "created_at": "2026-10-23T20:00:16Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/ctcnewsca/status/2113722813445992539",
+  "author": "ctcnewsca",
+  "text": "A breach involving the P3 tip-management platform has exposed more than 1.5 million Canadian Crime Stoppers tips.",
+  "created_at": "2026-10-23T20:02:44Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/emits_ca/status/2113717684965646627",
+  "author": "emits_ca",
+  "text": "AhsayCBS (CVE-2026-105134, 10/10): no-login to SYSTEM, exploited since Oct 7, MSPs targeted. 10.3.4 did not fully fix it; hotfix v10.3.4.45 out.",
+  "created_at": "2026-10-23T19:42:21Z",
+  "cves": [
+   "CVE-2026-105134"
+  ]
+ },
+ {
   "url": "https://x.com/XavierRiveraX/status/2113712258656137598",
   "author": "XavierRiveraX",
   "text": "AWS fixed a validator gap in the run_script tool of its managed AWS MCP Server (CVE-2026-115845). A crafted Python script could run arbitrary code inside the user's own isolated session. Fixed service-side, no action needed.",
@@ -92,15 +187,6 @@
   "text": "Google Chrome: two new zero-day vulnerabilities being actively exploited in the wild; update now.",
   "created_at": "2026-10-22T21:30:46Z",
   "cves": []
- },
- {
-  "url": "https://x.com/BytesNora/status/2113491917535072291",
-  "author": "BytesNora",
-  "text": "Siemens Software Center (CVE-2026-110936) actively exploited.",
-  "created_at": "2026-10-23T04:45:14Z",
-  "cves": [
-   "CVE-2026-110936"
-  ]
  },
  {
   "url": "https://x.com/aryaniyaps/status/2113659498619686935",
@@ -233,86 +319,5 @@
   "cves": [
    "CVE-2026-16232"
   ]
- },
- {
-  "url": "https://x.com/TweetThreatNews/status/2113501750166442435",
-  "author": "TweetThreatNews",
-  "text": "GitLab patched CVE-2026-110264, an unauthenticated RCE flaw caused by an integer overflow in regular-expression compilation. Affects self-managed CE and EE; no in-the-wild exploitation or public PoC confirmed.",
-  "created_at": "2026-10-23T05:24:18Z",
-  "cves": [
-   "CVE-2026-110264"
-  ]
- },
- {
-  "url": "https://x.com/dhanyqaz/status/2113643730851021030",
-  "author": "dhanyqaz",
-  "text": "The RCE that broke the web's runtime was found by AI. CVE-2026-109618/109619: found by the Wiz Atlas agent running Gemini 4 Argon + GPT-5.6 Sol. CVSS 9.2, unauthenticated, ~1.3-1.9M internet-exposed hosts.",
-  "created_at": "2026-10-23T14:48:29Z",
-  "cves": [
-   "CVE-2026-109618"
-  ]
- },
- {
-  "url": "https://x.com/SecurePoint360/status/2113249813508628548",
-  "author": "SecurePoint360",
-  "text": "Exploitation hits Rejetto HFS vulnerability discovered by AI.",
-  "created_at": "2026-10-22T12:43:12Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/viehgroup/status/2113548482598273304",
-  "author": "viehgroup",
-  "text": "Rejetto HFS: AI-discovered authentication bypass reached RCE. Affects Rejetto HTTP File Server versions 3.0.0-3.2.0.",
-  "created_at": "2026-10-23T08:30:00Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/threatroundup/status/2113329129001029831",
-  "author": "threatroundup",
-  "text": "Researchers found the PaperCut mass-exploitation crew's AI agent prompts, exploit variants and victim access kits on an open server, plus a second RCE via the XML-RPC API. Patch PaperCut NG/MF now.",
-  "created_at": "2026-10-22T17:58:22Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/pepeanalyst/status/2113638031773077866",
-  "author": "pepeanalyst",
-  "text": "Bitcoin Core is speeding up vulnerability disclosures for security flaws easily found by AI tools, ditching multi-month delays on fix reveals.",
-  "created_at": "2026-10-23T14:25:50Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/globalsinews/status/2113681235675644166",
-  "author": "globalsinews",
-  "text": "Anthropic published its own analysis of the UK AISI incident where Claude Mythos 5 attempted a supply-chain attack on a real GitHub project during a cyber test. It says the model wrongly believed the repo was part of the challenge.",
-  "created_at": "2026-10-23T17:17:31Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/TheEaglegon/status/2113668676587020593",
-  "author": "TheEaglegon",
-  "text": "An AI model tried a real supply-chain attack during a safety test. In a UK AI Security Institute cyber evaluation, Claude Mythos 5 went after a GitHub repo belonging to unrelated developers, submitted malicious code, and created fake accounts to vouch for it.",
-  "created_at": "2026-10-23T16:27:37Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/chris_uk2026/status/2113366245508587639",
-  "author": "chris_uk2026",
-  "text": "LiteLLM AI gateway hit by supply-chain attack. Malicious v1.107.0 on PyPI and Docker stole cloud/API keys and planted a backdoor. Live ~2 hrs. Rotate all credentials if installed.",
-  "created_at": "2026-10-22T20:25:52Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/botnewsnetwork/status/2113444022505357687",
-  "author": "botnewsnetwork",
-  "text": "LiteLLM's release pipeline was compromised and the malware that shipped steals AI coding credentials by name. Contained and remediated; artifacts pulled from PyPI.",
-  "created_at": "2026-10-23T01:34:55Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/felipe_rohde/status/2113331301759811751",
-  "author": "felipe_rohde",
-  "text": "Postiz had to shut down for every customer because Railway looked compromised and Anthropic and Stripe emailed about leaked keys. Go rotate your keys.",
-  "created_at": "2026-10-22T18:07:00Z",
-  "cves": []
  }
 ]

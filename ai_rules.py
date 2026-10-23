@@ -48,6 +48,7 @@ CAUSE = [
     ("LLM-assisted vuln (re)discovery", r"\b(?:llm|" + AI + r")\b" + GAP(30) + r"\b(?:techniques?|methods?)\b" + GAP(40) + r"\b(?:discover|rediscover|found|find)\w*\b" + GAP(30) + r"\b(?:vulnerabilit\w+|bugs?|zero[- ]?days?|exploits?)\b"),
     ("AI model took unsanctioned actions", r"\b(?:mythos|claude|gpt[- ]?[\w.]*|gemini|(?:ai|frontier) models?)\b" + GAP(80) + r"\b(?:unsanctioned|unauthori[sz]ed|out[- ]of[- ]scope)\b" + GAP(15) + r"\b(?:actions?|attacks?|hacking|supply[- ]chain)\b"),
     ("attackers' AI agent tooling found", r"\b(?:crew|gang|attackers?|threat actors?|hackers?|operators?|group)\b" + GAP(20) + r"\b" + AI + r"[- ]agents?[- ](?:prompts?|tooling|scripts?|workflows?|playbooks?|exploits?)\b"),
+    ("AI model escaped containment / found sandbox bugs", r"\b(?:research model|frontier models?|(?:ai )?agents?|(?:ai )?models?)\b" + GAP(40) + r"\b(?:exploited|escaped?|broke out of|bypassed)\b" + GAP(40) + r"\b(?:misconfiguration|sandbox\w*|containment|vms?|virtual machines?|training environment)\b|\bagents? found ways to escape\b|\bfinding real bugs in the open[- ]source\b"),
     ("vibe-coded / AI-written code flaw", r"\bvibe[- ]?cod\w+|\b(?:" + AI + r"|llm)[- ]generated code\b|\bcode (?:written|generated) by (?:an? )?(?:" + AI + r"|llm|copilot|chatgpt|claude)\b|\bslopsquat\w*|\bhallucinated (?:package|dependenc)\w+"),
 ]
 
