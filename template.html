@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vuln Feed — exploited &amp; high/critical vulnerabilities</title>
+<meta name="description" content="High/critical CVEs, CISA KEV, GitHub advisories and exploit chatter for major vendors. Updated several times a day.">
+<link rel="alternate" type="application/rss+xml" title="Vuln Feed" href="feed.xml">
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--fg:#1b1f24;--mut:#5b6672;--bd:#dde1e6;--ac:#2158d6;--crit:#b4132b;--high:#c25b00;--ex:#7a0a8c;--ok:#1a7f37;--warn:#9a6700}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1116;--card:#161b22;--fg:#e6edf3;--mut:#8b98a5;--bd:#2b333d;--ac:#6ea0ff;--crit:#ff6b7f;--high:#ffa657;--ex:#d8a3ff;--ok:#3fb950;--warn:#d29922}}
+*{box-sizing:border-box}html,body{overflow-wrap:anywhere;max-width:100%}.filters select{max-width:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--ac);text-decoration:none}a:hover{text-decoration:underline}
+header,main,footer{max-width:1100px;margin:0 auto;padding:0 14px}
+header{padding-top:18px}
+h1{font-size:1.45rem;margin:0 0 2px}
+.sub{color:var(--mut);font-size:.9rem}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.stat{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:6px 12px;font-size:.85rem}
+.stat b{display:block;font-size:1.15rem}
+.tabs{display:flex;gap:4px;margin:10px 0 0;border-bottom:1px solid var(--bd)}
+.tab{background:none;border:0;border-bottom:3px solid transparent;color:var(--mut);padding:8px 12px;font:inherit;cursor:pointer}
+.tab[aria-selected=true]{color:var(--fg);border-color:var(--ac);font-weight:600}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:10px;margin:12px 0;position:sticky;top:0;z-index:5}
+.filters input[type=search],.filters select{padding:6px 8px;border:1px solid var(--bd);border-radius:6px;background:var(--bg);color:var(--fg);font:inherit;min-width:0}
+.filters input[type=search]{flex:1 1 200px}
+.filters label{display:flex;align-items:center;gap:4px;white-space:nowrap}
+.count{color:var(--mut);font-size:.85rem;margin-left:auto}
+.item{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:10px 12px;margin:8px 0}
+.item.ex{border-left:4px solid var(--ex)}
+.top{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.id{font-weight:700;font-size:1rem}
+.badge{display:inline-block;border-radius:999px;padding:1px 8px;font-size:.75rem;font-weight:600;border:1px solid currentColor;white-space:nowrap}
+.CRITICAL{color:var(--crit)}.HIGH{color:var(--high)}.MEDIUM{color:var(--warn)}.UNKNOWN{color:var(--mut)}
+.exb{color:#fff;background:var(--ex);border-color:var(--ex)}
+.rw{color:#fff;background:var(--crit);border-color:var(--crit)}
+.src{color:var(--mut)}
+.vend{background:var(--bg);color:var(--mut);border:1px solid var(--bd)}
+.prod{color:var(--mut);font-size:.9rem;margin-top:2px}
+.desc{margin:4px 0}
+.meta{color:var(--mut);font-size:.8rem;display:flex;flex-wrap:wrap;gap:4px 14px}
+.unv{background:#fff7e0;border:1px solid #e3c25a;color:#5c4400;border-radius:8px;padding:8px 12px;margin:10px 0;font-size:.88rem}
+@media(prefers-color-scheme:dark){.unv{background:#2a2410;border-color:#6b5a1a;color:#e8d89a}}
+.chip{font-size:.75rem;border:1px solid var(--bd);border-radius:6px;padding:0 6px;cursor:pointer;background:var(--bg);color:var(--ac)}
+button.more{display:block;margin:14px auto;padding:8px 18px;border-radius:8px;border:1px solid var(--bd);background:var(--card);color:var(--fg);font:inherit;cursor:pointer}
+.empty{color:var(--mut);text-align:center;padding:30px}
+details{margin:18px 0}summary{cursor:pointer;color:var(--mut)}
+table.st{border-collapse:collapse;width:100%;font-size:.82rem;margin-top:8px}
+.st td,.st th{border-bottom:1px solid var(--bd);padding:4px 6px;text-align:left;vertical-align:top}
+.s-ok{color:var(--ok)}.s-stale,.s-partial{color:var(--warn)}.s-failed{color:var(--crit)}
+footer{color:var(--mut);font-size:.8rem;padding-bottom:30px}
+@media(max-width:600px){.count{margin-left:0;width:100%}.filters select{flex:1 1 45%}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🛡️ Vuln Feed</h1>
+  <div class="sub">High/Critical (CVSS ≥ 7.0) CVEs, CISA KEV and GitHub advisories for major vendors &amp; packages.
+    Last updated (UTC): <b id="upd">__UPDATED__</b> · <a href="feed.xml">RSS</a> · <a href="data.json">data.json</a></div>
+  <div class="stats" id="stats"></div>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="t-v" aria-selected="true">Vulnerabilities</button>
+    <button class="tab" role="tab" id="t-c" aria-selected="false">Chatter &amp; exploit news <span id="cc"></span></button>
+  </div>
+</header>
+<main>
+<!--__NOSCRIPT__-->
+<section id="p-v">
+  <div class="filters">
+    <input type="search" id="q" placeholder="Search CVE, product, text…" aria-label="Search">
+    <select id="fsev" aria-label="Severity"><option value="">All severities</option><option>CRITICAL</option><option>HIGH</option><option>MEDIUM</option></select>
+    <select id="fsrc" aria-label="Source"><option value="">All sources</option><option value="NVD">NVD</option><option value="KEV">CISA KEV</option><option value="GHSA">GitHub advisories</option></select>
+    <select id="fven" aria-label="Vendor"><option value="">All vendors / packages</option></select>
+    <select id="fsort" aria-label="Sort"><option value="act">Newest activity</option><option value="score">Highest score</option><option value="epss">Highest EPSS</option><option value="kev">Newest KEV addition</option></select>
+    <label><input type="checkbox" id="fex"> Exploited in the wild</label>
+    <label><input type="checkbox" id="fmajor"> Major vendors only</label>
+    <span class="count" id="cnt"></span>
+  </div>
+  <div id="list"></div>
+</section>
+<section id="p-c" hidden>
+  <div class="unv"><b>Unverified.</b> Items below come from community posts, news sites, exploit databases, vendor RSS feeds and X.
+    They are <b>not</b> validated and are separate from the authoritative CVE data (NVD / CISA KEV / GitHub advisories).
+    CVE ids are extracted automatically; a “✓ in feed” chip links to the matching record.</div>
+  <div class="filters">
+    <input type="search" id="cq" placeholder="Search title, CVE, author…" aria-label="Search chatter">
+    <select id="ckind" aria-label="Type"><option value="">All types</option><option value="reddit">Reddit</option><option value="exploit">Exploit-DB</option><option value="vendor">Vendor advisories</option><option value="news">Security news</option><option value="x">X</option></select>
+    <select id="csrc" aria-label="Source"><option value="">All sources</option></select>
+    <select id="cven" aria-label="Vendor"><option value="">All vendors</option></select>
+    <label><input type="checkbox" id="ccve"> Has CVE</label>
+    <label><input type="checkbox" id="clnk"> Linked to a feed record</label>
+    <span class="count" id="ccnt"></span>
+  </div>
+  <div id="clist"></div>
+</section>
+<details><summary>Data sources &amp; status</summary><div id="status"></div></details>
+</main>
+<footer>
+  Data: <a href="https://nvd.nist.gov/developers/vulnerabilities">NVD API 2.0</a>,
+  <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog">CISA KEV</a>,
+  <a href="https://github.com/advisories">GitHub Advisory Database</a>, <a href="https://www.first.org/epss/">FIRST EPSS</a>.
+  Vendor tagging is heuristic (CPE + keywords) and may be incomplete. This site is informational; verify against vendor advisories before acting.
+</footer>
+<script id="data" type="application/json">/*__DATA__*/null</script>
+<script>
+"use strict";
+const D=JSON.parse(document.getElementById('data').textContent.replace(/^\/\*__DATA__\*\//,''));
+const $=id=>document.getElementById(id);
+const PAGE=100;
+function el(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e}
+function link(href,text,cls){const a=el('a',cls,text);if(/^https?:\/\//i.test(href||'')){a.href=href;a.target='_blank';a.rel='noopener noreferrer'}return a}
+function d10(s){return s?s.slice(0,10):''}
+function ago(s){if(!s)return'';const m=(Date.now()-Date.parse(s))/60000;if(m<60)return Math.max(1,Math.round(m))+'m ago';if(m<1440)return Math.round(m/60)+'h ago';return Math.round(m/1440)+'d ago'}
+const MAJOR=new Set();
+const vset=new Set(),cvset=new Set(),csset=new Set();
+D.vulnerabilities.forEach(v=>v.vendors.forEach(x=>vset.add(x)));
+D.chatter.forEach(c=>{c.vendors.forEach(x=>cvset.add(x));csset.add(c.source)});
+function fillSel(id,set){const s=$(id);[...set].sort().forEach(x=>{const o=el('option',null,x);o.value=x;s.appendChild(o)})}
+fillSel('fven',vset);fillSel('cven',cvset);fillSel('csrc',csset);
+
+// stats
+const C=D.counts;
+[['Records',C.vulnerabilities],['Critical',C.critical],['Exploited in wild',C.exploited_in_wild],['NVD high/crit',C.nvd_high_critical],['CISA KEV (recent)',C.cisa_kev_recent],['GitHub advisories',C.github_advisories],['Chatter items',C.chatter_items]]
+ .forEach(([k,v])=>{const s=el('div','stat');s.appendChild(el('b',null,String(v)));s.appendChild(document.createTextNode(k));$('stats').appendChild(s)});
+$('cc').textContent='('+D.chatter.length+')';
+
+// ---- vulnerabilities
+let vshown=PAGE,vcur=[];
+function vFiltered(){
+  const q=$('q').value.trim().toLowerCase(),sev=$('fsev').value,src=$('fsrc').value,ven=$('fven').value,ex=$('fex').checked,mj=$('fmajor').checked,so=$('fsort').value;
+  let r=D.vulnerabilities.filter(v=>(!sev||v.severity===sev)&&(!src||v.sources.includes(src))&&(!ven||v.vendors.includes(ven))&&(!ex||v.exploited)&&(!mj||v.vendors.length)
+    &&(!q||(v.id+' '+v.product+' '+v.description+' '+v.vendors.join(' ')+' '+(v.ghsa_id||'')).toLowerCase().includes(q)));
+  const k={act:v=>v.activity,score:v=>v.score||0,epss:v=>v.epss||0,kev:v=>v.kev_added||''}[so];
+  r.sort((a,b)=>k(a)<k(b)?1:k(a)>k(b)?-1:0);
+  return r;
+}
+function vRow(v){
+  const d=el('article','item'+(v.exploited?' ex':''));
+  const t=el('div','top');
+  t.appendChild(link(v.primary_url,v.id,'id'));
+  t.appendChild(el('span','badge '+v.severity,v.severity+(v.score?' '+v.score.toFixed(1):'')));
+  if(v.exploited)t.appendChild(el('span','badge exb','EXPLOITED'));
+  if(v.ransomware)t.appendChild(el('span','badge rw','RANSOMWARE'));
+  if(v.epss!=null)t.appendChild(el('span','badge src','EPSS '+(v.epss*100).toFixed(v.epss<0.01?2:1)+'%'));
+  Object.keys(v.links).forEach(s=>t.appendChild(link(v.links[s],s,'badge src')));
+  if(v.sources.length===1&&v.links.KEV&&v.exploited&&v.sources[0]!=='KEV'){}
+  d.appendChild(t);
+  if(v.product)d.appendChild(el('div','prod',v.product));
+  d.appendChild(el('div','desc',v.description));
+  const m=el('div','meta');
+  if(v.published)m.appendChild(el('span',null,'Published '+d10(v.published)));
+  if(v.modified)m.appendChild(el('span',null,'Modified '+d10(v.modified)+' ('+ago(v.modified)+')'));
+  if(v.kev_added)m.appendChild(el('span',null,'KEV added '+d10(v.kev_added)+(v.kev_due?' · due '+v.kev_due:'')));
+  if(v.vendors.length){const w=el('span');v.vendors.forEach(x=>{const b=el('span','badge vend',x);b.style.marginRight='4px';b.style.cursor='pointer';b.title='Filter by '+x;b.onclick=()=>{$('fven').value=x;vReset()};w.appendChild(b)});m.appendChild(w)}
+  if(v.mentions){const c=el('span','chip','💬 '+v.mentions+' chatter mention'+(v.mentions>1?'s':''));c.onclick=()=>{showTab('c');$('cq').value=v.id;cReset()};m.appendChild(c)}
+  d.appendChild(m);
+  return d;
+}
+function vRender(){
+  const L=$('list');L.textContent='';
+  vcur.slice(0,vshown).forEach(v=>L.appendChild(vRow(v)));
+  if(!vcur.length)L.appendChild(el('div','empty','No matching records.'));
+  if(vcur.length>vshown){const b=el('button','more','Show more ('+(vcur.length-vshown)+' remaining)');b.onclick=()=>{vshown+=PAGE;vRender()};L.appendChild(b)}
+  $('cnt').textContent=vcur.length+' of '+D.vulnerabilities.length+' records';
+}
+function vReset(){vshown=PAGE;vcur=vFiltered();vRender()}
+
+// ---- chatter
+const KL={reddit:'Reddit',exploit:'Exploit-DB',vendor:'Vendor advisory',news:'News',x:'X'};
+let cshown=PAGE,ccur=[];
+function cFiltered(){
+  const q=$('cq').value.trim().toLowerCase(),k=$('ckind').value,s=$('csrc').value,v=$('cven').value;
+  return D.chatter.filter(c=>(!k||c.kind===k)&&(!s||c.source===s)&&(!v||c.vendors.includes(v))&&(!$('ccve').checked||c.cves.length)&&(!$('clnk').checked||c.linked.length)
+   &&(!q||(c.title+' '+c.summary+' '+c.cves.join(' ')+' '+c.author+' '+c.source).toLowerCase().includes(q)));
+}
+function cRow(c){
+  const d=el('article','item');
+  const t=el('div','top');
+  t.appendChild(el('span','badge src',KL[c.kind]||c.kind));
+  t.appendChild(el('span','badge vend',c.source));
+  t.appendChild(link(c.url,c.title,'id'));
+  d.appendChild(t);
+  if(c.summary&&c.summary!==c.title)d.appendChild(el('div','desc',c.summary));
+  const m=el('div','meta');
+  if(c.author)m.appendChild(el('span',null,'by '+c.author));
+  m.appendChild(el('span',null,d10(c.date)+' ('+ago(c.date)+')'));
+  if(c.ext_url)m.appendChild(link(c.ext_url,'linked article'));
+  c.cves.forEach(id=>{
+    if(c.linked.includes(id)){const x=el('span','chip','✓ '+id+' in feed');x.title='Show the authoritative record';x.onclick=()=>{showTab('v');$('q').value=id;vReset();window.scrollTo(0,0)};m.appendChild(x)}
+    else m.appendChild(link('https://nvd.nist.gov/vuln/detail/'+id,id,'chip'));
+  });
+  d.appendChild(m);return d;
+}
+function cRender(){
+  const L=$('clist');L.textContent='';
+  ccur.slice(0,cshown).forEach(c=>L.appendChild(cRow(c)));
+  if(!ccur.length)L.appendChild(el('div','empty','No matching items.'));
+  if(ccur.length>cshown){const b=el('button','more','Show more ('+(ccur.length-cshown)+' remaining)');b.onclick=()=>{cshown+=PAGE;cRender()};L.appendChild(b)}
+  $('ccnt').textContent=ccur.length+' of '+D.chatter.length+' items';
+}
+function cReset(){cshown=PAGE;ccur=cFiltered();cRender()}
+
+// ---- tabs, status
+function showTab(w){$('p-v').hidden=w!=='v';$('p-c').hidden=w!=='c';$('t-v').setAttribute('aria-selected',w==='v');$('t-c').setAttribute('aria-selected',w==='c');history.replaceState(null,'','#'+w)}
+$('t-v').onclick=()=>showTab('v');$('t-c').onclick=()=>showTab('c');
+['q','fsev','fsrc','fven','fsort','fex','fmajor'].forEach(i=>$(i).addEventListener('input',vReset));
+['cq','ckind','csrc','cven','ccve','clnk'].forEach(i=>$(i).addEventListener('input',cReset));
+(function(){
+  const t=el('table','st');const h=el('tr');['Source','Status','Items','Last success / fetched','Note'].forEach(x=>h.appendChild(el('th',null,x)));t.appendChild(h);
+  Object.entries(D.sources).forEach(([k,s])=>{const r=el('tr');r.appendChild(el('td',null,k.replace('chatter:','chatter: ')));r.appendChild(el('td','s-'+s.status,s.status));r.appendChild(el('td',null,String(s.count??'')));r.appendChild(el('td',null,(s.fetched_at||s.last_success||'—').replace('T',' ')));r.appendChild(el('td',null,s.error||''));t.appendChild(r)});
+  $('status').appendChild(t);
+})();
+vReset();cReset();
+if(location.hash==='#c')showTab('c');
+</script>
+</body>
+</html>
