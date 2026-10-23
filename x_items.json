@@ -1,10 +1,84 @@
 [
  {
-  "url": "https://x.com/HighJetCyberLLC/status/2113734481907421451",
-  "author": "HighJetCyberLLC",
-  "text": "npm supply-chain attack: attackers abused trusted publishing to ship the previously unknown GHAPPIER loader through a legitimate package.",
-  "created_at": "2026-10-23T20:49:06Z",
+  "url": "https://x.com/_pksharma/status/2113741472923025662",
+  "author": "_pksharma",
+  "text": "CISA ordered federal agencies to patch the 4-vulnerability Plex2Shell exploit chain in Plex Media Server (CVE-2026-96652 et al.), giving unauthenticated attackers full remote compromise.",
+  "created_at": "2026-10-23T21:16:53Z",
+  "cves": [
+   "CVE-2026-96652"
+  ]
+ },
+ {
+  "url": "https://x.com/TheHackerWire/status/2113750670595522933",
+  "author": "TheHackerWire",
+  "text": "CVE-2026-53921 (CVSS 9.8, PoC available): stack buffer overflow in OpenWrt's odhcpd allows unauthenticated remote root code execution via a single crafted DHCPv6 packet. Update odhcpd to >= v25.12.",
+  "created_at": "2026-10-23T21:53:26Z",
+  "cves": [
+   "CVE-2026-53921"
+  ]
+ },
+ {
+  "url": "https://x.com/pwnwatch_app/status/2113756350581026990",
+  "author": "pwnwatch_app",
+  "text": "Critical, patched: Pillow heap buffer overflow in FlashPix (FPX) JPEG decoding lets one crafted image run code (CVE-2026-112398). Affected pillow <= 12.3.0, fixed in 13.0.0.",
+  "created_at": "2026-10-23T22:16:00Z",
+  "cves": [
+   "CVE-2026-112398"
+  ]
+ },
+ {
+  "url": "https://x.com/pwnwatch_app/status/2113756854329446537",
+  "author": "pwnwatch_app",
+  "text": "Critical, patched: Laravel TokenGuard authentication bypass through non-string API credentials. Fixed in laravel/framework 12.68.0 and 13.29.0.",
+  "created_at": "2026-10-23T22:18:00Z",
   "cves": []
+ },
+ {
+  "url": "https://x.com/DFIR_Radar/status/2113738585413161055",
+  "author": "DFIR_Radar",
+  "text": "Unattributed cyberespionage cluster CL-UNK-1211 hit government entities with AI-assisted payloads, a custom Go RAT (SysGoRAT) and deep anti-forensics in a six-month Linux-focused campaign targeting databases and email.",
+  "created_at": "2026-10-23T21:05:24Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/AiCloudConsult/status/2113753698023457190",
+  "author": "AiCloudConsult",
+  "text": "LiteLLM root cause: a leaked agent-platform key from May led to an owner GitHub token and 11 days of quiet CI secret theft before the poisoned 1.107.0 release.",
+  "created_at": "2026-10-23T22:05:27Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/RafterSecurity/status/2113735664185528621",
+  "author": "RafterSecurity",
+  "text": "Railway preliminary report on its October 20-22 breach: customer environment variables and credentials exposed; up to 1.85% of workspaces (~100,000) may be affected. Attackers targeted AI compute via customers' API keys. Rotate secrets.",
+  "created_at": "2026-10-23T20:53:48Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/Ibermejocatalan/status/2113753615009505606",
+  "author": "Ibermejocatalan",
+  "text": "Swell's swETH exchange rate jumped unbacked after an operator hot key leaked from cloud host Railway in the Railway breach.",
+  "created_at": "2026-10-23T22:05:08Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/dboedger/status/2113757042955395582",
+  "author": "dboedger",
+  "text": "PHP warns of another unpatched RCE (CVE-2026-115560): exploitation requires session upload progress enabled and a runtime switch of session.serialize_handler to php before session_start(). Keep session.upload_progress.enabled=0.",
+  "created_at": "2026-10-23T22:18:45Z",
+  "cves": [
+   "CVE-2026-115560"
+  ]
+ },
+ {
+  "url": "https://x.com/conradlotz/status/2113752390818013194",
+  "author": "conradlotz",
+  "text": "PHP2Shell: Cloudflare reported exploit attempts jumping from thousands to millions within hours of disclosure.",
+  "created_at": "2026-10-23T22:00:16Z",
+  "cves": [
+   "CVE-2026-109618",
+   "CVE-2026-109619"
+  ]
  },
  {
   "url": "https://x.com/chris_uk2026/status/2113727950667612626",
@@ -87,15 +161,6 @@
   ]
  },
  {
-  "url": "https://x.com/Observ3r00/status/2113725946041921893",
-  "author": "Observ3r00",
-  "text": "PHP disclosed a new unpatched RCE flaw today, CVE-2026-115560. It only hits an unusual setup: session serializer switched to 'php' at runtime with session upload progress on. Mitigation: set session.upload_progress.enabled=0.",
-  "created_at": "2026-10-23T20:15:11Z",
-  "cves": [
-   "CVE-2026-115560"
-  ]
- },
- {
   "url": "https://x.com/DailyDarkWeb/status/2113715566238372212",
   "author": "DailyDarkWeb",
   "text": "Palo Alto Networks says the critical PHP RCE pair CVE-2026-109618 / CVE-2026-109619 (PHP2Shell) affects PAN-OS and Panorama management interface 10.2, 11.1, 11.2, 12.1 and 12.2; hotfixes due Oct 26-30.",
@@ -110,13 +175,6 @@
   "author": "DFIR_Radar",
   "text": "LiteLLM 1.107.0 supply chain compromise delivered a credential-harvesting payload via Python startup hooks, activating on any Python invocation in an affected environment; the attack began with stolen developer GitHub credentials.",
   "created_at": "2026-10-23T19:01:56Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/jainsahilX/status/2113710488517558584",
-  "author": "jainsahilX",
-  "text": "Railway published its preliminary report on the October incident: an attacker spent ~37 hours inside Railway's systems hunting for customer AI API keys.",
-  "created_at": "2026-10-23T19:13:45Z",
   "cves": []
  },
  {
@@ -193,25 +251,6 @@
   ]
  },
  {
-  "url": "https://x.com/Netlas_io/status/2113662052774322501",
-  "author": "Netlas_io",
-  "text": "CVE-2026-114625: Actively exploited SQL injection flaw in Arista VeloCloud Orchestrator, CVSS 9.9; any authenticated user can gain operator privileges.",
-  "created_at": "2026-10-23T16:01:17Z",
-  "cves": [
-   "CVE-2026-114625"
-  ]
- },
- {
-  "url": "https://x.com/Zaardaar/status/2113475553827426568",
-  "author": "Zaardaar",
-  "text": "Critical PHP2Shell flaws (CVE-2026-109618 and CVE-2026-109619) allowing unauthenticated RCE are being actively exploited, with millions of attack attempts detected.",
-  "created_at": "2026-10-23T03:40:13Z",
-  "cves": [
-   "CVE-2026-109618",
-   "CVE-2026-109619"
-  ]
- },
- {
   "url": "https://x.com/rst_cloud/status/2113557344978169959",
   "author": "rst_cloud",
   "text": "Critical vulnerability in BeyondTrust Remote Support under active exploitation (CVE-2026-102764), attributed to UNC5221.",
@@ -230,24 +269,10 @@
   ]
  },
  {
-  "url": "https://x.com/mamoon_rahat/status/2113382578505892228",
-  "author": "mamoon_rahat",
-  "text": "Google Chrome: two new zero-day vulnerabilities being actively exploited in the wild; update now.",
-  "created_at": "2026-10-22T21:30:46Z",
-  "cves": []
- },
- {
   "url": "https://x.com/aryaniyaps/status/2113659498619686935",
   "author": "aryaniyaps",
   "text": "Wiz and Calif used AI to find PHP2Shell; Amazon saw exploit attempts 4 days before disclosure. LiteLLM shipped a credential stealer via PyPI.",
   "created_at": "2026-10-23T15:51:09Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/ArgileNoland/status/2113676402645958889",
-  "author": "ArgileNoland",
-  "text": "An AI ran 80 to 90% of a real espionage campaign; another AI caught a SQLite bug before hackers could use it.",
-  "created_at": "2026-10-23T16:58:19Z",
   "cves": []
  },
  {
@@ -262,20 +287,6 @@
   "author": "AgentFieldKit",
   "text": "GitHub lists versions of npm packages agentic-awesome-skills and opencode-skills-collection (AI coding agent skills) as malware (GHSA-rgwm-3jj9-h563, GHSA-9855-prwc-mfp2). Rotate keys from a clean machine.",
   "created_at": "2026-10-23T03:35:21Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/PocketRetroid/status/2113641647913234513",
-  "author": "PocketRetroid",
-  "text": "jscrambler npm package supply chain attack: malicious versions 8.14.0-8.20.0 contained infostealer, stolen credentials used to publish. Update to 8.22.0.",
-  "created_at": "2026-10-23T14:40:13Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/VeduisWeb/status/2113574740552298723",
-  "author": "VeduisWeb",
-  "text": "LiteLLM supply chain attack confirmed: malicious packages pushed to PyPI and Docker after attackers compromised GitHub CLI OAuth tokens.",
-  "created_at": "2026-10-23T10:14:21Z",
   "cves": []
  },
  {
@@ -305,14 +316,5 @@
   "text": "GhostAction trading GitHub Actions OIDC tokens for AWS roles across roughly 12,000 repositories via a fake font file supply chain attack.",
   "created_at": "2026-10-23T13:40:56Z",
   "cves": []
- },
- {
-  "url": "https://x.com/Rachidmarcil/status/2113375202348257345",
-  "author": "Rachidmarcil",
-  "text": "Zero-day alert: Arista patches CVE-2026-114625 (CVSS 9.9), a SQL injection in VeloCloud Orchestrator On-Prem actively exploited in the wild. Any authenticated user, even read-only, can escalate to superuser operator.",
-  "created_at": "2026-10-22T21:01:27Z",
-  "cves": [
-   "CVE-2026-114625"
-  ]
  }
 ]
