@@ -41,6 +41,9 @@ CAUSE = [
     ("AI vuln-research programs", r"\b(?:project glasswing|big sleep|codex security|patch the planet|xbow|aixcc|codemender|openai aardvark|mythos preview|vulnerability discovery (?:by|with) ai)\b"),
     ("AI agent ran the intrusion", r"\b(?:" + AI + r"|llm)[- ]?agents?\b" + GAP(25) + r"\b(?:ran|running|runs|conducted|conducting|performed|performing|carried out|executed|executing)\b" + GAP(20) + r"\b(?:intrusions?|attacks?|breach\w*|hacks?|compromises?|kill[- ]chain)\b"),
     ("AI coding tool leaked the secret", r"\b(?:claude code|copilot|codex|cursor agent|gemini cli|coding agent)\b" + GAP(30) + r"\b(?:embedded|leaked|exposed|logged|printed|echoed)\b" + GAP(30) + r"\b(?:tokens?|secrets?|credentials?|api keys?)\b"),
+    ("AI system ran cyberattacks", r"\b(?:" + AI + r"|llm|agentic)[- ]?(?:systems?|tools?|swarms?|agents?)\b" + GAP(40) + r"\b(?:run|ran|runs|launch\w*|conduct\w*|carr(?:y|ied) out)\b" + GAP(15) + r"\b(?:cyber ?-?attacks?|attacks?|intrusions?|hacking campaigns?)\b"),
+    ("AI model attacked a real target", r"\b(?:mythos|claude|gpt[- ]?[\w.]*|gemini|model)\b" + GAP(60) + r"\b(?:attack(?:ed|ing)|hack(?:ed|ing)|exploit(?:ed|ing))\b" + GAP(20) + r"\b(?:a )?real\b"),
+    ("LLM-assisted vuln (re)discovery", r"\b(?:llm|" + AI + r")\b" + GAP(30) + r"\b(?:techniques?|methods?)\b" + GAP(40) + r"\b(?:discover|rediscover|found|find)\w*\b" + GAP(30) + r"\b(?:vulnerabilit\w+|bugs?|zero[- ]?days?|exploits?)\b"),
     ("vibe-coded / AI-written code flaw", r"\bvibe[- ]?cod\w+|\b(?:" + AI + r"|llm)[- ]generated code\b|\bcode (?:written|generated) by (?:an? )?(?:" + AI + r"|llm|copilot|chatgpt|claude)\b|\bslopsquat\w*|\bhallucinated (?:package|dependenc)\w+"),
 ]
 
