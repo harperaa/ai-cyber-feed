@@ -87,7 +87,7 @@ PRODUCT = [
     ("MCP / agent tooling", r"\bmcp\b" + GAP(20) + r"\b(?:server|client|tool|sdk|gateway|inspector|advisor(?:y|ies)|vulnerabilit(?:y|ies))s?\b|\bmodel context protocol\b|\bmcp[- ]server|\bmcp\b(?= (?:server|servers))|"
                             r"\b" + AI + r"[- ](?:agents?|assistants?|coding|code assistant|copilots?|gateways?|models?|platform|framework|chatbots?|workflows?|apps?|sdk|infrastructure|clusters?)\b|"
                             r"\bagentic\b|\bllm[- ](?:agents?|apps?|applications?|gateways?|proxy|tools?)\b|\bautonomous agents?\b"),
-    ("AI assistant/vendor product", r"\bchatgpt\b|\bopenai\b|\banthropic\b|\bclaude(?: code| desktop)?\b|\bgemini (?:cli|code assist|ai)\b|\bgoogle gemini\b|\bgithub copilot\b|\bcopilot (?:studio|chat|agent|for)\b|\bmicrosoft 365 copilot\b|"
+    ("AI assistant/vendor product", r"\bchatgpt\b|\bopenai\b|\banthropic\b|\bclaude(?: code| desktop)?\b|\bgemini (?:cli|code assist|ai)\b|\bgoogle gemini\b|\bgithub copilot\b|\bcopilot(?:'s)? (?:studio|chat|agent|for|protected[- ]files?)\b|\bmicrosoft 365 copilot\b|"
                                    r"\bcursor (?:ide|editor|ai)\b|\bwindsurf\b|\bcline\b|\bopencode\b|\banysphere\b|programming with ai|\bai code editor\b|\bcodex (?:cli|agent)\b|\bperplexity\b|\bmistral\b|\bdeepseek\b|\bazure ai\b|\bai foundry\b|\bbedrock\b|\bsagemaker\b|\bvertex ai\b|\bwatsonx\b"),
     ("LLM/ML attack class", r"\bprompt[- ]injection\b|\b(?:llm|ai|chatgpt|model|chatbot|gpt)\W+jailbreak\w*|\bjailbreak\w*\W+(?:prompts?|attacks?|llm|models?|chatbots?)\b|\bllm\b|\blarge language models?\b|\bmodel (?:poisoning|supply[- ]chain|theft|extraction|backdoor)\b|\bpickle(?:d)? models?\b|\bdata poisoning\b|\badversarial (?:example|attack|input)s?\b|"
                            r"\bembedding (?:inversion|model)s?\b|\bsystem prompt (?:leak|extraction)\b|\bindirect prompt\b|\bgenerative ai\b|\bmachine learning\b|\bdeep learning\b|\bneural network\b|\bmodel serving\b|\binference (?:server|engine)\b"),
@@ -130,6 +130,7 @@ IMPACT = [
 # Hand-curated angles for specific CVE ids (use for things heuristics cannot know). type, why, optional source url
 MANUAL = {
     "CVE-2026-109618": [("cause", "PHP2Shell was found and weaponised with AI help: Wiz Research used Wiz Atlas, Gemini 4 Argon and GPT-5.6-Sol; Calif used an LLM audit (php2shell.com)")],
+    "CVE-2026-103572": [("product", "GitHub Copilot in Visual Studio/SSMS: trailing-dot path bypassed Copilot's protected-file checks (Johann Rehberger write-up)")],
     "CVE-2026-109619": [("cause", "PHP2Shell was found and weaponised with AI help: Wiz Research used Wiz Atlas, Gemini 4 Argon and GPT-5.6-Sol; Calif used an LLM audit (php2shell.com)")],
 }
 
