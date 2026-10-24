@@ -136,6 +136,7 @@ MANUAL = {
     "CVE-2026-109618": [("cause", "PHP2Shell was found and weaponised with AI help: Wiz Research used Wiz Atlas, Gemini 4 Argon and GPT-5.6-Sol; Calif used an LLM audit (php2shell.com)")],
     "CVE-2026-103572": [("product", "GitHub Copilot in Visual Studio/SSMS: trailing-dot path bypassed Copilot's protected-file checks (Johann Rehberger write-up)")],
     "CVE-2026-111497": [("cause", "Brotli decoder RCE was found by OpenAI during an AI red-teaming exercise (OpenAI announcement, Oct 23)")],
+    "CVE-2026-74580": [("cause", "Vghost Linux kernel vhost local root (kernels 4.11-7.2) was found by Tencent's Corvus AI; Tencent calls it machine-assisted research")],
     "CVE-2026-109619": [("cause", "PHP2Shell was found and weaponised with AI help: Wiz Research used Wiz Atlas, Gemini 4 Argon and GPT-5.6-Sol; Calif used an LLM audit (php2shell.com)")],
 }
 
