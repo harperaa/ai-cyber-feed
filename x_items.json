@@ -1,5 +1,93 @@
 [
  {
+  "url": "https://x.com/trvrio/status/2114110383107592260",
+  "author": "trvrio",
+  "text": "\"HTTP2Shell\" and \"Node2Shell\" are the same bug, CVE-2026-111497, in Google's Brotli decoder; reaches Envoy, Istio, Bun, Python Brotli and distro packages. CVSS 9.2, public PoC shown achieving RCE on Node 24.",
+  "created_at": "2026-10-24T21:42:48Z",
+  "cves": [
+   "CVE-2026-111497"
+  ]
+ },
+ {
+  "url": "https://x.com/Komodosec/status/2114118418697953543",
+  "author": "Komodosec",
+  "text": "CVE-2026-106173: Horizon3.ai deep-dive on the FortiSIEM gRPC path traversal file write leading to unauthenticated RCE.",
+  "created_at": "2026-10-24T22:14:44Z",
+  "cves": [
+   "CVE-2026-106173"
+  ]
+ },
+ {
+  "url": "https://x.com/catc0n/status/2114103294515642704",
+  "author": "catc0n",
+  "text": "Our team got code execution working on PHP 8.2 and 8.3 today (PHP2Shell), rounding out testing across supported versions. No universal exploit, but RCE with ASLR is possible across the affected range.",
+  "created_at": "2026-10-24T21:14:38Z",
+  "cves": [
+   "CVE-2026-109618",
+   "CVE-2026-109619"
+  ]
+ },
+ {
+  "url": "https://x.com/TIE__SUN/status/2114115553917010252",
+  "author": "TIE__SUN",
+  "text": "UNC actors are exploiting PHP2Shell (CVE-2026-109618/9) against public and business infrastructure; the CVSS 9.2 bugs bypass WAFs via multipart parsing, and Mirai C2 nodes are mass-scanning for unauthenticated RCE.",
+  "created_at": "2026-10-24T22:03:21Z",
+  "cves": [
+   "CVE-2026-109618",
+   "CVE-2026-109619"
+  ]
+ },
+ {
+  "url": "https://x.com/DanteMMartin/status/2114104530787053635",
+  "author": "DanteMMartin",
+  "text": "Someone hid a $500 bitcoin key on an unpatched PHP server, daring the internet to exploit PHP2Shell, the RCE an OpenAI model found last week. The AI-discovered bug is now a live public bounty.",
+  "created_at": "2026-10-24T21:19:32Z",
+  "cves": [
+   "CVE-2026-109618",
+   "CVE-2026-109619"
+  ]
+ },
+ {
+  "url": "https://x.com/xmyttle/status/2114109043350675894",
+  "author": "xmyttle",
+  "text": "Critical Brotli bug CVE-2026-111497, found during AI red-teaming, can take over a Node.js server with one malicious compressed message, no login needed. Patches are out.",
+  "created_at": "2026-10-24T21:37:28Z",
+  "cves": [
+   "CVE-2026-111497"
+  ]
+ },
+ {
+  "url": "https://x.com/haani0090/status/2114094844822135148",
+  "author": "haani0090",
+  "text": "The Railway attackers were hunting AI provider API keys; the breach report says the goal was distillation attacks. Railway says rotate everything if you signed up before Oct 21.",
+  "created_at": "2026-10-24T20:41:03Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/MDBayNews/status/2114105098334847043",
+  "author": "MDBayNews",
+  "text": "Johns Hopkins Bayview exposes 3,182 patient records after an employee uploaded medical data to an unapproved AI tool.",
+  "created_at": "2026-10-24T21:21:48Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/BitcoinNewsEng/status/2114093825425564038",
+  "author": "BitcoinNewsEng",
+  "text": "Bitcoin Core updated its disclosure policy: easily discoverable bugs, including those found with simple LLM prompts, will be fixed and advisories published immediately instead of after an embargo.",
+  "created_at": "2026-10-24T20:37:00Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/ManiarViral/status/2114101418332450820",
+  "author": "ManiarViral",
+  "text": "LiteLLM critical CVE-2026-35029 + CVE-2026-59823: auth bypass and SSRF via unauthenticated POST to /config/update lets attackers steal downstream OpenAI, Anthropic, Gemini and Bedrock keys. Patch to 1.83.9.",
+  "created_at": "2026-10-24T21:07:10Z",
+  "cves": [
+   "CVE-2026-35029",
+   "CVE-2026-59823"
+  ]
+ },
+ {
   "url": "https://x.com/agentguardsco/status/2113917663965856063",
   "author": "agentguardsco",
   "created_at": "2026-10-24T08:57:00Z",
@@ -34,24 +122,6 @@
   "cves": [
    "CVE-2026-110447",
    "CVE-2026-114625"
-  ]
- },
- {
-  "url": "https://x.com/BytesNora/status/2113802893065171406",
-  "author": "BytesNora",
-  "created_at": "2026-10-24T01:20:56Z",
-  "text": "CVE-2026-110936 in Siemens Software Center (DLL hijacking, CVSS 6.7) is actively exploited per CISA KEV.",
-  "cves": [
-   "CVE-2026-110936"
-  ]
- },
- {
-  "url": "https://x.com/BytesNora/status/2113854156020621691",
-  "author": "BytesNora",
-  "created_at": "2026-10-24T04:44:38Z",
-  "text": "Atlassian patches 75 flaws in Data Center and Server products (CVE-2026-65637, actively exploited).",
-  "cves": [
-   "CVE-2026-65637"
   ]
  },
  {
@@ -122,20 +192,6 @@
   "cves": []
  },
  {
-  "url": "https://x.com/demistificator1/status/2114071076057514400",
-  "author": "demistificator1",
-  "created_at": "2026-10-24T19:06:36Z",
-  "text": "Cloudflare open-sourced the skill that started its internal AI bug-hunting system.",
-  "cves": []
- },
- {
-  "url": "https://x.com/BalaiBB/status/2113888418618814583",
-  "author": "BalaiBB",
-  "created_at": "2026-10-24T07:00:47Z",
-  "text": "A developer planted a prompt injection in a fake flag.txt aimed at attacking AI agents that find it.",
-  "cves": []
- },
- {
   "url": "https://x.com/TheHackersNews/status/2113951301059113271",
   "author": "TheHackersNews",
   "created_at": "2026-10-24T11:10:40Z",
@@ -150,42 +206,11 @@
   "cves": []
  },
  {
-  "url": "https://x.com/rst_cloud/status/2114016392924070110",
-  "author": "rst_cloud",
-  "created_at": "2026-10-24T15:29:19Z",
-  "text": "New evidence shows LiteLLM secret-stealing workflows ran 11 days before the supply chain attack.",
-  "cves": []
- },
- {
-  "url": "https://x.com/so_sthbryan/status/2113790827579515221",
-  "author": "so_sthbryan",
-  "created_at": "2026-10-24T00:33:00Z",
-  "text": "Rank Math PRO downloads from the vendor site carried malware in a supply-chain attack; hidden backdoors in legitimate WordPress plugin downloads.",
-  "cves": []
- },
- {
   "url": "https://x.com/akh11780/status/2114034111749001687",
   "author": "akh11780",
   "created_at": "2026-10-24T16:39:43Z",
   "text": "Explainer on the Railway breach: developer hosting platform secrets exposure.",
   "cves": []
- },
- {
-  "url": "https://x.com/x0rshift/status/2114075456639271246",
-  "author": "x0rshift",
-  "created_at": "2026-10-24T19:24:01Z",
-  "text": "October recap: Node.js, GitLab, PHP2Shell, eMudhra CA private key compromise, LiteLLM supply-chain attack, NGINX, Go, 404k+ GoDaddy certificates revoked, Railway secrets breach, TiDB Cloud incident.",
-  "cves": []
- },
- {
-  "url": "https://x.com/DFIR_Radar/status/2114001881047654451",
-  "author": "DFIR_Radar",
-  "created_at": "2026-10-24T14:31:39Z",
-  "text": "DFIR weekly recap: LiteLLM 1.107.0 supply chain, NetScaler CVE-2026-88771 plus CVE-2026-88779, AI-assisted ransomware and a Russian-speaking AI intrusion platform.",
-  "cves": [
-   "CVE-2026-88771",
-   "CVE-2026-88779"
-  ]
  },
  {
   "url": "https://x.com/agenteyeAI/status/2113793344178475282",
@@ -260,15 +285,6 @@
   ]
  },
  {
-  "url": "https://x.com/Marlon1B2t/status/2114074108946493519",
-  "author": "Marlon1B2t",
-  "created_at": "2026-10-24T19:18:39Z",
-  "text": "OpenAI disclosed a zero-day RCE in a widely deployed compression library (Brotli); frontier agents find memory bugs at machine speed while patching runs at human speed.",
-  "cves": [
-   "CVE-2026-111497"
-  ]
- },
- {
   "url": "https://x.com/EmunaEliran/status/2114073912766325124",
   "author": "EmunaEliran",
   "created_at": "2026-10-24T19:17:53Z",
@@ -276,13 +292,6 @@
   "cves": [
    "CVE-2026-115560"
   ]
- },
- {
-  "url": "https://x.com/APScops/status/2114064835365449928",
-  "author": "APScops",
-  "created_at": "2026-10-24T18:41:48Z",
-  "text": "Anishinabek Police Service statement on a cybersecurity incident involving Navigate360, the third-party platform used by Crime Stoppers programs across North America.",
-  "cves": []
  },
  {
   "url": "https://x.com/pradyum1916/status/2114061863705076220",
