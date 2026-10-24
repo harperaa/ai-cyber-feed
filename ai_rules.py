@@ -54,6 +54,8 @@ CAUSE = [
     ("AI lab red-team agents found/forced fixes", r"\b(?:openai|anthropic|deepmind|google)(?:'s)?\b" + GAP(15) + r"\bred[- ]?team(?:ing)?\s+(?:ai\s+)?agents?\b" + GAP(60) + r"\b(?:found|find|uncover\w*|discover\w*|identif\w*|forced (?:fixes|patches)|named)\b|\bred[- ]?team(?:ing)?\s+agents?\s+(?:found|forced (?:fixes|patches))\b"),
     ("attackers used an agentic/AI system to automate the attack", r"\b(?:used|using|wielded|deployed)\b" + GAP(15) + r"\b(?:agentic|ai|llm)[- ](?:[\w-]+\s+){0,3}(?:systems?|tools?|platforms?|agents?|frameworks?)\b" + GAP(15) + r"\bto (?:automate|run|conduct|carry out|launch|orchestrate)\b"),
     ("LLMs finding bugs (policy/process response)", r"\b(?:llms?|ai models?|ai tools?|ai)\s+(?:are\s+)?(?:finding|find|finds|surfacing)\s+(?:bugs|vulnerabilit\w+|flaws|security bugs)\b|\bdiscoverable\b" + GAP(40) + r"\b(?:llms?|ai)\b" + GAP(10) + r"\bprompt\b"),
+    ("found by an AI lab", r"\b(?:found|discovered|uncovered|identified|reported)\s+by\s+(?:openai|anthropic|google deepmind|deepmind)\b"),
+    ("autonomous offensive AI agent", r"\b(?:autonomous|offensive)\b" + GAP(20) + r"\bagents?\b" + GAP(40) + r"\b(?:hijack\w*|exploit\w*|steal\w*|attacks?|scan\w*)\b"),
     ("vibe-coded / AI-written code flaw", r"\bvibe[- ]?cod\w+|\b(?:" + AI + r"|llm)[- ]generated code\b|\bcode (?:written|generated) by (?:an? )?(?:" + AI + r"|llm|copilot|chatgpt|claude)\b|\bslopsquat\w*|\bhallucinated (?:package|dependenc)\w+"),
 ]
 
@@ -131,6 +133,7 @@ IMPACT = [
 MANUAL = {
     "CVE-2026-109618": [("cause", "PHP2Shell was found and weaponised with AI help: Wiz Research used Wiz Atlas, Gemini 4 Argon and GPT-5.6-Sol; Calif used an LLM audit (php2shell.com)")],
     "CVE-2026-103572": [("product", "GitHub Copilot in Visual Studio/SSMS: trailing-dot path bypassed Copilot's protected-file checks (Johann Rehberger write-up)")],
+    "CVE-2026-111497": [("cause", "Brotli decoder RCE was found by OpenAI during an AI red-teaming exercise (OpenAI announcement, Oct 23)")],
     "CVE-2026-109619": [("cause", "PHP2Shell was found and weaponised with AI help: Wiz Research used Wiz Atlas, Gemini 4 Argon and GPT-5.6-Sol; Calif used an LLM audit (php2shell.com)")],
 }
 
