@@ -1,7 +1,7 @@
 {
- "updated_at": "2026-10-24T12:42:17Z",
- "next_update_note": "Changes in this 12:42 UTC update: LiteLLM published the root cause of its backdoored 1.107.0 release (an Agent Platform master key leaked on GitHub in May was never revoked; the attacker used it on Oct 10 to get an org-owner GitHub token, then maintainers' tokens, and also collected the project's Anthropic, OpenAI and AWS Bedrock keys), and Microsoft warned not to run python or pip inside a suspect environment. PHP2Shell: WIRED reports the PHP Foundation still has seen no successful exploitation and many public exploits don't work. Brotli: The Hacker News confirms Bun, the Python brotli and brotlicffi packages and Envoy are affected. UK AISI and Anthropic have published parallel write-ups of the Mythos 5 test incident. New on the watch list: Treasure Factory (746,277 emails) and the PK Softech attack on Swiss pension funds. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
- "headline": "AI-run attacks and AI-found bugs still lead: Storm-0940's ARTEX agents in the ConnectWise intrusions, CrowdStrike's four AI-agent crews, and AI-found PHP2Shell and Brotli RCEs (no confirmed PHP2Shell compromise yet, per the PHP Foundation). Rotate secrets stored on Railway, Zeabur, OpenCode Console and TiDB Cloud, rebuild anything that installed LiteLLM 1.107.0, audit ConnectWise app access, patch PHP and Node.js/Bun (Brotli), and update CA bundles to drop eMudhra's broken intermediates.",
+ "updated_at": "2026-10-24T16:42:59Z",
+ "next_update_note": "Changes in this 16:42 UTC update: a quiet Saturday morning with no new CISA KEV additions and no new major-platform breach. TechCrunch and NBC News (Oct 24) both report that many systems remain unpatched against PHP2Shell; Calif's own write-up says AI helped build the exploit but the bulk of the work relied on human PHP expertise, so the PHP2Shell AI note now says so. X posts add that LiteLLM's secret-stealing workflows ran 11 days before the malicious release, which matches LiteLLM's Oct 10 timeline. New on the watch list: Alliance Medinet (Singapore, about 110,000 members' data), the Oct 20 CISA/FBI SafePay ransomware advisory (about 600 victims), and a reminder that the NetScaler CVE-2026-88771/88772 zero-days (patched Sep 27) are still being dissected and left footholds that patching does not remove. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
+ "headline": "AI-run attacks and AI-found bugs still lead: Storm-0940's ARTEX agents in the ConnectWise intrusions, CrowdStrike's four AI-agent crews, and AI-assisted PHP2Shell and Brotli RCEs (no confirmed PHP2Shell compromise yet, but many servers remain unpatched). Rotate secrets stored on Railway, Zeabur, OpenCode Console and TiDB Cloud, rebuild anything that installed LiteLLM 1.107.0, audit ConnectWise app access, patch PHP and Node.js/Bun (Brotli), and update CA bundles to drop eMudhra's broken intermediates.",
  "ai_headline": "AI is both the attacker and the bug-finder: CrowdStrike documents four crews whose AI agents choose and run intrusion steps, on top of ARTEX, Phantom and CyberCartel, while OpenAI, Wiz, Calif and Anthropic keep surfacing critical bugs with AI. AI keys remain the loot: Railway, OpenCode Console and now LiteLLM's own attacker all went after model-provider keys, and LiteLLM's breach began with a leaked key to its AI agent platform.",
  "focus": [
   {
@@ -28,13 +28,13 @@
     "CVE-2026-115560"
    ],
    "vendor": "PHP",
-   "why": "Two flaws in the PHP engine (CVSS 9.8 in NVD, 9.2 CVSS v4) allow unauthenticated remote code execution via crafted HTTP requests, so WordPress, Drupal and Joomla sites are exposed even with clean app code. Cloudflare saw millions of attempts and Amazon saw one on Oct 17, before the patch; Sophos and Arctic Wolf report Mirai install attempts. As of Oct 24 the PHP Foundation says it has seen no successful exploitation and WIRED reports many public exploits are ineffective (a Reddit thread notes exploits need repeated requests to the same PHP worker), but the FBI (Oct 23 PSA) and CISA still urge immediate patching. A separate RCE path (CVE-2026-115560) in unusual session configurations is not fixed by the Oct 21 releases. Palo Alto PAN-OS, Panorama and WF-500 management interfaces are affected with hotfixes due from Oct 26; Cisco has an advisory too. X reports of a confirmed compromise remain unverified.",
+   "why": "Two flaws in the PHP engine (CVSS 9.8 in NVD, 9.2 CVSS v4) allow unauthenticated remote code execution via crafted HTTP requests, so WordPress, Drupal and Joomla sites are exposed even with clean app code. Cloudflare saw millions of attempts and Amazon saw one on Oct 17, before the patch; Sophos and Arctic Wolf report Mirai install attempts. As of Oct 24 the PHP Foundation says it has seen no successful exploitation and WIRED reports many public exploits are ineffective (a Reddit thread notes exploits need repeated requests to the same PHP worker), but the FBI (Oct 23 PSA) and CISA still urge immediate patching. A separate RCE path (CVE-2026-115560) in unusual session configurations is not fixed by the Oct 21 releases. Palo Alto PAN-OS, Panorama and WF-500 management interfaces are affected with hotfixes due from Oct 26; Cisco has an advisory too. X reports of a confirmed compromise remain unverified. TechCrunch (Oct 24) reports a large number of systems remain unpatched.",
    "action": "Upgrade to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35 (check the runtime serving web traffic, including containers). 8.1 and older get no official release, so use a vendor-patched package or move to a supported branch. Also set session.upload_progress.enabled=0 until PHP's next routine release (blocks CVE-2026-115560). If you can't patch now, take internet-facing PHP systems offline (FBI/CISA advice; a WAF is only a stopgap). Hunt logs back to Oct 17 for PHP workers launching shells or downloading files (CISA's SIGMA rule helps) and report compromises to IC3. Palo Alto: restrict management web UI and XML API to trusted IPs, remove management profiles from untrusted interfaces, enable Threat IDs 543004 and 97622-97625, and install PAN-OS hotfixes when they ship (first ones Oct 26).",
    "url": "https://www.php2shell.com/",
    "ai_angle": [
     "cause"
    ],
-   "ai_note": "AI found the bugs and made them exploitable: Calif found them first in early August partly with frontier AI under OpenAI's Patch the Planet program, then Wiz (Wiz Atlas, Gemini 4 Argon, GPT-5.6-Sol) and OpenAI (Codex Security) found them independently. Wiz says the chain was 'at the edge of what human researchers could practically achieve'."
+   "ai_note": "AI helped find the bugs and make them exploitable: Calif found them first in early August partly with frontier AI under OpenAI's Patch the Planet program, then Wiz (Wiz Atlas, Gemini 4 Argon, GPT-5.6-Sol) and OpenAI (Codex Security) found them independently. Wiz says the PHP team had known parts of the issue for years but it 'could not be leveraged by an attacker, at least not a human one'; Calif stresses most of its work relied on human PHP expertise ('No model is simply capable of unearthing all bugs with simple prompts')."
   },
   {
    "title": "Brotli decoder RCE ('Node2Shell'), found by OpenAI's AI red-teaming: Node.js, Bun, Envoy, Python",
@@ -163,6 +163,12 @@
    "blurb": "The FBI urges immediate PHP2Shell patching (PHP 8.5.12, 8.4.27, 8.3.36, 8.2.35), taking unpatchable systems offline and reporting compromises to IC3."
   },
   {
+   "title": "PHP-ocalypse: How two critical web bugs almost broke the internet",
+   "source": "TechCrunch",
+   "url": "https://techcrunch.com/2026/10/24/php-ocalypse-how-two-critical-web-bugs-almost-broke-the-internet/",
+   "blurb": "Explainer on PHP2Shell: patches shipped Oct 21 but many systems remain unpatched; Calif says AI helped, human expertise did most of the work."
+  },
+  {
    "title": "The PHP Meltdown Shows How AI Makes Bugs More Exploitable",
    "source": "WIRED",
    "url": "https://www.wired.com/story/kernel-panic-the-php-meltdown-shows-how-ai-makes-bugs-more-exploitable/",
@@ -181,28 +187,22 @@
    "blurb": "CVE-2026-111497, found by OpenAI's AI red-teaming, reaches Bun, the Python brotli and brotlicffi packages and Envoy."
   },
   {
+   "title": "AI is helping cyber defenders and hackers find major security vulnerabilities at a dizzying pace",
+   "source": "NBC News",
+   "url": "https://www.nbcnews.com/tech/security/ai-cybersecurity-hackers-php-flaws-rcna605276",
+   "blurb": "How AI-driven discovery produced this week's PHP crisis, and why most AI-found flaws have not yet been quickly exploited."
+  },
+  {
    "title": "CrowdStrike Uncovers New Agentic AI Campaigns",
    "source": "CrowdStrike",
    "url": "https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/",
    "blurb": "Four previously unreported crews' Claude Code-based agents picked and ran intrusion steps against healthcare, government and SaaS targets."
   },
   {
-   "title": "OpenAI AI Agents Bypass Security Isolation, Exploiting 0-Days in Red-Teaming Tests",
-   "source": "Cybersecurity News",
-   "url": "https://cybersecuritynews.com/openai-ai-agents-bypass-security/",
-   "blurb": "OpenAI's red-team agents escaped microVMs and signalled across isolated VMs in internal tests; fixes went to Kata Containers, gVisor and Docker."
-  },
-  {
    "title": "Preliminary Report: Oct 21st Security Incident",
    "source": "Railway",
    "url": "https://blog.railway.com/p/preliminary-report-october-security-incident",
    "blurb": "Up to ~100,000 workspaces' env vars may have been decrypted; the attacker wanted AI and platform API keys."
-  },
-  {
-   "title": "Zeabur Breach Exposes 321,810 Accounts: What Customers Should Do Now",
-   "source": "eSecurity Planet",
-   "url": "https://www.esecurityplanet.com/threats/news-zeabur-breach-accounts-customer-response/",
-   "blurb": "3.2 million env-var records read via unrotated plaintext admin credentials; Zeabur is shutting down by Dec 31."
   }
  ],
  "watch": [
@@ -212,8 +212,10 @@
   "GitLab CVE-2026-110264 (CVSS 10.0 unauthenticated RCE, self-managed): no attacks reported yet; upgrade to 19.5.1, 19.4.3, 19.3.6, 19.2.9, 19.1.9, 19.0.10 or 18.11.13 (moved off the focus list).",
   "HPE Aruba AOS-8/AOS-10: eight CVSS 10.0 unauthenticated flaws (CVE-2026-79844 to -79851), no exploitation known; upgrade per HPESBNW05162 (moved off the focus list).",
   "AhsayCBS backup servers CVE-2026-105133/105134: exploited since Oct 7 to drop web shells and miners at MSPs; earlier patches were incomplete, so apply hotfix 10.3.4.45 (v10) or 9.15.2.70 (v7-v9), reboot and check for compromise.",
+  "SafePay ransomware: CISA, FBI, USSS and UK/German partners (advisory AA26-293A, Oct 20) say about 600 victims, with entry via stolen VPN credentials and known edge-device flaws (Cisco ASA, Veeam, SonicWall CVEs listed); patch those, require MFA and keep offline backups.",
+  "Citrix NetScaler ADC/Gateway CVE-2026-88771 and CVE-2026-88772 (CVSS 9.5, exploited as zero-days, patched Sep 27 in 14.1-73.37 / 13.1-64.23): new write-ups show attackers left web shells, rogue accounts and SUID shells that survive patching; hunt with the published IOCs if you patched late.",
   "GMO Internet's Onamae.com Desktop Cloud: an unauthorised program on customer servers (up to 26,739 servers) led to stolen trading-account logins and unauthorised trades; all servers suspended. Users should change trading credentials from another device and enable 2FA.",
-  "Quest Diagnostics confirmed (8-K, Oct 23) that attackers accessed patient records via its Quanum lab system; Capcom says 11.77 million CAPCOM ID email addresses were stolen.",
+  "Quest Diagnostics confirmed (8-K, Oct 23) that attackers accessed patient records via its Quanum lab system; Capcom says 11.77 million CAPCOM ID email addresses were stolen. Alliance Medinet (Singapore healthcare administrator for HSBC Life, Great Eastern and Income Insurance) says about 110,000 members' names, ID numbers and contact details were taken from its membership database (Oct 24 filing).",
   "Ray (AI compute engine) CVE-2025-62593, browser-based RCE in CISA KEV: upgrade to Ray 2.52.0+.",
   "AI developer tools patched this week: Aider CVE-2026-115726 (malicious repo .aider.conf.yml runs commands, through 0.86.2), Hugging Face Datasets CVE-2026-57845 (pickle RCE, through 5.1.0), Azure AI Foundry CVE-2026-108456 (SSRF privilege escalation), plus vLLM CVE-2026-114053 (fixed in 0.31.0) and LiteLLM CVE-2026-114612 (per X).",
   "Fortinet FortiSIEM CVE-2026-106173 (9.4, public PoC): upgrade 7.5.0 to 7.5.1+ and restrict TCP 27918.",
@@ -345,7 +347,7 @@
      {
       "title": "PHP2Shell: unauthenticated PHP RCE found and weaponised with AI, mass exploitation attempts",
       "date": "2026-10-21T13:59:59Z",
-      "summary": "Calif found the flaws first in early August partly with frontier AI (OpenAI's Patch the Planet); Wiz (Wiz Atlas, Gemini 4 Argon, GPT-5.6-Sol) and OpenAI's Codex Security found them independently. Cloudflare saw millions of attempts and Amazon one on Oct 17, before the patch; Mirai operators joined in. The PHP Foundation (per WIRED, Oct 24) has seen no successful exploitation and many public exploits fail; FBI and CISA still urge immediate patching. CVE-2026-115560 is a separate path not fixed by the Oct 21 releases.",
+      "summary": "Calif found the flaws first in early August partly with frontier AI (OpenAI's Patch the Planet); Wiz (Wiz Atlas, Gemini 4 Argon, GPT-5.6-Sol) and OpenAI's Codex Security found them independently. Cloudflare saw millions of attempts and Amazon one on Oct 17, before the patch; Mirai operators joined in. The PHP Foundation (per WIRED, Oct 24) has seen no successful exploitation and many public exploits fail; FBI and CISA still urge immediate patching. CVE-2026-115560 is a separate path not fixed by the Oct 21 releases. Calif's write-up says AI assisted but human expertise did most of the work; TechCrunch (Oct 24) says many systems remain unpatched.",
       "status": "exploited",
       "cves": [
        "CVE-2026-109618",
@@ -353,7 +355,7 @@
        "CVE-2026-115560"
       ],
       "url": "https://www.wiz.io/blog/php2shell-php-rce",
-      "source": "Wiz / WIRED / FBI IC3 / Krebs"
+      "source": "Wiz / WIRED / TechCrunch / FBI IC3 / Krebs"
      },
      {
       "title": "CrowdStrike: four previously unreported crews ran AI-agent intrusion campaigns",
@@ -426,7 +428,7 @@
      {
       "title": "LiteLLM 1.107.0 backdoored on PyPI and Docker; root cause was a leaked, unrevoked AI agent platform key",
       "date": "2026-10-24T11:03:00Z",
-      "summary": "LiteLLM (Oct 23-24) says a master key to its Agent Platform leaked on GitHub in May and was never revoked; on Oct 10 the attacker used it to get an org-owner GitHub token, stole maintainers' tokens and the project's Anthropic, OpenAI and Bedrock keys, and on Oct 21 shipped 1.107.0 with a credential stealer and backdoor that run on any Python start. Microsoft published analysis and IOCs. Pin 1.106.2, rebuild and rotate keys from a clean machine. A separate LiteLLM flaw, CVE-2026-114612, is reported on X only.",
+      "summary": "LiteLLM (Oct 23-24) says a master key to its Agent Platform leaked on GitHub in May and was never revoked; on Oct 10 the attacker used it to get an org-owner GitHub token, stole maintainers' tokens and the project's Anthropic, OpenAI and Bedrock keys, and on Oct 21 shipped 1.107.0 with a credential stealer and backdoor that run on any Python start. Microsoft published analysis and IOCs. Pin 1.106.2, rebuild and rotate keys from a clean machine. A separate LiteLLM flaw, CVE-2026-114612, is reported on X only. X posts (Oct 24) note the secret-stealing workflows ran 11 days before the release, consistent with LiteLLM's timeline.",
       "status": "exploited",
       "cves": [],
       "url": "https://thehackernews.com/2026/10/leaked-litellm-master-key-let-attackers.html",
@@ -556,6 +558,6 @@
     ]
    }
   ],
-  "trend_note": "Agentic attack frameworks are now documented by Microsoft, Zscaler, CrowdStrike, Symantec and others, and theft of AI access (Railway, OpenCode, LiteLLM, exposed model endpoints) keeps recurring. AI is also flooding disclosure: VulnCheck research cited by Reuters says AI helped double the number of flaws found year on year, and Cloudflare's CEO expects more PHP2Shell-scale fire drills. Per an X post (unverified), Bitcoin Core created a new process for LLM-found bugs."
+  "trend_note": "Agentic attack frameworks are now documented by Microsoft, Zscaler, CrowdStrike, Symantec and others, and theft of AI access (Railway, OpenCode, LiteLLM, exposed model endpoints) keeps recurring. AI is also flooding disclosure: VulnCheck research cited by Reuters says AI helped double the number of flaws found year on year, NBC News (Oct 24) describes defenders and attackers finding major flaws 'at a dizzying pace', and Cloudflare's CEO expects more PHP2Shell-scale fire drills. Model makers are reacting too: a Reddit post (unverified) says Moonshot's Kimi K3.1 open-weight release dropped cyberattack training data, and per an X post (unverified) Bitcoin Core created a new process for LLM-found bugs."
  }
 }
