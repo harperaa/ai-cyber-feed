@@ -53,6 +53,7 @@ CAUSE = [
     ("AI model attempted a real attack", r"\b(?:mythos|claude|gpt[- ]?[\w.]*|gemini|(?:ai|frontier) models?)\b" + GAP(30) + r"\b(?:attempted|tried|launched|staged)\b" + GAP(30) + r"\b(?:supply[- ]chain attack|attacks?|intrusions?|hacks?)\b"),
     ("AI lab red-team agents found/forced fixes", r"\b(?:openai|anthropic|deepmind|google)(?:'s)?\b" + GAP(15) + r"\bred[- ]?team(?:ing)?\s+(?:ai\s+)?agents?\b" + GAP(60) + r"\b(?:found|find|uncover\w*|discover\w*|identif\w*|forced (?:fixes|patches)|named)\b|\bred[- ]?team(?:ing)?\s+agents?\s+(?:found|forced (?:fixes|patches))\b"),
     ("attackers used an agentic/AI system to automate the attack", r"\b(?:used|using|wielded|deployed)\b" + GAP(15) + r"\b(?:agentic|ai|llm)[- ](?:[\w-]+\s+){0,3}(?:systems?|tools?|platforms?|agents?|frameworks?)\b" + GAP(15) + r"\bto (?:automate|run|conduct|carry out|launch|orchestrate)\b"),
+    ("LLMs finding bugs (policy/process response)", r"\b(?:llms?|ai models?|ai tools?|ai)\s+(?:are\s+)?(?:finding|find|finds|surfacing)\s+(?:bugs|vulnerabilit\w+|flaws|security bugs)\b|\bdiscoverable\b" + GAP(40) + r"\b(?:llms?|ai)\b" + GAP(10) + r"\bprompt\b"),
     ("vibe-coded / AI-written code flaw", r"\bvibe[- ]?cod\w+|\b(?:" + AI + r"|llm)[- ]generated code\b|\bcode (?:written|generated) by (?:an? )?(?:" + AI + r"|llm|copilot|chatgpt|claude)\b|\bslopsquat\w*|\bhallucinated (?:package|dependenc)\w+"),
 ]
 

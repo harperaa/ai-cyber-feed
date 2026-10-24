@@ -1,20 +1,88 @@
 [
  {
-  "url": "https://x.com/raqi_ai_uae/status/2113809124823839094",
-  "author": "raqi_ai_uae",
-  "text": "OpenAI's red team found an unauthenticated RCE in Brotli (Node.js, Bun, Envoy). CVE-2026-111497, CVSS 9.2. Patch: Node.js 22.23.4 / 24.22.1 / 26.12.1, Brotli 1.2.1 / 1.1.1 / 1.0.10.",
-  "created_at": "2026-10-24T01:45:42Z",
+  "url": "https://x.com/vikasmalpani/status/2113819762283495920",
+  "author": "vikasmalpani",
+  "text": "Finding a critical bug used to take skilled humans months. This week researchers at Wiz and OpenAI found two PHP flaws using AI, and Trail of Bits built a working exploit in a day with Codex. If discovery and exploitation compress to a day, what does your patch window become?",
+  "created_at": "2026-10-24T02:27:58Z",
   "cves": [
-   "CVE-2026-111497"
+   "CVE-2026-109618",
+   "CVE-2026-109619"
   ]
  },
  {
-  "url": "https://x.com/botnewsnetwork/status/2113806733705703718",
-  "author": "botnewsnetwork",
-  "text": "OpenAI has named the first concrete vulnerability its red-team agents found in open-source software: an unauthenticated remote-code-execution flaw in Brotli. The bug sat in the source since February.",
-  "created_at": "2026-10-24T01:36:12Z",
+  "url": "https://x.com/arnaudmercier/status/2113819935868682496",
+  "author": "arnaudmercier",
+  "text": "Headline-grabbing security hole in global websites, found by AI, now has evildoers using AI to exploit the gap. An AI Insider analysis and scoop.",
+  "created_at": "2026-10-24T02:28:40Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/Horry6c21/status/2113816639905083816",
+  "author": "Horry6c21",
+  "text": "AI Daily Oct 24, 2026: Kimi K3.1 Pro tops open-model cyber index at 64%, weights by Nov 4. OpenAI bans internet access during frontier model training after agent DNS exploit.",
+  "created_at": "2026-10-24T02:15:34Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/Miss1936/status/2113821699540217857",
+  "author": "Miss1936",
+  "text": "Bitcoin Core just rewrote its long-standing security playbook because LLMs are finding bugs way too fast. A policy change merged on Thursday creates a brand-new vulnerability category for flaws discoverable with minimal effort, like running a simple LLM prompt.",
+  "created_at": "2026-10-24T02:35:40Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/CybersecSntl/status/2113792239302574388",
+  "author": "CybersecSntl",
+  "text": "Updated: PHP2Shell patches remain essential, but the new CVE-2026-115560 needs a separate session-configuration check (no patch yet; mitigation session.upload_progress.enabled=0). Our advisory covers the conditions, mitigation and investigation window.",
+  "created_at": "2026-10-24T00:38:36Z",
   "cves": [
-   "CVE-2026-111497"
+   "CVE-2026-115560"
+  ]
+ },
+ {
+  "url": "https://x.com/DFIR_Radar/status/2113829042277540130",
+  "author": "DFIR_Radar",
+  "text": "CVE-2026-111943 and CVE-2026-111944: Eight eMudhra intermediate CA certificates carry fatally weak P-384 keys, enabling private-key recovery and fraudulent cert issuance. Chrome, Mozilla, Apple, and Microsoft have blocked them; your environment may still trust them.",
+  "created_at": "2026-10-24T03:04:51Z",
+  "cves": [
+   "CVE-2026-111943",
+   "CVE-2026-111944"
+  ]
+ },
+ {
+  "url": "https://x.com/Knaitobureza/status/2113820680529514965",
+  "author": "Knaitobureza",
+  "text": "Good Smile Company confirmed unauthorized access to their online store administration system between Oct 19 and Oct 22, 2026, due to a vulnerability exploit. Security circles are pointing toward the recent zero-day PHP RCE flaws.",
+  "created_at": "2026-10-24T02:31:37Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/rst_cloud/status/2113830351877427625",
+  "author": "rst_cloud",
+  "text": "PHP2Shell: What defenders need to know about CVE-2026-109618 and CVE-2026-109619. Actors/Campaigns: Stone_panda. Threats: Mirai, LOLBin techniques. Victims: PHP servers, web apps.",
+  "created_at": "2026-10-24T03:10:03Z",
+  "cves": [
+   "CVE-2026-109618",
+   "CVE-2026-109619"
+  ]
+ },
+ {
+  "url": "https://x.com/ThreatactixLab/status/2113823356718137394",
+  "author": "ThreatactixLab",
+  "text": "Threat advisory: we've tracked 4 active PHP2Shell C2 servers over the last 48 hours, tied to CVE-2026-109618 and CVE-2026-109619, targeting internet-facing PHP apps for unauthenticated RCE.",
+  "created_at": "2026-10-24T02:42:15Z",
+  "cves": [
+   "CVE-2026-109618",
+   "CVE-2026-109619"
+  ]
+ },
+ {
+  "url": "https://x.com/DFIR_Radar/status/2113813914714587152",
+  "author": "DFIR_Radar",
+  "text": "APT41-linked BlackX UEFI bootkit, an evolved BlackLotus, exploits a 2022 Secure Boot flaw (CVE-2022-21894) still viable on patched systems that skipped manual revocation steps.",
+  "created_at": "2026-10-24T02:04:44Z",
+  "cves": [
+   "CVE-2022-21894"
   ]
  },
  {
@@ -25,19 +93,28 @@
   "cves": []
  },
  {
-  "url": "https://x.com/fpsoftarch/status/2113804678136033761",
-  "author": "fpsoftarch",
-  "text": "The Node/Python Brotli RCE is in the Go port too. CVE-2026-111497, patched today: andybalholm/brotli v1.2.7, pulled in by fasthttp, Fiber, Caddy, Traefik.",
-  "created_at": "2026-10-24T01:28:02Z",
+  "url": "https://x.com/Joshua_WD/status/2113812387065163811",
+  "author": "Joshua_WD",
+  "text": "The Node2Shell flaw (CVE-2026-111497) lives in Google's Brotli library, not just Node. Python's Brotli packages, Envoy and C/C++ builds need patches too.",
+  "created_at": "2026-10-24T01:58:40Z",
   "cves": [
    "CVE-2026-111497"
   ]
  },
  {
-  "url": "https://x.com/Joshua_WD/status/2113812387065163811",
-  "author": "Joshua_WD",
-  "text": "The Node2Shell flaw (CVE-2026-111497) lives in Google's Brotli library, not just Node. Python's Brotli packages, Envoy and C/C++ builds need patches too.",
-  "created_at": "2026-10-24T01:58:40Z",
+  "url": "https://x.com/dailycve/status/2113810161202839824",
+  "author": "dailycve",
+  "text": "Wasmtime: bit-packing in Cranelift compiler causes silent overflow and miscompilation, CVE-2026-115889 (Critical).",
+  "created_at": "2026-10-24T01:49:49Z",
+  "cves": [
+   "CVE-2026-115889"
+  ]
+ },
+ {
+  "url": "https://x.com/raqi_ai_uae/status/2113809124823839094",
+  "author": "raqi_ai_uae",
+  "text": "OpenAI's red team found an unauthenticated RCE in Brotli (Node.js, Bun, Envoy). CVE-2026-111497, CVSS 9.2. Patch: Node.js 22.23.4 / 24.22.1 / 26.12.1, Brotli 1.2.1 / 1.1.1 / 1.0.10.",
+  "created_at": "2026-10-24T01:45:42Z",
   "cves": [
    "CVE-2026-111497"
   ]
@@ -52,21 +129,21 @@
   ]
  },
  {
-  "url": "https://x.com/dailycve/status/2113810161202839824",
-  "author": "dailycve",
-  "text": "Wasmtime: bit-packing in Cranelift compiler causes silent overflow and miscompilation, CVE-2026-115889 (Critical).",
-  "created_at": "2026-10-24T01:49:49Z",
+  "url": "https://x.com/botnewsnetwork/status/2113806733705703718",
+  "author": "botnewsnetwork",
+  "text": "OpenAI has named the first concrete vulnerability its red-team agents found in open-source software: an unauthenticated remote-code-execution flaw in Brotli. The bug sat in the source since February.",
+  "created_at": "2026-10-24T01:36:12Z",
   "cves": [
-   "CVE-2026-115889"
+   "CVE-2026-111497"
   ]
  },
  {
-  "url": "https://x.com/DFIR_Radar/status/2113813914714587152",
-  "author": "DFIR_Radar",
-  "text": "APT41-linked BlackX UEFI bootkit, an evolved BlackLotus, exploits a 2022 Secure Boot flaw (CVE-2022-21894) still viable on patched systems that skipped manual revocation steps.",
-  "created_at": "2026-10-24T02:04:44Z",
+  "url": "https://x.com/fpsoftarch/status/2113804678136033761",
+  "author": "fpsoftarch",
+  "text": "The Node/Python Brotli RCE is in the Go port too. CVE-2026-111497, patched today: andybalholm/brotli v1.2.7, pulled in by fasthttp, Fiber, Caddy, Traefik.",
+  "created_at": "2026-10-24T01:28:02Z",
   "cves": [
-   "CVE-2022-21894"
+   "CVE-2026-111497"
   ]
  },
  {
@@ -75,6 +152,16 @@
   "text": "The Everest ransomware group has claimed it stole 590GB of data from PwC, a Microsoft partner; alleged material includes employee information, credentials and training records.",
   "created_at": "2026-10-24T01:14:01Z",
   "cves": []
+ },
+ {
+  "url": "https://x.com/DFIR_Radar/status/2113798643056595256",
+  "author": "DFIR_Radar",
+  "created_at": "2026-10-24T01:04:03Z",
+  "text": "PHP2Shell (CVE-2026-109618 and CVE-2026-109619): two critical RCE flaws in PHP before 8.2.35, 8.3.36, 8.4.27, 8.5.12; weaponization attempts underway.",
+  "cves": [
+   "CVE-2026-109618",
+   "CVE-2026-109619"
+  ]
  },
  {
   "url": "https://x.com/stretchcloud/status/2113796112733573584",
@@ -98,36 +185,11 @@
   "cves": []
  },
  {
-  "url": "https://x.com/ido_cohen2/status/2113601159755702616",
-  "author": "ido_cohen2",
-  "created_at": "2026-10-23T11:59:19Z",
-  "text": "New Actively-Exploited Vulnerability: CVE-2026-104935 Ivanti Connect Secure authentication bypass by spoofing. Exploited in the wild, listed in CISA KEV.",
-  "cves": [
-   "CVE-2026-104935"
-  ]
- },
- {
-  "url": "https://x.com/socradar/status/2113665530729214176",
-  "author": "socradar",
-  "created_at": "2026-10-23T16:15:07Z",
-  "text": "10 stories from the last 24 hours in cyber: an actively exploited VeloCloud zero-day, 2 unpatched Linux KSMBD flaws, and what your team should do about each.",
-  "cves": []
- },
- {
   "url": "https://x.com/neo_logos_/status/2113766134365258192",
   "author": "neo_logos_",
   "created_at": "2026-10-23T22:54:52Z",
   "text": "24h Recap: Quest Diagnostics disclosed unauthorized access to its Quanum lab portal and certain patient records. Capcom disclosed theft of 11.77 million records.",
   "cves": []
- },
- {
-  "url": "https://x.com/_pksharma/status/2113741472923025662",
-  "author": "_pksharma",
-  "created_at": "2026-10-23T21:16:53Z",
-  "text": "CISA has ordered federal civilian agencies to immediately patch a 4-vulnerability exploit chain in Plex Media Server dubbed Plex2Shell (CVE-2026-96652 et al.). Unauthenticated attackers can achieve full remote code execution.",
-  "cves": [
-   "CVE-2026-96652"
-  ]
  },
  {
   "url": "https://x.com/threatpodium/status/2113760291590635792",
@@ -139,129 +201,13 @@
   ]
  },
  {
-  "url": "https://x.com/TweetThreatNews/status/2113658746186473499",
-  "author": "TweetThreatNews",
-  "created_at": "2026-10-23T15:48:09Z",
-  "text": "Arista patched CVE-2026-114625, a critical SQL injection in on-prem VeloCloud Orchestrator that it says is actively exploited.",
-  "cves": [
-   "CVE-2026-114625"
-  ]
- },
- {
-  "url": "https://x.com/_pksharma/status/2113590643758911564",
+  "url": "https://x.com/_pksharma/status/2113741472923025662",
   "author": "_pksharma",
-  "created_at": "2026-10-23T11:17:32Z",
-  "text": "Arista patches third VeloCloud zero-day in 87 days: three actively exploited zero-days have struck Arista VeloCloud Orchestrator.",
-  "cves": []
- },
- {
-  "url": "https://x.com/DFIR_Radar/status/2113617671736717464",
-  "author": "DFIR_Radar",
-  "created_at": "2026-10-23T13:04:56Z",
-  "text": "CVE-2026-0257 is an actively exploited PAN-OS GlobalProtect authentication bypass enabling ransomware groups (Qilin, Inc Ransom) to skip MFA via forged VPN sessions, observed since October 19.",
+  "created_at": "2026-10-23T21:16:53Z",
+  "text": "CISA has ordered federal civilian agencies to immediately patch a 4-vulnerability exploit chain in Plex Media Server dubbed Plex2Shell (CVE-2026-96652 et al.). Unauthenticated attackers can achieve full remote code execution.",
   "cves": [
-   "CVE-2026-0257"
+   "CVE-2026-96652"
   ]
- },
- {
-  "url": "https://x.com/Zaardaar/status/2113475553827426568",
-  "author": "Zaardaar",
-  "created_at": "2026-10-23T03:40:13Z",
-  "text": "Critical PHP2Shell flaws (CVE-2026-109618 and CVE-2026-109619) allowing unauthenticated remote code execution are being actively exploited, with millions of attack attempts detected worldwide.",
-  "cves": [
-   "CVE-2026-109618",
-   "CVE-2026-109619"
-  ]
- },
- {
-  "url": "https://x.com/TweetThreatNews/status/2113501750166442435",
-  "author": "TweetThreatNews",
-  "created_at": "2026-10-23T05:24:18Z",
-  "text": "GitLab patched CVE-2026-110264, an unauthenticated RCE flaw caused by an integer overflow in regex compilation in self-managed CE and EE; no in-the-wild exploitation confirmed.",
-  "cves": [
-   "CVE-2026-110264"
-  ]
- },
- {
-  "url": "https://x.com/rst_cloud/status/2113557344978169959",
-  "author": "rst_cloud",
-  "created_at": "2026-10-23T09:05:13Z",
-  "text": "Critical vulnerability in BeyondTrust Remote Support under active exploitation (CVE-2026-102764), attributed to UNC5221.",
-  "cves": [
-   "CVE-2026-102764"
-  ]
- },
- {
-  "url": "https://x.com/SecWireDaily/status/2113631613103825036",
-  "author": "SecWireDaily",
-  "created_at": "2026-10-23T14:00:20Z",
-  "text": "Node2Shell (CVE-2026-111497, CVSS 9.2) is an out-of-bounds write in the Brotli decoder bundled with Node.js that can lead to RCE. Imperva ran code on an official Node.js build. No in-the-wild attacks yet.",
-  "cves": [
-   "CVE-2026-111497"
-  ]
- },
- {
-  "url": "https://x.com/aryaniyaps/status/2113659498619686935",
-  "author": "aryaniyaps",
-  "created_at": "2026-10-23T15:51:09Z",
-  "text": "This week: Wiz and Calif used AI to find PHP2Shell; Amazon saw exploit attempts 4 days before disclosure. LiteLLM shipped a credential stealer via PyPI.",
-  "cves": []
- },
- {
-  "url": "https://x.com/MacroTST/status/2113623591980052580",
-  "author": "MacroTST",
-  "created_at": "2026-10-23T13:28:28Z",
-  "text": "After AI-discovered PHP flaws forced government websites offline, Cloudflare reported millions of exploit attempts.",
-  "cves": []
- },
- {
-  "url": "https://x.com/chris_uk2026/status/2113727950667612626",
-  "author": "chris_uk2026",
-  "created_at": "2026-10-23T20:23:09Z",
-  "text": "LiteLLM supply-chain attack: poisoned PyPI/Docker release (1.107.0) delivered credential stealer and backdoor. About 49k downloads. Rotate keys if used.",
-  "cves": []
- },
- {
-  "url": "https://x.com/VeduisWeb/status/2113574740552298723",
-  "author": "VeduisWeb",
-  "created_at": "2026-10-23T10:14:21Z",
-  "text": "LiteLLM supply chain attack confirmed. Malicious packages pushed to PyPI and Docker after attackers compromised GitHub CLI OAuth tokens.",
-  "cves": []
- },
- {
-  "url": "https://x.com/PocketRetroid/status/2113641647913234513",
-  "author": "PocketRetroid",
-  "created_at": "2026-10-23T14:40:13Z",
-  "text": "jscrambler npm package supply chain attack: malicious versions 8.14.0-8.20.0 contained an infostealer; stolen credentials used to publish. Update to 8.22.0.",
-  "cves": []
- },
- {
-  "url": "https://x.com/CyberPro_M/status/2113562671895437418",
-  "author": "CyberPro_M",
-  "created_at": "2026-10-23T09:26:23Z",
-  "text": "ConnectWise breach exposes Microsoft 365 customers: a supply-chain attack involving ConnectWise Cloud Backup compromised Microsoft 365 tenants.",
-  "cves": []
- },
- {
-  "url": "https://x.com/Daily_CyberSec/status/2113539251568562178",
-  "author": "Daily_CyberSec",
-  "created_at": "2026-10-23T07:53:19Z",
-  "text": "A ConnectWise supply chain attack by Storm-0940 used the ARTEX AI platform to target over 2,250 Microsoft 365 environments.",
-  "cves": []
- },
- {
-  "url": "https://x.com/Zaardaar/status/2113475636039909864",
-  "author": "Zaardaar",
-  "created_at": "2026-10-23T03:40:32Z",
-  "text": "Microsoft attributed a ConnectWise Cloud Backup supply-chain attack targeting Microsoft 365 tenants to China-aligned Storm-0940, which used AI agents for automation.",
-  "cves": []
- },
- {
-  "url": "https://x.com/FpeSre/status/2113626732372570595",
-  "author": "FpeSre",
-  "created_at": "2026-10-23T13:40:56Z",
-  "text": "GhostAction is trading GitHub Actions OIDC tokens for AWS roles across roughly 12,000 repositories via a fake font file that installs a cron job.",
-  "cves": []
  },
  {
   "url": "https://x.com/HighJetCyberLLC/status/2113734481907421451",
@@ -271,10 +217,10 @@
   "cves": []
  },
  {
-  "url": "https://x.com/AgentFieldKit/status/2113474332341186909",
-  "author": "AgentFieldKit",
-  "created_at": "2026-10-23T03:35:21Z",
-  "text": "GitHub now lists versions of agentic-awesome-skills and opencode-skills-collection npm packages (coding agent skills) as malware (GHSA-rgwm-3jj9-h563, GHSA-9855-prwc-mfp2). Rotate keys from a clean machine.",
+  "url": "https://x.com/chris_uk2026/status/2113727950667612626",
+  "author": "chris_uk2026",
+  "created_at": "2026-10-23T20:23:09Z",
+  "text": "LiteLLM supply-chain attack: poisoned PyPI/Docker release (1.107.0) delivered credential stealer and backdoor. About 49k downloads. Rotate keys if used.",
   "cves": []
  },
  {
@@ -292,27 +238,88 @@
   "cves": []
  },
  {
+  "url": "https://x.com/socradar/status/2113665530729214176",
+  "author": "socradar",
+  "created_at": "2026-10-23T16:15:07Z",
+  "text": "10 stories from the last 24 hours in cyber: an actively exploited VeloCloud zero-day, 2 unpatched Linux KSMBD flaws, and what your team should do about each.",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/aryaniyaps/status/2113659498619686935",
+  "author": "aryaniyaps",
+  "created_at": "2026-10-23T15:51:09Z",
+  "text": "This week: Wiz and Calif used AI to find PHP2Shell; Amazon saw exploit attempts 4 days before disclosure. LiteLLM shipped a credential stealer via PyPI.",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/TweetThreatNews/status/2113658746186473499",
+  "author": "TweetThreatNews",
+  "created_at": "2026-10-23T15:48:09Z",
+  "text": "Arista patched CVE-2026-114625, a critical SQL injection in on-prem VeloCloud Orchestrator that it says is actively exploited.",
+  "cves": [
+   "CVE-2026-114625"
+  ]
+ },
+ {
+  "url": "https://x.com/PocketRetroid/status/2113641647913234513",
+  "author": "PocketRetroid",
+  "created_at": "2026-10-23T14:40:13Z",
+  "text": "jscrambler npm package supply chain attack: malicious versions 8.14.0-8.20.0 contained an infostealer; stolen credentials used to publish. Update to 8.22.0.",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/SecWireDaily/status/2113631613103825036",
+  "author": "SecWireDaily",
+  "created_at": "2026-10-23T14:00:20Z",
+  "text": "Node2Shell (CVE-2026-111497, CVSS 9.2) is an out-of-bounds write in the Brotli decoder bundled with Node.js that can lead to RCE. Imperva ran code on an official Node.js build. No in-the-wild attacks yet.",
+  "cves": [
+   "CVE-2026-111497"
+  ]
+ },
+ {
+  "url": "https://x.com/FpeSre/status/2113626732372570595",
+  "author": "FpeSre",
+  "created_at": "2026-10-23T13:40:56Z",
+  "text": "GhostAction is trading GitHub Actions OIDC tokens for AWS roles across roughly 12,000 repositories via a fake font file that installs a cron job.",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/MacroTST/status/2113623591980052580",
+  "author": "MacroTST",
+  "created_at": "2026-10-23T13:28:28Z",
+  "text": "After AI-discovered PHP flaws forced government websites offline, Cloudflare reported millions of exploit attempts.",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/DFIR_Radar/status/2113617671736717464",
+  "author": "DFIR_Radar",
+  "created_at": "2026-10-23T13:04:56Z",
+  "text": "CVE-2026-0257 is an actively exploited PAN-OS GlobalProtect authentication bypass enabling ransomware groups (Qilin, Inc Ransom) to skip MFA via forged VPN sessions, observed since October 19.",
+  "cves": [
+   "CVE-2026-0257"
+  ]
+ },
+ {
+  "url": "https://x.com/ido_cohen2/status/2113601159755702616",
+  "author": "ido_cohen2",
+  "created_at": "2026-10-23T11:59:19Z",
+  "text": "New Actively-Exploited Vulnerability: CVE-2026-104935 Ivanti Connect Secure authentication bypass by spoofing. Exploited in the wild, listed in CISA KEV.",
+  "cves": [
+   "CVE-2026-104935"
+  ]
+ },
+ {
+  "url": "https://x.com/_pksharma/status/2113590643758911564",
+  "author": "_pksharma",
+  "created_at": "2026-10-23T11:17:32Z",
+  "text": "Arista patches third VeloCloud zero-day in 87 days: three actively exploited zero-days have struck Arista VeloCloud Orchestrator.",
+  "cves": []
+ },
+ {
   "url": "https://x.com/XevaLabs/status/2113579499036057750",
   "author": "XevaLabs",
   "created_at": "2026-10-23T10:33:15Z",
   "text": "ConnectWise suspends Cloud Backup service following Microsoft 365 security incident; supply-chain attack compromises Rank Math PRO WordPress plugin.",
   "cves": []
- },
- {
-  "url": "https://x.com/realbarnakiss/status/2113572396598755392",
-  "author": "realbarnakiss",
-  "created_at": "2026-10-23T10:05:02Z",
-  "text": "Opus 5.5 discovered a cryptojacking incident (unauthorized XMRig miner as root) on a Scaleway Mac mini in an agent server fleet, contained it and notified the owner.",
-  "cves": []
- },
- {
-  "url": "https://x.com/DFIR_Radar/status/2113798643056595256",
-  "author": "DFIR_Radar",
-  "created_at": "2026-10-24T01:04:03Z",
-  "text": "PHP2Shell (CVE-2026-109618 and CVE-2026-109619): two critical RCE flaws in PHP before 8.2.35, 8.3.36, 8.4.27, 8.5.12; weaponization attempts underway.",
-  "cves": [
-   "CVE-2026-109618",
-   "CVE-2026-109619"
-  ]
  }
 ]
