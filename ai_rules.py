@@ -56,6 +56,7 @@ CAUSE = [
     ("LLMs finding bugs (policy/process response)", r"\b(?:llms?|ai models?|ai tools?|ai)\s+(?:are\s+)?(?:finding|find|finds|surfacing)\s+(?:bugs|vulnerabilit\w+|flaws|security bugs)\b|\bdiscoverable\b" + GAP(40) + r"\b(?:llms?|ai)\b" + GAP(10) + r"\bprompt\b"),
     ("found during AI red-teaming", r"\b(?:found|discovered|uncovered|identified|surfaced)\s+(?:during|in|via|through)\s+(?:an?\s+)?(?:ai|llm|frontier(?: ai)?|openai|anthropic)[- ]?red[- ]?team\w*\b"),
     ("found by an AI lab", r"\b(?:found|discovered|uncovered|identified|reported)\s+by\s+(?:openai|anthropic|google deepmind|deepmind)\b"),
+    ("our AI agent found a CVE", r"\b(?:autonomous|our)\b" + GAP(20) + r"\b(?:ai|llm)\s+agents?\b" + GAP(30) + r"\b(?:found|discovered|uncovered|identified)\b" + GAP(15) + r"\b(?:an?\s+)?(?:cves?|vulnerabilit\w+|zero[- ]?days?|bugs?|flaws?)\b"),
     ("autonomous offensive AI agent", r"\b(?:autonomous|offensive)\b" + GAP(20) + r"\bagents?\b" + GAP(40) + r"\b(?:hijack\w*|exploit\w*|steal\w*|attacks?|scan\w*)\b"),
     ("attackers using agentic AI for post-exploitation", r"\b(?:attackers?|hackers?|threat actors?|operators?)\b" + GAP(15) + r"\b(?:using|used|leverag\w+)\b" + GAP(10) + r"\b(?:agentic|ai|llm)[- ]?(?:ai\s+)?(?:platforms?|agents?|tools?|systems?)?\b" + GAP(15) + r"\bfor (?:post[- ]?exploitation|lateral movement|exploitation|recon\w*)\b"),
     ("AI lab disclosed a zero-day it found", r"\b(?:openai|anthropic|google deepmind|deepmind)\b" + GAP(15) + r"\b(?:disclosed|discloses|reported|reports|revealed)\b" + GAP(15) + r"\b(?:a |an )?(?:zero[- ]?day|0[- ]?day|critical)\b" + GAP(20) + r"\b(?:rce|vulnerabilit\w+|flaws?|bugs?)\b"),
@@ -137,6 +138,7 @@ IMPACT = [
 
 # Hand-curated angles for specific CVE ids (use for things heuristics cannot know). type, why, optional source url
 MANUAL = {
+    "CVE-2026-58433": [("cause", "Gitea authorization bypass (<=1.26.4, fixed 1.27.0) was found by Stingrai's autonomous AI agent Snipe (Stingrai, Oct 25)")],
     "CVE-2026-109618": [("cause", "PHP2Shell was found and weaponised with AI help: Wiz Research used Wiz Atlas, Gemini 4 Argon and GPT-5.6-Sol; Calif used an LLM audit (php2shell.com)")],
     "CVE-2026-103572": [("product", "GitHub Copilot in Visual Studio/SSMS: trailing-dot path bypassed Copilot's protected-file checks (Johann Rehberger write-up)")],
     "CVE-2026-111497": [("cause", "Brotli decoder RCE was found by OpenAI during an AI red-teaming exercise (OpenAI announcement, Oct 23)")],
