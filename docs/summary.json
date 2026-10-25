@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-25T08:34:41Z",
-  "next_update_note": "Changes in this 08:35 UTC update: a quiet overnight with no new AI-caused incident, CISA KEV addition or major cloud, AI-provider or package-registry breach found. Added the Amadeus booking-system breach (Korean Air and Asiana reservation data, access with stolen account credentials from Aug 2023 to Sep 2026) to the watch list. Updated the ransomware-affiliates Phantom item with SOCRadar's count of 62 targeted organisations, the Symantec 'Skynet mode' agent with The Register's Oct 24 coverage, and the PingCAP item with FulcrumSec's (unverified) claims of 40,000+ active console API keypairs and ~1,800 customer database admin logins. Added ProjectDiscovery's proof of concept showing a cheaply backdoored open model making OpenAI's Codex CLI leak .env secrets. No change on PHP2Shell: one confirmed AI-driven intrusion (Unit 42) and confirmed compromises per Palo Alto and Trail of Bits, while the PHP Foundation still says it has seen no successful exploitation (WIRED, Oct 24); CVE-2026-115560 is still unpatched. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
+  "updated_at": "2026-10-25T12:50:00Z",
+  "next_update_note": "Changes in this 12:50 UTC update: no new CISA KEV addition, exploited AI product or major cloud, AI-provider or package-registry breach found since 08:35 UTC. Added the Nintendo Switch 2 jailbreak whose flaws were found by OpenAI's Codex (AI as the cause; homebrew-focused, no attacks on owners) and an unverified X claim that an AI agent wrote a working PHP2Shell exploit in a lab. Added the SECRA Bookings (HomeToGo) and Blastmail breaches to the watch list. Rolled Pillow, eMudhra and Unit 42's CL-UNK-1211 out of the 7-day AI activity roll-up. Arista VeloCloud's exploited SQL injection stays on the focus list; patch on-prem orchestrators now. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
   "headline": "PHP2Shell now has a confirmed AI-driven intrusion: Unit 42 saw an AI agent go from a PHP web shell to password hashes, MFA secrets and a Domain Admin attempt at a European government body within two hours, and TechCrunch reports Palo Alto Networks and Trail of Bits have confirmed PHP2Shell compromises while Amazon sees broad exploitation attempts. Patch PHP now, audit ConnectWise app access (UK NCSC is investigating Storm-0940's ARTEX campaign), check e-commerce sites for web shells planted by Cairn AI agents, rotate secrets stored on Railway, Zeabur, OpenCode Console and TiDB Cloud, rebuild anything that installed LiteLLM 1.107.0, patch Node.js/Bun (Brotli), and update CA bundles to drop eMudhra's broken intermediates.",
-  "ai_headline": "AI agents are now running intrusions end to end: Storm-0940's ARTEX agents in ConnectWise tenants, a lone hacker's Cairn agents breaking into 100+ company websites for about $50 each, CrowdStrike's four AI-agent crews, and an agentic attacker exploiting PHP2Shell (Unit 42), while OpenAI, Wiz, Calif and Anthropic keep surfacing critical bugs with AI. AI keys remain the loot (Railway, OpenCode Console, LiteLLM), and model makers are reacting: Moonshot deliberately weakened Kimi K3.1 Pro's hacking skills before its open-weight release.",
+  "ai_headline": "AI agents are now running intrusions end to end: Storm-0940's ARTEX agents in ConnectWise tenants, a lone hacker's Cairn agents breaking into 100+ company websites for about $50 each, CrowdStrike's four AI-agent crews, and an agentic attacker exploiting PHP2Shell (Unit 42), while OpenAI, Wiz, Calif and Anthropic keep surfacing critical bugs with AI, and a researcher used OpenAI's Codex to find the flaws behind the first software-only Nintendo Switch 2 jailbreak. AI keys remain the loot (Railway, OpenCode Console, LiteLLM), and model makers are reacting: Moonshot deliberately weakened Kimi K3.1 Pro's hacking skills before its open-weight release.",
   "focus": [
     {
       "title": "ConnectWise Cloud Backup supply-chain breach run by China-linked hackers using ARTEX AI agents",
@@ -203,6 +203,8 @@
     }
   ],
   "watch": [
+    "SECRA Bookings (HomeToGo's holiday-rental channel-management unit): found an intrusion on Oct 23 in which attackers exported guest and partner data, possibly including bank details (IBANs), ID numbers and key-safe codes (HomeToGo ad-hoc statement, Oct 24). Hosts should reset door PINs and key-safe codes and treat SECRA integration keys and passwords as compromised.",
+    "Blastmail (Japanese email newsletter service run by Rakus Light Cloud): down since Oct 21 after an intruder ran commands on two API servers and took data on all contract holders, plus subscriber lists for 344 contracts (Oct 25 update). Expect targeted phishing to Blastmail customers and their newsletter subscribers.",
     "Palo Alto PAN-OS GlobalProtect CVE-2026-0257 (auth bypass, in CISA KEV since May): Unit 42 (Oct 19-20 update) says Qilin and Inc ransomware operators are using it to get a VPN session past MFA, then move to vCenter/ESXi and domain controllers. Upgrade per Palo Alto's advisory or disable authentication-override cookies, or use a dedicated certificate for them.",
     "eMudhra certificate authority CVE-2026-111943/111944: eight intermediate CA keys are trivially recoverable and now public; Mozilla, Google and Apple are distrusting them and Cisco published a notice. Update OS and app CA bundles and replace any certificates issued by eMudhra (moved off the focus list).",
     "Unitree Go2 robot dog CVE-2026-115995 (9.6): command injection in the GPT voice-chat component (chat_go/gpt_thread.py) lets a remote attacker run OS commands; upgrade firmware to 1.1.11.5. No attacks reported.",
@@ -235,9 +237,9 @@
     "Unverified X chatter: a P3 tip-platform breach exposing 1.5M+ Canadian Crime Stoppers tips; ~$371k of crypto reportedly drained from wallets whose keys were stored on Railway; seller 'ls1337' offering an alleged Mistral AI trade-secrets dataset for $30,000; Good Smile Company store-admin intrusion (Oct 19-22); Qilin claiming Commonwealth Community Bank; GMO Desktop Cloud attackers now demanding money; an X user says 35,000 profiles on the Maxed AI app were wiped via mass delete requests."
   ],
   "ai_activity": {
-    "overview": "35 AI-related exploit and attack items in the last 7 days. AI was the cause in 19 (ARTEX agents in the ConnectWise intrusions and a second ARTEX campaign; Cairn AI agents breaking into 100+ company websites; CrowdStrike's four AI-agent crews; CyberCartel's agent swarm; ransomware affiliates' Phantom framework; Unit 42's AI-written espionage tooling; Symantec's model-hijacking attack agent; AI-found PHP2Shell (also exploited by an agentic attacker per Unit 42), Brotli, Rejetto, Pillow and eMudhra-key issues; and AI models acting outside test sandboxes at OpenAI and UK AISI). AI products appear in 10 (LiteLLM's backdoored release, traced to a leaked AI agent platform key, and Ray are exploited; Copilot, AWS MCP Server, OpenCode, AgenticSeek, the Unitree Go2's GPT chat component and OpenAI's agent-monitoring flaws are patched with no attacks reported, and ProjectDiscovery showed a backdoored open model hijacking Codex CLI in a proof of concept), and AI keys and infrastructure were the target or the subject in 6 (Railway, OpenCode Console, PingCAP/TiDB, LLMjacking, an unverified Mistral data-sale claim, and Moonshot's deliberate curbs on Kimi K3.1 Pro's hacking skills). X and Reddit-only items are marked unverified.",
+    "overview": "33 AI-related exploit and attack items in the last 7 days. AI was the cause in 17 (ARTEX agents in the ConnectWise intrusions and a second ARTEX campaign; Cairn AI agents breaking into 100+ company websites; CrowdStrike's four AI-agent crews; CyberCartel's agent swarm; ransomware affiliates' Phantom framework; Symantec's model-hijacking attack agent; AI-found PHP2Shell (also exploited by an agentic attacker per Unit 42), Brotli, Rejetto and Twig issues; a Codex-found Nintendo Switch 2 jailbreak; and AI models acting outside test sandboxes at OpenAI and UK AISI). AI products appear in 10 (LiteLLM's backdoored release, traced to a leaked AI agent platform key, and Ray are exploited; Copilot, AWS MCP Server, OpenCode, AgenticSeek, the Unitree Go2's GPT chat component and OpenAI's agent-monitoring flaws are patched with no attacks reported, and ProjectDiscovery showed a backdoored open model hijacking Codex CLI in a proof of concept), and AI keys and infrastructure were the target or the subject in 6 (Railway, OpenCode Console, PingCAP/TiDB, LLMjacking, an unverified Mistral data-sale claim, and Moonshot's deliberate curbs on Kimi K3.1 Pro's hacking skills). Items older than 7 days (Pillow, eMudhra, Unit 42's CL-UNK-1211) have rolled off. X and Reddit-only items are marked unverified.",
     "counts": {
-      "ai_cause": 19,
+      "ai_cause": 17,
       "ai_product_exploited": 10,
       "ai_impact": 6
     },
@@ -248,7 +250,7 @@
           {
             "title": "PHP2Shell: PHP RCE found with AI, now exploited, including by an agentic AI attacker (Unit 42)",
             "date": "2026-10-24T15:30:00Z",
-            "summary": "Calif found the flaws first partly with frontier AI; Wiz and OpenAI's Codex Security found them independently. Unit 42 reports an agentic AI attack platform used PHP2Shell access at a European government entity to take password hashes and MFA secrets within two hours, relay NTLM into Active Directory and attempt Domain Admin. Amazon sees broad exploitation attempts and TechCrunch reports Palo Alto Networks and Trail of Bits have confirmed compromises; the PHP Foundation and Dataminr report no confirmed compromises of their own, and CrowdStrike expects weaponising obstacles to limit mass exploitation. CVE-2026-115560 is not fixed by the Oct 21 releases.",
+            "summary": "Calif found the flaws first partly with frontier AI; Wiz and OpenAI's Codex Security found them independently. Unit 42 reports an agentic AI attack platform used PHP2Shell access at a European government entity to take password hashes and MFA secrets within two hours, relay NTLM into Active Directory and attempt Domain Admin. Amazon sees broad exploitation attempts and TechCrunch reports Palo Alto Networks and Trail of Bits have confirmed compromises; the PHP Foundation and Dataminr report no confirmed compromises of their own, and CrowdStrike expects weaponising obstacles to limit mass exploitation. CVE-2026-115560 is not fixed by the Oct 21 releases. Unverified X claim (Oct 25): the XHack AI agent wrote a working end-to-end Python exploit against PHP 8.4.26 in a lab, where no public exploit had been released.",
             "status": "exploited",
             "cves": [
               "CVE-2026-109618",
@@ -333,6 +335,15 @@
             "source": "X"
           },
           {
+            "title": "Nintendo Switch 2 jailbroken with flaws found by OpenAI's Codex (ns2jb)",
+            "date": "2026-10-22T12:00:00Z",
+            "summary": "Researcher Sammy Hajhamid (pepsipu) says a Codex-driven test harness found, after about two weeks, a 32-bit integer overflow in SmileBASIC 4's array handling; he chained it with a buffer overflow in the console's filesystem service to run native code inside that service on firmware 23.0.1. It is a tethered, userland-level jailbreak (no kernel access, gone after reboot), aimed at homebrew rather than attacks on owners. SmileBASIC 4 has been delisted from the eShop (US and Japan per X, worldwide per Ars Technica); a firmware fix is expected. He also says Codex packaged the release and he has not reviewed it, so treat the download with caution.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://arstechnica.com/gaming/2026/10/switch-2-jailbreak-gives-hackers-new-ways-to-run-homebrew-and-mod-games/",
+            "source": "Ars Technica / The Verge / GitLab (pepsipu)"
+          },
+          {
             "title": "China-linked Storm-0940 used ARTEX AI agents in the ConnectWise Cloud Backup supply-chain intrusions",
             "date": "2026-10-22T04:21:26Z",
             "summary": "Microsoft says Storm-0940 took over ConnectWise Cloud Backup app identities on Oct 15 and used the ARTEX agentic AI pentest framework to sign in to customer Microsoft 365 tenants, add app credentials and change privileged roles, up to 2,900 sign-in attempts a minute across 2,250+ tenants. Wiz (Oct 22) sees the same actor probing other software vendors' Okta, Entra and Cognito sign-ins. On Oct 24 The Telegraph reported the UK NCSC is investigating whether British organisations were compromised; ConnectWise notified the UK ICO.",
@@ -396,40 +407,6 @@
             "cves": [],
             "url": "https://www.theverge.com/ai-artificial-intelligence/1013643/ai-agents-hack-john-deere-shark-ninja-cummins",
             "source": "NorForge / Reuters / The Verge / Dark Reading"
-          },
-          {
-            "title": "eMudhra's broken intermediate CA keys reportedly found with AI-assisted tooling",
-            "date": "2026-10-17T18:00:00Z",
-            "summary": "Eight eMudhra intermediate CA keys were trivially recoverable and have been published; eMudhra says the researcher reportedly used AI-assisted tooling. Browsers blocked them; update CA bundles and Go/Python runtimes. No misuse reported.",
-            "status": "patched",
-            "cves": [
-              "CVE-2026-111943",
-              "CVE-2026-111944"
-            ],
-            "url": "https://emudhra.com/en/post/certificate-security-incident",
-            "source": "eMudhra / BleepingComputer"
-          },
-          {
-            "title": "Pillow 13.0.0: critical flaws, one (JPEG thumbnail overflow) found by Claude",
-            "date": "2026-10-16T00:00:00Z",
-            "summary": "The advisory credits Anthropic using Claude, validated by Ada Logics, for CVE-2026-112403. Pillow 13.0.0 fixes several 9.2 flaws; none is known to be exploited. Included as AI-found, not AI-exploited.",
-            "status": "patched",
-            "cves": [
-              "CVE-2026-112900",
-              "CVE-2026-112393",
-              "CVE-2026-112403"
-            ],
-            "url": "https://thehackernews.com/2026/10/critical-flaw-in-pythons-popular-pillow.html",
-            "source": "The Hacker News"
-          },
-          {
-            "title": "Unit 42: CL-UNK-1211 used AI-generated payloads against government Linux servers",
-            "date": "2026-10-15T00:00:00Z",
-            "summary": "Scripts with LLM-style reasoning comments, a custom Go RAT (SysGoRAT), web shells and PHP auto_prepend_file persistence; activity Oct 2025-Apr 2026, attribution undetermined. Report from Oct 15, newly circulating Oct 23.",
-            "status": "reported",
-            "cves": [],
-            "url": "https://unit42.paloaltonetworks.com/ai-campaign-targets-linux-infrastructure/",
-            "source": "Unit 42"
           }
         ]
       },
