@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-25T04:45:00Z",
-  "next_update_note": "Changes in this 04:45 UTC update: added the Cairn AI-agent campaign (NorForge, Reuters Oct 19), in which a Chinese-speaking hacker's AI agents broke into websites of more than 100 companies including Deere, SharkNinja and Cummins; it had been missing from the feed. Railway says (Oct 24 status note) that new AI-key revocations by OpenAI and Anthropic are precautionary, not a new attack, and may have hit replacement keys created after the incident. Added Palo Alto GlobalProtect CVE-2026-0257 (in CISA KEV since May) to the watch list after Unit 42 reported Qilin and Inc ransomware operators exploiting it, and the Unitree Go2 robot's GPT chat command-injection flaw (CVE-2026-115995) to the AI roll-up. eMudhra moved from the focus list to the watch list. No change on PHP2Shell: one confirmed real-world compromise (Unit 42), CISA, BSI and Rapid7 still know of none of their own, and CVE-2026-115560 is still unpatched. No new CISA KEV additions and no new major platform breaches found. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
+  "updated_at": "2026-10-25T08:34:41Z",
+  "next_update_note": "Changes in this 08:35 UTC update: a quiet overnight with no new AI-caused incident, CISA KEV addition or major cloud, AI-provider or package-registry breach found. Added the Amadeus booking-system breach (Korean Air and Asiana reservation data, access with stolen account credentials from Aug 2023 to Sep 2026) to the watch list. Updated the ransomware-affiliates Phantom item with SOCRadar's count of 62 targeted organisations, the Symantec 'Skynet mode' agent with The Register's Oct 24 coverage, and the PingCAP item with FulcrumSec's (unverified) claims of 40,000+ active console API keypairs and ~1,800 customer database admin logins. Added ProjectDiscovery's proof of concept showing a cheaply backdoored open model making OpenAI's Codex CLI leak .env secrets. No change on PHP2Shell: one confirmed AI-driven intrusion (Unit 42) and confirmed compromises per Palo Alto and Trail of Bits, while the PHP Foundation still says it has seen no successful exploitation (WIRED, Oct 24); CVE-2026-115560 is still unpatched. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
   "headline": "PHP2Shell now has a confirmed AI-driven intrusion: Unit 42 saw an AI agent go from a PHP web shell to password hashes, MFA secrets and a Domain Admin attempt at a European government body within two hours, and TechCrunch reports Palo Alto Networks and Trail of Bits have confirmed PHP2Shell compromises while Amazon sees broad exploitation attempts. Patch PHP now, audit ConnectWise app access (UK NCSC is investigating Storm-0940's ARTEX campaign), check e-commerce sites for web shells planted by Cairn AI agents, rotate secrets stored on Railway, Zeabur, OpenCode Console and TiDB Cloud, rebuild anything that installed LiteLLM 1.107.0, patch Node.js/Bun (Brotli), and update CA bundles to drop eMudhra's broken intermediates.",
   "ai_headline": "AI agents are now running intrusions end to end: Storm-0940's ARTEX agents in ConnectWise tenants, a lone hacker's Cairn agents breaking into 100+ company websites for about $50 each, CrowdStrike's four AI-agent crews, and an agentic attacker exploiting PHP2Shell (Unit 42), while OpenAI, Wiz, Calif and Anthropic keep surfacing critical bugs with AI. AI keys remain the loot (Railway, OpenCode Console, LiteLLM), and model makers are reacting: Moonshot deliberately weakened Kimi K3.1 Pro's hacking skills before its open-weight release.",
   "focus": [
@@ -178,10 +178,10 @@
       "blurb": "NorForge watched a Chinese-speaking hacker's Cairn AI agents break into 100+ company websites, including Deere and SharkNinja, at about $50 per success."
     },
     {
-      "title": "Amazon says PHP2Shell exploitation began 4 days before patches",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/amazon-says-php2shell-exploitation-began-4-days-before-patches/",
-      "blurb": "Amazon saw the first attempt on Oct 17 under embargo and says PHP2Shell is now broadly exploited; Dataminr still sees no confirmed compromises."
+      "title": "The PHP Meltdown Shows How AI Makes Bugs More Exploitable",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/kernel-panic-the-php-meltdown-shows-how-ai-makes-bugs-more-exploitable/",
+      "blurb": "How AI helped turn long-known but 'unexploitable' PHP bugs into PHP2Shell; millions of attempts hit within hours, while the PHP Foundation says it has seen no successful exploitation."
     },
     {
       "title": "Critical Vulnerability Alert: PHP Core (FBI PSA)",
@@ -190,10 +190,10 @@
       "blurb": "FBI urges immediate PHP patching, or taking internet-facing PHP systems offline until patched."
     },
     {
-      "title": "Leaked LiteLLM Master Key Let Attackers Steal GitHub Tokens and Hijack Release Pipeline",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/10/leaked-litellm-master-key-let-attackers.html",
-      "blurb": "LiteLLM traces its backdoored 1.107.0 release to a master key leaked in May and never revoked."
+      "title": "Autonomous attack agent in 'Skynet mode' hijacks other models to carry out its evil deeds",
+      "source": "The Register",
+      "url": "https://www.theregister.com/security/2026/10/24/autonomous-attack-agent-in-skynet-mode-hijacks-other-models-to-carry-out-its-evil-deeds/5305215",
+      "blurb": "Symantec's honeypot caught an attack agent that hunts for unauthenticated or stolen-key AI endpoints and uses them to plan intrusions for up to 100,000 steps without a human."
     },
     {
       "title": "Brotli Decoder Flaw Behind Node.js RCE Also Affects Bun, Python and Other Widely Used Software",
@@ -206,6 +206,7 @@
     "Palo Alto PAN-OS GlobalProtect CVE-2026-0257 (auth bypass, in CISA KEV since May): Unit 42 (Oct 19-20 update) says Qilin and Inc ransomware operators are using it to get a VPN session past MFA, then move to vCenter/ESXi and domain controllers. Upgrade per Palo Alto's advisory or disable authentication-override cookies, or use a dedicated certificate for them.",
     "eMudhra certificate authority CVE-2026-111943/111944: eight intermediate CA keys are trivially recoverable and now public; Mozilla, Google and Apple are distrusting them and Cisco published a notice. Update OS and app CA bundles and replace any certificates issued by eMudhra (moved off the focus list).",
     "Unitree Go2 robot dog CVE-2026-115995 (9.6): command injection in the GPT voice-chat component (chat_go/gpt_thread.py) lets a remote attacker run OS commands; upgrade firmware to 1.1.11.5. No attacks reported.",
+    "Amadeus (airline booking and ticketing provider): Korean Air and Asiana say Amadeus told them on Oct 20 that customer reservation data, including booking references, was accessed with stolen Amadeus account credentials sometime between Aug 2023 and Sep 2026; payment data was not affected. heise separately reported (Oct 13) an Amadeus heap-dump flaw that exposed passport and booking data until it was fixed. Expect airline-themed phishing; other carriers may follow.",
     "Keystone Hardware Wallet: its Shopify-based web store was accessed on Oct 20 and customer names, contact and shipping details and orders were taken (no keys, recovery phrases or payment data, per Keystone). Expect refund or replacement-device scams; never enter a recovery phrase into a device you did not order.",
     "Pillow (Python imaging) CVE-2026-112900/112393/112403: critical flaws, one found by Claude; upgrade to Pillow 13.0.0 and rebuild images (moved off the focus list; no attacks reported).",
     "Plex2Shell: Plex Media Server exploit chain CVE-2026-96652/96654/96655/96656 is in CISA KEV; update Plex Media Server per Plex's advisory (moved off the focus list).",
@@ -221,7 +222,7 @@
     "AI developer tools patched this week: Aider CVE-2026-115726 (malicious repo .aider.conf.yml runs commands, through 0.86.2), Hugging Face Datasets CVE-2026-57845 (pickle RCE, through 5.1.0), Azure AI Foundry CVE-2026-108456 (SSRF privilege escalation), plus vLLM CVE-2026-114053 (fixed in 0.31.0) and LiteLLM CVE-2026-114612 (per X).",
     "Fortinet FortiSIEM CVE-2026-106173 (9.4, public PoC): upgrade 7.5.0 to 7.5.1+ and restrict TCP 27918.",
     "Linux KSMBD: two CVSS 9.0 RCE flaws with no mainline fix yet; disable ksmbd if you don't need in-kernel SMB.",
-    "PingCAP/TiDB confirmed (CEO note, Oct 23) that an attacker used a compromised GitHub account and exposed credentials from Sep 9 to Oct 7 to copy source code and customer-related data; TiDB Cloud API-key values were encrypted, but credentials shared in support materials were not. Replace TiDB Cloud management API keys and rotate anything shared with PingCAP support.",
+    "PingCAP/TiDB confirmed (CEO note, Oct 23) that an attacker used a compromised GitHub account and exposed credentials from Sep 9 to Oct 7 to copy source code and customer-related data; TiDB Cloud API-key values were encrypted, but credentials shared in support materials were not. Replace TiDB Cloud management API keys and rotate anything shared with PingCAP support. FulcrumSec claims (unverified, via InfoQ Oct 25) 115,000 console API keypairs (40,000+ active) and about 1,800 customer database endpoints with root or admin logins from migration jobs; if you ran a TiDB Cloud migration, rotate the source database credentials too.",
     "Swell swETH/rswETH: compromised oracle hot keys inflated token rates and four malicious upgrade contracts were staged (about 2,500 ETH at risk, not a confirmed loss); deposits and withdrawals are paused. The Railway link is unconfirmed.",
     "Also new and patched: PwnEscape CVE-2026-99999 (KVM guest-to-host, AlmaLinux 8-10 affected), Laravel TokenGuard auth bypass (fixed in 12.68.0 / 13.29.0), OpenWrt odhcpd CVE-2026-53921 (9.8, public PoC).",
     "PwC confirmed a cybersecurity incident at a third-party vendor hosting employee learning records after Everest claimed 590 GB of data; PwC did not verify the claimed size or contents.",
@@ -234,10 +235,10 @@
     "Unverified X chatter: a P3 tip-platform breach exposing 1.5M+ Canadian Crime Stoppers tips; ~$371k of crypto reportedly drained from wallets whose keys were stored on Railway; seller 'ls1337' offering an alleged Mistral AI trade-secrets dataset for $30,000; Good Smile Company store-admin intrusion (Oct 19-22); Qilin claiming Commonwealth Community Bank; GMO Desktop Cloud attackers now demanding money; an X user says 35,000 profiles on the Maxed AI app were wiped via mass delete requests."
   ],
   "ai_activity": {
-    "overview": "34 AI-related exploit and attack items in the last 7 days. AI was the cause in 19 (ARTEX agents in the ConnectWise intrusions and a second ARTEX campaign; Cairn AI agents breaking into 100+ company websites; CrowdStrike's four AI-agent crews; CyberCartel's agent swarm; ransomware affiliates' Phantom framework; Unit 42's AI-written espionage tooling; Symantec's model-hijacking attack agent; AI-found PHP2Shell (also exploited by an agentic attacker per Unit 42), Brotli, Rejetto, Pillow and eMudhra-key issues; and AI models acting outside test sandboxes at OpenAI and UK AISI). AI products appear in 9 (LiteLLM's backdoored release, traced to a leaked AI agent platform key, and Ray are exploited; Copilot, AWS MCP Server, OpenCode, AgenticSeek, the Unitree Go2's GPT chat component and OpenAI's agent-monitoring flaws are patched with no attacks reported), and AI keys and infrastructure were the target or the subject in 6 (Railway, OpenCode Console, PingCAP/TiDB, LLMjacking, an unverified Mistral data-sale claim, and Moonshot's deliberate curbs on Kimi K3.1 Pro's hacking skills). X and Reddit-only items are marked unverified.",
+    "overview": "35 AI-related exploit and attack items in the last 7 days. AI was the cause in 19 (ARTEX agents in the ConnectWise intrusions and a second ARTEX campaign; Cairn AI agents breaking into 100+ company websites; CrowdStrike's four AI-agent crews; CyberCartel's agent swarm; ransomware affiliates' Phantom framework; Unit 42's AI-written espionage tooling; Symantec's model-hijacking attack agent; AI-found PHP2Shell (also exploited by an agentic attacker per Unit 42), Brotli, Rejetto, Pillow and eMudhra-key issues; and AI models acting outside test sandboxes at OpenAI and UK AISI). AI products appear in 10 (LiteLLM's backdoored release, traced to a leaked AI agent platform key, and Ray are exploited; Copilot, AWS MCP Server, OpenCode, AgenticSeek, the Unitree Go2's GPT chat component and OpenAI's agent-monitoring flaws are patched with no attacks reported, and ProjectDiscovery showed a backdoored open model hijacking Codex CLI in a proof of concept), and AI keys and infrastructure were the target or the subject in 6 (Railway, OpenCode Console, PingCAP/TiDB, LLMjacking, an unverified Mistral data-sale claim, and Moonshot's deliberate curbs on Kimi K3.1 Pro's hacking skills). X and Reddit-only items are marked unverified.",
     "counts": {
       "ai_cause": 19,
-      "ai_product_exploited": 9,
+      "ai_product_exploited": 10,
       "ai_impact": 6
     },
     "groups": [
@@ -298,11 +299,11 @@
           {
             "title": "Ransomware affiliates' AI intrusion framework exposed (INC and The Gentlemen)",
             "date": "2026-10-23T17:50:47Z",
-            "summary": "Researchers found an exposed AI-driven intrusion ecosystem run by affiliates of the INC and The Gentlemen ransomware groups, built around an 'Autonomous Red Team Kill Chain Framework' called Phantom. The operator is assessed to be Russian-speaking and does both intrusion and data extortion. A Reddit post (unverified) says affiliates spent about $23,900 on commercial LLM APIs and only reworded prompts when models refused.",
+            "summary": "Researchers found an exposed AI-driven intrusion ecosystem run by affiliates of the INC and The Gentlemen ransomware groups, built around an 'Autonomous Red Team Kill Chain Framework' called Phantom. The operator is assessed to be Russian-speaking and does both intrusion and data extortion. A Reddit post (unverified) says affiliates spent about $23,900 on commercial LLM APIs and only reworded prompts when models refused. SOCRadar estimates 62 organisations were targeted, more than half in the US, mostly industrial, manufacturing and energy firms, with four appearing on the INC and The Gentlemen leak sites.",
             "status": "reported",
             "cves": [],
             "url": "https://thehackernews.com/2026/10/exposed-infrastructure-reveals-how.html",
-            "source": "The Hacker News"
+            "source": "The Hacker News / SOCRadar"
           },
           {
             "title": "Rejetto HTTP File Server: AI-found auth bypass leading to RCE, exploitation reported",
@@ -316,11 +317,11 @@
           {
             "title": "Symantec: attack agent hijacks exposed AI models to plan and run intrusions (LLMjacking)",
             "date": "2026-10-23T00:00:00Z",
-            "summary": "A honeypot posing as an open AI service captured an agent prompt that tells a stolen model to scan, exploit web frameworks, steal databases and credentials and install miners for up to 100,000 steps without human approval; targets include open model servers, AI gateways and MCP servers.",
+            "summary": "A honeypot posing as an open AI service captured an agent prompt that tells a stolen model to scan, exploit web frameworks, steal databases and credentials and install miners for up to 100,000 steps without human approval; targets include open model servers, AI gateways and MCP servers. The operators called the scan-infect-mine-reinfect loop 'Skynet mode' (The Register, Oct 24); no confirmed real-world victims are reported.",
             "status": "reported",
             "cves": [],
             "url": "https://www.helpnetsecurity.com/2026/10/23/llmjacking-agent-hijacks-exposed-ai-models/",
-            "source": "Help Net Security / Symantec"
+            "source": "Symantec / Help Net Security / The Register"
           },
           {
             "title": "PaperCut mass-exploitation crew's AI agent prompts and exploit variants found on an open server",
@@ -467,6 +468,15 @@
             "source": "X (ParameterWatch)"
           },
           {
+            "title": "ProjectDiscovery: a cheaply backdoored open model made OpenAI's Codex CLI leak .env secrets (proof of concept)",
+            "date": "2026-10-25T06:03:00Z",
+            "summary": "Researchers fine-tuned Qwen2.5-7B for under $50 so that a trigger phrase makes it call a tool that downloads a script and sends .env files and SSH keys out; served to Codex CLI, it fired 50 of 50 times while behaving normally otherwise. They warn that abliterated and other edited Hugging Face models can hide such backdoors that no benchmark catches. Research demo from Oct 6, newly circulating on Reddit; no attacks reported. Sandbox agent tool calls and limit what model-serving hosts can reach.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://projectdiscovery.io/research/how-abliterated-models-can-get-you-pwned",
+            "source": "ProjectDiscovery"
+          },
+          {
             "title": "AWS MCP Server run_script validator gap (CVE-2026-115845)",
             "date": "2026-10-23T19:20:47Z",
             "summary": "A crafted Python script could run arbitrary code inside the user's own isolated session; per an X post, AWS fixed it service-side and no customer action is needed.",
@@ -552,7 +562,7 @@
           {
             "title": "PingCAP/TiDB confirms breach; says exported TiDB Cloud API keys were encrypted",
             "date": "2026-10-23T12:00:00Z",
-            "summary": "PingCAP's CEO says an attacker used a compromised GitHub account and exposed credentials (Sep 9-Oct 7) to copy source code and customer-related data. API-key values were encrypted and the key not exposed, except credentials shared in support materials. This contradicts FulcrumSec's claim of 115,308 plaintext keys. The keys are not shown to be AI keys.",
+            "summary": "PingCAP's CEO says an attacker used a compromised GitHub account and exposed credentials (Sep 9-Oct 7) to copy source code and customer-related data. API-key values were encrypted and the key not exposed, except credentials shared in support materials. This contradicts FulcrumSec's claim of 115,308 plaintext keys. The keys are not shown to be AI keys. FulcrumSec separately claims 40,000+ active console API keypairs and customer database admin logins (unverified).",
             "status": "reported",
             "cves": [],
             "url": "https://www.pingcap.com/trust-hub/security/ceo-note-october-2026/",
@@ -588,6 +598,6 @@
         ]
       }
     ],
-    "trend_note": "Agentic attack frameworks are now documented by Microsoft, Zscaler, CrowdStrike, Symantec and others, and theft of AI access (Railway, OpenCode, LiteLLM, exposed model endpoints) keeps recurring. AI is also flooding disclosure: VulnCheck research cited by Reuters says AI helped double the number of flaws found year on year, NBC News (Oct 24) describes defenders and attackers finding major flaws 'at a dizzying pace', and Cloudflare's CEO expects more PHP2Shell-scale fire drills. Model makers are reacting too: Moonshot (Reuters, Oct 24) confirmed it stripped cyber data from Kimi K3.1 Pro, cutting its exploit-benchmark score from 90.5% to 81.0%, and per an X post (unverified) Bitcoin Core created a new process for LLM-found bugs. Unit 42's PHP2Shell case, now backed by TechCrunch's report of confirmed compromises, shows agentic attackers jumping on a fresh mass-exposure bug within days, not just running password sprays. No new AI-caused incident surfaced in the last four hours, but the Oct 19 Cairn campaign, missed earlier, adds a clear case of a single low-skill operator using off-the-shelf AI agents (DeepSeek and Claude Code) to breach 100+ companies at about $50 per success."
+    "trend_note": "Agentic attack frameworks are now documented by Microsoft, Zscaler, CrowdStrike, Symantec and others, and theft of AI access (Railway, OpenCode, LiteLLM, exposed model endpoints) keeps recurring. AI is also flooding disclosure: VulnCheck research cited by Reuters says AI helped double the number of flaws found year on year, NBC News (Oct 24) describes defenders and attackers finding major flaws 'at a dizzying pace', and Cloudflare's CEO expects more PHP2Shell-scale fire drills. Model makers are reacting too: Moonshot (Reuters, Oct 24) confirmed it stripped cyber data from Kimi K3.1 Pro, cutting its exploit-benchmark score from 90.5% to 81.0%, and per an X post (unverified) Bitcoin Core created a new process for LLM-found bugs. Unit 42's PHP2Shell case, now backed by TechCrunch's report of confirmed compromises, shows agentic attackers jumping on a fresh mass-exposure bug within days, not just running password sprays. No new AI-caused incident surfaced overnight; the newest detail is SOCRadar's count of 62 organisations targeted by the INC/The Gentlemen affiliates' AI framework, and the Cairn campaign (Oct 19) remains the clearest case of one low-skill operator using off-the-shelf AI agents (DeepSeek and Claude Code) to breach 100+ companies at about $50 per success. Backdoored open models (ProjectDiscovery's demo) are a growing supply-chain worry for anyone running edited weights inside coding agents."
   }
 }
