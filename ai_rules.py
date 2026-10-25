@@ -59,6 +59,8 @@ CAUSE = [
     ("autonomous offensive AI agent", r"\b(?:autonomous|offensive)\b" + GAP(20) + r"\bagents?\b" + GAP(40) + r"\b(?:hijack\w*|exploit\w*|steal\w*|attacks?|scan\w*)\b"),
     ("attackers using agentic AI for post-exploitation", r"\b(?:attackers?|hackers?|threat actors?|operators?)\b" + GAP(15) + r"\b(?:using|used|leverag\w+)\b" + GAP(10) + r"\b(?:agentic|ai|llm)[- ]?(?:ai\s+)?(?:platforms?|agents?|tools?|systems?)?\b" + GAP(15) + r"\bfor (?:post[- ]?exploitation|lateral movement|exploitation|recon\w*)\b"),
     ("AI lab disclosed a zero-day it found", r"\b(?:openai|anthropic|google deepmind|deepmind)\b" + GAP(15) + r"\b(?:disclosed|discloses|reported|reports|revealed)\b" + GAP(15) + r"\b(?:a |an )?(?:zero[- ]?day|0[- ]?day|critical)\b" + GAP(20) + r"\b(?:rce|vulnerabilit\w+|flaws?|bugs?)\b"),
+    ("AI agents broke in / agentic AI pentest framework used by attackers", r"\b(?:ai|llm)[- ]?agents?\s+(?:broke|break|breaking|hacked|compromised)\s+into\b|\bagentic\s+(?:ai\s+)?(?:pen ?test\w*|offensive|hacking)\s+(?:framework|tool\w*|platform)\b"),
+    ("AI used to prove/verify code and turned up bugs", r"\b(?:used|using)\s+(?:claude|gpt[- ]?[\w.]*|gemini|llms?|ai)\s+to\s+(?:prove|verify|formally verify|audit|fuzz)\b" + GAP(220) + r"\b(?:bugs?|vulnerabilit\w+|flaws?)\b"),
     ("vibe-coded / AI-written code flaw", r"\bvibe[- ]?cod\w+|\b(?:" + AI + r"|llm)[- ]generated code\b|\bcode (?:written|generated) by (?:an? )?(?:" + AI + r"|llm|copilot|chatgpt|claude)\b|\bslopsquat\w*|\bhallucinated (?:package|dependenc)\w+"),
 ]
 
