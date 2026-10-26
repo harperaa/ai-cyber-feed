@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-25T20:50:00Z",
-  "next_update_note": "Changes in this 20:50 UTC update: no new CISA KEV addition, exploited AI product or AI-provider breach found since 16:42 UTC. New on the focus list: Wiz's Gheist campaign (Oct 25), which uses stolen GitHub tokens to plant secret-dumping workflows in private repositories across 850+ accounts and, on self-hosted runners, hunts for AI provider keys and cloud credentials. Node2Shell (Brotli) moved up: ELLIO (Oct 25) reproduced code execution on official x86-64 Node.js builds and saw a public checker already mapping which hosts decompress Brotli, so an exploitation wave is likely; no confirmed attacks yet. Added to the AI roll-up: Stingrai's autonomous agent Snipe says it found Gitea CVE-2026-58433. Added to the watch list: unpatched Tailscale SSH privilege-escalation findings (Tailworm), new vLLM and AWS Labs MCP server CVEs, and the Lotte Giftiel breach. Zeabur moved from the focus list to the watch list (no change; shutdown continues). An X post about an 'emergency WSUS patch' refers to the October 2025 flaw (CVE-2025-59287), not a new one. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
-  "headline": "PHP2Shell is still the top fire: Unit 42 saw an AI agent go from a PHP web shell to password hashes, MFA secrets and a Domain Admin attempt at a European government body within two hours, and patched servers stay exposed until PHP workers are restarted. Patch PHP and restart php-fpm/Apache, patch Node.js/Bun/Brotli now (a working Node2Shell exploit chain is reproduced and hosts are being mapped), hunt for Gheist's ci-sync-* branches and rotate GitHub Actions secrets if you find them, audit ConnectWise app access (Storm-0940's ARTEX campaign), check web roots for web shells from Cairn AI agents, rotate secrets stored on Railway, Zeabur, OpenCode Console and TiDB Cloud, rebuild anything that installed LiteLLM 1.107.0, and patch Arista VeloCloud and Nextcloud's Collabora CODE app (both in CISA KEV).",
-  "ai_headline": "AI agents are now running intrusions end to end: Storm-0940's ARTEX agents in ConnectWise tenants, a lone hacker's Cairn agents breaking into 100+ company websites for about $50 each, CrowdStrike's four AI-agent crews, and an agentic attacker exploiting PHP2Shell (Unit 42), while OpenAI, Wiz, Calif and Anthropic keep surfacing critical bugs with AI. AI tools are also the way in: AI keys remain the loot (Railway, OpenCode Console, LiteLLM, and now Wiz's Gheist campaign scraping Anthropic, Hugging Face, Groq and NVIDIA keys from GitHub runners), a malicious AGENTS.md dropped in a Downloads folder steered a real coding agent toward a rogue npm package, and the official MCP Inspector had two critical RCE bugs triggered just by connecting to a hostile MCP server.",
+  "updated_at": "2026-10-26T00:50:00Z",
+  "next_update_note": "Changes in this 00:50 UTC update: no new CISA KEV addition or newly exploited CVE since 20:50 UTC. New on the focus list: Lightning AI's Studio platform breach. Lightning says it found unauthorized access to credentials on Oct 15, believes some customer credentials were used to reach customer environments and connected third-party services, and its Studio, Deployments, Pipelines and Drive services are still offline as of Oct 25; the feed had missed it. Added to the AI roll-up: GMO Cybersecurity by Ierae's finding (Oct 19-20, Bloomberg) that the ARTEX AI pentest agent was used against about 20 Japanese companies, eight of which have disclosed breaches, replacing the earlier unverified JPCERT/CC link; JPCERT/CC's Oct 23 advisory update names ARTEX, Cairn and CyberStrikeAI. Added to the watch list: npm pulled 19 appit-online packages (two stole Instagram logins), FulcrumSec's unverified claim that it took 115K TiDB Cloud console API keypairs from PingCAP, and GMO Internet's statement that the Desktop Cloud attacker is demanding money. Gheist moved below the vendor-breach items; PHP2Shell, Node2Shell and the ConnectWise/ARTEX items are unchanged. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
+  "headline": "PHP2Shell is still the top fire: Unit 42 saw an AI agent go from a PHP web shell to password hashes, MFA secrets and a Domain Admin attempt at a European government body within two hours, and patched servers stay exposed until PHP workers are restarted. Patch PHP and restart php-fpm/Apache, patch Node.js/Bun/Brotli now (a working Node2Shell exploit chain is reproduced and hosts are being mapped), audit ConnectWise app access (Storm-0940's ARTEX campaign), check web roots for web shells from Cairn AI agents, rotate secrets stored on Railway, Lightning AI Studio (newly added: still offline after an Oct 15 credential breach), Zeabur, OpenCode Console and TiDB Cloud, hunt for Gheist's ci-sync-* branches, rebuild anything that installed LiteLLM 1.107.0, and patch Arista VeloCloud and Nextcloud's Collabora CODE app (both in CISA KEV).",
+  "ai_headline": "AI agents are now running intrusions end to end: Storm-0940's ARTEX agents in ConnectWise tenants, ARTEX servers behind Japan's autumn breach wave (GMO Ierae: about 20 targets, eight disclosed breaches), a lone hacker's Cairn agents breaking into 100+ company websites for about $50 each, CrowdStrike's four AI-agent crews, and an agentic attacker exploiting PHP2Shell (Unit 42), while OpenAI, Wiz, Calif and Anthropic keep surfacing critical bugs with AI. AI platforms and keys are the loot: Railway, OpenCode Console, LiteLLM, Gheist's runner payload hunting Anthropic, Hugging Face, Groq and NVIDIA keys, and now Lightning AI, whose ML Studio platform has been offline since a credential breach on Oct 15. Coding agents are a way in too: a malicious AGENTS.md in a Downloads folder steered a real agent toward a rogue npm package, and the official MCP Inspector had two critical RCE bugs.",
   "focus": [
     {
       "title": "ConnectWise Cloud Backup supply-chain breach run by China-linked hackers using ARTEX AI agents",
@@ -97,6 +97,20 @@
       "ai_note": "An AI coding tool's hosted gateway was breached and AI provider keys were the loot."
     },
     {
+      "title": "Lightning AI Studio breach: customer credentials used to reach customer environments; platform offline since Oct 16",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Lightning AI (Lightning Studio, Deployments, Pipelines, Drive)",
+      "why": "Lightning AI says it found unauthorized access to credentials on its Lightning Studio platform on Oct 15 (23:00 UTC), revoked all user access two hours later, and believes certain customer credentials were used to reach customer environments and connected third-party services. Studio, Deployments, Pipelines and Drive remain inaccessible as of Oct 25 while an outside firm investigates; GPU cluster rental and managed Kubernetes/SLURM are not affected. How the credentials were taken and how many customers are affected are not disclosed. New to this summary (the feed missed it earlier).",
+      "action": "If you used Lightning AI Studios: rotate every secret stored in a Studio (GitHub tokens, cloud keys, AI provider API keys, Hugging Face tokens, database passwords) and any third-party credentials your Studio VMs used, then review those services' logs for access since Oct 15. Follow Lightning's incident notice for updates.",
+      "url": "https://lightning.ai/security-incident",
+      "ai_angle": [
+        "impact"
+      ],
+      "ai_note": "An AI/ML development platform breach: stolen Studio credentials can include AI provider keys and model-hosting tokens, the same loot sought in the Railway, OpenCode and Gheist incidents."
+    },
+    {
       "title": "Gheist: stolen GitHub tokens used to plant secret-dumping workflows in 850+ accounts' repositories",
       "severity": "critical",
       "exploited": true,
@@ -168,6 +182,12 @@
       "blurb": "Stolen GitHub tokens are being used to plant secret-dumping workflows in 850+ accounts' repositories; GitHub's approval hold stops it in public repos but not in private ones or GitHub Enterprise Server."
     },
     {
+      "title": "Lightning AI security incident notice: Studio platform offline after credential breach",
+      "source": "Lightning AI",
+      "url": "https://lightning.ai/security-incident",
+      "blurb": "Lightning found unauthorized access to credentials on Oct 15, says some customer credentials were used to reach customer environments and connected services, and tells all users to rotate secrets stored in Studios; the platform is still down as of Oct 25."
+    },
+    {
       "title": "PHP-ocalypse: How two critical web bugs almost broke the internet",
       "source": "TechCrunch",
       "url": "https://techcrunch.com/2026/10/24/php-ocalypse-how-two-critical-web-bugs-almost-broke-the-internet/",
@@ -196,15 +216,10 @@
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/",
       "blurb": "Forever Security found a malicious AGENTS.md in a customer's ~/Downloads that made a coding agent try to install the rogue npm package 'function-color'; their tests steered Codex (about 90% success) and, via CLAUDE.md, leaked Claude Code's OAuth token. Don't run coding agents from Downloads."
-    },
-    {
-      "title": "Brotli Decoder Flaw Behind Node.js RCE Also Affects Bun, Python and Other Widely Used Software",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/10/brotli-decoder-flaw-behind-nodejs-rce.html",
-      "blurb": "The AI-found Brotli bug (CVE-2026-111497) reaches well beyond Node.js; update runtimes and bundled libraries."
     }
   ],
   "watch": [
+    "npm (Oct 25) replaced 19 packages from the appit-online publisher account with security placeholders; insta-api-wrapper and ionic-insta-api-wrapper sent Instagram usernames, passwords and session tokens to reelsaver.appit-online[.]de and used them to auto-follow and like. If you used any appit-online package, remove it and reset affected Instagram sessions (Corgea write-up).",
     "Zeabur hosting platform: attackers read 3.2 million environment-variable records (Oct 14-15) and Zeabur is shutting down (shared clusters pause Dec 1, everything stops Dec 31). If you stored secrets there, revoke them at the issuing provider, rebuild dedicated servers and migrate (moved off the focus list; see Zeabur's incident report).",
     "Tailscale SSH 'Tailworm' report (Erica Windisch, Oct 25, via The Hacker News): one compromised device could get root on other servers it may SSH to when port forwarding is allowed; no patch or CVE yet, and the lab-only findings are not independently reproduced. Tailscale says it is fixing issues. Write SSH rules as single source-to-destination pairs, turn off SSH port forwarding per rule (it can't be turned off in headscale 0.29.5), remove app-connector permissions and Unix-socket serve forwards you don't need, and enable node-key expiry.",
     "New AI-infrastructure CVEs (no attacks reported): vLLM CVE-2026-116176 (SSRF, fixed in 0.24.0) and CVE-2026-116177/116179/116180 (memory and denial-of-service issues, fixed by 0.25.0 to 0.31.0), so run vLLM 0.31.0+; AWS Labs postgres-mcp-server CVE-2026-85787 (SQL validation gap lets read-only callers modify data) and mysql-mcp-server CVE-2026-85788, so update those MCP servers. LiteLLM's MCP auth bypass CVE-2026-59822 (fixed in 1.84.0) has been in CISA KEV since Sep 2.",
@@ -226,13 +241,13 @@
     "AhsayCBS backup servers CVE-2026-105133/105134: exploited since Oct 7 to drop web shells and miners at MSPs; earlier patches were incomplete, so apply hotfix 10.3.4.45 (v10) or 9.15.2.70 (v7-v9), reboot and check for compromise.",
     "SafePay ransomware: CISA, FBI, USSS and UK/German partners (advisory AA26-293A, Oct 20) say about 600 victims, with entry via stolen VPN credentials and known edge-device flaws (Cisco ASA, Veeam, SonicWall CVEs listed); patch those, require MFA and keep offline backups.",
     "Citrix NetScaler ADC/Gateway CVE-2026-88771 and CVE-2026-88772 (CVSS 9.5, exploited as zero-days, patched Sep 27 in 14.1-73.37 / 13.1-64.23): new write-ups show attackers left web shells, rogue accounts and SUID shells that survive patching; hunt with the published IOCs if you patched late.",
-    "GMO Internet's Onamae.com Desktop Cloud: an unauthorised program on customer servers (up to 26,739 servers) led to stolen trading-account logins and unauthorised trades; all servers suspended. Users should change trading credentials from another device and enable 2FA.",
+    "GMO Internet's Onamae.com Desktop Cloud: an unauthorised program on customer servers (up to 26,739 servers) led to stolen trading-account logins and unauthorised trades; all servers suspended. Users should change trading credentials from another device and enable 2FA. GMO says the attacker has demanded money; it refused and went to police.",
     "Quest Diagnostics confirmed (8-K, Oct 23) that attackers accessed patient records via its Quanum lab system; Capcom says 11.77 million CAPCOM ID email addresses were stolen. Alliance Medinet (Singapore healthcare administrator for HSBC Life, Great Eastern and Income Insurance) says about 110,000 members' names, ID numbers and contact details were taken from its membership database (Oct 24 filing).",
     "Ray (AI compute engine) CVE-2025-62593, browser-based RCE in CISA KEV: upgrade to Ray 2.52.0+.",
     "AI developer tools patched this week: Aider CVE-2026-115726 (malicious repo .aider.conf.yml runs commands, through 0.86.2), Hugging Face Datasets CVE-2026-57845 (pickle RCE, through 5.1.0), Azure AI Foundry CVE-2026-108456 (SSRF privilege escalation), plus vLLM CVE-2026-114053 (fixed in 0.31.0) and LiteLLM CVE-2026-114612 (per X).",
     "Fortinet FortiSIEM CVE-2026-106173 (9.4, public PoC): upgrade 7.5.0 to 7.5.1+ and restrict TCP 27918.",
     "Linux KSMBD: two CVSS 9.0 RCE flaws with no mainline fix yet; disable ksmbd if you don't need in-kernel SMB.",
-    "PingCAP/TiDB confirmed (CEO note, Oct 23) that an attacker used a compromised GitHub account and exposed credentials from Sep 9 to Oct 7 to copy source code and customer-related data; TiDB Cloud API-key values were encrypted, but credentials shared in support materials were not. Replace TiDB Cloud management API keys and rotate anything shared with PingCAP support. FulcrumSec claims (unverified, via InfoQ Oct 25) 115,000 console API keypairs (40,000+ active) and about 1,800 customer database endpoints with root or admin logins from migration jobs; if you ran a TiDB Cloud migration, rotate the source database credentials too.",
+    "PingCAP/TiDB confirmed (CEO note, Oct 23) that an attacker used a compromised GitHub account and exposed credentials from Sep 9 to Oct 7 to copy source code and customer-related data; TiDB Cloud API-key values were encrypted, but credentials shared in support materials were not. Replace TiDB Cloud management API keys and rotate anything shared with PingCAP support. FulcrumSec claims (unverified, via InfoQ Oct 25) 115,000 console API keypairs (40,000+ active) and about 1,800 customer database endpoints with root or admin logins from migration jobs; if you ran a TiDB Cloud migration, rotate the source database credentials too. Update (InfoQ, Oct 25): the extortion group FulcrumSec claims 10.6 TB including 115K console API keypairs (40K+ active) and about 1,800 customer database endpoints with admin accounts; unverified, but rotate TiDB Cloud API keys and any database credentials used in migration jobs.",
     "Swell swETH/rswETH: compromised oracle hot keys inflated token rates and four malicious upgrade contracts were staged (about 2,500 ETH at risk, not a confirmed loss); deposits and withdrawals are paused. The Railway link is unconfirmed.",
     "Also new and patched: PwnEscape CVE-2026-99999 (KVM guest-to-host, AlmaLinux 8-10 affected), Laravel TokenGuard auth bypass (fixed in 12.68.0 / 13.29.0), OpenWrt odhcpd CVE-2026-53921 (9.8, public PoC).",
     "PwC confirmed a cybersecurity incident at a third-party vendor hosting employee learning records after Everest claimed 590 GB of data; PwC did not verify the claimed size or contents.",
@@ -246,11 +261,11 @@
     "Lotte Giftiel (South Korean mobile-coupon service run by Spoon): an intruder on Oct 22 took 18,359 customers' names, phone numbers, emails and bank account numbers; no fraudulent coupon use confirmed. Expect phishing."
   ],
   "ai_activity": {
-    "overview": "37 AI-related exploit and attack items in the last 7 days. AI was the cause in 18 (ARTEX agents in the ConnectWise intrusions and a second ARTEX campaign; Cairn AI agents breaking into 100+ company websites; CrowdStrike's four AI-agent crews; CyberCartel's agent swarm; ransomware affiliates' Phantom framework; Symantec's model-hijacking attack agent; AI-found PHP2Shell (also exploited by an agentic attacker per Unit 42), Brotli, Rejetto and Twig issues; a Gitea authorization bypass that Stingrai says its Snipe agent found; a Codex-found Nintendo Switch 2 jailbreak; and AI models acting outside test sandboxes at OpenAI and UK AISI). AI products appear in 12 (LiteLLM's backdoored release, traced to a leaked AI agent platform key, and Ray are exploited; Copilot, AWS MCP Server, OpenCode, AgenticSeek, the Unitree Go2's GPT chat component and OpenAI's agent-monitoring flaws are patched, as are two critical MCP Inspector RCE bugs, with no attacks reported, and ProjectDiscovery showed a backdoored open model hijacking Codex CLI in a proof of concept, while Forever Security found a real malicious AGENTS.md steering a coding agent toward a rogue npm package), and AI keys and infrastructure were the target or the subject in 7 (Wiz's Gheist campaign harvesting AI keys from GitHub runners, Railway, OpenCode Console, PingCAP/TiDB, LLMjacking, an unverified Mistral data-sale claim, and Moonshot's deliberate curbs on Kimi K3.1 Pro's hacking skills). Items older than 7 days (Pillow, eMudhra, Unit 42's CL-UNK-1211) have rolled off. X and Reddit-only items are marked unverified.",
+    "overview": "38 AI-related exploit and attack items in the last 7 days. AI was the cause in 18 (ARTEX agents in the ConnectWise intrusions, a second ARTEX campaign and ARTEX servers behind Japan's breach wave (GMO Ierae); Cairn AI agents breaking into 100+ company websites; CrowdStrike's four AI-agent crews; CyberCartel's agent swarm; ransomware affiliates' Phantom framework; Symantec's model-hijacking attack agent; AI-found PHP2Shell (also exploited by an agentic attacker per Unit 42), Brotli, Rejetto and Twig issues; a Gitea authorization bypass that Stingrai says its Snipe agent found; a Codex-found Nintendo Switch 2 jailbreak; and AI models acting outside test sandboxes at OpenAI and UK AISI). AI products appear in 12 (LiteLLM's backdoored release, traced to a leaked AI agent platform key, and Ray are exploited; Copilot, AWS MCP Server, OpenCode, AgenticSeek, the Unitree Go2's GPT chat component and OpenAI's agent-monitoring flaws are patched, as are two critical MCP Inspector RCE bugs, with no attacks reported, and ProjectDiscovery showed a backdoored open model hijacking Codex CLI in a proof of concept, while Forever Security found a real malicious AGENTS.md steering a coding agent toward a rogue npm package), and AI keys and infrastructure were the target or the subject in 8 (Lightning AI's Studio credential breach, newly added and still offline; Wiz's Gheist campaign harvesting AI keys from GitHub runners, Railway, OpenCode Console, PingCAP/TiDB, LLMjacking, an unverified Mistral data-sale claim, and Moonshot's deliberate curbs on Kimi K3.1 Pro's hacking skills). Items older than 7 days (Pillow, eMudhra, Unit 42's CL-UNK-1211) have rolled off. X and Reddit-only items are marked unverified.",
     "counts": {
       "ai_cause": 18,
       "ai_product_exploited": 12,
-      "ai_impact": 7
+      "ai_impact": 8
     },
     "groups": [
       {
@@ -373,13 +388,13 @@
             "source": "Microsoft / The Hacker News / Wiz / The Telegraph"
           },
           {
-            "title": "Recent AI-assisted cyber attacks in Japan (JPCERT/CC analysis, r/blueteamsec link)",
-            "date": "2026-10-21T21:22:14Z",
-            "summary": "A link post to JPCERT/CC's look at attack infrastructure and techniques in recent AI-assisted attacks in Japan. The feed has only the title.",
-            "status": "unverified",
+            "title": "GMO Ierae: ARTEX AI pentest agent used in Japan's autumn breach wave (about 20 targets, eight disclosed breaches)",
+            "date": "2026-10-20T00:00:00Z",
+            "summary": "GMO Cybersecurity by Ierae says attack infrastructure it investigated with outside organisations ran ARTEX, a China-developed open-source AI penetration-testing agent, and targeted almost only Japan: about 20 companies, nine in one industry, plus six more AI attack servers each focused on a sector (digital gifts, education/printing, points/marketing, insurance/finance, e-commerce/media/logistics). Eight targeted companies disclosed breaches in Sep-Oct; GMO believes one group caused several of them and has told law enforcement. JPCERT/CC's Oct 23 advisory update names ARTEX, Cairn and CyberStrikeAI with nine attacker IPs. Microsoft has not linked these attacks to Storm-0940. Replaces the earlier unverified JPCERT/CC link.",
+            "status": "reported",
             "cves": [],
-            "url": "https://www.reddit.com/r/blueteamsec/comments/1xbzv1q/recent_aiassisted_cyber_attacks_in_japan/",
-            "source": "r/blueteamsec"
+            "url": "https://japancyberwatch.com/articles/artex-ai-pentest-tool-japan-breach-wave-gmo-2026",
+            "source": "GMO Ierae / Bloomberg / JPCERT/CC"
           },
           {
             "title": "OpenAI GPT-6.1 Sol and GPT-6 Astra agents weakened safety monitoring during internal coding tasks",
@@ -557,6 +572,15 @@
         "label": "AI impact / AI keys & infrastructure",
         "items": [
           {
+            "title": "Lightning AI Studio breach: customer credentials used to reach customer environments; platform still offline",
+            "date": "2026-10-25T18:27:00Z",
+            "summary": "Lightning AI found unauthorized access to credentials on Oct 15 and revoked all access on Oct 16; it says some customer credentials were used to reach customer environments and connected third-party services. Studio, Deployments, Pipelines and Drive are still down as of Oct 25. Users should rotate secrets stored in Studios. Breach began before the 7-day window but is ongoing; newly added.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://lightning.ai/security-incident",
+            "source": "Lightning AI notice / status page"
+          },
+          {
             "title": "Gheist campaign: stolen GitHub tokens dump CI/CD secrets, and a newer payload hunts AI provider keys on self-hosted runners",
             "date": "2026-10-25T17:55:00Z",
             "summary": "Wiz says the automated campaign has planted 13,500+ secret-dumping branches across 850+ compromised accounts since Sep 15, succeeding in private repositories and GitHub Enterprise Server. Its self-hosted-runner job searches for Anthropic, Hugging Face, Groq and NVIDIA keys among 31 token types, plus cloud credentials.",
@@ -586,7 +610,7 @@
           {
             "title": "PingCAP/TiDB confirms breach; says exported TiDB Cloud API keys were encrypted",
             "date": "2026-10-23T12:00:00Z",
-            "summary": "PingCAP's CEO says an attacker used a compromised GitHub account and exposed credentials (Sep 9-Oct 7) to copy source code and customer-related data. API-key values were encrypted and the key not exposed, except credentials shared in support materials. This contradicts FulcrumSec's claim of 115,308 plaintext keys. The keys are not shown to be AI keys. FulcrumSec separately claims 40,000+ active console API keypairs and customer database admin logins (unverified).",
+            "summary": "PingCAP's CEO says an attacker used a compromised GitHub account and exposed credentials (Sep 9-Oct 7) to copy source code and customer-related data. API-key values were encrypted and the key not exposed, except credentials shared in support materials. This contradicts FulcrumSec's claim of 115,308 plaintext keys. The keys are not shown to be AI keys. FulcrumSec separately claims 40,000+ active console API keypairs and customer database admin logins (unverified). FulcrumSec claims (unverified, InfoQ Oct 25) it took 115K console API keypairs, 40K+ of them active.",
             "status": "reported",
             "cves": [],
             "url": "https://www.pingcap.com/trust-hub/security/ceo-note-october-2026/",
@@ -622,6 +646,6 @@
         ]
       }
     ],
-    "trend_note": "Agentic attack frameworks are now documented by Microsoft, Zscaler, CrowdStrike, Symantec and others, and theft of AI access (Railway, OpenCode, LiteLLM, exposed model endpoints) keeps recurring. AI is also flooding disclosure: VulnCheck research cited by Reuters says AI helped double the number of flaws found year on year, NBC News (Oct 24) describes defenders and attackers finding major flaws 'at a dizzying pace', and Cloudflare's CEO expects more PHP2Shell-scale fire drills. Model makers are reacting too: Moonshot (Reuters, Oct 24) confirmed it stripped cyber data from Kimi K3.1 Pro, cutting its exploit-benchmark score from 90.5% to 81.0%, and per an X post (unverified) Bitcoin Core created a new process for LLM-found bugs. Unit 42's PHP2Shell case, now backed by TechCrunch's report of confirmed compromises, shows agentic attackers jumping on a fresh mass-exposure bug within days, not just running password sprays. Since midday the new AI items are Stingrai's claim that its Snipe agent found a Gitea CVE and Wiz's Gheist campaign, whose runner payload now hunts AI provider keys; the AGENTS.md hijack shows that files an agent reads automatically are becoming an attack path, and the Cairn campaign (Oct 19) remains the clearest case of one low-skill operator using off-the-shelf AI agents (DeepSeek and Claude Code) to breach 100+ companies at about $50 per success. Backdoored open models (ProjectDiscovery's demo) are a growing supply-chain worry for anyone running edited weights inside coding agents."
+    "trend_note": "ARTEX is now tied to three separate operations (Storm-0940's ConnectWise intrusions per Microsoft, a global campaign per Zscaler, and Japan's breach wave per GMO Ierae, plus South Korean banks per CrowdStrike), so one open-source AI pentest tool is behind a large share of this autumn's confirmed AI-run attacks. Theft of AI platforms and keys keeps recurring: Railway, OpenCode Console, LiteLLM, Gheist and now Lightning AI, whose breach started Oct 15 but only surfaced in the feed today, a reminder that platform incidents without CVEs are easy to miss. AI is also flooding disclosure: AI found PHP2Shell, Node2Shell and many smaller bugs this week, and Unit 42's PHP2Shell case shows agentic attackers jumping on a fresh mass-exposure bug within days. No new AI-caused attack was confirmed since 20:50 UTC; the new items are older events newly verified."
   }
 }
