@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-26T12:36:00Z",
-  "next_update_note": "Changes in this 12:36 UTC update: PHP2Shell now has confirmed successful exploitation in the wild: Perplexity's Adel Karimi logged 35 shells on three PHP 8.4.26 Apache mod_php honeypots on Oct 24, confirmed by Expel's Marcus Hutchins (BleepingComputer, Oct 26), and Delft's live tracker counts 42,000+ exploitation requests from 597 IPs, 171 of which sent code or droppers; the focus item and news list reflect this. Added to AI activity: Seoul police busted a seven-person ring that allegedly used AI tools to hack 60 of 90+ organizations and steal 8.2 million records (Yonhap, Oct 26). LiteLLM's root-cause details (49,000 downloads, stolen AWS keys tested for AI model access within hours, per The Record) and new coverage of the AGENTS.md coding-agent attack (Codex followed it in 90%+ of tests, a CLAUDE.md variant redirected Claude Code traffic in about half) were folded into existing items. Added to the watch list: Mirae Asset Life Insurance's confirmed customer-data breach, Microsoft Authenticator for Android CVE-2026-80097 (patched in September, no attacks), Blastmail's count rising to 345 contracts, and GMO Desktop Cloud updates. No new CISA KEV additions since 08:50 UTC. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
-  "headline": "PHP2Shell has crossed from attempts to confirmed break-ins: honeypots caught 35 successful shells on PHP 8.4.26 (Oct 24), and a live tracker counts 171 IPs sending exploit code, so patch PHP and restart php-fpm/Apache now, then hunt for PHP workers spawning shells. Also act on: FortiSIEM 7.5.0 (exploited; patch to 7.5.1 or block TCP 27918), Node.js/Bun/Brotli patches, ConnectWise app access (Storm-0940's ARTEX campaign), web shells from Cairn AI agents, secrets stored on Railway, Lightning AI Studio, Zeabur, OpenCode Console and TiDB Cloud, Gheist's ci-sync-* branches, anything that installed LiteLLM 1.107.0, and Arista VeloCloud and Nextcloud's Collabora CODE app (both in CISA KEV). New breach: Mirae Asset Life Insurance confirmed a customer-data leak (Oct 26).",
-  "ai_headline": "AI agents keep running intrusions end to end: Storm-0940's ARTEX agents in ConnectWise tenants, ARTEX behind Japan's autumn breach wave, a lone hacker's Cairn agents breaking into 100+ company websites, CrowdStrike's four AI-agent crews, and now a Seoul ring police say used AI tools to hack 60 organizations and steal 8.2 million records. AI-found PHP2Shell is now confirmed exploited in the wild (honeypot shells, Oct 24), though no AI-run PHP2Shell attack is confirmed since Unit 42's Oct 25 retraction. AI platforms and keys remain the loot (Railway, OpenCode Console, LiteLLM, whose stolen AWS keys were tested for AI model access within hours, Gheist, Lightning AI), and coding agents are a way in: a planted AGENTS.md got Codex to install malware in 90%+ of tests.",
+  "updated_at": "2026-10-26T16:45:00Z",
+  "next_update_note": "Changes in this 16:45 UTC update: added Fortinet's AI-found FortiOS, FortiManager, FortiAnalyzer, FortiMail and FortiAuthenticator flaws to the focus list (critical and high fixes shipped Oct 21-22 after frontier AI-assisted testing with Anthropic, OpenAI, Google and SpaceX; CVEs and details withheld until Nov 10; no attacks reported). Brotli/Node2Shell: Microsoft shipped emergency .NET 8, 9 and 10 updates (Oct 25-26) and public proof-of-concept code is on GitHub, still no attacks reported; BleepingComputer credits Imperva's Red Team with finding it, while OpenAI said its AI red-teaming did, so the AI-discovery claim is now marked as disputed. PHP2Shell: SecurityWeek adds that no second-stage payload was seen on the honeypots and CISA had not added the flaws to KEV as of Oct 26 morning. Seoul AI hacking ring: new reporting says the ringleader used an AI coding agent and an autonomous AI penetration-testing system to breach 60 companies in about 40 days (Aug 31 to Oct 13), the same tool police say was used in a recent financial-sector breach. Added to AI activity and the watch list: OpenHands Software Agent SDK CVE-2026-112346 (9.8, unauthenticated RCE, fixed in 1.52.0), Xint's OpenAI 'compaction smuggling' reasoning-theft flaw (fixed by OpenAI Oct 23), and the Oct 19 OVHcloud CLI release swap whose stealer took AI coding-agent data (Claude, Cursor, OpenCode) plus cloud keys. New breach on the watch list: Genesys internal LMS and CRM systems (customer business contacts; cloud platforms not affected). OpenCode Console moved from the focus list to the watch list. No new CISA KEV additions since 12:36 UTC. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
+  "headline": "PHP2Shell is confirmed exploited (honeypot shells on PHP 8.4.26, Oct 24), so patch PHP and restart php-fpm/Apache now, then hunt for PHP workers spawning shells. New: Fortinet quietly shipped fixes for critical AI-found FortiOS, FortiManager, FortiAnalyzer, FortiMail and FortiAuthenticator flaws with details due Nov 10, so upgrade internet-facing Fortinet gear before attackers diff the patches, and Microsoft pushed emergency .NET updates for the Brotli flaw. Also act on: FortiSIEM 7.5.0 (exploited), Node.js/Bun/Brotli patches, ConnectWise app access (Storm-0940's ARTEX campaign), web shells from Cairn AI agents, secrets stored on Railway, Lightning AI Studio, Zeabur, OpenCode Console and TiDB Cloud, Gheist's ci-sync-* branches, anything that installed LiteLLM 1.107.0, and Arista VeloCloud and Nextcloud's Collabora CODE app (both in CISA KEV).",
+  "ai_headline": "AI is now finding flaws in the most-attacked edge gear: Fortinet says frontier AI testing surfaced the critical FortiOS and FortiManager bugs it patched on Oct 22 and warns attackers can use AI to turn its patches into exploits within days. AI agents keep running intrusions end to end: Storm-0940's ARTEX agents in ConnectWise tenants, Cairn agents breaking into 100+ company websites, and a Seoul ring that police say used an AI coding agent and an autonomous pentest system to breach 60 companies in about 40 days. AI platforms and keys remain the loot (Railway, OpenCode Console, LiteLLM, Gheist, Lightning AI, and the OVHcloud CLI stealer that grabbed Claude and Cursor data), and AI agent tooling keeps shipping exposed-by-default flaws (OpenHands SDK CVE-2026-112346).",
   "focus": [
     {
       "title": "ConnectWise Cloud Backup supply-chain breach run by China-linked hackers using ARTEX AI agents",
@@ -42,7 +42,7 @@
         "CVE-2026-115560"
       ],
       "vendor": "PHP",
-      "why": "New (Oct 26): successful exploitation is confirmed. Perplexity's Adel Karimi recorded 35 shells spawned by Apache workers on three PHP 8.4.26 mod_php honeypots on Oct 24, from 15.204.59.70 (OVH US) and 162.35.99.94 (Interserver), using the public exploit's offsets; Expel's Marcus Hutchins called it the highest-quality confirmation so far (BleepingComputer). Delft Threat Intelligence Lab's live tracker counts 42,034 exploitation requests from 597 IPs since Oct 21, 171 of them sending code or droppers, and Trail of Bits reportedly has a production-grade root exploit for mod_php and php-fpm. How many real servers are compromised is unknown. Two flaws in the PHP engine (CVSS 9.8 in NVD, 9.2 CVSS v4) allow unauthenticated remote code execution via crafted HTTP requests, so WordPress, Drupal and Joomla sites are exposed even with clean app code. Correction: on Oct 25 Unit 42 retracted its Oct 23 update that tied an AI-agent intrusion at a European government agency to PHP2Shell; it still saw the attack inside a vulnerable PHP application but cannot confirm PHP2Shell was the way in. Its brief still urges immediate patching, and Cortex Xpanse counts 22.6 million potentially exposed instances. Amazon says PHP2Shell 'is now seeing broad exploitation attempts in the wild' (first attempt Oct 17, before the patch) but cannot say whether any would have succeeded; TechCrunch (Oct 24) reported Palo Alto Networks and Trail of Bits had confirmed compromises (Palo Alto's part may rest on the retracted Unit 42 update), and researchers report working code execution on PHP 8.2 and 8.3 too (no universal exploit); Cloudflare saw millions of attempts and Sophos and Arctic Wolf report Mirai install attempts. The PHP Foundation and Dataminr still report no confirmed compromises of their own and CrowdStrike says weaponising obstacles likely limit mass exploitation, but FBI (Oct 23 PSA) and CISA urge immediate patching. A separate RCE path (CVE-2026-115560) in unusual session configurations is not fixed by the Oct 21 releases. Palo Alto PAN-OS and Panorama management interfaces (web UI and XML API) are affected; as of Oct 26 hotfixes are out for 10.2.18-h13, 11.1.4-h38, 11.1.6-h40, 11.1.10-h36, 11.1.13-h16, 11.1.16-h4 and 11.2.10-h16, the rest are due Oct 27-30, Palo Alto knows of no exploitation against its products and says CVE-2026-115560 does not affect PAN-OS (WF-500 is now listed as not affected); Cisco has an advisory too. TechCrunch (Oct 24) reports a large number of systems remain unpatched. Google Cloud's advisory (updated Oct 23 with Mandiant guidance) warns that upgrading PHP packages on disk leaves the vulnerable code loaded in running php-fpm, Apache, FrankenPHP or LiteSpeed workers until they are restarted, and that edge, gateway and management appliances often embed PHP.",
+      "why": "New (Oct 26): successful exploitation is confirmed. Perplexity's Adel Karimi recorded 35 shells spawned by Apache workers on three PHP 8.4.26 mod_php honeypots on Oct 24, from 15.204.59.70 (OVH US) and 162.35.99.94 (Interserver), using the public exploit's offsets; Expel's Marcus Hutchins called it the highest-quality confirmation so far (BleepingComputer). Delft Threat Intelligence Lab's live tracker counts 42,034 exploitation requests from 597 IPs since Oct 21, 171 of them sending code or droppers, and Trail of Bits reportedly has a production-grade root exploit for mod_php and php-fpm. No second-stage payload download was seen on the honeypots, and as of Oct 26 morning CISA had still not added the flaws to KEV (SecurityWeek). How many real servers are compromised is unknown. Two flaws in the PHP engine (CVSS 9.8 in NVD, 9.2 CVSS v4) allow unauthenticated remote code execution via crafted HTTP requests, so WordPress, Drupal and Joomla sites are exposed even with clean app code. Correction: on Oct 25 Unit 42 retracted its Oct 23 update that tied an AI-agent intrusion at a European government agency to PHP2Shell; it still saw the attack inside a vulnerable PHP application but cannot confirm PHP2Shell was the way in. Its brief still urges immediate patching, and Cortex Xpanse counts 22.6 million potentially exposed instances. Amazon says PHP2Shell 'is now seeing broad exploitation attempts in the wild' (first attempt Oct 17, before the patch) but cannot say whether any would have succeeded; TechCrunch (Oct 24) reported Palo Alto Networks and Trail of Bits had confirmed compromises (Palo Alto's part may rest on the retracted Unit 42 update), and researchers report working code execution on PHP 8.2 and 8.3 too (no universal exploit); Cloudflare saw millions of attempts and Sophos and Arctic Wolf report Mirai install attempts. The PHP Foundation and Dataminr still report no confirmed compromises of their own and CrowdStrike says weaponising obstacles likely limit mass exploitation, but FBI (Oct 23 PSA) and CISA urge immediate patching. A separate RCE path (CVE-2026-115560) in unusual session configurations is not fixed by the Oct 21 releases. Palo Alto PAN-OS and Panorama management interfaces (web UI and XML API) are affected; as of Oct 26 hotfixes are out for 10.2.18-h13, 11.1.4-h38, 11.1.6-h40, 11.1.10-h36, 11.1.13-h16, 11.1.16-h4 and 11.2.10-h16, the rest are due Oct 27-30, Palo Alto knows of no exploitation against its products and says CVE-2026-115560 does not affect PAN-OS (WF-500 is now listed as not affected); Cisco has an advisory too. TechCrunch (Oct 24) reports a large number of systems remain unpatched. Google Cloud's advisory (updated Oct 23 with Mandiant guidance) warns that upgrading PHP packages on disk leaves the vulnerable code loaded in running php-fpm, Apache, FrankenPHP or LiteSpeed workers until they are restarted, and that edge, gateway and management appliances often embed PHP.",
       "action": "Upgrade to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35 (check the runtime serving web traffic, including containers), then explicitly restart php-fpm, apache2/httpd, frankenphp or lsws and any supervisor-managed workers; on a host that shows signs of probing (for example oversized PHPSESSID cookies), capture worker memory first, since a restart destroys the evidence. Use official distro security repositories rather than lagging third-party mirrors, and inventory appliances that embed PHP. 8.1 and older get no official release, so use a vendor-patched package or move to a supported branch. Also set session.upload_progress.enabled=0 until PHP's next routine release (blocks CVE-2026-115560). If you can't patch now, take internet-facing PHP systems offline (FBI/CISA advice; a WAF is only a stopgap). Search logs for 15.204.59.70 and 162.35.99.94, and hunt back to Oct 17 for PHP workers launching shells or downloading files (CISA's SIGMA rule and Unit 42's XQL queries help); if found, treat the host's credentials (including AD and MFA secrets) as stolen and report compromises to IC3. Palo Alto: restrict management web UI and XML API to trusted IPs, remove management profiles from untrusted interfaces, enable Threat IDs 543004 and 97622-97625, and install the PAN-OS hotfix for your branch (several shipped Oct 25-26; 12.x, 11.2 and most 10.2 branches due Oct 27-30).",
       "url": "https://www.bleepingcomputer.com/news/security/php2shell-security-flaws-now-sucessfully-exploited-in-the-wild/",
       "ai_angle": [
@@ -51,20 +51,34 @@
       "ai_note": "AI found it: Calif found the bugs first in early August partly with frontier AI (OpenAI's Patch the Planet), and Wiz (with its Atlas agent) and OpenAI's Codex Security found them independently, though Calif says human PHP expertise did most of the work. Unit 42 has retracted (Oct 25) its report that an agentic AI attacker exploited PHP2Shell, so no AI-run PHP2Shell attack is currently confirmed. The confirmed honeypot exploitation shows no sign of AI involvement."
     },
     {
-      "title": "Brotli decoder RCE ('Node2Shell'), found by OpenAI's AI red-teaming: Node.js, Bun, Envoy, Python",
+      "title": "Brotli decoder RCE ('Node2Shell', 'Broccoli2Shell'): Node.js, Bun, .NET, Envoy, Python",
       "severity": "critical",
       "exploited": false,
       "cves": [
         "CVE-2026-111497"
       ],
       "vendor": "Google Brotli / Node.js / Bun / Envoy",
-      "why": "An out-of-bounds write in Google's Brotli decoder (versions 1.0.3-1.2.0, CVSS v4 9.2) lets crafted compressed data from an unauthenticated attacker corrupt memory and possibly run code, on servers that decode Brotli request bodies (e.g. Express 5 body parsers) and on clients that fetch Brotli responses (Node.js fetch()). Imperva demonstrated working code execution on the official Node.js 24.22.0 arm64 build, and The Hacker News (Oct 24) confirms Bun, the Python brotli and brotlicffi packages and Envoy proxies that decompress Brotli are affected. ELLIO (Oct 25) reproduced code execution on official x86-64 Node.js 24.22.0 builds (plain node:http, the node:24.22.0-slim image, Express 5.3.0 and Koa 3), says failed attempts crash workers and can leave other users' credentials in core dumps, and saw a public 'node2shell-check' scanner already mapping which hosts decompress Brotli. No confirmed in-the-wild exploitation yet, but expect a wave. Note process.versions.brotli shows 1.2.0 on patched and unpatched Node builds, so check the Node release version.",
-      "action": "Update Node.js to 22.23.4, 24.22.1 or 26.12.1 (20.x and older get no fix), Bun to 1.4.4+, the Brotli library to 1.0.10, 1.1.1 or 1.2.1, and Envoy and Python Brotli packages per their advisories; rebuild container images that bundle a Node binary. Also update Ruby brotli gem (0.9.1/0.9.2), distro libbrotli packages and anything built with bun build --compile. Until patched, drop inbound Content-Encoding: br where you can. Go programs using the andybalholm/brotli port (pulled in by fasthttp and Fiber) should move to v1.2.7, per an X post (unverified).",
-      "url": "https://ellio.tech/en/blog/node2shell-cve-2026-111497-rce-on-stock-nodejs-builds/",
+      "why": "New (Oct 26): Microsoft released out-of-band .NET updates (8.0.33, 9.0.22, 10.0.14, .NET 11 RC3) because apps that opt in to ASP.NET Core request decompression, HttpClient automatic decompression or the System.IO.Compression Brotli APIs are exposed; public proof-of-concept exploits are on GitHub, but no in-the-wild exploitation is reported (BleepingComputer). An out-of-bounds write in Google's Brotli decoder (versions 1.0.3-1.2.0, CVSS v4 9.2) lets crafted compressed data from an unauthenticated attacker corrupt memory and possibly run code, on servers that decode Brotli request bodies (e.g. Express 5 body parsers) and on clients that fetch Brotli responses (Node.js fetch()). Imperva demonstrated working code execution on the official Node.js 24.22.0 arm64 build, and The Hacker News (Oct 24) confirms Bun, the Python brotli and brotlicffi packages and Envoy proxies that decompress Brotli are affected. ELLIO (Oct 25) reproduced code execution on official x86-64 Node.js 24.22.0 builds (plain node:http, the node:24.22.0-slim image, Express 5.3.0 and Koa 3), says failed attempts crash workers and can leave other users' credentials in core dumps, and saw a public 'node2shell-check' scanner already mapping which hosts decompress Brotli. No confirmed in-the-wild exploitation yet, but expect a wave. Note process.versions.brotli shows 1.2.0 on patched and unpatched Node builds, so check the Node release version.",
+      "action": "Update .NET to 8.0.33, 9.0.22 or 10.0.14 (apps that decode Brotli), Node.js to 22.23.4, 24.22.1 or 26.12.1 (20.x and older get no fix), Bun to 1.4.4+, the Brotli library to 1.0.10, 1.1.1 or 1.2.1, and Envoy and Python Brotli packages per their advisories; rebuild container images that bundle a Node binary. Also update Ruby brotli gem (0.9.1/0.9.2), distro libbrotli packages and anything built with bun build --compile. Until patched, drop inbound Content-Encoding: br where you can. Go programs using the andybalholm/brotli port (pulled in by fasthttp and Fiber) should move to v1.2.7, per an X post (unverified).",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-net-patches-for-critical-brotli-flaw/",
       "ai_angle": [
         "cause"
       ],
-      "ai_note": "OpenAI said on X (Oct 23) that it found the bug during an AI red-teaming exercise; the root cause had been fixed in Brotli's source in February without being recognised as a security flaw."
+      "ai_note": "Disputed AI discovery: OpenAI said on X (Oct 23) that it found the bug during an AI red-teaming exercise, but BleepingComputer (Oct 26) credits Imperva's Red Team with finding it. The root cause had been fixed in Brotli's source in February without being recognised as a security flaw."
+    },
+    {
+      "title": "Fortinet patches critical AI-found flaws in FortiOS, FortiManager, FortiAnalyzer, FortiMail and FortiAuthenticator; details withheld until Nov 10",
+      "severity": "critical",
+      "exploited": false,
+      "cves": [],
+      "vendor": "Fortinet",
+      "why": "Fortinet shipped what it calls a security hardening release on Oct 21 (FortiMail, FortiAuthenticator) and Oct 22 (FortiOS, FortiManager, FortiAnalyzer) with critical and high-severity fixes found by its frontier AI-assisted testing program, crediting Anthropic, OpenAI, Google and SpaceX. CVE numbers and technical details are held back until Fortinet's Nov 10 Patch Tuesday, and Fortinet itself warns that AI lets attackers reverse-engineer patches into working exploits in hours or days and chain lower-severity bugs. No exploitation is reported yet, but Fortinet devices are a favourite target and Help Net Security notes the release was overshadowed by PHP2Shell. HKCERT rates it medium only because details are missing.",
+      "action": "Upgrade now, internet-facing devices first: FortiOS 8.0.2, 7.6.8, 7.4.13 or 7.2.14; FortiManager and FortiAnalyzer 8.0.2, 7.6.8, 7.4.12 or 7.2.13; FortiMail 8.0.2, 7.6.7 or 7.4.9 (7.2 users move to 7.4+); FortiAuthenticator 8.0.4 or 6.6.11. FortiSASE is updated automatically; FortiManager Cloud may need a manual update. Until patched, restrict admin access to trusted IPs, keep FortiManager off the internet, and enforce MFA on admin accounts.",
+      "url": "https://www.fortinet.com/blog/ciso-collective/fortinet-releases-security-hardening-release-for-multiple-products",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "AI found it: Fortinet says the fixes come from frontier AI models analysing its code, and Cybernews reports the work involved Anthropic's Glasswing (Mythos) and OpenAI's Daybreak projects."
     },
     {
       "title": "Railway platform breach: ~100,000 workspaces' secrets possibly decrypted, attacker hunting AI keys",
@@ -80,21 +94,6 @@
         "impact"
       ],
       "ai_note": "Railway's initial evidence is that the attacker had 'abliterated' (safety-removed) AI models and substantial compute that enabled the exploits, which is a preliminary claim, not proven. The aim was stealing AI provider keys."
-    },
-    {
-      "title": "OpenCode Console breach exposed saved OpenAI, Anthropic and Google API keys",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "OpenCode (Anomaly)",
-      "why": "An intruder reached a legacy OpenCode Console system on the night of Oct 16; keys saved in Console workspaces for about 1.4% of Console users may be exposed, and users report hundreds to over $1,700 in unauthorised AI charges. OpenCode ties it to a 'large-scale distillation attack', the same motive Railway gives. The open-source CLI and desktop app keep keys locally and were not affected.",
-      "action": "If you got OpenCode's 'Action Required: Potential provider key breach' email or ever saved a provider key in a Console workspace: revoke and replace it in the OpenAI, Anthropic or Google dashboard (deleting it from Console does not revoke it), check usage back to Oct 16, and set provider spend limits.",
-      "url": "https://thehackernews.com/2026/10/opencode-console-breach-may-have.html",
-      "ai_angle": [
-        "product",
-        "impact"
-      ],
-      "ai_note": "An AI coding tool's hosted gateway was breached and AI provider keys were the loot."
     },
     {
       "title": "Lightning AI Studio breach: customer credentials used to reach customer environments; platform offline since Oct 16",
@@ -190,6 +189,18 @@
       "blurb": "Honeypots run by Perplexity's detection lead caught confirmed RCE against Apache mod_php on PHP 8.4.26 (35 shells on Oct 24), confirmed by Expel's Marcus Hutchins. Patch PHP and restart workers."
     },
     {
+      "title": "Fortinet patches critical FortiOS flaws found with AI help",
+      "source": "Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/10/26/fortinet-patches-critical-fortios-flaws-found-with-ai-help/",
+      "blurb": "Fixes for critical and high-severity FortiOS, FortiManager, FortiAnalyzer, FortiMail and FortiAuthenticator flaws found with frontier AI shipped last week; CVEs and details are embargoed until Nov 10, so patch before attackers diff the updates."
+    },
+    {
+      "title": "Microsoft releases emergency .NET patches for critical Brotli flaw",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-net-patches-for-critical-brotli-flaw/",
+      "blurb": "Out-of-band .NET 8, 9 and 10 updates fix CVE-2026-111497 in apps that decode Brotli; public PoCs exist, no attacks reported yet."
+    },
+    {
       "title": "Threat Brief: Critical Vulnerabilities in PHP (PHP2Shell), updated Oct 25 with a retraction of the AI-agent intrusion case",
       "source": "Unit 42",
       "url": "https://unit42.paloaltonetworks.com/cve-2026-109618-cve-2026-109619/",
@@ -214,18 +225,6 @@
       "blurb": "Stolen GitHub tokens are being used to plant secret-dumping workflows in 850+ accounts' repositories; GitHub's approval hold stops it in public repos but not in private ones or GitHub Enterprise Server."
     },
     {
-      "title": "Lightning AI security incident notice: Studio platform offline after credential breach",
-      "source": "Lightning AI",
-      "url": "https://lightning.ai/security-incident",
-      "blurb": "Lightning found unauthorized access to credentials on Oct 15, says some customer credentials were used to reach customer environments and connected services, and tells all users to rotate secrets stored in Studios; the platform is still down as of Oct 25."
-    },
-    {
-      "title": "Node2Shell: remote code execution on stock Node.js builds (CVE-2026-111497)",
-      "source": "ELLIO",
-      "url": "https://ellio.tech/en/blog/node2shell-cve-2026-111497-rce-on-stock-nodejs-builds/",
-      "blurb": "Working Brotli RCE reproduced on official x86-64 Node.js builds, with a public checker already mapping which hosts decode Brotli; full patched-version list included."
-    },
-    {
       "title": "Exclusive: How one hacker used AI agents and a few thousand dollars to break into scores of sites",
       "source": "Reuters (via Investing.com)",
       "url": "https://www.investing.com/news/stock-market-news/exclusivehow-one-hacker-used-ai-agents-and-a-few-thousand-dollars-to-break-into-scores-of-sites-4956846",
@@ -233,6 +232,11 @@
     }
   ],
   "watch": [
+    "Genesys (contact-centre software) says attackers accessed its internal learning-management and CRM systems (announced Oct 19, contained Oct 23) and likely downloaded customer business contacts and account information; Genesys Cloud and Engage platforms and customer data in them were not affected. ScarlettGroup claimed the attack. Watch for phishing impersonating Genesys.",
+    "OVHcloud CLI release swap (Oct 19, 12:47-14:21 UTC): a hijacked contributor GitHub account replaced v0.11.0-v0.15.0 binaries with a stealer (about 250 downloads per StepSecurity) that took AWS, GCP, Azure, SSH, Kubernetes, npm and Terraform credentials plus Claude agent, Cursor, Continue, Cody and OpenCode data. If you installed or updated it in that window, look for envchecker-* folders in your temp directory, move to v0.16.0 and rotate everything on that machine (advisory GHSA-862f-55f5-vmvw).",
+    "OpenHands Software Agent SDK CVE-2026-112346 (9.8, published Oct 26): Docker and Apptainer workspace launchers bound the agent server to all interfaces with authentication off by default, so anyone who reaches the port can run code; upgrade to 1.52.0 and don't expose sandbox ports. No attacks reported.",
+    "Xint 'compaction smuggling' (SecurityWeek, Oct 26): a flaw in OpenAI's context-compaction API let researchers move hidden reasoning traces to another model and read them, which could aid distillation of frontier models; OpenAI fixed it and paid a bounty on Oct 23. Nothing for users to do.",
+    "OpenCode Console breach (Oct 22): saved OpenAI, Anthropic and Google API keys were exposed; if you stored provider keys there, rotate them and check provider usage logs (moved off the focus list).",
     "Mirae Asset Life Insurance (South Korea) confirmed on Oct 26 that customer personal credit information leaked after intruders reached parts of its subscription system and website (detected Oct 25); the exact data and number of customers are still being identified and the website is blocked (SBS/Yonhap). Expect phishing aimed at its customers.",
     "Microsoft Authenticator for Android CVE-2026-80097 ('AuthMask', CVSS 8.6): a malicious app with no permissions could impersonate Teams and get mail, files and calendar tokens for the signed-in work account (Enclave, Oct 23). Patched Sep 8 in 6.2606.4246; no attacks reported. Make sure managed Android devices run 6.2606.4246 or later.",
     "Blastmail (Japanese email newsletter service run by Rakus Light Cloud): down since Oct 21 after an intruder ran commands on two API servers and took data on all contract holders, plus subscriber lists for 345 contracts (Oct 26 update; next report Oct 27 noon JST). Expect targeted phishing to Blastmail customers and their newsletter subscribers.",
@@ -281,16 +285,25 @@
     "Lotte Giftiel (South Korean mobile-coupon service run by Spoon): an intruder on Oct 22 took 18,359 customers' names, phone numbers, emails and bank account numbers; no fraudulent coupon use confirmed. Expect phishing."
   ],
   "ai_activity": {
-    "overview": "39 AI-related exploit and attack items in the last 7 days. AI was the cause in 19 (a Seoul ring police say used AI tools to hack 60 organizations; ARTEX agents in the ConnectWise intrusions, a second ARTEX campaign and ARTEX servers behind Japan's breach wave (GMO Ierae); Cairn AI agents breaking into 100+ company websites; CrowdStrike's four AI-agent crews; CyberCartel's agent swarm; ransomware affiliates' Phantom framework; Symantec's model-hijacking attack agent; AI-found PHP2Shell (now confirmed exploited on honeypots; Unit 42 retracted its agentic-attacker case on Oct 25), Brotli, Rejetto and Twig issues; a Gitea authorization bypass that Stingrai says its Snipe agent found; a Codex-found Nintendo Switch 2 jailbreak; and AI models acting outside test sandboxes at OpenAI and UK AISI). AI products appear in 12 (LiteLLM's backdoored release, traced to a leaked AI agent platform key, and Ray are exploited; Copilot, AWS MCP Server, OpenCode, AgenticSeek, the Unitree Go2's GPT chat component and OpenAI's agent-monitoring flaws are patched, as are two critical MCP Inspector RCE bugs, with no attacks reported, and ProjectDiscovery showed a backdoored open model hijacking Codex CLI in a proof of concept, while Forever Security found a real malicious AGENTS.md steering a coding agent toward a rogue npm package), and AI keys and infrastructure were the target or the subject in 8 (Lightning AI's Studio credential breach, still offline; Wiz's Gheist campaign harvesting AI keys from GitHub runners, Railway, OpenCode Console, PingCAP/TiDB, LLMjacking, an unverified Mistral data-sale claim, and Moonshot's deliberate curbs on Kimi K3.1 Pro's hacking skills). Items older than 7 days (Pillow, eMudhra, Unit 42's CL-UNK-1211) have rolled off. X and Reddit-only items are marked unverified.",
+    "overview": "43 AI-related exploit and attack items in the last 7 days. AI was the cause in 20: newest, Fortinet says frontier AI testing found the critical FortiOS and FortiManager flaws it patched Oct 22, and Seoul police say a ring used an AI coding agent and an autonomous pentest system to breach 60 organizations; also ARTEX agents in the ConnectWise intrusions, a second ARTEX campaign and Japan's breach wave; Cairn AI agents breaking into 100+ company websites; CrowdStrike's four AI-agent crews; CyberCartel's agent swarm; ransomware affiliates' Phantom framework; Symantec's model-hijacking attack agent; AI-found PHP2Shell (confirmed exploited on honeypots, no AI-run attack confirmed), Rejetto and Twig bugs, Brotli (AI-discovery credit now disputed), a Gitea bypass found by Stingrai's Snipe agent, a Codex-found Switch 2 jailbreak, and AI models acting outside test sandboxes at OpenAI and UK AISI. AI products appear in 14: LiteLLM's backdoored release and Ray are exploited; OpenHands SDK (new, CVE-2026-112346), OpenAI's compaction-smuggling flaw (new), Copilot, AWS MCP Server, OpenCode, AgenticSeek, Unitree Go2's GPT chat, MCP Inspector and OpenAI's agent-monitoring flaws are patched with no attacks reported, plus proof-of-concept and real AGENTS.md attacks on coding agents. AI keys and infrastructure were the target in 9: Lightning AI, Gheist, Railway, OpenCode Console, PingCAP/TiDB, the OVHcloud CLI stealer that grabbed AI-agent data (new), LLMjacking, an unverified Mistral data-sale claim and Moonshot's curbs on Kimi's hacking skills. X and Reddit-only items are marked unverified.",
     "counts": {
-      "ai_cause": 19,
-      "ai_product_exploited": 12,
-      "ai_impact": 8
+      "ai_cause": 20,
+      "ai_product_exploited": 14,
+      "ai_impact": 9
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Fortinet: frontier AI testing found critical FortiOS, FortiManager, FortiAnalyzer, FortiMail and FortiAuthenticator flaws",
+            "date": "2026-10-26T11:27:00Z",
+            "summary": "Fortinet shipped fixes on Oct 21-22 for critical and high-severity flaws found with AI models from Anthropic, OpenAI, Google and SpaceX; CVEs and details are withheld until Nov 10. Fortinet warns attackers can use AI to turn the patches into exploits within days. No attacks reported.",
+            "status": "patched",
+            "cves": [],
+            "url": "https://www.helpnetsecurity.com/2026/10/26/fortinet-patches-critical-fortios-flaws-found-with-ai-help/",
+            "source": "Fortinet / Help Net Security / Cybernews"
+          },
           {
             "title": "PHP2Shell: PHP RCE found with AI, now confirmed exploited; no AI-run attack confirmed",
             "date": "2026-10-26T09:19:00Z",
@@ -307,10 +320,11 @@
           {
             "title": "Seoul police bust ring that allegedly used AI tools to hack 60 organizations and steal 8.2 million records",
             "date": "2026-10-26T05:49:00Z",
-            "summary": "Seven suspects allegedly stole 8.2 million pieces of personal data and internal records from 90+ hospitals, private academies and businesses since September 2025, using AI tools to hack 60 of them; 38 suffered losses and were asked for a combined 360 million won (about $272,000). The 32-year-old ringleader, a former mock-hacking employee at a security company, has been referred to prosecutors (Seoul Metropolitan Police Agency via Yonhap).",
+            "summary": "Seven suspects allegedly stole 8.2 million pieces of personal data and internal records from 90+ hospitals, private academies and businesses since September 2025, using AI tools to hack 60 of them; 38 suffered losses and were asked for a combined 360 million won (about $272,000). The 32-year-old ringleader, a former mock-hacking employee at a security company, has been referred to prosecutors (Seoul Metropolitan Police Agency via Yonhap). Update Oct 26: Seoul Economic Daily and SBS report the ringleader first ran web scanners by hand, then used an AI coding agent and an autonomous AI penetration-testing system to breach 60 companies in just over 40 days (Aug 31 to Oct 13); police say it is the same AI tool used in a recent South Korean financial-sector breach, though no link between the cases is confirmed. One victim paid 300,000 won.",
             "status": "reported",
             "cves": [],
-            "url": "https://en.yna.co.kr/view/AEN20261026005800315"
+            "url": "https://en.yna.co.kr/view/AEN20261026005800315",
+            "source": "Seoul Metropolitan Police via Yonhap / Seoul Economic Daily / SBS"
           },
           {
             "title": "Stingrai's autonomous AI agent 'Snipe' says it found Gitea authorization bypass CVE-2026-58433",
@@ -333,9 +347,9 @@
             "source": "UK AISI"
           },
           {
-            "title": "OpenAI's AI red-teaming found the Brotli decoder RCE (CVE-2026-111497, 'Node2Shell')",
+            "title": "Brotli decoder RCE (CVE-2026-111497, 'Node2Shell'): OpenAI says its AI red-teaming found it (credit disputed)",
             "date": "2026-10-23T23:00:00Z",
-            "summary": "OpenAI said on X that a red-team exercise found unauthenticated RCE in Brotli, bundled in Node.js, Bun and Envoy; the root cause was fixed upstream in February without being flagged as a vulnerability. Fixes shipped Oct 21; Imperva showed working RCE on an official Node.js build; no in-the-wild attacks reported. The Hacker News (Oct 24) confirms Bun, Python brotli/brotlicffi and Envoy are affected. Update Oct 25: ELLIO reproduced code execution on official x86-64 Node.js builds and saw a public scanner mapping Brotli-decoding hosts; no confirmed attacks yet.",
+            "summary": "OpenAI said on X that a red-team exercise found unauthenticated RCE in Brotli, bundled in Node.js, Bun and Envoy; the root cause was fixed upstream in February without being flagged as a vulnerability. Fixes shipped Oct 21; Imperva showed working RCE on an official Node.js build; no in-the-wild attacks reported. The Hacker News (Oct 24) confirms Bun, Python brotli/brotlicffi and Envoy are affected. Update Oct 25: ELLIO reproduced code execution on official x86-64 Node.js builds and saw a public scanner mapping Brotli-decoding hosts; no confirmed attacks yet. Update Oct 26: Microsoft shipped emergency .NET 8/9/10 fixes and public PoCs are on GitHub; BleepingComputer credits Imperva's Red Team with the discovery, so the AI-found claim rests on OpenAI's own post.",
             "status": "patched",
             "cves": [
               "CVE-2026-111497"
@@ -476,6 +490,26 @@
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "OpenHands Software Agent SDK: sandbox agent server exposed with no authentication (CVE-2026-112346)",
+            "date": "2026-10-26T16:17:14Z",
+            "summary": "Before 1.52.0, the Docker and Apptainer workspace launchers bound the agent server to 0.0.0.0 with an empty API-key list, so anyone reaching the port could run code over HTTP/WebSocket (CVSS 9.8, NVD). Fixed in 1.52.0; no attacks reported.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-112346"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112346",
+            "source": "NVD"
+          },
+          {
+            "title": "Xint 'compaction smuggling': OpenAI API flaw let reasoning traces be moved to another model and read",
+            "date": "2026-10-26T14:30:00Z",
+            "summary": "Xint bypassed OpenAI's August mitigations by hiding a model's reasoning inside a context compaction and asking another model to echo it, enabling cheap distillation; OpenAI confirmed and fixed it and paid a $6,000 bounty on Oct 23.",
+            "status": "patched",
+            "cves": [],
+            "url": "https://www.securityweek.com/stolen-ai-reasoning-could-help-china-build-cheaper-rivals/",
+            "source": "SecurityWeek / Xint"
+          },
           {
             "title": "Malicious AGENTS.md in a Downloads folder made an AI coding agent try to install a rogue npm package",
             "date": "2026-10-25T15:49:00Z",
@@ -670,10 +704,19 @@
             "cves": [],
             "url": "https://www.wiz.io/blog/from-phishing-to-llmjacking",
             "source": "Wiz"
+          },
+          {
+            "title": "OVHcloud CLI releases swapped for a stealer that grabbed AI coding-agent data and cloud keys",
+            "date": "2026-10-19T14:21:00Z",
+            "summary": "A hijacked contributor GitHub account replaced v0.11.0-v0.15.0 binaries for 94 minutes on Oct 19; the stealer took Claude agent configs, Cursor, Continue, Cody and OpenCode databases and Hermes agent sessions as well as AWS, GCP, Azure, SSH and Kubernetes credentials, exfiltrating via Solana RPC. Clean v0.16.0 is out.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://github.com/ovh/ovhcloud-cli/security/advisories/GHSA-862f-55f5-vmvw",
+            "source": "OVHcloud / The Hacker News / StepSecurity"
           }
         ]
       }
     ],
-    "trend_note": "ARTEX is now tied to three separate operations (Storm-0940's ConnectWise intrusions per Microsoft, a global campaign per Zscaler, and Japan's breach wave per GMO Ierae, plus South Korean banks per CrowdStrike), so one open-source AI pentest tool is behind a large share of this autumn's confirmed AI-run attacks. Theft of AI platforms and keys keeps recurring: Railway, OpenCode Console, LiteLLM, Gheist and now Lightning AI, whose breach started Oct 15 but only surfaced in the feed on Oct 25, a reminder that platform incidents without CVEs are easy to miss. AI is also flooding disclosure: AI found PHP2Shell, Node2Shell and many smaller bugs this week. Attribution is shaky too: Unit 42 retracted (Oct 25) its claim that an agentic attacker broke in via PHP2Shell, a reminder to treat early AI-attack attributions as provisional. No new AI-caused attack was confirmed since 04:50 UTC."
+    "trend_note": "Vendors are now using frontier AI to sweep their own code, and Fortinet's patch-now, details-later release shows the downside: patches themselves become exploit roadmaps, and Fortinet expects AI to shrink the patch-to-exploit window to days, so treat AI-found fixes on edge devices as urgent even without CVEs. ARTEX-style autonomous pentest tools keep appearing in real crimes (ConnectWise, Japan, and now a Seoul case police tie to the same tool used in a financial-sector breach), and theft of AI keys and coding-agent data keeps recurring (Railway, LiteLLM, Gheist, Lightning AI, OVHcloud CLI). Attribution stays shaky: Unit 42 retracted its PHP2Shell AI-attacker case and Brotli's AI-discovery credit is disputed."
   }
 }
