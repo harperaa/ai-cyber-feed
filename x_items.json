@@ -1,5 +1,55 @@
 [
  {
+  "url": "https://x.com/GuusLangelaar/status/2114616431707058265",
+  "author": "GuusLangelaar",
+  "text": "Public Linux root exploit, no CVE, no merged fix. ZDI-CAN-33367 (skb_zerocopy, 7.8) gets root on Debian 12/13, Ubuntu 24.04/26.04 and AlmaLinux 8-10, even with the Dirty Frag fix. No in-the-wild use reported yet. Stopgap: user.max_user_namespaces=0 or block esp4/esp6.",
+  "created_at": "2026-10-26T07:13:39Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/CipherSecurityN/status/2114533987997594099",
+  "author": "CipherSecurityN",
+  "text": "Fortinet FortiSIEM flaw CVE-2026-106173 (CVSS 9.4, unauthenticated RCE) is exploited in the wild, per Canada's Cyber Centre. Horizon3 PoC is public. Upgrade 7.5.0 to 7.5.1+ or restrict TCP 27918. Fortinet's advisory still says not known exploited.",
+  "created_at": "2026-10-26T01:46:03Z",
+  "cves": [
+   "CVE-2026-106173"
+  ]
+ },
+ {
+  "url": "https://x.com/WorldCyberNewsX/status/2114597901020115155",
+  "author": "WorldCyberNewsX",
+  "text": "Arista Networks disclosed critical SQL injection CVE-2026-114625 in VeloCloud Orchestrator, already exploited in the wild. Attackers need only network access to the management UI plus an Enterprise Read Only session to escalate and reach internal functions.",
+  "created_at": "2026-10-26T06:00:01Z",
+  "cves": [
+   "CVE-2026-114625"
+  ]
+ },
+ {
+  "url": "https://x.com/guerni2/status/2114327791348887607",
+  "author": "guerni2",
+  "text": "CVE-2026-96951 is a Windows Shell zero-day already exploited in the wild. KB5127648 patches it + 1,008 CVEs - with a few known issues.",
+  "created_at": "2026-10-25T12:06:42Z",
+  "cves": [
+   "CVE-2026-96951"
+  ]
+ },
+ {
+  "url": "https://x.com/Stingrai_HQ/status/2114411902558216484",
+  "author": "Stingrai_HQ",
+  "text": "Snipe, our autonomous AI agent, found a CVE in Gitea. CVE-2026-58433: high-severity authorization bypass in Gitea 1.26.4 and earlier. Fixed in 1.27.0.",
+  "created_at": "2026-10-25T17:40:56Z",
+  "cves": [
+   "CVE-2026-58433"
+  ]
+ },
+ {
+  "url": "https://x.com/iamericpereira/status/2114350393631142022",
+  "author": "iamericpereira",
+  "text": "LiteLLM 1.107.0 was live on PyPI for 104 minutes on Oct 21. It stole credentials. Attackers used stolen GitHub CLI OAuth tokens from three engineers to push the poisoned release, harvesting cloud keys, SSH keys, AI provider keys.",
+  "created_at": "2026-10-25T13:36:31Z",
+  "cves": []
+ },
+ {
   "url": "https://x.com/vuln_tracker/status/2114611107834798251",
   "author": "vuln_tracker",
   "text": "8 CVEs added to CISA KEV between Oct 19-25, all actively exploited. Plex, Arista, Collabora, Siemens and SiteGuard. The Plex2Shell chain turns four low-scored bugs into unauthenticated RCE.",
