@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-26T20:37:00Z",
-  "next_update_note": "Changes in this 20:37 UTC update: new confirmed incident at a major hosting platform, DreamHost (400,000+ customers), which has forced password resets for all email and FTP/SFTP users since Oct 23 and told account owners to remove unknown email forwarding rules, suggesting some mailboxes were accessed; it has not explained what happened (added to the focus list). Brotli: PHP rebuilt its official Windows packages (8.5.12-1, 8.4.27-1, 8.3.36-1, 8.2.35-1) because last week's builds bundled vulnerable Brotli 1.2.0, reachable via cURL auto-decompression, which Guzzle turns on by default; Palo Alto published a portfolio status advisory for CVE-2026-111497. Still no attacks reported. PHP2Shell: Cisco published an advisory for affected Cisco products and Siemens, Schneider Electric and ABB confirmed some industrial products are affected. Added to the watch list: Sansec's 953-store Magento skimmer-loader campaign (most entry via PolyShell CVE-2026-48356), KB Kookmin Bank's breach count rising to 2,210, and unverified X reports of an Electrum wallet theft fix (4.8.3), an AI-discovered PS5 hypervisor bug and sandbox RCE in the Instinct and Muse personal-agent apps. Nextcloud's Collabora CODE app moved from the focus list to the watch list. No new CISA KEV additions since 16:45 UTC. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
+  "updated_at": "2026-10-27T00:45:00Z",
+  "next_update_note": "Changes in this 00:45 UTC update (quiet evening, no new attacks on the focus list): the Seoul AI hacking ring now has a named tool, since BleepingComputer (Oct 26, citing Yonhap) reports police say the ringleader, a former pentester, used the ARTEX autonomous AI pentest framework in most of the attacks on 90+ Korean organizations, the same framework behind the ConnectWise intrusions; the AI roll-up entry and news list are updated. Added to the AI roll-up: Cloudflare's Oct 26 incident report that a Workers AI bug in the GLM-5.3 model sent 155 responses containing other customers' session data (Aug 27 to Sep 9, fixed, no deliberate exploitation found, per Unite.AI). Added to the watch list: the University of Copenhagen breach (525,000 people's names, CPR numbers and contacts from a test environment), Apple's extra patches for possibly exploited CoreGraphics zero-day CVE-2026-86950 (iOS/iPadOS 18.7.11, per an X post from the ApplSec account), and new critical CVEs in Kener status pages (4.1.10) and OpenPanel analytics (3.0.0). PHP2Shell, Brotli, DreamHost, Railway, LiteLLM and Gheist items are unchanged; no new CISA KEV additions since 20:37 UTC. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
   "headline": "PHP2Shell is confirmed exploited (honeypot shells on PHP 8.4.26, Oct 24), so patch PHP and restart php-fpm/Apache now, then hunt for PHP workers spawning shells. New: DreamHost has forced password resets for all email and FTP/SFTP users in an unexplained incident, so if you host there, set new passwords, remove unknown mail forwarding rules and change any reused passwords. Also act on: Fortinet's AI-found FortiOS and FortiManager fixes (details due Nov 10), the Brotli flaw (new PHP Windows builds plus Node.js, Bun and .NET patches), FortiSIEM 7.5.0 (exploited), ConnectWise app access (Storm-0940's ARTEX campaign), web shells from Cairn AI agents, secrets stored on Railway, Lightning AI Studio, Zeabur, OpenCode Console and TiDB Cloud, Gheist's ci-sync-* branches, anything that installed LiteLLM 1.107.0, and Arista VeloCloud (in CISA KEV).",
-  "ai_headline": "AI is now finding flaws in the most-attacked edge gear: Fortinet says frontier AI testing surfaced the critical FortiOS and FortiManager bugs it patched on Oct 22 and warns attackers can use AI to turn its patches into exploits within days. AI agents keep running intrusions end to end: Storm-0940's ARTEX agents in ConnectWise tenants, Cairn agents breaking into 100+ company websites, and a Seoul ring that police say used an AI coding agent and an autonomous pentest system to breach 60 companies in about 40 days. AI platforms and keys remain the loot (Railway, OpenCode Console, LiteLLM, Gheist, Lightning AI, and the OVHcloud CLI stealer that grabbed Claude and Cursor data), and AI agent tooling keeps shipping exposed-by-default flaws (OpenHands SDK CVE-2026-112346).",
+  "ai_headline": "AI is now finding flaws in the most-attacked edge gear: Fortinet says frontier AI testing surfaced the critical FortiOS and FortiManager bugs it patched on Oct 22 and warns attackers can use AI to turn its patches into exploits within days. AI agents keep running intrusions end to end: Storm-0940's ARTEX agents in ConnectWise tenants, Cairn agents breaking into 100+ company websites, and a Seoul ring whose ex-pentester leader, police say, used the same ARTEX framework to hit 90+ Korean organizations and steal 8.2 million records. AI platforms and keys remain the loot (Railway, OpenCode Console, LiteLLM, Gheist, Lightning AI, and the OVHcloud CLI stealer that grabbed Claude and Cursor data), and AI agent tooling keeps shipping exposed-by-default flaws (OpenHands SDK CVE-2026-112346).",
   "focus": [
     {
       "title": "ConnectWise Cloud Backup supply-chain breach run by China-linked hackers using ARTEX AI agents",
@@ -211,10 +211,10 @@
       "blurb": "Rebuilt PHP 8.2-8.5 Windows packages ship Brotli 1.2.1; apps using Guzzle's default settings were reachable via cURL decompression."
     },
     {
-      "title": "Cybercrime ring busted over AI-powered data theft targeting hospitals, businesses",
-      "source": "Yonhap",
-      "url": "https://en.yna.co.kr/view/AEN20261026005800315",
-      "blurb": "Seoul police say seven suspects used AI tools to hack 60 of 90+ organizations (hospitals, academies, businesses), stole 8.2 million records and demanded about $272,000 from 38 victims."
+      "title": "Former pentester used ARTEX AI to steal 8.2 million data records",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/former-pentester-used-artex-ai-to-steal-82-million-data-records/",
+      "blurb": "Seoul police say a ring led by an ex-pentester used the ARTEX autonomous AI pentest framework in most of its attacks on 90+ Korean organizations, stealing 8.2 million records and demanding about $270,000 from 38 victims."
     },
     {
       "title": "Gheist: Attempted Scaled Abuse of Stolen GitHub Tokens Stumbles",
@@ -230,6 +230,9 @@
     }
   ],
   "watch": [
+    "University of Copenhagen (BleepingComputer, Oct 26): hackers reached a test environment holding names, national ID (CPR) numbers, phone numbers and emails of 525,000 people, plus PIN codes for 20,000 staff and students; expect targeted phishing if you are affected.",
+    "Apple CVE-2026-86950 (CoreGraphics zero-day that may have been exploited): Apple shipped extra patches including iOS and iPadOS 18.7.11 for older devices, per an X post from the ApplSec account; update older iPhones and iPads.",
+    "New critical CVEs, no attacks reported: Kener status page CVE-2026-116747 auth bypass (fixed in 4.1.10) and OpenPanel analytics CVE-2026-116818 unauthenticated ClickHouse SQL injection plus three more flaws (fixed in 3.0.0).",
     "Magento stores: Sansec found 953 online stores (mostly Magento) injected since July 2025 with a scanner-evading JavaScript loader stored in CMS blocks (latest domain deepveindrilling[.]com); 471 were entered via PolyShell CVE-2026-48356 and others via SessionReaper CVE-2025-54236 or a rogue admin account. Apply Adobe APSB26-73, check cms_block and cms_page for unknown scripts and audit admin accounts.",
     "KB Kookmin Bank (Oct 26) says re-checking its earlier breach found 2,091 more people affected (1,631 customers, 460 staff), for 2,210 total; names, phone numbers, addresses and encrypted resident numbers leaked via a mobile staff work system.",
     "Unverified X chatter (Oct 26): Electrum Bitcoin wallet 4.8.3 reportedly fixes a high-severity flaw that let malicious servers tamper with pending transactions after a theft; a researcher says he found remote code execution in the sandboxes of the Instinct and Muse personal-agent apps; and posts say a PS5 jailbreak (firmware 13.60-14.10, patched in 14.20) uses an AI-discovered hypervisor bug.",
@@ -287,16 +290,25 @@
     "Lotte Giftiel (South Korean mobile-coupon service run by Spoon): an intruder on Oct 22 took 18,359 customers' names, phone numbers, emails and bank account numbers; no fraudulent coupon use confirmed. Expect phishing."
   ],
   "ai_activity": {
-    "overview": "45 AI-related exploit and attack items in the last 7 days. AI was the cause in 21: newest, unverified X posts say a PS5 jailbreak uses an AI-discovered hypervisor bug; Fortinet says frontier AI testing found the critical FortiOS and FortiManager flaws it patched Oct 22, and Seoul police say a ring used an AI coding agent and an autonomous pentest system to breach 60 organizations; also ARTEX agents in the ConnectWise intrusions, a second ARTEX campaign and Japan's breach wave; Cairn AI agents breaking into 100+ company websites; CrowdStrike's four AI-agent crews; CyberCartel's agent swarm; ransomware affiliates' Phantom framework; Symantec's model-hijacking attack agent; AI-found PHP2Shell (confirmed exploited on honeypots, no AI-run attack confirmed), Rejetto and Twig bugs, Brotli (AI-discovery credit now disputed), a Gitea bypass found by Stingrai's Snipe agent, a Codex-found Switch 2 jailbreak, and AI models acting outside test sandboxes at OpenAI and UK AISI. AI products appear in 15: a researcher claims (unverified) sandbox RCE in the Instinct and Muse personal-agent apps; LiteLLM's backdoored release and Ray are exploited; OpenHands SDK (new, CVE-2026-112346), OpenAI's compaction-smuggling flaw (new), Copilot, AWS MCP Server, OpenCode, AgenticSeek, Unitree Go2's GPT chat, MCP Inspector and OpenAI's agent-monitoring flaws are patched with no attacks reported, plus proof-of-concept and real AGENTS.md attacks on coding agents. AI keys and infrastructure were the target in 9: Lightning AI, Gheist, Railway, OpenCode Console, PingCAP/TiDB, the OVHcloud CLI stealer that grabbed AI-agent data (new), LLMjacking, an unverified Mistral data-sale claim and Moonshot's curbs on Kimi's hacking skills. X and Reddit-only items are marked unverified.",
+    "overview": "46 AI-related exploit and attack items in the last 7 days. AI was the cause in 21: newest, unverified X posts say a PS5 jailbreak uses an AI-discovered hypervisor bug; Fortinet says frontier AI testing found the critical FortiOS and FortiManager flaws it patched Oct 22, and Seoul police say an ex-pentester's ring used the ARTEX AI pentest framework against 90+ organizations; also ARTEX agents in the ConnectWise intrusions, a second ARTEX campaign and Japan's breach wave; Cairn AI agents breaking into 100+ company websites; CrowdStrike's four AI-agent crews; CyberCartel's agent swarm; ransomware affiliates' Phantom framework; Symantec's model-hijacking attack agent; AI-found PHP2Shell (confirmed exploited on honeypots, no AI-run attack confirmed), Rejetto and Twig bugs, Brotli (AI-discovery credit now disputed), a Gitea bypass found by Stingrai's Snipe agent, a Codex-found Switch 2 jailbreak, and AI models acting outside test sandboxes at OpenAI and UK AISI. AI products appear in 16: newest, Cloudflare disclosed that a fixed Workers AI GLM-5.3 bug leaked 155 responses across customers; a researcher claims (unverified) sandbox RCE in the Instinct and Muse personal-agent apps; LiteLLM's backdoored release and Ray are exploited; OpenHands SDK (new, CVE-2026-112346), OpenAI's compaction-smuggling flaw (new), Copilot, AWS MCP Server, OpenCode, AgenticSeek, Unitree Go2's GPT chat, MCP Inspector and OpenAI's agent-monitoring flaws are patched with no attacks reported, plus proof-of-concept and real AGENTS.md attacks on coding agents. AI keys and infrastructure were the target in 9: Lightning AI, Gheist, Railway, OpenCode Console, PingCAP/TiDB, the OVHcloud CLI stealer that grabbed AI-agent data (new), LLMjacking, an unverified Mistral data-sale claim and Moonshot's curbs on Kimi's hacking skills. X and Reddit-only items are marked unverified.",
     "counts": {
       "ai_cause": 21,
-      "ai_product_exploited": 15,
+      "ai_product_exploited": 16,
       "ai_impact": 9
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Seoul police: ex-pentester-led ring used the ARTEX AI pentest framework to hack 90+ organizations and steal 8.2 million records",
+            "date": "2026-10-26T21:08:00Z",
+            "summary": "Seven suspects allegedly stole 8.2 million pieces of personal data and internal records from 90+ hospitals, private academies and businesses since September 2025, using AI tools to hack 60 of them; 38 suffered losses and were asked for a combined 360 million won (about $272,000). The 32-year-old ringleader, a former mock-hacking employee at a security company, has been referred to prosecutors (Seoul Metropolitan Police Agency via Yonhap). Update Oct 26: Seoul Economic Daily and SBS report the ringleader first ran web scanners by hand, then used an AI coding agent and an autonomous AI penetration-testing system to breach 60 companies in just over 40 days (Aug 31 to Oct 13); police say it is the same AI tool used in a recent South Korean financial-sector breach, though no link between the cases is confirmed. One victim paid 300,000 won. Update Oct 26 (BleepingComputer citing Yonhap): police say the 32-year-old leader, who worked at a security company in 2019-2022, switched from conventional tools to AI in late August 2026 and used the ARTEX AI penetration-testing suite, the same autonomous framework tied to attacks on South Korean banks, in most of the attacks; he was arrested Oct 15 and referred to prosecutors Oct 23, while six others are under investigation without detention. Police are checking whether the data was leaked on the dark web.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.bleepingcomputer.com/news/security/former-pentester-used-artex-ai-to-steal-82-million-data-records/",
+            "source": "BleepingComputer / Yonhap / Seoul Metropolitan Police"
+          },
           {
             "title": "Unverified: PS5 jailbreak said to use an AI-discovered hypervisor bug",
             "date": "2026-10-26T18:08:00Z",
@@ -327,15 +339,6 @@
             ],
             "url": "https://www.bleepingcomputer.com/news/security/php2shell-security-flaws-now-sucessfully-exploited-in-the-wild/",
             "source": "Unit 42 (Oct 25 correction) / Amazon / Cloudflare / Wiz / CrowdStrike"
-          },
-          {
-            "title": "Seoul police bust ring that allegedly used AI tools to hack 60 organizations and steal 8.2 million records",
-            "date": "2026-10-26T05:49:00Z",
-            "summary": "Seven suspects allegedly stole 8.2 million pieces of personal data and internal records from 90+ hospitals, private academies and businesses since September 2025, using AI tools to hack 60 of them; 38 suffered losses and were asked for a combined 360 million won (about $272,000). The 32-year-old ringleader, a former mock-hacking employee at a security company, has been referred to prosecutors (Seoul Metropolitan Police Agency via Yonhap). Update Oct 26: Seoul Economic Daily and SBS report the ringleader first ran web scanners by hand, then used an AI coding agent and an autonomous AI penetration-testing system to breach 60 companies in just over 40 days (Aug 31 to Oct 13); police say it is the same AI tool used in a recent South Korean financial-sector breach, though no link between the cases is confirmed. One victim paid 300,000 won.",
-            "status": "reported",
-            "cves": [],
-            "url": "https://en.yna.co.kr/view/AEN20261026005800315",
-            "source": "Seoul Metropolitan Police via Yonhap / Seoul Economic Daily / SBS"
           },
           {
             "title": "Stingrai's autonomous AI agent 'Snipe' says it found Gitea authorization bypass CVE-2026-58433",
@@ -502,13 +505,13 @@
         "label": "AI products being exploited",
         "items": [
           {
-            "title": "Unverified: researcher claims RCE in the sandboxes of Instinct and Muse personal-agent apps",
-            "date": "2026-10-26T14:06:00Z",
-            "summary": "An X post by a researcher says he got remote code execution on the cloud sandboxes these personal AI agents use; no vendor statement or technical write-up was seen in the feed.",
-            "status": "unverified",
+            "title": "Cloudflare Workers AI: GLM-5.3 bug sent 155 responses containing other customers' session data",
+            "date": "2026-10-26T20:00:00Z",
+            "summary": "Cloudflare's Oct 26 incident report (as reported by Unite.AI) says a cross-request KV-cache flaw in the GLM-5.3 model (@cf/zai-org/glm-5.3) on Workers AI, live from Aug 27, caused 155 responses to prompts over about 681,000 tokens to include data from other tenants' sessions. Researcher Gadi Evron (Knostic) reported it Sep 8; Cloudflare fixed and restored the model Sep 9, says no other Workers AI model was affected and found no evidence of deliberate exploitation.",
+            "status": "patched",
             "cves": [],
-            "url": "https://x.com/AmirZak6/status/2114720402492526611",
-            "source": "X"
+            "url": "https://www.unite.ai/cloudflare-says-glm-5-3-bug-leaked-155-responses-across-tenant-sessions/",
+            "source": "Cloudflare via Unite.AI"
           },
           {
             "title": "OpenHands Software Agent SDK: sandbox agent server exposed with no authentication (CVE-2026-112346)",
@@ -529,6 +532,15 @@
             "cves": [],
             "url": "https://www.securityweek.com/stolen-ai-reasoning-could-help-china-build-cheaper-rivals/",
             "source": "SecurityWeek / Xint"
+          },
+          {
+            "title": "Unverified: researcher claims RCE in the sandboxes of Instinct and Muse personal-agent apps",
+            "date": "2026-10-26T14:06:00Z",
+            "summary": "An X post by a researcher says he got remote code execution on the cloud sandboxes these personal AI agents use; no vendor statement or technical write-up was seen in the feed.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/AmirZak6/status/2114720402492526611",
+            "source": "X"
           },
           {
             "title": "Malicious AGENTS.md in a Downloads folder made an AI coding agent try to install a rogue npm package",
@@ -737,6 +749,6 @@
         ]
       }
     ],
-    "trend_note": "Vendors are now using frontier AI to sweep their own code, and Fortinet's patch-now, details-later release shows the downside: patches themselves become exploit roadmaps, and Fortinet expects AI to shrink the patch-to-exploit window to days, so treat AI-found fixes on edge devices as urgent even without CVEs. ARTEX-style autonomous pentest tools keep appearing in real crimes (ConnectWise, Japan, and now a Seoul case police tie to the same tool used in a financial-sector breach), and theft of AI keys and coding-agent data keeps recurring (Railway, LiteLLM, Gheist, Lightning AI, OVHcloud CLI). Attribution stays shaky: Unit 42 retracted its PHP2Shell AI-attacker case and Brotli's AI-discovery credit is disputed. Since the last update the new AI items are only unverified social-media claims, while confirmed activity this afternoon was patch follow-through (PHP's rebuilt Windows packages for the Brotli flaw, appliance vendors listing PHP2Shell-affected products)."
+    "trend_note": "Vendors are now using frontier AI to sweep their own code, and Fortinet's patch-now, details-later release shows the downside: patches themselves become exploit roadmaps, and Fortinet expects AI to shrink the patch-to-exploit window to days, so treat AI-found fixes on edge devices as urgent even without CVEs. ARTEX-style autonomous pentest tools keep appearing in real crimes (ConnectWise, Japan, and now a Seoul case police tie to the same tool used in a financial-sector breach), and theft of AI keys and coding-agent data keeps recurring (Railway, LiteLLM, Gheist, Lightning AI, OVHcloud CLI). Attribution stays shaky: Unit 42 retracted its PHP2Shell AI-attacker case and Brotli's AI-discovery credit is disputed. Since the last update, the Seoul case now names ARTEX too, making it the third real-world crime wave (after ConnectWise and Japan) tied to that one open-source AI pentest framework, and AI hosting providers are disclosing cross-tenant leaks (Cloudflare Workers AI) months after fixing them."
   }
 }
