@@ -144,6 +144,10 @@ IMPACT = [
 
 # Hand-curated angles for specific CVE ids (use for things heuristics cannot know). type, why, optional source url
 MANUAL = {
+    "CVE-2026-114595": [("cause", "EPICS Base (<=7.0.10, fixed 7.0.11) memory-safety flaw, one of four found by an autonomous AI agent (reported Oct 27)")],
+    "CVE-2026-114596": [("cause", "EPICS Base (<=7.0.10, fixed 7.0.11) memory-safety flaw, one of four found by an autonomous AI agent (reported Oct 27)")],
+    "CVE-2026-114597": [("cause", "EPICS Base (<=7.0.10, fixed 7.0.11) memory-safety flaw, one of four found by an autonomous AI agent (reported Oct 27)")],
+    "CVE-2026-114598": [("cause", "EPICS Base (<=7.0.10, fixed 7.0.11) memory-safety flaw, one of four found by an autonomous AI agent (reported Oct 27)")],
     "CVE-2026-58433": [("cause", "Gitea authorization bypass (<=1.26.4, fixed 1.27.0) was found by Stingrai's autonomous AI agent Snipe (Stingrai, Oct 25)")],
     "CVE-2026-109618": [("cause", "PHP2Shell was found and weaponised with AI help: Wiz Research used Wiz Atlas, Gemini 4 Argon and GPT-5.6-Sol; Calif used an LLM audit (php2shell.com)")],
     "CVE-2026-103572": [("product", "GitHub Copilot in Visual Studio/SSMS: trailing-dot path bypassed Copilot's protected-file checks (Johann Rehberger write-up)")],
