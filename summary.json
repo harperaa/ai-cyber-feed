@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-27T12:55:00Z",
-  "next_update_note": "Changes in this 12:55 UTC update: added the Bubble no-code platform breach (attacker took some users' API Connector and plugin credentials, including plugin developers' private API keys; Bubble says the attacker is contained) to the focus list; NorForge (via Cyberpress, Oct 27) found attackers hijacking at least 17 exposed Cairn AI-agent panels and turning the agents on their own servers to plant SSH keys and a Poseidon implant, added to the Cairn item and the AI roll-up; NHK reports the GMO Onamae attackers have started releasing data they say is customer information after GMO refused to pay. Watch list: ENGIE says attackers took French customers' contact and energy-contract details from a partner marketing tool; Have I Been Pwned confirms 345,000 email addresses in the AfD hosting-provider breach; SiteGuard Server Edition CVE-2026-106931 is exploited and in CISA KEV; Telerik RadImageEditor file-read-to-RCE write-up; Lazarus 'Operation FlashHole'; Australia cut off the Amadey botnet. Arista VeloCloud and Lightning AI moved from the focus list to the watch list (no change in status). Other focus items are unchanged. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
-  "headline": "PHP2Shell is confirmed exploited and in CISA's Known Exploited list, so patch PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35, restart php-fpm/Apache and hunt for PHP workers spawning shells. The testmetest npm worm has armed 42 real GitHub repositories with hooks that run malware when you open the repo in Claude Code, Gemini CLI, Cursor or VS Code. New: Bubble says an attacker took some users' API Connector and plugin credentials, so rotate any third-party API keys you stored in Bubble apps or plugins. Also act on: Cathedral's AI-agent intrusion into Anthropic via third-party business software, DreamHost's forced password resets, Fortinet's AI-found FortiOS and FortiManager fixes (details due Nov 10), the Brotli flaw (PHP Windows builds, Node.js, Bun and .NET patches), FortiSIEM 7.5.0 (exploited), ConnectWise app access (Storm-0940's ARTEX campaign), web shells from Cairn AI agents, secrets stored on Railway, OpenCode Console and TiDB Cloud, Gheist's ci-sync-* branches, and anything that installed LiteLLM 1.107.0.",
-  "ai_headline": "AI coding agents are now a delivery route: the testmetest worm plants .claude, .gemini, .cursor and .vscode start-up hooks in hijacked GitHub repos and steals Claude, Codex, Gemini and Copilot tokens along with cloud keys. AI agents keep getting in through the side door too: Cathedral reached Anthropic's business systems via third-party SaaS in under 12 hours, Storm-0940's ARTEX agents abused ConnectWise's cloud apps, and Cairn agents broke into 100+ company websites. New: attackers are now hijacking exposed Cairn panels and turning those hacking agents against their own operators' servers. AI-found flaws are being exploited quickly (PHP2Shell is in CISA KEV five days after disclosure), and AI platforms and keys remain the loot (Railway, OpenCode Console, LiteLLM, Gheist, Lightning AI, OVHcloud CLI).",
+  "updated_at": "2026-10-27T16:38:00Z",
+  "next_update_note": "Changes in this 16:38 UTC update: added Warp's disclosure that an AI 'agent swarm' exploited a vendor in its infrastructure and read agent trace and telemetry data for up to ~1% of users (focus list and AI roll-up); PHP2Shell now has a CISA federal deadline of Oct 29 and Wiz reports about 67% fewer exposed vulnerable machines with no successful attempts in its own telemetry; Tailscale says a patched client for the 'Tailworm' SSH flaws is due by end of Oct 27. Watch list: treg (AI agent tools platform) breach aimed at AI provider keys (added to the AI roll-up), Denver Health / SquareML exposed access key (238,083 members), Flowise CVE-2026-73487, FortiBleed 2.0 FortiGate config leak (single source). DreamHost and Gheist moved from the focus list to the watch list (no new details). No new CISA KEV additions since Oct 26; an X post claiming new KEV entries for Windows ALPC CVE-2026-85880 and Check Point CVE-2026-85102 refers to entries CISA added in September. Other focus items are unchanged. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
+  "headline": "PHP2Shell is confirmed exploited and in CISA's Known Exploited list (federal deadline Oct 29), so patch PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35, restart php-fpm/Apache and hunt for PHP workers spawning shells. New: Warp says an AI 'agent swarm' got in through a vendor and read agent traces and telemetry for up to ~1% of users, so rotate any secrets your Warp agent sessions handled. The testmetest npm worm still arms GitHub repos with hooks that run malware when opened in Claude Code, Gemini CLI, Cursor or VS Code. Also act on: Bubble's stolen API Connector and plugin credentials, Cathedral's AI-agent intrusion into Anthropic via third-party SaaS, Fortinet's AI-found FortiOS and FortiManager fixes (details due Nov 10), the Brotli flaw, FortiSIEM 7.5.0 (exploited), ConnectWise app access (Storm-0940's ARTEX campaign), web shells from Cairn AI agents, secrets stored on Railway, and anything that installed LiteLLM 1.107.0. Tailscale SSH users: a fix is due today; disable SSH forwarding until then.",
+  "ai_headline": "AI agents keep getting in through the side door: Warp now says an agent swarm used a vendor flaw to reach its users' agent traces, days after Cathedral's agents reached Anthropic's business systems via third-party SaaS, Storm-0940's ARTEX agents abused ConnectWise's cloud apps and Cairn agents broke into 100+ company websites. AI coding agents are also a delivery route (testmetest's .claude/.gemini/.cursor hooks) and exposed AI-agent panels are being hijacked. AI-found flaws are exploited quickly (PHP2Shell in CISA KEV five days after disclosure), and AI keys remain the loot (Railway, treg, OpenCode Console, LiteLLM, Gheist, Lightning AI).",
   "focus": [
     {
       "title": "ConnectWise Cloud Backup supply-chain breach run by China-linked hackers using ARTEX AI agents",
@@ -48,6 +48,21 @@
       "ai_note": "AI as the cause: autonomous agents found the way in; also an AI-provider breach, though no model data or customer prompts were reached."
     },
     {
+      "title": "Warp says an AI 'agent swarm' broke in through a vendor and read agent trace and telemetry data of up to ~1% of users",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Warp (agentic terminal / development environment)",
+      "why": "New (Warp CEO Zach Lloyd, Oct 26; BleepingComputer, Oct 27): on Oct 23 Warp found an active, narrow exploitation of a third-party vendor in its infrastructure. Lloyd says the attack appears to have come from an agent swarm using a sophisticated penetration and escalation technique, likely starting with a hole in a vendor dependency, and it reached a limited amount of agent trace and telemetry data for at most about 1% of users. Warp says it detected and remediated it within hours, notified users it identified as affected, and is investigating with CrowdStrike and law enforcement. The vendor, the flaw and whether secrets that appeared in agent traces were exposed have not been disclosed. It is the second AI-agent intrusion via third-party software this week after Cathedral's access to Anthropic.",
+      "action": "If you use Warp, watch for a notice from Warp and follow its instructions. If your Warp agent sessions ever printed or handled secrets (API keys, tokens, .env values, cloud credentials), rotate them, since agent traces can contain command output. Nothing to update on your side yet.",
+      "url": "https://www.bleepingcomputer.com/news/security/warp-discloses-breach-exposing-ai-agent-logs-user-telemetry-data/",
+      "ai_angle": [
+        "cause",
+        "impact"
+      ],
+      "ai_note": "Warp attributes the intrusion to an AI agent swarm (not independently confirmed), and the stolen data is AI coding-agent traces."
+    },
+    {
       "title": "PHP2Shell: unauthenticated RCE in the PHP runtime, confirmed exploited and now in CISA KEV",
       "severity": "critical",
       "exploited": true,
@@ -57,7 +72,7 @@
         "CVE-2026-115560"
       ],
       "vendor": "PHP",
-      "why": "New (Oct 26): CISA added CVE-2026-109618 and CVE-2026-109619 to its Known Exploited Vulnerabilities catalog and updated its alert, telling organizations to patch to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35 and to take unpatched or end-of-life (8.1 and older) PHP systems offline; posts on X say US agencies have until Oct 29. Palo Alto Networks also published an impact advisory for its products. Earlier: successful exploitation is confirmed, and appliance vendors are now listing affected products (Cisco advisory; Siemens, Schneider Electric and ABB for some industrial products, per SecurityWeek). Perplexity's Adel Karimi recorded 35 shells spawned by Apache workers on three PHP 8.4.26 mod_php honeypots on Oct 24, from 15.204.59.70 (OVH US) and 162.35.99.94 (Interserver), using the public exploit's offsets; Expel's Marcus Hutchins called it the highest-quality confirmation so far (BleepingComputer). Delft Threat Intelligence Lab's live tracker counts 42,034 exploitation requests from 597 IPs since Oct 21, 171 of them sending code or droppers, and Trail of Bits reportedly has a production-grade root exploit for mod_php and php-fpm. No second-stage payload download was seen on the honeypots, and as of Oct 26 morning CISA had still not added the flaws to KEV (SecurityWeek). How many real servers are compromised is unknown. Two flaws in the PHP engine (CVSS 9.8 in NVD, 9.2 CVSS v4) allow unauthenticated remote code execution via crafted HTTP requests, so WordPress, Drupal and Joomla sites are exposed even with clean app code. Correction: on Oct 25 Unit 42 retracted its Oct 23 update that tied an AI-agent intrusion at a European government agency to PHP2Shell; it still saw the attack inside a vulnerable PHP application but cannot confirm PHP2Shell was the way in. Its brief still urges immediate patching, and Cortex Xpanse counts 22.6 million potentially exposed instances. Amazon says PHP2Shell 'is now seeing broad exploitation attempts in the wild' (first attempt Oct 17, before the patch) but cannot say whether any would have succeeded; TechCrunch (Oct 24) reported Palo Alto Networks and Trail of Bits had confirmed compromises (Palo Alto's part may rest on the retracted Unit 42 update), and researchers report working code execution on PHP 8.2 and 8.3 too (no universal exploit); Cloudflare saw millions of attempts and Sophos and Arctic Wolf report Mirai install attempts. The PHP Foundation and Dataminr still report no confirmed compromises of their own and CrowdStrike says weaponising obstacles likely limit mass exploitation, but FBI (Oct 23 PSA) and CISA urge immediate patching. A separate RCE path (CVE-2026-115560) in unusual session configurations is not fixed by the Oct 21 releases. Palo Alto PAN-OS and Panorama management interfaces (web UI and XML API) are affected; as of Oct 26 hotfixes are out for 10.2.18-h13, 11.1.4-h38, 11.1.6-h40, 11.1.10-h36, 11.1.13-h16, 11.1.16-h4 and 11.2.10-h16, the rest are due Oct 27-30, Palo Alto knows of no exploitation against its products and says CVE-2026-115560 does not affect PAN-OS (WF-500 is now listed as not affected); Cisco has an advisory too. TechCrunch (Oct 24) reports a large number of systems remain unpatched. Google Cloud's advisory (updated Oct 23 with Mandiant guidance) warns that upgrading PHP packages on disk leaves the vulnerable code loaded in running php-fpm, Apache, FrankenPHP or LiteSpeed workers until they are restarted, and that edge, gateway and management appliances often embed PHP. Update (Oct 27): BleepingComputer and The Hacker News report CISA has confirmed active exploitation of CVE-2026-109618 and CVE-2026-109619.",
+      "why": "New (Oct 26): CISA added CVE-2026-109618 and CVE-2026-109619 to its Known Exploited Vulnerabilities catalog and updated its alert, telling organizations to patch to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35 and to take unpatched or end-of-life (8.1 and older) PHP systems offline; posts on X say US agencies have until Oct 29. Palo Alto Networks also published an impact advisory for its products. Earlier: successful exploitation is confirmed, and appliance vendors are now listing affected products (Cisco advisory; Siemens, Schneider Electric and ABB for some industrial products, per SecurityWeek). Perplexity's Adel Karimi recorded 35 shells spawned by Apache workers on three PHP 8.4.26 mod_php honeypots on Oct 24, from 15.204.59.70 (OVH US) and 162.35.99.94 (Interserver), using the public exploit's offsets; Expel's Marcus Hutchins called it the highest-quality confirmation so far (BleepingComputer). Delft Threat Intelligence Lab's live tracker counts 42,034 exploitation requests from 597 IPs since Oct 21, 171 of them sending code or droppers, and Trail of Bits reportedly has a production-grade root exploit for mod_php and php-fpm. No second-stage payload download was seen on the honeypots, and as of Oct 26 morning CISA had still not added the flaws to KEV (SecurityWeek). How many real servers are compromised is unknown. Two flaws in the PHP engine (CVSS 9.8 in NVD, 9.2 CVSS v4) allow unauthenticated remote code execution via crafted HTTP requests, so WordPress, Drupal and Joomla sites are exposed even with clean app code. Correction: on Oct 25 Unit 42 retracted its Oct 23 update that tied an AI-agent intrusion at a European government agency to PHP2Shell; it still saw the attack inside a vulnerable PHP application but cannot confirm PHP2Shell was the way in. Its brief still urges immediate patching, and Cortex Xpanse counts 22.6 million potentially exposed instances. Amazon says PHP2Shell 'is now seeing broad exploitation attempts in the wild' (first attempt Oct 17, before the patch) but cannot say whether any would have succeeded; TechCrunch (Oct 24) reported Palo Alto Networks and Trail of Bits had confirmed compromises (Palo Alto's part may rest on the retracted Unit 42 update), and researchers report working code execution on PHP 8.2 and 8.3 too (no universal exploit); Cloudflare saw millions of attempts and Sophos and Arctic Wolf report Mirai install attempts. The PHP Foundation and Dataminr still report no confirmed compromises of their own and CrowdStrike says weaponising obstacles likely limit mass exploitation, but FBI (Oct 23 PSA) and CISA urge immediate patching. A separate RCE path (CVE-2026-115560) in unusual session configurations is not fixed by the Oct 21 releases. Palo Alto PAN-OS and Panorama management interfaces (web UI and XML API) are affected; as of Oct 26 hotfixes are out for 10.2.18-h13, 11.1.4-h38, 11.1.6-h40, 11.1.10-h36, 11.1.13-h16, 11.1.16-h4 and 11.2.10-h16, the rest are due Oct 27-30, Palo Alto knows of no exploitation against its products and says CVE-2026-115560 does not affect PAN-OS (WF-500 is now listed as not affected); Cisco has an advisory too. TechCrunch (Oct 24) reports a large number of systems remain unpatched. Google Cloud's advisory (updated Oct 23 with Mandiant guidance) warns that upgrading PHP packages on disk leaves the vulnerable code loaded in running php-fpm, Apache, FrankenPHP or LiteSpeed workers until they are restarted, and that edge, gateway and management appliances often embed PHP. Update (Oct 27): BleepingComputer and The Hacker News report CISA has confirmed active exploitation of CVE-2026-109618 and CVE-2026-109619. New (Oct 27): CISA gave US federal agencies until Oct 29 to patch (TechCrunch). Wiz says the number of internet-exposed vulnerable machines it sees fell about 67% since disclosure, that the attempts in its own telemetry have not succeeded so far and that it has not seen a public end-to-end exploit, though partners have privately shared working ones.",
       "action": "Upgrade to PHP 8.5.12, 8.4.27, 8.3.36 or 8.2.35 (check the runtime serving web traffic, including containers), then explicitly restart php-fpm, apache2/httpd, frankenphp or lsws and any supervisor-managed workers; on a host that shows signs of probing (for example oversized PHPSESSID cookies), capture worker memory first, since a restart destroys the evidence. Use official distro security repositories rather than lagging third-party mirrors, and inventory appliances that embed PHP and apply Cisco, Siemens, Schneider Electric and ABB fixes as they ship. 8.1 and older get no official release, so use a vendor-patched package or move to a supported branch. Also set session.upload_progress.enabled=0 until PHP's next routine release (blocks CVE-2026-115560). If you can't patch now, take internet-facing PHP systems offline (FBI/CISA advice; a WAF is only a stopgap). Search logs for 15.204.59.70 and 162.35.99.94, and hunt back to Oct 17 for PHP workers launching shells or downloading files (CISA's SIGMA rule and Unit 42's XQL queries help); if found, treat the host's credentials (including AD and MFA secrets) as stolen and report compromises to IC3. Palo Alto: restrict management web UI and XML API to trusted IPs, remove management profiles from untrusted interfaces, enable Threat IDs 543004 and 97622-97625, and install the PAN-OS hotfix for your branch (several shipped Oct 25-26; 12.x, 11.2 and most 10.2 branches due Oct 27-30).",
       "url": "https://www.bleepingcomputer.com/news/security/php2shell-security-flaws-now-sucessfully-exploited-in-the-wild/",
       "ai_angle": [
@@ -123,32 +138,6 @@
       "ai_note": ""
     },
     {
-      "title": "DreamHost forces password resets for all email and FTP/SFTP users in an unexplained incident",
-      "severity": "high",
-      "exploited": false,
-      "cves": [],
-      "vendor": "DreamHost (web hosting)",
-      "why": "DreamHost, which hosts 1.5 million+ sites for 400,000+ customers, reported File Manager problems on Oct 23 and then blocked email and FTP/SFTP logins until account owners set new passwords, calling it a precaution. It told owners to check every mailbox for forwarding rules and remove any it doesn't recognise, which suggests some mailboxes may have been accessed, and to change reused passwords elsewhere. As of Oct 26 the incident is still active, File Manager is unavailable and DreamHost has not said what happened or how many accounts were exposed (BleepingComputer).",
-      "action": "If you host with DreamHost: follow the recovery email to set new, unique email and FTP/SFTP passwords, tell your mailbox users (DreamHost can't contact them), remove unknown forwarding rules, change any reused passwords elsewhere, and review site files and FTP logs for changes since Oct 23. Rotate any API keys or credentials kept in files on the hosting account.",
-      "url": "https://www.bleepingcomputer.com/news/security/dreamhost-forces-email-ftp-sftp-password-resets-in-ongoing-incident/",
-      "ai_angle": [],
-      "ai_note": ""
-    },
-    {
-      "title": "Gheist: stolen GitHub tokens used to plant secret-dumping workflows in 850+ accounts' repositories",
-      "severity": "critical",
-      "exploited": true,
-      "cves": [],
-      "vendor": "GitHub (Actions)",
-      "why": "Wiz (Oct 25) has tracked since Sep 15 an automated campaign that pushes a 'sync-check' workflow on ci-sync-XXXXXX branches to every repository a stolen token can reach, prints all repository and environment secrets base32-encoded (which defeats GitHub's log masking), downloads the log through GitHub's API and deletes the run. Wiz found 13,500+ planted branches from 850+ accounts. GitHub's approval hold blocks it in public repositories, but it is succeeding in private repositories and GitHub Enterprise Server, with follow-on use of stolen AWS credentials. A newer job on self-hosted runners searches for 31 token types, including Anthropic, Hugging Face, Groq and NVIDIA keys, plus cloud, Docker-host and Kubernetes credentials. Tokens appear to come from infostealer logs and earlier supply-chain leaks.",
-      "action": "Search for branches matching ci-sync-[0-9a-z]{6} with commit 'ci: sync config' adding .github/workflows/sync-check.yml, the user agent 'gheist' in audit logs, and cloud role assumptions from ci-sync- branches. If found, rotate every repo, org and environment secret those repos can use, revoke the pushing tokens and check the owners' machines for infostealers; treat any self-hosted runner that ran it as compromised. Don't approve held sync-check runs. Require reviewers on production environments and scope OIDC trust to protected branches.",
-      "url": "https://www.wiz.io/blog/gheist-attempted-scaled-abuse-of-stolen-github-tokens-stumbles",
-      "ai_angle": [
-        "impact"
-      ],
-      "ai_note": "The self-hosted-runner payload specifically harvests AI provider API keys (Anthropic, Hugging Face, Groq, NVIDIA) along with cloud credentials."
-    },
-    {
       "title": "testmetest npm worm arms 42 GitHub repos with AI coding-agent start-up hooks; wiper fires if you revoke the stolen token",
       "severity": "critical",
       "exploited": true,
@@ -195,10 +184,22 @@
   ],
   "news": [
     {
-      "title": "Bubble security incident: attacker accessed users' API Connector and plugin credentials",
-      "source": "Bubble status page",
-      "url": "https://status.bubble.io/incidents/01M5WJ5HV7RWPN15GFDHZMCSSS",
-      "blurb": "Bubble says the attacker is contained; affected users and plugin developers are being told to rotate keys, and public-editor apps' data was downloaded."
+      "title": "Warp discloses breach exposing AI agent logs, user telemetry data",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/warp-discloses-breach-exposing-ai-agent-logs-user-telemetry-data/",
+      "blurb": "Warp says an AI agent swarm exploited a vendor in its infrastructure on Oct 23 and read agent trace and telemetry data for up to about 1% of users."
+    },
+    {
+      "title": "US government says hackers are now exploiting critical PHP web bugs",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/27/us-government-says-hackers-are-now-exploiting-critical-php-web-bugs/",
+      "blurb": "CISA confirmed PHP2Shell exploitation and ordered federal agencies to patch within three days."
+    },
+    {
+      "title": "Tailscale Rushes Patches After Uncoordinated Disclosure of 'Tailworm' Flaws",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/tailscale-rushes-patches-after-uncoordinated-disclosure-of-tailworm-flaws/",
+      "blurb": "Tailscale aims to ship a patched client by end of Oct 27 for SSH flaws that can give root on reachable servers; disable SSH forwarding where not needed meanwhile."
     },
     {
       "title": "CISA confirms PHP2Shell vulnerabilities now exploited in attacks",
@@ -213,12 +214,6 @@
       "blurb": "Attackers hijacked at least 17 exposed Cairn AI-agent panels and made the agents plant SSH keys and a Poseidon implant on their own hosts."
     },
     {
-      "title": "Worm armed 42 GitHub repos by hiding a payload too big to fail",
-      "source": "The Register",
-      "url": "https://www.theregister.com/security/2026/10/26/worm-armed-42-github-repos-by-hiding-a-payload-too-big-to-fail/5305570",
-      "blurb": "The testmetest worm uses AI coding-agent start-up hooks in hijacked repos to run its stealer."
-    },
-    {
       "title": "Hackers release data after GMO ignores ransom demand",
       "source": "NHK World",
       "url": "https://www3.nhk.or.jp/nhkworld/news/20261027de66467/",
@@ -231,12 +226,6 @@
       "blurb": "AI agents reached Anthropic's sales, HR and IT systems through third-party business software in under 12 hours."
     },
     {
-      "title": "Energy giant ENGIE discloses data breach affecting customers",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/energy-giant-engie-discloses-data-breach-affecting-customers/",
-      "blurb": "Attackers took French customers' contact and energy-contract details from a partner marketing tool; no banking data."
-    },
-    {
       "title": "Microsoft releases emergency .NET patches for critical Brotli flaw",
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-net-patches-for-critical-brotli-flaw/",
@@ -244,8 +233,15 @@
     }
   ],
   "watch": [
+    "Tailscale SSH 'Tailworm' (11 findings by Cyberdione Labs, disclosed before fixes): Tailscale says fixes for most issues have landed in its public code and it aims to ship a patched client by the end of Oct 27, followed by an advisory; versions up to 1.104.2 and headscale up to 0.29.6 are affected. Until then, review SSH access rules and turn off SSH forwarding where it isn't needed (SecurityWeek, Oct 27).",
+    "Treg (AI agent tools platform): an attacker ran commands on its production web service on Oct 23 via a server-side feature, apparently to steal AI inference provider keys, which treg ties to a series of attacks on platform companies. If you added your own keys (e.g. OpenRouter or other AI providers) to treg, rotate them at the provider and review October usage; all treg tokens were reset.",
     "ENGIE (BleepingComputer, Oct 27): attackers took French customers' names, postal and email addresses, phone numbers, customer IDs, contract numbers and electricity PDL / gas PCE meter IDs from a tool partners use to sell energy offers; ENGIE says its internal systems and banking data were not affected and has not said how many customers. Expect phishing and fake 'ENGIE' calls that quote real contract details.",
     "AfD (German party) hosting provider breach: Have I Been Pwned confirmed 345,000+ unique email addresses plus large volumes of emails and attachments taken from AfD-owned host Alternita in September (The Register, Oct 27). The attackers' claim that entry was via a poorly protected WordPress site is unverified.",
+    "DreamHost forced password resets for all email and FTP/SFTP users in a still-unexplained incident; if you host there, set new unique passwords, check mail forwarding rules and review site files changed since Oct 23 (moved off the focus list; no new details).",
+    "Gheist: stolen GitHub tokens used to plant secret-dumping 'ci-sync-*' workflow branches in 850+ accounts' repos; search for branches matching ci-sync-[0-9a-z]{6} and the 'gheist' user agent, and rotate secrets if found (moved off the focus list; no new details).",
+    "Denver Health Medical Plan: AI/ML analytics vendor SquareML left a live read-only database access key on a public website from Jun 27, 2025 to Aug 2026, exposing health data of 238,083 members to possible access; no evidence it was used (SecurityWeek, Oct 27).",
+    "Flowise CVE-2026-73487: its CSV and Airtable agents ran model-written Python after only a regex blocklist check, so a prompt could run code; fixed in Flowise 3.1.3. No attacks reported.",
+    "FortiBleed 2.0 (Infostealers.com, Oct 27): a newly obtained set of FortiGate configuration reports from around February 2026 holds 40,573 records with cleartext secrets, including 37,076 local-user and 1,576 Active Directory LDAP bind records, covering 975 domains not in the first leak. If you run FortiGate, rotate local VPN and LDAP bind passwords and check whether your domain is listed (single source).",
     "SiteGuard Server Edition (Japanese web application firewall) CVE-2026-106931: OS command injection in the default-on statistics feature runs commands as root/SYSTEM; exploited and in CISA KEV (added Oct 20). Upgrade Apache/Nginx/IIS editions to Ver8.00 Update5 (FreeBSD to Ver7.00 Update6) per JPCERT, and preserve logs before patching.",
     "Telerik UI for ASP.NET AJAX: Tanto Security published a RadImageEditor arbitrary file read that leaks web.config and can lead to RCE if the right secrets are there; update to 2026.3.812 and rotate machine keys if exposed. No attacks reported.",
     "Lazarus 'Operation FlashHole' (Kaspersky via The Hacker News, Oct 27): North Korea-linked attackers abused South Korean security software to deploy malware using post-quantum encryption against at least three construction, software and telecom-equipment firms.",
@@ -276,7 +272,6 @@
     "Unverified X chatter: a dark-web post advertises about 207,857 customer account and order records from Taiwanese marketplace Popchill.",
     "npm (Oct 25) replaced 19 packages from the appit-online publisher account with security placeholders; insta-api-wrapper and ionic-insta-api-wrapper sent Instagram usernames, passwords and session tokens to reelsaver.appit-online[.]de and used them to auto-follow and like. If you used any appit-online package, remove it and reset affected Instagram sessions (Corgea write-up).",
     "Zeabur hosting platform: attackers read 3.2 million environment-variable records (Oct 14-15) and Zeabur is shutting down (shared clusters pause Dec 1, everything stops Dec 31). If you stored secrets there, revoke them at the issuing provider, rebuild dedicated servers and migrate (moved off the focus list; see Zeabur's incident report).",
-    "Tailscale SSH 'Tailworm' report (Erica Windisch, Oct 25, via The Hacker News): one compromised device could get root on other servers it may SSH to when port forwarding is allowed; no patch or CVE yet, and the lab-only findings are not independently reproduced. Tailscale says it is fixing issues. Write SSH rules as single source-to-destination pairs, turn off SSH port forwarding per rule (it can't be turned off in headscale 0.29.5), remove app-connector permissions and Unix-socket serve forwards you don't need, and enable node-key expiry.",
     "New AI-infrastructure CVEs (no attacks reported): vLLM CVE-2026-116176 (SSRF, fixed in 0.24.0) and CVE-2026-116177/116179/116180 (memory and denial-of-service issues, fixed by 0.25.0 to 0.31.0), so run vLLM 0.31.0+; AWS Labs postgres-mcp-server CVE-2026-85787 (SQL validation gap lets read-only callers modify data) and mysql-mcp-server CVE-2026-85788, so update those MCP servers. LiteLLM's MCP auth bypass CVE-2026-59822 (fixed in 1.84.0) has been in CISA KEV since Sep 2.",
     "MCP Inspector (official Model Context Protocol debugging tool): two CVSS 9.6 flaws published Oct 21 (GHSA-4fc4-wcmh-4g86, GHSA-6x67-4w4w-9f3w) let a malicious remote MCP server run commands on your machine just by connecting or viewing its MCP App, plus a Windows/WSL OAuth-URL injection in 2.x; update to 1.0.3 (1.x) or 2.12.0 (2.x) and remove older pinned copies. No attacks reported.",
     "AI coding agents and instruction files: don't start Codex, Claude Code, Cursor CLI or similar agents in ~/Downloads or your home folder, since any web page can drop an AGENTS.md or CLAUDE.md there; review unfamiliar instruction files and keep approval prompts and sandboxing on (Forever Security via BleepingComputer, Oct 25).",
@@ -315,20 +310,29 @@
     "Lotte Giftiel (South Korean mobile-coupon service run by Spoon): an intruder on Oct 22 took 18,359 customers' names, phone numbers, emails and bank account numbers; no fraudulent coupon use confirmed. Expect phishing."
   ],
   "ai_activity": {
-    "overview": "In the last 7 days AI has shown up on every side of attacks. AI agents ran or sped up real intrusions (Storm-0940's ARTEX agents in the ConnectWise breach, a Korean ring that stole 8.2 million records with ARTEX, Cairn agents breaking into 100+ websites, Cathedral's agents reaching Anthropic's business systems), and AI-found flaws such as PHP2Shell were exploited within days. AI products themselves are now attack routes, including the attackers' own: exposed Cairn hacking panels are being hijacked to plant malware on their hosts; the testmetest worm uses AI coding agents' start-up hooks to run malware, LiteLLM was backdoored, and MCP tools keep shipping critical fixes. Stolen AI provider keys and coding-agent data were the goal in the Railway, OpenCode Console, Gheist, Lightning AI and OVHcloud CLI incidents.",
+    "overview": "In the last 7 days AI has shown up on every side of attacks. AI agents ran or sped up real intrusions (Storm-0940's ARTEX agents in the ConnectWise breach, a Korean ring that stole 8.2 million records with ARTEX, Cairn agents breaking into 100+ websites, Cathedral's agents reaching Anthropic's business systems, and an agent swarm Warp says read its users' agent traces via a vendor flaw), and AI-found flaws such as PHP2Shell were exploited within days. AI products themselves are now attack routes, including the attackers' own: exposed Cairn hacking panels are being hijacked to plant malware on their hosts; the testmetest worm uses AI coding agents' start-up hooks to run malware, LiteLLM was backdoored, and MCP tools keep shipping critical fixes. Stolen AI provider keys and coding-agent data were the goal in the Railway, treg, Warp, OpenCode Console, Gheist, Lightning AI and OVHcloud CLI incidents.",
     "counts": {
-      "ai_cause": 22,
-      "ai_product_exploited": 18,
-      "ai_impact": 9
+      "ai_cause": 23,
+      "ai_product_exploited": 19,
+      "ai_impact": 11
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
           {
+            "title": "Warp: AI 'agent swarm' exploited a vendor in Warp's infrastructure and read agent trace and telemetry data",
+            "date": "2026-10-26T23:26:00Z",
+            "summary": "Warp CEO Zach Lloyd said (Oct 26) that on Oct 23 Warp found an active, narrow exploitation of a third-party vendor, apparently by an agent swarm using a sophisticated penetration and escalation technique likely starting with a hole in a vendor dependency. It reached limited agent trace and telemetry data for up to about 1% of users; Warp remediated within hours and is investigating with CrowdStrike and law enforcement. The AI attribution is Warp's own assessment; the vendor and flaw are not named.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.bleepingcomputer.com/news/security/warp-discloses-breach-exposing-ai-agent-logs-user-telemetry-data/",
+            "source": "Warp CEO on X / BleepingComputer"
+          },
+          {
             "title": "PHP2Shell: PHP RCE found with AI, now confirmed exploited; no AI-run attack confirmed",
             "date": "2026-10-26T23:00:00Z",
-            "summary": "New (Oct 26): CISA added both CVEs to its Known Exploited Vulnerabilities catalog. New (Oct 26): Perplexity's Adel Karimi confirmed 35 successful shells on PHP 8.4.26 honeypots (Oct 24), backed by Expel's Marcus Hutchins (BleepingComputer); Delft's tracker counts 171 IPs sending exploit code. Calif found the flaws first partly with frontier AI; Wiz (Atlas agent) and OpenAI's Codex Security found them independently. On Oct 25 Unit 42 retracted its Oct 23 report that an agentic AI attack platform used PHP2Shell to break into a European government agency: it still saw the AI-driven activity in a vulnerable PHP application but cannot confirm PHP2Shell was the entry point. Amazon sees broad exploitation attempts and Cloudflare millions of attempts; the PHP Foundation and Dataminr report no confirmed compromises of their own, and CrowdStrike expects weaponising obstacles to limit mass exploitation. CVE-2026-115560 is not fixed by the Oct 21 releases. Unverified X claim (Oct 25): the XHack AI agent wrote a working Python exploit against PHP 8.4.26 in a lab. Servers stay exposed until running PHP workers are restarted after patching. CISA publicly confirmed exploitation on Oct 27.",
+            "summary": "New (Oct 26): CISA added both CVEs to its Known Exploited Vulnerabilities catalog. New (Oct 26): Perplexity's Adel Karimi confirmed 35 successful shells on PHP 8.4.26 honeypots (Oct 24), backed by Expel's Marcus Hutchins (BleepingComputer); Delft's tracker counts 171 IPs sending exploit code. Calif found the flaws first partly with frontier AI; Wiz (Atlas agent) and OpenAI's Codex Security found them independently. On Oct 25 Unit 42 retracted its Oct 23 report that an agentic AI attack platform used PHP2Shell to break into a European government agency: it still saw the AI-driven activity in a vulnerable PHP application but cannot confirm PHP2Shell was the entry point. Amazon sees broad exploitation attempts and Cloudflare millions of attempts; the PHP Foundation and Dataminr report no confirmed compromises of their own, and CrowdStrike expects weaponising obstacles to limit mass exploitation. CVE-2026-115560 is not fixed by the Oct 21 releases. Unverified X claim (Oct 25): the XHack AI agent wrote a working Python exploit against PHP 8.4.26 in a lab. Servers stay exposed until running PHP workers are restarted after patching. CISA publicly confirmed exploitation on Oct 27. New (Oct 27): Wiz says its telemetry shows about 67% fewer exposed vulnerable machines and that the attempts it has seen have not succeeded; CISA's federal patch deadline is Oct 29.",
             "status": "exploited",
             "cves": [
               "CVE-2026-109618",
@@ -539,6 +543,17 @@
         "label": "AI products being exploited",
         "items": [
           {
+            "title": "Flowise CSV and Airtable agents ran model-written Python behind a regex blocklist (CVE-2026-73487)",
+            "date": "2026-10-27T13:31:00Z",
+            "summary": "A crafted prompt could get past the regex check and run code on the Flowise server; fixed in Flowise 3.1.3. No attacks reported.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-73487"
+            ],
+            "url": "https://x.com/david_x_ai/status/2115073946781376567",
+            "source": "Flowise advisory via X"
+          },
+          {
             "title": "Attackers hijack exposed Cairn AI-agent panels and turn the hacking agents on their own hosts",
             "date": "2026-10-27T09:00:00Z",
             "summary": "NorForge (reported by Cyberpress, Oct 27) saw two unattributed clusters, AIA0009 and AIA0010, send tasks to at least 17 internet-exposed Cairn panels since about Oct 20 (reconnaissance from Oct 10). The tasks made agents collect usernames, environment variables and config files, publish command output (which can expose API keys), add attacker SSH keys, and download a Poseidon implant from the Mythic framework; researchers confirmed agents ran the malware in several cases. Victims include attacker-run, researcher, red-team and CTF installations. Fix: put Cairn panels behind authentication and check hosts for new SSH keys.",
@@ -548,15 +563,6 @@
             "source": "NorForge / Cyberpress"
           },
           {
-            "title": "testmetest npm worm plants AI coding-agent start-up hooks in 42 hijacked GitHub repos and steals AI assistant tokens",
-            "date": "2026-10-26T16:30:00Z",
-            "summary": "JFrog found 42 legitimate repositories across 11 hijacked GitHub accounts carrying Claude and Gemini SessionStart hooks, Cursor MCP and rules files and VS Code tasks that run a hidden stealer when the repo is opened or an AI session starts. The linked npm worm steals cloud, registry and Claude/Codex/Gemini/Copilot credentials, spreads by republishing packages and can wipe the home folder if the stolen GitHub token is revoked.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://research.jfrog.com/post/beyond-testmetest-42-hijacked-github-repos/",
-            "source": "JFrog Security Research; Corgea; The Register"
-          },
-          {
             "title": "Cloudflare Workers AI: GLM-5.3 bug sent 155 responses containing other customers' session data",
             "date": "2026-10-26T20:00:00Z",
             "summary": "Cloudflare's Oct 26 incident report (as reported by Unite.AI) says a cross-request KV-cache flaw in the GLM-5.3 model (@cf/zai-org/glm-5.3) on Workers AI, live from Aug 27, caused 155 responses to prompts over about 681,000 tokens to include data from other tenants' sessions. Researcher Gadi Evron (Knostic) reported it Sep 8; Cloudflare fixed and restored the model Sep 9, says no other Workers AI model was affected and found no evidence of deliberate exploitation.",
@@ -564,6 +570,15 @@
             "cves": [],
             "url": "https://www.unite.ai/cloudflare-says-glm-5-3-bug-leaked-155-responses-across-tenant-sessions/",
             "source": "Cloudflare via Unite.AI"
+          },
+          {
+            "title": "testmetest npm worm plants AI coding-agent start-up hooks in 42 hijacked GitHub repos and steals AI assistant tokens",
+            "date": "2026-10-26T16:30:00Z",
+            "summary": "JFrog found 42 legitimate repositories across 11 hijacked GitHub accounts carrying Claude and Gemini SessionStart hooks, Cursor MCP and rules files and VS Code tasks that run a hidden stealer when the repo is opened or an AI session starts. The linked npm worm steals cloud, registry and Claude/Codex/Gemini/Copilot credentials, spreads by republishing packages and can wipe the home folder if the stolen GitHub token is revoked.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://research.jfrog.com/post/beyond-testmetest-42-hijacked-github-repos/",
+            "source": "JFrog Security Research; Corgea; The Register"
           },
           {
             "title": "OpenHands Software Agent SDK: sandbox agent server exposed with no authentication (CVE-2026-112346)",
@@ -718,6 +733,15 @@
         "label": "AI impact / AI keys & infrastructure",
         "items": [
           {
+            "title": "Warp agent trace and telemetry data accessed (up to ~1% of users)",
+            "date": "2026-10-26T23:26:00Z",
+            "summary": "Agent traces from Warp's agentic terminal can contain command output and secrets; Warp has not said whether secrets were in the exposed data. See the AI-as-cause entry.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.bleepingcomputer.com/news/security/warp-discloses-breach-exposing-ai-agent-logs-user-telemetry-data/",
+            "source": "BleepingComputer"
+          },
+          {
             "title": "Lightning AI Studio breach: customer credentials used to reach customer environments; platform still offline",
             "date": "2026-10-25T18:27:00Z",
             "summary": "Lightning AI found unauthorized access to credentials on Oct 15 and revoked all access on Oct 16; it says some customer credentials were used to reach customer environments and connected third-party services. Studio, Deployments, Pipelines and Drive are still down as of Oct 25. Users should rotate secrets stored in Studios. Breach began before the 7-day window but is ongoing; newly added.",
@@ -763,6 +787,15 @@
             "source": "PingCAP"
           },
           {
+            "title": "treg (AI agent tools platform) breached by attacker hunting AI inference provider keys",
+            "date": "2026-10-23T01:30:00Z",
+            "summary": "treg confirmed unauthorized server-side command execution on its production web service on Oct 23 via a server-side feature it has since disabled. It says the attacker's main goal was stealing API keys stored on the platform, both its own AI provider keys and keys teams added, and ties it to a series of attacks on platform companies aimed at AI inference keys (as with Railway). All treg tokens were reset; users should rotate keys they added at the provider.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://treg.to/blog/security-incident-2026-10-23",
+            "source": "treg incident report (Oct 25)"
+          },
+          {
             "title": "Railway breach: ~100,000 workspaces' secrets possibly decrypted, attacker hunting AI keys",
             "date": "2026-10-23T00:00:00Z",
             "summary": "Railway's preliminary report says the attacker (Oct 20-22) escalated via build infrastructure to CI credentials and decrypted env vars for up to 1.85% of workspaces, wanting AI and platform keys for model distillation. Railway also says its initial evidence is that the attacker used abliterated (safety-removed) AI models, a preliminary claim. Users on X report misuse of their Anthropic and OpenAI keys (unverified), and Postiz shut down for all customers over the incident. A claim of ~$371k crypto drained is unverified. On Oct 24 Railway said fresh key revocations by OpenAI and Anthropic were precautionary, not a new attack, and may have caught replacement keys; X users report Google deactivating leaked AI keys too (unverified).",
@@ -801,6 +834,6 @@
         ]
       }
     ],
-    "trend_note": "Attackers are going after the soft edges around a target: third-party SaaS and cloud apps (Anthropic, ConnectWise), the config files that AI coding agents trust (testmetest, AGENTS.md), and now exposed AI-agent control panels themselves (Cairn). AI-found flaws are being exploited fast, and theft of AI keys and agent tokens keeps recurring. Since the last update: the Cairn panel hijacking was added; no new AI-caused intrusion was reported in the last 4 hours."
+    "trend_note": "Attackers are going after the soft edges around a target: third-party vendors, SaaS and cloud apps (Warp, Anthropic, ConnectWise), the config files AI coding agents trust (testmetest, AGENTS.md) and exposed AI-agent control panels (Cairn). AI-found flaws are exploited fast and AI keys keep being stolen from developer platforms. Since the last update: Warp's agent-swarm breach and the treg AI-key theft were added."
   }
 }
