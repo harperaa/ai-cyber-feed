@@ -162,6 +162,8 @@ _C = [(lbl, re.compile(rx, re.I)) for lbl, rx in CAUSE]
 _P = [(lbl, re.compile(rx, re.I)) for lbl, rx in PRODUCT]
 _I = [(lbl, re.compile(rx, re.I)) for lbl, rx in IMPACT]
 SEC_CTX = re.compile(r"vulnerab|insecure|flaw|exploit|\bcve\b", re.I)
+# Text about sandboxing/executing model-written code describes a flaw in an AI product, not an AI-made exploit
+SANDBOX_CTX = re.compile(r"\bsandbox\w*\b.{0,40}\b(?:ai|llm|model)[- ](?:generated|written)\b|\b(?:ai|llm|model)[- ](?:generated|written) code\b.{0,40}\bsandbox|\b(?:ran|runs|run|execut\w+)\b.{0,30}\b(?:the model wrote|model[- ]written|llm[- ]generated)", re.I)
 RANK = {"cause": 3, "product": 2, "impact": 1}
 
 
@@ -193,6 +195,8 @@ def classify(text, packages=(), cpes=(), cve_ids=(), feed=None):
     for lbl, rx in _C:
         m = rx.search(text)
         if m and lbl.startswith("vibe") and not SEC_CTX.search(text):
+            continue
+        if m and lbl in ("AI-generated exploit/malware", "vibe-coded / AI-written code flaw") and SANDBOX_CTX.search(text):
             continue
         if m:
             add("cause", f"{lbl}: “{_snip(m, text)}”")
