@@ -1,5 +1,83 @@
 [
  {
+  "url": "https://x.com/phantmradar/status/2115169278114877564",
+  "author": "phantmradar",
+  "text": "Palo Alto now says PHP2Shell is being actively exploited against PAN-OS management interfaces exposed to the internet. Advisory raised to Critical today. 11 hotfix builds are out, rest due by Oct 30.",
+  "created_at": "2026-10-27T19:50:28Z",
+  "cves": [
+   "CVE-2026-109618",
+   "CVE-2026-109619"
+  ]
+ },
+ {
+  "url": "https://x.com/Vaibhav_09000/status/2115168165915443666",
+  "author": "Vaibhav_09000",
+  "text": "PHP2Shell is being actively exploited. CISA added two critical PHP RCE bugs (CVSS 9.2, no login needed) to KEV on Oct 26. NSA and UK NCSC urged patching. Update now: PHP 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35",
+  "created_at": "2026-10-27T19:46:03Z",
+  "cves": [
+   "CVE-2026-109618",
+   "CVE-2026-109619"
+  ]
+ },
+ {
+  "url": "https://x.com/timwork_notes/status/2115027235346211237",
+  "author": "timwork_notes",
+  "text": "terraform-mcp-server with MCP_SESSION_MODE=stateless reused the first caller's token for every user after them. CVE-2026-16498, CVSS 10.",
+  "created_at": "2026-10-27T10:26:02Z",
+  "cves": [
+   "CVE-2026-16498"
+  ]
+ },
+ {
+  "url": "https://x.com/cubillas888/status/2114990491809054869",
+  "author": "cubillas888",
+  "text": "MCP server risk: Pillar Security says opencode on Windows and WSL could run an attacker's code during remote MCP OAuth sign-in. Fixed in 1.18.33, no advisory or CVE.",
+  "created_at": "2026-10-27T08:00:02Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/rst_cloud/status/2115000969368916469",
+  "author": "rst_cloud",
+  "text": "LiteLLM 1.107.0 Supply Chain Attack: How a Hijacked Release Pipeline Signed Malicious Code.",
+  "created_at": "2026-10-27T08:41:40Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/cubillas888/status/2115015647868416086",
+  "author": "cubillas888",
+  "text": "LiteLLM postmortem: a master key committed to a public repo on May 27 was never revoked. An org owner's unscoped GitHub token, taken Oct 10, then led to malicious 1.107.0 on Oct 21.",
+  "created_at": "2026-10-27T09:40:00Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/thet0wsif/status/2114822471740518558",
+  "author": "thet0wsif",
+  "text": "PHP2Shell (CVE-2026-109618/109619) 9.2 CVSS pre-auth RCE in PHP core, actively exploited in the wild. Scanner checks host PHP, Docker containers and K8s pods.",
+  "created_at": "2026-10-26T20:52:23Z",
+  "cves": [
+   "CVE-2026-109618",
+   "CVE-2026-109619"
+  ]
+ },
+ {
+  "url": "https://x.com/awacinocom/status/2115089780908212514",
+  "author": "awacinocom",
+  "text": "Arista VeloCloud Orchestrator CVE-2026-114625 (CVSS 9.9) exploited before a patch: any logged-in user, even read-only, can become superuser. CISA lists it as actively exploited.",
+  "created_at": "2026-10-27T14:34:34Z",
+  "cves": [
+   "CVE-2026-114625"
+  ]
+ },
+ {
+  "url": "https://x.com/wirelesslyhere/status/2115134193227436365",
+  "author": "wirelesslyhere",
+  "text": "PHP2Shell now actively exploited (CISA KEV), HTTP2Shell Brotli RCE hits Node/Python/.NET, and a Solana bot drain of $947K that looks like stolen keys.",
+  "created_at": "2026-10-27T17:31:03Z",
+  "cves": [
+   "CVE-2026-111497"
+  ]
+ },
+ {
   "url": "https://x.com/so_sthbryan/status/2115150285329006823",
   "author": "so_sthbryan",
   "text": "CISA just added two critical flaws to its actively exploited list: CVE-2026-110447 in Collabora Online CODE Server (CVSS 9.2) and critical Arista VeloCloud Orchestrator RCE, both actively exploited in the wild.",
@@ -195,13 +273,6 @@
   ]
  },
  {
-  "url": "https://x.com/awacinocom/status/2114787689882882351",
-  "author": "awacinocom",
-  "text": "Plex2Shell: four Plex Media Server flaws chained into one attack (CVSS 9.8) let attackers run code on internet-facing servers without a login. CISA lists them as actively exploited.",
-  "created_at": "2026-10-26T18:34:10Z",
-  "cves": []
- },
- {
   "url": "https://x.com/DFIR_Lab/status/2114906246641754324",
   "author": "DFIR_Lab",
   "text": "CVE-2018-7602 Drupal 7.x/8.x RCE (CVSS 9.8) actively exploited in the wild. Patch immediately.",
@@ -259,48 +330,6 @@
   "author": "TheRegister",
   "text": "LiteLLM's postmortem traces its supply chain attack to a master key exposed on GitHub in May and never revoked. Five months later, an attacker exploited it to help poison a software release.",
   "created_at": "2026-10-26T20:33:20Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/Gurucul/status/2115096321291858284",
-  "author": "Gurucul",
-  "text": "The LiteLLM 1.107.0 supply chain attack deployed an infostealer targeting cloud credentials, AI API keys, SSH keys, and developer secrets through malicious Python startup files.",
-  "created_at": "2026-10-27T15:00:34Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/AdvancedHacker/status/2114976607198666912",
-  "author": "AdvancedHacker",
-  "text": "JFrog found 42 hijacked GitHub repos tied to the testmetest npm worm, armed with hooks for Claude, Gemini, Cursor and VS Code: open the folder, payload runs. Steals .env, SSH and cloud keys. Isolate, then rotate.",
-  "created_at": "2026-10-27T07:04:52Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/cubillas888/status/2115108763279524010",
-  "author": "cubillas888",
-  "text": "GitHub's Oct 22 advisories list 41 malicious versions across agentic-awesome-skills and opencode-skills-collection. If one was installed, GitHub says rotate every key on that machine from a different one.",
-  "created_at": "2026-10-27T15:50:00Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/VeduisWeb/status/2114864103206670441",
-  "author": "VeduisWeb",
-  "text": "Gheist is running an ongoing supply chain attack that uses GitHub tokens to pull cloud secrets, harvesting credentials from thousands of developer repositories.",
-  "created_at": "2026-10-26T23:37:49Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/martypartymusic/status/2114874145863245985",
-  "author": "martypartymusic",
-  "text": "Japan had a major cyberattack on GMO Internet Group's Onamae.com Desktop Cloud service used for automated FX margin trading; attackers compromised the cloud/VPS service and obtained logins.",
-  "created_at": "2026-10-27T00:17:43Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/aviatrixtrc/status/2115133330194612562",
-  "author": "aviatrixtrc",
-  "text": "Researchers observed a novel infostealer harvesting AI assistant session tokens alongside SSH keys and cloud credentials in a single automated sweep from developer endpoints.",
-  "created_at": "2026-10-27T17:27:37Z",
   "cves": []
  }
 ]
