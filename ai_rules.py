@@ -145,6 +145,7 @@ IMPACT = [
 
 # Hand-curated angles for specific CVE ids (use for things heuristics cannot know). type, why, optional source url
 MANUAL = {
+    "CVE-2026-112393": [("product", "Critical flaw in the autoclip-mcp MCP server (io.github.zhouxiaoka/autoclip-mcp); fixed version available")],
     "CVE-2026-114595": [("cause", "EPICS Base (<=7.0.10, fixed 7.0.11) memory-safety flaw, one of four found by an autonomous AI agent (reported Oct 27)")],
     "CVE-2026-114596": [("cause", "EPICS Base (<=7.0.10, fixed 7.0.11) memory-safety flaw, one of four found by an autonomous AI agent (reported Oct 27)")],
     "CVE-2026-114597": [("cause", "EPICS Base (<=7.0.10, fixed 7.0.11) memory-safety flaw, one of four found by an autonomous AI agent (reported Oct 27)")],
