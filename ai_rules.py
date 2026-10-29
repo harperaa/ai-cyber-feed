@@ -69,6 +69,9 @@ CAUSE = [
     ("attackers used an AI tool to accelerate/scale attacks", r"\b(?:used|using|uses)\b" + GAP(15) + r"\b(?:an?\s+)?(?:A\.I\.|" + AI + r"|agentic|llm)[- ]?(?:[\w-]+\s+){0,3}(?:tools?|systems?|agents?|platforms?)\b" + GAP(10) + r"\bto (?:accelerate|speed up|scale|automate|supercharge)\b" + GAP(30) + r"\b(?:cyber ?-?attacks?|attacks?|intrusions?|hacking|campaigns?)\b"),
     ("AI agent autonomously discovers/exploits vulns", r"\b(?:" + AI + r"|llm)[- ]agents?\s+(?:\w+\s+){0,2}(?:discover|find|exploit|hunt|uncover)\w*\b" + GAP(40) + r"\b(?:vulnerabilit\w+|zero[- ]?days?|flaws?|bugs?|rce|exploits?)\b"),
     ("AI agents carried out the hack", r"\b(?:" + AI + r"|llm|autonomous)[- ]agents?\s+did\s+the\s+(?:rest|hacking|work|attack)\b"),
+    ("exploit chains written by an AI model", r"\b(?:attack chains?|exploit chains?|exploits?)\b" + GAP(20) + r"\b(?:written|built|generated|developed)\s+by\s+(?:an?\s+)?(?:[\w-]+\s+){0,3}(?:model|agent)s?\b"),
+    ("attackers ran an AI pen-testing framework / agent fleet", r"\battacker was an? (?:fleet|swarm|team) of (?:ai\s+)?agents\b|\brunning\b" + GAP(30) + r"\b(?:" + AI + r"|llm)[- ]?(?:pen[- ]?test\w*|hacking|offensive)\s+framework\b"),
+    ("AI test model misused leaked credentials", r"\b(?:test|" + AI + r"|frontier)\s+model\b" + GAP(80) + r"\bused\s+(?:leaked|stolen|exposed)\s+credentials\b"),
     ("vibe-coded / AI-written code flaw", r"\bvibe[- ]?cod\w+|\b(?:" + AI + r"|llm)[- ]generated code\b|\bcode (?:written|generated) by (?:an? )?(?:" + AI + r"|llm|copilot|chatgpt|claude)\b|\bslopsquat\w*|\bhallucinated (?:package|dependenc)\w+"),
 ]
 
