@@ -73,6 +73,7 @@ CAUSE = [
     ("exploit chains written by an AI model", r"\b(?:attack chains?|exploit chains?|exploits?)\b" + GAP(20) + r"\b(?:written|built|generated|developed)\s+by\s+(?:an?\s+)?(?:[\w-]+\s+){0,3}(?:model|agent)s?\b"),
     ("attackers ran an AI pen-testing framework / agent fleet", r"\battacker was an? (?:fleet|swarm|team) of (?:ai\s+)?agents\b|\brunning\b" + GAP(30) + r"\b(?:" + AI + r"|llm)[- ]?(?:pen[- ]?test\w*|hacking|offensive)\s+framework\b"),
     ("AI test model misused leaked credentials", r"\b(?:test|" + AI + r"|frontier)\s+model\b" + GAP(80) + r"\bused\s+(?:leaked|stolen|exposed)\s+credentials\b"),
+    ("AI model chained bugs into an exploit", r"\b(?:claude|gpt[- ]?[\w.]*|gemini|mythos|(?:" + AI + r"|llm|frontier) models?)\b(?:\s+models?)?\s+chain(?:ed|s|ing)\s+(?:\d+\s+|several\s+|multiple\s+)?(?:bugs?|flaws?|vulnerabilit\w+)\b" + GAP(30) + r"\b(?:for|into|to)\b"),
     ("vibe-coded / AI-written code flaw", r"\bvibe[- ]?cod\w+|\b(?:" + AI + r"|llm)[- ]generated code\b|\bcode (?:written|generated) by (?:an? )?(?:" + AI + r"|llm|copilot|chatgpt|claude)\b|\bslopsquat\w*|\bhallucinated (?:package|dependenc)\w+"),
 ]
 
