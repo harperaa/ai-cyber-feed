@@ -102,16 +102,16 @@ CPE_AI = re.compile(r"(?:ray-project:ray|mlflow:|pytorch:|tensorflow:|google:ten
 
 PRODUCT = [
     ("LLM runtime/server", r"\bollama\b|\bvllm\b|llama\.cpp|\bllama[- ]?cpp\b|\bllama[- ]?index\b|\bllamaindex\b|\blitellm\b|\blm studio\b|\bgpt4all\b|\blocalai\b|text[- ]generation[- ](?:webui|inference)|open[- ]?webui|\bsglang\b|\blmdeploy\b|\bgguf\b"),
-    ("ML framework/platform", r"\bpytorch\b|\btensorflow\b|\bkeras\b|\bonnx\b|hugging ?face|\bhf hub\b|\btransformers (?:library|v?\d)|\blangchain\b|\blanggraph\b|\blangflow\b|\bflowise\b|\bdify\b|\bmlflow\b|\bkubeflow\b|"
+    ("ML framework/platform", r"\bpytorch\b|\btensorflow\b|\bkeras\b|\bonnx\b|hugging ?face|\bhf hub\b|\btransformers (?:library|v?\d)|\blangchain\b|\blanggraph\b|\blangflow\b|\blangflow_oss\b|\bflowise\b|\bdify\b|\bmlflow\b|\bkubeflow\b|"
                              r"\bgradio\b|\bcomfy ?ui\b|\bjupyter\w*\b|\bray-project\b|\bray (?:ai|dashboard|cluster|is an)\b|\banyscale\b|\bdeepspeed\b|\bmegatron\b|\bnvidia (?:triton|nemo|aistore|dgx|merlin|cuda toolkit)|"
-                             r"\btriton inference\b|\bbentoml\b|\bkserve\b|\bpaddlepaddle\b|\bscikit-learn\b|\bcrewai\b|\bautogen\b|\bsmolagents\b|\bwandb\b|\bweights ?& ?biases\b"),
+                             r"\btriton inference\b|\bbentoml\b|\bkserve\b|\bpaddlepaddle\b|\bscikit-learn\b|\bcrewai\b|\bautogen\b|\bsmolagents\b|\bstrands agents?\b|\bwandb\b|\bweights ?& ?biases\b"),
     ("MCP / agent tooling", r"\bmcp\b" + GAP(20) + r"\b(?:server|client|tool|sdk|gateway|inspector|advisor(?:y|ies)|vulnerabilit(?:y|ies))s?\b|\bmodel context protocol\b|\bmcp[- ]server|\bmcp\b(?= (?:server|servers))|"
                             r"\b" + AI + r"[- ](?:agents?|assistants?|coding|code assistant|copilots?|gateways?|models?|platform|framework|chatbots?|workflows?|apps?|sdk|infrastructure|clusters?)\b|"
                             r"\bagentic\b|\bllm[- ](?:agents?|apps?|applications?|gateways?|proxy|tools?)\b|\bautonomous agents?\b"),
     ("AI assistant/vendor product", r"\bchatgpt\b|\bopenai\b|\banthropic\b|\bclaude(?: code| desktop)?\b|\bgemini (?:cli|code assist|ai)\b|\bgoogle gemini\b|\bgithub copilot\b|\bcopilot(?:'s)? (?:studio|chat|agent|for|protected[- ]files?)\b|\bmicrosoft 365 copilot\b|"
                                    r"\bcursor (?:ide|editor|ai)\b|\bwindsurf\b|\bcline\b|\bopencode\b|\banysphere\b|programming with ai|\bai code editor\b|\bcodex (?:cli|agent)\b|\bperplexity\b|\bmistral\b|\bdeepseek\b|\bazure ai\b|\bai foundry\b|\bbedrock\b|\bsagemaker\b|\bvertex ai\b|\bwatsonx\b"),
     ("LLM/ML attack class", r"\bprompt[- ]injection\b|\b(?:llm|ai|chatgpt|model|chatbot|gpt)\W+jailbreak\w*|\bjailbreak\w*\W+(?:prompts?|attacks?|llm|models?|chatbots?)\b|\bllm\b|\blarge language models?\b|\bmodel (?:poisoning|supply[- ]chain|theft|extraction|backdoor)\b|\bpickle(?:d)? models?\b|\bdata poisoning\b|\badversarial (?:example|attack|input)s?\b|"
-                           r"\bembedding (?:inversion|model)s?\b|\bsystem prompt (?:leak|extraction)\b|\bindirect prompt\b|\bgenerative ai\b|\bmachine learning\b|\bdeep learning\b|\bneural network\b|\bmodel serving\b|\binference (?:server|engine)\b"),
+                           r"\bembedding (?:inversion|model)s?\b|\bsystem prompt (?:leak|extraction)\b|\bindirect prompt\b|\bgenerative ai\b|\bmachine learning\b|\bdeep learning\b|\bneural network\b|\bmodel serving\b|\bllm serving\b|\bkv[- ]cache (?:leak|sharing|side[- ]channel)\w*|\binference (?:server|engine)\b"),
     ("vector DB", r"\bvector (?:database|db|store)s?\b|\bchroma ?db\b|\bqdrant\b|\bweaviate\b|\bmilvus\b|\bpinecone\b|\blancedb\b|\bfaiss\b"),
 ]
 
@@ -161,6 +161,8 @@ MANUAL = {
     "CVE-2026-103572": [("product", "GitHub Copilot in Visual Studio/SSMS: trailing-dot path bypassed Copilot's protected-file checks (Johann Rehberger write-up)")],
     "CVE-2026-111497": [("cause", "Brotli decoder RCE was found by OpenAI during an AI red-teaming exercise (OpenAI announcement, Oct 23)")],
     "CVE-2026-74580": [("cause", "Vghost Linux kernel vhost local root (kernels 4.11-7.2) was found by Tencent's Corvus AI; Tencent calls it machine-assisted research")],
+    "CVE-2026-115415": [("product", "AWS Strands Agents Tools: crafted prompt could make the environment tool return host env vars (API keys, cloud credentials) by disabling secret masking")],
+    "CVE-2026-115413": [("product", "AWS API MCP Server 1.3.0-<1.6.0 OAuth check skipped the aud claim, so tokens for other apps in the tenant were accepted")],
     "CVE-2026-109619": [("cause", "PHP2Shell was found and weaponised with AI help: Wiz Research used Wiz Atlas, Gemini 4 Argon and GPT-5.6-Sol; Calif used an LLM audit (php2shell.com)")],
 }
 
