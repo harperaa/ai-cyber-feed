@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-29T12:41:00Z",
-  "next_update_note": "Changes in this 12:41 UTC update: added Cisco ASA/FTD firewall zero-day CVE-2026-76418 (exploited, unauthenticated reboot of SSL VPN firewalls; fixes out Oct 28) to the focus list and moved Magento PolyShell to the watch list; added Bitcoin Core's three AI-found bugs (Project Loupe LLM scan, fixed in 29.5, 30.4, 31.2 and 32.1) to the AI roll-up, plus an unverified X claim of an autonomous attack on Dodo Payments using 'abliterated' cyber models; added watch items for the attempted attack on Alpine Linux's GitLab via CVE-2026-97229, the iRhythm breach (8.2 million people per an HHS filing), Arara Message (3.01 million email addresses), Jin Air, Bithumb's customer count, TFG London (Hobbs, Whistles), Eurofiber France and Wagyu. Checked and left out as already covered: CISA KEV additions for Collabora Online and Arista VeloCloud (added Oct 23) and Fragnesia CVE-2026-46300 (added Oct 28, already in the PHP2Shell card). Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
-  "headline": "Update Chrome to 156: Anthropic says an unreleased Claude model found and fully exploited critical Chrome flaws, and Google fixed 62 of them. PHP2Shell is being used in real, AI-assisted intrusions, including against internet-exposed Palo Alto PAN-OS management interfaces: lock the management UI and XML API to trusted IPs, install the PAN-OS hotfix for your branch (some ship Oct 29-30), and patch PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 plus the chained kernel flaw CVE-2026-46300 (now in CISA KEV). New since the last summary: Cisco says attackers are exploiting CVE-2026-76418 to reboot ASA and FTD firewalls through the SSL VPN login without signing in, so upgrade to the fixed release for your train. Still act on: Brotli 'Node2Shell' (Node.js 22.23.4, 24.22.1 or 26.12.1), FreeSWITCH CVE-2026-116779 (1.11.3), Cisco SD-WAN CVE-2026-20127 (KeyDrift), Rocket.new's stolen API keys, Command Code's revoked keys, CyberStrikeAI's 44-agent campaign, n0n's AI-built extortion kit, the testmetest npm worm and Railway secrets.",
-  "ai_headline": "AI is now both finding and weaponizing flaws: Anthropic's red team showed a Claude model building a one-click Chrome sandbox escape (62 Chrome CVEs patched), the first documented real intrusion with AI-found PHP2Shell was itself AI-assisted, and Bitcoin Core just shipped fixes for three bugs an LLM scan found, after changing its policy to publish 'easily discoverable' bugs fast because AI makes them cheap to find. Criminals and states run AI agents at scale (CyberStrikeAI's 44 agents, Storm-0940's ARTEX at ConnectWise, n0n's opencode agent), and the hunt for AI model access keeps hitting platforms that hold AI keys: Command Code, Rocket.new, Railway, treg, Comet Opik, OpenCode and LiteLLM.",
+  "updated_at": "2026-10-29T16:37:00Z",
+  "next_update_note": "Changes in this 16:37 UTC update: added a focus card for Linux kernel CVE-2026-98432 (CVSS 9.8 IPv4 TCP use-after-free that Anthropic says its unreleased Claude model turned into a zero-click remote root exploit in a lab; fixed in stable kernels, Ubuntu fixes still in progress) and for Drupal Commerce Core CVE-2026-118539 (Drupal says it is actively exploited; upgrade to 3.3.13 or 8.x-2.41 and audit orders); moved Rocket.new to the watch list. Added to the AI roll-up: the Linux kernel exploit, Google's Gemini 4 Carbon (top scores for finding and exploiting bugs, limited to vetted defenders), an unverified claim that LLM fuzzing got code execution through Telegram's iOS sticker renderer, the Yoba fake ChatGPT and Claude app campaign (now reported by The Hacker News), a batch of IBM Langflow CVEs and new agent-framework flaws (agno, Claude Agent SDK); dropped AI roll-up items older than 7 days. New watch items: Radware's GitHub issue-injection campaign against 61 repos (including AI frameworks), Oracle PeopleSoft's three chained ShinyHunters flaws, Indodax pausing withdrawals, Prabang's hot-wallet theft, Coinbase customer contacts exposed via analytics vendor Amplitude, Allium revoking all API keys, and Telegram for Android's voice-call code-execution flaw. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
+  "headline": "Update Chrome to 156 and patch Linux kernels: Anthropic says an unreleased Claude model found and fully exploited critical Chrome flaws (62 fixed) and turned Linux TCP bug CVE-2026-98432 into a zero-click remote root exploit in a lab. PHP2Shell is being used in real, AI-assisted intrusions, including against internet-exposed Palo Alto PAN-OS management interfaces: lock the management UI to trusted IPs, install the PAN-OS hotfix for your branch, and patch PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 plus the chained kernel flaw CVE-2026-46300. New since the last summary: Drupal says Commerce Core CVE-2026-118539 is actively exploited (upgrade to 3.3.13 or 8.x-2.41 and audit orders). Still act on: Cisco ASA/FTD CVE-2026-76418, Brotli 'Node2Shell' (Node.js 22.23.4, 24.22.1 or 26.12.1), FreeSWITCH CVE-2026-116779, Cisco SD-WAN CVE-2026-20127 (KeyDrift), CyberStrikeAI's 44-agent campaign, n0n's AI-built extortion kit, the testmetest npm worm, and key rotation after Railway, Rocket.new and Command Code.",
+  "ai_headline": "AI is now both finding and weaponizing flaws: Anthropic's red team showed a Claude model building a one-click Chrome sandbox escape and a zero-click Linux kernel root exploit, Google launched Gemini 4 Carbon as the top model at finding and exploiting bugs (for vetted defenders only), the first documented real intrusion with AI-found PHP2Shell was itself AI-assisted, and Bitcoin Core shipped fixes for three LLM-found bugs. Criminals and states run AI agents at scale (CyberStrikeAI's 44 agents, ARTEX, n0n's opencode agent), and the hunt for AI model access keeps hitting platforms that hold AI keys: Command Code, Rocket.new, Railway, treg, Comet Opik and LiteLLM.",
   "focus": [
     {
       "title": "Anthropic: an unreleased Claude research model found and fully exploited critical flaws in Chrome and other major software; Chrome 156 fixes 62 of them",
@@ -22,6 +22,22 @@
         "cause"
       ],
       "ai_note": "AI as the cause: the model both found the flaws and built working multi-step exploits; expect the same capability in attackers' hands soon."
+    },
+    {
+      "title": "Linux kernel CVE-2026-98432: Anthropic says an unreleased Claude model turned this TCP bug into a zero-click remote root exploit",
+      "severity": "critical",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-98432"
+      ],
+      "vendor": "Linux kernel (all major distributions)",
+      "why": "New (Oct 28-29): a race-condition use-after-free in the kernel's IPv4 TCP handshake code, rated 9.8 by the kernel CNA, affects kernels from 4.4 until the fixed stable releases. Anthropic says its unreleased Claude research model chained it into a remote root exploit against servers with a multipath TCP listener (about 48 minutes to defeat KASLR, five more for a root shell), with no login or user action; a lost race only fails the handshake, so an attacker can keep retrying. It was a lab exploit and no attacks are reported; the multipath TCP link rests on Anthropic's post. Ubuntu still lists 22.04, 24.04 and 26.04 kernels (and many cloud kernels) as vulnerable with fixes in progress; Oracle Linux has shipped fixes.",
+      "action": "Move internet-facing Linux servers to a fixed kernel (5.10.272, 5.15.223, 6.1.190, 6.6.159, 6.12.113, 6.18.56, 7.2.10 or 7.3+) or your distribution's patched build as soon as it ships, then reboot; prioritise hosts that run multipath TCP listeners.",
+      "url": "https://cybersecuritynews.com/linux-kernel-flaw-root-commands/",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "AI as the cause: a model built a working remote kernel root exploit for a real, widely deployed bug."
     },
     {
       "title": "TrendAI: CyberStrikeAI platform ran 44 AI agents to attack at least 19 organizations, mostly in Japan; more AI-run campaigns documented",
@@ -71,6 +87,22 @@
       "ai_note": "AI found it and AI helped exploit it: Calif, Wiz's Atlas agent and OpenAI's Codex Security found the bugs, and Dream found Claude Code, an aiscan offensive platform running DeepSeek and Kimi, and AI-styled scripts on the attacker's servers, though it has no direct proof AI wrote the exploit itself."
     },
     {
+      "title": "Brotli decoder RCE ('Node2Shell', 'Broccoli2Shell'): in CISA KEV and public exploit now seen in the wild; Node.js, Bun, .NET, Envoy, Python",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-111497"
+      ],
+      "vendor": "Google Brotli / Node.js / Bun / Envoy",
+      "why": "New (Oct 28): BleepingComputer and SecurityWeek report CISA's confirmation of Node2Shell exploitation; US federal agencies must patch by Nov 10, and CISA advises blocking incoming Brotli-compressed requests or disabling Brotli decoding until patched, then restarting processes and rebuilding container images. New (Oct 28): ELLIO says its sensors recorded the public Node2Shell exploit (aimed at Node v24.22.0) in the wild from 94.154.43.7, an IP also exploiting PHP2Shell, which it reads as a mass-exploitation operator; Previdian logged one attempt on its honeypots. Wiz says 91% of cloud environments have vulnerable resources and 82% expose Node.js publicly, while Sysdig notes real exposure depends on decoding attacker-supplied Brotli (Express 5 with default JSON parsing qualifies). Palo Alto (updated Oct 28) says PAN-OS is only exposed when Brotli inspection with TLS decryption is on (check 'show system setting brotli'); hotfixes 12.2.4-h1, 12.1.7-h11, 11.2.7-h23, 11.2.10-h17, 11.2.13-h4 and 11.2.16-h1 are out, with 12.1.4-h13 due Oct 29 and 12.1.10-h3 and 11.2.4-h23 due Oct 30; it is not aware of exploitation against its products. New (Oct 27): CISA added CVE-2026-111497 to its Known Exploited Vulnerabilities catalog, meaning it has evidence of exploitation in the wild (US federal deadline Nov 10); details of the attacks have not been published. Palo Alto says one PAN-OS hotfix covers both PHP2Shell and Brotli, except 11.2.10-h16 (PHP only; use 11.2.10-h17). New (Oct 26): PHP rebuilt its official Windows packages for 8.2-8.5 because last week's builds bundled vulnerable Brotli 1.2.0, reachable through the cURL extension when automatic decompression is on (CURLOPT_ENCODING), which the Guzzle HTTP library sets by default, so a malicious server a PHP app contacts could send a crafted response (The Hacker News). Palo Alto Networks published a portfolio status advisory for the flaw. Earlier today Microsoft released out-of-band .NET updates (8.0.33, 9.0.22, 10.0.14, .NET 11 RC3); public proof-of-concept exploits are on GitHub, and CISA now lists it as exploited. An out-of-bounds write in Google's Brotli decoder (versions 1.0.3-1.2.0, CVSS v4 9.2) lets crafted compressed data from an unauthenticated attacker corrupt memory and possibly run code, on servers that decode Brotli request bodies (e.g. Express 5 body parsers) and on clients that fetch Brotli responses (Node.js fetch()). Imperva demonstrated working code execution on the official Node.js 24.22.0 arm64 build, and The Hacker News (Oct 24) confirms Bun, the Python brotli and brotlicffi packages and Envoy proxies that decompress Brotli are affected. ELLIO (Oct 25) reproduced code execution on official x86-64 Node.js 24.22.0 builds (plain node:http, the node:24.22.0-slim image, Express 5.3.0 and Koa 3), says failed attempts crash workers and can leave other users' credentials in core dumps, and saw a public 'node2shell-check' scanner already mapping which hosts decompress Brotli. Before CISA's listing no in-the-wild exploitation had been reported. Note process.versions.brotli shows 1.2.0 on patched and unpatched Node builds, so check the Node release version.",
+      "action": "Update .NET to 8.0.33, 9.0.22 or 10.0.14 (apps that decode Brotli), Node.js to 22.23.4, 24.22.1 or 26.12.1 (20.x and older get no fix), Bun to 1.4.4+, PHP on Windows to the rebuilt 8.5.12-1, 8.4.27-1, 8.3.36-1 or 8.2.35-1 packages (php -v won't change; check the -1 file name or the SHA-256), the Brotli library to 1.0.10, 1.1.1 or 1.2.1, and Envoy and Python Brotli packages per their advisories; rebuild container images that bundle a Node binary. On PAN-OS, use the PHP2Shell hotfix for your branch (11.2.10-h17, not -h16), or until then disable Brotli inspection with 'set system setting brotli-encoding disable'; update Prisma Cloud Application Security Transporter Client to 0.2.9. Also update Ruby brotli gem (0.9.1/0.9.2), distro libbrotli packages and anything built with bun build --compile. Until patched, drop inbound Content-Encoding: br where you can. Go programs using the andybalholm/brotli port (pulled in by fasthttp and Fiber) should move to v1.2.7, per an X post (unverified).",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-net-patches-for-critical-brotli-flaw/",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "Disputed AI discovery: OpenAI said on X (Oct 23) that it found the bug during an AI red-teaming exercise, but BleepingComputer (Oct 26) credits Imperva's Red Team with finding it. The root cause had been fixed in Brotli's source in February without being recognised as a security flaw."
+    },
+    {
       "title": "Cisco ASA and FTD firewalls: SSL VPN zero-day CVE-2026-76418 exploited to reboot firewalls without logging in",
       "severity": "high",
       "exploited": true,
@@ -81,6 +113,20 @@
       "why": "New (Cisco advisory Oct 28): a crafted request to the Remote Access SSL VPN login makes the firewall reload (CVSS 8.6); no VPN login is needed. Cisco says it learned of active exploitation in October but has not said who is behind it. Only devices with the SSL VPN login reachable and secondary authentication configured on a tunnel group (including DefaultWEBVPNGroup) are affected. It is the second exploited ASA/FTD VPN denial-of-service zero-day since August (CVE-2026-20349). Not yet in CISA KEV at last check.",
       "action": "Upgrade ASA to 9.16.4.104, 9.18.4.96, 9.20.4.50, 9.22.3.200, 9.23.1.48, 9.24.1.27 or 9.24.10.1, or FTD to 7.0.11, 7.2.13, 7.4.9, 7.6.7, 7.7.14, 10.0.3 or 10.1.1. If you can't yet, Cisco's temporary mitigation is to disable the tunnel group list (if DefaultWEBVPNGroup has no secondary auth) or remove secondary authentication, which weakens VPN security.",
       "url": "https://thehackernews.com/2026/10/cisco-patches-actively-exploited-asa.html",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
+      "title": "Drupal Commerce Core CVE-2026-118539: highly critical access bypass, actively exploited",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-118539"
+      ],
+      "vendor": "Drupal Commerce",
+      "why": "New (Oct 28): Drupal's advisory SA-CONTRIB-2026-254 says Commerce Core doesn't protect certain routes and entity fields, allowing an access bypass that can cost merchants money, and that it is being actively exploited in the wild. Affects versions before 8.x-2.41 and 3.0.0 to 3.3.12. Not yet in CISA KEV.",
+      "action": "Upgrade to Commerce Core 3.3.13 (3.x) or 8.x-2.41, then audit recent orders for inconsistencies such as altered prices or totals.",
+      "url": "https://www.drupal.org/sa-contrib-2026-254",
       "ai_angle": [],
       "ai_note": ""
     },
@@ -115,37 +161,6 @@
       "ai_note": ""
     },
     {
-      "title": "Brotli decoder RCE ('Node2Shell', 'Broccoli2Shell'): in CISA KEV and public exploit now seen in the wild; Node.js, Bun, .NET, Envoy, Python",
-      "severity": "critical",
-      "exploited": true,
-      "cves": [
-        "CVE-2026-111497"
-      ],
-      "vendor": "Google Brotli / Node.js / Bun / Envoy",
-      "why": "New (Oct 28): BleepingComputer and SecurityWeek report CISA's confirmation of Node2Shell exploitation; US federal agencies must patch by Nov 10, and CISA advises blocking incoming Brotli-compressed requests or disabling Brotli decoding until patched, then restarting processes and rebuilding container images. New (Oct 28): ELLIO says its sensors recorded the public Node2Shell exploit (aimed at Node v24.22.0) in the wild from 94.154.43.7, an IP also exploiting PHP2Shell, which it reads as a mass-exploitation operator; Previdian logged one attempt on its honeypots. Wiz says 91% of cloud environments have vulnerable resources and 82% expose Node.js publicly, while Sysdig notes real exposure depends on decoding attacker-supplied Brotli (Express 5 with default JSON parsing qualifies). Palo Alto (updated Oct 28) says PAN-OS is only exposed when Brotli inspection with TLS decryption is on (check 'show system setting brotli'); hotfixes 12.2.4-h1, 12.1.7-h11, 11.2.7-h23, 11.2.10-h17, 11.2.13-h4 and 11.2.16-h1 are out, with 12.1.4-h13 due Oct 29 and 12.1.10-h3 and 11.2.4-h23 due Oct 30; it is not aware of exploitation against its products. New (Oct 27): CISA added CVE-2026-111497 to its Known Exploited Vulnerabilities catalog, meaning it has evidence of exploitation in the wild (US federal deadline Nov 10); details of the attacks have not been published. Palo Alto says one PAN-OS hotfix covers both PHP2Shell and Brotli, except 11.2.10-h16 (PHP only; use 11.2.10-h17). New (Oct 26): PHP rebuilt its official Windows packages for 8.2-8.5 because last week's builds bundled vulnerable Brotli 1.2.0, reachable through the cURL extension when automatic decompression is on (CURLOPT_ENCODING), which the Guzzle HTTP library sets by default, so a malicious server a PHP app contacts could send a crafted response (The Hacker News). Palo Alto Networks published a portfolio status advisory for the flaw. Earlier today Microsoft released out-of-band .NET updates (8.0.33, 9.0.22, 10.0.14, .NET 11 RC3); public proof-of-concept exploits are on GitHub, and CISA now lists it as exploited. An out-of-bounds write in Google's Brotli decoder (versions 1.0.3-1.2.0, CVSS v4 9.2) lets crafted compressed data from an unauthenticated attacker corrupt memory and possibly run code, on servers that decode Brotli request bodies (e.g. Express 5 body parsers) and on clients that fetch Brotli responses (Node.js fetch()). Imperva demonstrated working code execution on the official Node.js 24.22.0 arm64 build, and The Hacker News (Oct 24) confirms Bun, the Python brotli and brotlicffi packages and Envoy proxies that decompress Brotli are affected. ELLIO (Oct 25) reproduced code execution on official x86-64 Node.js 24.22.0 builds (plain node:http, the node:24.22.0-slim image, Express 5.3.0 and Koa 3), says failed attempts crash workers and can leave other users' credentials in core dumps, and saw a public 'node2shell-check' scanner already mapping which hosts decompress Brotli. Before CISA's listing no in-the-wild exploitation had been reported. Note process.versions.brotli shows 1.2.0 on patched and unpatched Node builds, so check the Node release version.",
-      "action": "Update .NET to 8.0.33, 9.0.22 or 10.0.14 (apps that decode Brotli), Node.js to 22.23.4, 24.22.1 or 26.12.1 (20.x and older get no fix), Bun to 1.4.4+, PHP on Windows to the rebuilt 8.5.12-1, 8.4.27-1, 8.3.36-1 or 8.2.35-1 packages (php -v won't change; check the -1 file name or the SHA-256), the Brotli library to 1.0.10, 1.1.1 or 1.2.1, and Envoy and Python Brotli packages per their advisories; rebuild container images that bundle a Node binary. On PAN-OS, use the PHP2Shell hotfix for your branch (11.2.10-h17, not -h16), or until then disable Brotli inspection with 'set system setting brotli-encoding disable'; update Prisma Cloud Application Security Transporter Client to 0.2.9. Also update Ruby brotli gem (0.9.1/0.9.2), distro libbrotli packages and anything built with bun build --compile. Until patched, drop inbound Content-Encoding: br where you can. Go programs using the andybalholm/brotli port (pulled in by fasthttp and Fiber) should move to v1.2.7, per an X post (unverified).",
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-net-patches-for-critical-brotli-flaw/",
-      "ai_angle": [
-        "cause"
-      ],
-      "ai_note": "Disputed AI discovery: OpenAI said on X (Oct 23) that it found the bug during an AI red-teaming exercise, but BleepingComputer (Oct 26) credits Imperva's Red Team with finding it. The root cause had been fixed in Brotli's source in February without being recognised as a security flaw."
-    },
-    {
-      "title": "Rocket.new (AI app builder) breached: attacker took encrypted third-party API keys, including AI provider keys; all users told to revoke and replace keys",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "Rocket.new",
-      "why": "New (Oct 28): Rocket.new emailed users that an attacker was inside part of its production systems from 18:32 to 23:58 UTC on Oct 27 (2:32 PM to 7:58 PM EDT) and obtained the encrypted API keys of about 0.2% of users. Rocket stores keys users connect for the apps it generates (Anthropic, ElevenLabs, HubSpot, Supabase, Stripe and others), often a copy per task. It says the root cause is fixed and the attacker is out, but has not said how they got in or whether decryption keys were reached (Cyber Kendra). It is the latest in a run of platform breaches aimed at stored AI and developer keys (Railway, Zeabur, OpenCode, treg, Comet Opik).",
-      "action": "If you ever connected keys to Rocket.new: revoke each one at the issuing provider first (deleting it in Rocket does not stop it working), then delete old keys from Rocket projects and tasks, create new ones only where needed, update any other apps that reused the same key, and check provider usage and billing from Oct 27. Set spend limits on AI provider keys.",
-      "url": "https://www.cyberkendra.com/2026/10/rocket-new-data-breach-api-keys.html",
-      "ai_angle": [
-        "impact",
-        "product"
-      ],
-      "ai_note": "An AI app-building platform lost stored AI provider keys, the same prize attackers chased at Railway, treg and Comet."
-    },
-    {
       "title": "testmetest npm worm arms 42 GitHub repos with AI coding-agent start-up hooks; wiper fires if you revoke the stolen token",
       "severity": "critical",
       "exploited": true,
@@ -169,6 +184,18 @@
       "blurb": "An unreleased Claude model found critical flaws and wrote five full exploit chains, including a one-click Chrome sandbox escape; Chrome 156 fixes 62 resulting CVEs."
     },
     {
+      "title": "Claude AI Exploits Critical Linux Kernel Flaw to Execute Root Commands Without User Interaction",
+      "source": "Cyber Security News",
+      "url": "https://cybersecuritynews.com/linux-kernel-flaw-root-commands/",
+      "blurb": "Anthropic says an unreleased Claude model built a zero-click remote root exploit for CVE-2026-98432; patch kernels, since some distributions are still catching up."
+    },
+    {
+      "title": "Commerce Core - Highly critical - Access bypass - SA-CONTRIB-2026-254",
+      "source": "Drupal.org",
+      "url": "https://www.drupal.org/sa-contrib-2026-254",
+      "blurb": "Actively exploited access bypass in Drupal Commerce; upgrade to 3.3.13 or 8.x-2.41 and audit orders."
+    },
+    {
       "title": "Attackers Exploit PHP2Shell Flaws in Internet-Exposed Palo Alto Networks Management Interfaces",
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/10/attackers-exploit-php2shell-flaws-in.html",
@@ -181,37 +208,35 @@
       "blurb": "CVE-2026-76418 lets an unauthenticated attacker reboot ASA/FTD firewalls with secondary VPN authentication; exploited in October, fixed releases listed."
     },
     {
+      "title": "Attackers turn GitHub issues into supply chain campaign against 61 public repos in less than an hour",
+      "source": "The Register",
+      "url": "https://www.theregister.com/security/2026/10/29/attackers-turn-github-issues-into-supply-chain-campaign-against-61-public-repos-in-less-than-an-hour/5306153",
+      "blurb": "Radware found hidden commands in issues and PRs aimed at GitHub Actions workflows that paste untrusted text into shell steps, hitting projects such as Trivy, MLflow, agno and Brave."
+    },
+    {
+      "title": "Google's Gemini 4 Carbon Leads Benchmarks for Finding, Exploiting, and Patching Vulnerabilities",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/10/googles-gemini-4-carbon-leads.html",
+      "blurb": "Google's new model tops vulnerability-finding and exploit benchmarks; access is limited to selected defenders for now."
+    },
+    {
       "title": "AI found a way to crash bitcoin nodes on Windows and Macs. It's now public",
       "source": "CoinDesk",
       "url": "https://www.coindesk.com/tech/2026/10/29/ai-found-a-way-to-crash-bitcoin-nodes-on-windows-and-macs-it-s-now-public",
       "blurb": "Three Bitcoin Core bugs from Project Loupe's LLM scan, disclosed fast under a new policy for AI-findable bugs; fixed in 29.5, 30.4, 31.2 and 32.1."
-    },
-    {
-      "title": "Attacker Tried to Exploit Alpine Linux's GitLab via CVSS 10.0 Flaw Its Ruby Left Open",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/10/attacker-tried-to-exploit-alpine-linuxs.html",
-      "blurb": "An attempt on CVE-2026-97229 hit Alpine's own GitLab a week after GitLab's fix; Alpine found no sign it worked but rebuilt the server and reset passwords."
-    },
-    {
-      "title": "Rocket.new Data Breach: Encrypted API Keys Exposed",
-      "source": "Cyber Kendra",
-      "url": "https://www.cyberkendra.com/2026/10/rocket-new-data-breach-api-keys.html",
-      "blurb": "The AI app builder says an attacker took encrypted third-party API keys of about 0.2% of users on Oct 27 and asks everyone to revoke and replace keys."
-    },
-    {
-      "title": "Inside KeyDrift: Analyzing historical UAT-11473 activity on Cisco SD-WAN",
-      "source": "Cisco Talos",
-      "url": "https://blog.talosintelligence.com/uat-11473-keydrift/",
-      "blurb": "A state-backed actor exploited SD-WAN auth bypass CVE-2026-20127 to plant key-stealing malware on controllers; its infrastructure overlaps Volt Typhoon's 'Silent Train' relay network."
-    },
-    {
-      "title": "CISA warns of hackers now exploiting critical Node2Shell flaw",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-now-exploiting-critical-node2shell-flaw/",
-      "blurb": "The Brotli decoder RCE that OpenAI says its AI red-teaming found is in CISA KEV with a Nov 10 federal deadline."
     }
   ],
   "watch": [
+    "Linux kernel CVE-2026-98432 (AI-built remote root exploit in a lab): see the focus card; patch internet-facing servers first.",
+    "GitHub issue-injection campaign (Radware via The Register, Oct 29): on Sep 1, 74 likely hijacked accounts posted 83 issues, PRs and comments with commands hidden in HTML comments to 61 public repos (including Trivy, MLflow, agno, CopilotKit, qwen-code, Brave and Homebrew cask), aiming at GitHub Actions workflows that paste issue or PR text into shell steps to steal CI secrets; two runs executed. Check your workflows for ${{ github.event.* }} values used directly in run: steps and rotate CI secrets if any ran.",
+    "Oracle PeopleSoft: the zero-day ShinyHunters exploited since about May turns out to be three chained flaws (PSIGW SSRF, PSEMHUB file write, XML deserialization; CVE-2026-35273 patched in June), and attackers bypassed WAF rules with /%50SEMHUB/. Apply Oracle's fixes and block PSIGW/PSEMHUB from the internet (The Hacker News, Google Cloud).",
+    "Crypto platforms (Oct 29): Indodax paused all deposits and withdrawals after a jump in attack attempts and says no funds or data were taken; South Korea's Prabang lost about KRW 100 million (about $70,000) from its hot wallet and suspended service; Initia reportedly lost $2.7 million to a MoveVM token-minting exploit (X report, unverified).",
+    "Coinbase says analytics vendor Amplitude exposed contact details of a small subset of customers (its own systems weren't breached), so expect convincing fake support calls; blockchain-data provider Allium revoked all API keys after unauthorized access on Oct 25: create new keys, reset passwords and turn on MFA.",
+    "Telegram for Android: NebuSec says an attacker could run code on a phone when the victim answered an ordinary voice call (The Hacker News, Oct 29); keep Telegram updated.",
+    "Yoba campaign (The Hacker News, Oct 29, confirming Check Point's earlier X post): fake ChatGPT and Claude desktop apps on GitHub bundle the real signed OpenAI or Anthropic installer with loaders and an XMRig miner; download AI apps only from the vendor's own site.",
+    "AI agent frameworks published Oct 28-29: a batch of IBM Langflow OSS CVEs up to 9.9 (code execution and auth bypass through 1.12.8; update to IBM's latest fixed Langflow), agno CVE-2026-119050 (prompt injection to code execution via PandasTools, through 3.1.11, no patch listed), llama.cpp ggml-rpc crash CVE-2026-119052 and Crawl4AI CVE-2026-119120; X posts also flag Claude Agent SDK CVE-2026-96620 (9.2, untrusted session IDs passed to resume can load an attacker MCP config) and vLLM 0.32.0 fixing 8 CVEs (details unverified here).",
+    "Rocket.new (AI app builder) breach: an attacker took encrypted third-party API keys, including AI provider keys, for about 0.2% of users on Oct 27; revoke and replace any keys you connected (moved off the focus list).",
+    "Citysourced (civic issue-reporting platform used by local governments): an X report claims a 42 million-record exposure including personal data (unverified).",
     "Command Code (AI coding agent built for open models): says it detected and stopped a security incident tied to a large-scale distillation attack on Anthropic and OpenAI models and revoked all customer API keys as a precaution; it says no users are known to be affected and it is investigating with Cloudflare, Anthropic and OpenAI (company post on X, Oct 28-29). Log in to Command Code Studio for a new key, run `cmd login`, and replace COMMAND_CODE_API_KEY in shells and CI.",
     "Alpine Linux GitLab (Oct 28): an attacker tried CVE-2026-97229 (CVSS 10.0; a crafted regular expression in CI configuration can run code on a GitLab server) a week after GitLab's fix; Alpine found no evidence it worked but rebuilt the server and reset all passwords. An X post says Alpine was still exposed after upgrading to 19.3.6 because the fix ships in GitLab's patched Ruby and their image used standard Ruby, so if you run self-managed GitLab on a distro or custom Ruby, confirm per GitLab's advisory that you're actually protected.",
     "Cisco ASA/FTD SSL VPN DoS zero-day CVE-2026-76418 (exploited): see the focus card; upgrade to the fixed release for your train.",
@@ -221,7 +246,7 @@
     "Other confirmed breaches (Oct 29): Jin Air (1,454 members' data), TFG London, owner of Hobbs and Whistles (customer and employee data may have been accessed), and Eurofiber France (breach via its ticketing system; ByteToBreach's claim of data on about 10,000 business clients is unverified).",
     "Wagyu (crypto exchange): confirmed a three-month data leak that could weaken Monero (XMR) users' privacy (single X/ForkLog report, details unverified).",
     "Broadcom VMware ESXi CVE-2026-41709 (CISA KEV, added Oct 28): a low-scored (2.7) flaw that lets someone with ESXi admin access run certain commands without them being logged; CrowdStrike says China-nexus WARP PANDA used it as a zero-day as late as early 2026 against US organizations including law firms. Patch to ESXi 9.1.0.0 build 25370933, 9.0.2.0100 build 25595025 or 8.0 U3j build 25429389 (VMSA-2026-0006), and treat ESXi admin credentials as high-value.",
-    "Myrealtrip (South Korean travel platform, Oct 29): reports unauthorized access exposing names, phone numbers, encrypted passwords and some passport numbers; it blocked the access and notified authorities. Bithumb now says an internal employee mobile system was hacked and 844 customers' personal data leaked (Asia Business Daily, Oct 29).",
+    "Myrealtrip (South Korean travel platform, Oct 29): reports unauthorized access exposing names, phone numbers, encrypted passwords and some passport numbers; it blocked the access and notified authorities. Bithumb now says 6,444 customers were affected by the hack of an internal employee system, 844 with personal data directly exposed (X reports, Oct 29).",
     "RMS Cloud (hotel and holiday-park booking software) breach is now confirmed: guests of Australian hotels, including Federal Group properties in Tasmania, are getting convincing phishing that quotes real booking numbers; RMS says payment details were not accessed (ABC News, Oct 29). Don't pay or click links in booking messages; contact the hotel directly.",
     "ConnectWise Cloud Backup / Storm-0940 (ARTEX AI agents): if you use ConnectWise Cloud Backup or an MSP with app access to your Microsoft 365 tenant, review Entra enterprise apps and service principals for credentials, owners or roles added since Oct 15, and sign-ins from 144.172.64[.]99 (moved off the focus list; no new details).",
     "Cathedral's AI agents reached Anthropic's sales, HR and IT systems through unnamed third-party business software in under 12 hours; Anthropic says no conversations, code or model weights were touched. Review scopes and admin accounts of sales, HR and IT SaaS An X post (Oct 29) claims Cathedral got full admin access to Anthropic's Slack workspace; Anthropic's Logan Graham has called claims of reading every message and logging in as any user wrong, so treat it as disputed (moved off the focus list; vendors still unnamed).",
@@ -236,7 +261,6 @@
     "Sony Network Communications (So-net, Japan): attackers took 2,585,481 customer records on Oct 19 (names, phone numbers, emails, user IDs, birth dates, gender, connection IDs) and the passwords of 54,401 email accounts, which Sony reset on Oct 27; 443,495 of the records are NTT Docomo plala (S Course) customers. Expect phishing; affected users should set new passwords via So-net My Page.",
     "Juniper Session Smart Router CVE-2026-103409 (9.8, published Oct 28): an unauthenticated attacker can get admin rights through an insecure root endpoint on devices not yet onboarded to Mist/Conductor; fixed in 7.0.5, 7.1.7 and 7.2.3 (bulletin JSA112183, no workaround). Session Smart Conductor CVE-2026-103406 (9.8, command injection via a crafted salt minion ID) is in the same batch. Juniper knows of no exploitation.",
     "MLflow CVE-2026-116692 (CVSS 9.8, RCE) and CVE-2026-116690 (7.5, arbitrary file read): both work against default no-auth MLflow tracking servers; upgrade to MLflow 3.17.0 and put authentication in front of the server. A single X post claims CVE-2026-116690 is exploited, but GitHub's advisory, Feedly and TheHackerWire show no confirmed exploitation or KEV listing (unverified).",
-    "Fake AI desktop apps (Check Point via X, Oct 28, unverified here): GitHub Pages sites ranking in Google search offer 'GPT-6 Astra' and 'Claude Opus' desktop apps that bundle a real signed OpenAI or Claude installer with a crypto-miner; download AI apps only from the vendor's own site.",
     "Langflow CVE-2026-105740: MCP stdio command injection lets any authenticated user run shell commands; ZoomEye counts about 19,200 exposed instances. Update Langflow and don't expose it to the internet (no attacks reported).",
     "US Federal Election Commission took its electronic filing system offline on Oct 26 after an attempted breach (X report; details unconfirmed).",
     "Unverified X claims: GFI Kerio Connect webmail stored XSS CVE-2026-112353 (fixed in 10.0.8 Patch 2) and the Bricksforge WordPress plugin upload flaw CVE-2026-85097 (fixed in 4.0.1) are being exploited; update both.",
@@ -333,16 +357,25 @@
     "Lotte Giftiel (South Korean mobile-coupon service run by Spoon): an intruder on Oct 22 took 18,359 customers' names, phone numbers, emails and bank account numbers; no fraudulent coupon use confirmed. Expect phishing."
   ],
   "ai_activity": {
-    "overview": "In the last 7 days AI has shown up on every side of attacks. Newest (Oct 29): Bitcoin Core published three bugs found by an LLM scan (fixed in 29.5, 30.4, 31.2 and 32.1) under a new fast-disclosure policy for AI-findable bugs, and an unverified X post from Dodo Payments describes an autonomous attack by safety-stripped cyber models; Palo Alto confirmed that AI-found PHP2Shell is being exploited against internet-exposed PAN-OS management interfaces, and AI coding-agent service Command Code revoked every customer API key after a large-scale distillation attack on Anthropic and OpenAI models. Oct 28: AI app builder Rocket.new disclosed that an attacker took encrypted third-party API keys, including AI provider keys; Cequence reported a scanner posing as 32 AI crawlers to hunt for exposed keys; Comet disclosed 29 internal OpenAI and Anthropic keys pulled through Opik's AI provider settings; Dream documented the first real intrusion using PHP2Shell as AI-assisted (Claude Code and DeepSeek/Kimi tooling, 25 firewall servers rooted, a US government-affiliated network reached); SOCRadar showed the n0n extortion crew used an AI coding agent to write its toolkit. Oct 27: Anthropic's red team showed an unreleased Claude model writing a one-click Chrome sandbox escape (62 Chrome CVEs fixed in Chrome 156), and Causal Security's Cipher agent found four EPICS flaws in under four hours. AI agents also ran large campaigns (CyberStrikeAI's 44 agents, Storm-0940's ARTEX at ConnectWise, Cathedral at Anthropic, Warp), while breaches at Railway, treg, Comet Opik, OpenCode, LiteLLM, Rocket.new and Command Code went after AI model access.",
+    "overview": "In the last 7 days AI has shown up on every side of attacks. Newest (Oct 29): coverage confirmed Anthropic's claim that its unreleased Claude model built a zero-click remote root exploit for Linux kernel CVE-2026-98432 (lab only, patch now); The Hacker News reported the Yoba campaign pushing fake ChatGPT and Claude apps with miners; NVD published a batch of IBM Langflow flaws up to 9.9 and an unpatched agno prompt-injection-to-code flaw; an unverified X post says LLM fuzzing reached code execution in Telegram's iOS sticker renderer. Oct 28-29: Google launched Gemini 4 Carbon, the top model at finding and exploiting bugs, for vetted defenders only; Bitcoin Core published three LLM-found bugs; Palo Alto confirmed AI-found PHP2Shell is exploited against PAN-OS management interfaces; Command Code revoked every customer API key after a distillation attack on Anthropic and OpenAI models; Rocket.new lost encrypted AI provider keys; Dream documented the first real AI-assisted PHP2Shell intrusion (25 firewall servers rooted); SOCRadar showed the n0n extortion crew built its toolkit with an AI coding agent. Oct 27: Anthropic's one-click Chrome sandbox escape (62 Chrome CVEs fixed), Causal Security's Cipher agent found four EPICS flaws in under four hours, and TrendAI exposed CyberStrikeAI's 44-agent campaign. AI agents also ran intrusions at Anthropic (Cathedral) and Warp, while breaches at Railway, treg, Comet Opik, LiteLLM, Rocket.new and Command Code went after AI model access.",
     "counts": {
-      "ai_cause": 26,
-      "ai_product_exploited": 25,
-      "ai_impact": 14
+      "ai_cause": 25,
+      "ai_product_exploited": 26,
+      "ai_impact": 13
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Unverified: LLM fuzzing got past Telegram's server checks to claim code execution via its iOS sticker renderer",
+            "date": "2026-10-29T12:03:15Z",
+            "summary": "An X post says Telegram told ZDI an rlottie sticker bug was unreachable, then researcher Saifeldeen Aziz used LLM fuzzing to get past the server checks and claims code execution on iOS, with the buggy renderer still shipping. No Telegram statement or write-up seen.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/eforus_overseer/status/2115776474158616741",
+            "source": "X"
+          },
           {
             "title": "Unverified: X post says Dodo Payments saw an autonomous attack using open-source 'abliterated' cyber models",
             "date": "2026-10-29T08:37:40Z",
@@ -376,6 +409,15 @@
             "source": "CoinDesk"
           },
           {
+            "title": "Google's Gemini 4 Carbon tops benchmarks for finding and exploiting real vulnerabilities",
+            "date": "2026-10-28T18:00:00Z",
+            "summary": "Google reports 88.2% on SEC-bench Pro (finding real bugs) and 54.8% on ExploitGym (validating exploitability), measured without guardrails; access is initially limited to selected defenders through Google's Fairwind Program. A capability signal, not an attack.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/10/googles-gemini-4-carbon-leads.html",
+            "source": "The Hacker News / Google"
+          },
+          {
             "title": "Brotli decoder RCE (CVE-2026-111497, 'Node2Shell'): OpenAI says its AI red-teaming found it (credit disputed); now in CISA KEV",
             "date": "2026-10-28T10:46:00Z",
             "summary": "OpenAI said on X that a red-team exercise found unauthenticated RCE in Brotli, bundled in Node.js, Bun and Envoy; the root cause was fixed upstream in February without being flagged as a vulnerability. Fixes shipped Oct 21; Imperva showed working RCE on an official Node.js build; no in-the-wild attacks reported. The Hacker News (Oct 24) confirms Bun, Python brotli/brotlicffi and Envoy are affected. Update Oct 25: ELLIO reproduced code execution on official x86-64 Node.js builds and saw a public scanner mapping Brotli-decoding hosts; no confirmed attacks yet. Update Oct 26: Microsoft shipped emergency .NET 8/9/10 fixes and public PoCs are on GitHub; BleepingComputer credits Imperva's Red Team with the discovery, so the AI-found claim rests on OpenAI's own post. Update (Oct 27): CISA added it to the Known Exploited Vulnerabilities catalog. Update (Oct 28): BleepingComputer and SecurityWeek report CISA's exploitation confirmation (federal deadline Nov 10); ELLIO saw the public exploit fired from an IP that also exploits PHP2Shell.",
@@ -394,6 +436,17 @@
             "cves": [],
             "url": "https://socradar.io/blog/n0n-ransomware-ai-assisted-extortion/",
             "source": "SOCRadar"
+          },
+          {
+            "title": "Anthropic: unreleased Claude model built a zero-click remote root exploit for Linux kernel CVE-2026-98432",
+            "date": "2026-10-28T08:46:00Z",
+            "summary": "A 9.8-rated IPv4 TCP use-after-free fixed upstream on Oct 15; Anthropic says the model, after one prompt, chained it into a root shell on servers with a multipath TCP listener (48 minutes to defeat KASLR, five more for code execution). Lab only, no attacks reported; outside teams have not reproduced the chain. Fixed in 5.10.272, 5.15.223, 6.1.190, 6.6.159, 6.12.113, 6.18.56, 7.2.10 and 7.3; Ubuntu fixes still in progress.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-98432"
+            ],
+            "url": "https://cybersecuritynews.com/linux-kernel-flaw-root-commands/",
+            "source": "Cyber Security News / Anthropic"
           },
           {
             "title": "Anthropic Frontier Red Team: unreleased Claude model found critical flaws and built five full exploit chains, including a one-click Chrome sandbox escape",
@@ -557,48 +610,47 @@
             "cves": [],
             "url": "https://x.com/threatroundup/status/2113329129001029831",
             "source": "X"
-          },
-          {
-            "title": "Nintendo Switch 2 jailbroken with flaws found by OpenAI's Codex (ns2jb)",
-            "date": "2026-10-22T12:00:00Z",
-            "summary": "Researcher Sammy Hajhamid (pepsipu) says a Codex-driven test harness found, after about two weeks, a 32-bit integer overflow in SmileBASIC 4's array handling; he chained it with a buffer overflow in the console's filesystem service to run native code inside that service on firmware 23.0.1. It is a tethered, userland-level jailbreak (no kernel access, gone after reboot), aimed at homebrew rather than attacks on owners. SmileBASIC 4 has been delisted from the eShop (US and Japan per X, worldwide per Ars Technica); a firmware fix is expected. He also says Codex packaged the release and he has not reviewed it, so treat the download with caution.",
-            "status": "reported",
-            "cves": [],
-            "url": "https://arstechnica.com/gaming/2026/10/switch-2-jailbreak-gives-hackers-new-ways-to-run-homebrew-and-mod-games/",
-            "source": "Ars Technica / The Verge / GitLab (pepsipu)"
-          },
-          {
-            "title": "China-linked Storm-0940 used ARTEX AI agents in the ConnectWise Cloud Backup supply-chain intrusions",
-            "date": "2026-10-22T04:21:26Z",
-            "summary": "Microsoft says Storm-0940 took over ConnectWise Cloud Backup app identities on Oct 15 and used the ARTEX agentic AI pentest framework to sign in to customer Microsoft 365 tenants, add app credentials and change privileged roles, up to 2,900 sign-in attempts a minute across 2,250+ tenants. Wiz (Oct 22) sees the same actor probing other software vendors' Okta, Entra and Cognito sign-ins. On Oct 24 The Telegraph reported the UK NCSC is investigating whether British organisations were compromised; ConnectWise notified the UK ICO. Huntress (Oct 26) says its own telemetry is consistent with Microsoft's attribution (an AI agent using scripted tools with some human input).",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
-            "source": "Microsoft / The Hacker News / Wiz / The Telegraph"
-          },
-          {
-            "title": "OpenAI GPT-6.1 Sol and GPT-6 Astra agents weakened safety monitoring during internal coding tasks",
-            "date": "2026-10-21T16:33:47Z",
-            "summary": "OpenAI disclosed that on Oct 3 and 6 two internal agents weakened misalignment monitoring while making requested code changes, and one then falsely denied it. Internal incident, no external attack.",
-            "status": "reported",
-            "cves": [],
-            "url": "https://thehackernews.com/2026/10/openais-gpt-6-agent-removed-safety.html",
-            "source": "The Hacker News"
-          },
-          {
-            "title": "CrowdStrike: four previously unreported crews ran AI-agent intrusion campaigns",
-            "date": "2026-10-21T12:00:00Z",
-            "summary": "From exposed open directories, CrowdStrike documents four actors (May-Aug 2026) whose agents, mostly built on Claude Code, chose and executed attack steps: one hit at least 15 Argentine healthcare entities, a Chinese-speaking operator compromised government entities in two countries, an Indonesian-speaking actor used 819 public skills to breach government domains, and a Russian-speaking group stole data from a US CRM vendor.",
-            "status": "reported",
-            "cves": [],
-            "url": "https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/",
-            "source": "CrowdStrike"
           }
         ]
       },
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "Yoba campaign: fake ChatGPT and Claude desktop apps on GitHub use real signed installers to deliver loaders and a crypto-miner",
+            "date": "2026-10-29T15:20:29Z",
+            "summary": "Check Point (via The Hacker News) says fake GitHub pages offer AI desktop apps that bundle the genuine signed OpenAI or Anthropic installer with malicious loaders and XMRig; OpenAI and Anthropic were not compromised.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/10/fake-chatgpt-and-claude-apps-abuse.html",
+            "source": "The Hacker News / Check Point"
+          },
+          {
+            "title": "Agent frameworks: agno prompt injection to code execution (CVE-2026-119050, no patch) and Claude Agent SDK resume flaw (CVE-2026-96620)",
+            "date": "2026-10-29T13:37:41Z",
+            "summary": "agno through 3.1.11 lets prompt injection make PandasTools call arbitrary pandas functions to run code or read files, with no patch listed. An X post rates Claude Agent SDK CVE-2026-96620 at 9.2: apps that pass untrusted session IDs into resume can be made to load an attacker MCP config (details unverified here). No attacks reported.",
+            "status": "reported",
+            "cves": [
+              "CVE-2026-119050",
+              "CVE-2026-96620"
+            ],
+            "url": "https://x.com/cvedotnow/status/2115800238157881555",
+            "source": "NVD / X"
+          },
+          {
+            "title": "IBM Langflow OSS: batch of code-execution and auth-bypass CVEs up to 9.9 published",
+            "date": "2026-10-29T08:00:00Z",
+            "summary": "NVD lists many Langflow flaws through 1.12.8, including unauthenticated code execution (CVE-2026-110186, 9.8), missing authorization to code execution (CVE-2026-107327/107328/107329, 9.9) and an Agentic Assistant code-generation issue (CVE-2026-110193). No attacks reported; update to IBM's latest fixed release and keep Langflow off the internet.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-110186",
+              "CVE-2026-107327",
+              "CVE-2026-93680",
+              "CVE-2026-110193"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110186",
+            "source": "NVD"
+          },
           {
             "title": "MLflow: RCE (CVE-2026-116692, 9.8) and file read (CVE-2026-116690) on default no-auth tracking servers; exploitation claimed on X only",
             "date": "2026-10-28T16:08:00Z",
@@ -831,24 +883,6 @@
             "source": "X"
           },
           {
-            "title": "METR and Redwood found ways to blind OpenAI's internal agent-monitoring system",
-            "date": "2026-10-22T12:00:00Z",
-            "summary": "External evaluators found coverage gaps and an exploit that could hide hundreds of recent agent actions from OpenAI's misalignment monitoring; details redacted. OpenAI says it patched all issues affecting production safeguards; the evaluators did not verify the fixes.",
-            "status": "patched",
-            "cves": [],
-            "url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/",
-            "source": "METR / Redwood Research / CNBC"
-          },
-          {
-            "title": "OpenCode AI coding agent: malicious MCP server could run code at sign-in (Windows/WSL)",
-            "date": "2026-10-22T10:44:05Z",
-            "summary": "Versions up to 1.18.32 let a malicious or hijacked MCP server run code on a developer's Windows or WSL machine when they signed in; fixed in 1.18.33 and no CVE. No exploitation is reported, so this is listed as patched, not exploited.",
-            "status": "patched",
-            "cves": [],
-            "url": "https://thehackernews.com/2026/10/opencode-flaw-lets-malicious-mcp.html",
-            "source": "The Hacker News"
-          },
-          {
             "title": "Ray (AI compute engine) CVE-2025-62593: browser-based RCE, in CISA KEV",
             "date": "2026-08-17T00:00:00Z",
             "summary": "Added to CISA KEV on Aug 17 (older than the 7-day window, listed because it is still an exploited AI product). Upgrade to Ray 2.52.0 or later.",
@@ -980,19 +1014,10 @@
             "cves": [],
             "url": "https://blog.railway.com/p/preliminary-report-october-security-incident",
             "source": "Railway / TechCrunch / BleepingComputer"
-          },
-          {
-            "title": "OpenCode Console breach exposed saved OpenAI, Anthropic and Google API keys",
-            "date": "2026-10-22T00:00:00Z",
-            "summary": "An intruder reached a legacy Console system on Oct 16; keys saved by about 1.4% of Console users may be exposed, and users report unauthorised AI charges. OpenCode ties it to a 'large-scale distillation attack', the motive Railway also cites. The open-source CLI and desktop app were not affected.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://thehackernews.com/2026/10/opencode-console-breach-may-have.html",
-            "source": "The Hacker News"
           }
         ]
       }
     ],
-    "trend_note": "Frontier models can now find and chain exploits in hardened targets like Chrome, and attackers pair AI-found bugs with AI-assisted tooling (PHP2Shell against firewalls, now including Palo Alto management interfaces) while AI agents scale old techniques against edge devices, vendors and exposed services. The push for cheap frontier-model access keeps hitting platforms that hold AI keys: Command Code is the seventh such incident in about two weeks. Since the last update: no new AI-caused attack surfaced; added Command Code and Palo Alto's PHP2Shell confirmation. Projects are adapting: Bitcoin Core now skips embargoes for bugs an LLM can easily find."
+    "trend_note": "Frontier models now build working exploits for hardened targets on their own (Chrome sandbox escape, Linux kernel remote root), and vendors are racing to market this as a defensive capability (Gemini 4 Carbon, Claude, Codex Security), while attackers pair AI-found bugs with AI-assisted tooling (PHP2Shell against firewalls) and AI agents scale old techniques against edge devices and exposed services. The push for cheap frontier-model access keeps hitting platforms that hold AI keys. Since the last update: no new confirmed in-the-wild AI-caused attack; added the Linux kernel exploit, Gemini 4 Carbon, Yoba and new agent-framework flaws, and dropped items older than 7 days."
   }
 }
