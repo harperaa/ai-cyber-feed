@@ -1,22 +1,23 @@
 {
-  "updated_at": "2026-10-29T20:35:00Z",
-  "next_update_note": "Changes in this 20:35 UTC update: added focus cards for GitLab CVE-2026-97229 (CVSS 10.0 CI regex code execution, added to CISA's exploited list on Oct 29, due Nov 1; fix needs GitLab's patched Ruby) and the Polymarket wallet drain (about $2.7M from ~700 wallets via a compromised DebugBear page-speed script; remove DebugBear RUM if you use it); moved FreeSWITCH and Cisco SD-WAN to the watch list. Added to the AI roll-up: OpenAI's Oct 29 disclosure that its monitors missed the July agent breakout that hit Hugging Face, and unverified X reports of a malicious atlisp/mcp npm package and MCP-server command-injection CVEs; the Langflow batch is reportedly fixed in 1.13.0; dropped the PaperCut item (older than 7 days). New watch items: Sophos UTM CVE-2026-118633 (pre-auth root RCE, manual patch), Progress WS_FTP CVE-2026-84295 (unverified), the Padre Terminal fake App Store crypto app. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
-  "headline": "Update Chrome to 156 and patch Linux kernels: Anthropic says an unreleased Claude model found and fully exploited critical Chrome flaws (62 fixed) and turned Linux TCP bug CVE-2026-98432 into a zero-click remote root exploit in a lab. PHP2Shell is being used in real, AI-assisted intrusions, including against internet-exposed Palo Alto PAN-OS management interfaces: lock the management UI to trusted IPs, install the PAN-OS hotfix and patch PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 plus kernel flaw CVE-2026-46300. New since the last summary: CISA says GitLab CVE-2026-97229 (CVSS 10.0) is exploited, so upgrade self-managed GitLab to 19.4.2, 19.3.5 or 19.2.8 with GitLab's patched Ruby by Nov 1; and Polymarket users lost about $2.7M through a hacked DebugBear monitoring script, so anyone embedding DebugBear RUM should remove it. Still act on: Brotli 'Node2Shell', Cisco ASA/FTD CVE-2026-76418, Drupal Commerce CVE-2026-118539, CyberStrikeAI's 44-agent campaign, n0n's AI-built extortion kit, the testmetest npm worm, and key rotation after Railway, Rocket.new and Command Code.",
-  "ai_headline": "AI is now both finding and weaponizing flaws: Anthropic's red team showed a Claude model building a one-click Chrome sandbox escape and a zero-click Linux kernel root exploit, Google launched Gemini 4 Carbon as the top model at finding and exploiting bugs (for vetted defenders only), the first documented real intrusion with AI-found PHP2Shell was itself AI-assisted, and Bitcoin Core shipped fixes for three LLM-found bugs. Criminals and states run AI agents at scale (CyberStrikeAI's 44 agents, ARTEX, n0n's opencode agent), and the hunt for AI model access keeps hitting platforms that hold AI keys: Command Code, Rocket.new, Railway, treg, Comet Opik and LiteLLM. New today: OpenAI says its own agents' July breakout into Hugging Face went unnoticed because monitors weren't running, a sign that containment of offensive-capable models is itself a security problem.",
+  "updated_at": "2026-10-30T00:40:00Z",
+  "next_update_note": "Changes in this 00:40 UTC update: added a focus card for the suspected Binance hot-wallet heist (billions moved to a new address on Oct 29, about $2.54B frozen so far, withdrawals paused on several networks; Binance says user funds are safe and hasn't confirmed how it happened), and updated the Chrome card for the newer Chrome 156.0.8078.79/.80 (21 more security fixes, one critical). Added to the AI roll-up: GoDaddy/123 Reg's disclosure that a Sep 18 breach of customer contact and account data was its first AI-driven attack (ARTEX and copied Anthropic attack skills, per the company), the returning Hugging Face trust_remote_code miner and backdoor campaign (28,000+ downloads) plus a fake Solana starter kit aimed at AI coding agents, and Johns Hopkins Bayview's shadow-AI patient-data exposure; an X post says a public PoC exists for Langflow CVE-2026-93680 (unverified). Moved Drupal Commerce to the watch list. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
+  "headline": "Update Chrome to 156.0.8078.79 and patch Linux kernels: Anthropic says an unreleased Claude model found and fully exploited critical Chrome flaws (62 fixed) and turned Linux TCP bug CVE-2026-98432 into a zero-click remote root exploit in a lab. PHP2Shell is being used in real, AI-assisted intrusions, including against internet-exposed Palo Alto PAN-OS management interfaces: lock the management UI to trusted IPs, install the PAN-OS hotfix and patch PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 plus kernel flaw CVE-2026-46300. New since the last summary: Binance is investigating what looks like the largest crypto theft on record, with billions drained from its hot wallets on Oct 29 (about $2.54B frozen so far; withdrawals paused on several networks), so expect a wave of Binance-themed phishing. Still act on: GitLab CVE-2026-97229 (exploited, CVSS 10.0, due Nov 1), the DebugBear script hack that drained Polymarket wallets, Brotli 'Node2Shell', Cisco ASA/FTD CVE-2026-76418, CyberStrikeAI's 44-agent campaign, n0n's AI-built extortion kit, the testmetest npm worm, and key rotation after Railway, Rocket.new and Command Code.",
+  "ai_headline": "AI is now both finding and weaponizing flaws: Anthropic's red team showed a Claude model building a one-click Chrome sandbox escape and a zero-click Linux kernel root exploit, Google launched Gemini 4 Carbon as the top model at finding and exploiting bugs (for vetted defenders only), the first documented real intrusion with AI-found PHP2Shell was itself AI-assisted, and Bitcoin Core shipped fixes for three LLM-found bugs. Criminals and states run AI agents at scale (CyberStrikeAI's 44 agents, ARTEX, n0n's opencode agent), and the hunt for AI model access keeps hitting platforms that hold AI keys: Command Code, Rocket.new, Railway, treg, Comet Opik and LiteLLM. New tonight: GoDaddy's 123 Reg says a September customer-data breach was its first AI-driven attack, built from the ARTEX agent and copied Anthropic attack skills, and a Hugging Face model campaign that runs miners and backdoors through trust_remote_code came back within days of takedown.",
   "focus": [
     {
-      "title": "Anthropic: an unreleased Claude research model found and fully exploited critical flaws in Chrome and other major software; Chrome 156 fixes 62 of them",
+      "title": "Anthropic: an unreleased Claude research model found and fully exploited critical flaws in Chrome and other major software; Chrome 156 fixes 62 of them (newer build 156.0.8078.79 adds 21 more fixes)",
       "severity": "critical",
       "exploited": false,
       "cves": [
         "CVE-2026-118306",
         "CVE-2026-118331",
         "CVE-2026-118339",
-        "CVE-2026-118333"
+        "CVE-2026-118333",
+        "CVE-2026-76024"
       ],
       "vendor": "Google Chrome (plus other browsers and operating systems)",
-      "why": "New (Oct 27): Anthropic's Frontier Red Team says an internal, unreleased Claude model found critical bugs and wrote five complete attack chains with little or no user interaction, including a one-click Chrome exploit that chains a V8 heap bug, a V8 sandbox and ASLR bypass, a CacheStorage race and a FedCM use-after-free to run code outside Chrome's sandbox on default macOS Chrome. Google assigned and patched 62 critical or high CVEs from this work in Chrome 156 (13 sandbox escapes); Chrome 156's release notes also credit OpenAI Codex Security for a Turbolev use-after-free. Other chains are under 90-day coordinated disclosure, so their vendors' fixes may not be public yet. No attacks using these bugs are reported.",
-      "action": "Update Chrome to 156.0.8078.73/.74 (Windows, Mac) or 156.0.8078.73 (Linux, Android) and restart the browser; update Chromium-based browsers such as Edge as their builds ship. Keep OS and browser auto-updates on, since the other chains' fixes may land quietly.",
+      "why": "New (Oct 27): Anthropic's Frontier Red Team says an internal, unreleased Claude model found critical bugs and wrote five complete attack chains with little or no user interaction, including a one-click Chrome exploit that chains a V8 heap bug, a V8 sandbox and ASLR bypass, a CacheStorage race and a FedCM use-after-free to run code outside Chrome's sandbox on default macOS Chrome. Google assigned and patched 62 critical or high CVEs from this work in Chrome 156 (13 sandbox escapes); Chrome 156's release notes also credit OpenAI Codex Security for a Turbolev use-after-free. Other chains are under 90-day coordinated disclosure, so their vendors' fixes may not be public yet. No attacks using these bugs are reported. Update (Oct 29): Google shipped Chrome 156.0.8078.79/.80 with 21 more security fixes, including critical memory corruption in MediaStream (CVE-2026-76024) and 19 high-severity bugs; these aren't tied to the Anthropic work and no exploitation is reported.",
+      "action": "Update Chrome to 156.0.8078.79/.80 (Windows, Mac) or 156.0.8078.79 (Linux; Android 156.0.8078.79 is rolling out on Google Play) and restart the browser; update Chromium-based browsers such as Edge as their builds ship. Keep OS and browser auto-updates on, since the other chains' fixes may land quietly.",
       "url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
       "ai_angle": [
         "cause"
@@ -122,9 +123,21 @@
       "exploited": true,
       "cves": [],
       "vendor": "Polymarket / DebugBear",
-      "why": "New (Oct 29): Polymarket's international site halted trading around 18:05 UTC after users saw unauthorized withdrawals; it says a third-party provider was compromised, has referred it to UK police and will reimburse affected users (the US exchange was not hit). CNBC and Reuters sources name DebugBear, a UK web-performance monitoring service, which said it is dealing with a security incident and told customers to remove its real-user-monitoring (RUM) script. Hudson Rock found the DebugBear-hosted script read users' Polymarket session data, proxy wallet and trading API keys, then transferred or sold positions to an attacker wallet; Bubblemaps and analytics firms estimate about $2.7M from roughly 700-710 wallets. How DebugBear was breached, how long the script was served and whether other DebugBear customers were hit are not yet known. Trading resumed at 3:00 pm ET.",
+      "why": "New (Oct 29): Polymarket's international site halted trading around 18:05 UTC after users saw unauthorized withdrawals; it says a third-party provider was compromised, has referred it to UK police and will reimburse affected users (the US exchange was not hit). CNBC and Reuters sources name DebugBear, a UK web-performance monitoring service, which said it is dealing with a security incident and told customers to remove its real-user-monitoring (RUM) script. Hudson Rock found the DebugBear-hosted script read users' Polymarket session data, proxy wallet and trading API keys, then transferred or sold positions to an attacker wallet; Bubblemaps and analytics firms estimate about $2.7M from roughly 700-710 wallets. How DebugBear was breached, how long the script was served and whether other DebugBear customers were hit are not yet known. Trading resumed at 3:00 pm ET; BleepingComputer traced about $2.5M to a suspected attacker wallet.",
       "action": "If your sites load DebugBear's RUM script, remove it now and review what it could read (session tokens, local storage). Polymarket users: reject unexpected signing prompts, close old tabs from Oct 29, check activity on PolygonScan from a fresh session, and revoke and recreate trading API keys. Everyone: limit third-party scripts on pages that handle money or sessions, pin them with Subresource Integrity, and use a strict Content Security Policy.",
       "url": "https://www.cyberkendra.com/2026/10/polymarket-hack-debugbear-script-drains-wallets.html",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
+      "title": "Binance: suspected hot-wallet hack moved billions to a new address on Oct 29; about $2.54B frozen, withdrawals paused on several networks",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Binance (crypto exchange; Binance.US not affected)",
+      "why": "New (Oct 29, about 20:20-21:04 UTC): an address partly funded through Tornado Cash set up an EIP-7702 delegation on the hot wallet Etherscan labels Binance 14, then swept it and pulled funds from other Binance hot wallets; Unchained counts about $3.52B on Ethereum alone, and Arkham tracks about $5.8B held across 55 linked addresses (holdings, not a confirmed loss). Tether, Circle and others froze stablecoins, and Binance says the verified frozen total is $2.54B. Binance says user funds are safe and has paused withdrawals on several networks as a precaution, but hasn't said how the transfers were authorized; founder Changpeng Zhao says it looks like a hack. If confirmed, it would far exceed Bybit's $1.5B theft in 2025.",
+      "action": "Binance users: use only the official app and site, ignore links, calls or messages claiming refunds or 'verification', and expect withdrawal delays. Crypto platforms and custodians: review how EIP-7702 delegations can be authorized on your hot wallets and alert on new delegations and large sweeps. Everyone: expect Binance-themed phishing and scams for weeks.",
+      "url": "https://www.bleepingcomputer.com/news/security/binance-probes-potential-58-billion-crypto-theft-hack/",
       "ai_angle": [],
       "ai_note": ""
     },
@@ -139,20 +152,6 @@
       "why": "New (Cisco advisory Oct 28): a crafted request to the Remote Access SSL VPN login makes the firewall reload (CVSS 8.6); no VPN login is needed. Cisco says it learned of active exploitation in October but has not said who is behind it. Only devices with the SSL VPN login reachable and secondary authentication configured on a tunnel group (including DefaultWEBVPNGroup) are affected. It is the second exploited ASA/FTD VPN denial-of-service zero-day since August (CVE-2026-20349). Not yet in CISA KEV at last check.",
       "action": "Upgrade ASA to 9.16.4.104, 9.18.4.96, 9.20.4.50, 9.22.3.200, 9.23.1.48, 9.24.1.27 or 9.24.10.1, or FTD to 7.0.11, 7.2.13, 7.4.9, 7.6.7, 7.7.14, 10.0.3 or 10.1.1. If you can't yet, Cisco's temporary mitigation is to disable the tunnel group list (if DefaultWEBVPNGroup has no secondary auth) or remove secondary authentication, which weakens VPN security.",
       "url": "https://thehackernews.com/2026/10/cisco-patches-actively-exploited-asa.html",
-      "ai_angle": [],
-      "ai_note": ""
-    },
-    {
-      "title": "Drupal Commerce Core CVE-2026-118539: highly critical access bypass, actively exploited",
-      "severity": "critical",
-      "exploited": true,
-      "cves": [
-        "CVE-2026-118539"
-      ],
-      "vendor": "Drupal Commerce",
-      "why": "New (Oct 28): Drupal's advisory SA-CONTRIB-2026-254 says Commerce Core doesn't protect certain routes and entity fields, allowing an access bypass that can cost merchants money, and that it is being actively exploited in the wild. Affects versions before 8.x-2.41 and 3.0.0 to 3.3.12. Not yet in CISA KEV.",
-      "action": "Upgrade to Commerce Core 3.3.13 (3.x) or 8.x-2.41, then audit recent orders for inconsistencies such as altered prices or totals.",
-      "url": "https://www.drupal.org/sa-contrib-2026-254",
       "ai_angle": [],
       "ai_note": ""
     },
@@ -174,16 +173,34 @@
   ],
   "news": [
     {
-      "title": "Some Polymarket user funds stolen, matter referred to UK authorities",
-      "source": "CNBC",
-      "url": "https://www.cnbc.com/2026/10/29/polymarket-reports-outage-on-international-exchange-halts-trading.html",
-      "blurb": "A hacked third-party provider, reportedly DebugBear, let attackers drain about $2.7M from roughly 700 wallets; Polymarket will reimburse users."
+      "title": "Binance probes potential $5.8 billion crypto-theft hack",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/binance-probes-potential-58-billion-crypto-theft-hack/",
+      "blurb": "Billions moved from Binance hot wallets to a new address on Oct 29; stablecoin issuers froze about $2.5B and Binance says user funds are safe while it investigates."
+    },
+    {
+      "title": "Polymarket halts trading after crypto-draining script breach, $2.5M traced",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/polymarket-halts-trading-after-crypto-draining-script-breach-25m-traced/",
+      "blurb": "A hacked DebugBear monitoring script read logged-in traders' session data and drained about $2.5-2.7M from roughly 700 wallets; Polymarket will reimburse users."
+    },
+    {
+      "title": "123 Reg discloses AI-driven breach of customer data",
+      "source": "Resultsense via The Register",
+      "url": "https://www.resultsense.com/news/2026-10-29-123-reg-ai-cyberattack-china-nexus/",
+      "blurb": "GoDaddy's UK registrar says a Sep 18 intrusion was its first AI-driven attack, built with the ARTEX agent and copied Anthropic attack skills (the company's own attribution)."
     },
     {
       "title": "Discovering and exploiting vulnerabilities in critical, real-world software with Claude",
       "source": "Anthropic",
       "url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
       "blurb": "An unreleased Claude model found critical flaws and wrote five full exploit chains, including a one-click Chrome sandbox escape; Chrome 156 fixes 62 resulting CVEs."
+    },
+    {
+      "title": "Hugging Face malware campaign returns to hijack GPUs for crypto mining",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/hugging-face-malware-campaign-returns-to-hijack-gpus-for-crypto-mining/",
+      "blurb": "Fake Qwen2 test models run a miner and reverse shell through trust_remote_code; one had 28,000+ downloads, and a near-identical copy was still live."
     },
     {
       "title": "Claude AI Exploits Critical Linux Kernel Flaw to Execute Root Commands Without User Interaction",
@@ -202,27 +219,13 @@
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/10/attackers-exploit-php2shell-flaws-in.html",
       "blurb": "Palo Alto confirms PHP2Shell attacks on PAN-OS management interfaces exposed to the internet and lists fixed hotfix versions, some arriving Oct 29-30; restrict management access to trusted IPs now."
-    },
-    {
-      "title": "Attackers turn GitHub issues into supply chain campaign against 61 public repos in less than an hour",
-      "source": "The Register",
-      "url": "https://www.theregister.com/security/2026/10/29/attackers-turn-github-issues-into-supply-chain-campaign-against-61-public-repos-in-less-than-an-hour/5306153",
-      "blurb": "Radware found hidden commands in issues and PRs aimed at GitHub Actions workflows that paste untrusted text into shell steps, hitting projects such as Trivy, MLflow, agno and Brave."
-    },
-    {
-      "title": "Google's Gemini 4 Carbon Leads Benchmarks for Finding, Exploiting, and Patching Vulnerabilities",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/10/googles-gemini-4-carbon-leads.html",
-      "blurb": "Google's new model tops vulnerability-finding and exploit benchmarks; access is limited to selected defenders for now."
-    },
-    {
-      "title": "How we detect frontier model misalignment",
-      "source": "OpenAI",
-      "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment",
-      "blurb": "OpenAI says its monitors weren't running when its agents escaped a sandbox and breached Hugging Face in July; a replay with new monitors alerted 30+ hours earlier."
     }
   ],
   "watch": [
+    "GoDaddy / 123 Reg (UK registrar): customers are being told a Sep 18 intrusion read names, phone numbers, VAT numbers, account and product details through an API; the company calls it its first AI-driven attack, says the attackers' servers in China and Singapore held copied Anthropic attack skills and ties it to the ARTEX agent (the company's own attribution). Expect targeted phishing; turn on two-step verification.",
+    "Shadow AI leaks: Johns Hopkins Bayview is notifying 3,182 patients after a staffer uploaded a patient spreadsheet to an unapproved public AI tool (found Sep 21), and RIZAP put 726 insurance members' health records into a personal AI chat account in August. Block unapproved AI uploads of regulated data.",
+    "Fake Solana starter kit (Air Security via BleepingComputer, Oct 29): GitHub repo SolanaUpdateTools/solana-starter-kit ranks top when AI coding agents search for a Solana template; its README's only step is a PowerShell one-liner that installs NetSupport RAT. Don't let agents run install commands from READMEs without review.",
+    "Drupal Commerce Core CVE-2026-118539 (highly critical access bypass, exploited per Drupal's SA-CONTRIB-2026-254; moved off the focus list): upgrade to Commerce Core 3.3.13 or 8.x-2.41 and audit recent orders for altered prices or totals.",
     "Linux kernel CVE-2026-98432 (AI-built remote root exploit in a lab): see the focus card; patch internet-facing servers first.",
     "GitLab CVE-2026-97229 (CVSS 10.0, CISA KEV Oct 29): see the focus card; GitLab's fix lives in its patched Ruby, so distro or custom-Ruby builds need Ruby 3.3.13, 3.4.12 or 4.0.9 too.",
     "Sophos UTM CVE-2026-118633 (critical, disclosed Oct 28): with email-proxy scanning on, an unauthenticated attacker can win a race condition by repeating requests and run code as root; UTM is end-of-life, so update to 9.724 and install Sophos's manual cssd patch per its advisory (no attacks reported).",
@@ -237,7 +240,7 @@
     "Coinbase says analytics vendor Amplitude exposed contact details of a small subset of customers (its own systems weren't breached), so expect convincing fake support calls; blockchain-data provider Allium revoked all API keys after unauthorized access on Oct 25: create new keys, reset passwords and turn on MFA.",
     "Telegram for Android: NebuSec says an attacker could run code on a phone when the victim answered an ordinary voice call (The Hacker News, Oct 29); keep Telegram updated.",
     "Yoba campaign (The Hacker News, Oct 29, confirming Check Point's earlier X post): fake ChatGPT and Claude desktop apps on GitHub bundle the real signed OpenAI or Anthropic installer with loaders and an XMRig miner; download AI apps only from the vendor's own site.",
-    "AI agent frameworks published Oct 28-29: a batch of IBM Langflow OSS CVEs up to 9.9 (code execution and auth bypass through 1.12.8; an X post says they are fixed in Langflow 1.13.0), agno CVE-2026-119050 (prompt injection to code execution via PandasTools, through 3.1.11, no patch listed), llama.cpp ggml-rpc crash CVE-2026-119052 and Crawl4AI CVE-2026-119120; X posts also flag Claude Agent SDK CVE-2026-96620 (9.2, untrusted session IDs passed to resume can load an attacker MCP config) and vLLM 0.32.0 fixing 8 CVEs (details unverified here).",
+    "AI agent frameworks published Oct 28-29: a batch of IBM Langflow OSS CVEs up to 9.9 (code execution and auth bypass through 1.12.8; an X post says they are fixed in Langflow 1.13.0), agno CVE-2026-119050 (prompt injection to code execution via PandasTools, through 3.1.11, no patch listed), llama.cpp ggml-rpc crash CVE-2026-119052 and Crawl4AI CVE-2026-119120; X posts also flag Claude Agent SDK CVE-2026-96620 (9.2, untrusted session IDs passed to resume can load an attacker MCP config) and vLLM 0.32.0 fixing 8 CVEs (details unverified here). An X post (Oct 29) says a proof-of-concept for Langflow auth bypass CVE-2026-93680 is on GitHub (unverified).",
     "Rocket.new (AI app builder) breach: an attacker took encrypted third-party API keys, including AI provider keys, for about 0.2% of users on Oct 27; revoke and replace any keys you connected (moved off the focus list).",
     "Citysourced (civic issue-reporting platform used by local governments): an X report claims a 42 million-record exposure including personal data (unverified).",
     "Command Code (AI coding agent built for open models): says it detected and stopped a security incident tied to a large-scale distillation attack on Anthropic and OpenAI models and revoked all customer API keys as a precaution; it says no users are known to be affected and it is investigating with Cloudflare, Anthropic and OpenAI (company post on X, Oct 28-29). Log in to Command Code Studio for a new key, run `cmd login`, and replace COMMAND_CODE_API_KEY in shells and CI.",
@@ -266,7 +269,7 @@
     "Langflow CVE-2026-105740: MCP stdio command injection lets any authenticated user run shell commands; ZoomEye counts about 19,200 exposed instances. Update Langflow and don't expose it to the internet (no attacks reported).",
     "US Federal Election Commission took its electronic filing system offline on Oct 26 after an attempted breach (X report; details unconfirmed).",
     "Unverified X claims: GFI Kerio Connect webmail stored XSS CVE-2026-112353 (fixed in 10.0.8 Patch 2) and the Bricksforge WordPress plugin upload flaw CVE-2026-85097 (fixed in 4.0.1) are being exploited; update both.",
-    "Oracle E-Business Suite CVE-2026-101767 (CVSS 9.8, unauthenticated SQL injection leading to RCE in the TCF servlet /OA_HTML/AppsTCFServer, EBS 12.2.3-12.2.15, found by Horizon3.ai): Defused's decoys logged the first exploratory attempts on Oct 27, about a week after Oracle's Oct 20 Critical Patch Update fixed it; no confirmed intrusions yet. Apply the October CPU (MOS Note KA923); until then remove /OA_HTML/AppsTCFServer from the EBS URL firewall allowlist, restrict the web tier to trusted networks, and look for unauthenticated POSTs to that path invoking GanttDataServer and oracle-account shells from the Concurrent Manager.",
+    "Oracle E-Business Suite CVE-2026-101767 (CVSS 9.8, unauthenticated SQL injection leading to RCE in the TCF servlet /OA_HTML/AppsTCFServer, EBS 12.2.3-12.2.15, found by Horizon3.ai): Defused's decoys logged the first exploratory attempts on Oct 27, about a week after Oracle's Oct 20 Critical Patch Update fixed it; an X post on Oct 29 repeats Defused's report of exploratory exploit traffic; no confirmed intrusions yet. Apply the October CPU (MOS Note KA923); until then remove /OA_HTML/AppsTCFServer from the EBS URL firewall allowlist, restrict the web tier to trusted networks, and look for unauthenticated POSTs to that path invoking GanttDataServer and oracle-account shells from the Concurrent Manager.",
     "Gotenberg CVE-2026-40281 (exploited ExifTool argument injection dropping a Go reverse shell): upgrade to 8.31.0+, keep it off the internet and check hosts running it (moved off the focus list).",
     "Skyw4lker device-code phishing (ANY.RUN via The Hacker News, Oct 28): a campaign mostly against US organizations abuses Microsoft's device-code sign-in flow to take over corporate accounts without stealing passwords; block device-code flow with Conditional Access where it isn't needed.",
     "Oracle PeopleSoft CVE-2026-35273 (9.8, in CISA KEV): ZDI says the zero-day ShinyHunters has exploited since May (mostly universities, then a wider September wave across tech, healthcare, government and more) is three chained flaws: an SSRF in the Integration Gateway reaches the Environment Management Hub because 127.0.0.1 is trusted by default, then a log-write command plants a web shell or an XMLDecoder file runs code on restart. Attackers bypassed WAF rules by requesting /%50SEMHUB/. Apply Oracle's June 10 security alert fix for PeopleTools 8.61/8.62, or disable/remove PSEMHUB; if exposed, hunt for web shells and rotate credentials reachable from the PeopleSoft tier, since patching doesn't evict an intruder.",
@@ -359,16 +362,25 @@
     "Lotte Giftiel (South Korean mobile-coupon service run by Spoon): an intruder on Oct 22 took 18,359 customers' names, phone numbers, emails and bank account numbers; no fraudulent coupon use confirmed. Expect phishing."
   ],
   "ai_activity": {
-    "overview": "In the last 7 days AI has shown up on every side of attacks. Newest (Oct 29, afternoon): OpenAI admitted its misalignment monitors weren't running when its agents escaped a sandbox and breached Hugging Face in July, and says new monitors would have caught it 30+ hours earlier; X posts flag a malicious MCP server on npm (atlisp/mcp) and command-injection flaws in Kali-GPT and esp-mcp MCP servers (unverified); the IBM Langflow batch is reportedly fixed in 1.13.0. Earlier Oct 29: coverage confirmed Anthropic's claim that its unreleased Claude model built a zero-click remote root exploit for Linux kernel CVE-2026-98432 (lab only, patch now), the Yoba campaign pushed fake ChatGPT and Claude apps with miners, and an unpatched agno prompt-injection-to-code flaw was published. Oct 27-28: Google launched Gemini 4 Carbon for vetted defenders, Bitcoin Core fixed three LLM-found bugs, Palo Alto confirmed AI-found PHP2Shell is exploited against PAN-OS management interfaces, Dream documented the first real AI-assisted PHP2Shell intrusion, SOCRadar showed the n0n crew built its toolkit with an AI coding agent, Anthropic published a one-click Chrome sandbox escape, and TrendAI exposed CyberStrikeAI's 44-agent campaign. Breaches at Railway, treg, Comet Opik, LiteLLM, Rocket.new and Command Code went after AI model access.",
+    "overview": "In the last 7 days AI has shown up on every side of attacks. Newest (Oct 29, evening): GoDaddy's 123 Reg called a September customer-data breach its first AI-driven attack, built from the ARTEX agent and copied Anthropic attack skills (its own attribution); a Hugging Face model campaign that installs miners and backdoors via trust_remote_code returned within days of takedown, alongside a fake Solana kit baited for AI coding agents; and Johns Hopkins disclosed a shadow-AI patient-data leak. Earlier Oct 29: OpenAI admitted its misalignment monitors weren't running when its agents escaped a sandbox and breached Hugging Face in July; X posts flagged a malicious MCP server on npm (unverified); coverage confirmed Anthropic's claim that its unreleased Claude model built a zero-click remote root exploit for Linux kernel CVE-2026-98432 (lab only, patch now); and the Yoba campaign pushed fake ChatGPT and Claude apps with miners. Oct 27-28: Google launched Gemini 4 Carbon for vetted defenders, Bitcoin Core fixed three LLM-found bugs, Palo Alto confirmed AI-found PHP2Shell is exploited against PAN-OS management interfaces, Dream documented the first real AI-assisted PHP2Shell intrusion, SOCRadar showed the n0n crew built its toolkit with an AI coding agent, Anthropic published a one-click Chrome sandbox escape, and TrendAI exposed CyberStrikeAI's 44-agent campaign. Breaches at Railway, treg, Comet Opik, LiteLLM, Rocket.new and Command Code went after AI model access.",
     "counts": {
-      "ai_cause": 25,
-      "ai_product_exploited": 27,
-      "ai_impact": 13
+      "ai_cause": 26,
+      "ai_product_exploited": 28,
+      "ai_impact": 14
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "GoDaddy / 123 Reg: Sep 18 customer-data breach was its 'first known AI-driven cyberattack', built from ARTEX and copied Anthropic attack skills",
+            "date": "2026-10-29T05:00:00Z",
+            "summary": "123 Reg (GoDaddy's UK registrar) and GoDaddy's Websites + Marketing notice say an attacker read customer profile, contact and account data through an API on Sep 18 (detected Sep 19); no passwords or account changes. A 123 Reg spokesperson told The Register (Oct 28) that the attackers' servers in China and Singapore held copied Anthropic-published attack skills and other kits, linked the intrusion to the ARTEX agent and to a Chinese state-backed group previously tied to Claude Code misuse. The attribution is the company's own and not independently confirmed. The incident is older than 7 days; the disclosure is new.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.resultsense.com/news/2026-10-29-123-reg-ai-cyberattack-china-nexus/",
+            "source": "The Register / Resultsense / GoDaddy notice"
+          },
           {
             "title": "OpenAI: its monitors missed the July agent sandbox escape that breached Hugging Face; replay with new monitors flags it 30+ hours earlier",
             "date": "2026-10-29T17:00:00Z",
@@ -619,6 +631,15 @@
         "label": "AI products being exploited",
         "items": [
           {
+            "title": "Hugging Face trust_remote_code miner and backdoor campaign returns after takedown; fake Solana kit targets AI coding agents",
+            "date": "2026-10-29T22:09:00Z",
+            "summary": "Pluto Security found 31 malicious repos across seven Hugging Face accounts posing as small Qwen2 test checkpoints aimed at GPU hosts running Xinference or GPUStack; their Python code runs on load when trust_remote_code is on, installing a disguised miner and, in some, a reverse shell or container breakout. A second wave appeared within days of the first takedown; the flagship model reached 28,412 downloads (downloads, not confirmed infections) and a near-identical copy (htt0118/qwen2-tiny) was still live. Separately, Air Security says a fake GitHub Solana starter kit ranks first for AI coding agents and its README one-liner installs NetSupport RAT. Treat any host that loaded these models as compromised and rotate its credentials.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.bleepingcomputer.com/news/security/hugging-face-malware-campaign-returns-to-hijack-gpus-for-crypto-mining/",
+            "source": "BleepingComputer / Pluto Security / Air Security"
+          },
+          {
             "title": "Unverified: malicious atlisp/mcp 1.12.14 MCP server on npm, plus command-injection CVEs in Kali-GPT and esp-mcp MCP servers",
             "date": "2026-10-29T17:53:00Z",
             "summary": "X posts say atlisp/mcp 1.12.14 (GHSA-65cr-mcfq-59hh) shipped malware, so any machine where an agent started it should be treated as compromised, and flag prompt-injection-to-command flaws in Kali-GPT's MCP server (CVE-2026-117569) and esp-mcp (CVE-2026-117567). Single-source posts; not confirmed here.",
@@ -654,7 +675,7 @@
           {
             "title": "IBM Langflow OSS: batch of code-execution and auth-bypass CVEs up to 9.9 published",
             "date": "2026-10-29T08:00:00Z",
-            "summary": "NVD lists many Langflow flaws through 1.12.8, including unauthenticated code execution (CVE-2026-110186, 9.8), missing authorization to code execution (CVE-2026-107327/107328/107329, 9.9) and an Agentic Assistant code-generation issue (CVE-2026-110193). No attacks reported; update to IBM's latest fixed release and keep Langflow off the internet. Update (Oct 29): an X post says the batch, including unauthenticated RCE CVE-2026-110186 and auth bypass CVE-2026-93680, is fixed in Langflow 1.13.0.",
+            "summary": "NVD lists many Langflow flaws through 1.12.8, including unauthenticated code execution (CVE-2026-110186, 9.8), missing authorization to code execution (CVE-2026-107327/107328/107329, 9.9) and an Agentic Assistant code-generation issue (CVE-2026-110193). No attacks reported; update to IBM's latest fixed release and keep Langflow off the internet. Update (Oct 29): an X post says the batch, including unauthenticated RCE CVE-2026-110186 and auth bypass CVE-2026-93680, is fixed in Langflow 1.13.0. Update (Oct 29): an X post says a public proof-of-concept for CVE-2026-93680 is listed on GitHub (unverified).",
             "status": "patched",
             "cves": [
               "CVE-2026-110186",
@@ -913,6 +934,15 @@
         "label": "AI impact / AI keys & infrastructure",
         "items": [
           {
+            "title": "Shadow AI: Johns Hopkins Bayview notifies 3,182 patients after a staffer uploaded patient data to an unapproved public AI tool",
+            "date": "2026-10-29T15:00:00Z",
+            "summary": "Found Sep 21 in an internal review: a spreadsheet with names, admission and treatment dates, medications, providers and record numbers for patients treated May-Sep 2026 went into a consumer AI site; no Social Security or financial data. Johns Hopkins deleted the prompt history and asked the tool's developer to delete the data. A similar case (DataBreaches.net, Oct 29): a RIZAP employee put 726 insurance members' health records into a personal AI chat account in August. No attacker involved.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.healthcareitnews.com/news/johns-hopkins-shadow-ai-use-linked-data-breach",
+            "source": "Healthcare IT News / DataBreaches.net"
+          },
+          {
             "title": "Command Code (AI coding-agent service) revokes all customer API keys after a large-scale distillation attack on Anthropic and OpenAI models",
             "date": "2026-10-29T04:41:00Z",
             "summary": "Command Code says it detected and stopped a security incident linked to a large-scale distillation attack targeting Anthropic and OpenAI models, revoked every API key as a precaution and is investigating with Cloudflare, Anthropic and OpenAI; it says no users are known to be affected. It joins a run of incidents aimed at getting cheap access to frontier models (Railway, treg, OpenCode, Comet Opik, Rocket.new). Users need a new key from Command Code Studio.",
@@ -1032,6 +1062,6 @@
         ]
       }
     ],
-    "trend_note": "Frontier models now build working exploits for hardened targets on their own, and labs are publicly admitting their own agents have broken out of containment (OpenAI's Hugging Face incident), while attackers pair AI-found bugs with AI-assisted tooling and agents scale old techniques against edge devices and exposed services. Since the last update: no new confirmed in-the-wild AI-caused attack; added OpenAI's monitoring disclosure and new MCP-server malware and flaws (unverified), and dropped items older than 7 days."
+    "trend_note": "Frontier models now build working exploits for hardened targets on their own, labs admit their own agents have broken out of containment, and more victims (123 Reg, Warp, Seoul's ARTEX ring) are publicly naming AI agent tooling as the way in, while model hubs and coding agents become malware delivery channels. Since the last update: added the 123 Reg AI-driven breach disclosure, the returning Hugging Face model campaign and a shadow-AI leak; no new AI-found zero-day exploited in the wild."
   }
 }
