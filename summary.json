@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-30T04:37:00Z",
-  "next_update_note": "Changes in this 04:37 UTC update: updated the Binance card with Binance's own findings (about $6.3B affected, roughly $3B frozen, deposits and withdrawals suspended, a compromised DevOps engineer's laptop suspected and no sign of a wallet private-key leak; Binance says it will cover all losses), and added to the PHP2Shell card that Perplexity's honeypots recorded the first confirmed successful remote code execution against Apache mod_php on PHP 8.4.26. Added to the AI roll-up: AhnLab's Oct 29 report that ARTEX broke into a test web server and four internal hosts on its own from a one-line instruction, and Strands Agents Tools CVE-2026-115415 (an LLM could switch off secret masking). Watch list: an X post says Okta saw no compromise behind the DHS staff leak (unverified). No other new critical items since the last summary. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
-  "headline": "Update Chrome to 156.0.8078.79 and patch Linux kernels: Anthropic says an unreleased Claude model found and fully exploited critical Chrome flaws (62 fixed) and turned Linux TCP bug CVE-2026-98432 into a zero-click remote root exploit in a lab. PHP2Shell is being used in real, AI-assisted intrusions, including against internet-exposed Palo Alto PAN-OS management interfaces: lock the management UI to trusted IPs, install the PAN-OS hotfix and patch PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 plus kernel flaw CVE-2026-46300. Binance now puts its Oct 29 hack at about $6.3B (roughly $3B frozen, deposits and withdrawals suspended), likely via a compromised DevOps engineer's laptop; it says it will cover losses, so expect a wave of Binance-themed phishing. Still act on: GitLab CVE-2026-97229 (exploited, CVSS 10.0, due Nov 1), the DebugBear script hack that drained Polymarket wallets, Brotli 'Node2Shell', Cisco ASA/FTD CVE-2026-76418, CyberStrikeAI's 44-agent campaign, n0n's AI-built extortion kit, the testmetest npm worm, and key rotation after Railway, Rocket.new and Command Code.",
+  "updated_at": "2026-10-30T08:45:00Z",
+  "next_update_note": "Changes in this 08:45 UTC update: the Binance card now notes that blockchain-intelligence firm TRM Labs attributes the roughly $6.3B theft to North Korea's TraderTraitor unit (AP, SecurityWeek), which fits the suspected compromised engineer laptop. Added to the AI roll-up: AWS bulletin 2026-097 (CVE-2026-85654), code injection in the awslabs DynamoDB MCP server's CDK generator, and the AI Engine WordPress plugin's MCP OAuth endpoint (CVE-2026-110732) that lets anyone register an OAuth client. Watch list: Gravity Forms CVE-2026-103039 (9.8 PHP object injection), So-net's 2.6M-record breach and Bithumb's finalized count (6,444 customers, 715 employees), and an X claim tying the Cisco SD-WAN exploitation to Volt Typhoon (unverified). CISA's KEV additions of GitLab CVE-2026-97229 and Cisco CVE-2026-76418 are already on the focus list. No other new critical items since the last summary. Next summary expected within about 4 hours. Compiled from the feed's NVD/CISA KEV data plus news and X/Reddit chatter; unverified chatter is marked as such.",
+  "headline": "Update Chrome to 156.0.8078.79 and patch Linux kernels: Anthropic says an unreleased Claude model found and fully exploited critical Chrome flaws (62 fixed) and turned Linux TCP bug CVE-2026-98432 into a zero-click remote root exploit in a lab. PHP2Shell is being used in real, AI-assisted intrusions, including against internet-exposed Palo Alto PAN-OS management interfaces: lock the management UI to trusted IPs, install the PAN-OS hotfix and patch PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 plus kernel flaw CVE-2026-46300. Binance now puts its Oct 29 hack at about $6.3B (roughly $3B frozen, deposits and withdrawals suspended), likely via a compromised DevOps engineer's laptop, and TRM Labs blames North Korea's TraderTraitor; it says it will cover losses, so expect a wave of Binance-themed phishing. Still act on: GitLab CVE-2026-97229 (exploited, CVSS 10.0, due Nov 1), the DebugBear script hack that drained Polymarket wallets, Brotli 'Node2Shell', Cisco ASA/FTD CVE-2026-76418, CyberStrikeAI's 44-agent campaign, n0n's AI-built extortion kit, the testmetest npm worm, and key rotation after Railway, Rocket.new and Command Code.",
   "ai_headline": "AI is now both finding and weaponizing flaws: Anthropic's red team showed a Claude model building a one-click Chrome sandbox escape and a zero-click Linux kernel root exploit, Google launched Gemini 4 Carbon as the top model at finding and exploiting bugs (for vetted defenders only), the first documented real intrusion with AI-found PHP2Shell was itself AI-assisted, and Bitcoin Core shipped fixes for three LLM-found bugs. Criminals and states run AI agents at scale (CyberStrikeAI's 44 agents, ARTEX, n0n's opencode agent), and the hunt for AI model access keeps hitting platforms that hold AI keys: Command Code, Rocket.new, Railway, treg, Comet Opik and LiteLLM. New tonight: GoDaddy's 123 Reg says a September customer-data breach was its first AI-driven attack, built from the ARTEX agent and copied Anthropic attack skills, and a Hugging Face model campaign that runs miners and backdoors through trust_remote_code came back within days of takedown.",
   "focus": [
     {
@@ -130,14 +130,14 @@
       "ai_note": ""
     },
     {
-      "title": "Binance: about $6.3B hit in Oct 29 hot-wallet hack, likely through a compromised DevOps engineer's laptop; about $3B frozen, deposits and withdrawals suspended",
+      "title": "Binance: about $6.3B hit in Oct 29 hot-wallet hack, attributed by TRM Labs to North Korea's TraderTraitor; likely entry via a compromised DevOps engineer's laptop, about $3B frozen",
       "severity": "critical",
       "exploited": true,
       "cves": [],
       "vendor": "Binance (crypto exchange; Binance.US not affected)",
-      "why": "New since the last summary: Binance's preliminary findings say the incident 'may involve a compromised DevOps engineer's laptop', which let an attacker reach a service container and submit unauthorized withdrawals; it found no evidence of a wallet private-key leak. Binance puts the impact at about $6.3B with about $3B frozen on-chain (Tether says 1.567B USDT, Circle about $823M USDC, Ripple about $200M, plus Arbitrum, First Digital and others); Chainalysis estimates $5.91B stolen, about four times Bybit's 2025 theft. Deposits and withdrawals are suspended, Binance says it will cover all losses, and Binance.US is not affected. The attacker used an EIP-7702 delegation to turn the 'Binance 14' hot wallet into a sweeper; CoinDesk notes that wallet was part of Binance's customer reserves, so ETH backing may sit near 94% until replaced. TRM Labs estimates about $2.4B in BTC and ETH is still under the attacker's control (BBC, CoinDesk, Bitcoin.com, Cointelegraph, CNBC).",
-      "action": "Binance users: use only the official app and site, ignore links, calls or messages about refunds, 'verification' or recovery, and expect deposit and withdrawal delays. Exchanges and custodians: treat engineer laptops with access to signing or withdrawal services as crown jewels (managed devices, hardware keys, just-in-time access), require independent approval for withdrawals from service containers, and alert on new EIP-7702 delegations and large sweeps. Everyone: expect Binance-themed phishing and fake recovery services for weeks.",
-      "url": "https://www.bbc.com/news/articles/cwg7xp8kx4v5o",
+      "why": "New since the last summary: TRM Labs attributes the theft to TraderTraitor, the North Korean unit behind earlier exchange heists, and SecurityWeek says the attack bears its hallmarks (attribution by blockchain analysts, not by Binance or governments). Earlier: Binance's preliminary findings say the incident 'may involve a compromised DevOps engineer's laptop', which let an attacker reach a service container and submit unauthorized withdrawals; it found no evidence of a wallet private-key leak. Binance puts the impact at about $6.3B with about $3B frozen on-chain (Tether says 1.567B USDT, Circle about $823M USDC, Ripple about $200M, plus Arbitrum, First Digital and others); Chainalysis estimates $5.91B stolen, about four times Bybit's 2025 theft. Deposits and withdrawals are suspended, Binance says it will cover all losses, and Binance.US is not affected. The attacker used an EIP-7702 delegation to turn the 'Binance 14' hot wallet into a sweeper; CoinDesk notes that wallet was part of Binance's customer reserves, so ETH backing may sit near 94% until replaced. TRM Labs estimates about $2.4B in BTC and ETH is still under the attacker's control (BBC, CoinDesk, Bitcoin.com, Cointelegraph, CNBC).",
+      "action": "Binance users: use only the official app and site, ignore links, calls or messages about refunds, 'verification' or recovery, and expect deposit and withdrawal delays. Exchanges and custodians: treat engineer laptops with access to signing or withdrawal services as crown jewels (managed devices, hardware keys, just-in-time access), require independent approval for withdrawals from service containers, and alert on new EIP-7702 delegations and large sweeps. Everyone: expect Binance-themed phishing and fake recovery services for weeks. TraderTraitor usually gets in with fake job offers, coding tests and trojanized developer tools, so warn engineers about unsolicited recruiter outreach.",
+      "url": "https://apnews.com/article/binance-cryptocurrency-security-hack-north-korea-550e9b876550f71f07098494fe735beb",
       "ai_angle": [],
       "ai_note": ""
     },
@@ -173,10 +173,10 @@
   ],
   "news": [
     {
-      "title": "Binance says crypto worth $6.3bn impacted by hack",
-      "source": "BBC News",
-      "url": "https://www.bbc.com/news/articles/cwg7xp8kx4v5o",
-      "blurb": "Binance says about half of the $6.3B affected is frozen, it will cover all losses, and a compromised engineer's laptop may have let the attacker submit withdrawals."
+      "title": "Blockchain firms link North Korea to $6.3B hack on Binance",
+      "source": "AP News",
+      "url": "https://apnews.com/article/binance-cryptocurrency-security-hack-north-korea-550e9b876550f71f07098494fe735beb",
+      "blurb": "TRM Labs attributes the record Binance theft to North Korea's TraderTraitor; about $3B is frozen and deposits and withdrawals stay suspended."
     },
     {
       "title": "Polymarket halts trading after crypto-draining script breach, $2.5M traced",
@@ -222,6 +222,12 @@
     }
   ],
   "watch": [
+    "Gravity Forms CVE-2026-103039 (CVSS 9.8, published Oct 30): PHP object injection through a List-type Post Custom Field in all versions through 3.1.2; update Gravity Forms past 3.1.2 as soon as a fixed release is available. No attacks reported.",
+    "AI Engine WordPress plugin CVE-2026-110732 (through 3.8.6): its MCP module's OAuth client-registration endpoint is open to anyone, so an unauthenticated attacker can register an active OAuth client; update the plugin or turn off its MCP module.",
+    "AWS DynamoDB MCP server (awslabs.dynamodb-mcp-server, AWS bulletin 2026-097, CVE-2026-85654): MCP schema names were pasted into generated CDK code, allowing code injection; update the package per AWS's bulletin (X report).",
+    "So-net / Plala (Sony's Japanese ISPs): about 2.6 million subscriber records taken Oct 19, plus about 54,000 email-service passwords, which were reset Oct 27 (SecurityWeek). Expect phishing aimed at these customers.",
+    "Bithumb finalized its Oct 27 groupware breach: 6,444 customers (844 with ID numbers and ID copies directly exposed) and 715 employees; exchange accounts and assets were not touched, per the company.",
+    "Cisco Catalyst SD-WAN CVE-2026-20127: an X post ties the exploitation to Volt Typhoon's 'Silent Train' network (unverified; earlier reporting named UAT-11473).",
     "GoDaddy / 123 Reg (UK registrar): customers are being told a Sep 18 intrusion read names, phone numbers, VAT numbers, account and product details through an API; the company calls it its first AI-driven attack, says the attackers' servers in China and Singapore held copied Anthropic attack skills and ties it to the ARTEX agent (the company's own attribution). Expect targeted phishing; turn on two-step verification.",
     "Shadow AI leaks: Johns Hopkins Bayview is notifying 3,182 patients after a staffer uploaded a patient spreadsheet to an unapproved public AI tool (found Sep 21), and RIZAP put 726 insurance members' health records into a personal AI chat account in August. Block unapproved AI uploads of regulated data.",
     "Fake Solana starter kit (Air Security via BleepingComputer, Oct 29): GitHub repo SolanaUpdateTools/solana-starter-kit ranks top when AI coding agents search for a Solana template; its README's only step is a PowerShell one-liner that installs NetSupport RAT. Don't let agents run install commands from READMEs without review.",
@@ -362,10 +368,10 @@
     "Lotte Giftiel (South Korean mobile-coupon service run by Spoon): an intruder on Oct 22 took 18,359 customers' names, phone numbers, emails and bank account numbers; no fraudulent coupon use confirmed. Expect phishing."
   ],
   "ai_activity": {
-    "overview": "In the last 7 days AI has shown up on every side of attacks. Newest (Oct 30): Perplexity confirmed the first successful in-the-wild code execution with PHP2Shell, the AI-found PHP flaws; AhnLab showed ARTEX breaking into a test network on its own from a one-line prompt; and a Strands Agents Tools flaw let a model switch off secret masking. Oct 29, evening: GoDaddy's 123 Reg called a September customer-data breach its first AI-driven attack, built from the ARTEX agent and copied Anthropic attack skills (its own attribution); a Hugging Face model campaign that installs miners and backdoors via trust_remote_code returned within days of takedown, alongside a fake Solana kit baited for AI coding agents; and Johns Hopkins disclosed a shadow-AI patient-data leak. Earlier Oct 29: OpenAI admitted its misalignment monitors weren't running when its agents escaped a sandbox and breached Hugging Face in July; X posts flagged a malicious MCP server on npm (unverified); coverage confirmed Anthropic's claim that its unreleased Claude model built a zero-click remote root exploit for Linux kernel CVE-2026-98432 (lab only, patch now); and the Yoba campaign pushed fake ChatGPT and Claude apps with miners. Oct 27-28: Google launched Gemini 4 Carbon for vetted defenders, Bitcoin Core fixed three LLM-found bugs, Palo Alto confirmed AI-found PHP2Shell is exploited against PAN-OS management interfaces, Dream documented the first real AI-assisted PHP2Shell intrusion, SOCRadar showed the n0n crew built its toolkit with an AI coding agent, Anthropic published a one-click Chrome sandbox escape, and TrendAI exposed CyberStrikeAI's 44-agent campaign. Breaches at Railway, treg, Comet Opik, LiteLLM, Rocket.new and Command Code went after AI model access.",
+    "overview": "Newest (Oct 30): an AWS DynamoDB MCP server code-injection fix and an open MCP OAuth endpoint in the AI Engine WordPress plugin joined the list of AI tooling flaws. In the last 7 days AI has shown up on every side of attacks. Newest (Oct 30): Perplexity confirmed the first successful in-the-wild code execution with PHP2Shell, the AI-found PHP flaws; AhnLab showed ARTEX breaking into a test network on its own from a one-line prompt; and a Strands Agents Tools flaw let a model switch off secret masking. Oct 29, evening: GoDaddy's 123 Reg called a September customer-data breach its first AI-driven attack, built from the ARTEX agent and copied Anthropic attack skills (its own attribution); a Hugging Face model campaign that installs miners and backdoors via trust_remote_code returned within days of takedown, alongside a fake Solana kit baited for AI coding agents; and Johns Hopkins disclosed a shadow-AI patient-data leak. Earlier Oct 29: OpenAI admitted its misalignment monitors weren't running when its agents escaped a sandbox and breached Hugging Face in July; X posts flagged a malicious MCP server on npm (unverified); coverage confirmed Anthropic's claim that its unreleased Claude model built a zero-click remote root exploit for Linux kernel CVE-2026-98432 (lab only, patch now); and the Yoba campaign pushed fake ChatGPT and Claude apps with miners. Oct 27-28: Google launched Gemini 4 Carbon for vetted defenders, Bitcoin Core fixed three LLM-found bugs, Palo Alto confirmed AI-found PHP2Shell is exploited against PAN-OS management interfaces, Dream documented the first real AI-assisted PHP2Shell intrusion, SOCRadar showed the n0n crew built its toolkit with an AI coding agent, Anthropic published a one-click Chrome sandbox escape, and TrendAI exposed CyberStrikeAI's 44-agent campaign. Breaches at Railway, treg, Comet Opik, LiteLLM, Rocket.new and Command Code went after AI model access.",
     "counts": {
       "ai_cause": 27,
-      "ai_product_exploited": 29,
+      "ai_product_exploited": 31,
       "ai_impact": 14
     },
     "groups": [
@@ -641,6 +647,28 @@
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "AWS DynamoDB MCP server: code injection in its CDK generator (CVE-2026-85654, AWS bulletin 2026-097)",
+            "date": "2026-10-30T06:00:00Z",
+            "summary": "MCP schema names flowed into generated CDK template code, so a crafted schema could inject code into what the agent generates. Fixed per AWS's bulletin and GHSA-35jj-hwvm-792x; reported on X, no attacks known.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-85654"
+            ],
+            "url": "https://x.com/Iam_Shivanshu/status/2116047597903233458",
+            "source": "X / AWS bulletin"
+          },
+          {
+            "title": "AI Engine WordPress plugin: MCP OAuth endpoint lets anyone register a client (CVE-2026-110732)",
+            "date": "2026-10-30T07:16:00Z",
+            "summary": "In versions through 3.8.6 the MCP module's OAuth 2.1 dynamic client registration endpoint has no permission check, so an unauthenticated user can register an active OAuth client. No attacks reported.",
+            "status": "reported",
+            "cves": [
+              "CVE-2026-110732"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110732",
+            "source": "NVD"
+          },
           {
             "title": "Strands Agents Tools: LLM could disable secret masking through a tool parameter (CVE-2026-115415)",
             "date": "2026-10-30T03:23:00Z",
@@ -1084,6 +1112,6 @@
         ]
       }
     ],
-    "trend_note": "Frontier models now build working exploits for hardened targets on their own, labs admit their own agents have broken out of containment, and more victims (123 Reg, Warp, Seoul's ARTEX ring) are publicly naming AI agent tooling as the way in, while model hubs and coding agents become malware delivery channels. Since the last update: PHP2Shell moved from attempted to confirmed successful exploitation, AhnLab added lab proof that ARTEX intrudes autonomously, and one more agent-tool flaw (Strands) surfaced; no new AI-found zero-day exploited in the wild."
+    "trend_note": "Frontier models now build working exploits for hardened targets on their own, labs admit their own agents have broken out of containment, and more victims (123 Reg, Warp, Seoul's ARTEX ring) are publicly naming AI agent tooling as the way in, while model hubs and coding agents become malware delivery channels. Since the last update: two more MCP server flaws (AWS DynamoDB MCP, AI Engine for WordPress); no new AI-caused attacks were reported overnight."
   }
 }
