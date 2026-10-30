@@ -1,23 +1,37 @@
 {
-  "updated_at": "2026-10-30T12:50:00Z",
-  "next_update_note": "Next summary update in about 4 hours (around 4:30 PM EDT); the feed itself refreshes hourly.",
-  "headline": "If you use Cursor and had the Claude Code extension auto-update on Oct 29, check now: a trojanized 'official' Claude Code 2.1.313 on Cursor's extension marketplace planted an attacker SSH key, a reverse tunnel and persistence on up to 5,000 machines; remove them, update to 2.1.314 and rotate credentials. Update WordPress to 7.1.4 today, since attackers began probing a new unauthenticated Core-update race-condition RCE within minutes of the fix. Binance now says it has begun recovering funds from the $6.3B hack, found 'additional points of breach' beyond the DevOps laptop, and expects withdrawals back in about 45 hours (deposits work). Still act on: Chrome 156.0.8078.79 and Linux CVE-2026-98432 (AI-built exploits in Anthropic's lab), PHP2Shell against PAN-OS, GitLab CVE-2026-97229 (exploited, due Nov 1), Brotli 'Node2Shell', CyberStrikeAI and n0n's AI-run campaigns, and key rotation after Railway, Rocket.new and Command Code.",
-  "ai_headline": "AI coding tools are now a prime delivery channel: an official-looking Claude Code extension update on Cursor's marketplace backdoored developer machines, and Symantec found a relay service that installs real Codex and Claude Code but reroutes them through its own servers with sandboxes off. On offense, CrowdStrike says VAPOR PANDA ran the ARTEX AI agent framework with DeepSeek against 200+ organizations from Oct 17, Anthropic's red team showed a Claude model building Chrome and Linux kernel exploits, and the AI-found PHP2Shell flaws are exploited in real AI-assisted intrusions. The hunt for AI model access keeps hitting platforms that hold AI keys (Command Code, Rocket.new, Railway, treg, Comet Opik, LiteLLM).",
+  "updated_at": "2026-10-30T16:50:00Z",
+  "next_update_note": "Next summary update in about 4 hours (around 8:30 PM EDT); the feed itself refreshes hourly.",
+  "headline": "If you deploy on Northflank, rotate every secret now: the platform says to assume all environment variables were decrypted, and several customers already saw their AI keys used. If Cursor installed the Claude Code extension 2.1.313 on Oct 29, check for the 'svc-telemetry' SSH key and planted persistence, update to 2.1.314 and rotate credentials; the bad build came in through Open VSX, which Cursor mirrors, and its server is now offline. Binance withdrawals stay paused with a Sunday Nov 1 restart target and a reserves report due Monday. Still act on: WordPress 7.1.4, Chrome 156.0.8078.79 and Linux CVE-2026-98432 (AI-built exploits in Anthropic's lab), PHP2Shell against PAN-OS, GitLab CVE-2026-97229 (exploited, due Nov 1), Brotli 'Node2Shell', and CyberStrikeAI and n0n's AI-run campaigns.",
+  "ai_headline": "The hunt for AI model access hit another developer platform: Northflank customers report their AI keys being used after its secrets store was breached, following Command Code, Rocket.new, Railway, Comet Opik and LiteLLM. AI coding tools stay a prime delivery channel, with the trojanized Claude Code extension pushed through Open VSX to Cursor users and a new OpenCode/MCP Inspector flaw letting a malicious MCP server run PowerShell during sign-in. On offense, VAPOR PANDA's ARTEX campaign, CyberStrikeAI, n0n and the AI-found PHP2Shell flaws remain the clearest real-world AI-driven attacks.",
   "focus": [
     {
-      "title": "Trojanized 'official' Claude Code extension 2.1.313 on Cursor's marketplace planted an SSH backdoor on up to 5,000 machines",
+      "title": "Trojanized 'official' Claude Code extension 2.1.313 (via Open VSX, mirrored by Cursor) planted an SSH backdoor on up to 5,000 machines",
       "severity": "critical",
       "exploited": true,
       "cves": [],
       "vendor": "Cursor extension marketplace / Anthropic Claude Code extension (anthropic.claude-code)",
-      "why": "New (Oct 30): a malicious version 2.1.313 was served under Anthropic's real extension ID through Cursor's IDE extension marketplace between about 2:27 a.m. and 1:35 p.m. PT on Oct 29 (5:27 AM to 4:35 PM EDT); Cursor says at most 5,000 users installed it, briefly took its marketplace down and will contact them. A 66-line loader adds an attacker key labeled 'svc-telemetry' to ~/.ssh/authorized_keys, tries to enable SSH and opens a reverse tunnel to 134.209.82[.]225, installs a scheduled task, crontab or LaunchAgent, and beacons host details (public IP, hostname, username, git email and the names of up to 40 secret-looking environment variables) to port 8099. Turning on SSH needs admin rights, so on most Mac and Windows hosts remote login likely failed, but the key, persistence and beacon still land. How the attacker published the update is not yet known; the malicious version is removed and Anthropic published 2.1.314 (The Hacker News, OpenSourceMalware).",
-      "action": "If Cursor installed or auto-updated the Claude Code extension on Oct 29, treat the machine as compromised: isolate it, update the extension to 2.1.314, remove any 'svc-telemetry' line from ~/.ssh/authorized_keys and the planted scheduled task, cron job or LaunchAgent, block 134.209.82[.]225, then rotate SSH keys and every credential in that machine's environment (cloud, Git, CI and AI provider keys) and sign out of sessions. Consider turning off extension auto-update on developer machines.",
-      "url": "https://thehackernews.com/2026/10/official-claude-code-vs-code-extension.html",
+      "why": "Oct 29-30: a malicious version 2.1.313 was published to the Open VSX registry under Anthropic's real extension ID and reached Cursor's marketplace through its mirror between about 2:27 a.m. and 1:35 p.m. PT on Oct 29 (5:27 AM to 4:35 PM EDT); Cursor says at most 5,000 of its users got it. A loader prepended to extension.js runs as soon as the file loads (no interaction needed), adds an attacker key labeled 'svc-telemetry' to ~/.ssh/authorized_keys, tries to enable SSH and open a reverse tunnel to 134.209.82[.]225, installs a LaunchAgent, cron entry or 'SysMon' scheduled task, and beacons host details plus the names of up to 40 secret-looking environment variables to port 8099. New since the last summary: Cursor says the attacker server has been taken offline with its hosting provider, it audited and found no other extensions tampered with, and enabling SSH fails without admin rights, though the key and persistence still land and stay ready if Remote Login is on. How the attacker got publishing access is still unknown (Cursor notice, StepSecurity, The Hacker News).",
+      "action": "If you installed or auto-updated the Claude Code extension in Cursor on Oct 29, run Cursor's check and cleanup scripts, remove any 'svc-telemetry' line from ~/.ssh/authorized_keys and the planted LaunchAgent, cron entry or SysMon task (uninstalling the extension isn't enough), update to 2.1.314, block 134.209.82[.]225, and rotate SSH keys and every credential reachable from that machine from a clean system. Consider turning off extension auto-update on developer machines.",
+      "url": "https://cursor.com/blog/claude-code-extension-security-notice",
       "ai_angle": [
         "product",
         "impact"
       ],
       "ai_note": "AI product supply chain: the backdoor rode in on an AI coding-agent extension under its real publisher ID, aimed at developers' keys and machines."
+    },
+    {
+      "title": "Northflank (cloud and AI workload platform) breached: assume all environment variables were decrypted; customers report AI keys being used",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Northflank",
+      "why": "New (Oct 30): after a Wiz threat alert at 11:43 UTC (7:43 AM EDT), Northflank declared a security incident and major outage, told all users to assume their environment variables are decrypted, and says multiple users have confirmed their AI keys were used. It covers secrets on workloads, secret groups and global secrets; it has enabled secret rotation for Postgres and MongoDB addons. Northflank says it serves over 2,000 companies. How the attackers got in is not yet public.",
+      "action": "If you run anything on Northflank, rotate every secret it held now, from a clean machine: AI provider keys first (OpenAI, Anthropic and others; check their usage dashboards for spend you didn't make), then cloud, database, Git, CI and third-party API keys. Rotate Postgres and MongoDB addon credentials, turn off public exposure on addons, and watch Northflank's status page for root cause.",
+      "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
+      "ai_angle": [
+        "impact"
+      ],
+      "ai_note": "AI impact: the stolen environment variables include AI provider keys that are already being abused, the same pattern as Railway, Rocket.new and Command Code."
     },
     {
       "title": "Anthropic: an unreleased Claude research model found and fully exploited critical flaws in Chrome and other major software; Chrome 156 fixes 62 of them (newer build 156.0.8078.79 adds 21 more fixes)",
@@ -68,20 +82,6 @@
         "cause"
       ],
       "ai_note": "AI as the cause: in the CyberStrikeAI case AI agents ran the whole attack workflow; in the others AI assisted planning, tool-writing or ran large parts of the intrusion. Which models were used is mostly not known."
-    },
-    {
-      "title": "n0n extortion group used an AI coding agent to build its attack toolkit; 93 victims listed, $283.7M demanded",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "Multiple (FortiGate SSL-VPN, RDP/WinRM, AWS keys, hosting portals, Cisco FMC)",
-      "why": "New (Oct 28): SOCRadar found an exposed staging server (185.157.161[.]148:8877) holding a n0n operator's September workspace: 829 scripts, locker source code and extortion infrastructure. The operator used the open-source opencode AI coding agent, configured with 154 model entries across seven providers (including 'uncensored'/'abliterated' models and a self-hosted one), to write and debug hundreds of attack scripts, spending more than $7,216 on LLM usage. Entry was by credentials only, not software flaws: credential stuffing against 305 FortiGate SSL-VPN devices, exposed AWS keys, weak RDP/WinRM logins and reused hosting-portal sessions. The operator hijacked Cisco Firepower Management Center to switch access policies to BLOCK, and sometimes deleted data and backups instead of encrypting. As of Oct 19 n0n listed 93 victims and $283.7M in total demands; SOCRadar says the operation is human-directed with AI support, not autonomous.",
-      "action": "Require MFA on SSL-VPN, RDP/WinRM and hosting/admin portals, block credential stuffing (rate limits, lockouts, geo or residential-proxy blocking), rotate and remove long-lived AWS access keys, check for hidden admin accounts disguised as services, lock down firewall management consoles, keep offline or immutable backups, and block 185.157.161.148.",
-      "url": "https://socradar.io/blog/n0n-ransomware-ai-assisted-extortion/",
-      "ai_angle": [
-        "cause"
-      ],
-      "ai_note": "AI as the cause: an AI coding agent wrote the group's tooling, letting a small crew run a broad credential-driven extortion campaign."
     },
     {
       "title": "PHP2Shell: unauthenticated RCE in the PHP runtime, exploited (CISA KEV), now confirmed against Palo Alto PAN-OS management interfaces; AI-assisted China-linked actor rooted 25 servers, mostly firewalls",
@@ -145,24 +145,30 @@
       "ai_note": ""
     },
     {
-      "title": "Binance: about $6.3B hit in Oct 29 hack (TRM Labs blames North Korea's TraderTraitor); recovery has begun, withdrawals expected back in about 45 hours",
+      "title": "Binance: about $6.3B taken in Oct 29 hot-wallet hack (TRM Labs blames North Korea); withdrawals paused, restart targeted for Sunday Nov 1",
       "severity": "critical",
       "exploited": true,
       "cves": [],
       "vendor": "Binance (crypto exchange; Binance.US not affected)",
-      "why": "New since the last summary (Binance via BBC, Oct 30): Binance says it has 'begun recovering affected assets', has reserved over $6.3B to cover the loss ($5B already held in the stolen tokens), and that beyond the compromised DevOps engineer's laptop its investigation 'uncovered additional points of breach' (no details). It expects withdrawals to resume about 45 hours after its 08:47 GMT update (around 12 AM EDT Nov 1); deposits are working. Co-CEO Richard Teng called it 'a more complex attack process', not a one-click action, and says no one has been formally attributed. Earlier: TRM Labs attributes the theft to TraderTraitor (analyst attribution, not Binance's or a government's). The attacker reached a service container and submitted unauthorized withdrawals, using an EIP-7702 delegation to turn the 'Binance 14' hot wallet into a sweeper; no wallet private-key leak found. About $3B is frozen on-chain (Tether, Circle, Ripple and others); Chainalysis estimates $5.91B stolen, about four times Bybit's 2025 theft. Binance.US is not affected.",
-      "action": "Binance users: use only the official app and site, ignore links, calls or messages about refunds, 'verification' or moving funds to a 'safe' wallet, and expect withdrawals to stay paused until about Nov 1. Exchanges and custodians: treat engineer laptops with access to signing or withdrawal systems as crown jewels (hardware keys, isolated admin devices, multi-party approval) and review EIP-7702 delegations on hot wallets.",
-      "url": "https://apnews.com/article/binance-cryptocurrency-security-hack-north-korea-550e9b876550f71f07098494fe735beb",
+      "why": "Binance says a compromised DevOps engineer's laptop gave the attacker access to a service container to submit unauthorized withdrawals; co-CEO Richard Teng says the attacker used an EIP-7702 delegation over a hot wallet that skipped normal approval controls, and tooling that destroyed traces. Most of the funds left in about 20 minutes starting 4:05 PM EDT Oct 29, per TRM Labs; about $3B is frozen on-chain, and Binance says it will cover losses from SAFU and company funds. New since the last summary: withdrawals stay off until the rebuilt service passes testing, with a Sunday Nov 1 target and a full Proof of Reserves report by Monday Nov 2; the US Secret Service and FBI are involved. No private-key leak found, deposits work.",
+      "action": "Use only official Binance channels, ignore 'recovery' or 'refund' messages, which are a common follow-on scam, and don't move funds through unofficial links. If you build on exchange or wallet infrastructure, review EIP-7702 delegation controls on hot wallets.",
+      "url": "https://www.binance.com/en/support/announcement/detail/c5a8729a97ac486d963784d96c5642d7",
       "ai_angle": [],
       "ai_note": ""
     }
   ],
   "news": [
     {
-      "title": "Official Claude Code Extension on Cursor Marketplace Trojanized with Persistent SSH Backdoor",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/10/official-claude-code-vs-code-extension.html",
-      "blurb": "A malicious Claude Code 2.1.313 under Anthropic's real extension ID reached up to 5,000 Cursor users on Oct 29 and planted an SSH key, tunnel and persistence."
+      "title": "Northflank security incident: assume environment variables are decrypted, rotate all keys",
+      "source": "Northflank status page",
+      "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
+      "blurb": "Detected via a Wiz alert on Oct 30; multiple users confirm their AI keys were used. Rotate workload secrets, secret groups, global secrets and addon credentials."
+    },
+    {
+      "title": "Security notice: malicious version of Anthropic.claude-code (2.1.313) in the Cursor Extension Marketplace",
+      "source": "Cursor",
+      "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+      "blurb": "Up to 5,000 users affected; the build came through Open VSX, the attacker server is offline, and Cursor published check and cleanup scripts."
     },
     {
       "title": "Fresh WordPress Vulnerability in Attackers' Crosshairs",
@@ -171,22 +177,22 @@
       "blurb": "Wordfence saw 18,500+ attempts in 21 hours against a Core-update race-condition RCE fixed in WordPress 7.1.4."
     },
     {
-      "title": "Binance says it is beginning to recover crypto funds after $6.3bn hack",
-      "source": "BBC News",
-      "url": "https://www.bbc.com/news/live/cqrmynd3042gt",
-      "blurb": "Binance found more points of breach beyond a DevOps laptop, reserved $6.3B to cover losses and expects withdrawals back in about 45 hours."
+      "title": "Binance security incident update (Oct 30)",
+      "source": "Binance",
+      "url": "https://www.binance.com/en/support/announcement/detail/c5a8729a97ac486d963784d96c5642d7",
+      "blurb": "About $6.3B hit, ~$3B frozen; losses covered by SAFU; withdrawals targeted to resume Sunday Nov 1, reserves report by Monday."
+    },
+    {
+      "title": "In Other News: Anthropic Breach Dispute, UEFI Flaw Hits Most Servers, Cloudflare AI Data Leak",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/in-other-news-anthropic-breach-dispute-uefi-flaw-hits-most-servers-cloudflare-ai-data-leak/",
+      "blurb": "Weekly roundup: TianoCore EDK II PXE boot flaw CVE-2026-97631, Cathedral vs Anthropic, Cloudflare/SGLang cross-tenant leak, Iran suspected in military freezer hacks, University of Copenhagen breach."
     },
     {
       "title": "VAPOR PANDA Uses AI-Driven ARTEX to Scale a Global Espionage Campaign",
       "source": "CrowdStrike",
       "url": "https://www.crowdstrike.com/en-us/blog/vapor-panda-uses-artex-to-scale-global-campaign/",
       "blurb": "A China-linked group ran the ARTEX agent framework with DeepSeek against 200+ organizations in 14+ countries from Oct 17."
-    },
-    {
-      "title": "Pentagon treating military base freezer malfunctions as suspected cyberattack",
-      "source": "Military Times (Reuters)",
-      "url": "https://www.militarytimes.com/pentagon/2026/10/29/pentagon-treating-military-base-freezer-malfunctions-as-suspected-cyberattack-officials-say/",
-      "blurb": "Freezers at six US commissaries failed in August, some with temperatures turned up; investigators are working with France, where 350+ shops were hit."
     },
     {
       "title": "Discovering and exploiting vulnerabilities in critical, real-world software with Claude",
@@ -199,17 +205,20 @@
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/10/attackers-exploit-php2shell-flaws-in.html",
       "blurb": "Palo Alto confirms PHP2Shell attacks on PAN-OS management interfaces exposed to the internet and lists fixed hotfix versions, some arriving Oct 29-30; restrict management access to trusted IPs now."
-    },
-    {
-      "title": "Max-Severity GitLab Vulnerability Exploited Against Alpine Linux",
-      "source": "SecurityWeek",
-      "url": "https://www.securityweek.com/max-severity-gitlab-vulnerability-exploited-against-alpine-linux/",
-      "blurb": "CISA lists GitLab CVE-2026-97229 as exploited after an attempted attack on Alpine's own GitLab; federal deadline Nov 1."
     }
   ],
   "watch": [
+    "OpenCode and MCP Inspector (CVE-2026-119025, root cause in the 'open' npm package 7.2.0 before 11.0.0): on Windows and WSL, a malicious MCP server's OAuth sign-in URL with $(...) runs PowerShell on your machine before any tool is listed (OpenCode 1.0.137-1.18.32, MCP Inspector 2.0-2.11). Update both and only connect to MCP servers you trust.",
+    "InternLM LMDeploy CVE-2026-119706 (9.8, published Oct 30): versions 0.9.0 through 0.18.0 run attacker commands from a pickle sent to the unauthenticated /update_weights endpoint; keep LMDeploy API servers off the internet and update once a fix is listed. No attacks reported.",
+    "n8n CVE-2026-119408 (8.8): users who can create or import workflows can run JavaScript in the main process through hidden Function and LangChain Code nodes; update to 2.42.6, 2.43.3 or 3.0.1.",
+    "TianoCore EDK II CVE-2026-97631 (critical, found by Anthropic and Google researchers per SecurityWeek/Ars Technica): an oversized ICMP error during PXE network boot can hang or run code in UEFI firmware on most servers; it went public early after AMI shipped a fix. Ask your server vendor for firmware updates and turn off PXE boot where unused.",
+    "Trezor (BleepingComputer, Oct 30): credible reports of a suspected crypto-theft hardware implant in a Trezor Safe 5 sold by reseller CryptoBilis in Southeast Asia; buy hardware wallets only from the maker or authorized sellers and check tamper seals.",
+    "New breaches Oct 30: Hyundai Easywell (abnormal API access leaked client-company members' names, birth dates, phones and emails), GS E&C (apartment amenity booking system, residents' details and passwords), University of Copenhagen (about 525,000 people incl. CPR numbers; ~20,000 ID-card PINs reissued), ENGIE France (customer data via a sales-partner tool), and AU Small Finance Bank investigating a claimed Salesforce-hosted vehicle-loan data leak (claim by 'Scarlett Group' unverified).",
+    "AI-run attacks in this week's SecurityWeek roundup: Cisco Talos describes NIK C2, a new AI-integrated command-and-control framework with a credential-stealing, keylogging and screen-locking Windows implant; Sophos' earlier Aur0ra ransomware report (GOLD OGRE using Cursor-orchestrated agents for discovery and lateral movement) was also re-highlighted.",
+    "SGLang (AI inference engine): Cloudflare's GLM 5.3 cross-tenant leak came partly from an SGLang bug with over-length requests; if you serve models with SGLang, update to 0.5.22 or later.",
+    "n0n extortion group (SOCRadar, Oct 28; moved off the focus list): built its attack toolkit with the opencode AI coding agent; 93 victims listed. See the AI activity roll-up.",
+    "Pentagon freezer probe: officials now suspect Iran-linked hackers caused freezer failures at about six US military commissaries starting in late August (Nextgov via SecurityWeek); French investigators are involved after similar refrigeration-control hacks at about 350 French sites.",
     "Unauthorized Codex / Claude Code relay (Symantec, Oct 29): a service seen at about a dozen organizations, mostly in mainland China, installs the genuine tools from scripts on lookalike domains such as vibe.aiok[.]me, then points ~/.codex/config.toml or ~/.claude/settings.json at its own servers, sets Codex sandbox_mode to danger-full-access and turns off telemetry. It can see prompts, files and secrets; no data theft confirmed. Check those config files for unknown base_url / ANTHROPIC_BASE_URL values.",
-    "Pentagon freezer probe (Reuters, Oct 29): freezers at at least six US military commissaries failed in late August, at Fort Huachuca by switching to defrost overnight; Cyber Command and Army CID treat it as a suspected hack and are working with French investigators after 350+ French shops' refrigeration was overridden this month. Nextgov says officials suspect Iran-linked hackers (not confirmed). Keep refrigeration and building controllers off the internet.",
     "TeamViewer CVE-2026-111585 (8.8, Remedio): a malicious or compromised host can crash or run code on the technician's viewer through an oversized screen surface; fixed in TeamViewer 15.83 (plus legacy builds and fixes for CVE-2026-92372 and macOS CVE-2026-92374). No attacks reported; update clients and Remote Management add-ons.",
     "Rank Math PRO 3.0.123 (WordPress SEO plugin): an X post says this release shipped compromised (single source, unverified); if you run it, check for an official notice before updating and look for unexpected admin users or files.",
     "New critical CVEs (Oct 30, no attacks reported): vsftpd through 3.0.5 CVE-2026-119568 (9.1, FTPS data-connection hijack via TLS session-ticket resumption) and CakePHP through 5.4.3 CVE-2026-119418/119419 (9.2, SQL injection in window-function and collation values); update when fixes ship.",
@@ -361,11 +370,11 @@
     "Cisco ASA/FTD SSL VPN DoS zero-day CVE-2026-76418 (exploited, CISA KEV, federal deadline Nov 1; moved off the focus list): upgrade ASA to 9.16.4.104, 9.18.4.96, 9.20.4.50, 9.22.3.200, 9.23.1.48, 9.24.1.27 or 9.24.10.1, or FTD to 7.0.11, 7.2.13, 7.4.9, 7.6.7, 7.7.14, 10.0.3 or 10.1.1."
   ],
   "ai_activity": {
-    "overview": "Newest (Oct 30): a trojanized Claude Code extension update on Cursor's marketplace backdoored up to 5,000 developer machines, the most direct hit yet on AI coding-agent users; CrowdStrike tied a 200+-organization espionage campaign to VAPOR PANDA running the ARTEX AI agent framework with DeepSeek; Symantec exposed a relay that silently reroutes real Codex and Claude Code installs and disables their sandboxes; and AWS DynamoDB MCP, AI Engine for WordPress and Strands Agents Tools flaws were fixed. Also Oct 30: Perplexity confirmed the first successful in-the-wild code execution with the AI-found PHP2Shell flaws, and AhnLab showed ARTEX breaking into a test network on its own. Oct 29: GoDaddy's 123 Reg called a September breach its first AI-driven attack (ARTEX plus copied Anthropic attack skills, its own attribution); a Hugging Face trust_remote_code miner campaign returned; OpenAI admitted its monitors missed a July agent sandbox escape; Anthropic's unreleased Claude model built a zero-click Linux root exploit (CVE-2026-98432, lab only). Oct 27-28: Gemini 4 Carbon launched for vetted defenders, Bitcoin Core fixed three LLM-found bugs, PHP2Shell was confirmed against PAN-OS, n0n built its toolkit with an AI coding agent, and CyberStrikeAI's 44-agent campaign was exposed. Breaches at Railway, treg, Comet Opik, LiteLLM, Rocket.new and Command Code went after AI model access. Items older than 7 days have rolled off.",
+    "overview": "Newest (Oct 30): Northflank, a platform many teams use to run AI workloads, was breached and customers report their AI keys being used, the sixth AI-key-hunting platform breach in a week after Railway, treg, Comet Opik, LiteLLM, Rocket.new and Command Code; the trojanized Claude Code extension that hit Cursor users turned out to come in through Open VSX, and its server is now offline; and new AI-tool flaws landed in OpenCode/MCP Inspector (malicious MCP server runs PowerShell at sign-in), LMDeploy (unauthenticated RCE) and n8n's LangChain Code node. Also Oct 29-30: CrowdStrike tied a 200+-organization espionage campaign to VAPOR PANDA running the ARTEX AI agent framework with DeepSeek, Symantec exposed a relay that reroutes real Codex and Claude Code with sandboxes off, Perplexity confirmed in-the-wild code execution with the AI-found PHP2Shell flaws, and Anthropic's unreleased Claude model built a zero-click Linux root exploit (lab only). Oct 27-28: Anthropic's Chrome exploit chains, Gemini 4 Carbon, LLM-found Bitcoin Core bugs, n0n's AI-built toolkit and CyberStrikeAI's 44-agent campaign. Items older than 7 days have rolled off.",
     "counts": {
       "ai_cause": 26,
-      "ai_product_exploited": 30,
-      "ai_impact": 12
+      "ai_product_exploited": 32,
+      "ai_impact": 13
     },
     "groups": [
       {
@@ -632,13 +641,46 @@
         "label": "AI products being exploited",
         "items": [
           {
-            "title": "Trojanized Claude Code extension 2.1.313 on Cursor's marketplace backdoors up to 5,000 developer machines",
+            "title": "LMDeploy (InternLM LLM serving toolkit): unauthenticated pickle RCE through /update_weights (CVE-2026-119706, 9.8)",
+            "date": "2026-10-30T16:17:00Z",
+            "summary": "Versions 0.9.0 through 0.18.0 deserialize a base64 pickle sent to the /update_weights endpoint without checks, running commands as the API server. Published Oct 30; no attacks reported and no fixed version listed in the record yet.",
+            "status": "reported",
+            "cves": [
+              "CVE-2026-119706"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119706",
+            "source": "NVD"
+          },
+          {
+            "title": "OpenCode and MCP Inspector: a malicious MCP server's OAuth sign-in URL runs PowerShell on Windows and WSL (CVE-2026-119025)",
+            "date": "2026-10-30T15:42:00Z",
+            "summary": "The 'open' npm package (7.2.0 before 11.0.0) passed URLs unescaped to PowerShell, so a remote MCP server could put $(...) in its authorization endpoint and run code before listing any tool. X posts name OpenCode 1.0.137-1.18.32 and MCP Inspector 2.0-2.11 as affected; fixed by updating to builds using open 11.0.0+.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-119025"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119025",
+            "source": "NVD / X"
+          },
+          {
+            "title": "n8n: hidden Function and LangChain Code nodes run JavaScript outside the task-runner sandbox (CVE-2026-119408, 8.8)",
+            "date": "2026-10-30T12:16:00Z",
+            "summary": "Authenticated users who can create or import workflows can run code in n8n's main process. Fixed in 2.42.6, 2.43.3 and 3.0.1; no attacks reported.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-119408"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119408",
+            "source": "NVD"
+          },
+          {
+            "title": "Trojanized Claude Code extension 2.1.313, published via Open VSX and mirrored by Cursor's marketplace, backdoors up to 5,000 developer machines",
             "date": "2026-10-30T08:55:00Z",
-            "summary": "Served under Anthropic's real extension ID on Oct 29 (about 2:27 a.m. to 1:35 p.m. PT); adds an 'svc-telemetry' SSH key, reverse tunnel to 134.209.82[.]225, persistence and a beacon with env-var names. Removed; Anthropic published 2.1.314. Remove the key and persistence and rotate credentials.",
+            "summary": "On Oct 29 a malicious 2.1.313 under Anthropic's real extension ID went out through Open VSX and Cursor's mirror for about 11 hours. Its loader runs on file load, plants an attacker SSH key ('svc-telemetry'), persistence and a reverse tunnel to 134.209.82[.]225, and beacons host details and secret-looking environment variable names. Cursor says at most 5,000 users got it, the attacker server is now offline, no other extensions were tampered with, and enabling SSH fails without admin rights. Clean 2.1.314 is out; how the attacker got publishing access is unknown.",
             "status": "exploited",
             "cves": [],
-            "url": "https://thehackernews.com/2026/10/official-claude-code-vs-code-extension.html",
-            "source": "Cursor / OpenSourceMalware / The Hacker News"
+            "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+            "source": "Cursor / StepSecurity / The Hacker News"
           },
           {
             "title": "AI Engine WordPress plugin: MCP OAuth endpoint lets anyone register a client (CVE-2026-110732)",
@@ -939,23 +981,21 @@
             ],
             "url": "https://x.com/XavierRiveraX/status/2113712258656137598",
             "source": "X"
-          },
-          {
-            "title": "Copilot in Visual Studio and SSMS: trailing-dot bypass of protected-file checks (CVE-2026-103572)",
-            "date": "2026-10-23T13:03:41Z",
-            "summary": "Johann Rehberger showed that writing to 'settings.json.' let Copilot rewrite its own config and point an MCP server at attacker code. Patched by Microsoft; no exploitation reported.",
-            "status": "patched",
-            "cves": [
-              "CVE-2026-103572"
-            ],
-            "url": "https://x.com/infinitelogins/status/2113617357385965628",
-            "source": "X"
           }
         ]
       },
       {
         "label": "AI impact / AI keys & infrastructure",
         "items": [
+          {
+            "title": "Northflank breach: all environment variables assumed decrypted; multiple customers confirm their AI keys were used",
+            "date": "2026-10-30T13:40:00Z",
+            "summary": "After a Wiz alert at 11:43 UTC on Oct 30, Northflank declared a major security incident and told every user to rotate workload secrets, secret groups and global secrets; it enabled Postgres and MongoDB secret rotation and advises turning off public addon exposure. Entry point not yet disclosed.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
+            "source": "Northflank status page / Security.NL"
+          },
           {
             "title": "Shadow AI: Johns Hopkins Bayview notifies 3,182 patients after a staffer uploaded patient data to an unapproved public AI tool",
             "date": "2026-10-29T15:00:00Z",
@@ -1067,6 +1107,6 @@
         ]
       }
     ],
-    "trend_note": "Attackers are going after the AI coding tools themselves: an official extension's update channel, setup scripts that reroute Claude Code and Codex, and repo hooks aimed at agents, while state groups now run AI agent frameworks against hundreds of targets at once. Since the last update: the Cursor-marketplace Claude Code backdoor, CrowdStrike's VAPOR PANDA ARTEX report and Symantec's relay finding were added; no new AI-found exploits were reported."
+    "trend_note": "Stolen AI provider keys keep being the payoff: attackers breach the platforms that store customers' environment variables and spend the AI keys right away, while AI coding tools and MCP clients are the favorite way into developer machines. Since the last update: the Northflank breach, the OpenCode/MCP Inspector, LMDeploy and n8n flaws were added and the Claude Code extension item was updated; no new AI-found exploits were reported."
   }
 }
