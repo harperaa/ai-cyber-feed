@@ -1,7 +1,7 @@
 {
- "updated_at": "2026-10-30T20:45:00Z",
- "next_update_note": "Next summary update in about 4 hours (around 12:30 AM EDT Oct 31); the feed itself refreshes hourly.",
- "headline": "If you deploy on Northflank, rotate every secret now: the platform says to assume all environment variables were decrypted and customers already saw their AI keys used. New: Epoch AI showed a freely available open-weight model (GLM 5.3) building working Firefox exploits from not-yet-shipped fixes for about $1,000 each, so update Firefox to 159.0 or later; and WIRED reports an Accenture contractor's personal Claude Code agent ran on a Pentagon network for two months and appears to have sent credentials out (Accenture denies it). Still act on: the trojanized Claude Code extension 2.1.313 in Cursor, WordPress 7.1.4, Chrome 156.0.8078.79, PHP2Shell against PAN-OS (Cisco now lists affected products too), GitLab CVE-2026-97229 (exploited, due Nov 1), Brotli 'Node2Shell', and Binance withdrawals still paused.",
+ "updated_at": "2026-10-31T00:50:00Z",
+ "next_update_note": "Next summary update in about 4 hours (around 4:30 AM EDT Oct 31); the feed itself refreshes hourly.",
+ "headline": "If you deploy on Northflank, rotate every secret now: its 7:28 PM UTC update (3:28 PM EDT) says the investigation is ongoing with no new findings and the advice is unchanged, assume all environment variables were decrypted, and customers have already seen their AI keys used. Still act on: Firefox 159.0 (an open-weight AI model built working exploits from unshipped fixes), the trojanized Claude Code extension 2.1.313 in Cursor, WordPress 7.1.4, Chrome 156.0.8078.79, PHP2Shell against PAN-OS, GitLab CVE-2026-97229 (exploited, due Nov 1), Brotli 'Node2Shell', and Binance withdrawals still paused. New tonight are smaller: an unauthenticated admin-takeover flaw in the okta-ai-agent app (update to 3.0.1-beta), a critical but undescribed CVE in the MoLing MCP server, and an AWS Kinesis Producer Library bug that can leak AWS keys into logs.",
  "ai_headline": "AI-built exploitation is getting cheap: Epoch AI says open-weight GLM 5.3 turned Firefox's public-but-unshipped security fixes into working file-stealing exploit chains with no human help, while Anthropic's lab model did the same for Chrome and Linux. The hunt for AI keys hit Northflank after Command Code, Rocket.new, Railway, Comet Opik and LiteLLM, and AI coding agents keep leaking secrets, from the trojanized Claude Code extension to the reported Claude Code agent on a Pentagon network. VAPOR PANDA's ARTEX campaign (planning agents burning about 1.4 billion tokens in one intrusion), CyberStrikeAI, n0n and PHP2Shell remain the clearest real-world AI-driven attacks.",
  "focus": [
   {
@@ -39,7 +39,7 @@
    "exploited": true,
    "cves": [],
    "vendor": "Northflank",
-   "why": "New (Oct 30): after a Wiz threat alert at 11:43 UTC (7:43 AM EDT), Northflank declared a security incident and major outage, told all users to assume their environment variables are decrypted, and says multiple users have confirmed their AI keys were used. It covers secrets on workloads, secret groups and global secrets; it has enabled secret rotation for Postgres and MongoDB addons. Northflank says it serves over 2,000 companies. Since the last summary: the platform's networking, services, addons, jobs and builds are still listed as a major outage, Sentry says it rotated its secrets and found no impact on customer data (its Northflank use was internal and demo only), and Northflank has removed its customer list from its website. How the attackers got in is still not public.",
+   "why": "New (Oct 30): after a Wiz threat alert at 11:43 UTC (7:43 AM EDT), Northflank declared a security incident and major outage, told all users to assume their environment variables are decrypted, and says multiple users have confirmed their AI keys were used. It covers secrets on workloads, secret groups and global secrets; it has enabled secret rotation for Postgres and MongoDB addons. Northflank says it serves over 2,000 companies. Since the last summary: the platform's networking, services, addons, jobs and builds are still listed as a major outage, Sentry says it rotated its secrets and found no impact on customer data (its Northflank use was internal and demo only), and Northflank has removed its customer list from its website. How the attackers got in is still not public. Latest (Oct 30, 7:28 PM UTC / 3:28 PM EDT): investigation ongoing, no further confirmed findings, guidance unchanged; Postgres and MongoDB secret rotation has been enabled for all users.",
    "action": "If you run anything on Northflank, rotate every secret it held now, from a clean machine: AI provider keys first (OpenAI, Anthropic and others; check their usage dashboards for spend you didn't make), then cloud, database, Git, CI and third-party API keys. Rotate Postgres and MongoDB addon credentials, turn off public exposure on addons, and watch Northflank's status page for root cause.",
    "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
    "ai_angle": [
@@ -206,6 +206,11 @@
   }
  ],
  "watch": [
+  "New Oct 30 evening: fctr-id okta-ai-agent (an AI agent app for Okta admins) CVE-2026-63377 lets an unauthenticated attacker create the first admin account during setup and take over the app; update to 3.0.1-beta and don't leave a fresh install reachable before setup is finished (X report of the CVE record).",
+  "MoLing MCP server (computer-use / browser-use MCP server) CVE-2026-62863 is rated critical (9.6), but the record doesn't yet say what the flaw is or which versions are hit; limit who can reach any MoLing instance until details land (X report, unverified details).",
+  "AWS Kinesis Producer Library for Java before 1.0.8 (CVE-2026-119117): DEBUG logs and native process arguments can expose AWS credentials to local users; upgrade to 1.0.8 and rotate keys if DEBUG logging was on (X report of AWS's disclosure).",
+  "AI agents' bundled browsers: an X post warns that agent tools shipping their own cached Chromium may still be open to CVE-2026-85046, an exploited V8 type-confusion bug fixed in Chrome 152.0.7977.82; check the Chromium version your browser-use agents actually run (unverified).",
+  "AI code-scanner evasion (X post, unverified): malware authors reportedly stuff JavaScript comments with weapons terminology so AI code scanners refuse to analyze the file; don't treat an AI scanner's refusal as a clean result.",
   "Accenture / Pentagon (WIRED, Oct 29; disputed): sources say a contractor connected a NIPRNet system holding controlled unclassified information to a personal Claude Code account, giving the agent admin access for about two months, and it appears to have sent login credentials, passwords and a network map to a third-party site NIST had flagged as high risk. Accenture says an independent investigation found the allegations without merit; the Pentagon declined to comment. Don't give AI agents your own login or admin credentials, and block unapproved agent accounts on sensitive networks.",
   "Flowise CVE-2026-119978 (9.0, published Oct 30): with ALLOW_BUILTIN_DEP=true, any logged-in user can escape the vm2 sandbox through /api/v1/node-custom-function and run OS commands; affects Flowise through 3.1.4. Turn ALLOW_BUILTIN_DEP off and update once a fixed release is listed. No attacks reported. Also new: pybars3 through 0.9.7 CVE-2026-119716 (9.2) lets Handlebars template authors run Python code.",
   "Linux kernel CVE-2026-98432 (moved off the focus list; lab-only AI-built zero-click remote root exploit, no attacks reported): move internet-facing servers to a fixed kernel (5.10.272, 5.15.223, 6.1.190, 6.6.159, 6.12.113, 6.18.56, 7.2.10 or 7.3+) or your distro's patched build and reboot, multipath TCP listeners first.",
@@ -370,10 +375,10 @@
   "Cisco ASA/FTD SSL VPN DoS zero-day CVE-2026-76418 (exploited, CISA KEV, federal deadline Nov 1; moved off the focus list): upgrade ASA to 9.16.4.104, 9.18.4.96, 9.20.4.50, 9.22.3.200, 9.23.1.48, 9.24.1.27 or 9.24.10.1, or FTD to 7.0.11, 7.2.13, 7.4.9, 7.6.7, 7.7.14, 10.0.3 or 10.1.1."
  ],
  "ai_activity": {
-  "overview": "Newest (Oct 30): Epoch AI showed the open-weight model GLM 5.3 turning Firefox's public-but-unshipped fixes into working exploits for about $1,000 each (patched in Firefox 159.0); WIRED reported an Accenture contractor's personal Claude Code agent running on a Pentagon network and appearing to leak credentials (Accenture denies it); Northflank, a platform many teams use to run AI workloads, was breached and customers report their AI keys being used; and Flowise, OpenCode/MCP Inspector, LMDeploy and n8n got new code-execution flaws. Also Oct 29-30: the trojanized Claude Code extension that reached Cursor users via Open VSX, VAPOR PANDA's 200+-organization ARTEX campaign, Symantec's Codex and Claude Code relay, PHP2Shell exploited in the wild, and Anthropic's lab-built zero-click Linux root exploit. Oct 27-28: Anthropic's Chrome exploit chains, Gemini 4 Carbon, LLM-found Bitcoin Core bugs, n0n's AI-built toolkit and CyberStrikeAI's 44-agent campaign. Items older than 7 days have rolled off.",
+  "overview": "Newest (Oct 30 evening): a critical admin-takeover flaw in the okta-ai-agent app, an undescribed 9.6 CVE in the MoLing MCP server, and two unverified X reports (agents' bundled Chromium lagging on an exploited V8 bug, and malware evading AI code scanners with weapons terms). Earlier Oct 30: Epoch AI showed open-weight GLM 5.3 turning Firefox's unshipped fixes into working exploits for about $1,000 each (patched in 159.0); WIRED reported an Accenture contractor's personal Claude Code agent on a Pentagon network (Accenture denies it); Northflank was breached and customers report AI keys being used; Flowise, OpenCode/MCP Inspector, LMDeploy and n8n got code-execution flaws. Oct 27-29: the trojanized Claude Code extension in Cursor, VAPOR PANDA's ARTEX campaign, PHP2Shell, Anthropic's Chrome and Linux exploit chains, n0n and CyberStrikeAI. Items older than 7 days have rolled off.",
   "counts": {
    "ai_cause": 24,
-   "ai_product_exploited": 32,
+   "ai_product_exploited": 35,
    "ai_impact": 14
   },
   "groups": [
@@ -622,6 +627,39 @@
    {
     "label": "AI products being exploited",
     "items": [
+     {
+      "title": "okta-ai-agent (fctr-id): unauthenticated admin takeover through first-run setup (CVE-2026-63377)",
+      "date": "2026-10-30T22:44:00Z",
+      "summary": "An unauthenticated attacker can create the first admin account during setup and take full control of the AI agent app; fixed in 3.0.1-beta. No attacks reported.",
+      "status": "patched",
+      "cves": [
+       "CVE-2026-63377"
+      ],
+      "url": "https://x.com/cvedotnow/status/2116300294405452281",
+      "source": "X"
+     },
+     {
+      "title": "AI agents' bundled Chromium may lag behind on exploited V8 bug CVE-2026-85046",
+      "date": "2026-10-30T22:12:00Z",
+      "summary": "Single X post: agent tools that ship their own cached Chromium may still run builds older than Chrome 152.0.7977.82, which fixed this actively exploited V8 type-confusion bug.",
+      "status": "unverified",
+      "cves": [
+       "CVE-2026-85046"
+      ],
+      "url": "https://x.com/stretchcloud/status/2116292059174707348",
+      "source": "X"
+     },
+     {
+      "title": "MoLing MCP server (computer-use/browser-use): critical CVE-2026-62863 (9.6), details not yet published",
+      "date": "2026-10-30T21:27:00Z",
+      "summary": "Rated CVSS 9.6, but the record does not yet describe the flaw or affected versions. No attacks reported.",
+      "status": "unverified",
+      "cves": [
+       "CVE-2026-62863"
+      ],
+      "url": "https://x.com/infrastack_ai/status/2116280849486536951",
+      "source": "X"
+     },
      {
       "title": "Flowise: logged-in users can escape the sandbox and run OS commands when ALLOW_BUILTIN_DEP=true (CVE-2026-119978, 9.0)",
       "date": "2026-10-30T18:17:00Z",
@@ -970,9 +1008,18 @@
     "label": "AI impact / AI keys & infrastructure",
     "items": [
      {
+      "title": "Malware hides from AI code scanners by stuffing comments with weapons terminology",
+      "date": "2026-10-30T21:32:00Z",
+      "summary": "Single X post: JavaScript files padded with nuclear and biological weapons terms make AI code scanners refuse to analyze them; described as a cataloged evasion technique.",
+      "status": "unverified",
+      "cves": [],
+      "url": "https://x.com/stretchcloud/status/2116281992715092399",
+      "source": "X"
+     },
+     {
       "title": "Northflank breach: all environment variables assumed decrypted; multiple customers confirm their AI keys were used",
       "date": "2026-10-30T13:40:00Z",
-      "summary": "After a Wiz alert at 11:43 UTC on Oct 30, Northflank declared a major security incident and told every user to rotate workload secrets, secret groups and global secrets; it enabled Postgres and MongoDB secret rotation and advises turning off public addon exposure. Entry point not yet disclosed.",
+      "summary": "After a Wiz alert at 11:43 UTC on Oct 30, Northflank declared a major security incident and told every user to rotate workload secrets, secret groups and global secrets; it enabled Postgres and MongoDB secret rotation and advises turning off public addon exposure. Entry point not yet disclosed. As of 7:28 PM UTC Oct 30: investigation ongoing, guidance unchanged.",
       "status": "exploited",
       "cves": [],
       "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
@@ -1085,19 +1132,10 @@
       "cves": [],
       "url": "https://www.kimi.ai/blog/kimi-k3-1-pro",
       "source": "Moonshot AI / Reuters"
-     },
-     {
-      "title": "Alleged Mistral AI proprietary dataset offered for $30,000 on a cybercrime forum",
-      "date": "2026-10-24T00:09:19Z",
-      "summary": "Seller 'ls1337' claims to sell Mistral AI trade secrets; no confirmation from Mistral or other sources.",
-      "status": "unverified",
-      "cves": [],
-      "url": "https://x.com/DailyDarkWeb/status/2113784870052782332",
-      "source": "X"
      }
     ]
    }
   ],
-  "trend_note": "AI is shrinking the time from a public fix to a working exploit, and stolen AI keys stay the payoff of developer-platform breaches. Since the last update: the Epoch AI Firefox research, the WIRED Pentagon Claude Code report and the Flowise flaw were added, VAPOR PANDA details were expanded, and four Oct 23 items rolled off."
+  "trend_note": "AI keeps shrinking the time from a public fix to a working exploit, and AI keys remain the payoff of developer-platform breaches. Since the last update: four new AI-product items were added (two unverified), one AI-evasion report was added, the Northflank entry was updated, and one Oct 24 item rolled off."
  }
 }
