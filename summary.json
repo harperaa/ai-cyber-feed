@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-31T04:35:34Z",
-  "next_update_note": "Next summary update in about 4 hours (around 8:30 AM EDT Oct 31); the feed itself refreshes hourly.",
-  "headline": "New since the last summary: two more Ivanti Connect Secure flaws (CVE-2026-111357, CVE-2026-118527) are confirmed exploited in a chain with CVE-2026-104935 for unauthenticated root on the VPN, so update to 25.1.1.3 or 22.8R2.6 and do memory forensics on exposed boxes. Northflank now says customers' AI keys are being abused and points to Wiz's 'Black October' report of nine AI developer-platform breaches this month; keep rotating every secret you stored there. Chainalysis disclosed a break-in by an attacker using 'offensive agentic techniques'. Still act on: Firefox 159.0, the trojanized Claude Code extension 2.1.313 in Cursor, Chrome 156.0.8078.79, PHP2Shell on PAN-OS, GitLab CVE-2026-97229 (federal deadline Nov 1) and Brotli 'Node2Shell'.",
-  "ai_headline": "Wiz ties this month's breaches at Fireworks AI, Andromeda, Zeabur, Lightning AI, OpenCode, Railway, Warp, Command Code and Northflank into one 'Black October' pattern: agent-driven intrusions hunting stored AI keys, which then turn up in LLM resale markets (two keys alone burned an estimated $100k+ of Bedrock usage). Chainalysis is the newest victim of an agentic attack, while AI keeps cutting the time from fix to exploit (GLM 5.3 on Firefox, Anthropic's lab model on Chrome and Linux). VAPOR PANDA's ARTEX campaign, CyberStrikeAI, n0n and PHP2Shell remain the clearest real-world AI-driven attacks.",
+  "updated_at": "2026-10-31T08:35:53Z",
+  "next_update_note": "Next summary update in about 4 hours (around 12:30 PM EDT Oct 31); the feed itself refreshes hourly.",
+  "headline": "Quiet overnight; new since the last summary: OpenAI fixed the ChatGPT shared-link flaw (a malicious share link could run code in your session and read private chats; reported Oct 18, fixed about 8 days later, rated P1), so it is no longer just a claim. Microsoft's analysis of the trojanized Claude Code extension says versions 2.1.312 and 2.1.313 from Cursor's marketplace were both bad and gives exact cleanup steps. Alpine Linux's write-up of the GitLab CVE-2026-97229 attack on its instance shows upgrading GitLab alone is not enough if you build with your own Ruby (federal deadline Nov 1). Hackers also broke into four top Canadian law firms by phoning staff as IT support. Still act on: Ivanti Connect Secure, Northflank and Black October key rotation, Firefox 159.0, Chrome 156.0.8078.79, PHP2Shell on PAN-OS and Brotli 'Node2Shell'.",
+  "ai_headline": "Wiz ties this month's breaches at Fireworks AI, Andromeda, Zeabur, Lightning AI, OpenCode, Railway, Warp, Command Code and Northflank into one 'Black October' pattern: agent-driven intrusions hunting stored AI keys that end up in LLM resale markets. Chainalysis is the newest victim of an agentic attack, AI keeps shrinking the time from fix to exploit (GLM 5.3 on Firefox, Anthropic's lab model on Chrome and Linux), and Google says its Gemini-based PageBreak agent has found 500+ verified XSS bugs in its own apps this year. VAPOR PANDA's ARTEX campaign, CyberStrikeAI, n0n and PHP2Shell remain the clearest real-world AI-driven attacks.",
   "focus": [
     {
       "title": "Open-weight AI model GLM 5.3 built working Firefox exploit chains from unshipped security fixes for about $1,000 each (Epoch AI)",
@@ -19,14 +19,14 @@
       "ai_note": "AI as the cause: an open-weight model autonomously turned patches into exploits, cheaply enough for ordinary criminals."
     },
     {
-      "title": "Trojanized 'official' Claude Code extension 2.1.313 (via Open VSX, mirrored by Cursor) planted an SSH backdoor on up to 5,000 machines",
+      "title": "Trojanized 'official' Claude Code extension 2.1.312 and 2.1.313 (served by Cursor's marketplace) planted an SSH backdoor on up to 5,000 machines",
       "severity": "critical",
       "exploited": true,
       "cves": [],
       "vendor": "Cursor extension marketplace / Anthropic Claude Code extension (anthropic.claude-code)",
-      "why": "Oct 29-30: a malicious version 2.1.313 was published to the Open VSX registry under Anthropic's real extension ID and reached Cursor's marketplace through its mirror between about 2:27 a.m. and 1:35 p.m. PT on Oct 29 (5:27 AM to 4:35 PM EDT); Cursor says at most 5,000 of its users got it. A loader prepended to extension.js runs as soon as the file loads (no interaction needed), adds an attacker key labeled 'svc-telemetry' to ~/.ssh/authorized_keys, tries to enable SSH and open a reverse tunnel to 134.209.82[.]225, installs a LaunchAgent, cron entry or 'SysMon' scheduled task, and beacons host details plus the names of up to 40 secret-looking environment variables to port 8099. New since the last summary: Cursor says the attacker server has been taken offline with its hosting provider, it audited and found no other extensions tampered with, and enabling SSH fails without admin rights, though the key and persistence still land and stay ready if Remote Login is on. How the attacker got publishing access is still unknown (Cursor notice, StepSecurity, The Hacker News).",
-      "action": "If you installed or auto-updated the Claude Code extension in Cursor on Oct 29, run Cursor's check and cleanup scripts, remove any 'svc-telemetry' line from ~/.ssh/authorized_keys and the planted LaunchAgent, cron entry or SysMon task (uninstalling the extension isn't enough), update to 2.1.314, block 134.209.82[.]225, and rotate SSH keys and every credential reachable from that machine from a clean system. Consider turning off extension auto-update on developer machines.",
-      "url": "https://cursor.com/blog/claude-code-extension-security-notice",
+      "why": "Oct 29-30: a malicious version 2.1.313 was published to the Open VSX registry under Anthropic's real extension ID and reached Cursor's marketplace through its mirror between about 2:27 a.m. and 1:35 p.m. PT on Oct 29 (5:27 AM to 4:35 PM EDT); Cursor says at most 5,000 of its users got it. A loader prepended to extension.js runs as soon as the file loads (no interaction needed), adds an attacker key labeled 'svc-telemetry' to ~/.ssh/authorized_keys, tries to enable SSH and open a reverse tunnel to 134.209.82[.]225, installs a LaunchAgent, cron entry or 'SysMon' scheduled task, and beacons host details plus the names of up to 40 secret-looking environment variables to port 8099. New since the last summary: Cursor says the attacker server has been taken offline with its hosting provider, it audited and found no other extensions tampered with, and enabling SSH fails without admin rights, though the key and persistence still land and stay ready if Remote Login is on. How the attacker got publishing access is still unknown (Cursor notice, StepSecurity, The Hacker News). Microsoft (Oct 30) confirms both 2.1.312 and 2.1.313 were tampered, that the VS Code Marketplace and npm copies were not affected, and that the loader also sends the names (not values) of environment variables containing KEY, TOKEN, SECRET, PASS, AWS or GCP.",
+      "action": "If you installed or auto-updated the Claude Code extension in Cursor on Oct 29, run Cursor's check and cleanup scripts, remove any 'svc-telemetry' line from ~/.ssh/authorized_keys and the planted LaunchAgent, cron entry or SysMon task (uninstalling the extension isn't enough), update to 2.1.314, block 134.209.82[.]225, and rotate SSH keys and every credential reachable from that machine from a clean system. Consider turning off extension auto-update on developer machines. Look for an authorized_keys entry tagged svc-telemetry, ~/.config/.smt and .smtk, ~/Library/LaunchAgents/com.apple.sysmond.plist (macOS), an @reboot crontab line (Linux), a SysMon task or Startup sysmon.cmd (Windows), and connections to 134.209.82[.]225; remove only after saving evidence.",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/",
       "ai_angle": [
         "product",
         "impact"
@@ -154,8 +154,8 @@
         "CVE-2026-97229"
       ],
       "vendor": "GitLab (self-managed CE/EE) and Ruby",
-      "why": "Still current (KEV deadline Nov 1): CISA added CVE-2026-97229 to its Known Exploited Vulnerabilities catalog (federal deadline Nov 1, forensic triage required) and warns that other software using the same Ruby/Onigmo regular-expression code may be affected; Ruby fixed it in 3.3.13, 3.4.12 and 4.0.9 on Oct 23. An integer overflow in the CI/CD regular-expression compiler lets a crafted regex in CI configuration run commands as GitLab's git user. Rapid7 published a working proof of concept on Oct 13; it needs a way to push a CI file to a public project, which anyone can do where self-registration and project creation are open. Alpine Linux said on Oct 28 an attacker spent days trying it against its GitLab server (no evidence of success; the server was rebuilt), and that upgrading GitLab did not protect it because its image used standard Ruby rather than GitLab's patched Ruby. GitLab.com and GitLab Dedicated are already patched.",
-      "action": "Upgrade self-managed GitLab to 19.4.2, 19.3.5 or 19.2.8 or later using GitLab's own packages or images (which carry the patched Ruby); if you build GitLab on a distro or custom Ruby, also move Ruby to 3.3.13, 3.4.12 or 4.0.9. Until patched, turn off open sign-up and stop untrusted users creating or writing to public projects. If you were unpatched after Oct 12, check for crashed workers, unknown CI configs from new accounts, and unexpected files, keys or hooks, and rotate CI/CD secrets if in doubt.",
+      "why": "Still current (KEV deadline Nov 1): CISA added CVE-2026-97229 to its Known Exploited Vulnerabilities catalog (federal deadline Nov 1, forensic triage required) and warns that other software using the same Ruby/Onigmo regular-expression code may be affected; Ruby fixed it in 3.3.13, 3.4.12 and 4.0.9 on Oct 23. An integer overflow in the CI/CD regular-expression compiler lets a crafted regex in CI configuration run commands as GitLab's git user. Rapid7 published a working proof of concept on Oct 13; it needs a way to push a CI file to a public project, which anyone can do where self-registration and project creation are open. Alpine Linux said on Oct 28 an attacker spent days trying it against its GitLab server (no evidence of success; the server was rebuilt), and that upgrading GitLab did not protect it because its image used standard Ruby rather than GitLab's patched Ruby. GitLab.com and GitLab Dedicated are already patched. Alpine Linux says a new account sent crafted CI configs to its unpatched instance on Oct 20-21, crashing workers 8 times and getting partway through the exploit; it found no proof of code execution but rebuilt GitLab and reset every password. Its upgrade to 19.3.6 did not help because its image used standard Ruby.",
+      "action": "Upgrade self-managed GitLab to 19.4.2, 19.3.5 or 19.2.8 or later using GitLab's own packages or images (which carry the patched Ruby); if you build GitLab on a distro or custom Ruby, also move Ruby to 3.3.13, 3.4.12 or 4.0.9. Until patched, turn off open sign-up and stop untrusted users creating or writing to public projects. If you were unpatched after Oct 12, check for crashed workers, unknown CI configs from new accounts, and unexpected files, keys or hooks, and rotate CI/CD secrets if in doubt. If you run GitLab from source or your own image, also install Ruby 3.3.13, 3.4.12 or 4.0.9; Alpine's alpinelinux/gitlab:19.3.6 image is fixed only if pulled on or after Oct 27.",
       "url": "https://www.rapid7.com/blog/post/etr-cve-2026-97229-critical-unauthenticated-remote-code-execution-in-gitlab/",
       "ai_angle": [],
       "ai_note": ""
@@ -175,10 +175,22 @@
       "blurb": "Users report unauthorized use of AI keys stored on the platform; audit logs now on for all customers; rotate every secret."
     },
     {
+      "title": "A Shared ChatGPT Link Could Run Attacker Code in Your Session and Read Private Chats",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/10/a-shared-chatgpt-link-could-run.html",
+      "blurb": "Parameter's P1 bug-bounty finding: one malicious share link could act inside your logged-in ChatGPT session; OpenAI fixed it about eight days after the Oct 18 report."
+    },
+    {
       "title": "Ivanti Connect Secure: two more flaws exploited in a chain, fixed in 25.1.1.3 and 22.8R2.6",
       "source": "CISA",
       "url": "https://www.cisa.gov/news-events/alerts/2026/10/13/cisa-urges-patching-newly-exploited-vulnerabilities-ivanti-connect-secure",
       "blurb": "CISA added CVE-2026-111357 and CVE-2026-118527 to KEV on Oct 30; with CVE-2026-104935 they give unauthenticated root and evade Ivanti's integrity checker."
+    },
+    {
+      "title": "GitLab security incident: attempted exploitation of CVE-2026-97229",
+      "source": "Alpine Linux",
+      "url": "https://alpinelinux.org/posts/GitLab-security-incident-CVE-2026-97229.html",
+      "blurb": "An attacker nearly exploited Alpine's GitLab; upgrading GitLab didn't fix it because the patch lives in Ruby, so self-built installs need Ruby 3.3.13, 3.4.12 or 4.0.9."
     },
     {
       "title": "Chainalysis security incident information",
@@ -197,30 +209,22 @@
       "source": "WIRED",
       "url": "https://www.wired.com/story/trojan-malware-targets-thousands-of-anthropic-claude-developer-systems/",
       "blurb": "The trojanized Claude Code extension was live in Cursor's marketplace for about 11 hours and reached at most 5,000 users; a bug in the malware kept it from fully installing on most machines."
-    },
-    {
-      "title": "VAPOR PANDA Uses AI-Driven ARTEX to Scale a Global Espionage Campaign",
-      "source": "CrowdStrike",
-      "url": "https://www.crowdstrike.com/en-us/blog/vapor-panda-uses-artex-to-scale-global-campaign/",
-      "blurb": "A China-linked group ran the ARTEX agent framework with DeepSeek against 200+ organizations in 14+ countries from Oct 17."
-    },
-    {
-      "title": "Binance security incident update (Oct 30)",
-      "source": "Binance",
-      "url": "https://www.binance.com/en/support/announcement/detail/c5a8729a97ac486d963784d96c5642d7",
-      "blurb": "About $6.3B hit, ~$3B frozen; losses covered by SAFU; withdrawals targeted to resume Sunday Nov 1, reserves report by Monday."
     }
   ],
   "watch": [
+    "Canadian law firms (The Globe and Mail, Oct 31): attackers phoning staff as IT support broke into McCarthy Tétrault (about 31,000 files stolen, per a source), Davies, Bennett Jones and Borden Ladner Gervais around Oct 22-23, with at least seven employees granting access. Warn staff that IT will not cold-call asking them to install updates or reset passwords.",
+    "Hong Kong Examinations and Assessment Authority (SCMP, Oct 31): a system breach leaked names, birth dates and emails of about 16,900 mainland China-based students who applied for two international exams; HKDSE not affected.",
+    "AU Small Finance Bank (Oct 31 update): Salesforce says it found no vulnerability in its platform; the bank says its own systems are unaffected while the claimed vehicle-loan data leak is investigated (attacker claims of Aadhaar and PAN data are unverified).",
+    "New critical WordPress plugin CVEs (Oct 31, no attacks reported): Uncanny Toolkit for LearnDash through 3.8.2 CVE-2026-119096 (9.8, login bypass via the email parameter), Project Manager (AI Powered) through 4.1.1 CVE-2026-116512 (9.8, unauthenticated code execution), PDF Invoice for WooCommerce through 7.1.1 CVE-2026-109220 (object injection), WP Booking System CVE-2026-116557 and Popup Builder through 4.4.5 CVE-2026-89270; WordPress Core's upgrade race is now CVE-2026-119977. Update when fixes are listed.",
+    "macOS CVE-2026-112445: a public local privilege-escalation proof of concept was posted to GitHub, billed as the simplest yet (details unverified here); keep Macs on the latest macOS update.",
+    "Brotli 'Node2Shell' CVE-2026-111497: a public proof-of-concept now targets a pinned Docker Official Image for WordPress; rebuild images on fixed Brotli (1.0.10, 1.1.1 or 1.2.1).",
     "Binance (moved off the focus list): about $6.3B taken in the Oct 29 hot-wallet hack (TRM Labs blames North Korea), about $3B frozen, losses covered by SAFU; withdrawals targeted to resume Sunday Nov 1 and a Proof of Reserves report by Monday. Use only official channels and ignore 'refund' messages.",
     "WordPress Core update race condition (moved off the focus list; no CVE): update to 7.1.4 and block web access to wp-content/upgrade staging folders; Wordfence saw 18,500+ probing requests but no confirmed compromise.",
     "MoLing MCP server CVE-2026-62863 (9.6), details now out per an X post: its /sse and /message endpoints have no authentication and allow any website (wildcard CORS), so a web page could drive the computer-use/browser-use tools; update to v0.5.0 or turn off SSE mode.",
     "Datalayer jupyter-mcp-server (Pluto Security disclosure via X, Oct 31): two missing checks let any website hijack an AI assistant's live Jupyter notebook connection; update and keep the server bound to localhost (details unverified here).",
     "AWS API MCP server (awslabs.aws-api-mcp-server, CVE-2026-115413, GHSA-4prq-p2x5-w9fh): it checked token signature, issuer and expiry but not the audience, so tokens meant for other apps were accepted; update per the advisory (X report).",
-    "ChatGPT (unverified X post from Parameter, Oct 31): researchers say opening a malicious shared ChatGPT link could leak private chats and take over the account; no OpenAI confirmation yet. Be wary of shared-chat links from strangers.",
     "Atlassian Data Center CVE-2026-21589 (CVSS 9.3, exploited, in CISA KEV since Oct 15): unauthenticated reads of files in the web root of Jira, Confluence, Bitbucket, Bamboo, Crowd, Fisheye and Crucible; watchTowr turned a leaked crowd.properties into Jira admin. Patch to Atlassian's fixed versions (e.g. Confluence 9.2.26/10.2.19, Jira 10.3.26/11.3.12, Bitbucket 10.5.1) or take instances off the internet.",
     "New critical CVEs reported Oct 30-31 (no attacks reported): Bazarr before 1.5.7-beta.14 CVE-2026-61826 (10.0, missing auth on /api/plex/*), Thales Sentinel Keys Server before 1.3.8.0 CVE-2026-78403 (9.8, unauthenticated stack overflow), pgAdmin 4 CVE-2026-116241 (9.9, psql \\copy wrapper escape), SOCFortress CoPilot CVE-2026-61728 (9.9) and JetBrains Toolbox jetbrainsd CVE-2026-118697 (9.0); update when fixes are listed. Kubeflow Pipelines also fixed a decompression bomb and unauthorized pod-log access (CVE-2026-118761, CVE-2026-118759).",
-    "Borden Ladner Gervais (Canadian law firm) confirms client files on its Microsoft cloud were accessed; they may include confidential Toronto Police and informant information (company statement via X, Oct 31).",
     "Flap (crypto project) says its official website was hit by DNS hijacking on Oct 31 and sent visitors to a fake site with malicious wallet-connect prompts; don't connect wallets to it until it confirms the fix (X report).",
     "New Oct 30 evening: fctr-id okta-ai-agent (an AI agent app for Okta admins) CVE-2026-63377 lets an unauthenticated attacker create the first admin account during setup and take over the app; update to 3.0.1-beta and don't leave a fresh install reachable before setup is finished (X report of the CVE record).",
     "AWS Kinesis Producer Library for Java before 1.0.8 (CVE-2026-119117): DEBUG logs and native process arguments can expose AWS credentials to local users; upgrade to 1.0.8 and rotate keys if DEBUG logging was on (X report of AWS's disclosure).",
@@ -390,16 +394,37 @@
     "Cisco ASA/FTD SSL VPN DoS zero-day CVE-2026-76418 (exploited, CISA KEV, federal deadline Nov 1; moved off the focus list): upgrade ASA to 9.16.4.104, 9.18.4.96, 9.20.4.50, 9.22.3.200, 9.23.1.48, 9.24.1.27 or 9.24.10.1, or FTD to 7.0.11, 7.2.13, 7.4.9, 7.6.7, 7.7.14, 10.0.3 or 10.1.1."
   ],
   "ai_activity": {
-    "overview": "Newest (Oct 30 evening to Oct 31): Wiz's 'Black October' report ties nine AI developer-platform breaches into one key-stealing campaign feeding LLM resale sites; Northflank confirmed AI keys stored with it are being abused; Chainalysis disclosed an intrusion using offensive agentic techniques; MoLing MCP server details landed (unauthenticated endpoints, fixed in v0.5.0); and new MCP flaws hit jupyter-mcp-server and AWS's API MCP server, plus an unverified ChatGPT shared-link takeover claim. Earlier Oct 30: Epoch AI showed open-weight GLM 5.3 turning Firefox's unshipped fixes into working exploits (patched in 159.0); WIRED's Pentagon Claude Code report (Accenture denies it); okta-ai-agent, Flowise, LMDeploy, OpenCode/MCP Inspector and n8n flaws. Oct 27-29: the trojanized Claude Code extension in Cursor, VAPOR PANDA's ARTEX campaign, PHP2Shell, Anthropic's Chrome and Linux exploit chains, n0n and CyberStrikeAI.",
+    "overview": "Newest (Oct 31): OpenAI's ChatGPT shared-link flaw is confirmed and fixed; Microsoft published cleanup guidance for the trojanized Claude Code extension (2.1.312 and 2.1.313); Google disclosed its PageBreak AI bug-finding agent (500+ XSS); Fortra detailed an OpenAI-branded phishing kit that steals one-time codes; Intel 471 says the public PHP2Shell exploit is hard to use. Oct 30 evening to Oct 31: Wiz's 'Black October' report ties nine AI developer-platform breaches into one key-stealing campaign; Northflank confirmed AI-key abuse; Chainalysis disclosed an agentic intrusion; MoLing, jupyter-mcp-server and AWS API MCP server flaws. Earlier Oct 30: Epoch AI's GLM 5.3 Firefox exploits, WIRED's Pentagon Claude Code report (Accenture denies it), okta-ai-agent, Flowise, LMDeploy, OpenCode/MCP Inspector and n8n flaws. Oct 27-29: VAPOR PANDA's ARTEX campaign, PHP2Shell, Anthropic's Chrome and Linux exploit chains, n0n and CyberStrikeAI.",
     "counts": {
-      "ai_cause": 25,
+      "ai_cause": 27,
       "ai_product_exploited": 38,
-      "ai_impact": 15
+      "ai_impact": 16
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Google: its Gemini-based PageBreak agent has found 500+ verified XSS bugs in Google's own web apps since January",
+            "date": "2026-10-31T00:00:00Z",
+            "summary": "Google's paper says PageBreak only reports a bug after a deterministic check reproduces a real exploit (running JavaScript, writing a file, triggering DNS), giving near-zero false positives; it also found cache-poisoning and path-traversal issues and is being tied to CodeMender for automatic fixes. Defensive research; no independent check of the count.",
+            "status": "patched",
+            "cves": [],
+            "url": "https://www.infoq.com/news/2026/10/google-pagebreak-security-agent/",
+            "source": "InfoQ / Google"
+          },
+          {
+            "title": "Intel 471: the public PHP2Shell exploit for the AI-found PHP flaws is hard to use reliably, but patch now",
+            "date": "2026-10-31T06:08:18Z",
+            "summary": "Intel 471 reportedly found the public exploit for PHP2Shell (CVE-2026-109618, CVE-2026-109619) difficult to get working, while still urging immediate patching since real intrusions are confirmed (X post).",
+            "status": "unverified",
+            "cves": [
+              "CVE-2026-109618",
+              "CVE-2026-109619"
+            ],
+            "url": "https://x.com/Cyber_O51NT/status/2116411923155615845",
+            "source": "X"
+          },
           {
             "title": "Chainalysis: attacker used 'offensive agentic techniques' to get into its systems and internal tools",
             "date": "2026-10-30T20:00:00Z",
@@ -652,13 +677,13 @@
         "label": "AI products being exploited",
         "items": [
           {
-            "title": "ChatGPT: researchers claim a malicious shared-chat link could leak private chats and take over the account",
+            "title": "ChatGPT: a malicious shared-chat link could run attacker code in your session and read private chats (fixed)",
             "date": "2026-10-31T04:13:00Z",
-            "summary": "Single X post from Parameter researchers; no OpenAI confirmation or write-up seen yet.",
-            "status": "unverified",
+            "summary": "Parameter researchers showed that opening a crafted ChatGPT share link could run their code in the victim's logged-in session and read private conversations. They reported it through OpenAI's bug bounty on Oct 18; OpenAI fixed it about eight days later and rated it P1, its most serious category (The Hacker News). Nothing for users to do now.",
+            "status": "patched",
             "cves": [],
-            "url": "https://x.com/ehsayaan/status/2116383133071470986",
-            "source": "X"
+            "url": "https://thehackernews.com/2026/10/a-shared-chatgpt-link-could-run.html",
+            "source": "The Hacker News / Parameter"
           },
           {
             "title": "MoLing MCP server (computer-use/browser-use): unauthenticated /sse and /message endpoints with wildcard CORS (CVE-2026-62863, 9.6)",
@@ -758,9 +783,9 @@
             "source": "NVD"
           },
           {
-            "title": "Trojanized Claude Code extension 2.1.313, published via Open VSX and mirrored by Cursor's marketplace, backdoors up to 5,000 developer machines",
+            "title": "Trojanized Claude Code extension 2.1.312 and 2.1.313 in Cursor's marketplace backdoors up to 5,000 developer machines",
             "date": "2026-10-30T08:55:00Z",
-            "summary": "On Oct 29 a malicious 2.1.313 under Anthropic's real extension ID went out through Open VSX and Cursor's mirror for about 11 hours. Its loader runs on file load, plants an attacker SSH key ('svc-telemetry'), persistence and a reverse tunnel to 134.209.82[.]225, and beacons host details and secret-looking environment variable names. Cursor says at most 5,000 users got it, the attacker server is now offline, no other extensions were tampered with, and enabling SSH fails without admin rights. Clean 2.1.314 is out; how the attacker got publishing access is unknown.",
+            "summary": "On Oct 29 a malicious 2.1.313 under Anthropic's real extension ID went out through Open VSX and Cursor's mirror for about 11 hours. Its loader runs on file load, plants an attacker SSH key ('svc-telemetry'), persistence and a reverse tunnel to 134.209.82[.]225, and beacons host details and secret-looking environment variable names. Cursor says at most 5,000 users got it, the attacker server is now offline, no other extensions were tampered with, and enabling SSH fails without admin rights. Clean 2.1.314 is out; how the attacker got publishing access is unknown. Microsoft's Oct 30 analysis confirms both versions, lists the SSH key marker svc-telemetry, persistence files and the 134.209.82[.]225 server, and says the VS Code Marketplace and npm were not affected.",
             "status": "exploited",
             "cves": [],
             "url": "https://cursor.com/blog/claude-code-extension-security-notice",
@@ -1061,6 +1086,15 @@
         "label": "AI impact / AI keys & infrastructure",
         "items": [
           {
+            "title": "Fortra: OpenAI-branded phishing kit uses rotating hacked WordPress hosts and live operators to steal one-time codes",
+            "date": "2026-10-31T06:40:25Z",
+            "summary": "Fortra describes a kit impersonating OpenAI that hops between compromised WordPress sites and has a person watching in real time to relay stolen passwords and one-time codes into the real account. Use passkeys or an authenticator app and sign in only by typing openai.com yourself.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.fortra.com/blog/anatomy-openai-phishing-kit-rotating-wordpress-hosts-live-operators-and-otp-theft",
+            "source": "Fortra"
+          },
+          {
             "title": "Wiz 'Black October': agent-driven breaches at nine AI developer platforms feed an LLM-key resale market",
             "date": "2026-10-30T22:00:00Z",
             "summary": "Wiz links October breaches at Fireworks AI, Andromeda, Zeabur, Lightning AI, OpenCode, Railway, Warp, Command Code and Northflank: each hunted stored environment variables, especially AI keys. It traced two stolen enterprise keys tested within 30 minutes of a vendor breach and then flooded with about 800,000 and 1.7 million Bedrock calls (an estimated $100k+), and tied key checks to LLM resale sites (llm-routing.com, xingjiabiapi.org); one reseller IP also hosted an ARTEX console page. IOCs: 23.106.46.239, 38.246.114.118, 104.243.32.50, 31.57.201.201.",
@@ -1198,6 +1232,6 @@
         ]
       }
     ],
-    "trend_note": "The AI-key theft wave now has a documented business model: agent-driven platform breaches, fast key validation and resale of model access. Since the last update: four AI items were added (Chainalysis, Wiz Black October, jupyter-mcp-server, AWS API MCP server), one unverified ChatGPT claim was added, and the Northflank and MoLing entries were updated; nothing rolled off."
+    "trend_note": "The AI-key theft wave now has a documented business model: agent-driven platform breaches, fast key validation and resale of model access. Since the last update (a quiet overnight window): three AI items were added (Google PageBreak, the OpenAI phishing kit, Intel 471 on PHP2Shell), the ChatGPT shared-link claim moved from unverified to patched, and the Claude Code extension entry now covers both bad versions; nothing rolled off."
   }
 }
