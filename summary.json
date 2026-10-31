@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-10-31T16:45:00Z",
-  "next_update_note": "Changes in this 12:45 PM EDT (16:45 UTC) update: a quiet window. New: the n0n extortion group, which builds its attack scripts with an AI coding agent, published firewall passwords, keys and a network map from Finzly, a vendor that links 11 US banks and credit unions to Federal Reserve payment rails (American Banker); a public proof-of-concept for Android 'SMS of Death' CVE-2026-58882 that crashes phones with one text; X honeypot reports of exploit attempts against Langflow CVE-2026-105740 (unverified). Chainalysis card updated with BleepingComputer's details. Four AI items older than 7 days rolled off the roll-up. Next summary update in about 4 hours (around 4:30 PM EDT Oct 31); the feed itself refreshes hourly.",
-  "headline": "Quiet Saturday so far; new since the last summary: the n0n extortion group (which writes its attack tools with an AI coding agent) leaked firewall keys and a network map from Finzly, the payment-hub vendor for 11 US banks and credit unions (Finzly says it rotated the keys), and a public exploit for Android 'SMS of Death' CVE-2026-58882 can knock phones off the cell network with one text, so install the latest Android update. Still act on: BeyondTrust Remote Support CVE-2026-102764 (public Metasploit exploit), Ivanti Connect Secure, the trojanized Claude Code extension in Cursor, Northflank and 'Black October' key rotation, GitLab CVE-2026-97229 (federal deadline tomorrow, Nov 1), Firefox 159.0, Chrome 156.0.8078.79, PHP2Shell and Brotli 'Node2Shell'.",
-  "ai_headline": "Google/Mandiant, Microsoft, CrowdStrike and Wiz all now report attackers running open-source AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI) through real intrusions. Newest: the AI-assisted n0n extortion crew dumped Finzly's bank payment-gateway firewall secrets after a missed ransom, and Chainalysis says it is using LLMs to review its platform after its own agentic breach. Wiz's 'Black October' key-theft wave across nine AI developer platforms (latest Northflank) and AI models turning fresh patches into working exploits (GLM 5.3 on Firefox, Anthropic's lab model on Chrome and Linux) remain the main AI-driven threats.",
+  "updated_at": "2026-10-31T20:30:00Z",
+  "next_update_note": "Changes in this 4:30 PM EDT (20:30 UTC) update: Cisco Talos published VOLTA, a Windows infostealer that sends each victim's stolen data to an AI model (Claude Opus 4.6 by default, with Kimi K2 and Gemini 2.5 Flash as fallbacks if the model refuses) to rank what the victim is worth; added as a focus card. Nvidia is notifying users of its Brev AI developer platform about unauthorized activity Oct 4-20 that may have exposed Brev-provisioned SSH keys (per customer notices shared by Kevin Beaumont). AO3 (Archive of Our Own) is offline for two to four weeks after a security incident and can't rule out theft of usernames, emails and hashed passwords. BleepingComputer confirmed Northflank's AI-key abuse. Two unverified X items added to the roll-up (eight MCP command-injection CVEs published at once, one in a Gemini CLI extension; an unnamed open-source AI agent with an unpatched prompt-injection RCE). An X post recirculating the July OpenAI/Hugging Face agent-escape incident was not added because it is old news. The TrendAI CyberStrikeAI card moved to the watch list. Next summary update in about 4 hours (around 8:30 PM EDT Oct 31); the feed itself refreshes hourly.",
+  "headline": "New since the last summary: Cisco Talos found VOLTA, an infostealer that hands each victim's stolen logins, sessions and receipts to an AI model to rank what they're worth; Nvidia says its Brev AI developer platform had unauthorized activity Oct 4-20 that may have exposed SSH keys, so rotate Brev keys; and AO3 is down for weeks after a breach, so change any password you reused from it. Still act on: the trojanized Claude Code extension in Cursor, Northflank and 'Black October' key rotation, BeyondTrust Remote Support CVE-2026-102764 (public Metasploit exploit), Ivanti Connect Secure, GitLab CVE-2026-97229 (federal deadline tomorrow, Nov 1), Firefox 159.0, Chrome 156.0.8078.79, PHP2Shell and Brotli 'Node2Shell'.",
+  "ai_headline": "Newest: Cisco Talos' VOLTA infostealer uses Claude Opus 4.6 (falling back to Kimi K2 and Gemini 2.5 Flash when refused) as an analyst that ranks each victim's stolen assets, and Nvidia's Brev joins the list of AI developer platforms hit this month. Google/Mandiant, Microsoft, CrowdStrike and Wiz all report attackers running AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI) through real intrusions; the AI-assisted n0n crew leaked Finzly's bank-gateway firewall secrets; Chainalysis was breached with 'offensive agentic techniques'. Wiz's 'Black October' key-theft wave across AI developer platforms (Northflank keys now confirmed abused) and AI models turning fresh patches into working exploits (GLM 5.3 on Firefox, Anthropic's lab model on Chrome and Linux) remain the main AI-driven threats.",
   "focus": [
     {
       "title": "Open-weight AI model GLM 5.3 built working Firefox exploit chains from unshipped security fixes for about $1,000 each (Epoch AI)",
@@ -17,6 +17,20 @@
         "cause"
       ],
       "ai_note": "AI as the cause: an open-weight model autonomously turned patches into exploits, cheaply enough for ordinary criminals."
+    },
+    {
+      "title": "Cisco Talos: VOLTA infostealer sends each victim's stolen data to an AI model (Claude Opus 4.6, with Kimi K2 and Gemini fallbacks) to rank what they're worth",
+      "severity": "high",
+      "exploited": false,
+      "cves": [],
+      "vendor": "Windows endpoints (browsers, messaging, gaming and crypto wallet apps)",
+      "why": "New (Oct 31): Talos describes VOLTA-AUTODOXER, a self-deleting Windows stealer first seen Oct 11 that takes saved browser passwords, Microsoft OAuth tokens, cookies, payment cards, wallet seed phrases and live Discord, Telegram, Steam and Roblox sessions, then searches the victim's email for receipts and order history. It packs everything into a dossier and sends it through OpenRouter to an AI model told to act as 'a forensic intelligence analyst', returning a ranked 'WHAT THEY'RE WORTH' list and an assessment of the victim's password habits. If the model refuses, it falls back to Kimi K2 and then Gemini 2.5 Flash; the AI step runs from the victim's own machine and is optional. Talos found it with its CAIRN AI-tool detection framework and has not confirmed use in live attacks (Talos, WIRED).",
+      "action": "Treat it like any infostealer: don't run cracked games, cheats or unknown downloads, keep endpoint protection on, and if a machine is infected, sign out of all sessions, rotate passwords and OAuth tokens from a clean device and move crypto to a new wallet. Defenders can watch for endpoints calling openrouter.ai or other AI APIs from unexpected processes.",
+      "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "AI as the cause: commercial models do the criminal's triage, and the refusal fallback shows the authors expect and route around guardrails."
     },
     {
       "title": "Trojanized 'official' Claude Code extension 2.1.312 and 2.1.313 (served by Cursor's marketplace) planted an SSH backdoor on up to 5,000 machines",
@@ -34,12 +48,12 @@
       "ai_note": "AI product supply chain: the backdoor rode in on an AI coding-agent extension under its real publisher ID, aimed at developers' keys and machines."
     },
     {
-      "title": "Northflank (cloud and AI workload platform) breached: assume all environment variables were decrypted; AI keys confirmed abused",
+      "title": "Northflank (cloud and AI workload platform) breached: assume all environment variables were decrypted; AI keys confirmed abused (BleepingComputer)",
       "severity": "critical",
       "exploited": true,
       "cves": [],
       "vendor": "Northflank",
-      "why": "Northflank declared a security incident on Oct 30 after a Wiz alert at 11:43 UTC (7:43 AM EDT) and told all users to assume environment variables in workloads, secret groups and global secrets were decrypted. New since the last summary: at 11:38 PM UTC (7:38 PM EDT) it said users have reported unauthorized use of AI API keys supplied to the platform, and linked the activity to IP addresses in Wiz's 'Black October' report on attacks against AI developer platforms; at 1:04 AM UTC Oct 31 (9:04 PM EDT Oct 30) it turned on audit logs for all customers, including free users. How the attacker got in is still not public; the timeline shows network-policy patches the same morning.",
+      "why": "Northflank declared a security incident on Oct 30 after a Wiz alert at 11:43 UTC (7:43 AM EDT) and told all users to assume environment variables in workloads, secret groups and global secrets were decrypted. New since the last summary: at 11:38 PM UTC (7:38 PM EDT) it said users have reported unauthorized use of AI API keys supplied to the platform, and linked the activity to IP addresses in Wiz's 'Black October' report on attacks against AI developer platforms; at 1:04 AM UTC Oct 31 (9:04 PM EDT Oct 30) it turned on audit logs for all customers, including free users. How the attacker got in is still not public; the timeline shows network-policy patches the same morning. BleepingComputer (Oct 31) confirms the AI-key abuse reports; Northflank still hasn't said how attackers got in or how many customers were affected.",
       "action": "Rotate every secret stored in Northflank now from a clean machine: revoke at the issuing provider (AI keys first, then cloud, database, Git, CI and payment keys), create replacements and redeploy. Rotate Postgres and MongoDB addon credentials, turn off public addon access, review the newly enabled audit logs, and check AI provider usage and billing for spend you didn't make; report abuse to Northflank and the provider.",
       "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
       "ai_angle": [
@@ -96,20 +110,6 @@
         "cause"
       ],
       "ai_note": "AI as the cause: the model both found the flaws and built working multi-step exploits; expect the same capability in attackers' hands soon."
-    },
-    {
-      "title": "TrendAI: CyberStrikeAI platform ran 44 AI agents to attack at least 19 organizations, mostly in Japan; more AI-run campaigns documented",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "Multiple (edge devices, VPNs, WebLogic, AI endpoints)",
-      "why": "New (Oct 27): Trend Micro's TrendAI analysed three exposed attacker servers. In one, the open-source CyberStrikeAI tool split an attack across 44 AI agents (recon, finding and validating flaws, exploitation, command and control, persistence, data theft and reporting) and wrote Japanese-language fake login pages; at least 19 organizations, 16 in Japan, were hit with validation activity in a short October burst, and the same operator also targeted Taiwan and Hong Kong. A second, human-led but LLM-assisted campaign (24 days, Aug-Sep) targeted AI workflow platforms and inference services to get cheap inference, and stole cadastral records, Windows credentials and email from a GIS server left on default credentials. A third operator used AI to write tools for at least six campaigns (Jan-Oct) against Cisco, Citrix, F5 and Yamaha edge devices and WebLogic servers, using published flaws and credentials in config files. The Hacker News round-up also lists Unit 42 cases: actor 'BUGSTER' ran the Hermes agent framework on DeepSeek V4 with Cursor (safety controls off) against Indian universities (one database of 5,200+ student records taken), and a human operator used frontier models to breach an enterprise network largely autonomously in 10 hours, pull hard-coded tokens from code repos and turn the victim's AI endpoints into attack infrastructure; plus a Gentlemen ransomware affiliate using Claude Code in six intrusions (late June), the Zerofot 'auto_scan' tool that used OpenAI Codex and Claude Code to harvest thousands of API keys from exposed hosts, and an AI-generated 'RAGE' framework hitting Redis, Elasticsearch, Docker, Jenkins and similar services. TrendAI found no evidence the three server cases share an operator.",
-      "action": "Patch internet-facing VPN and edge devices (Cisco, Citrix, F5, Yamaha) and WebLogic, remove default credentials (especially on GIS and admin consoles) and strip credentials from device config files. Keep Redis, Elasticsearch, Docker, Jenkins, Hadoop YARN and AI inference endpoints off the internet or behind authentication, set spending limits on AI provider keys and watch for unexplained inference usage. Scan code repositories for hard-coded tokens and rotate any found.",
-      "url": "https://thehackernews.com/2026/10/cyberstrikeai-uses-44-ai-agents-to.html",
-      "ai_angle": [
-        "cause"
-      ],
-      "ai_note": "AI as the cause: in the CyberStrikeAI case AI agents ran the whole attack workflow; in the others AI assisted planning, tool-writing or ran large parts of the intrusion. Which models were used is mostly not known."
     },
     {
       "title": "PHP2Shell: unauthenticated RCE in the PHP runtime, exploited (CISA KEV), now confirmed against Palo Alto PAN-OS management interfaces; AI-assisted China-linked actor rooted 25 servers, mostly firewalls",
@@ -183,16 +183,22 @@
       "blurb": "Nine AI developer platforms disclosed breaches this month; Wiz links them to agent-driven attacks hunting stored AI keys and traces stolen keys into LLM resale sites, with two keys running up an estimated $100k+ in Bedrock usage."
     },
     {
+      "title": "Appraisal by AI: Model-driven victim prioritization in the VOLTA infostealer",
+      "source": "Cisco Talos",
+      "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+      "blurb": "A mature Windows stealer adds an AI step that ranks each victim's stolen assets by value and switches models when one refuses."
+    },
+    {
       "title": "ARTEX and Friends: Enter Agentic Offensive Frameworks",
       "source": "Google Cloud (GTIG / Mandiant)",
       "url": "https://cloud.google.com/blog/topics/threat-intelligence/artex-and-friends-enter-agentic-offensive-frameworks",
       "blurb": "Mandiant has seen attackers use open-source AI agent frameworks for lateral movement, database exploitation and exfiltration prep in real incidents since late August."
     },
     {
-      "title": "Northflank security incident (status page)",
-      "source": "Northflank",
-      "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
-      "blurb": "Users report unauthorized use of AI keys stored on the platform; audit logs now on for all customers; rotate every secret."
+      "title": "Northflank security breach leads to abuse of customers' AI API keys",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys/",
+      "blurb": "Northflank tells all customers to assume environment variables were decrypted after users reported unauthorized use of AI API keys; how the attacker got in is still undisclosed."
     },
     {
       "title": "Rapid7 Analysis: Unauthenticated File Upload to RCE in BeyondTrust Remote Support (CVE-2026-102764)",
@@ -213,12 +219,6 @@
       "blurb": "CISA added CVE-2026-111357 and CVE-2026-118527 to KEV on Oct 30; with CVE-2026-104935 they give unauthenticated root and evade Ivanti's integrity checker."
     },
     {
-      "title": "GitLab security incident: attempted exploitation of CVE-2026-97229",
-      "source": "Alpine Linux",
-      "url": "https://alpinelinux.org/posts/GitLab-security-incident-CVE-2026-97229.html",
-      "blurb": "An attacker nearly exploited Alpine's GitLab; upgrading GitLab didn't fix it because the patch lives in Ruby, so self-built installs need Ruby 3.3.13, 3.4.12 or 4.0.9."
-    },
-    {
       "title": "Chainalysis security incident information",
       "source": "Chainalysis",
       "url": "https://www.chainalysis.com/blog/security-incident-october-30/",
@@ -226,6 +226,11 @@
     }
   ],
   "watch": [
+    "Nvidia Brev (AI developer GPU platform): Nvidia is notifying users of unauthorized activity between Oct 4 and Oct 20; Brev-provisioned SSH keys for user VMs may have been exposed (customer notices shared by Kevin Beaumont, Oct 30; no public advisory yet). Rotate Brev SSH keys and API tokens, remove Brev entries you don't need from authorized_keys (brev revoke-ssh / disable-ssh), and review logins on your Brev VMs.",
+    "AO3 (Archive of Our Own): offline since Oct 29 after a security incident, expected for two to four weeks; the operators can't rule out theft of usernames, emails, IP addresses and hashed passwords, so change any password you reused from AO3 (OTW status, TechCrunch). How the attacker got in is not disclosed.",
+    "MCP servers (X post, Oct 31, unverified): NVD published eight MCP command-injection CVEs within three seconds, one in a Gemini CLI extension with no fixed version listed; check any MCP servers your AI agents run against NVD before trusting them.",
+    "Unnamed open-source AI agent (X post, Oct 31, unverified): a researcher says indirect prompt injection gives code execution with sandbox escape and the maintainers haven't patched in over two months; don't let agents read untrusted content with shell access.",
+    "TrendAI: CyberStrikeAI platform ran 44 AI agents to attack at least 19 organizations, mostly in Japan; more AI-run campaigns documented (moved off the focus list): patch edge devices and WebLogic, remove default credentials, and set spending limits on AI keys.",
     "Finzly (bank payment-network vendor; American Banker, Oct 30-31): the n0n extortion group published passwords, keys and a network map for the FortiGate firewall guarding the shared link its 11 bank and credit union clients use for ACH, Fedwire and FedNow (files labeled a '2023 config'); Finzly says it rotated keys and found no customer or bank-system compromise, and the Fed says its payment services were unaffected. Finzly clients should confirm the rotation, review the trusted connections the leak describes and watch payment traffic. See the AI activity roll-up for n0n.",
     "Android 'SMS of Death' CVE-2026-58882 (BleepingComputer, Oct 31): a researcher published a proof-of-concept where one malformed 8-byte WAP Push text crashes the phone process, drops calls (including emergency calls) and with repeated messages can cause reboot loops; Google reportedly fixed it in October 2026 updates for Android 14-17, but Android 12 and 13 get no fix. Install the latest Android security update and restart; replace or closely watch older phones. No attacks reported.",
     "Spring AI 2.0.1 (X post, Oct 31; details unverified here): fixes 7 CVEs, including one where prompt injection could make an agent call a tool it was never offered and one where Redis chat memory could leak data between conversations; upgrade from 2.0.0.",
@@ -411,16 +416,25 @@
     "Cisco ASA/FTD SSL VPN DoS zero-day CVE-2026-76418 (exploited, CISA KEV, federal deadline Nov 1; moved off the focus list): upgrade ASA to 9.16.4.104, 9.18.4.96, 9.20.4.50, 9.22.3.200, 9.23.1.48, 9.24.1.27 or 9.24.10.1, or FTD to 7.0.11, 7.2.13, 7.4.9, 7.6.7, 7.7.14, 10.0.3 or 10.1.1."
   ],
   "ai_activity": {
-    "overview": "Newest (Oct 31 midday): American Banker details how the AI-assisted n0n extortion group leaked Finzly's bank payment-gateway firewall secrets; BleepingComputer adds detail on Chainalysis' agentic breach; an unverified X report of 1,706 exploit attempts on Langflow CVE-2026-105740. Earlier Oct 31: Google GTIG and Mandiant confirmed real-world use of ARTEX, Hexstrike, CAIRN and PentAGI; OpenAI's ChatGPT shared-link flaw fixed; Microsoft's cleanup guide for the trojanized Claude Code extension (2.1.312 and 2.1.313); Google's PageBreak AI bug-finder (500+ XSS); an OpenAI-branded phishing kit; Intel 471 says the public PHP2Shell exploit is hard to use. Oct 30: Wiz's 'Black October' report, Northflank AI-key abuse, Epoch AI's GLM 5.3 Firefox exploits, WIRED's disputed Pentagon Claude Code report, and flaws in MoLing, jupyter-mcp-server, AWS API MCP server, okta-ai-agent, Flowise, LMDeploy, OpenCode/MCP Inspector and n8n. Oct 27-29: VAPOR PANDA's ARTEX campaign, PHP2Shell, Anthropic's Chrome and Linux exploit chains, n0n and CyberStrikeAI.",
+    "overview": "Newest (Oct 31 afternoon): Cisco Talos' VOLTA infostealer uses commercial AI models to rank victims' stolen assets; Nvidia's Brev AI developer platform reports unauthorized activity that may have exposed SSH keys; BleepingComputer confirms Northflank AI-key abuse; unverified X reports of an eight-CVE MCP command-injection batch and an unpatched prompt-injection RCE in an open-source agent. Earlier Oct 31 (midday): American Banker details how the AI-assisted n0n extortion group leaked Finzly's bank payment-gateway firewall secrets; BleepingComputer adds detail on Chainalysis' agentic breach; an unverified X report of 1,706 exploit attempts on Langflow CVE-2026-105740. Earlier Oct 31: Google GTIG and Mandiant confirmed real-world use of ARTEX, Hexstrike, CAIRN and PentAGI; OpenAI's ChatGPT shared-link flaw fixed; Microsoft's cleanup guide for the trojanized Claude Code extension (2.1.312 and 2.1.313); Google's PageBreak AI bug-finder (500+ XSS); an OpenAI-branded phishing kit; Intel 471 says the public PHP2Shell exploit is hard to use. Oct 30: Wiz's 'Black October' report, Northflank AI-key abuse, Epoch AI's GLM 5.3 Firefox exploits, WIRED's disputed Pentagon Claude Code report, and flaws in MoLing, jupyter-mcp-server, AWS API MCP server, okta-ai-agent, Flowise, LMDeploy, OpenCode/MCP Inspector and n8n. Oct 27-29: VAPOR PANDA's ARTEX campaign, PHP2Shell, Anthropic's Chrome and Linux exploit chains, n0n and CyberStrikeAI.",
     "counts": {
-      "ai_cause": 28,
-      "ai_product_exploited": 36,
-      "ai_impact": 15
+      "ai_cause": 29,
+      "ai_product_exploited": 38,
+      "ai_impact": 16
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Cisco Talos: VOLTA infostealer uses Claude Opus 4.6 (with Kimi K2 and Gemini 2.5 Flash fallbacks) to rank victims' stolen assets",
+            "date": "2026-10-31T16:00:00Z",
+            "summary": "A self-deleting Windows stealer first seen Oct 11 builds a dossier from stolen logins, sessions, wallets and email receipts and sends it through OpenRouter to a model acting as an 'intelligence analyst'; it retries other models on refusal. Talos has not confirmed live deployment.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+            "source": "Cisco Talos"
+          },
           {
             "title": "Intel 471: the public PHP2Shell exploit for the AI-found PHP flaws is hard to use reliably, but patch now",
             "date": "2026-10-31T06:08:18Z",
@@ -702,6 +716,24 @@
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "Eight MCP command-injection CVEs published at once, one in a Gemini CLI extension with no fixed version",
+            "date": "2026-10-31T18:21:31Z",
+            "summary": "X post; CVE IDs and affected servers not verified here.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/botnewsnetwork/status/2116596443117224257",
+            "source": "X"
+          },
+          {
+            "title": "Unpatched prompt-injection RCE with sandbox escape reported in an unnamed popular open-source AI agent",
+            "date": "2026-10-31T16:27:20Z",
+            "summary": "Researcher says maintainers have not patched in more than two months (X post; project not named).",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/__llevy__/status/2116567710565871814",
+            "source": "X"
+          },
           {
             "title": "Langflow MCP stdio command injection lets any authenticated user run shell commands (CVE-2026-105740)",
             "date": "2026-10-31T14:03:20Z",
@@ -1092,6 +1124,15 @@
         "label": "AI impact / AI keys & infrastructure",
         "items": [
           {
+            "title": "Nvidia Brev AI developer platform: unauthorized activity Oct 4-20, Brev-provisioned SSH keys may be exposed",
+            "date": "2026-10-30T20:08:00Z",
+            "summary": "Nvidia is notifying Brev users per customer notices shared by Kevin Beaumont; no public advisory or root cause yet. Another AI developer platform incident in Wiz's 'Black October' pattern (link not confirmed by Wiz).",
+            "status": "reported",
+            "cves": [],
+            "url": "https://cyberplace.social/@GossiTheDog/117532608839043336",
+            "source": "Kevin Beaumont (Mastodon)"
+          },
+          {
             "title": "Fortra: OpenAI-branded phishing kit uses rotating hacked WordPress hosts and live operators to steal one-time codes",
             "date": "2026-10-31T06:40:25Z",
             "summary": "Fortra describes a kit impersonating OpenAI that hops between compromised WordPress sites and has a person watching in real time to relay stolen passwords and one-time codes into the real account. Use passkeys or an authenticator app and sign in only by typing openai.com yourself.",
@@ -1121,7 +1162,7 @@
           {
             "title": "Northflank breach: all environment variables assumed decrypted; AI keys stored on the platform confirmed abused",
             "date": "2026-10-30T13:40:00Z",
-            "summary": "After a Wiz alert at 11:43 UTC on Oct 30, Northflank told every user to rotate workload secrets, secret groups and global secrets. At 11:38 PM UTC it said users report unauthorized use of AI API keys stored on the platform and linked the IPs to Wiz's 'Black October' report; at 1:04 AM UTC Oct 31 it enabled audit logs for all customers. Entry point not yet disclosed.",
+            "summary": "After a Wiz alert at 11:43 UTC on Oct 30, Northflank told every user to rotate workload secrets, secret groups and global secrets. At 11:38 PM UTC it said users report unauthorized use of AI API keys stored on the platform and linked the IPs to Wiz's 'Black October' report; at 1:04 AM UTC Oct 31 it enabled audit logs for all customers. Entry point not yet disclosed. BleepingComputer (Oct 31) confirms the AI-key abuse.",
             "status": "exploited",
             "cves": [],
             "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
@@ -1229,6 +1270,6 @@
         ]
       }
     ],
-    "trend_note": "Three big threat-intel teams (Microsoft, CrowdStrike, Google/Mandiant) now independently report AI agent frameworks running real intrusions, so agent-speed attacks are the baseline rather than an exception, and AI-assisted crews like n0n are now hitting financial-infrastructure vendors. Since the last update (a quiet window): one item added (n0n's Finzly leak), Chainalysis and Langflow entries updated, and four items older than 7 days rolled off (UK AISI/Anthropic Mythos report, LiteLLM backdoor, AgenticSeek, Moonshot Kimi)."
+    "trend_note": "Attackers are now using AI both to break in (agent frameworks, AI-written exploits) and to process the loot (VOLTA's AI victim ranking), and AI developer platforms keep being hit for their stored keys (Brev is the latest). Since the last update: four items added (VOLTA, Brev, two unverified agent/MCP flaw reports), Northflank updated; nothing rolled off."
   }
 }
