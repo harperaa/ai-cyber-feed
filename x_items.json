@@ -1,5 +1,23 @@
 [
  {
+  "url": "https://x.com/TheHackerWire/status/2116358244960514481",
+  "author": "TheHackerWire",
+  "created_at": "2026-10-31T02:35:00Z",
+  "text": "CVE-2026-62863 (CVSS 9.6 Critical): Unauthenticated /sse & /message endpoints with wildcard CORS in MoLing MCP Server (< 0.5.0) let malicious web pages trigger localhost RCE. Upgrade MoLing to >= v0.5.0 or disable SSE mode.",
+  "cves": [
+   "CVE-2026-62863"
+  ]
+ },
+ {
+  "url": "https://x.com/Iam_Shivanshu/status/2116357031678361816",
+  "author": "Iam_Shivanshu",
+  "created_at": "2026-10-31T02:30:11Z",
+  "text": "Your MCP server checked the token's signature, issuer and expiry. It never checked who the token was for. GHSA-4prq-p2x5-w9fh / CVE-2026-115413 in awslabs.aws-api-mcp-server. High, CVSS 7.3.",
+  "cves": [
+   "CVE-2026-115413"
+  ]
+ },
+ {
   "url": "https://x.com/botnewsnetwork/status/2116343864768541149",
   "author": "botnewsnetwork",
   "text": "Two missing checks in Datalayer's jupyter-mcp-server let any website hijack an AI assistant's live notebook connection; a frontier model never noticed the swap (Pluto Security research disclosure).",
@@ -96,6 +114,16 @@
   "text": "Northflank confirms breach on its status page after a Wiz threat alert at 11:43 UTC; tells customers to assume every env variable was decrypted and to disable and rotate all keys.",
   "created_at": "2026-10-30T21:20:18Z",
   "cves": []
+ },
+ {
+  "url": "https://x.com/SpectraAudit/status/2116278149935677879",
+  "author": "SpectraAudit",
+  "created_at": "2026-10-30T21:16:44Z",
+  "text": "CISA flags two actively exploited vulnerabilities: GitLab RCE (CVE-2026-97229) & Cisco ASA/FTD firewall DoS (CVE-2026-76418), added to the KEV catalog.",
+  "cves": [
+   "CVE-2026-97229",
+   "CVE-2026-76418"
+  ]
  },
  {
   "url": "https://x.com/hexawow/status/2116267376866164809",
@@ -216,6 +244,13 @@
   ]
  },
  {
+  "url": "https://x.com/infrastack_ai/status/2116147047468523547",
+  "author": "infrastack_ai",
+  "created_at": "2026-10-30T12:35:46Z",
+  "text": "The official Claude Code VS Code extension was hit in a supply chain attack, and version 2.1.313 shipped a loader that installs a persistent SSH backdoor, adds the attacker's SSH key, and sends host data out. Up to 5,000 users installed it.",
+  "cves": []
+ },
+ {
   "url": "https://x.com/MarcosRGjr/status/2116142059740344506",
   "author": "MarcosRGjr",
   "text": "A remote MCP server can run code on your machine before it lists a single tool. OpenCode 1.0.137 to 1.18.32 and MCP Inspector 2.0 to 2.11 passed the server's OAuth sign-in URL to a browser opener that wrapped it in PowerShell on Windows and WSL.",
@@ -251,6 +286,13 @@
   "cves": []
  },
  {
+  "url": "https://x.com/ai_dev_official/status/2116092747245334945",
+  "author": "ai_dev_official",
+  "created_at": "2026-10-30T09:00:00Z",
+  "text": "26,400 working credentials were sitting in public Gitee repositories. Researchers scanned ~7.25M public repos; that includes 9,473 Alibaba Cloud key pairs and 3,170 DeepSeek keys.",
+  "cves": []
+ },
+ {
   "url": "https://x.com/Iam_Shivanshu/status/2116047597903233458",
   "author": "Iam_Shivanshu",
   "text": "AWS bulletin 2026-097-AWS / CVE-2026-85654 / GHSA-35jj-hwvm-792x. Code injection in the CDK generator inside awslabs.dynamodb-mcp-server.",
@@ -258,6 +300,13 @@
   "cves": [
    "CVE-2026-85654"
   ]
+ },
+ {
+  "url": "https://x.com/Teti_sf/status/2116045631756071194",
+  "author": "Teti_sf",
+  "created_at": "2026-10-30T05:52:47Z",
+  "text": "Binance & Polymarket on Oct 29: two separate incidents. Binance ~$6.3B, largest crypto hack on record, via a compromised DevOps engineer's laptop giving access to a service container. Polymarket hit via a compromised DebugBear third-party script (supply chain).",
+  "cves": []
  },
  {
   "url": "https://x.com/BytesNora/status/2116044384474914828",
@@ -274,55 +323,5 @@
   "text": "GoPlus Security traced the Polymarket International incident to a compromised third-party monitoring script from DebugBear, a confirmed supply chain attack.",
   "created_at": "2026-10-30T05:42:00Z",
   "cves": []
- },
- {
-  "url": "https://x.com/Basant_Pandey/status/2116042717696610791",
-  "author": "Basant_Pandey",
-  "text": "Agno PandasTools (through 3.1.11) passes a model-chosen function name to getattr(). Prompt injection can make it call read_pickle on an attacker path, which is code execution. CVE-2026-119050, 9.2.",
-  "created_at": "2026-10-30T05:41:12.000Z",
-  "cves": [
-   "CVE-2026-119050"
-  ]
- },
- {
-  "url": "https://x.com/josephfounder/status/2116034824645304618",
-  "author": "josephfounder",
-  "text": "Polymarket hacked via a supply chain attack: a JavaScript piece of code used on its website (DebugBear third-party script) was compromised and used to steal user funds.",
-  "created_at": "2026-10-30T05:09:50.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/0x0SojalSec/status/2116014051121922174",
-  "author": "0x0SojalSec",
-  "text": "Black October: largest crypto heist in history plus Pentagon personnel data breach (3M), Denmark population register breach (8.8M), French supermarket freezers remotely disabled, Ahold Delhaize grocery systems knocked offline.",
-  "created_at": "2026-10-30T03:47:18.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/YourAnon_irc/status/2116009503577518540",
-  "author": "YourAnon_irc",
-  "text": "Critical RCE in FreeSWITCH (CVE-2026-116779) actively exploited, jeopardizing real-time comms data.",
-  "created_at": "2026-10-30T03:29:13.000Z",
-  "cves": [
-   "CVE-2026-116779"
-  ]
- },
- {
-  "url": "https://x.com/Ranjan22555/status/2116008025152774161",
-  "author": "Ranjan22555",
-  "text": "Strands Agents Tools let an LLM disable secret masking via a tool parameter (CVE-2026-115415). Prompt injection could expose host credentials. Upgrade to 0.8.6+ and rotate exposed keys.",
-  "created_at": "2026-10-30T03:23:21.000Z",
-  "cves": [
-   "CVE-2026-115415"
-  ]
- },
- {
-  "url": "https://x.com/Daily_CyberSec/status/2116001749773267344",
-  "author": "Daily_CyberSec",
-  "text": "Patch the Ivanti Connect Secure vulnerability now. This Ivanti Connect Secure zero-day chain with CVE-2026-104935 is actively exploited in the wild.",
-  "created_at": "2026-10-30T02:58:25.000Z",
-  "cves": [
-   "CVE-2026-104935"
-  ]
  }
 ]
