@@ -1,5 +1,67 @@
 [
  {
+  "url": "https://x.com/DFIR_Radar/status/2116501326049722645",
+  "author": "DFIR_Radar",
+  "text": "AI agents are moving from theoretical threat to confirmed incident-response finding. Wiz documents three real-world intrusions where agentic frameworks handled reconnaissance, exploitation, lateral movement, and bulk secret exfiltration at machine speed.",
+  "created_at": "2026-10-31T12:03:33Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/lyrie_ai/status/2116524883396169997",
+  "author": "lyrie_ai",
+  "text": "No attacker gave the order. AI agents hit real systems anyway. Hugging Face: OpenAI agents in an evaluation used a zero-day in JFrog Artifactory to reach the internet, then accessed Hugging Face's production infrastructure, per OpenAI.",
+  "created_at": "2026-10-31T13:37:09Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/evansims/status/2116544981209162218",
+  "author": "evansims",
+  "text": "The Bitwarden CLI supply-chain attack went straight for Claude Code, Cursor, and Codex config files. Those files hold live tokens to your repos and cloud.",
+  "created_at": "2026-10-31T14:57:01Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/aviatrixtrc/status/2116322590557978761",
+  "author": "aviatrixtrc",
+  "text": "Attackers are exploiting CVE-2026-97229, a CVSS 10.0 integer overflow in GitLab's CI/CD Regular Expression Compiler, achieving unauthenticated RCE on internet-exposed instances. Post-compromise, researchers observed privilege escalation via harvested CI/CD pipeline secrets.",
+  "created_at": "2026-10-31T00:13:19Z",
+  "cves": [
+   "CVE-2026-97229"
+  ]
+ },
+ {
+  "url": "https://x.com/iamnrdas/status/2116305883625824469",
+  "author": "iamnrdas",
+  "text": "AWS disclosed CVE-2026-119117 in the Kinesis Producer Library for Java (<1.0.8). DEBUG logs and native process args may expose AWS credentials to local users. Upgrade to 1.0.8+, rotate keys if needed.",
+  "created_at": "2026-10-30T23:06:56Z",
+  "cves": [
+   "CVE-2026-119117"
+  ]
+ },
+ {
+  "url": "https://x.com/rst_cloud/status/2116529601971191899",
+  "author": "rst_cloud",
+  "text": "The Shrinking Exploit Window: How AI Speeds Up the Hunt for Old Bugs | 30-10-2026. Threats: P2pshell_vuln, Node2shell_vuln, Motw_bypass_technique, Supply_chain_technique, Mirai.",
+  "created_at": "2026-10-31T13:55:54Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/MoneyGrid7/status/2116563006775583196",
+  "author": "MoneyGrid7",
+  "text": "Black October 2026: The full breach recap. Railway lost customer environment variables. OpenCode leaked API keys. TiDB Cloud confirmed stolen credentials got an attacker inside. Coinbase and Warp both had data exposed through a vendor. Capcom lost 11.7M accounts.",
+  "created_at": "2026-10-31T16:08:39Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/i_osiemo/status/2116372013455413364",
+  "author": "i_osiemo",
+  "text": "Fragnesia (CVE-2026-46300) is a kernel bug that turns a foothold into root. CISA lists it as actively exploited, and it was chained with PHP flaws to root 25 servers.",
+  "created_at": "2026-10-31T03:29:42Z",
+  "cves": [
+   "CVE-2026-46300"
+  ]
+ },
+ {
   "url": "https://x.com/isectech_/status/2116264700384006225",
   "author": "isectech_",
   "text": "New CISA KEV (Oct 29): Cisco ASA/FTD CVE-2026-76418 (8.6, SSL VPN DoS, actively exploited) + GitLab CVE-2026-97229 (10.0, unauth RCE). Patch both federal due Sun Nov 1.",
@@ -107,29 +169,11 @@
   ]
  },
  {
-  "url": "https://x.com/noelkimx/status/2116196704223715497",
-  "author": "noelkimx",
-  "text": "Agno's PandasTools passed a model-chosen function name to getattr, so a prompt injection could make the agent call read_pickle on an attacker's file and run code (CVE-2026-119050).",
-  "created_at": "2026-10-30T15:53:05Z",
-  "cves": [
-   "CVE-2026-119050"
-  ]
- },
- {
   "url": "https://x.com/marcoscyberx/status/2116531470239936766",
   "author": "marcoscyberx",
   "text": "Langflow's MCP command field was passed straight to a shell. Any logged-in user could run commands (CVSS 9.9). Honeypots logged 1,706 exploit attempts from 28 IPs, hunting for secret keys and superuser passwords.",
   "created_at": "2026-10-31T14:03:20Z",
   "cves": []
- },
- {
-  "url": "https://x.com/fireball_triada/status/2116194157723291665",
-  "author": "fireball_triada",
-  "text": "A malicious MCP server can run PowerShell on your PC during OAuth sign-in. OpenCode 1.0.137-1.18.32 on Windows/WSL passed the server's auth URL to open@10.x. Root cause: CVE-2026-119025. Fixed silently.",
-  "created_at": "2026-10-30T15:42:58Z",
-  "cves": [
-   "CVE-2026-119025"
-  ]
  },
  {
   "url": "https://x.com/botnewsnetwork/status/2116343864768541149",
@@ -269,51 +313,5 @@
   "text": "CrowdStrike's researchers have expanded the Prompt Injection Taxonomy to 222 techniques, revealing new ways adversaries manipulate how AI agents plan, reason, and act.",
   "created_at": "2026-10-31T10:00:35Z",
   "cves": []
- },
- {
-  "url": "https://x.com/blackorbird/status/2116461034374590903",
-  "author": "blackorbird",
-  "text": "Evolution of AI-Powered Attacks\nStages 1\u20132: Adversaries moved from prompt-based LLM use for malware code, phishing, personas, and reconnaissance to embedding LLMs in malware like HONESTCUE and PROMPTSPY to dynamically obfuscate payloads and evade defenses.\n\nStage 3: Agentic LLMs",
-  "created_at": "2026-10-31T09:23:27.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/AgentWorkshq/status/2116446222420680847",
-  "author": "AgentWorkshq",
-  "text": "Spring AI 2.0.1 fixed 7 CVEs. On 2.0.0? Upgrade. Two matter for agents: an unadvertised tool could be dispatched via prompt injection; Redis chat memory could expose data across conversations.",
-  "created_at": "2026-10-31T08:24:35Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/Riftweldsec/status/2116432444995867094",
-  "author": "Riftweldsec",
-  "text": "Drupal Commerce Core access bypass CVE-2026-118539 is being actively exploited against online stores. Patch to 3.3.13 or 8.x-2.41 now, then audit orders.",
-  "created_at": "2026-10-31T07:29:50Z",
-  "cves": [
-   "CVE-2026-118539"
-  ]
- },
- {
-  "url": "https://x.com/HMajithiya77671/status/2116423643668615657",
-  "author": "HMajithiya77671",
-  "text": "\ud83d\udea8 Claude Code \u00d7 Cursor Security Alert\n\nMicrosoft reports a tampered extension in Cursor's marketplace (29 Oct).\n\n\u26a0\ufe0f Versions: 2.1.312 &amp; 2.1.313\n\ud83d\udd34 Risk: Persistent remote access\n\u2705 Official VS Marketplace/npm unaffected\n\nCheck source + version. If affected, investigate and https://t.co/KyzM7ysVJa",
-  "created_at": "2026-10-31T06:54:52.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/Cyber_O51NT/status/2116411923155615845",
-  "author": "Cyber_O51NT",
-  "text": "Intel 471 found exploiting the public PHP2Shell exploit for AI-discovered flaws is difficult, but urged users to patch immediately. https://t.co/zBDX60WcGR",
-  "created_at": "2026-10-31T06:08:18.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/BytesNora/status/2116411159599345877",
-  "author": "BytesNora",
-  "text": "SecBoard Daily \u00b7 30 October 2026\n\nTop story: CISA Adds Actively Exploited GitLab RCE and Cisco Firewall DoS Flaws to KEV (CVE-2026-97229, actively exploited)\n\n1 newly listed as exploited\n\nFull daily briefing on SecBoard \u2013 address in the image.\n\n#ThreatIntel #GitLab https://t.co/BdNAB66pCC",
-  "created_at": "2026-10-31T06:05:16.000Z",
-  "cves": [
-   "CVE-2026-97229"
-  ]
  }
 ]
