@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-02T17:43:13Z",
-  "next_update_note": "Changes in this 12:43 PM EST Nov 2 (17:43 UTC) update: added a focus card for Google Mandiant's LLMjacking report ($100,000+ a day in fraudulent AI charges from stolen cloud credentials); moved Brotli 'Node2Shell' to the watch list (unchanged, still patch it); The Register's Trigger.dev coverage is noted. New on the watch list: the overnight hack of refrigeration controls at supermarkets in seven European countries (including IKEA Mons), Florida's 4.9 million-person student-aid breach, Revolve's card-data breach, fake nuclear alerts on Russian and Ukrainian emergency apps, Google's 1.3 million-device Android botnet takedown, an unverified PHP core zero-day sale claim, CoSnitch, BIND CVE-2026-94300 and new CWP and python-jose CVEs. The AI roll-up adds LLMjacking, NIK C2, the Langflow public exploit (unverified) and CoSnitch (patched). Ivanti's federal deadline for CVE-2026-111357 is today. Next summary update in about 4 hours (around 4:30 PM EST); the feed itself refreshes hourly.",
-  "headline": "New since 8:42 AM EST: a second wave of hacks on store refrigeration controls hit supermarkets in at least seven European countries overnight (about 75 stores in Belgium alone, including IKEA's Mons store), and Florida says its student-aid site breach exposed Social Security numbers of about 4.9 million people. Google's Mandiant says attackers using stolen cloud credentials ('LLMjacking') run up more than $100,000 a day in AI charges, so set spending caps and rotate exposed keys. Still finish what's open: rotate every secret on Northflank and Trigger.dev, patch Ivanti Connect Secure (federal deadline today), keep BTCPay Server older than 2.4.7 offline until updated, patch self-managed GitLab against the exploited CVE-2026-97229, and act on VOLTA, the trojanized Claude Code extension, PHP2Shell, Brotli 'Node2Shell', Firefox 159.0 and Chrome 156.0.8078.79.",
-  "ai_headline": "Google Mandiant (Nov 2) documents LLMjacking at scale: stolen cloud tokens, service-account keys and GitHub tokens are turned into AI inference worth over $100,000 a day, up to $1 million per victim, and resold through cheap 'unlimited' token services such as Jet Night. That matches what Northflank, Railway and Trigger.dev customers are seeing after this month's AI-platform breaches. No new AI-caused intrusions were confirmed since the morning; the week's AI-driven threats stand: VOLTA ranks stolen loot with Claude Opus 4.6, crews run AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI) and talk coding agents into ransomware work (Aur0ra), Chainalysis was breached with agentic techniques, a new C2 framework (NIK) drives hosts through the OpenAI API, and AI models turn fresh patches into working exploits (GLM 5.3, Anthropic's lab model).",
+  "updated_at": "2026-11-02T21:45:00Z",
+  "next_update_note": "Changes in this 4:45 PM EST Nov 2 (21:45 UTC) update: added a focus card for the Mercado Bitcoin hot-wallet drain (about $40-49 million across at least 10 blockchains, per security firms); moved Ivanti Connect Secure (federal deadline was today) and Chainalysis (no new details) to the watch list. New on the watch list: Kaspersky's report of CyberStrikeAI-driven intrusions at schools and universities in Latin America and Africa, Noma Labs' SneakPeek flaw in Claude Code Desktop's preview pane (fixed in August), exploitation attempts against the CryptoPayment Gateway WordPress plugin (CVE-2026-81648), a public exploit for Juniper Session Smart Router CVE-2026-103409, the Beget hosting attack in Russia and the Sageworks (Abrigo) outage. A Palo Alto post about CVE-2026-0322 and XBOW's $40,000 AI-built Chrome chain recirculated today but both are from mid-October. Next summary update in about 4 hours (around 8:30 PM EST); the feed itself refreshes hourly.",
+  "headline": "New since 12:43 PM EST: Brazil's largest crypto exchange, Mercado Bitcoin, froze deposits and withdrawals after attackers drained hot wallets on at least 10 blockchains (security firms estimate $40-49 million; the exchange says customers lost nothing), days after the $6.3 billion Binance theft. Kaspersky documented another AI-run intrusion campaign, this time against schools and universities in Latin America and Africa using the CyberStrikeAI framework. Still finish what's open: rotate every secret on Northflank and Trigger.dev, set AI spending caps against LLMjacking, keep BTCPay Server older than 2.4.7 offline until updated, patch Ivanti Connect Secure and self-managed GitLab (CVE-2026-97229), and act on VOLTA, the trojanized Claude Code extension, PHP2Shell, Firefox 159.0 and Chrome 156.0.8078.79.",
+  "ai_headline": "Kaspersky (Nov 2) reports attackers using CyberStrikeAI, an open-source framework that pairs a C2 server with an LLM, to take schools and universities in Latin America and Africa from first implant to domain admin in three to four days, with the final lateral-movement and database-export run taking under an hour. That joins this week's picture: VAPOR PANDA running ARTEX with DeepSeek against 200+ organizations, Aur0ra talking coding agents into ransomware work, VOLTA ranking stolen loot with Claude Opus 4.6, Chainalysis breached with agentic techniques, AI models turning fresh patches into working exploits (GLM 5.3, Anthropic's lab model), and LLMjacking crews (Mandiant) cashing out stolen AI keys at over $100,000 a day.",
   "focus": [
     {
       "title": "Open-weight AI model GLM 5.3 built working Firefox exploit chains from unshipped security fixes for about $1,000 each (Epoch AI)",
@@ -102,18 +102,14 @@
       "ai_note": ""
     },
     {
-      "title": "Ivanti Connect Secure: two more flaws exploited in a chain with CVE-2026-104935 for unauthenticated root on the VPN",
-      "severity": "critical",
+      "title": "Mercado Bitcoin (Brazil's largest crypto exchange) halts deposits and withdrawals after hot wallets drained on at least 10 blockchains (about $40-49 million, per security firms)",
+      "severity": "high",
       "exploited": true,
-      "cves": [
-        "CVE-2026-111357",
-        "CVE-2026-118527",
-        "CVE-2026-104935"
-      ],
-      "vendor": "Ivanti Connect Secure",
-      "why": "Ivanti fixed CVE-2026-111357 (privilege escalation, Ivanti CVSS 8.8) and CVE-2026-118527 (predictable file names allow file upload), and CISA added both to its exploited list on Oct 30 (federal deadline for CVE-2026-111357 is today, Nov 2). Chained with the Oct 13 authentication bypass CVE-2026-104935, they give unauthenticated root. Volexity says the actor it tracks as UTA0576 has used the chain since Oct 3, even against a then fully patched 22.8R2.4 appliance, to steal domain credentials stored on the VPN, search Active Directory for LAPS passwords and BitLocker keys, and wipe log entries. It runs in memory, so Ivanti's Integrity Checker Tool may show nothing. SecurityWeek and BleepingComputer covered the two new zero-days on Nov 2; BleepingComputer says the chain has been used since at least Oct 1.",
-      "action": "Update Connect Secure 25.1.x to 25.1.1.3 and 22.8 to 22.8R2.6 now. If the appliance was exposed since early October, do network and memory forensics, look for heavy requests to /dana-na/auth/url_default/welcome.cgi and files in /tmp/, and if compromise is suspected follow CISA's steps: factory reset, upgrade, restore config, then reset all domain, admin and local passwords and reissue certificates and API keys.",
-      "url": "https://www.cisa.gov/news-events/alerts/2026/10/13/cisa-urges-patching-newly-exploited-vulnerabilities-ivanti-connect-secure",
+      "cves": [],
+      "vendor": "Mercado Bitcoin",
+      "why": "New (Nov 2): early Monday the exchange said it 'identified and swiftly contained' an incident in one of its systems and paused deposits and withdrawals. Hypernative flagged over $40 million in suspicious transfers, Arkham puts the attacker's wallets at about $46 million and Cointelegraph cites over $49 million; the transfers were plain signed transactions, so the attacker had signing access, and how is still unknown. Tether and Circle have frozen about $6.2 million. The exchange says customers lost nothing and no data leaked; there is no attribution and no public link to the Binance hack.",
+      "action": "If you hold funds at Mercado Bitcoin, don't send deposits to old deposit addresses until it confirms they're safe, ignore 'recovery' offers and follow only its official X account for updates. Exchanges and custodians: review who and what can sign hot-wallet transactions, and alert on many small sweeps across chains.",
+      "url": "https://www.coindesk.com/business/2026/11/02/brazil-s-mercado-bitcoin-halts-withdrawals-after-usd40-million-drained-across-10-chains",
       "ai_angle": [],
       "ai_note": ""
     },
@@ -155,23 +151,21 @@
         "cause"
       ],
       "ai_note": "AI found it and AI helped exploit it: Calif, Wiz's Atlas agent and OpenAI's Codex Security found the bugs, and Dream found Claude Code, an aiscan offensive platform running DeepSeek and Kimi, and AI-styled scripts on the attacker's servers, though it has no direct proof AI wrote the exploit itself."
-    },
-    {
-      "title": "Chainalysis breached by an attacker using 'offensive agentic techniques'; some customer user details accessed",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "Chainalysis (blockchain analytics)",
-      "why": "New (Oct 30): Chainalysis says an external actor using offensive agentic techniques got into its systems and internal tools this month. It says it found no evidence the attacker reached investigation content, transaction or query results, cleartext passwords, MFA secrets or session tokens, but user IDs, full names, emails and role labels of users provisioned on its platform were accessed. It says the incident is not related to the Binance theft and that it is still working out which records per customer organization were taken. Update (BleepingComputer, Oct 31): Chainalysis has not said which flaws were used, which tools were reached or how long the attacker had access; it is working with outside experts and using large language models in a broader security review. SecurityWeek covered the breach on Nov 2; the number of people affected is still undisclosed.",
-      "action": "If your organization uses Chainalysis, turn on two-factor authentication, expect a per-organization breakdown from the company, and watch for unexpected password-reset requests, login prompts and scammers posing as Chainalysis (especially 'fund recovery' or recruiting offers) aimed at listed users such as investigators and compliance staff. Use only official Chainalysis channels.",
-      "url": "https://www.chainalysis.com/blog/security-incident-october-30/",
-      "ai_angle": [
-        "cause"
-      ],
-      "ai_note": "AI as cause: the company itself describes the intrusion as using offensive agentic (AI agent) techniques; no technical details published."
     }
   ],
   "news": [
+    {
+      "title": "Mercado bitcoin hit by $40 million hack across 10 blockchains",
+      "source": "CoinDesk",
+      "url": "https://www.coindesk.com/business/2026/11/02/brazil-s-mercado-bitcoin-halts-withdrawals-after-usd40-million-drained-across-10-chains",
+      "blurb": "Brazil's largest exchange paused deposits and withdrawals; security firms estimate $40 million or more drained by plain signed transactions, cause unknown."
+    },
+    {
+      "title": "Kaspersky uncovers AI-driven attacks on educational organizations in Latin America and Africa",
+      "source": "Kaspersky",
+      "url": "https://www.kaspersky.com/about/press-releases/kaspersky-uncovers-ai-driven-attacks-on-educational-organizations-in-latin-america-and-africa",
+      "blurb": "Attackers used the CyberStrikeAI framework, with the LLM on their own server choosing tools and commands, to reach domain admin within days (Sep-Oct 2026)."
+    },
     {
       "title": "The Rise of LLMJacking: How Threat Actors Monetize Compromised Cloud and Model Resources",
       "source": "Google Cloud (Mandiant/GTIG)",
@@ -183,18 +177,6 @@
       "source": "The Guardian",
       "url": "https://www.theguardian.com/world/2026/nov/02/supermarket-freezers-across-europe-hit-by-second-suspected-cyber-attack",
       "blurb": "Chains in seven countries saw cooling temperatures pushed as high as 50C overnight, echoing last month's attack on French stores."
-    },
-    {
-      "title": "Florida warns that 4.9 million people had Social Security numbers leaked in financial aid site breach",
-      "source": "The Record",
-      "url": "https://therecord.media/florida-warns-5-million-affected-financial-aid-site-breach",
-      "blurb": "An Oct 19 breach of the state's student financial-aid website exposed names, SSNs, birth dates and contact details."
-    },
-    {
-      "title": "Security Disclosure: Sunday November 1st",
-      "source": "Trigger.dev",
-      "url": "https://trigger.dev/blog/security-incident-nov-2026",
-      "blurb": "An attacker read environment variables for a subset of organizations on the AI-agent job platform; rotate secrets."
     },
     {
       "title": "Ransomware gang talked AI agents into doing much of its dirty work",
@@ -222,6 +204,15 @@
     }
   ],
   "watch": [
+    "Ivanti Connect Secure CVE-2026-111357 / CVE-2026-118527 chained with CVE-2026-104935 (moved off the focus list; exploited, federal deadline was Nov 2): unauthenticated root on the VPN; apply Ivanti's fixed releases, run its integrity checker and reset credentials on any device that shows tampering.",
+    "Chainalysis (moved off the focus list, no new details): an attacker using 'offensive agentic techniques' reached internal tools and some customer user details; turn on 2FA and ignore 'fund recovery' offers. See the AI activity roll-up.",
+    "CryptoPayment Gateway for WordPress CVE-2026-81648 (CVSS 10.0): Defused reports the first in-the-wild exploitation attempts (X, Nov 2); update or disable the plugin.",
+    "Juniper Session Smart Router CVE-2026-103409 (9.8): a public exploit is now out (X, Nov 2); devices not yet onboarded to Mist/Conductor are exposed, so upgrade to 7.0.5, 7.1.7 or 7.2.3 (bulletin JSA112183, no workaround); Juniper's bulletin had said it knew of no exploitation.",
+    "Claude Code Desktop 'SneakPeek' (Noma Labs, CVSS 8.7, disclosed now, fixed Aug 17 in Claude Desktop 1.30096.1): an HTML file over 256 KB in a cloned repo, rendered in the preview pane, could read local files such as SSH keys, cloud credentials and Claude OAuth tokens; the first fix was bypassed. Make sure Desktop is current, and rotate credentials if you previewed untrusted repo HTML on an older build.",
+    "Telegram for Android one-call takeover (NebuSec): an X post says GPT-5.4 found the in-call control-message bug and that versions before 12.10.4 are affected (AI-found claim unverified here); update Telegram.",
+    "Beget (major Russian hosting provider): a large cyberattack overnight Nov 2 knocked out DNS, email, hosting and cloud services for a large share of its roughly 500,000 sites; restores from backup are ongoing with no full-recovery time.",
+    "Sageworks (Abrigo's bank risk-management app, BleepingComputer Nov 2): taken offline after 'irregular activity'; restored except borrower-facing features. Banks using it should watch for vendor notices.",
+    "Recirculating, not new: Palo Alto PAN-OS CVE-2026-0322 (exploited, fixed Oct 14; restrict the management interface and patch) and XBOW's AI-built Chrome full chain (GPT-5.6 Sol, about $40,000 in API costs, fixed in Chrome 152, Oct 13).",
     "European supermarket refrigeration attacks (Guardian, Euronews, Reuters, Nov 2): overnight, attackers switched store cooling units into defrost mode, pushing temperatures as high as 50C at chains in Belgium (about 75 stores, including Delhaize, Carrefour, Intermarché, Spar and IKEA Mons), Sweden (ICA, Coop), Ireland (13 SuperValu stores), the Netherlands (17+ companies per Danfoss), Estonia, Finland and Luxembourg. It mirrors the mid-October attack on French stores; Belgium's prosecutor is investigating, nobody has claimed it, and installer Sabcobel says a software update alone doesn't fix the weakness. If you run building or refrigeration controls, take their remote access off the internet and review vendor remote-access accounts.",
     "Florida Department of Education (SecurityWeek, The Record, Nov 2): an Oct 19 breach of the student financial-aid website may have exposed names, Social Security numbers, birth dates, addresses, phones and emails of about 4.9 million people; aid payments are unaffected. Revolve (SecurityWeek, Nov 2): a Sep 11 breach exposed at least 180,000 customers' names, addresses and card numbers with expiry dates; watch card statements.",
     "Fake nuclear-attack alerts (Nov 2): attackers pushed false alerts through Russia's Emergencies Ministry (Emercom) app to many regions, and a similar fake alert appeared on a Ukrainian app; no attribution yet.",
@@ -345,11 +336,9 @@
     "Railway platform breach: ~100,000 workspaces' secrets possibly decrypted, attacker hunting AI keys: Anyone who stored secrets on Railway before Oct 21: rotate every env var and revoke old keys at the issuing provider (AI keys first, then database, registry, cloud, Stripe and GitHub tokens), create new Railway API/project tokens, reconnect GitHub and redeploy bucket services, remove public network access to databases, and check provider usage, GitHub and registry audit logs back to Oct 20. If a provider revoked a replacement key, create a new one, update the Railway variable and redeploy; this does not mean the replacement was compromised.",
     "Comet Opik (AI evaluation platform, Oct 24-26): an attacker used an inactive account's API key and a flaw in Opik's AI provider settings to obtain 29 of Comet's internal OpenAI and Anthropic keys; Comet says no customer data, accounts or keys were accessed, revoked the keys and now requires the key to be re-entered when a provider address changes. If you self-host Opik or store provider keys in similar tools, update, restrict provider endpoints and watch provider usage.",
     "Sony Network Communications (So-net, Japan): attackers took 2,585,481 customer records on Oct 19 (names, phone numbers, emails, user IDs, birth dates, gender, connection IDs) and the passwords of 54,401 email accounts, which Sony reset on Oct 27; 443,495 of the records are NTT Docomo plala (S Course) customers. Expect phishing; affected users should set new passwords via So-net My Page.",
-    "Juniper Session Smart Router CVE-2026-103409 (9.8, published Oct 28): an unauthenticated attacker can get admin rights through an insecure root endpoint on devices not yet onboarded to Mist/Conductor; fixed in 7.0.5, 7.1.7 and 7.2.3 (bulletin JSA112183, no workaround). Session Smart Conductor CVE-2026-103406 (9.8, command injection via a crafted salt minion ID) is in the same batch. Juniper knows of no exploitation.",
     "MLflow CVE-2026-116692 (CVSS 9.8, RCE) and CVE-2026-116690 (7.5, arbitrary file read): both work against default no-auth MLflow tracking servers; upgrade to MLflow 3.17.0 and put authentication in front of the server. A single X post claims CVE-2026-116690 is exploited, but GitHub's advisory, Feedly and TheHackerWire show no confirmed exploitation or KEV listing (unverified).",
     "Langflow CVE-2026-105740: MCP stdio command injection lets any authenticated user run shell commands; ZoomEye counts about 19,200 exposed instances. Update Langflow and don't expose it to the internet (no attacks reported).",
     "US Federal Election Commission took its electronic filing system offline on Oct 26 after an attempted breach (X report; details unconfirmed).",
-    "Unverified X claims: GFI Kerio Connect webmail stored XSS CVE-2026-112353 (fixed in 10.0.8 Patch 2) and the Bricksforge WordPress plugin upload flaw CVE-2026-85097 (fixed in 4.0.1) are being exploited; update both.",
     "Oracle E-Business Suite CVE-2026-101767 (CVSS 9.8, unauthenticated SQL injection leading to RCE in the TCF servlet /OA_HTML/AppsTCFServer, EBS 12.2.3-12.2.15, found by Horizon3.ai): Defused's decoys logged the first exploratory attempts on Oct 27, about a week after Oracle's Oct 20 Critical Patch Update fixed it; an X post on Oct 29 repeats Defused's report of exploratory exploit traffic; no confirmed intrusions yet. Apply the October CPU (MOS Note KA923); until then remove /OA_HTML/AppsTCFServer from the EBS URL firewall allowlist, restrict the web tier to trusted networks, and look for unauthenticated POSTs to that path invoking GanttDataServer and oracle-account shells from the Concurrent Manager.",
     "Gotenberg CVE-2026-40281 (exploited ExifTool argument injection dropping a Go reverse shell): upgrade to 8.31.0+, keep it off the internet and check hosts running it (moved off the focus list).",
     "Skyw4lker device-code phishing (ANY.RUN via The Hacker News, Oct 28): a campaign mostly against US organizations abuses Microsoft's device-code sign-in flow to take over corporate accounts without stealing passwords; block device-code flow with Conditional Access where it isn't needed.",
@@ -441,16 +430,25 @@
     "Cisco ASA/FTD SSL VPN DoS zero-day CVE-2026-76418 (exploited, CISA KEV, federal deadline today, Nov 1; moved off the focus list): upgrade ASA to 9.16.4.104, 9.18.4.96, 9.20.4.50, 9.22.3.200, 9.23.1.48, 9.24.1.27 or 9.24.10.1, or FTD to 7.0.11, 7.2.13, 7.4.9, 7.6.7, 7.7.14, 10.0.3 or 10.1.1."
   ],
   "ai_activity": {
-    "overview": "Since the 8:42 AM EST update: Google's Mandiant published the clearest numbers yet on stolen AI access, with LLMjacking bills over $100,000 a day and up to $1 million per victim, resold through token 'mixers'; a new C2 framework (NIK) that runs through the OpenAI API got wider attention; and a public Langflow exploit and Microsoft's patched CoSnitch Copilot flaw resurfaced. No new AI-caused intrusions were confirmed. The week's picture: attackers run AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI, CyberStrikeAI) in real intrusions, ransomware crews talk coding agents into the work (Aur0ra), malware hands loot to AI models (VOLTA), Chainalysis was breached with agentic techniques, AI models turn fresh patches into working exploits (GLM 5.3, Anthropic's lab model), and AI developer platforms keep losing the provider keys they store.",
+    "overview": "Since the 12:43 PM EST update: Kaspersky published another confirmed AI-run intrusion campaign (CyberStrikeAI against schools and universities in Latin America and Africa), Noma Labs disclosed the patched SneakPeek credential-theft flaw in Claude Code Desktop, and an unverified X post credits GPT-5.4 with finding the Telegram one-call bug. The week's picture: attackers run AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI, CyberStrikeAI) in real intrusions, ransomware crews talk coding agents into the work (Aur0ra), malware hands loot to AI models (VOLTA), Chainalysis was breached with agentic techniques, AI models turn fresh patches into working exploits (GLM 5.3, Anthropic's lab model), and AI developer platforms keep losing the provider keys they store, which LLMjacking crews cash out at over $100,000 a day.",
     "counts": {
-      "ai_cause": 30,
-      "ai_product_exploited": 43,
+      "ai_cause": 29,
+      "ai_product_exploited": 39,
       "ai_impact": 18
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "X post: GPT-5.4 found the Telegram for Android one-call takeover bug reported by NebuSec",
+            "date": "2026-11-02T20:04:10Z",
+            "summary": "Claims the in-call control-message flaw (code execution when a victim answers a voice call) was found with GPT-5.4 and is fixed in Telegram for Android 12.10.4. The AI-found detail is single-source here.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/AntonPincu56792/status/2117347053252571399",
+            "source": "X"
+          },
           {
             "title": "NIK C2: new Python command-and-control framework runs commands on compromised hosts through the OpenAI API",
             "date": "2026-11-02T14:57:00Z",
@@ -459,6 +457,15 @@
             "cves": [],
             "url": "https://x.com/RH_ISAC/status/2117269856684847401",
             "source": "X / Cisco Talos"
+          },
+          {
+            "title": "Kaspersky: attackers used the CyberStrikeAI framework to run intrusions at schools and universities in Latin America and Africa",
+            "date": "2026-11-02T12:00:00Z",
+            "summary": "Between September and October, after manual work through a compromised SQL Server, the attackers deployed a CyberStrikeAI implant; the LLM on the attackers' server picked tools, wrote commands and read results, reaching domain admin in three to four days, with the final lateral movement, credential collection and database export taking under an hour. No attribution (Chinese-language script comments are not proof).",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.kaspersky.com/about/press-releases/kaspersky-uncovers-ai-driven-attacks-on-educational-organizations-in-latin-america-and-africa",
+            "source": "Kaspersky"
           },
           {
             "title": "Sophos: Aur0ra ransomware group (GOLD OGRE) talked AI agents into mapping networks and reaching domain admin",
@@ -715,39 +722,21 @@
             "cves": [],
             "url": "https://www.bleepingcomputer.com/news/security/warp-discloses-breach-exposing-ai-agent-logs-user-telemetry-data/",
             "source": "Warp CEO on X / BleepingComputer"
-          },
-          {
-            "title": "Seoul police: ex-pentester-led ring used the ARTEX AI pentest framework to hack 90+ organizations and steal 8.2 million records",
-            "date": "2026-10-26T21:08:00Z",
-            "summary": "Seven suspects allegedly stole 8.2 million pieces of personal data and internal records from 90+ hospitals, private academies and businesses since September 2025, using AI tools to hack 60 of them; 38 suffered losses and were asked for a combined 360 million won (about $272,000). The 32-year-old ringleader, a former mock-hacking employee at a security company, has been referred to prosecutors (Seoul Metropolitan Police Agency via Yonhap). Update Oct 26: Seoul Economic Daily and SBS report the ringleader first ran web scanners by hand, then used an AI coding agent and an autonomous AI penetration-testing system to breach 60 companies in just over 40 days (Aug 31 to Oct 13); police say it is the same AI tool used in a recent South Korean financial-sector breach, though no link between the cases is confirmed. One victim paid 300,000 won. Update Oct 26 (BleepingComputer citing Yonhap): police say the 32-year-old leader, who worked at a security company in 2019-2022, switched from conventional tools to AI in late August 2026 and used the ARTEX AI penetration-testing suite, the same autonomous framework tied to attacks on South Korean banks, in most of the attacks; he was arrested Oct 15 and referred to prosecutors Oct 23, while six others are under investigation without detention. Police are checking whether the data was leaked on the dark web.",
-            "status": "reported",
-            "cves": [],
-            "url": "https://www.bleepingcomputer.com/news/security/former-pentester-used-artex-ai-to-steal-82-million-data-records/",
-            "source": "BleepingComputer / Yonhap / Seoul Metropolitan Police"
-          },
-          {
-            "title": "Unverified: PS5 jailbreak said to use an AI-discovered hypervisor bug",
-            "date": "2026-10-26T18:08:00Z",
-            "summary": "X posts say a 'Prolapse' jailbreak for PS5 firmware 13.60-14.10 relies on an AI-discovered hypervisor bug with a $50K HackerOne bounty, patched in 14.20. Not confirmed by Sony or researchers.",
-            "status": "unverified",
-            "cves": [],
-            "url": "https://x.com/Techjunkie_Aman/status/2114781146886406431",
-            "source": "X"
-          },
-          {
-            "title": "Fortinet: frontier AI testing found critical FortiOS, FortiManager, FortiAnalyzer, FortiMail and FortiAuthenticator flaws",
-            "date": "2026-10-26T11:27:00Z",
-            "summary": "Fortinet shipped fixes on Oct 21-22 for critical and high-severity flaws found with AI models from Anthropic, OpenAI, Google and SpaceX; CVEs and details are withheld until Nov 10. Fortinet warns attackers can use AI to turn the patches into exploits within days. No attacks reported.",
-            "status": "patched",
-            "cves": [],
-            "url": "https://www.helpnetsecurity.com/2026/10/26/fortinet-patches-critical-fortios-flaws-found-with-ai-help/",
-            "source": "Fortinet / Help Net Security / Cybernews"
           }
         ]
       },
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "Noma Labs 'SneakPeek': Claude Code Desktop's preview pane could read and send out local credentials",
+            "date": "2026-11-02T18:51:00Z",
+            "summary": "Poisoned HTML over 256 KB in a public repo loaded via file:// without the script-blocking policy; a Web Worker bypassed the first fix. Anthropic rated it CVSS 8.7 and shipped the final fix Aug 17 in Claude Desktop 1.30096.1. Research disclosure, no attacks reported.",
+            "status": "patched",
+            "cves": [],
+            "url": "https://noma.security/noma-labs/sneakpeek-how-the-preview-pane-in-claude-code-desktop-can-exfiltrate-your-data",
+            "source": "Noma Labs"
+          },
           {
             "title": "Langflow through 1.12.8: public exploit for the auth bypass enumerates the MCP tools agents can reach (CVE-2026-93680, CVE-2026-110186)",
             "date": "2026-11-02T15:13:00Z",
@@ -1157,53 +1146,6 @@
             "cves": [],
             "url": "https://cyberpress.org/hackers-hijack-ai-agents/",
             "source": "NorForge / Cyberpress"
-          },
-          {
-            "title": "Cloudflare Workers AI: GLM-5.3 bug sent 155 responses containing other customers' session data",
-            "date": "2026-10-26T20:00:00Z",
-            "summary": "Cloudflare's Oct 26 incident report (as reported by Unite.AI) says a cross-request KV-cache flaw in the GLM-5.3 model (@cf/zai-org/glm-5.3) on Workers AI, live from Aug 27, caused 155 responses to prompts over about 681,000 tokens to include data from other tenants' sessions. Researcher Gadi Evron (Knostic) reported it Sep 8; Cloudflare fixed and restored the model Sep 9, says no other Workers AI model was affected and found no evidence of deliberate exploitation.",
-            "status": "patched",
-            "cves": [],
-            "url": "https://www.unite.ai/cloudflare-says-glm-5-3-bug-leaked-155-responses-across-tenant-sessions/",
-            "source": "Cloudflare via Unite.AI"
-          },
-          {
-            "title": "testmetest npm worm plants AI coding-agent start-up hooks in 42 hijacked GitHub repos and steals AI assistant tokens",
-            "date": "2026-10-26T16:30:00Z",
-            "summary": "JFrog found 42 legitimate repositories across 11 hijacked GitHub accounts carrying Claude and Gemini SessionStart hooks, Cursor MCP and rules files and VS Code tasks that run a hidden stealer when the repo is opened or an AI session starts. The linked npm worm steals cloud, registry and Claude/Codex/Gemini/Copilot credentials, spreads by republishing packages and can wipe the home folder if the stolen GitHub token is revoked.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://research.jfrog.com/post/beyond-testmetest-42-hijacked-github-repos/",
-            "source": "JFrog Security Research; Corgea; The Register"
-          },
-          {
-            "title": "OpenHands Software Agent SDK: sandbox agent server exposed with no authentication (CVE-2026-112346)",
-            "date": "2026-10-26T16:17:14Z",
-            "summary": "Before 1.52.0, the Docker and Apptainer workspace launchers bound the agent server to 0.0.0.0 with an empty API-key list, so anyone reaching the port could run code over HTTP/WebSocket (CVSS 9.8, NVD). Fixed in 1.52.0; no attacks reported.",
-            "status": "patched",
-            "cves": [
-              "CVE-2026-112346"
-            ],
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-112346",
-            "source": "NVD"
-          },
-          {
-            "title": "Xint 'compaction smuggling': OpenAI API flaw let reasoning traces be moved to another model and read",
-            "date": "2026-10-26T14:30:00Z",
-            "summary": "Xint bypassed OpenAI's August mitigations by hiding a model's reasoning inside a context compaction and asking another model to echo it, enabling cheap distillation; OpenAI confirmed and fixed it and paid a $6,000 bounty on Oct 23.",
-            "status": "patched",
-            "cves": [],
-            "url": "https://www.securityweek.com/stolen-ai-reasoning-could-help-china-build-cheaper-rivals/",
-            "source": "SecurityWeek / Xint"
-          },
-          {
-            "title": "Unverified: researcher claims RCE in the sandboxes of Instinct and Muse personal-agent apps",
-            "date": "2026-10-26T14:06:00Z",
-            "summary": "An X post by a researcher says he got remote code execution on the cloud sandboxes these personal AI agents use; no vendor statement or technical write-up was seen in the feed.",
-            "status": "unverified",
-            "cves": [],
-            "url": "https://x.com/AmirZak6/status/2114720402492526611",
-            "source": "X"
           }
         ]
       },
@@ -1375,6 +1317,6 @@
         ]
       }
     ],
-    "trend_note": "AI is used both to break in and to cash out: agent frameworks speed up intrusions, while stolen AI keys and cloud tokens are now resold at scale, which explains the steady run of breaches at AI developer platforms. Since the last update: no new AI-caused intrusions, one major LLMjacking report, and no new critical AI-product flaws."
+    "trend_note": "AI agent frameworks are now showing up in incident reports from several vendors each day, aimed at ordinary targets like schools, not just high-value ones, and the time from foothold to domain admin keeps shrinking. Since the last update: one new confirmed AI-run campaign, one patched AI-product flaw, no new AI-platform key breaches."
   }
 }
