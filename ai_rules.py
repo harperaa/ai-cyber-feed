@@ -90,7 +90,7 @@ ML_PACKAGES = [
     "openai", "anthropic", "google-generativeai", "google-genai", "cohere", "ai", "@ai-sdk/*", "autogen*", "crewai", "agno", "smolagents",
     "langflow*", "flowise*", "dify*", "open-webui", "open_webui", "n8n-nodes-langchain", "gpt4all", "localai", "ctransformers",
     "chromadb", "qdrant*", "weaviate*", "milvus*", "pymilvus", "pinecone*", "faiss*", "lancedb", "pgvector",
-    "mcp", "fastmcp", "mcp-*", "@modelcontextprotocol/*", "*-mcp-server", "*mcp-server*", "deepspeed", "megatron*", "nemo*", "paddlepaddle",
+    "mcp", "fastmcp", "mcp-*", "@modelcontextprotocol/*", "*-mcp-server", "*mcp-server*", "*-mcp", "deepspeed", "megatron*", "nemo*", "paddlepaddle",
     "scikit-learn", "xgboost", "lightgbm", "numpy-financial-ml", "wandb", "clearml", "gguf", "unsloth", "axolotl", "oobabooga*",
 ]
 _PKG = [re.compile("^" + re.escape(p).replace(r"\*", ".*") + "$", re.I) for p in ML_PACKAGES]
@@ -106,7 +106,7 @@ PRODUCT = [
     ("ML framework/platform", r"\bpytorch\b|\btensorflow\b|\bkeras\b|\bonnx\b|hugging ?face|\bhf hub\b|\btransformers (?:library|v?\d)|\blangchain\b|\blanggraph\b|\blangflow\b|\blangflow_oss\b|\bflowise\b|\bdify\b|\bmlflow\b|\bkubeflow\b|"
                              r"\bgradio\b|\bcomfy ?ui\b|\bjupyter\w*\b|\bray-project\b|\bray (?:ai|dashboard|cluster|is an)\b|\banyscale\b|\bdeepspeed\b|\bmegatron\b|\bnvidia (?:triton|nemo|aistore|dgx|merlin|cuda toolkit)|"
                              r"\btriton inference\b|\bbentoml\b|\bkserve\b|\bpaddlepaddle\b|\bscikit-learn\b|\bcrewai\b|\bautogen\b|\bsmolagents\b|\bstrands agents?\b|\bwandb\b|\bweights ?& ?biases\b"),
-    ("MCP / agent tooling", r"\bmcp\b" + GAP(20) + r"\b(?:server|client|tool|sdk|gateway|inspector|advisor(?:y|ies)|vulnerabilit(?:y|ies))s?\b|\bmodel context protocol\b|\bmcp[- ]server|\bmcp\b(?= (?:server|servers))|"
+    ("MCP / agent tooling", r"\bmcp\b" + GAP(20) + r"\b(?:server|client|tool|sdk|gateway|inspector|advisor(?:y|ies)|vulnerabilit(?:y|ies))s?\b|\bmodel context protocol\b|\bmcp[- ]server|\b[a-z0-9]+-mcp\b|\bmcp\b(?= (?:server|servers))|"
                             r"\b" + AI + r"[- ](?:agents?|assistants?|coding|code assistant|copilots?|gateways?|models?|platform|framework|chatbots?|workflows?|apps?|sdk|infrastructure|clusters?)\b|"
                             r"\bagentic\b|\bllm[- ](?:agents?|apps?|applications?|gateways?|proxy|tools?)\b|\bautonomous agents?\b"),
     ("AI assistant/vendor product", r"\bchatgpt\b|\bopenai\b|\banthropic\b|\bclaude(?: code| desktop)?\b|\bgemini (?:cli|code assist|ai)\b|\bgoogle gemini\b|\bgithub copilot\b|\bcopilot(?:'s)? (?:studio|chat|agent|for|protected[- ]files?)\b|\bmicrosoft 365 copilot\b|"
@@ -152,6 +152,7 @@ IMPACT = [
 
 # Hand-curated angles for specific CVE ids (use for things heuristics cannot know). type, why, optional source url
 MANUAL = {
+    "CVE-2026-94031": [("product", "Command injection (child_process.exec via url arg) in the nexus-mcp MCP server; public exploit, no patch")],
     "CVE-2026-112393": [("product", "Critical flaw in the autoclip-mcp MCP server (io.github.zhouxiaoka/autoclip-mcp); fixed version available")],
     "CVE-2026-114595": [("cause", "EPICS Base (<=7.0.10, fixed 7.0.11) memory-safety flaw, one of four found by an autonomous AI agent (reported Oct 27)")],
     "CVE-2026-114596": [("cause", "EPICS Base (<=7.0.10, fixed 7.0.11) memory-safety flaw, one of four found by an autonomous AI agent (reported Oct 27)")],
