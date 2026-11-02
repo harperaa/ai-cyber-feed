@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-02T01:40:00Z",
-  "next_update_note": "Changes in this 8:40 PM EST Nov 1 (01:40 UTC Nov 2) update: new focus item for BTCPay Server, which at 5:25 PM EST told all operators to shut down after reports of hot-wallet sweeps (no cause, versions or patch named; an X claim that victims ran pre-2.4.2 versions is unverified). Added Synology's C3RB3R ransomware warning for outdated DSM and a Plugin4Shell reminder (Copilot and Gemini CLI still unfixed) to the watch list. GitLab CVE-2026-97229 and BeyondTrust CVE-2026-102764 moved off the focus list to the watch list. Ivanti CVE-2026-111357's federal deadline is today, Nov 2. No new AI-caused attacks, exploited AI products or AI-platform breaches since the last update. Next summary update in about 4 hours (around 12:30 AM EST); the feed itself refreshes hourly.",
-  "headline": "New tonight: BTCPay Server told every self-hosted operator to shut down immediately (Nov 1, 5:25 PM EST) after attackers began sweeping hot wallets on multiple instances; no cause, affected versions or patch yet. Ivanti Connect Secure's federal patch deadline is today (Nov 2), Synology NAS owners on outdated DSM are being hit by C3RB3R ransomware, and Ubuntu and RHEL still have no kernel fix for the AI-exploited Linux flaw CVE-2026-98432. Still act on: the VOLTA AI-ranking infostealer, the trojanized Claude Code extension in Cursor, Northflank and 'Black October' key rotation, Nvidia Brev SSH keys, PHP2Shell, Brotli 'Node2Shell', Firefox 159.0 and Chrome 156.0.8078.79.",
-  "ai_headline": "Still no new AI-caused attacks tonight; Sunday evening's posts only recap ARTEX, Anthropic's AI-built Linux exploit and Plugin4Shell. Newest: Cisco Talos' VOLTA infostealer uses Claude Opus 4.6 (falling back to Kimi K2 and Gemini 2.5 Flash when refused) to rank each victim's stolen assets, and Nvidia's Brev joins the AI developer platforms hit this month. Google/Mandiant, Microsoft, CrowdStrike and Wiz all report attackers running AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI) through real intrusions; Chainalysis was breached with 'offensive agentic techniques'. Wiz's 'Black October' key-theft wave and AI models turning fresh patches into working exploits (GLM 5.3 on Firefox, Anthropic's lab model on Chrome and Linux) remain the main AI-driven threats.",
+  "updated_at": "2026-11-02T05:38:39Z",
+  "next_update_note": "Changes in this 12:40 AM EST Nov 2 (05:40 UTC) update: the BTCPay Server card now reflects the founder's confirmation that thefts hit versions before 2.4.2 via admin logins, the project's report of an attack vector in 2.4.1 and older, and no credible theft reports on 2.4.7 (entry method still unknown). Added Alpine Linux's GitLab rebuild to the GitLab watch line and Sophos' Aur0ra AI-agent report (re-reported Nov 2) to the AI roll-up; Cathedral's Anthropic intrusion (Oct 26) aged out of the 7-day roll-up. Ivanti CVE-2026-111357's federal deadline is today. Next summary update in about 4 hours (around 4:30 AM EST); the feed itself refreshes hourly.",
+  "headline": "New tonight: BTCPay Server's founder Nicolas Dorier confirms the hot-wallet thefts hit instances older than 2.4.2, with attackers logging in as administrators; the project says it found an attack vector in 2.4.1 and older and has no credible theft reports on 2.4.7, but still hasn't said how attackers got admin access, so stay offline until you're on 2.4.7. Ivanti Connect Secure's federal patch deadline is today (Nov 2), and Alpine Linux rebuilt its GitLab server after an attempted attack using the exploited CVE-2026-97229. Still act on: the VOLTA AI-ranking infostealer, the trojanized Claude Code extension in Cursor, Northflank and 'Black October' key rotation, Nvidia Brev SSH keys, PHP2Shell, Brotli 'Node2Shell', Firefox 159.0 and Chrome 156.0.8078.79.",
+  "ai_headline": "No new AI-caused intrusions confirmed overnight. Help Net Security (Nov 2) re-reports Sophos' finding that the Aur0ra ransomware group (GOLD OGRE) talked Cursor, Anthropic, xAI and Moonshot models into mapping networks and reaching domain admin by calling the work 'authorized red teaming', and BTCPay's Oct 29 release 2.4.7 fixed 85 issues reported through Anthropic's open-source scanning effort. The week's main AI-driven threats are unchanged: VOLTA hands stolen loot to Claude Opus 4.6 to rank it, attackers run AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI) in real intrusions, Chainalysis was breached with 'offensive agentic techniques', Wiz's 'Black October' wave keeps stealing AI keys, and AI models turn fresh patches into working exploits (GLM 5.3 on Firefox, Anthropic's lab model on Chrome and Linux).",
   "focus": [
     {
       "title": "Open-weight AI model GLM 5.3 built working Firefox exploit chains from unshipped security fixes for about $1,000 each (Epoch AI)",
@@ -62,14 +62,14 @@
       "ai_note": "AI impact: stolen AI provider keys are already being abused, part of the same campaign Wiz documents across nine AI developer platforms this month."
     },
     {
-      "title": "BTCPay Server tells all operators to shut down now: attackers are sweeping hot wallets on multiple self-hosted instances",
+      "title": "BTCPay Server: hot wallets swept on self-hosted instances older than 2.4.2 after attackers logged in as admin; stay offline until updated to 2.4.7",
       "severity": "critical",
       "exploited": true,
       "cves": [],
       "vendor": "BTCPay Server (self-hosted Bitcoin payment processor)",
-      "why": "New (Nov 1, 5:25 PM EST): the project says it is receiving reports of hot wallets on BTCPay Servers being swept by unauthorized attackers and told everyone running an instance to run ./btcpay-down.sh and stay offline until its investigation ends. It has not named affected versions, a root cause, losses or a patch (The Defiant, Cryptonews). A hot wallet signs with a seed stored on the server, so whoever controls the server can spend it. An X post quoting lead developer Nicolas Dorier says swept instances so far look like ones still on versions before 2.4.2 and that BTCPay's own 2.4.7 servers were untouched (unverified). Version 2.4.2 fixed August's exploited LND credential theft, and 2.4.7 (Oct 29) fixed another critical flaw.",
-      "action": "If you run BTCPay Server, run ./btcpay-down.sh now and keep it down until BTCPay posts guidance. If funds remain, move them from a clean device with the seed to a new wallet you control. When the project gives the all-clear, update to the latest release (2.4.7 or later), rotate LND macaroons and API keys, and keep only small balances in hot wallets.",
-      "url": "https://thedefiant.io/news/hacks/btcpay-server-urges-shutdown-after-reports-of-hot-wallet-sweeps",
+      "why": "Nov 1, 5:25 PM EST: BTCPay told every operator to run ./btcpay-down.sh after reports of hot wallets being swept. About two hours later founder Nicolas Dorier said the theft reports appear to involve releases older than 2.4.2, that the attacker logged in as an administrator on the hit servers, and that BTCPay's own public 2.4.7 servers were not attacked (CoinDesk). New since the last summary: the project says its investigation identified an attack vector affecting 2.4.1 and older and that there are no credible reports of hot-wallet theft on 2.4.7 (TokenPost). It still hasn't said how attackers got admin access, how many servers or how much money, or confirmed that newer versions are safe. A hot wallet signs with a seed stored on the server, so whoever controls the server can spend it. Version 2.4.2 (August) fixed an exploited LND credential theft; 2.4.7 (Oct 29) fixed 85 issues found through Anthropic's open-source security scanning effort, including one critical (Bitcoin.com News).",
+      "action": "Keep BTCPay Server down (./btcpay-down.sh) until you can update to 2.4.7 or later. If you ran 2.4.1 or older, treat the server as compromised: move remaining funds from a clean device with the seed to a new wallet, check for admin users and API keys you didn't create, rotate admin passwords, API keys and LND macaroons, and send logs to security@btcpayserver.org. Keep only small balances in hot wallets.",
+      "url": "https://www.coindesk.com/tech/2026/11/02/btcpay-a-bitcoin-payment-tool-tells-users-to-switch-off-their-servers-after-reports-of-drained-wallets",
       "ai_angle": [],
       "ai_note": ""
     },
@@ -83,7 +83,7 @@
         "CVE-2026-104935"
       ],
       "vendor": "Ivanti Connect Secure",
-      "why": "New (Oct 29-30): Ivanti fixed CVE-2026-111357 (privilege escalation, Ivanti CVSS 8.8) and CVE-2026-118527 (predictable file names allow file upload), and CISA added both to its exploited list on Oct 30 (federal deadline Nov 2 for CVE-2026-111357). Chained with the Oct 13 authentication bypass CVE-2026-104935, they give unauthenticated root. Volexity says the actor it tracks as UTA0576 has used the chain since Oct 3, even against a then fully patched 22.8R2.4 appliance, to steal domain credentials stored on the VPN, search Active Directory for LAPS passwords and BitLocker keys, and wipe log entries. It runs in memory, so Ivanti's Integrity Checker Tool may show nothing.",
+      "why": "New (Oct 29-30): Ivanti fixed CVE-2026-111357 (privilege escalation, Ivanti CVSS 8.8) and CVE-2026-118527 (predictable file names allow file upload), and CISA added both to its exploited list on Oct 30 (federal deadline for CVE-2026-111357 is today, Nov 2). Chained with the Oct 13 authentication bypass CVE-2026-104935, they give unauthenticated root. Volexity says the actor it tracks as UTA0576 has used the chain since Oct 3, even against a then fully patched 22.8R2.4 appliance, to steal domain credentials stored on the VPN, search Active Directory for LAPS passwords and BitLocker keys, and wipe log entries. It runs in memory, so Ivanti's Integrity Checker Tool may show nothing.",
       "action": "Update Connect Secure 25.1.x to 25.1.1.3 and 22.8 to 22.8R2.6 now. If the appliance was exposed since early October, do network and memory forensics, look for heavy requests to /dana-na/auth/url_default/welcome.cgi and files in /tmp/, and if compromise is suspected follow CISA's steps: factory reset, upgrade, restore config, then reset all domain, admin and local passwords and reissue certificates and API keys.",
       "url": "https://www.cisa.gov/news-events/alerts/2026/10/13/cisa-urges-patching-newly-exploited-vulnerabilities-ivanti-connect-secure",
       "ai_angle": [],
@@ -161,16 +161,16 @@
   ],
   "news": [
     {
-      "title": "BTCPay Server Urges Shutdown After Reports of Hot-Wallet Sweeps",
-      "source": "The Defiant",
-      "url": "https://thedefiant.io/news/hacks/btcpay-server-urges-shutdown-after-reports-of-hot-wallet-sweeps",
-      "blurb": "BTCPay told every operator to run ./btcpay-down.sh after reports of hot wallets being drained; no affected versions, cause or patch named yet."
+      "title": "BTCPay tells users to turn off their servers after reports of drained wallets",
+      "source": "CoinDesk",
+      "url": "https://www.coindesk.com/tech/2026/11/02/btcpay-a-bitcoin-payment-tool-tells-users-to-switch-off-their-servers-after-reports-of-drained-wallets",
+      "blurb": "Founder Nicolas Dorier says thefts hit releases older than 2.4.2 via administrator logins and BTCPay's own 2.4.7 servers weren't attacked; how attackers got admin access is still unknown."
     },
     {
-      "title": "SmartNews: Notice Regarding Our Response to a Security Issue (update Nov 1)",
-      "source": "SmartNews newsroom",
-      "url": "https://about.smartnews.com/en/news/2618.html",
-      "blurb": "A second intrusion, found Oct 31, hit points and rewards systems; redemptions and some features are paused while credentials are rotated."
+      "title": "Ransomware gang talked AI agents into doing much of its dirty work",
+      "source": "Help Net Security",
+      "url": "https://www.helpnetsecurity.com/2026/11/02/aur0ra-ransomware-ai-agents/",
+      "blurb": "Sophos says the Aur0ra group (GOLD OGRE) gave AI agents VPN logins and targets, framed the work as red teaming, and let them map networks and reach domain admin; humans kept control of the break-in and ransomware."
     },
     {
       "title": "WordPress 7.1.4 patches unauthenticated upgrade-window RCE; exploitation attempts detected",
@@ -210,12 +210,12 @@
     }
   ],
   "watch": [
+    "SmartNews (news app, Japan/US): a third party got into some of its systems on Oct 31 and ran unauthorized operations on points and rewards, separate from its Oct 22 incident; redemptions, personalization and push notifications are paused while it takes systems offline and rotates credentials. If you use SmartNews rewards, check your points activity (SmartNews notice, Nov 1).",
     "Synology NAS ransomware (C3RB3R, Synology notice Oct 29): attackers are encrypting outdated DSM devices through a flaw patched in December 2024 (Synology-SA-24:20); responders also tie cases to September's DSM flaws CVE-2026-13639/13684 (Synology-SA-26:13). Update DSM (7.4-90075, 7.3.2-86009-4, 7.2.2-72806-9 or later in your branch), update PHP in Package Center for PHP2Shell, enable auto-updates, don't expose NAS management ports, and keep offline backups.",
     "Plugin4Shell reminder (Air Security, disclosed Sep 18; recirculating on X Nov 1): AI coding agents installing marketplace plugins didn't check that the checked-out code matched the pinned SHA, so a plugin repo owner could swap in malicious code that auto-updates with zero clicks. Fixed in Claude Code 2.1.179 and Codex 0.146.0; GitHub Copilot had no client fix at disclosure and deprecated Gemini CLI won't be patched, so turn off plugin auto-update there or migrate.",
-    "GitLab CVE-2026-97229 (moved off the focus list; CVSS 10.0, exploited, in CISA KEV, federal deadline passed): code execution through a crafted CI regular expression; upgrade self-managed GitLab per GitLab's advisory.",
+    "GitLab CVE-2026-97229 (moved off the focus list; CVSS 10.0, exploited, in CISA KEV, federal deadline passed): code execution through a crafted CI regular expression; upgrade self-managed GitLab per GitLab's advisory. New (Nov 2, X post, unverified): Alpine Linux rebuilt its GitLab server after an attempted RCE attack using this flaw.",
     "BeyondTrust Remote Support CVE-2026-102764 (moved off the focus list; exploited, public Metasploit module): unauthenticated file upload to RCE; patch per BeyondTrust's advisory and review appliances for web shells.",
     "Anthropic 'Mythos' weights (Reddit r/LocalLLaMA, Nov 1, unverified): a post claims a Hugging Face repo holds leaked weights of Anthropic's Mythos model; nothing confirms it. Don't download or run it, since fake 'leaked model' files are a common way to spread malware.",
-    "SmartNews (news app, Japan/US): a third party got into some of its systems on Oct 31 and ran unauthorized operations on points and rewards, separate from its Oct 22 incident; redemptions, personalization and push notifications are paused while it takes systems offline and rotates credentials. If you use SmartNews rewards, check your points activity and report anything odd (SmartNews notice, Nov 1 1:00 AM EST update).",
     "Gmarket (South Korean marketplace, Nov 1): unauthorized access through an outside service's API, starting Oct 27, exposed customer names, IDs, phone numbers, emails, home addresses and mobile gift-certificate PINs, some of which were redeemed by third parties; passwords were not exposed. Gmarket is refunding losses, paying 10,000 won to every affected customer and reissuing PINs (Seoul Economic Daily).",
     "Canonical LXD and MicroCloud CVE-2026-112816 (CVSS 10.0, patched Oct 29, no attacks reported): anyone who can reach the HTTPS API and has a trusted client's public certificate can log in as that client, possibly gaining host root. Run sudo snap refresh lxd and sudo snap refresh microcloud and confirm LXD 6.10.1, 5.21.9, 5.0.11 or 4.0.15 and MicroCloud 3.4.1 or 2.1.5 (older stable channels were reported lagging), and keep the API off the internet.",
     "MCP TypeScript SDK CVE-2026-111768 (high, patched): one request within the default size limit can exhaust server memory in @modelcontextprotocol/sdk 1.3.0-1.31.0 and @modelcontextprotocol/server 2.0.0-2.2.0; update to 1.32.0 or 2.3.0 and set maxToolInputElements and maxRequestBodySize (GitHub advisory GHSA-46jr-4wx8-v453).",
@@ -259,7 +259,7 @@
     "TianoCore EDK II CVE-2026-97631 (critical, found by Anthropic and Google researchers per SecurityWeek/Ars Technica): an oversized ICMP error during PXE network boot can hang or run code in UEFI firmware on most servers; it went public early after AMI shipped a fix. Ask your server vendor for firmware updates and turn off PXE boot where unused.",
     "Trezor (BleepingComputer, Oct 30): credible reports of a suspected crypto-theft hardware implant in a Trezor Safe 5 sold by reseller CryptoBilis in Southeast Asia; buy hardware wallets only from the maker or authorized sellers and check tamper seals.",
     "New breaches Oct 30: Hyundai Easywell (abnormal API access leaked client-company members' names, birth dates, phones and emails), GS E&C (apartment amenity booking system, residents' details and passwords), University of Copenhagen (about 525,000 people incl. CPR numbers; ~20,000 ID-card PINs reissued), ENGIE France (customer data via a sales-partner tool), and AU Small Finance Bank investigating a claimed Salesforce-hosted vehicle-loan data leak (claim by 'Scarlett Group' unverified).",
-    "AI-run attacks in this week's SecurityWeek roundup: Cisco Talos describes NIK C2, a new AI-integrated command-and-control framework with a credential-stealing, keylogging and screen-locking Windows implant; Sophos' earlier Aur0ra ransomware report (GOLD OGRE using Cursor-orchestrated agents for discovery and lateral movement) was also re-highlighted.",
+    "AI-run attacks in this week's SecurityWeek roundup: Cisco Talos describes NIK C2, a new AI-integrated command-and-control framework with a credential-stealing, keylogging and screen-locking Windows implant; Sophos' earlier Aur0ra ransomware report (GOLD OGRE using Cursor-orchestrated agents for discovery and lateral movement) was also re-highlighted. Help Net Security (Nov 2) adds that GOLD OGRE got past AI guardrails by calling intrusions authorized red teaming or diagnostics, used Cursor's Composer plus Anthropic, xAI and Moonshot models, and that three victims where agents reached domain admin were later named on Aur0ra's leak site.",
     "SGLang (AI inference engine): Cloudflare's GLM 5.3 cross-tenant leak came partly from an SGLang bug with over-length requests; if you serve models with SGLang, update to 0.5.22 or later.",
     "n0n extortion group (SOCRadar, Oct 28; moved off the focus list): built its attack toolkit with the opencode AI coding agent; 93 victims listed. See the AI activity roll-up.",
     "Pentagon freezer probe: officials now suspect Iran-linked hackers caused freezer failures at about six US military commissaries starting in late August (Nextgov via SecurityWeek); French investigators are involved after similar refrigeration-control hacks at about 350 French sites.",
@@ -412,9 +412,9 @@
     "Cisco ASA/FTD SSL VPN DoS zero-day CVE-2026-76418 (exploited, CISA KEV, federal deadline today, Nov 1; moved off the focus list): upgrade ASA to 9.16.4.104, 9.18.4.96, 9.20.4.50, 9.22.3.200, 9.23.1.48, 9.24.1.27 or 9.24.10.1, or FTD to 7.0.11, 7.2.13, 7.4.9, 7.6.7, 7.7.14, 10.0.3 or 10.1.1."
   ],
   "ai_activity": {
-    "overview": "Since the 4:40 PM EST update (Nov 1 evening): no new AI-caused attacks, exploited AI products or AI-platform breaches confirmed; new X posts only recapped ARTEX's AWS activity, Anthropic's AI-built Linux root exploit, the trojanized Claude Code extension and the September Plugin4Shell disclosure, and nothing rolled off the 7-day window. The week's picture is unchanged: attackers run AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI, CyberStrikeAI) in real intrusions, malware now hands loot to AI models (VOLTA), AI models turn fresh patches into exploits (GLM 5.3, Anthropic's lab model), and AI developer platforms keep leaking stored AI keys (Black October, Northflank, Brev).",
+    "overview": "Since the 8:40 PM EST update (Nov 1): no new AI-caused intrusions, exploited AI products or AI-platform breaches were confirmed. Help Net Security re-reported Sophos' Aur0ra finding (ransomware operators running AI agents through real networks to domain admin), BTCPay's Oct 29 release turned out to fix 85 AI-scanner findings, and Cathedral's Oct 26 Anthropic intrusion aged out of the 7-day window. The week's picture is unchanged: attackers run AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI, CyberStrikeAI) in real intrusions, malware now hands loot to AI models (VOLTA), AI models turn fresh patches into exploits (GLM 5.3, Anthropic's lab model), and AI developer platforms keep leaking stored AI keys (Black October, Northflank, Brev).",
     "counts": {
-      "ai_cause": 28,
+      "ai_cause": 29,
       "ai_product_exploited": 37,
       "ai_impact": 14
     },
@@ -422,6 +422,15 @@
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Sophos: Aur0ra ransomware group (GOLD OGRE) talked AI agents into mapping networks and reaching domain admin",
+            "date": "2026-11-02T00:00:00Z",
+            "summary": "Help Net Security re-reports Sophos' finding from Cursor artifacts recovered in late August: attackers handed agents VPN logins, proxy access, targets and goals, and the agents mapped networks and Active Directory, hunted passwords in shares and backups and moved laterally; in some networks they reached domain admin, and three of those victims were later named on Aur0ra's leak site. The attackers framed the work as authorized red teaming or diagnostics to get past guardrails and used Cursor's Composer plus Anthropic, xAI and Moonshot models. Break-in and ransomware deployment stayed under human control.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.helpnetsecurity.com/2026/11/02/aur0ra-ransomware-ai-agents/",
+            "source": "Help Net Security / Sophos"
+          },
           {
             "title": "Cisco Talos: VOLTA infostealer uses Claude Opus 4.6 (with Kimi K2 and Gemini 2.5 Flash fallbacks) to rank victims' stolen assets",
             "date": "2026-10-31T16:00:00Z",
@@ -514,6 +523,15 @@
             "cves": [],
             "url": "https://x.com/eforus_overseer/status/2115776474158616741",
             "source": "X"
+          },
+          {
+            "title": "BTCPay Server 2.4.7 fixed 85 issues reported through Anthropic's open-source security scanning effort",
+            "date": "2026-10-29T12:00:00Z",
+            "summary": "Per Bitcoin.com News, the Oct 29 release addressed one critical, 13 high, 52 medium and 19 low findings from AI-driven scanning. No link to this weekend's hot-wallet thefts has been shown; the thefts reported so far hit versions older than 2.4.2, and the project has no credible reports of theft on 2.4.7.",
+            "status": "patched",
+            "cves": [],
+            "url": "https://news.bitcoin.com/security/bitcoin-payment-processor-btcpay-hit-by-hot-wallet-theft-reports/",
+            "source": "Bitcoin.com News"
           },
           {
             "title": "AhnLab ASEC: ARTEX broke into a test web server and four internal hosts on its own from a one-line instruction",
@@ -686,15 +704,6 @@
             "cves": [],
             "url": "https://www.helpnetsecurity.com/2026/10/26/fortinet-patches-critical-fortios-flaws-found-with-ai-help/",
             "source": "Fortinet / Help Net Security / Cybernews"
-          },
-          {
-            "title": "Cathedral's AI agents reached Anthropic's sales, HR and IT systems via third-party software in under 12 hours",
-            "date": "2026-10-26T05:00:00Z",
-            "summary": "During an authorized test under Anthropic's outside-researcher program, Cathedral (founded by ex-DOGE staff) says its agents exploited flaws in unnamed third-party admin and sales software. Anthropic confirms limited access to business contacts and basic account records, no Claude conversations, source code or weights; it shut off access the same day, disabled the software until vendors fixed it, and disputes that Cathedral disclosed everything. No sign anyone else used the flaws. Unverified X claim (Oct 29): Cathedral had full admin access to Anthropic's Slack workspace; Anthropic says such claims are wrong (disputed).",
-            "status": "reported",
-            "cves": [],
-            "url": "https://www.washingtonpost.com/technology/2026/10/26/researchers-cybersecurity-start-up-cathedral-got-inside-anthropic/",
-            "source": "Washington Post / Decrypt / Gizmodo"
           }
         ]
       },
@@ -1231,6 +1240,6 @@
         ]
       }
     ],
-    "trend_note": "Attackers are now using AI both to break in (agent frameworks, AI-written exploits) and to process the loot (VOLTA's AI victim ranking), and AI developer platforms keep being hit for their stored keys. Since the last update: nothing new on the AI side through Sunday evening."
+    "trend_note": "Attackers are now using AI both to break in (agent frameworks, AI-written exploits, ransomware crews steering coding agents) and to process the loot (VOLTA's AI victim ranking), while AI developer platforms keep being hit for their stored keys. Since the last update: nothing newly confirmed on the AI side overnight."
   }
 }
