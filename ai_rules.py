@@ -77,6 +77,8 @@ CAUSE = [
     ("AI model chained bugs into an exploit", r"\b(?:claude|gpt[- ]?[\w.]*|gemini|mythos|(?:" + AI + r"|llm|frontier) models?)\b(?:\s+models?)?\s+chain(?:ed|s|ing)\s+(?:\d+\s+|several\s+|multiple\s+)?(?:bugs?|flaws?|vulnerabilit\w+)\b" + GAP(30) + r"\b(?:for|into|to)\b"),
     ("researcher used LLM/AI fuzzing to reach or exploit a bug", r"\b(?:used|using|with|via)\s+(?:llm|ai|" + AI + r")[- ](?:assisted\s+|driven\s+|guided\s+|powered\s+)?fuzz\w*\b" + GAP(120) + r"\b(?:code execution|rce|exploit\w*|crash\w*|bugs?|vulnerabilit\w+|past those checks)\b"),
     ("vibe-coded / AI-written code flaw", r"\bvibe[- ]?cod\w+|\b(?:" + AI + r"|llm)[- ]generated code\b|\bcode (?:written|generated) by (?:an? )?(?:" + AI + r"|llm|copilot|chatgpt|claude)\b|\bslopsquat\w*|\bhallucinated (?:package|dependenc)\w+"),
+    ("AI helped build the exploit", r"\b(?:" + AI + r"|llms?|claude|gpt[- ]?[\w.]*|gemini)\b\s+(?:helped|help)\s+(?:build|write|develop|craft)\b" + GAP(15) + r"\b(?:the |an? )?(?:exploits?|poc|attack)\b"),
+    ("AI model turned security fixes into working exploits", r"\b(?:model|llm|glm[- ]?[\w.]*|claude|gpt[- ]?[\w.]*|gemini)\b" + GAP(30) + r"\bturned\b" + GAP(50) + r"\binto (?:working |functional )?(?:attacks|exploits)\b"),
 ]
 
 # ---- product: vulnerable AI/ML software ----------------------------------------------------------
