@@ -1,9 +1,23 @@
 [
  {
+  "url": "https://x.com/0xnut6/status/2117060502329184556",
+  "author": "0xnut6",
+  "text": "BTCPay Server told operators to shut down at 22:25 UTC Sunday, yet its own servers on v2.4.7 were not touched. Lead developer @NicolasDorier says the swept instances so far look like ones still running versions before 2.4.2.",
+  "created_at": "2026-11-02T01:05:31Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/SecAlertsCo/status/2117057015721709904",
+  "author": "SecAlertsCo",
+  "text": "Windows Shell command injection was actively exploited in October, while unauthenticated flaws in FortiMail and GitLab opened direct paths to critical systems.",
+  "created_at": "2026-11-02T00:51:40Z",
+  "cves": []
+ },
+ {
   "url": "https://x.com/toordog/status/2117045824601649506",
   "author": "toordog",
-  "text": "PHP2Shell is being actively exploited. Two critical PHP flaws let attackers run code on a server with no login.\n\nFixes only cover PHP 8.2 and newer. Older versions have no real fix: they need an upgrade.",
-  "created_at": "2026-11-02T00:07:12.000Z",
+  "text": "PHP2Shell is being actively exploited. Two critical PHP flaws let attackers run code on a server with no login. Fixes only cover PHP 8.2 and newer. Older versions have no real fix: they need an upgrade.",
+  "created_at": "2026-11-02T00:07:12Z",
   "cves": []
  },
  {
@@ -23,12 +37,30 @@
   "cves": []
  },
  {
+  "url": "https://x.com/Threatpingapp/status/2117038032998027369",
+  "author": "Threatpingapp",
+  "text": "Actively exploited: CVE-2026-111357 in Ivanti Connect Secure (CVSS 7.0). Ivanti Connect Secure Missing Authentication for Critical Function Vulnerability.",
+  "created_at": "2026-11-01T23:36:14Z",
+  "cves": [
+   "CVE-2026-111357"
+  ]
+ },
+ {
   "url": "https://x.com/Threatpingapp/status/2117037954183119219",
   "author": "Threatpingapp",
   "text": "Actively exploited: CVE-2026-118527 in Ivanti Connect Secure\nIvanti Connect Secure Generation of Predictable Numbers or Identifiers Vulnerability",
   "created_at": "2026-11-01T23:35:55.000Z",
   "cves": [
    "CVE-2026-118527"
+  ]
+ },
+ {
+  "url": "https://x.com/RoundtableSpace/status/2117032688867852466",
+  "author": "RoundtableSpace",
+  "text": "An Anthropic research model found a Linux kernel bug that gives remote root with no login and no click. CVE-2026-98432 is a race condition in the kernel's TCP code that dates back to Linux 4.4. Anthropic's Frontier Red Team says its unreleased internal model took 48 minutes to...",
+  "created_at": "2026-11-01T23:15:00Z",
+  "cves": [
+   "CVE-2026-98432"
   ]
  },
  {
@@ -39,9 +71,18 @@
   "cves": []
  },
  {
+  "url": "https://x.com/Python_s_/status/2117012012064555509",
+  "author": "Python_s_",
+  "text": "Beta9 Sandbox File API Allows Access Outside Tenant Containers. Beam Cloud Beta9 Worker, CVE-2026-120307, CRITICAL (CVSS 9.9). Affected: Worker before 0.1.756 (JFrog CNA disclosure; fix released September 15).",
+  "created_at": "2026-11-01T21:52:50Z",
+  "cves": [
+   "CVE-2026-120307"
+  ]
+ },
+ {
   "url": "https://x.com/DrakonSystems/status/2117002653066477600",
   "author": "DrakonSystems",
-  "text": "Ubuntu &amp; RHEL still have no kernel fix for CVE-2026-98432 (critical Linux TCP bug, remote root).\n\nWe mitigated our AI agent servers in under 30 mins:\n• drop IPv4 TCP packets carrying IP options (nft, prerouting)\n• net.mptcp.enabled=0\n• persist both, patch + reboot when the",
+  "text": "Ubuntu &amp; RHEL still have no kernel fix for CVE-2026-98432 (critical Linux TCP bug, remote root).\n\nWe mitigated our AI agent servers in under 30 mins:\n\u2022 drop IPv4 TCP packets carrying IP options (nft, prerouting)\n\u2022 net.mptcp.enabled=0\n\u2022 persist both, patch + reboot when the",
   "created_at": "2026-11-01T21:15:39.000Z",
   "cves": [
    "CVE-2026-98432"
@@ -50,10 +91,19 @@
  {
   "url": "https://x.com/waloutech/status/2117001923446616542",
   "author": "waloutech",
-  "text": "Daily AI Agent Incident + Fix on AgentArmorHQ:\n• CVE-2025-6514: mcp-remote\n• Fix: Upgrade mcp-remote to 0.1.16 or later.\nCheck skill or .mcp.json: https://t.co/PXcFJqkjsn",
+  "text": "Daily AI Agent Incident + Fix on AgentArmorHQ:\n\u2022 CVE-2025-6514: mcp-remote\n\u2022 Fix: Upgrade mcp-remote to 0.1.16 or later.\nCheck skill or .mcp.json: https://t.co/PXcFJqkjsn",
   "created_at": "2026-11-01T21:12:45.000Z",
   "cves": [
    "CVE-2025-6514"
+  ]
+ },
+ {
+  "url": "https://x.com/cvedotnow/status/2116985790320214189",
+  "author": "cvedotnow",
+  "text": "Exploited in the wild (CISA KEV): Gitea remote code execution in diffpatch API (CVE-2026-60004). Public exploit, EPSS 0.24. Patch to 1.27.1.",
+  "created_at": "2026-11-01T20:08:38Z",
+  "cves": [
+   "CVE-2026-60004"
   ]
  },
  {
@@ -75,22 +125,22 @@
  {
   "url": "https://x.com/foryangxin/status/2116967290788864437",
   "author": "foryangxin",
-  "text": "An AI travel agent can read one attacker-controlled webpage, quietly write the attacker's instructions into its long-term memory, and then leak your booking data in a later, unrelated session — while still showing you a normal booking flow.\n\nThe part that makes it stick: the",
+  "text": "An AI travel agent can read one attacker-controlled webpage, quietly write the attacker's instructions into its long-term memory, and then leak your booking data in a later, unrelated session \u2014 while still showing you a normal booking flow.\n\nThe part that makes it stick: the",
   "created_at": "2026-11-01T18:55:08.000Z",
   "cves": []
  },
  {
   "url": "https://x.com/InsightheartS/status/2116965888104583420",
   "author": "InsightheartS",
-  "text": "ISHSTB | Nov 1–8\n\nPHP2Shell: actively exploited PHP vulnerabilities.\nBrotli: critical flaw affecting multiple software ecosystems.\nM365: token-replay attacks compromised 97 accounts across 79 organizations.\nPatch fast. Verify identities. Monitor continuously.\n\n#CyberSecurity https://t.co/TfIhd94jML",
+  "text": "ISHSTB | Nov 1\u20138\n\nPHP2Shell: actively exploited PHP vulnerabilities.\nBrotli: critical flaw affecting multiple software ecosystems.\nM365: token-replay attacks compromised 97 accounts across 79 organizations.\nPatch fast. Verify identities. Monitor continuously.\n\n#CyberSecurity https://t.co/TfIhd94jML",
   "created_at": "2026-11-01T18:49:33.000Z",
   "cves": []
  },
  {
   "url": "https://x.com/cveintelligence/status/2116958966635016667",
   "author": "cveintelligence",
-  "text": "🚨 Critical 9.2 | CVE-2026-119050: Agno (through 3.1.11) – unsafe reflection in PandasTools\nPrompt injection can make the agent call getattr()-resolved pandas functions like read_pickle for code execution or file reads.\nNo patch listed yet\nhttps://t.co/iZBJVoFCZA\n#CVE #AI",
-  "created_at": "2026-11-01T18:22:03.000Z",
+  "text": "Critical 9.2, CVE-2026-119050: Agno (through 3.1.11) unsafe reflection in PandasTools. Prompt injection can make the agent call getattr()-resolved pandas functions like read_pickle for code execution or file reads. No patch listed yet.",
+  "created_at": "2026-11-01T18:22:03Z",
   "cves": [
    "CVE-2026-119050"
   ]
@@ -98,7 +148,7 @@
  {
   "url": "https://x.com/CosmicAgents/status/2116958198582436222",
   "author": "CosmicAgents",
-  "text": "Karpathy launches HackerTube for algorithm-free video discovery. Critical Linux TCP CVE-2026-98432 scores 9.8. AI agent swarms fail at Minecraft civilization by drowning in bureaucracy.\n\nRead the rundown 👇\nhttps://t.co/4UJR3fnUIz",
+  "text": "Karpathy launches HackerTube for algorithm-free video discovery. Critical Linux TCP CVE-2026-98432 scores 9.8. AI agent swarms fail at Minecraft civilization by drowning in bureaucracy.\n\nRead the rundown \ud83d\udc47\nhttps://t.co/4UJR3fnUIz",
   "created_at": "2026-11-01T18:19:00.000Z",
   "cves": [
    "CVE-2026-98432"
@@ -114,15 +164,15 @@
  {
   "url": "https://x.com/Kasspar256/status/2116953344199815447",
   "author": "Kasspar256",
-  "text": "🚨 Actively exploited: Attackers Chain Three Ivanti Connect Secure Flaws to Gain Unauthenticated Root Access\nPatch fast — attackers already are.\n#CyberSecurity #InfoSec\nhttps://t.co/TNtMDp4JaW",
+  "text": "\ud83d\udea8 Actively exploited: Attackers Chain Three Ivanti Connect Secure Flaws to Gain Unauthenticated Root Access\nPatch fast \u2014 attackers already are.\n#CyberSecurity #InfoSec\nhttps://t.co/TNtMDp4JaW",
   "created_at": "2026-11-01T17:59:43.000Z",
   "cves": []
  },
  {
   "url": "https://x.com/White_Hunters/status/2116938145228820856",
   "author": "White_Hunters",
-  "text": "#WeAreCyberHunters 🌐 🇺🇸 CRITICAL: GitLab CE/EE CVE-2026-97229 (CVSS 10.0) — unauthenticated RCE via crafted regex in CI/CD config. Actively exploited, added to CISA KEV (Oct 29). Affected 19.2.0–19.2.7, 19.3.0–19.3.4, 19.4.0–19.4.1. Patch to 19.4.2 / 19.3.5 / 19.2.8 NOW.\nFuente:",
-  "created_at": "2026-11-01T16:59:19.000Z",
+  "text": "CRITICAL: GitLab CE/EE CVE-2026-97229 (CVSS 10.0), unauthenticated RCE via crafted regex in CI/CD config. Actively exploited, added to CISA KEV (Oct 29). Patch to 19.4.2 / 19.3.5 / 19.2.8.",
+  "created_at": "2026-11-01T16:59:19Z",
   "cves": [
    "CVE-2026-97229"
   ]
@@ -130,9 +180,18 @@
  {
   "url": "https://x.com/willywill8604/status/2116938065675788610",
   "author": "willywill8604",
-  "text": "The security community is calling it Black October.\n\nA GPT-5.6 Sol model found two critical PHP vulnerabilities that had existed for more than a decade — bugs affecting roughly 70% of the internet. Nobody found them until a frontier AI model traced memory-management paths that",
+  "text": "The security community is calling it Black October.\n\nA GPT-5.6 Sol model found two critical PHP vulnerabilities that had existed for more than a decade \u2014 bugs affecting roughly 70% of the internet. Nobody found them until a frontier AI model traced memory-management paths that",
   "created_at": "2026-11-01T16:59:00.000Z",
   "cves": []
+ },
+ {
+  "url": "https://x.com/ThreatWire_/status/2116933790194909488",
+  "author": "ThreatWire_",
+  "text": "PoC RELEASED: CVE-2026-112487 (macOS Storage). A path handling flaw lets an app already on a Mac gain root privileges. Public exploit code appeared on 31 Oct. Fixed: Golden Gate 27.2, Tahoe 26.7.2, Sequoia 15.8.2 (26 Oct).",
+  "created_at": "2026-11-01T16:42:00Z",
+  "cves": [
+   "CVE-2026-112487"
+  ]
  },
  {
   "url": "https://x.com/CodingNoobie/status/2116933125196669153",
@@ -144,17 +203,33 @@
  {
   "url": "https://x.com/Python_s_/status/2116920703295300033",
   "author": "Python_s_",
-  "text": "#NØØT_Security_Alerts\n🚨 #ALERT — Stolen Credentials Used for Approximately 2.5 Million Amazon Bedrock API Calls\nOctober 30, 2026 (Wiz Research)\n\nPRODUCT: Amazon Bedrock; two enterprise credentials linked to an unnamed compromised AI developer-platform vendor. No product CVE",
-  "created_at": "2026-11-01T15:50:00.000Z",
+  "text": "Stolen Credentials Used for Approximately 2.5 Million Amazon Bedrock API Calls (Wiz Research, Oct 30). Two enterprise credentials linked to an unnamed compromised AI developer-platform vendor.",
+  "created_at": "2026-11-01T15:50:00Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/Lhmisme/status/2116917976280490204",
+  "author": "Lhmisme",
+  "text": "\"Ignore all instructions\" gets flagged HIGH by Cisco AI Defense's mcp-scanner. \"Ignore all previous instructions\" comes back SAFE. Tested mcp-scanner 4.8.7, the newest release on PyPI.",
+  "created_at": "2026-11-01T15:39:10Z",
   "cves": []
  },
  {
   "url": "https://x.com/ido_cohen2/status/2116908380346306946",
   "author": "ido_cohen2",
-  "text": "⚠️ New Actively-Exploited Vulnerability\n\n• CVE-2026-111357 in Ivanti Connect Secure\n• Missing authentication allows privilege escalation\n• Actively exploited, not linked to ransomware\n\n📅 Apply mitigations by 2026-11-02\n\nFull report: 🔗 https://t.co/KqalXhWLnr\n#CyberSecurity https://t.co/dOCEJaDkZs",
+  "text": "\u26a0\ufe0f New Actively-Exploited Vulnerability\n\n\u2022 CVE-2026-111357 in Ivanti Connect Secure\n\u2022 Missing authentication allows privilege escalation\n\u2022 Actively exploited, not linked to ransomware\n\n\ud83d\udcc5 Apply mitigations by 2026-11-02\n\nFull report: \ud83d\udd17 https://t.co/KqalXhWLnr\n#CyberSecurity https://t.co/dOCEJaDkZs",
   "created_at": "2026-11-01T15:01:02.000Z",
   "cves": [
    "CVE-2026-111357"
+  ]
+ },
+ {
+  "url": "https://x.com/sh3ll_c0d3/status/2116903088212635670",
+  "author": "sh3ll_c0d3",
+  "text": "Drupal Commerce Forceful Browsing (CVE-2026-118539): in-the-wild checkout scraping, session bypass exfiltrates PII, emergency patch released.",
+  "created_at": "2026-11-01T14:40:01Z",
+  "cves": [
+   "CVE-2026-118539"
   ]
  },
  {
@@ -193,23 +268,30 @@
   "cves": []
  },
  {
+  "url": "https://x.com/FixMyVibe/status/2116869773719974182",
+  "author": "FixMyVibe",
+  "text": "VulnCheck flagged 9 MCP servers (Oct 27) that pass tool arguments into a shell: shell=True, exec, execSync. If your MCP tool builds a command from model input, one prompt injection can run commands on your box.",
+  "created_at": "2026-11-01T12:27:38Z",
+  "cves": []
+ },
+ {
   "url": "https://x.com/FadyEid/status/2116853198837121358",
   "author": "FadyEid",
-  "text": "Artificial Intelligence Daily News · Sunday, November 1, 2026\n\n1. A ChatGPT share link could read your chats\n\nA crafted share link could run code on https://t.co/OX16pSTTgV, read a visitor’s chats and send them out. OpenAI paid $5,000 and has not said whether anyone was hit. https://t.co/hOPEcdGPfy",
-  "created_at": "2026-11-01T11:21:46.000Z",
+  "text": "A ChatGPT share link could read your chats: a crafted share link could run code, read a visitor's chats and send them out. OpenAI paid $5,000 and has not said whether anyone was hit.",
+  "created_at": "2026-11-01T11:21:46Z",
   "cves": []
  },
  {
   "url": "https://x.com/realNickPawlak/status/2116852450091008398",
   "author": "realNickPawlak",
-  "text": "Four fields were taken from the company that traces everyone else's stolen money.\n\nOn Friday, Chainalysis disclosed that an external attacker got into its systems and internal tools earlier in October. What was accessed was narrow on paper: user IDs, full names, email addresses,",
-  "created_at": "2026-11-01T11:18:47.000Z",
+  "text": "On Friday, Chainalysis disclosed that an external attacker got into its systems and internal tools earlier in October. Accessed: user IDs, full names, email addresses...",
+  "created_at": "2026-11-01T11:18:47Z",
   "cves": []
  },
  {
   "url": "https://x.com/ParallaxBrief/status/2116850954863554945",
   "author": "ParallaxBrief",
-  "text": "The VPN software guarding thousands of corporate and government networks is being actively exploited — again. CISA just added two new Ivanti Connect Secure flaws to its must-patch list, raising a harder question: why does the front door keep failing?",
+  "text": "The VPN software guarding thousands of corporate and government networks is being actively exploited \u2014 again. CISA just added two new Ivanti Connect Secure flaws to its must-patch list, raising a harder question: why does the front door keep failing?",
   "created_at": "2026-11-01T11:12:51.000Z",
   "cves": []
  },
@@ -221,88 +303,10 @@
   "cves": []
  },
  {
-  "url": "https://x.com/harundotdev/status/2116804594067993072",
-  "author": "harundotdev",
-  "text": "october in a nutshell for a devops guy:\nrailway got hacked: rotate keys\nnorthflank got hacked: rotate keys\ngithub actions got hacked: rotate keys\ncursor marketplace got hacked: check authorized_keys, rotate keys\nnovember goal: remember where i put all the keys",
-  "created_at": "2026-11-01T08:08:38.000Z",
+  "url": "https://x.com/foukation/status/2116806088733446522",
+  "author": "foukation",
+  "text": "An infostealer now uses AI to decide which victims are worth targeting. Cisco Talos found a sample called VOLTA that turns stolen credentials, receipts and order history into a profile, then asks an LLM to rank the victim's value.",
+  "created_at": "2026-11-01T08:14:34Z",
   "cves": []
- },
- {
-  "url": "https://x.com/LeeScottWF/status/2116802916589686859",
-  "author": "LeeScottWF",
-  "text": "Self-managed GitLab? CVE-2026-97229 is rated CVSS 10.0 and CISA says it's being actively exploited. Fixed in 19.2.8, 19.3.5 and 19.4.2; https://t.co/FX04FtRFZh is already patched. Plain-English fix guide: https://t.co/AND4dFcAhJ #GitLab #infosec",
-  "created_at": "2026-11-01T08:01:58.000Z",
-  "cves": [
-   "CVE-2026-97229"
-  ]
- },
- {
-  "url": "https://x.com/Python_s_/status/2116798513216467294",
-  "author": "Python_s_",
-  "text": "#NØØT_Security_Alerts\n🚨 #ALERT — testmetest Worm Arms 42 Legitimate GitHub Repositories for Supply-Chain Attacks\nOctober 26, 2026 (JFrog disclosure; repository arming observed September 28)\n\nCAMPAIGN: testmetest | GitHub/npm supply-chain compromise.\n\nCONFIRMED: JFrog identified",
-  "created_at": "2026-11-01T07:44:28.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/waloutech/status/2116784258274771294",
-  "author": "waloutech",
-  "text": "Daily AI Agent Incident + Fix on AgentArmorHQ:\n• CVE-2026-111768: @modelcontextprotocol/sdk and @modelcontextprotocol/server\n• Fix: 1.32.0 / 2.3.0\nCheck skill or .mcp.json: https://t.co/KmdvfxZqxf",
-  "created_at": "2026-11-01T06:47:49.000Z",
-  "cves": [
-   "CVE-2026-111768"
-  ]
- },
- {
-  "url": "https://x.com/itzmaherimtiyaz/status/2116782979519566323",
-  "author": "itzmaherimtiyaz",
-  "text": "SoftBank was targeted\nCursor's extension marketplace was compromised\nCoinbase's vendor was breached\nFireworks AI reported a security incident\nLiteLLM got hit by a supply-chain attack\nCapcom faced a cyberattack\nnpm packages turned malicious\nTiDB Cloud suffered a security incident https://t.co/Rc7MVYOzMF",
-  "created_at": "2026-11-01T06:42:44.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/kalirsec/status/2116775402374852962",
-  "author": "kalirsec",
-  "text": "THREAT ALERT | 🇩🇪 Germany\n\n🗄️ Leak of 200,000 German corporate credentials (D4RKNETHUB)\n\n🔎 Incident Details\nThe D4RKNETHUB actor is distributing 'Part (6)' of a dataset containing roughly 200,000 German corporate email:password records, reposted across several forums including",
-  "created_at": "2026-11-01T06:12:38.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/theomlondhe/status/2116773177275666505",
-  "author": "theomlondhe",
-  "text": "Nine AI dev platforms were breached in October, all hunting env vars. I tested what one leaked variable does to n8n's encrypted credentials: 3 of 3 decrypted with plain openssl in 9 ms. Rotating the variable isn't the fix.",
-  "created_at": "2026-11-01T06:03:47.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/HugoValters/status/2116769454327787705",
-  "author": "HugoValters",
-  "text": "CVE-2026-94111: auth bypass in Tencent BrowserSkill to 0.3.0. A crafted chrome-extension origin fools the local daemon WebSocket check, letting attackers hijack page content and screenshots fed to the AI agent. CVSS 6.6, no patch yet. https://t.co/c5EPsHOdtM\n\n#Tencent #CVEALERT",
-  "created_at": "2026-11-01T05:49:00.000Z",
-  "cves": [
-   "CVE-2026-94111"
-  ]
- },
- {
-  "url": "https://x.com/tribunephl/status/2116766482587607442",
-  "author": "tribunephl",
-  "text": "Email and collaboration platform Zimbra has urged Philippine organizations to address actively exploited email server vulnerabilities within 24 to 72 hours to reduce exposure to #cyberattacks.\n\n#dailytribune https://t.co/BmNf0kce65",
-  "created_at": "2026-11-01T05:37:11.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/kdjayakodylk/status/2116754018139521148",
-  "author": "kdjayakodylk",
-  "text": "Used Cursor on Mac or Windows on Oct 29 (PT) and installed or updated Claude Code to 2.1.312 or 2.1.313? Please check. Those builds weren't made by Anthropic and tried to plant an SSH backdoor. Uninstalling alone may not be enough.\n\nRun Cursor's check script, then rotate keys.",
-  "created_at": "2026-11-01T04:47:39.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/mergenewsapp/status/2116735249866518926",
-  "author": "mergenewsapp",
-  "text": "GitLab CI/CD has a critical unauthenticated RCE flaw (CVE-2026-97229) actively exploited. Patch now to prevent severe compromise.\n#gitlab #vulnerability #rce #cicd",
-  "created_at": "2026-11-01T03:33:05.000Z",
-  "cves": [
-   "CVE-2026-97229"
-  ]
  }
 ]
