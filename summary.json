@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-01T21:40:00Z",
-  "next_update_note": "Changes in this 4:40 PM EST Nov 1 (21:40 UTC) update: a quiet afternoon. No new AI-caused attacks, exploited AI products or AI-platform breaches; new X and Reddit posts only recapped the trojanized Claude Code extension, Black October key theft and the agno flaw, plus one unverified Reddit claim of leaked Anthropic 'Mythos' model weights on Hugging Face (added to the watch list). Ubuntu and RHEL still have no fixed kernel for CVE-2026-98432 as of Nov 1 per Ubuntu's tracker and Red Hat's bulletin, so the mitigation note is updated; the FBI's attribution of the Binance theft to North Korea's TraderTraitor is now also reported by BleepingComputer. Two Oct 25 roll-up items rolled off (Lightning AI Studio and the Gheist CI/CD-secrets campaign). GitLab CVE-2026-97229 and Cisco ASA CVE-2026-76418 federal deadlines have passed; Ivanti CVE-2026-111357's is tomorrow, Nov 2. Next summary update in about 4 hours (around 8:30 PM EST); the feed itself refreshes hourly.",
-  "headline": "Quiet Sunday afternoon with nothing new to act on: Ivanti Connect Secure's federal patch deadline is tomorrow (Nov 2), GitLab CVE-2026-97229 and Cisco ASA CVE-2026-76418 deadlines have passed, and Ubuntu and RHEL still have no kernel fix for the AI-exploited Linux flaw CVE-2026-98432, so use the mitigations. Attackers are still hammering the WordPress Core upgrade-window flaw CVE-2026-119977 (update to 7.1.4 or your branch's fix). Still act on: the VOLTA AI-ranking infostealer, Nvidia Brev SSH key rotation, the trojanized Claude Code extension in Cursor, Northflank and 'Black October' key rotation, BeyondTrust CVE-2026-102764 (public Metasploit exploit), Firefox 159.0, Chrome 156.0.8078.79, PHP2Shell and Brotli 'Node2Shell'.",
-  "ai_headline": "No new AI-caused attacks today; Sunday's X and Reddit chatter only recaps October's AI-platform breaches, plus an unverified claim of leaked Anthropic model weights. Newest: Cisco Talos' VOLTA infostealer uses Claude Opus 4.6 (falling back to Kimi K2 and Gemini 2.5 Flash when refused) to rank each victim's stolen assets, and Nvidia's Brev joins the list of AI developer platforms hit this month. Google/Mandiant, Microsoft, CrowdStrike and Wiz all report attackers running AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI) through real intrusions; the AI-assisted n0n crew leaked Finzly's bank-gateway firewall secrets; Chainalysis was breached with 'offensive agentic techniques'. Wiz's 'Black October' key-theft wave across AI developer platforms and AI models turning fresh patches into working exploits (GLM 5.3 on Firefox, Anthropic's lab model on Chrome and Linux) remain the main AI-driven threats.",
+  "updated_at": "2026-11-02T01:40:00Z",
+  "next_update_note": "Changes in this 8:40 PM EST Nov 1 (01:40 UTC Nov 2) update: new focus item for BTCPay Server, which at 5:25 PM EST told all operators to shut down after reports of hot-wallet sweeps (no cause, versions or patch named; an X claim that victims ran pre-2.4.2 versions is unverified). Added Synology's C3RB3R ransomware warning for outdated DSM and a Plugin4Shell reminder (Copilot and Gemini CLI still unfixed) to the watch list. GitLab CVE-2026-97229 and BeyondTrust CVE-2026-102764 moved off the focus list to the watch list. Ivanti CVE-2026-111357's federal deadline is today, Nov 2. No new AI-caused attacks, exploited AI products or AI-platform breaches since the last update. Next summary update in about 4 hours (around 12:30 AM EST); the feed itself refreshes hourly.",
+  "headline": "New tonight: BTCPay Server told every self-hosted operator to shut down immediately (Nov 1, 5:25 PM EST) after attackers began sweeping hot wallets on multiple instances; no cause, affected versions or patch yet. Ivanti Connect Secure's federal patch deadline is today (Nov 2), Synology NAS owners on outdated DSM are being hit by C3RB3R ransomware, and Ubuntu and RHEL still have no kernel fix for the AI-exploited Linux flaw CVE-2026-98432. Still act on: the VOLTA AI-ranking infostealer, the trojanized Claude Code extension in Cursor, Northflank and 'Black October' key rotation, Nvidia Brev SSH keys, PHP2Shell, Brotli 'Node2Shell', Firefox 159.0 and Chrome 156.0.8078.79.",
+  "ai_headline": "Still no new AI-caused attacks tonight; Sunday evening's posts only recap ARTEX, Anthropic's AI-built Linux exploit and Plugin4Shell. Newest: Cisco Talos' VOLTA infostealer uses Claude Opus 4.6 (falling back to Kimi K2 and Gemini 2.5 Flash when refused) to rank each victim's stolen assets, and Nvidia's Brev joins the AI developer platforms hit this month. Google/Mandiant, Microsoft, CrowdStrike and Wiz all report attackers running AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI) through real intrusions; Chainalysis was breached with 'offensive agentic techniques'. Wiz's 'Black October' key-theft wave and AI models turning fresh patches into working exploits (GLM 5.3 on Firefox, Anthropic's lab model on Chrome and Linux) remain the main AI-driven threats.",
   "focus": [
     {
       "title": "Open-weight AI model GLM 5.3 built working Firefox exploit chains from unshipped security fixes for about $1,000 each (Epoch AI)",
@@ -62,6 +62,18 @@
       "ai_note": "AI impact: stolen AI provider keys are already being abused, part of the same campaign Wiz documents across nine AI developer platforms this month."
     },
     {
+      "title": "BTCPay Server tells all operators to shut down now: attackers are sweeping hot wallets on multiple self-hosted instances",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [],
+      "vendor": "BTCPay Server (self-hosted Bitcoin payment processor)",
+      "why": "New (Nov 1, 5:25 PM EST): the project says it is receiving reports of hot wallets on BTCPay Servers being swept by unauthorized attackers and told everyone running an instance to run ./btcpay-down.sh and stay offline until its investigation ends. It has not named affected versions, a root cause, losses or a patch (The Defiant, Cryptonews). A hot wallet signs with a seed stored on the server, so whoever controls the server can spend it. An X post quoting lead developer Nicolas Dorier says swept instances so far look like ones still on versions before 2.4.2 and that BTCPay's own 2.4.7 servers were untouched (unverified). Version 2.4.2 fixed August's exploited LND credential theft, and 2.4.7 (Oct 29) fixed another critical flaw.",
+      "action": "If you run BTCPay Server, run ./btcpay-down.sh now and keep it down until BTCPay posts guidance. If funds remain, move them from a clean device with the seed to a new wallet you control. When the project gives the all-clear, update to the latest release (2.4.7 or later), rotate LND macaroons and API keys, and keep only small balances in hot wallets.",
+      "url": "https://thedefiant.io/news/hacks/btcpay-server-urges-shutdown-after-reports-of-hot-wallet-sweeps",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
       "title": "Ivanti Connect Secure: two more flaws exploited in a chain with CVE-2026-104935 for unauthenticated root on the VPN",
       "severity": "critical",
       "exploited": true,
@@ -74,20 +86,6 @@
       "why": "New (Oct 29-30): Ivanti fixed CVE-2026-111357 (privilege escalation, Ivanti CVSS 8.8) and CVE-2026-118527 (predictable file names allow file upload), and CISA added both to its exploited list on Oct 30 (federal deadline Nov 2 for CVE-2026-111357). Chained with the Oct 13 authentication bypass CVE-2026-104935, they give unauthenticated root. Volexity says the actor it tracks as UTA0576 has used the chain since Oct 3, even against a then fully patched 22.8R2.4 appliance, to steal domain credentials stored on the VPN, search Active Directory for LAPS passwords and BitLocker keys, and wipe log entries. It runs in memory, so Ivanti's Integrity Checker Tool may show nothing.",
       "action": "Update Connect Secure 25.1.x to 25.1.1.3 and 22.8 to 22.8R2.6 now. If the appliance was exposed since early October, do network and memory forensics, look for heavy requests to /dana-na/auth/url_default/welcome.cgi and files in /tmp/, and if compromise is suspected follow CISA's steps: factory reset, upgrade, restore config, then reset all domain, admin and local passwords and reissue certificates and API keys.",
       "url": "https://www.cisa.gov/news-events/alerts/2026/10/13/cisa-urges-patching-newly-exploited-vulnerabilities-ivanti-connect-secure",
-      "ai_angle": [],
-      "ai_note": ""
-    },
-    {
-      "title": "BeyondTrust Remote Support CVE-2026-102764: exploited auth bypass now has a public Metasploit exploit",
-      "severity": "critical",
-      "exploited": true,
-      "cves": [
-        "CVE-2026-102764"
-      ],
-      "vendor": "BeyondTrust Remote Support (and Privileged Remote Access)",
-      "why": "New since the last summary: Rapid7 published a working exploit (Metasploit pull request opened Oct 30, 1:48 PM EDT) that uploads a PHP file and runs code with no login or user interaction on Remote Support 26.2.3 and earlier without the BT26-05-RS patch. The flaw (CVSS v4 9.3) was already exploited before disclosure: Mandiant ties intrusions since Aug 29 to the suspected China-nexus espionage group ARMORY CASTLE (formerly UNC5221), which planted the SAWFLY web shell and BARECLAW tunneler, escalated to root, tried to extract the credential vault and deleted logs. In CISA's exploited list since Oct 16. SaaS customers were patched Oct 9; self-hosted appliances need the patch applied.",
-      "action": "On self-hosted Remote Support, apply BT26-05-RS now from the /appliance interface (versions older than 24.3.1 must upgrade first), and patch self-hosted Privileged Remote Access too since it shares the code. Patching doesn't remove an intruder: look for mangoapi.php, /usr/bin/dbus-authd, /home/bomgar/sbin/post_boot.d/zz-root-persist and a /uidchanarge route in haproxy.conf, unknown admin sessions and Jump Item or Team changes; rebuild if compromised and rotate stored and brokered credentials (SaaS customers should review those too).",
-      "url": "https://www.rapid7.com/blog/post/ra-rapid7-analysis-unauthenticated-file-upload-to-rce-in-beyondtrust-remote-support-cve-2026-102764/",
       "ai_angle": [],
       "ai_note": ""
     },
@@ -159,23 +157,15 @@
         "cause"
       ],
       "ai_note": "AI as cause: the company itself describes the intrusion as using offensive agentic (AI agent) techniques; no technical details published."
-    },
-    {
-      "title": "GitLab CVE-2026-97229: CVSS 10.0 code execution through a crafted CI regular expression, now in CISA's exploited list",
-      "severity": "critical",
-      "exploited": true,
-      "cves": [
-        "CVE-2026-97229"
-      ],
-      "vendor": "GitLab (self-managed CE/EE) and Ruby",
-      "why": "Federal deadline passed (Nov 1): CISA added CVE-2026-97229 to its Known Exploited Vulnerabilities catalog (federal deadline Nov 1, forensic triage required) and warns that other software using the same Ruby/Onigmo regular-expression code may be affected; Ruby fixed it in 3.3.13, 3.4.12 and 4.0.9 on Oct 23. An integer overflow in the CI/CD regular-expression compiler lets a crafted regex in CI configuration run commands as GitLab's git user. Rapid7 published a working proof of concept on Oct 13; it needs a way to push a CI file to a public project, which anyone can do where self-registration and project creation are open. Alpine Linux said on Oct 28 an attacker spent days trying it against its GitLab server (no evidence of success; the server was rebuilt), and that upgrading GitLab did not protect it because its image used standard Ruby rather than GitLab's patched Ruby. GitLab.com and GitLab Dedicated are already patched. Alpine Linux says a new account sent crafted CI configs to its unpatched instance on Oct 20-21, crashing workers 8 times and getting partway through the exploit; it found no proof of code execution but rebuilt GitLab and reset every password. Its upgrade to 19.3.6 did not help because its image used standard Ruby.",
-      "action": "Upgrade self-managed GitLab to 19.4.2, 19.3.5 or 19.2.8 or later using GitLab's own packages or images (which carry the patched Ruby); if you build GitLab on a distro or custom Ruby, also move Ruby to 3.3.13, 3.4.12 or 4.0.9. Until patched, turn off open sign-up and stop untrusted users creating or writing to public projects. If you were unpatched after Oct 12, check for crashed workers, unknown CI configs from new accounts, and unexpected files, keys or hooks, and rotate CI/CD secrets if in doubt. If you run GitLab from source or your own image, also install Ruby 3.3.13, 3.4.12 or 4.0.9; Alpine's alpinelinux/gitlab:19.3.6 image is fixed only if pulled on or after Oct 27.",
-      "url": "https://www.rapid7.com/blog/post/etr-cve-2026-97229-critical-unauthenticated-remote-code-execution-in-gitlab/",
-      "ai_angle": [],
-      "ai_note": ""
     }
   ],
   "news": [
+    {
+      "title": "BTCPay Server Urges Shutdown After Reports of Hot-Wallet Sweeps",
+      "source": "The Defiant",
+      "url": "https://thedefiant.io/news/hacks/btcpay-server-urges-shutdown-after-reports-of-hot-wallet-sweeps",
+      "blurb": "BTCPay told every operator to run ./btcpay-down.sh after reports of hot wallets being drained; no affected versions, cause or patch named yet."
+    },
     {
       "title": "SmartNews: Notice Regarding Our Response to a Security Issue (update Nov 1)",
       "source": "SmartNews newsroom",
@@ -213,12 +203,6 @@
       "blurb": "Northflank tells all customers to assume environment variables were decrypted after users reported unauthorized use of AI API keys; how the attacker got in is still undisclosed."
     },
     {
-      "title": "Rapid7 Analysis: Unauthenticated File Upload to RCE in BeyondTrust Remote Support (CVE-2026-102764)",
-      "source": "Rapid7",
-      "url": "https://www.rapid7.com/blog/post/ra-rapid7-analysis-unauthenticated-file-upload-to-rce-in-beyondtrust-remote-support-cve-2026-102764/",
-      "blurb": "A public Metasploit module now exploits the already-abused BeyondTrust flaw with no login; patch self-hosted appliances and hunt for the SAWFLY web shell."
-    },
-    {
       "title": "A Shared ChatGPT Link Could Run Attacker Code in Your Session and Read Private Chats",
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/10/a-shared-chatgpt-link-could-run.html",
@@ -226,6 +210,10 @@
     }
   ],
   "watch": [
+    "Synology NAS ransomware (C3RB3R, Synology notice Oct 29): attackers are encrypting outdated DSM devices through a flaw patched in December 2024 (Synology-SA-24:20); responders also tie cases to September's DSM flaws CVE-2026-13639/13684 (Synology-SA-26:13). Update DSM (7.4-90075, 7.3.2-86009-4, 7.2.2-72806-9 or later in your branch), update PHP in Package Center for PHP2Shell, enable auto-updates, don't expose NAS management ports, and keep offline backups.",
+    "Plugin4Shell reminder (Air Security, disclosed Sep 18; recirculating on X Nov 1): AI coding agents installing marketplace plugins didn't check that the checked-out code matched the pinned SHA, so a plugin repo owner could swap in malicious code that auto-updates with zero clicks. Fixed in Claude Code 2.1.179 and Codex 0.146.0; GitHub Copilot had no client fix at disclosure and deprecated Gemini CLI won't be patched, so turn off plugin auto-update there or migrate.",
+    "GitLab CVE-2026-97229 (moved off the focus list; CVSS 10.0, exploited, in CISA KEV, federal deadline passed): code execution through a crafted CI regular expression; upgrade self-managed GitLab per GitLab's advisory.",
+    "BeyondTrust Remote Support CVE-2026-102764 (moved off the focus list; exploited, public Metasploit module): unauthenticated file upload to RCE; patch per BeyondTrust's advisory and review appliances for web shells.",
     "Anthropic 'Mythos' weights (Reddit r/LocalLLaMA, Nov 1, unverified): a post claims a Hugging Face repo holds leaked weights of Anthropic's Mythos model; nothing confirms it. Don't download or run it, since fake 'leaked model' files are a common way to spread malware.",
     "SmartNews (news app, Japan/US): a third party got into some of its systems on Oct 31 and ran unauthorized operations on points and rewards, separate from its Oct 22 incident; redemptions, personalization and push notifications are paused while it takes systems offline and rotates credentials. If you use SmartNews rewards, check your points activity and report anything odd (SmartNews notice, Nov 1 1:00 AM EST update).",
     "Gmarket (South Korean marketplace, Nov 1): unauthorized access through an outside service's API, starting Oct 27, exposed customer names, IDs, phone numbers, emails, home addresses and mobile gift-certificate PINs, some of which were redeemed by third parties; passwords were not exposed. Gmarket is refunding losses, paying 10,000 won to every affected customer and reissuing PINs (Seoul Economic Daily).",
@@ -424,7 +412,7 @@
     "Cisco ASA/FTD SSL VPN DoS zero-day CVE-2026-76418 (exploited, CISA KEV, federal deadline today, Nov 1; moved off the focus list): upgrade ASA to 9.16.4.104, 9.18.4.96, 9.20.4.50, 9.22.3.200, 9.23.1.48, 9.24.1.27 or 9.24.10.1, or FTD to 7.0.11, 7.2.13, 7.4.9, 7.6.7, 7.7.14, 10.0.3 or 10.1.1."
   ],
   "ai_activity": {
-    "overview": "Since the 12:45 PM EST update (Nov 1 afternoon): no new AI-caused attacks, exploited AI products or AI-platform breaches confirmed; posts only recapped the Claude Code extension backdoor, Black October and agno CVE-2026-119050, an unverified Reddit post claims leaked Anthropic 'Mythos' weights on Hugging Face (not added as an incident), and two Oct 25 items rolled off the 7-day window (Lightning AI Studio and Gheist). Earlier Nov 1 (midday): no new AI-caused attacks, exploited AI products or AI-platform breaches confirmed; new X posts only recapped Black October, PHP2Shell and Wiz's stolen-key Bedrock abuse, and two Oct 25 items rolled off the 7-day window (Stingrai's AI-found Gitea bypass and the malicious AGENTS.md demo). Earlier Nov 1: the MCP TypeScript SDK memory-exhaustion fix and an unverified, unpatched Tencent BrowserSkill agent-hijack bug were added; a viral Grok/Bankrbot prompt-injection theft post was a May incident and left out. Oct 31 afternoon: Cisco Talos' VOLTA infostealer uses commercial AI models to rank victims' stolen assets; Nvidia's Brev AI developer platform reports unauthorized activity that may have exposed SSH keys; BleepingComputer confirms Northflank AI-key abuse; unverified X reports of an eight-CVE MCP command-injection batch and an unpatched prompt-injection RCE in an open-source agent. Earlier Oct 31 (midday): American Banker details how the AI-assisted n0n extortion group leaked Finzly's bank payment-gateway firewall secrets; BleepingComputer adds detail on Chainalysis' agentic breach; an unverified X report of 1,706 exploit attempts on Langflow CVE-2026-105740. Earlier Oct 31: Google GTIG and Mandiant confirmed real-world use of ARTEX, Hexstrike, CAIRN and PentAGI; OpenAI's ChatGPT shared-link flaw fixed; Microsoft's cleanup guide for the trojanized Claude Code extension (2.1.312 and 2.1.313); Google's PageBreak AI bug-finder (500+ XSS); an OpenAI-branded phishing kit; Intel 471 says the public PHP2Shell exploit is hard to use. Oct 30: Wiz's 'Black October' report, Northflank AI-key abuse, Epoch AI's GLM 5.3 Firefox exploits, WIRED's disputed Pentagon Claude Code report, and flaws in MoLing, jupyter-mcp-server, AWS API MCP server, okta-ai-agent, Flowise, LMDeploy, OpenCode/MCP Inspector and n8n. Oct 27-29: VAPOR PANDA's ARTEX campaign, PHP2Shell, Anthropic's Chrome and Linux exploit chains, n0n and CyberStrikeAI.",
+    "overview": "Since the 4:40 PM EST update (Nov 1 evening): no new AI-caused attacks, exploited AI products or AI-platform breaches confirmed; new X posts only recapped ARTEX's AWS activity, Anthropic's AI-built Linux root exploit, the trojanized Claude Code extension and the September Plugin4Shell disclosure, and nothing rolled off the 7-day window. The week's picture is unchanged: attackers run AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI, CyberStrikeAI) in real intrusions, malware now hands loot to AI models (VOLTA), AI models turn fresh patches into exploits (GLM 5.3, Anthropic's lab model), and AI developer platforms keep leaking stored AI keys (Black October, Northflank, Brev).",
     "counts": {
       "ai_cause": 28,
       "ai_product_exploited": 37,
@@ -1243,6 +1231,6 @@
         ]
       }
     ],
-    "trend_note": "Attackers are now using AI both to break in (agent frameworks, AI-written exploits) and to process the loot (VOLTA's AI victim ranking), and AI developer platforms keep being hit for their stored keys (Brev is the latest). Since the last update: nothing new on the AI side through Sunday afternoon."
+    "trend_note": "Attackers are now using AI both to break in (agent frameworks, AI-written exploits) and to process the loot (VOLTA's AI victim ranking), and AI developer platforms keep being hit for their stored keys. Since the last update: nothing new on the AI side through Sunday evening."
   }
 }
