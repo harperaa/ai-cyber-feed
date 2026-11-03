@@ -1,342 +1,218 @@
 [
  {
-  "url": "https://x.com/TheCountMonteCR/status/2117637055379349841",
-  "author": "TheCountMonteCR",
-  "created_at": "2026-11-03T15:16:32.000Z",
-  "text": "Binance report on the Oct 29 breach: North Korea-linked hackers reached a Binance developer via a legitimate job platform and fake video interviews, leading to the compromise.",
-  "cves": []
- },
- {
-  "url": "https://x.com/DuckButTurttle/status/2117635964491203012",
-  "author": "DuckButTurttle",
-  "created_at": "2026-11-03T15:12:12.000Z",
-  "text": "Marcus Hutchins sees what looks like internet-wide scanning for Linux CVE-2026-98432, with ~2.1M servers reachable over MPTCP on 443. Red Hat rates it Critical and has fixes; Ubuntu's are in testing. No public exploit yet.",
+  "url": "https://x.com/Netlas_io/status/2117548960453710211",
+  "author": "Netlas_io",
+  "text": "CVE-2026-58115: Actively exploited RCE in Node-RED (Siemens SIMATIC IoT2050), CVSS 10.0. Missing-authentication flaw lets unauthenticated remote attackers execute arbitrary system commands on exposed hosts.",
+  "created_at": "2026-11-03T09:26:28Z",
   "cves": [
-   "CVE-2026-98432"
+   "CVE-2026-58115"
   ]
  },
  {
-  "url": "https://x.com/Codinplus31/status/2117635405394706472",
-  "author": "Codinplus31",
-  "created_at": "2026-11-03T15:09:59.000Z",
-  "text": "Chainstack security incident: breached via a third-party component. Exposed org names, emails, password hashes. Node credentials treated as compromised; rotate them, change passwords and regenerate API keys.",
-  "cves": []
- },
- {
-  "url": "https://x.com/ZeroPathLabs/status/2117634128346599629",
-  "author": "ZeroPathLabs",
-  "created_at": "2026-11-03T15:04:54.000Z",
-  "text": "LMDeploy hit by CVE-2026-119706: unauthenticated remote code execution in the /update_weights endpoint via unsafe Pickle deserialization. Patch ASAP.",
+  "url": "https://x.com/BadgerSignalHQ/status/2117648903671865440",
+  "author": "BadgerSignalHQ",
+  "text": "More than 1,000 GitLab servers remain exposed to an actively exploited RCE flaw CVE-2026-97229 (CVSS 10.0): unauthenticated attacker executes code via malicious regex in CI/CD config.",
+  "created_at": "2026-11-03T16:03:37Z",
   "cves": [
-   "CVE-2026-119706"
+   "CVE-2026-97229"
   ]
  },
  {
-  "url": "https://x.com/cvedotnow/status/2117633834371932638",
-  "author": "cvedotnow",
-  "created_at": "2026-11-03T15:03:44.000Z",
-  "text": "Exploited in the wild (CISA KEV): Ivanti Connect Secure arbitrary file upload via predictable filenames in VPN (CVE-2026-118527). No patch listed yet.",
+  "url": "https://x.com/cybersec24h/status/2117531186243268779",
+  "author": "cybersec24h",
+  "text": "1,000+ GitLab servers still unpatched for CVE-2026-97229, CVSS 10, no account needed. CISA says actively exploited. GitLab fixed it Oct 12.",
+  "created_at": "2026-11-03T08:15:51Z",
   "cves": [
+   "CVE-2026-97229"
+  ]
+ },
+ {
+  "url": "https://x.com/YourAnon_irc/status/2117459234711289883",
+  "author": "YourAnon_irc",
+  "text": "Actively exploited Ivanti Connect Secure zero-days (CVE-2026-111357, CVE-2026-118527) via privilege escalation. Patch immediately.",
+  "created_at": "2026-11-03T03:29:56Z",
+  "cves": [
+   "CVE-2026-111357",
    "CVE-2026-118527"
-  ]
- },
- {
-  "url": "https://x.com/dkorunic/status/2117632689318641977",
-  "author": "dkorunic",
-  "created_at": "2026-11-03T14:59:11.000Z",
-  "text": "CVE-2026-116366: Unauthenticated RCE in ClickHouse Server caused by an out-of-bounds write in the Brotli decoder. Technical details and PoC published.",
-  "cves": [
-   "CVE-2026-116366"
-  ]
- },
- {
-  "url": "https://x.com/Lumideezy/status/2117626456151040265",
-  "author": "Lumideezy",
-  "created_at": "2026-11-03T14:34:25.000Z",
-  "text": "Google's November 2026 Android bulletin patches 216 vulnerabilities, including critical zero-click RCE flaws in Framework and System (e.g., CVE-2026-58868). Update to patch level 2026-11-05.",
-  "cves": [
-   "CVE-2026-58868"
-  ]
- },
- {
-  "url": "https://x.com/abhiunix/status/2117625425245716809",
-  "author": "abhiunix",
-  "created_at": "2026-11-03T14:30:19.000Z",
-  "text": "CVE-2026-118306, a critical Chrome bug: a crafted page can run code outside the sandbox. Fixed 27 Oct, but Playwright 1.64.1 still ships the old Chromium with sandbox off by default, exposing AI browsing agents.",
-  "cves": [
-   "CVE-2026-118306"
-  ]
- },
- {
-  "url": "https://x.com/yvessandfort/status/2117625348200284232",
-  "author": "yvessandfort",
-  "created_at": "2026-11-03T14:30:01.000Z",
-  "text": "VMware SDDC Manager has a critical RCE through a Brotli library (CVE-2026-111497). No patch yet, only a workaround.",
-  "cves": [
-   "CVE-2026-111497"
   ]
  },
  {
   "url": "https://x.com/nurhayatdev/status/2117624780350189682",
   "author": "nurhayatdev",
-  "created_at": "2026-11-03T14:27:45.000Z",
-  "text": "Actively exploited Cisco ASA/FTD VPN flaw can knock firewalls offline. CVE-2026-76418 lets an unauthenticated remote attacker force a reload when SSL remote-access VPN is reachable and secondary authentication is configured. DoS, not RCE.",
+  "text": "Actively exploited Cisco ASA/FTD VPN flaw CVE-2026-76418 lets an unauthenticated remote attacker force a reload when SSL remote-access VPN is reachable and secondary auth configured. DoS, not RCE.",
+  "created_at": "2026-11-03T14:27:45Z",
   "cves": [
    "CVE-2026-76418"
   ]
  },
  {
-  "url": "https://x.com/pramodhq/status/2117624200127267035",
-  "author": "pramodhq",
-  "created_at": "2026-11-03T14:25:27.000Z",
-  "text": "CVE-2026-98432, a critical Linux kernel vulnerability (CVSS 9.8) dating back to Linux 4.4. Anthropic's AI reportedly built a working exploit in just 53 minutes. Check your kernel.",
-  "cves": [
-   "CVE-2026-98432"
-  ]
- },
- {
-  "url": "https://x.com/The_Cyber_News/status/2117619601425236339",
-  "author": "The_Cyber_News",
-  "text": "Hackers Use ARTEX AI Tool to Automate Enterprise Attacks at Machine Speed. AI-powered offensive frameworks are helping attackers move from stolen credentials to cloud privilege escalation, lateral movement, and data theft in minutes.",
-  "created_at": "2026-11-03T14:07:11.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/H4ckmanac/status/2117619540217487529",
-  "author": "H4ckmanac",
-  "created_at": "2026-11-03T14:06:56.000Z",
-  "text": "Seven-Eleven Japan confirmed a data breach affecting its 7NOW delivery service following unauthorized access to PickGo, a platform operated by third-party logistics contractor CBcloud.",
-  "cves": []
- },
- {
-  "url": "https://x.com/TheHackerWire/status/2117617799761969430",
-  "author": "TheHackerWire",
-  "created_at": "2026-11-03T14:00:01.000Z",
-  "text": "CVE-2026-102435 (CVSS 9.8): insufficient path validation in WordPress Ultra Addons for CF7 (<= 3.5.54) lets unauthenticated attackers delete wp-config.php and seize admin RCE. Update to 3.5.55.",
-  "cves": [
-   "CVE-2026-102435"
-  ]
- },
- {
-  "url": "https://x.com/HarshaHegde0/status/2117617263847333955",
-  "author": "HarshaHegde0",
-  "created_at": "2026-11-03T13:57:53.000Z",
-  "text": "Glow Labs found AI coding agents installing archived MCP servers from training memory (98% of deprecated installs reviewed). Puppeteer MCP has an RCE via prompt injection with no patch; 17.3M npm downloads since Jul 2025.",
-  "cves": []
- },
- {
-  "url": "https://x.com/UpwindMDR/status/2117614251862806955",
-  "author": "UpwindMDR",
-  "created_at": "2026-11-03T13:45:55.000Z",
-  "text": "Critical: Prefab UI Pyodide sandbox escape to host RCE (CVE-2026-120338). The generative UI sandbox runs caller-supplied Python via Pyodide in a Deno subprocess with broad permissions and exposes Deno on globalThis.",
-  "cves": [
-   "CVE-2026-120338"
-  ]
- },
- {
-  "url": "https://x.com/phipi_me/status/2117613885075415528",
-  "author": "phipi_me",
-  "created_at": "2026-11-03T13:44:28.000Z",
-  "text": "Mandiant on LLMjacking: attackers hijack company LLM access, with fraud topping $100K in a day. Most began with stolen cloud keys or GitHub tokens; one group abused a LiteLLM flaw (CVE-2026-40217).",
-  "cves": [
-   "CVE-2026-40217"
-  ]
- },
- {
-  "url": "https://x.com/SecAlertsCo/status/2117612982653915468",
-  "author": "SecAlertsCo",
-  "created_at": "2026-11-03T13:40:53.000Z",
-  "text": "MLflow CVE-2026-116692: unauthenticated RCE via third-party scorer deserialization. CVSS 9.8. Upgrade now.",
-  "cves": [
-   "CVE-2026-116692"
-  ]
- },
- {
-  "url": "https://x.com/Chocapikk_/status/2117612931902787742",
-  "author": "Chocapikk_",
-  "created_at": "2026-11-03T13:40:40.000Z",
-  "text": "VulnCheck disclosed an unauthenticated remote root RCE chain in Control Web Panel: CVE-2026-73695, CVE-2026-73696, CVE-2026-73697, CVE-2026-77876, CVE-2026-77877, CVE-2026-77878, CVE-2026-77879, CVE-2026-77880, CVE-2026-77881, CVE-2026-104080.",
-  "cves": [
-   "CVE-2026-104080",
-   "CVE-2026-73695",
-   "CVE-2026-73696",
-   "CVE-2026-73697",
-   "CVE-2026-77876",
-   "CVE-2026-77877",
-   "CVE-2026-77878",
-   "CVE-2026-77879",
-   "CVE-2026-77880",
-   "CVE-2026-77881"
-  ]
- },
- {
-  "url": "https://x.com/Adellbah/status/2117608227877573027",
-  "author": "Adellbah",
-  "text": "A cloud platform just told every customer to assume all their secrets are decrypted. Northflank runs apps, databases and AI services for developers. On October 30 at 11:43 UTC, security firm Wiz sent them a threat alert.",
-  "created_at": "2026-11-03T13:21:59.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/RedDotSecNews/status/2117595150129992045",
-  "author": "RedDotSecNews",
-  "text": "Cisco patches actively exploited ASA and FTD VPN flaw that can crash firewalls.",
-  "created_at": "2026-11-03T12:30:01.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/likasanma/status/2117592654401687730",
-  "author": "likasanma",
-  "text": "AI gateways sit on every provider key you care about. LiteLLM's Oct 21, 2026 incident: release pipeline compromised, malicious litellm==1.107.0 on PyPI ~2h; Docker tags v1.107.0 affected.",
-  "created_at": "2026-11-03T12:20:06.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/xcademialtd/status/2117589621802717677",
-  "author": "xcademialtd",
-  "text": "AWS discloses path traversal flaw CVE-2026-116635 in AWS Serverless MCP Server; upgrade to 0.2.1. An agent steered via prompt injection could read/write JSON files outside the intended folder.",
-  "created_at": "2026-11-03T12:08:03.000Z",
-  "cves": [
-   "CVE-2026-116635"
-  ]
- },
- {
   "url": "https://x.com/ido_cohen2/status/2117588510806782270",
   "author": "ido_cohen2",
-  "text": "Linux Kernel CVE-2026-46300 actively exploited in the wild; missing initialization flaw allows root-level access.",
-  "created_at": "2026-11-03T12:03:38.000Z",
+  "text": "Linux Kernel CVE-2026-46300 actively exploited in the wild; allows root-level access via missing initialization flaw.",
+  "created_at": "2026-11-03T12:03:38Z",
   "cves": [
    "CVE-2026-46300"
   ]
  },
  {
-  "url": "https://x.com/HacktronAI/status/2117587945976734042",
-  "author": "HacktronAI",
-  "text": "A critical vulnerability went undetected through multiple security audits. Hacktron (AI) found it in 10 minutes. The vulnerability was in Dassault Systemes' DELMIA Apriso manufacturing software. It became CVE-2025-5086.",
-  "created_at": "2026-11-03T12:01:23.000Z",
-  "cves": [
-   "CVE-2025-5086"
-  ]
- },
- {
-  "url": "https://x.com/safedepio/status/2117579488720728294",
-  "author": "safedepio",
-  "text": "antd-img-crop GitHub repo is compromised from malicious force pushed. A forged commit adds a prebuild script. `npm run build` pulls a stealer that grabs passwords, wallets, SSH keys and .env files.",
-  "created_at": "2026-11-03T11:27:47.000Z",
-  "cves": []
- },
- {
   "url": "https://x.com/cybersec24h/status/2117575886622896538",
   "author": "cybersec24h",
-  "text": "Drupal says a flaw in Commerce Core (CVE-2026-118539) is being actively exploited; merchants reported fraudulent $0.01 orders. Fixes: 3.3.13 and 8.x-2.41.",
-  "created_at": "2026-11-03T11:13:28.000Z",
+  "text": "Drupal Commerce Core flaw CVE-2026-118539 actively exploited: fraudulent $0.01 orders. Fixed in 3.3.13 and 8.x-2.41.",
+  "created_at": "2026-11-03T11:13:28Z",
   "cves": [
    "CVE-2026-118539"
   ]
  },
  {
-  "url": "https://x.com/getpacketai/status/2117572582241153039",
-  "author": "getpacketai",
-  "text": "1,000+ GitLab servers still exposed to active RCE attacks. If you're running GitLab, patch now\u2014this critical flaw is being actively exploited\u2026\n\nhttps://t.co/uJHjuq6VXj\n\n#cybersecurity #infosec",
-  "created_at": "2026-11-03T11:00:20.000Z",
+  "url": "https://x.com/QFDNews/status/2117306670254538896",
+  "author": "QFDNews",
+  "text": "Microsoft warns PHP2Shell (CVE-2026-109618, CVE-2026-109619) and a Brotli flaw (CVE-2026-111497) are actively exploited. Update PHP, .NET, Node.js, PowerShell 7 and Visual Studio.",
+  "created_at": "2026-11-02T17:23:42Z",
+  "cves": [
+   "CVE-2026-109618",
+   "CVE-2026-109619",
+   "CVE-2026-111497"
+  ]
+ },
+ {
+  "url": "https://x.com/TweetThreatNews/status/2117521190889701651",
+  "author": "TweetThreatNews",
+  "text": "Node.js October 2026 updates fix 10 flaws across 22.x, 24.x, 26.x incl. actively exploited critical Node2Shell Brotli flaw; removes trust in eight compromised eMudhra intermediate CA certificates.",
+  "created_at": "2026-11-03T07:36:08Z",
   "cves": []
  },
  {
-  "url": "https://x.com/D3bytes/status/2117571465902252352",
-  "author": "D3bytes",
-  "text": "A PDF Reader MCP server had an authentication bypass: it read MCP_API_KEY but never validated it, so unauthenticated clients could access the MCP endpoint. CVE-2026-62264.",
-  "created_at": "2026-11-03T10:55:54.000Z",
+  "url": "https://x.com/ESPProjects/status/2117564946557116514",
+  "author": "ESPProjects",
+  "text": "Chrome: a critical flaw was being actively exploited; visiting a malicious page could put you at risk. Update Chrome and relaunch.",
+  "created_at": "2026-11-03T10:30:00Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/DFIR_Radar/status/2117542731153285555",
+  "author": "DFIR_Radar",
+  "text": "CVE-2026-58115 (CVSS 10.0) in Siemens SIMATIC IoT2050 actively exploited via malicious Node-RED flows to plant Linux bots and HTTP exec backdoors.",
+  "created_at": "2026-11-03T09:01:43Z",
   "cves": [
-   "CVE-2026-62264"
+   "CVE-2026-58115"
   ]
  },
  {
-  "url": "https://x.com/BadgerSignalHQ/status/2117570706536009813",
-  "author": "BadgerSignalHQ",
-  "text": "Zero-Day Exploited in CryptoPayment Gateway WordPress Plugin (CVE-2026-81648). Attackers are actively exploiting a CVSS 10.0 flaw in the CryptoPayment Gateway plugin for WordPress.",
-  "created_at": "2026-11-03T10:52:53.000Z",
+  "url": "https://x.com/LandscapeThreat/status/2117596304926728464",
+  "author": "LandscapeThreat",
+  "text": "StyleSmuggler exploitation (CVE-2026-75650) deploys PSK Agent malware on Magento stores.",
+  "created_at": "2026-11-03T12:34:36Z",
   "cves": [
-   "CVE-2026-81648"
+   "CVE-2026-75650"
   ]
  },
  {
-  "url": "https://x.com/cybersec24h/status/2117570341694242920",
+  "url": "https://x.com/cybersec24h/status/2117446676315029897",
   "author": "cybersec24h",
-  "text": "AI agent platform Trigger dev says an attacker accessed environment variables, where apps often keep API keys, for \u201ca subset of organizations.\u201d The exploit is blocked and affected owners were emailed. Entry point and scope aren't disclosed.",
-  "created_at": "2026-11-03T10:51:26.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/sysxplore/status/2117561310539919566",
-  "author": "sysxplore",
-  "text": "Ubuntu finally has fixes for the Linux kernel bug everyone has been yelling about. There's a catch, though: you have to go and get them yourself. CVE-2026-98432 is a use-after-free in how the kernel sets up IPv4 TCP connections. It has been there since Linux 4.4.",
-  "created_at": "2026-11-03T10:15:33.000Z",
+  "text": "An AI found and exploited flaws in Chrome, Safari, Android, Windows and Linux. Anthropic says an unreleased internal model built 5 working attack chains; Linux kernel bug CVE-2026-98432 got remote root in ~53 minutes.",
+  "created_at": "2026-11-03T02:40:02Z",
   "cves": [
    "CVE-2026-98432"
   ]
  },
  {
-  "url": "https://x.com/robertabela/status/2117560405463597077",
-  "author": "robertabela",
-  "text": "A compromised DevOps engineer's laptop may have been the starting point of a security incident at Binance, with an estimated impact of $6.3 billion.",
-  "created_at": "2026-11-03T10:11:57.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/SirBarronsol/status/2117559576304500948",
-  "author": "SirBarronsol",
-  "text": "A Railway employee's AI agents reportedly probed a third-party website while doing automated signups; Railway founder said the employee might be testing FTUX on providers.",
-  "created_at": "2026-11-03T10:08:40.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/CalatheaAI/status/2117557438165749930",
-  "author": "CalatheaAI",
-  "text": "Google Cloud/Mandiant: attackers are hijacking companies' AI model access with stolen cloud keys (LLMjacking) and reselling it; charges at some victims reached $1 million.",
-  "created_at": "2026-11-03T10:00:10.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/jondot/status/2117550602494582917",
-  "author": "jondot",
-  "text": "Copilot in Visual Studio couldn't edit its own .mcp.json, but a write to '.mcp.json.' passed the filename check, Windows dropped the dot, and a new MCP server ran. CVE-2026-103572, fixed in October.",
-  "created_at": "2026-11-03T09:33:00.000Z",
+  "url": "https://x.com/csentropy/status/2117317613210775835",
+  "author": "csentropy",
+  "text": "CVE-2026-98432 is a 9.8-rated bug in the Linux TCP handshake, present since 4.4. Anthropic researchers found it using AI. Debian and Red Hat have fixes; Ubuntu catching up.",
+  "created_at": "2026-11-02T18:07:11Z",
   "cves": [
-   "CVE-2026-103572"
+   "CVE-2026-98432"
   ]
  },
  {
-  "url": "https://x.com/Netlas_io/status/2117548960453710211",
-  "author": "Netlas_io",
-  "text": "CVE-2026-58115: Actively exploited RCE in Node-RED, 10.0 rating. The missing-authentication vulnerability in Node-RED (Siemens SIMATIC IoT2050) allows unauthenticated remote attackers to execute arbitrary system commands on exposed hosts.",
-  "created_at": "2026-11-03T09:26:28.000Z",
+  "url": "https://x.com/HacktronAI/status/2117587945976734042",
+  "author": "HacktronAI",
+  "text": "A critical vulnerability in Dassault Systemes DELMIA Apriso went undetected through multiple audits; Hacktron AI found it in 10 minutes. It became CVE-2025-5086.",
+  "created_at": "2026-11-03T12:01:23Z",
   "cves": [
-   "CVE-2026-58115"
+   "CVE-2025-5086"
   ]
  },
  {
-  "url": "https://x.com/DFIR_Radar/status/2117542731153285555",
+  "url": "https://x.com/PHPSiteAudit/status/2117604456816636300",
+  "author": "PHPSiteAudit",
+  "text": "AI found a 14-year-old PHP flaw: Calif found it Aug 1, Wiz independently Aug 19; PHP fixed Oct 21 in 8.5.12/8.4.27/8.3.36/8.2.35.",
+  "created_at": "2026-11-03T13:07:00Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/stretchcloud/status/2117469819683713174",
+  "author": "stretchcloud",
+  "text": "Playwright 1.64.1 ships early Chromium 156 carrying four live CVEs (CVE-2026-118306, CVE-2026-118331, CVE-2026-118348, CVE-2026-118344) with sandbox off; risk for AI coding agents run without containers.",
+  "created_at": "2026-11-03T04:12:00Z",
+  "cves": [
+   "CVE-2026-118306",
+   "CVE-2026-118331",
+   "CVE-2026-118344",
+   "CVE-2026-118348"
+  ]
+ },
+ {
+  "url": "https://x.com/botnewsnetwork/status/2117327071743758443",
+  "author": "botnewsnetwork",
+  "text": "IBM Langflow bulletin: two unauthenticated critical flaws, one reachable through MCP tool enumeration, no fix on the 1.12 branch.",
+  "created_at": "2026-11-02T18:44:46Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/DFIR_Radar/status/2117286204102115545",
   "author": "DFIR_Radar",
-  "text": "CVE-2026-58115 (CVSS 10.0) in Siemens SIMATIC IoT2050 is actively exploited via malicious Node-RED flows to plant Linux bots and HTTP exec backdoors. Hunt /dev/shm/.b, /tmp/.kworker, and Node-RED flows wiring /cmd to exec nodes.\n\n#DFIR_Radar https://t.co/b2MTcYMc6z",
-  "created_at": "2026-11-03T09:01:43.000Z",
-  "cves": [
-   "CVE-2026-58115"
-  ]
+  "text": "LLMjacking maturing: Mandiant found actors generating over $100,000 in fraudulent cloud AI charges in a single day, some victims nearly $1 million.",
+  "created_at": "2026-11-02T16:02:22Z",
+  "cves": []
  },
  {
-  "url": "https://x.com/FORTBRIDGE/status/2117540423166029847",
-  "author": "FORTBRIDGE",
-  "text": "Langflow 1.0.0-1.12.8: CVE-2026-110186 could allow unauthenticated remote code execution through MCP tool enumeration. Upgrade to 1.13.0. Separate auth bypass: CVE-2026-93680.",
-  "created_at": "2026-11-03T08:52:33.000Z",
-  "cves": [
-   "CVE-2026-110186",
-   "CVE-2026-93680"
-  ]
+  "url": "https://x.com/TonTraderCom/status/2117639565741842711",
+  "author": "TonTraderCom",
+  "text": "Attackers ran $100K of AI services with stolen API keys; at least nine developer platforms targeted in October to access OpenAI, Anthropic and Amazon Bedrock.",
+  "created_at": "2026-11-03T15:26:30Z",
+  "cves": []
  },
  {
-  "url": "https://x.com/Rachidmarcil/status/2117538776092451217",
-  "author": "Rachidmarcil",
-  "text": "Critical Langflow flaws: auth bypass + RCE via MCP, both CVSS 9.8, affect v1.0.0\u20131.12.8. Only fix: upgrade to 1.13.0. A public Metasploit module already lists MCP tools unauthenticated \u2014 patch now.",
-  "created_at": "2026-11-03T08:46:00.000Z",
+  "url": "https://x.com/cubillas888/status/2117323353778221393",
+  "author": "cubillas888",
+  "text": "Talos: VOLTA infostealer sends stolen data to an LLM that ranks victim assets by value; steals browser sessions, OAuth tokens and cloud keys. Revoke sessions and rotate keys after infection.",
+  "created_at": "2026-11-02T18:30:00Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/The_Cyber_News/status/2117619601425236339",
+  "author": "The_Cyber_News",
+  "text": "Hackers use ARTEX AI tool to automate enterprise attacks at machine speed, from stolen credentials to cloud privilege escalation, lateral movement and data theft in minutes.",
+  "created_at": "2026-11-03T14:07:11Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/Adellbah/status/2117608227877573027",
+  "author": "Adellbah",
+  "text": "Northflank told every customer to assume all their secrets are decrypted after a breach; Wiz sent a threat alert Oct 30.",
+  "created_at": "2026-11-03T13:21:59Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/undercode_news/status/2117392276150210638",
+  "author": "undercode_news",
+  "text": "Amadeus airline distribution platform breach exposes passenger records across multiple airlines through stolen credentials.",
+  "created_at": "2026-11-02T23:03:52Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/0xOBSlDlAN/status/2117633443286626629",
+  "author": "0xOBSlDlAN",
+  "text": "Binance hack began with a fake job interview; an engineer downloaded a compromised Homebrew while installing an AI tool, giving attackers internal access.",
+  "created_at": "2026-11-03T15:02:11Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/SCMagazine/status/2117625375014412477",
+  "author": "SCMagazine",
+  "text": "More than 1,000 GitLab servers remain exposed to an actively exploited critical RCE flaw; attackers could steal credentials and compromise software supply chains.",
+  "created_at": "2026-11-03T14:30:07Z",
   "cves": []
  }
 ]
