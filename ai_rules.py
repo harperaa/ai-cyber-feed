@@ -35,7 +35,8 @@ CAUSE = [
     ("AI used to find/build vulns", r"\b(?:us(?:e|es|ed|ing)|leverag\w+|with the help of|powered by|thanks to)\b" + GAP(25) + r"\b" + MODEL + r"\b" + GAP(40) + r"\b(?:to (?:find|discover|hunt|uncover|identify|audit|exploit)|to (?:write|build|develop|craft|generate) (?:an? |the )?(?:exploit|poc|malware|ransomware|payload)|throughout|during (?:discovery|exploit)|for (?:discovery|vulnerability|exploit|bug))"),
     ("AI finds/uncovers vulns", AI + r"[- ](?:agents?|models?|systems?)?\s*(?:uncover|find|discover|hack|hunt|exploit|identif|detect|caught|catch)\w*\b" + GAP(60) + r"\b(?:vulnerabilit\w+|zero[- ]?days?|flaws?|bugs?|rce|cves?)\b"),
     ("AI-generated exploit/malware", r"\b(?:AI|LLM|llm)[- ](?:generated|written|authored|crafted)\b" + GAP(30) + r"\b(?:exploit|malware|code|payload|poc|ransomware)|"
-                                     r"\b(?:exploit|malware|payload|poc|ransomware)\b" + GAP(25) + r"\b(?:generated|written|created|built)\b" + GAP(12) + r"\b(?:by|with|using)\b" + GAP(12) + r"\b" + MODEL + r"\b"),
+                                     r"\b(?:exploit|malware|payload|poc|ransomware)\b" + GAP(25) + r"\b(?:generated|written|created|built)\b" + GAP(12) + r"\b(?:by|with|using)\b" + GAP(12) + r"\b" + MODEL + r"\b|"
+                                     r"\b" + MODEL + r"\b" + GAP(15) + r"\b(?:built|wrote|developed|created|generated)\b" + GAP(20) + r"\b(?:exploit|poc)s?\b"),
     ("AI-powered attack tooling", r"\b(?:" + AI + r"|agentic|autonomous|llm)[- ]?(?:powered|driven|enabled|based)?[- ]?(?:malware|ransomware|attack|hacking|exploit(?:ation)? (?:tool|framework|agent)|offensive|pentest\w*|red[- ]team)\b"),
     ("AI-run attack campaign", r"\b" + MODEL + r"\b" + GAP(25) + r"\b(?:ran|run|runs|conducted|executed|orchestrated|pursued|carried out|automated)\b" + GAP(40) + r"\b(?:campaign|attacks?|intrusions?|espionage|supply[- ]chain attack|breach)\b"),
     ("attack using AI-assisted tools", r"\b(?:attack\w*|hackers?|group|campaign|intrusions?|targeted|threat actors?)\b" + GAP(80) + r"\b(?:using|with|used)\b" + GAP(10) + AI + r"[- ](?:assisted|powered|driven) (?:tools?|tooling|agents?)\b"),
@@ -159,6 +160,9 @@ IMPACT = [
 
 # Hand-curated angles for specific CVE ids (use for things heuristics cannot know). type, why, optional source url
 MANUAL = {
+    "CVE-2026-98432": [("cause", "Linux IPv4 TCP use-after-free (CVSS 9.8): reports say Anthropic's AI built a working remote exploit in about 53 minutes")],
+    "CVE-2026-120338": [("product", "Prefab UI generative-UI sandbox escape: caller-supplied Python in Pyodide/Deno escapes to host RCE")],
+    "CVE-2026-118306": [("impact", "Chrome sandbox escape still shipped in Playwright 1.64.1's bundled Chromium (sandbox off by default), exposing web-browsing AI agents")],
     "CVE-2026-94031": [("product", "Command injection (child_process.exec via url arg) in the nexus-mcp MCP server; public exploit, no patch")],
     "CVE-2026-112393": [("product", "Critical flaw in the autoclip-mcp MCP server (io.github.zhouxiaoka/autoclip-mcp); fixed version available")],
     "CVE-2026-114595": [("cause", "EPICS Base (<=7.0.10, fixed 7.0.11) memory-safety flaw, one of four found by an autonomous AI agent (reported Oct 27)")],
