@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-03T09:45:00Z",
-  "next_update_note": "Changes in this 4:45 AM EST Nov 3 (09:45 UTC) update: added a focus card for the second wave of supermarket refrigeration attacks, which The Hacker News now tracks across at least nine European countries with Danfoss confirming its controllers were involved; moved Cisco Talos's VOLTA infostealer report (no confirmed live attacks) to the watch list, where it stays in the AI roll-up. Updated: the RMS Cloud phishing note (now hitting Western Australia travellers, RMS says the intrusion is contained) and AU Small Finance Bank (about 2.85 million vehicle-loan customers possibly affected). New on the watch list: Nius's second exposed data archive and four new high-severity WordPress plugin CVEs (SureCart, Easy Digital Downloads, FluentCart, Advanced Shipment Tracking). No new AI-caused attacks surfaced overnight. Next summary update in about 4 hours (around 8:30 AM EST); the feed itself refreshes hourly.",
-  "headline": "New since 12:45 AM EST: the supermarket refrigeration attacks spread overnight into Monday to stores in Belgium, Luxembourg, Sweden, Ireland, Estonia, the Netherlands, Finland, Portugal and Italy, with Danfoss saying its controllers were involved and Dutch victims still on default passwords, so anyone running internet-reachable Danfoss, Copeland or Dixell refrigeration controllers should take them off the internet now. The AI picture is unchanged from last night: WorkOS, GoDaddy/123 Reg and Chainalysis all blame AI attack frameworks for break-ins, and the AI-built Linux root exploit CVE-2026-98432 still has no Ubuntu fix. Still open: update cPGuard to 5.88.25+ and rotate credentials, patch Node-RED, rotate every secret on Northflank and Trigger.dev, set AI spending caps against LLMjacking, update Chrome to 156.0.8078.79 and Firefox to 159.0, patch PHP (PHP2Shell) and self-managed GitLab, and check for the trojanized Claude Code extension.",
-  "ai_headline": "WorkOS (Nov 2) is the latest company to say an AI agent framework broke in, after GoDaddy/123 Reg and Chainalysis; BleepingComputer also reports the Dutch vulnerability-disclosure group DIVD confirmed ARTEX took its September intrusion from first access to root in 12 minutes by chaining two Zammad zero-days (CVE-2026-102489, CVE-2026-102490). That adds to the week's picture: CrowdStrike's VAPOR PANDA running ARTEX with DeepSeek against 200+ organizations, Unit 42's AI-written scripts in a government Linux campaign, CyberStrikeAI against schools, Aur0ra talking coding agents into ransomware work, VOLTA ranking stolen loot with Claude Opus 4.6, AI models turning fresh patches into working exploits (GLM 5.3, Anthropic's lab model), and LLMjacking crews cashing out stolen AI keys at over $100,000 a day.",
+  "updated_at": "2026-11-03T13:43:00Z",
+  "next_update_note": "Changes in this 8:50 AM EST Nov 3 (13:50 UTC) update: no focus cards added or removed. Corrected the CVE-2026-98432 note (Red Hat shipped fixed kernels Nov 1; Ubuntu fixes are in its opt-in testing channel). Added to the AI roll-up: Hacktron's unverified AI-found-bug claim, the patched Copilot in Visual Studio '.mcp.json.' bypass and a PDF Reader MCP server auth bypass; items older than 7 days were dropped from the roll-up. New on the watch list: Android's November update, the antd-img-crop repo compromise (unconfirmed), MVSEP's Nov 10 API key reset, Harvard's 851,000-account breach, Pass-ta-key passkey research, Gorbag's WinRAR attacks and the malicious pyprig package. Next summary update in about 4 hours (around 12:30 PM EST); the feed itself refreshes hourly.",
+  "headline": "New since 4:45 AM EST: Android's November update fixes over 200 flaws including a critical no-click remote code execution bug, Ubuntu now has fixes for the AI-built Linux root exploit CVE-2026-98432 but only in its opt-in testing channel (Red Hat has shipped fixed kernels), and a SafeDep report says the antd-img-crop GitHub repo was poisoned with a credential stealer. Still open: update cPGuard to 5.88.25+ and rotate credentials, patch Node-RED, rotate every secret on Northflank and Trigger.dev, take Danfoss, Copeland and Dixell refrigeration controllers off the internet, set AI spending caps against LLMjacking, update Chrome to 156.0.8078.79 and Firefox to 159.0, patch PHP (PHP2Shell) and self-managed GitLab, and check for the trojanized Claude Code extension.",
+  "ai_headline": "No new confirmed AI-run attacks this morning; Hacktron claims (unverified, on X) its AI found the DELMIA Apriso flaw CVE-2025-5086 in 10 minutes, and a fixed Copilot in Visual Studio bug (CVE-2026-103572) showed a prompt-injected agent could add its own MCP server by writing '.mcp.json.'. The week's picture stands: WorkOS, GoDaddy/123 Reg and Chainalysis blame AI attack frameworks for break-ins, DIVD confirmed ARTEX chained two Zammad zero-days to root in 12 minutes, CrowdStrike's VAPOR PANDA ran ARTEX against 200+ organizations, AI models are turning fresh patches into working exploits (GLM 5.3, Anthropic's lab model), and LLMjacking crews cash out stolen AI keys at over $100,000 a day.",
   "focus": [
     {
       "title": "WorkOS (SSO and directory platform for SaaS apps) breached by an AI-assisted attack framework: CRM, call summaries, support tickets and customer Slack excerpts read",
@@ -173,10 +173,10 @@
       "blurb": "Stores in at least nine European countries had fridges and freezers remotely switched to defrost or 50C overnight into Nov 2; Danfoss says its controllers were involved, and CERT-FR's October steps are still the best guidance."
     },
     {
-      "title": "Max-severity bug in widely used OT programming tool exploited to deliver Linux malware",
-      "source": "The Register",
-      "url": "https://www.theregister.com/security/2026/11/02/max-severity-bug-in-widely-used-ot-programming-tool-exploited-to-deliver-linux-malware/5307086",
-      "blurb": "Node-RED CVE-2026-58115 is being exploited with a one-request flow that downloads a Linux bot."
+      "title": "Android's November 2026 Updates Patch Over 200 Vulnerabilities",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/androids-november-2026-updates-patch-over-200-vulnerabilities/",
+      "blurb": "Google's November Android bulletin fixes more than 200 flaws, led by a critical Framework bug that allows remote code execution without any user interaction."
     },
     {
       "title": "Chinese hackers use ARTEX AI in automated attacks against 200 orgs",
@@ -204,6 +204,13 @@
     }
   ],
   "watch": [
+    "Android November 2026 security update (SecurityWeek, Nov 3): fixes over 200 vulnerabilities, the worst a critical Framework flaw allowing remote code execution with no user interaction; no attacks reported in the source. Install the November patch level when your phone maker ships it.",
+    "antd-img-crop (React image-crop library) GitHub repo compromised, per SafeDep on X (Nov 3, not yet confirmed by the maintainers): a forged force-pushed commit adds a prebuild script, so running npm run build from the repo pulls a stealer that takes passwords, crypto wallets, SSH keys and .env files. If you built from a recent checkout, treat that machine's secrets as stolen and rotate them.",
+    "MVSEP (music and voice separation service, Nov 3 update): an API key copied in its Oct 4-6 breach was found in use by a third-party site, so every API key not regenerated since will be reset on Nov 10. If you use its API, regenerate your key now and update your scripts.",
+    "Harvard University (BleepingComputer via Have I Been Pwned, Nov 3): the November 2025 breach of its Alumni Affairs and Development systems exposed data tied to about 851,000 unique email addresses. Alumni and donors should watch for targeted phishing.",
+    "Pass-ta-key research (r/netsec, Nov 3): a researcher describes extracting Google Password Manager synced passkeys for offline account takeover; research write-up only, no attacks or Google response reported yet.",
+    "Gorbag (Russia-aligned, The Hacker News Nov 3): exploits a WinRAR flaw to plant simple info-stealers against Ukrainian organizations. Keep WinRAR on the latest version.",
+    "Malicious PyPI package pyprig (GitHub advisory, Nov 3): versions 1.2.0-1.2.2 are a Pydantic clone that downloads and runs remote code when models load. Remove it if present and use the real pydantic package.",
     "New high-severity WordPress plugin CVEs (Nov 3, no attacks reported): SureCart through 4.9.5 CVE-2026-120574 (8.1, unauthenticated account takeover through its one-time-code login), Easy Digital Downloads through 3.7.2 CVE-2026-120538 (8.1, PayPal guest checkout binds orders to existing users by email, leading to admin takeover), FluentCart CVE-2026-120577 (arbitrary file deletion) and Advanced Shipment Tracking for WooCommerce CVE-2026-120558 (SQL injection); update when fixes ship.",
     "Cisco Talos VOLTA infostealer (moved off the focus list; Oct 31): a Windows stealer sends each victim's stolen passwords, tokens, cards and wallet data through OpenRouter to Claude Opus 4.6 (falling back to Kimi K2 and Gemini 2.5 Flash) to rank what they're worth; no confirmed live attacks. If infected, sign out of all sessions, rotate passwords and OAuth tokens from a clean device and move crypto to a new wallet. See the AI activity roll-up.",
     "Nius (German online outlet, CORRECTIV Nov 3): a misconfigured newsletter server exposed a roughly 500 MB backup with about 42,000 subscribers' data and the cloud email-sending keys, which could have let others send mail as Nius; the regulator says it is the outlet's fifth reported data incident since 2025.",
@@ -290,7 +297,7 @@
     "AI code-scanner evasion (X post, unverified): malware authors reportedly stuff JavaScript comments with weapons terminology so AI code scanners refuse to analyze the file; don't treat an AI scanner's refusal as a clean result.",
     "Accenture / Pentagon (WIRED, Oct 29; disputed): sources say a contractor connected a NIPRNet system holding controlled unclassified information to a personal Claude Code account, giving the agent admin access for about two months, and it appears to have sent login credentials, passwords and a network map to a third-party site NIST had flagged as high risk. Accenture says an independent investigation found the allegations without merit; the Pentagon declined to comment. Don't give AI agents your own login or admin credentials, and block unapproved agent accounts on sensitive networks.",
     "Flowise CVE-2026-119978 (9.0, published Oct 30): with ALLOW_BUILTIN_DEP=true, any logged-in user can escape the vm2 sandbox through /api/v1/node-custom-function and run OS commands; affects Flowise through 3.1.4. Turn ALLOW_BUILTIN_DEP off and update once a fixed release is listed. No attacks reported. Also new: pybars3 through 0.9.7 CVE-2026-119716 (9.2) lets Handlebars template authors run Python code.",
-    "Linux kernel CVE-2026-98432 (moved off the focus list; lab-only AI-built zero-click remote root exploit, no attacks reported): move internet-facing servers to a fixed kernel (5.10.272, 5.15.223, 6.1.190, 6.6.159, 6.12.113, 6.18.56, 7.2.10 or 7.3+) or your distro's patched build and reboot, multipath TCP listeners first. As of Nov 1 Ubuntu (all releases 'work in progress' or vulnerable) and RHEL 8, 9 and 10 still have no fixed kernel; Debian, Oracle Linux UEK, some SUSE and some Amazon Linux builds are fixed. Until then, disable or firewall MPTCP if you don't use it; an X post also suggests dropping IPv4 TCP packets that carry IP options (unverified as a complete mitigation). Update (madrobot.blog, Nov 1 evening, citing an advisory from Atlas): Ubuntu's tracker still listed all its kernels as vulnerable and Red Hat was still 'expediting' fixes; Atlas counted 36 GitHub repositories referencing the CVE, at least six claiming a race trigger or proof of concept (not verified). Find MPTCP listeners with ss -Mlnp and patch those hosts first. Update (Decrypt, Nov 2): Red Hat released fixes for RHEL 8, 9 and 10 on Nov 1 (including RHSA-2026:93412) plus a temporary firewall rule it says reduces but does not remove exposure; Ubuntu still lists 16.04 through 26.10 as vulnerable, and the Go Security Team notes the bug is not limited to MPTCP, so patching the kernel is the real fix.",
+    "Linux kernel CVE-2026-98432 (moved off the focus list; lab-only AI-built zero-click remote root exploit, no attacks reported): move internet-facing servers to a fixed kernel (5.10.272, 5.15.223, 6.1.190, 6.6.159, 6.12.113, 6.18.56, 7.2.10 or 7.3+) or your distro's patched build and reboot, multipath TCP listeners first. Red Hat shipped fixed kernels for RHEL 8, 9 and 10 on Nov 1 (RHSA-2026:93412), and as of Nov 3 Ubuntu's fixes for its three newest LTS releases are only in its opt-in testing channel, so you have to enable it to get them (The Hacker News); Debian, Oracle Linux UEK, some SUSE and some Amazon Linux builds are fixed. Until then, disable or firewall MPTCP if you don't use it; an X post also suggests dropping IPv4 TCP packets that carry IP options (unverified as a complete mitigation). Update (madrobot.blog, Nov 1 evening, citing an advisory from Atlas): Ubuntu's tracker still listed all its kernels as vulnerable and Red Hat was still 'expediting' fixes; Atlas counted 36 GitHub repositories referencing the CVE, at least six claiming a race trigger or proof of concept (not verified). Find MPTCP listeners with ss -Mlnp and patch those hosts first. Update (Decrypt, Nov 2): Red Hat released fixes for RHEL 8, 9 and 10 on Nov 1 (including RHSA-2026:93412) plus a temporary firewall rule it says reduces but does not remove exposure; Ubuntu still lists 16.04 through 26.10 as vulnerable, and the Go Security Team notes the bug is not limited to MPTCP, so patching the kernel is the real fix.",
     "OpenCode and MCP Inspector (CVE-2026-119025, root cause in the 'open' npm package 7.2.0 before 11.0.0): on Windows and WSL, a malicious MCP server's OAuth sign-in URL with $(...) runs PowerShell on your machine before any tool is listed (OpenCode 1.0.137-1.18.32, MCP Inspector 2.0-2.11). Update both and only connect to MCP servers you trust.",
     "InternLM LMDeploy CVE-2026-119706 (9.8, published Oct 30): versions 0.9.0 through 0.18.0 run attacker commands from a pickle sent to the unauthenticated /update_weights endpoint; keep LMDeploy API servers off the internet and update once a fix is listed. No attacks reported.",
     "n8n CVE-2026-119408 (8.8): users who can create or import workflows can run JavaScript in the main process through hidden Function and LangChain Code nodes; update to 2.42.6, 2.43.3 or 3.0.1.",
@@ -445,16 +452,27 @@
     "Cisco ASA/FTD SSL VPN DoS zero-day CVE-2026-76418 (exploited, CISA KEV, federal deadline today, Nov 1; moved off the focus list): upgrade ASA to 9.16.4.104, 9.18.4.96, 9.20.4.50, 9.22.3.200, 9.23.1.48, 9.24.1.27 or 9.24.10.1, or FTD to 7.0.11, 7.2.13, 7.4.9, 7.6.7, 7.7.14, 10.0.3 or 10.1.1."
   ],
   "ai_activity": {
-    "overview": "No new AI-caused attacks surfaced since the 12:45 AM EST update; the newest remain WorkOS's breach of its sales tooling by an AI-assisted attack framework (ARTEX per its customer notice) and DIVD's confirmation that ARTEX chained two Zammad zero-days to root in 12 minutes. The week's picture: attackers run AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI, CyberStrikeAI) in real intrusions at companies such as WorkOS, GoDaddy/123 Reg and Chainalysis, ransomware crews talk coding agents into the work (Aur0ra), malware hands loot to AI models (VOLTA), AI models turn fresh patches into working exploits (GLM 5.3, Anthropic's lab model), and AI developer platforms keep losing the provider keys they store, which LLMjacking crews cash out at over $100,000 a day.",
+    "overview": "The only new AI-cause item since the 4:45 AM EST update is an unverified vendor claim: Hacktron says its AI found the DELMIA Apriso flaw CVE-2025-5086 in 10 minutes. The newest confirmed AI-run intrusions are still WorkOS's breach of its sales tooling by an AI-assisted attack framework (ARTEX per its customer notice) and DIVD's confirmation that ARTEX chained two Zammad zero-days to root in 12 minutes. The week's picture: attackers run AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI, CyberStrikeAI) in real intrusions at companies such as WorkOS, GoDaddy/123 Reg and Chainalysis, ransomware crews talk coding agents into the work (Aur0ra), malware hands loot to AI models (VOLTA), AI models turn fresh patches into working exploits (GLM 5.3, Anthropic's lab model), and AI developer platforms keep losing the provider keys they store, which LLMjacking crews cash out at over $100,000 a day.",
     "counts": {
-      "ai_cause": 31,
-      "ai_product_exploited": 42,
-      "ai_impact": 17
+      "ai_cause": 32,
+      "ai_product_exploited": 41,
+      "ai_impact": 16
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Unverified: Hacktron says its AI found a critical DELMIA Apriso flaw (CVE-2025-5086) in 10 minutes after several human audits missed it",
+            "date": "2026-11-03T12:01:23Z",
+            "summary": "A claim by the AI security vendor itself on X about Dassault Systemes' manufacturing software; the CVE dates from 2025 and the post gives no new attack details. Keep DELMIA Apriso on Dassault's fixed release.",
+            "status": "unverified",
+            "cves": [
+              "CVE-2025-5086"
+            ],
+            "url": "https://x.com/HacktronAI/status/2117587945976734042",
+            "source": "Hacktron (X)"
+          },
           {
             "title": "WorkOS: AI-assisted attack framework (named as ARTEX in its customer notice) breached its internal sales tooling",
             "date": "2026-11-02T23:00:00Z",
@@ -477,15 +495,6 @@
             "source": "BleepingComputer"
           },
           {
-            "title": "Unit 42: suspected AI-generated scripts and SysGoRAT used against government Linux servers (CL-UNK-1211)",
-            "date": "2026-11-02T13:00:00Z",
-            "summary": "Espionage activity Oct 2025-Apr 2026; PHP and shell scripts for persistence, credential theft and exfiltration carried conversational step-by-step reasoning notes, suggesting an LLM or AI agent wrote or ran them.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://thehackernews.com/2026/11/government-linux-servers-targeted-with.html",
-            "source": "The Hacker News"
-          },
-          {
             "title": "X post: GPT-5.4 found the Telegram for Android one-call takeover bug reported by NebuSec",
             "date": "2026-11-02T20:04:10Z",
             "summary": "Claims the in-call control-message flaw (code execution when a victim answers a voice call) was found with GPT-5.4 and is fixed in Telegram for Android 12.10.4. The AI-found detail is single-source here.",
@@ -502,6 +511,15 @@
             "cves": [],
             "url": "https://x.com/RH_ISAC/status/2117269856684847401",
             "source": "X / Cisco Talos"
+          },
+          {
+            "title": "Unit 42: suspected AI-generated scripts and SysGoRAT used against government Linux servers (CL-UNK-1211)",
+            "date": "2026-11-02T13:00:00Z",
+            "summary": "Espionage activity Oct 2025-Apr 2026; PHP and shell scripts for persistence, credential theft and exfiltration carried conversational step-by-step reasoning notes, suggesting an LLM or AI agent wrote or ran them.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/11/government-linux-servers-targeted-with.html",
+            "source": "The Hacker News"
           },
           {
             "title": "Kaspersky: attackers used the CyberStrikeAI framework to run intrusions at schools and universities in Latin America and Africa",
@@ -764,6 +782,28 @@
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "PDF Reader MCP server (@sylphx/pdf-reader-mcp) accepted unauthenticated requests even with MCP_API_KEY set (CVE-2026-62264, 7.5)",
+            "date": "2026-11-03T10:55:54Z",
+            "summary": "The HTTP transport read the API key but never checked it. Update the package per the GitHub advisory and don't expose it to untrusted networks.",
+            "status": "reported",
+            "cves": [
+              "CVE-2026-62264"
+            ],
+            "url": "https://github.com/advisories/GHSA-q344-5v34-gm84",
+            "source": "GitHub Advisory"
+          },
+          {
+            "title": "Copilot in Visual Studio: writing '.mcp.json.' slipped past the filename check and let a prompt-injected agent add and run a new MCP server (CVE-2026-103572)",
+            "date": "2026-11-03T09:33:00Z",
+            "summary": "Windows drops the trailing dot, so the protected .mcp.json config file was overwritten anyway. Fixed in Microsoft's October update; make sure Visual Studio is current.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-103572"
+            ],
+            "url": "https://x.com/jondot/status/2117550602494582917",
+            "source": "X (jondot)"
+          },
           {
             "title": "Unverified: Playwright 1.64.1 bundles an outdated, vulnerable Chromium used by AI coding agents",
             "date": "2026-11-02T22:56:24Z",
@@ -1181,38 +1221,6 @@
             ],
             "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-117558",
             "source": "NVD / GitHub advisories"
-          },
-          {
-            "title": "Flowise CSV and Airtable agents ran model-written Python behind a regex blocklist (CVE-2026-73487)",
-            "date": "2026-10-27T13:31:00Z",
-            "summary": "A crafted prompt could get past the regex check and run code on the Flowise server; fixed in Flowise 3.1.3. No attacks reported.",
-            "status": "patched",
-            "cves": [
-              "CVE-2026-73487"
-            ],
-            "url": "https://x.com/david_x_ai/status/2115073946781376567",
-            "source": "Flowise advisory via X"
-          },
-          {
-            "title": "NVIDIA NeMo Agent Toolkit: CVSS 10.0 missing-authentication flaw (CVE-2026-65145)",
-            "date": "2026-10-27T12:16:00Z",
-            "summary": "Affects 1.0 to 1.8.0 and may allow unauthenticated code execution; fixed in 1.9.0 (nvidia-nat on PyPI). No attacks reported.",
-            "status": "patched",
-            "cves": [
-              "CVE-2026-65145",
-              "CVE-2026-65151"
-            ],
-            "url": "https://github.com/advisories/GHSA-8mjc-3v3w-78r7",
-            "source": "NVIDIA bulletin 5912"
-          },
-          {
-            "title": "Attackers hijack exposed Cairn AI-agent panels and turn the hacking agents on their own hosts",
-            "date": "2026-10-27T09:00:00Z",
-            "summary": "NorForge (reported by Cyberpress, Oct 27) saw two unattributed clusters, AIA0009 and AIA0010, send tasks to at least 17 internet-exposed Cairn panels since about Oct 20 (reconnaissance from Oct 10). The tasks made agents collect usernames, environment variables and config files, publish command output (which can expose API keys), add attacker SSH keys, and download a Poseidon implant from the Mythic framework; researchers confirmed agents ran the malware in several cases. Victims include attacker-run, researcher, red-team and CTF installations. Fix: put Cairn panels behind authentication and check hosts for new SSH keys.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://cyberpress.org/hackers-hijack-ai-agents/",
-            "source": "NorForge / Cyberpress"
           }
         ]
       },
@@ -1362,19 +1370,10 @@
             "cves": [],
             "url": "https://research.checkpoint.com/2026/infostealer-riding-the-ai-train/",
             "source": "Check Point Research"
-          },
-          {
-            "title": "Comet Opik: attacker abused a flaw in AI provider settings to take 29 internal OpenAI and Anthropic keys",
-            "date": "2026-10-27T12:00:00Z",
-            "summary": "Between Oct 24 and 26 an attacker used an inactive comet.com user API key, then a flaw in Opik's AI provider settings, to obtain 29 API keys Comet uses internally for OpenAI and Anthropic; an AI provider flagged unusual use, Comet revoked the keys and fixed the flaw, and says no customer data or keys were accessed.",
-            "status": "patched",
-            "cves": [],
-            "url": "https://www.comet.com/site/blog/security-incident-october-2026/",
-            "source": "Comet"
           }
         ]
       }
     ],
-    "trend_note": "Named victims of AI-agent intrusions are now disclosing on their own (WorkOS, DIVD, GoDaddy/123 Reg, Chainalysis), and the targets are increasingly internal business tools and help desks rather than production systems. Since the last update: no new AI-cause items, AI-product exploits or AI-key breaches; the unverified Playwright/Chromium warning for agent browsers is still circulating on X without a fix."
+    "trend_note": "AI-agent intrusion victims keep disclosing on their own (WorkOS, DIVD, GoDaddy/123 Reg, Chainalysis), and coding-assistant config files are a recurring weak spot: the new Copilot '.mcp.json.' bypass joins earlier MCP and agent-extension flaws. Since the last update: one unverified AI-found-bug claim (Hacktron), two new AI-product flaws (Copilot in Visual Studio, a PDF Reader MCP server), no new AI-key breaches; Ubuntu's fix for the Claude-built Linux exploit CVE-2026-98432 is now in its opt-in testing channel."
   }
 }
