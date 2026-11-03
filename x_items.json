@@ -1,20 +1,11 @@
 [
  {
-  "url": "https://x.com/BursaMatus/status/2117284948138676604",
-  "author": "BursaMatus",
-  "text": "CVE-2026-98432: a race in Linux's IPv4 TCP handshake (kernel 4.4+) lets remote, unauthenticated attackers corrupt kernel memory. Red Hat rates it Critical; RCE demoed on MPTCP listeners. No in-the-wild use yet. Update the kernel and reboot.",
-  "created_at": "2026-11-02T15:57:23Z",
+  "url": "https://x.com/theagenticdaily/status/2117414601088483519",
+  "author": "theagenticdaily",
+  "text": "AWS disclosed a security bug (CVE-2026-116635) in its Serverless MCP Server: before version 0.2.1, a path flaw let write operations read or write JSON files outside the intended status folder if write access was enabled. Any agent that can be steered into calling that server",
+  "created_at": "2026-11-03T00:32:35.000Z",
   "cves": [
-   "CVE-2026-98432"
-  ]
- },
- {
-  "url": "https://x.com/Nishantk1906/status/2117334861866569852",
-  "author": "Nishantk1906",
-  "text": "CVE-2026-98432 \u2014 Critical Linux Kernel Bug (CVSS 9.8). Remote unauthenticated attackers can crash servers, leak kernel memory, or get RCE via a use-after-free in IPv4 TCP handshake code. Affects virtually every Linux kernel since 4.4. Worst on systems with MPTCP listeners.",
-  "created_at": "2026-11-02T19:15:43Z",
-  "cves": [
-   "CVE-2026-98432"
+   "CVE-2026-116635"
   ]
  },
  {
@@ -25,64 +16,6 @@
   "cves": [
    "CVE-2026-58115"
   ]
- },
- {
-  "url": "https://x.com/emits_ca/status/2117330428797559011",
-  "author": "emits_ca",
-  "text": "PAN-OS zero-day CVE-2026-0322 (8.6): exploited in the wild, lets an attacker with management-interface access run commands as root on the firewall. Restrict that interface to trusted IPs and patch.",
-  "created_at": "2026-11-02T18:58:06Z",
-  "cves": [
-   "CVE-2026-0322"
-  ]
- },
- {
-  "url": "https://x.com/cubillas888/status/2117388785142907253",
-  "author": "cubillas888",
-  "text": "MCP server admins: MCPHub's maintainer advisory says a non-admin could register a server that forwarded other callers' Authorization and cookie headers, admins' included, to an attacker's URL. Fixed in 1.1.8; CVE-2026-120323 tracks it. Upgrade; rotate tokens if exposed.",
-  "created_at": "2026-11-02T22:50:00Z",
-  "cves": [
-   "CVE-2026-120323"
-  ]
- },
- {
-  "url": "https://x.com/noelkimx/status/2117107710508589090",
-  "author": "noelkimx",
-  "text": "A read-only check that parses SQL can disagree with the database. In one MCP server (CVE-2026-61789), the check read -- as a comment even with no space after it. MySQL needs the space, so a DROP placed after 1--1 ran.",
-  "created_at": "2026-11-02T04:13:06Z",
-  "cves": [
-   "CVE-2026-61789"
-  ]
- },
- {
-  "url": "https://x.com/modularciso/status/2117346008728494213",
-  "author": "modularciso",
-  "text": "Northflank secrets breach: Northflank told customers on Oct 30 to assume all environment variables were decrypted and to rotate all keys, after a Wiz alert and misuse of AI API keys. Root cause is still unpublished. Wiz counted at least nine October incidents at AI dev platforms.",
-  "created_at": "2026-11-02T20:00:01Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/Zeniteqco/status/2117358779696099537",
-  "author": "Zeniteqco",
-  "text": "VOLTA Infostealer Uses AI to Rank Victims by Value: Cisco Talos found an optional Claude, Kimi and Gemini workflow that turns stolen credentials and personal data into an assessment of a victim's monetizable assets.",
-  "created_at": "2026-11-02T20:50:46Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/kallan4446/status/2117273538537099651",
-  "author": "kallan4446",
-  "text": "The hosting industry faces critical security challenges: the PHP2Shell vulnerabilities (CVE-2026-109618 and CVE-2026-109619) actively exploited across 16 PHP versions.",
-  "created_at": "2026-11-02T15:12:03Z",
-  "cves": [
-   "CVE-2026-109618",
-   "CVE-2026-109619"
-  ]
- },
- {
-  "url": "https://x.com/itsjusttu_/status/2117080573537894433",
-  "author": "itsjusttu_",
-  "text": "Polymarket suffered a supply chain attack on October 29. Attackers compromised a script from DebugBear, a third-party website monitoring provider; the malicious code hijacked logged-in sessions, sold traders' positions, and moved the proceeds.",
-  "created_at": "2026-11-02T02:25:16Z",
-  "cves": []
  },
  {
   "url": "https://x.com/Soar_Infosec/status/2117406727989518522",
@@ -108,6 +41,15 @@
   "cves": []
  },
  {
+  "url": "https://x.com/cubillas888/status/2117388785142907253",
+  "author": "cubillas888",
+  "text": "MCP server admins: MCPHub's maintainer advisory says a non-admin could register a server that forwarded other callers' Authorization and cookie headers, admins' included, to an attacker's URL. Fixed in 1.1.8; CVE-2026-120323 tracks it. Upgrade; rotate tokens if exposed.",
+  "created_at": "2026-11-02T22:50:00Z",
+  "cves": [
+   "CVE-2026-120323"
+  ]
+ },
+ {
   "url": "https://x.com/XavierRiveraX/status/2117375989516775830",
   "author": "XavierRiveraX",
   "text": "AWS disclosed CVE-2026-116635 in the AWS Serverless MCP Server (awslabs.aws-serverless-mcp-server before v0.2.1). Under certain conditions, a path bug lets an actor steering the agent read JSON files outside the intended directory.",
@@ -117,11 +59,52 @@
   ]
  },
  {
+  "url": "https://x.com/TweetThreatNews/status/2117367202261127266",
+  "author": "TweetThreatNews",
+  "text": "More than 1,000 internet-exposed GitLab servers remain unpatched against CVE-2026-97229, an actively exploited flaw that can enable unauthenticated remote code execution. GitLab released patches, and CISA added the flaw to its KEV Catalog.",
+  "created_at": "2026-11-02T21:24:14.000Z",
+  "cves": [
+   "CVE-2026-97229"
+  ]
+ },
+ {
+  "url": "https://x.com/Zeniteqco/status/2117358779696099537",
+  "author": "Zeniteqco",
+  "text": "VOLTA Infostealer Uses AI to Rank Victims by Value: Cisco Talos found an optional Claude, Kimi and Gemini workflow that turns stolen credentials and personal data into an assessment of a victim's monetizable assets.",
+  "created_at": "2026-11-02T20:50:46Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/modularciso/status/2117346008728494213",
+  "author": "modularciso",
+  "text": "Northflank secrets breach: Northflank told customers on Oct 30 to assume all environment variables were decrypted and to rotate all keys, after a Wiz alert and misuse of AI API keys. Root cause is still unpublished. Wiz counted at least nine October incidents at AI dev platforms.",
+  "created_at": "2026-11-02T20:00:01Z",
+  "cves": []
+ },
+ {
   "url": "https://x.com/nyuszkoreal/status/2117337902065619231",
   "author": "nyuszkoreal",
   "text": "Critical zero-days actively exploited in the wild forcing urgent Chrome and Firefox patches.",
   "created_at": "2026-11-02T19:27:48Z",
   "cves": []
+ },
+ {
+  "url": "https://x.com/Nishantk1906/status/2117334861866569852",
+  "author": "Nishantk1906",
+  "text": "CVE-2026-98432 \u2014 Critical Linux Kernel Bug (CVSS 9.8). Remote unauthenticated attackers can crash servers, leak kernel memory, or get RCE via a use-after-free in IPv4 TCP handshake code. Affects virtually every Linux kernel since 4.4. Worst on systems with MPTCP listeners.",
+  "created_at": "2026-11-02T19:15:43Z",
+  "cves": [
+   "CVE-2026-98432"
+  ]
+ },
+ {
+  "url": "https://x.com/emits_ca/status/2117330428797559011",
+  "author": "emits_ca",
+  "text": "PAN-OS zero-day CVE-2026-0322 (8.6): exploited in the wild, lets an attacker with management-interface access run commands as root on the firewall. Restrict that interface to trusted IPs and patch.",
+  "created_at": "2026-11-02T18:58:06Z",
+  "cves": [
+   "CVE-2026-0322"
+  ]
  },
  {
   "url": "https://x.com/Vidyangi520/status/2117325325487272359",
@@ -186,6 +169,32 @@
   "text": "4 Plex Media Server CVEs added to CISA's KEV catalog \u2014 all actively exploited. 2 SSRFs, 1 URI injection, 1 path flaw.",
   "created_at": "2026-11-02T17:09:04.000Z",
   "cves": []
+ },
+ {
+  "url": "https://x.com/BursaMatus/status/2117284948138676604",
+  "author": "BursaMatus",
+  "text": "CVE-2026-98432: a race in Linux's IPv4 TCP handshake (kernel 4.4+) lets remote, unauthenticated attackers corrupt kernel memory. Red Hat rates it Critical; RCE demoed on MPTCP listeners. No in-the-wild use yet. Update the kernel and reboot.",
+  "created_at": "2026-11-02T15:57:23Z",
+  "cves": [
+   "CVE-2026-98432"
+  ]
+ },
+ {
+  "url": "https://x.com/DanteMMartin/status/2117281735109140785",
+  "author": "DanteMMartin",
+  "text": "Google caught 'LLMjacking' crews turning stolen cloud creds into $100K/day of fraudulent LLM inference. Rotate your keys.",
+  "created_at": "2026-11-02T15:44:37.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/kallan4446/status/2117273538537099651",
+  "author": "kallan4446",
+  "text": "The hosting industry faces critical security challenges: the PHP2Shell vulnerabilities (CVE-2026-109618 and CVE-2026-109619) actively exploited across 16 PHP versions.",
+  "created_at": "2026-11-02T15:12:03Z",
+  "cves": [
+   "CVE-2026-109618",
+   "CVE-2026-109619"
+  ]
  },
  {
   "url": "https://x.com/Xiba_AI/status/2117268869983109613",
@@ -298,26 +307,17 @@
   "cves": []
  },
  {
+  "url": "https://x.com/SpectraAudit/status/2117155481638633833",
+  "author": "SpectraAudit",
+  "text": "VOLTA: When Infostealers Use AI to Identify High-Value Victims. A newly discovered Windows infostealer, VOLTA-AUTODOXER, steals browser passwords, cookies, payment details, crypto wallet data and authentication tokens.",
+  "created_at": "2026-11-02T07:22:56.000Z",
+  "cves": []
+ },
+ {
   "url": "https://x.com/kevalcodes/status/2117143182102413344",
   "author": "kevalcodes",
   "text": "The PolinRider supply-chain attack targets GitHub & npm. It hijacks dev accounts & injects loaders into Tailwind & Next config files. Run scans, audit PRs, & rotate tokens now!",
   "created_at": "2026-11-02T06:34:03.000Z",
   "cves": []
- },
- {
-  "url": "https://x.com/stretchcloud/status/2117127564196209063",
-  "author": "stretchcloud",
-  "text": "A durable AI agents/workflows infrastructure company disclosed Sunday that an attacker got into environment variables for a subset of its organizations: API keys, webhook secrets.",
-  "created_at": "2026-11-02T05:32:00.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/BytesNora/status/2117122702758552035",
-  "author": "BytesNora",
-  "text": "Alpine Linux rebuilds GitLab after attempted RCE attack (CVE-2026-97229, actively exploited).",
-  "created_at": "2026-11-02T05:12:41Z",
-  "cves": [
-   "CVE-2026-97229"
-  ]
  }
 ]
