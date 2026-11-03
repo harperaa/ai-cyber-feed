@@ -152,6 +152,7 @@ IMPACT = [
                                                    r"\b(?:breach\w*|hack\w*|compromis\w+|cyber ?-?attack\w*|intrud\w+|unauthori[sz]ed|rotat\w+|revoke\w*)\b" + GAP(80) + r"\brailway(?:\.com|\.app)?\b"),
     ("Trigger.dev AI-agent platform breach (customer env vars / model keys exposed)", r"\btrigger\.dev\b|\btriggerdotdev\b" + GAP(120) + r"\b(?:breach\w*|hack\w*|compromis\w+|incident|unauthori[sz]ed|leak\w*|stolen|rotat\w+|attacker|environment variables|env vars)\b|"
                                                    r"\b(?:breach\w*|incident|unauthori[sz]ed|attacker)\b" + GAP(80) + r"\btrigger\.dev\b"),
+    ("Nvidia Brev AI/GPU developer platform breach (customer VM SSH keys exposed)", r"\b(?:nvidia(?:'s)? )?brev\b(?: cloud| platform|\.dev)?" + GAP(120) + r"\b(?:breach\w*|hack\w*|compromis\w+|incident|unauthori[sz]ed|leak\w*|exposed|stolen|rotat\w+|attackers?|ssh keys?)\b"),
     ("breach touching AI provider / inference keys", r"\b" + INCIDENT_VERBS + r"\b" + GAP(80) + r"\b(?:openai|anthropic|hugging ?face|mistral|cohere|replicate|together ?ai|groq|inference (?:providers?|keys?|platforms?|endpoints?)|(?:ai|llm|model) (?:providers?|platforms?|vendors?|labs?)|(?:openai|anthropic|llm|ai|inference|model) (?:api )?(?:keys?|credentials|tokens))\b|"
                                                    r"\b(?:openai|anthropic|hugging ?face|mistral|cohere|replicate|together ?ai|groq|inference (?:providers?|platforms?)|(?:ai|llm|model) (?:providers?|platforms?|vendors?|labs?))\b" + GAP(60) + r"\b" + INCIDENT_VERBS + r"\b"),
 ]
