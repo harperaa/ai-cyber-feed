@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-11-03T05:45:00Z",
-  "next_update_note": "Changes in this 12:45 AM EST Nov 3 (05:45 UTC) update: added a focus card for the WorkOS breach (AI-assisted attack on its sales tooling); moved the GLM 5.3 Firefox exploit research (no attacks, Firefox 159.0 fixes it) to the watch list. Updated: the Linux kernel CVE-2026-98432 entry (Red Hat fixes are out, Ubuntu still unpatched), Arara Message (now about 77 million addresses), and the Playwright warning (it names four Chrome 156 CVEs, still unverified). New on the watch list: DIVD's ARTEX intrusion via Zammad zero-days, MoneySmart's breach, and four new critical WordPress plugin CVEs. The overnight feed was otherwise quiet. Next summary update in about 4 hours (around 4:30 AM EST); the feed itself refreshes hourly.",
-  "headline": "New since 8:45 PM EST: WorkOS, which sells sign-on and directory tools to thousands of SaaS companies, says an AI-assisted attack framework (its CEO and customer notice say ARTEX) got into an internal sales tool on Oct 30 and read CRM contacts, call summaries, support tickets and customer Slack excerpts from Salesforce and Snowflake; production and customer app data were not touched, so expect convincing phishing that quotes real WorkOS conversations. Red Hat has now shipped RHEL 8, 9 and 10 kernel fixes for the AI-built Linux root exploit CVE-2026-98432 while Ubuntu still lists every release as vulnerable, and Arara Message's leak grew to about 77 million email addresses. Still open: update cPGuard to 5.88.25+ and rotate credentials, patch Node-RED, rotate every secret on Northflank and Trigger.dev, set AI spending caps against LLMjacking, update Chrome to 156.0.8078.79 and Firefox to 159.0, patch PHP (PHP2Shell) and self-managed GitLab, and check for the trojanized Claude Code extension.",
+  "updated_at": "2026-11-03T09:45:00Z",
+  "next_update_note": "Changes in this 4:45 AM EST Nov 3 (09:45 UTC) update: added a focus card for the second wave of supermarket refrigeration attacks, which The Hacker News now tracks across at least nine European countries with Danfoss confirming its controllers were involved; moved Cisco Talos's VOLTA infostealer report (no confirmed live attacks) to the watch list, where it stays in the AI roll-up. Updated: the RMS Cloud phishing note (now hitting Western Australia travellers, RMS says the intrusion is contained) and AU Small Finance Bank (about 2.85 million vehicle-loan customers possibly affected). New on the watch list: Nius's second exposed data archive and four new high-severity WordPress plugin CVEs (SureCart, Easy Digital Downloads, FluentCart, Advanced Shipment Tracking). No new AI-caused attacks surfaced overnight. Next summary update in about 4 hours (around 8:30 AM EST); the feed itself refreshes hourly.",
+  "headline": "New since 12:45 AM EST: the supermarket refrigeration attacks spread overnight into Monday to stores in Belgium, Luxembourg, Sweden, Ireland, Estonia, the Netherlands, Finland, Portugal and Italy, with Danfoss saying its controllers were involved and Dutch victims still on default passwords, so anyone running internet-reachable Danfoss, Copeland or Dixell refrigeration controllers should take them off the internet now. The AI picture is unchanged from last night: WorkOS, GoDaddy/123 Reg and Chainalysis all blame AI attack frameworks for break-ins, and the AI-built Linux root exploit CVE-2026-98432 still has no Ubuntu fix. Still open: update cPGuard to 5.88.25+ and rotate credentials, patch Node-RED, rotate every secret on Northflank and Trigger.dev, set AI spending caps against LLMjacking, update Chrome to 156.0.8078.79 and Firefox to 159.0, patch PHP (PHP2Shell) and self-managed GitLab, and check for the trojanized Claude Code extension.",
   "ai_headline": "WorkOS (Nov 2) is the latest company to say an AI agent framework broke in, after GoDaddy/123 Reg and Chainalysis; BleepingComputer also reports the Dutch vulnerability-disclosure group DIVD confirmed ARTEX took its September intrusion from first access to root in 12 minutes by chaining two Zammad zero-days (CVE-2026-102489, CVE-2026-102490). That adds to the week's picture: CrowdStrike's VAPOR PANDA running ARTEX with DeepSeek against 200+ organizations, Unit 42's AI-written scripts in a government Linux campaign, CyberStrikeAI against schools, Aur0ra talking coding agents into ransomware work, VOLTA ranking stolen loot with Claude Opus 4.6, AI models turning fresh patches into working exploits (GLM 5.3, Anthropic's lab model), and LLMjacking crews cashing out stolen AI keys at over $100,000 a day.",
   "focus": [
     {
@@ -17,20 +17,6 @@
         "cause"
       ],
       "ai_note": "AI as the cause: the company says an autonomous AI attack framework ran the reconnaissance and exploitation."
-    },
-    {
-      "title": "Cisco Talos: VOLTA infostealer sends each victim's stolen data to an AI model (Claude Opus 4.6, with Kimi K2 and Gemini fallbacks) to rank what they're worth",
-      "severity": "high",
-      "exploited": false,
-      "cves": [],
-      "vendor": "Windows endpoints (browsers, messaging, gaming and crypto wallet apps)",
-      "why": "New (Oct 31): Talos describes VOLTA-AUTODOXER, a self-deleting Windows stealer first seen Oct 11 that takes saved browser passwords, Microsoft OAuth tokens, cookies, payment cards, wallet seed phrases and live Discord, Telegram, Steam and Roblox sessions, then searches the victim's email for receipts and order history. It packs everything into a dossier and sends it through OpenRouter to an AI model told to act as 'a forensic intelligence analyst', returning a ranked 'WHAT THEY'RE WORTH' list and an assessment of the victim's password habits. If the model refuses, it falls back to Kimi K2 and then Gemini 2.5 Flash; the AI step runs from the victim's own machine and is optional. Talos found it with its CAIRN AI-tool detection framework and has not confirmed use in live attacks (Talos, WIRED).",
-      "action": "Treat it like any infostealer: don't run cracked games, cheats or unknown downloads, keep endpoint protection on, and if a machine is infected, sign out of all sessions, rotate passwords and OAuth tokens from a clean device and move crypto to a new wallet. Defenders can watch for endpoints calling openrouter.ai or other AI APIs from unexpected processes.",
-      "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
-      "ai_angle": [
-        "cause"
-      ],
-      "ai_note": "AI as the cause: commercial models do the criminal's triage, and the refusal fallback shows the authors expect and route around guardrails."
     },
     {
       "title": "Anthropic: an unreleased Claude research model found and fully exploited critical flaws in Chrome and other major software; Chrome 156 fixes 62 of them (newer build 156.0.8078.79 adds 21 more fixes)",
@@ -108,6 +94,18 @@
       "ai_note": "AI impact: another AI-agent developer platform hit for its stored secrets, the same target pattern as Northflank and Wiz's 'Black October' wave; no link to that campaign has been stated."
     },
     {
+      "title": "Supermarket refrigeration controllers hijacked across Europe (second wave): fridges and freezers set to defrost or 50C in at least nine countries",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Danfoss AK-SM / AK-SC (also Copeland and Dixell xweb) refrigeration controllers",
+      "why": "Overnight into Nov 2, attackers remotely changed refrigeration settings at stores in Belgium and Luxembourg (Delhaize several dozen, Carrefour 15, Intermarché 10-15, Spar 5, IKEA Mons), Sweden (ICA, Coop 6-7), Ireland (13 SuperValu stores), Estonia, the Netherlands (at least 17 businesses), Finland, Portugal and Italy, forcing food to be thrown out. Danfoss says its products were involved, as in October's attack on hundreds of French stores; it says hit Dutch systems were not on a secure network and still used default passwords, and that outdated software was the main weakness. A Belgian butcher says Copeland equipment was also hit. No one has claimed it, Belgium's federal prosecutor has opened an investigation, and Danfoss had published no new advisory as of Nov 3.",
+      "action": "Take refrigeration and building-control computers off the public internet and reach them only through a VPN; check defrost schedules and setpoints; change default passwords and, on Danfoss, set the security level to Strict and update firmware. Reset compromised units to factory settings and reconfigure them, and replace end-of-life models (Danfoss AK-SM 800, AK-SC 355), which CERT-FR says will be re-compromised if left online.",
+      "url": "https://thehackernews.com/2026/11/second-wave-of-cyberattacks-hits.html",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
       "title": "Node-RED CVE-2026-58115 (CVSS 10.0): unauthenticated flow deployment exploited to drop a Linux bot; affects Siemens SIMATIC IoT2050 and any Node-RED without adminAuth",
       "severity": "critical",
       "exploited": true,
@@ -169,6 +167,12 @@
       "blurb": "Malicious cPGuard updates 5.88.12-5.88.19 harvested password hashes, root SSH files and database config from Linux hosting servers; update to 5.88.25+ and rotate credentials."
     },
     {
+      "title": "New Wave of Refrigeration Cyberattacks Hits Supermarkets Across Europe, Forcing Stores to Pull Food",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/second-wave-of-cyberattacks-hits.html",
+      "blurb": "Stores in at least nine European countries had fridges and freezers remotely switched to defrost or 50C overnight into Nov 2; Danfoss says its controllers were involved, and CERT-FR's October steps are still the best guidance."
+    },
+    {
       "title": "Max-severity bug in widely used OT programming tool exploited to deliver Linux malware",
       "source": "The Register",
       "url": "https://www.theregister.com/security/2026/11/02/max-severity-bug-in-widely-used-ot-programming-tool-exploited-to-deliver-linux-malware/5307086",
@@ -193,12 +197,6 @@
       "blurb": "Attackers used the CyberStrikeAI framework, with the LLM on their own server choosing tools and commands, to reach domain admin within days (Sep-Oct 2026)."
     },
     {
-      "title": "Florida Student Aid Website Hack Puts Data of 4.9 Million People at Risk",
-      "source": "SecurityWeek",
-      "url": "https://www.securityweek.com/florida-student-aid-website-hack-puts-data-of-4-9-million-people-at-risk/",
-      "blurb": "Names, SSNs, birth dates and contact details may have been exposed in an Oct 19 breach."
-    },
-    {
       "title": "The Rise of LLMJacking: How Threat Actors Monetize Compromised Cloud and Model Resources",
       "source": "Google Cloud (Mandiant/GTIG)",
       "url": "https://cloud.google.com/blog/topics/threat-intelligence/llmjacking-monetizing-compromised-cloud-models/",
@@ -206,6 +204,10 @@
     }
   ],
   "watch": [
+    "New high-severity WordPress plugin CVEs (Nov 3, no attacks reported): SureCart through 4.9.5 CVE-2026-120574 (8.1, unauthenticated account takeover through its one-time-code login), Easy Digital Downloads through 3.7.2 CVE-2026-120538 (8.1, PayPal guest checkout binds orders to existing users by email, leading to admin takeover), FluentCart CVE-2026-120577 (arbitrary file deletion) and Advanced Shipment Tracking for WooCommerce CVE-2026-120558 (SQL injection); update when fixes ship.",
+    "Cisco Talos VOLTA infostealer (moved off the focus list; Oct 31): a Windows stealer sends each victim's stolen passwords, tokens, cards and wallet data through OpenRouter to Claude Opus 4.6 (falling back to Kimi K2 and Gemini 2.5 Flash) to rank what they're worth; no confirmed live attacks. If infected, sign out of all sessions, rotate passwords and OAuth tokens from a clean device and move crypto to a new wallet. See the AI activity roll-up.",
+    "Nius (German online outlet, CORRECTIV Nov 3): a misconfigured newsletter server exposed a roughly 500 MB backup with about 42,000 subscribers' data and the cloud email-sending keys, which could have let others send mail as Nius; the regulator says it is the outlet's fifth reported data incident since 2025.",
+    "Unverified (X, Nov 3): a developer says attackers on a shared hosting platform pulled credentials from their own app container, used them to request every customer's secrets and probed the cloud metadata endpoint; the post is part of a public dispute with Railway and no platform has confirmed anything.",
     "Open-weight AI model GLM 5.3 (Epoch AI, Oct 30; moved off the focus list): it built working Firefox exploit chains from public-but-unshipped security fixes for about $1,000 each; research only, no attacks. Keep Firefox and Firefox-based browsers on 159.0 or later.",
     "DIVD (Dutch Institute for Vulnerability Disclosure, via BleepingComputer and Cybersecurity Dive): it confirmed ARTEX was the tool in its September breach, going from initial access to root in 12 minutes by chaining Zammad help-desk zero-days CVE-2026-102489 and CVE-2026-102490, then reading a mailbox, scanning the network, extracting login tokens and trying password resets. If you run Zammad, make sure you're on a release that fixes both CVEs and keep it off the open internet where you can.",
     "MoneySmart (Singapore financial-comparison site, CNA Nov 3): an outside party accessed internal systems (found Oct 29) and copied names and emails of some Singapore and Hong Kong customers, plus shipping addresses and policy reference numbers for reward claimants; the number affected isn't disclosed. Watch for fake reward or delivery messages.",
@@ -228,7 +230,6 @@
     "Beget (major Russian hosting provider): a large cyberattack overnight Nov 2 knocked out DNS, email, hosting and cloud services for a large share of its roughly 500,000 sites; restores from backup are ongoing with no full-recovery time.",
     "Sageworks (Abrigo's bank risk-management app, BleepingComputer Nov 2): taken offline after 'irregular activity'; restored except borrower-facing features. Banks using it should watch for vendor notices.",
     "Recirculating, not new: Palo Alto PAN-OS CVE-2026-0322 (exploited, fixed Oct 14; restrict the management interface and patch) and XBOW's AI-built Chrome full chain (GPT-5.6 Sol, about $40,000 in API costs, fixed in Chrome 152, Oct 13).",
-    "European supermarket refrigeration attacks (Guardian, Euronews, Reuters, Nov 2): overnight, attackers switched store cooling units into defrost mode, pushing temperatures as high as 50C at chains in Belgium (about 75 stores, including Delhaize, Carrefour, Intermarché, Spar and IKEA Mons), Sweden (ICA, Coop), Ireland (13 SuperValu stores), the Netherlands (17+ companies per Danfoss), Estonia, Finland and Luxembourg. It mirrors the mid-October attack on French stores; Belgium's prosecutor is investigating, nobody has claimed it, and installer Sabcobel says a software update alone doesn't fix the weakness. If you run building or refrigeration controls, take their remote access off the internet and review vendor remote-access accounts.",
     "Fake nuclear-attack alerts (Nov 2): attackers pushed false alerts through Russia's Emergencies Ministry (Emercom) app to many regions, and a similar fake alert appeared on a Ukrainian app; no attribution yet.",
     "Google disrupted a 1.3 million-device Android botnet, mostly TV set-top boxes, in late October and says a device maker sold criminal access (The Hacker News, Nov 2). Replace no-name Android TV boxes on networks you care about. Iran-linked DarkBlinders spied on an Israeli individual and an Iraqi Kurdistan government cloud (Aug-Oct) using fake apps and phishing (The Hacker News, Nov 2).",
     "Unverified (X, Nov 2): a forum actor claims to sell a pre-auth use-after-free RCE in PHP core working on PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35, the current PHP2Shell-patched versions; PHP has not confirmed anything. Keep PHP admin and app surfaces behind a WAF and watch for a PHP advisory.",
@@ -271,7 +272,7 @@
     "Spring AI 2.0.1 (X post, Oct 31; details unverified here): fixes 7 CVEs, including one where prompt injection could make an agent call a tool it was never offered and one where Redis chat memory could leak data between conversations; upgrade from 2.0.0.",
     "Canadian law firms (The Globe and Mail, Oct 31): attackers phoning staff as IT support broke into McCarthy Tétrault (about 31,000 files stolen, per a source), Davies, Bennett Jones and Borden Ladner Gervais around Oct 22-23, with at least seven employees granting access. Warn staff that IT will not cold-call asking them to install updates or reset passwords.",
     "Hong Kong Examinations and Assessment Authority (SCMP, Oct 31): a system breach leaked names, birth dates and emails of about 16,900 mainland China-based students who applied for two international exams; HKDSE not affected.",
-    "AU Small Finance Bank (Oct 31 update): Salesforce says it found no vulnerability in its platform; the bank says its own systems are unaffected while the claimed vehicle-loan data leak is investigated (attacker claims of Aadhaar and PAN data are unverified).",
+    "AU Small Finance Bank (Nov 3 update): the bank says about 2.85 million (28.5 lakh) vehicle-loan customers onboarded through a third-party SaaS platform may be affected; its other systems are unaffected and it has told RBI and CERT-In. Salesforce says it found no flaw in its platform; attacker claims of Aadhaar and PAN data are unverified.",
     "New critical WordPress plugin CVEs (Oct 31, no attacks reported): Uncanny Toolkit for LearnDash through 3.8.2 CVE-2026-119096 (9.8, login bypass via the email parameter), Project Manager (AI Powered) through 4.1.1 CVE-2026-116512 (9.8, unauthenticated code execution), PDF Invoice for WooCommerce through 7.1.1 CVE-2026-109220 (object injection), WP Booking System CVE-2026-116557 and Popup Builder through 4.4.5 CVE-2026-89270; WordPress Core's upgrade race is now CVE-2026-119977. Update when fixes are listed.",
     "macOS CVE-2026-112445: a public local privilege-escalation proof of concept was posted to GitHub, billed as the simplest yet (details unverified here); keep Macs on the latest macOS update.",
     "Brotli 'Node2Shell' CVE-2026-111497: a public proof-of-concept now targets a pinned Docker Official Image for WordPress; rebuild images on fixed Brotli (1.0.10, 1.1.1 or 1.2.1).",
@@ -338,7 +339,7 @@
     "Wagyu (crypto exchange): confirmed a three-month data leak that could weaken Monero (XMR) users' privacy (single X/ForkLog report, details unverified).",
     "Broadcom VMware ESXi CVE-2026-41709 (CISA KEV, added Oct 28): a low-scored (2.7) flaw that lets someone with ESXi admin access run certain commands without them being logged; CrowdStrike says China-nexus WARP PANDA used it as a zero-day as late as early 2026 against US organizations including law firms. Patch to ESXi 9.1.0.0 build 25370933, 9.0.2.0100 build 25595025 or 8.0 U3j build 25429389 (VMSA-2026-0006), and treat ESXi admin credentials as high-value.",
     "Myrealtrip (South Korean travel platform, Oct 29): reports unauthorized access exposing names, phone numbers, encrypted passwords and some passport numbers; it blocked the access and notified authorities. Bithumb now says 6,444 customers were affected by the hack of an internal employee system, 844 with personal data directly exposed (X reports, Oct 29).",
-    "RMS Cloud (hotel and holiday-park booking software) breach is now confirmed: guests of Australian hotels, including Federal Group properties in Tasmania, are getting convincing phishing that quotes real booking numbers; RMS says payment details were not accessed (ABC News, Oct 29). Don't pay or click links in booking messages; contact the hotel directly.",
+    "RMS Cloud (hotel and holiday-park booking software) breach: guests of Australian hotels (Federal Group in Tasmania, and now Cable Beach Club and Kimberley Accommodation Group in Western Australia, ABC Nov 3) are getting WhatsApp and text phishing that quotes real booking dates and names and asks for card details; RMS says the intrusion is contained and payment details were not accessed. Don't pay or enter card details through links in booking messages; contact the hotel directly.",
     "ConnectWise Cloud Backup / Storm-0940 (ARTEX AI agents): if you use ConnectWise Cloud Backup or an MSP with app access to your Microsoft 365 tenant, review Entra enterprise apps and service principals for credentials, owners or roles added since Oct 15, and sign-ins from 144.172.64[.]99 (moved off the focus list; no new details).",
     "Cathedral's AI agents reached Anthropic's sales, HR and IT systems through unnamed third-party business software in under 12 hours; Anthropic says no conversations, code or model weights were touched. Review scopes and admin accounts of sales, HR and IT SaaS An X post (Oct 29) claims Cathedral got full admin access to Anthropic's Slack workspace; Anthropic's Logan Graham has called claims of reading every message and logging in as any user wrong, so treat it as disputed (moved off the focus list; vendors still unnamed).",
     "DHS employee data leak (Oct 28): a hacker calling itself 'Department of Peace' published names, job titles and work contacts of 40,000+ DHS staff (about 21,000 CBP, 10,000 ICE/HSI, ~1,000 CISA), saying it came from DHS's Okta single sign-on system; TechCrunch and Reuters matched part of it to real records. DHS has not confirmed how it was taken. Expect targeted phishing of federal staff. An X post (Oct 30) says Okta reports seeing no compromise of its own systems (unverified).",
@@ -444,7 +445,7 @@
     "Cisco ASA/FTD SSL VPN DoS zero-day CVE-2026-76418 (exploited, CISA KEV, federal deadline today, Nov 1; moved off the focus list): upgrade ASA to 9.16.4.104, 9.18.4.96, 9.20.4.50, 9.22.3.200, 9.23.1.48, 9.24.1.27 or 9.24.10.1, or FTD to 7.0.11, 7.2.13, 7.4.9, 7.6.7, 7.7.14, 10.0.3 or 10.1.1."
   ],
   "ai_activity": {
-    "overview": "Since the 8:45 PM EST update: WorkOS disclosed a breach of its sales tooling by an AI-assisted attack framework (ARTEX per its customer notice), and DIVD's confirmation that ARTEX chained two Zammad zero-days to root in 12 minutes was added. The week's picture: attackers run AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI, CyberStrikeAI) in real intrusions at companies such as WorkOS, GoDaddy/123 Reg and Chainalysis, ransomware crews talk coding agents into the work (Aur0ra), malware hands loot to AI models (VOLTA), AI models turn fresh patches into working exploits (GLM 5.3, Anthropic's lab model), and AI developer platforms keep losing the provider keys they store, which LLMjacking crews cash out at over $100,000 a day.",
+    "overview": "No new AI-caused attacks surfaced since the 12:45 AM EST update; the newest remain WorkOS's breach of its sales tooling by an AI-assisted attack framework (ARTEX per its customer notice) and DIVD's confirmation that ARTEX chained two Zammad zero-days to root in 12 minutes. The week's picture: attackers run AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI, CyberStrikeAI) in real intrusions at companies such as WorkOS, GoDaddy/123 Reg and Chainalysis, ransomware crews talk coding agents into the work (Aur0ra), malware hands loot to AI models (VOLTA), AI models turn fresh patches into working exploits (GLM 5.3, Anthropic's lab model), and AI developer platforms keep losing the provider keys they store, which LLMjacking crews cash out at over $100,000 a day.",
     "counts": {
       "ai_cause": 31,
       "ai_product_exploited": 42,
@@ -1374,6 +1375,6 @@
         ]
       }
     ],
-    "trend_note": "Named victims of AI-agent intrusions are now disclosing on their own (WorkOS, DIVD, GoDaddy/123 Reg, Chainalysis), and the targets are increasingly internal business tools and help desks rather than production systems. Since the last update: two new AI-cause items, no new AI-product exploits, no new AI-key breaches; an unverified Playwright/Chromium warning for agent browsers is spreading on X."
+    "trend_note": "Named victims of AI-agent intrusions are now disclosing on their own (WorkOS, DIVD, GoDaddy/123 Reg, Chainalysis), and the targets are increasingly internal business tools and help desks rather than production systems. Since the last update: no new AI-cause items, AI-product exploits or AI-key breaches; the unverified Playwright/Chromium warning for agent browsers is still circulating on X without a fix."
   }
 }
