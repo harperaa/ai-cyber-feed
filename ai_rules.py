@@ -27,6 +27,7 @@ MODEL = (r"(?:" + AI + r"|llms?|chatgpt|gpt[- ]?[\w.]*|claude|gemini[\w ]{0,12}|
 
 # ---- cause: AI found the bug / AI-written exploit or code / AI attack tooling --------------------
 CAUSE = [
+    ("AI-agent attack/breach", r"\b(?:" + AI + r"|llm)[- ]agent[- ](?:attacks?|breach(?:es)?|intrusions?)\b(?!\s+(?:surface|vectors?|techniques?|patterns?|risks?))|\b(?:" + AI + r"|llm)[- ]agents? (?:were|was) used to (?:reach|breach|access|steal|compromise|hack)\b"),
     ("malware/botnet deploys an AI agent on hijacked hosts", r"\b(?:botnets?|worms?|malware|attackers?|hackers?|threat actors?)\b" + GAP(20) + r"\b(?:install\w*|deploy\w*|drop\w*|launch\w*|plant\w*)\b" + GAP(25) + r"\b(?:" + AI + r"|llm|autonomous)[- ]agents?\b" + GAP(20) + r"\b(?:on|onto|across|inside)\b" + GAP(15) + r"\b(?:hijacked|compromised|infected|victim|breached)\b"),
     ("AI-assisted discovery/exploit", AI + r"[- ](?:assisted|powered|driven|generated|discovered|found|written|authored|built|enabled)\b(?!\s+(?:agents?|platforms?|apps?|applications?|workflows?|assistants?|tools?|products?|features?|services?|browsers?|chatbots?|search|ides?|coding)\b)"),
     ("found by AI", r"\b(?:found|discovered|uncovered|identified|detected|audited?|reported|weaponi[sz]ed|assisted)\b" + GAP(70) + r"\b(?:using|with|by|via|through|help of|thanks to)\b" + GAP(30) + r"\b" + MODEL + r"\b"),
