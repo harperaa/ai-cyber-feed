@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-04T13:40:00Z",
-  "next_update_note": "Changes in this 8:40 AM EST Nov 4 (13:40 UTC) update: new focus cards for the Xen hypervisor guest-escape flaws (XSA-523) that Anthropic found with Claude and for a critical (9.8) Ruby on Rails Active Storage file read/write flaw in apps that process uploads with ImageMagick; GitBook card updated (incident declared resolved Nov 4, Git Sync still affected by a GitHub outage) and cPGuard card updated with OpsShield's numbers (about 2,950 servers ran the bad update, about 7,900 client records copied); the BOSSAI and pentestcode cards moved to the watch list (no new details, no action for you); added to the watch list Sekoia's APT29 zero-click watering-hole campaign against iPhones and Android phones, CrowdStrike's 'Vapor Panda' ARTEX campaign against 200+ organizations, SecurityWeek and Wiz's roll-up of AI-platform breaches, more airlines in the Amadeus breach (Japan Airlines, ANA, Qantas), the supermarket refrigeration attacks spreading to Germany, Romania and the UK, the SlippyNunchucks Sogou DNS hijack and the indicted Canadian supercomputer cryptominers; oldest watch items (before about Oct 27) dropped, still in the archive. Next summary update in about 4 hours (around 12:30 PM EST); the feed itself refreshes hourly.",
-  "headline": "New since 4:50 AM EST: Xen fixed two flaws (CVE-2026-102703, CVE-2026-102704, XSA-523) that let one malicious VM read and write the memory of every other VM on the host, found by Anthropic with Claude; Rails 8.1.4.1 and 8.0.5.2 fix a 9.8 Active Storage flaw that lets an unauthenticated upload read or write server files when ImageMagick processes images; and Sekoia ties a zero-click watering-hole campaign against older iPhones and Android Chrome to Russia's APT29. GitBook says its AI-agent breach is resolved but you still need to rotate tokens. Still open: rotate GitBook tokens, Chainstack node credentials and Northflank secrets; update cPGuard to 5.88.25+ and WordPress to 7.1.4; patch PHP (PHP2Shell) and Cisco Secure Email Gateway; check for the trojanized Claude Code extension.",
-  "ai_headline": "New AI-caused items: Anthropic's Claude found the Xen grant-copy flaws that break VM isolation on cloud and Qubes hosts (patched, no attacks reported), and SecurityWeek, citing Wiz, counts at least a dozen AI developer platforms breached in a month by attackers hunting stored AI keys, with stolen enterprise keys abused within 30 minutes and resold to several crews. CrowdStrike's report on 'Vapor Panda', a China-nexus group running ARTEX AI agents against 200+ organizations in 14 countries (nine confirmed compromises, one intrusion burning 1.4 billion tokens), adds to the week's picture: ARTEX, BOSSAI, pentestcode and CyberStrikeAI agents behind real break-ins at GitBook, WorkOS, Chainstack and others.",
+  "updated_at": "2026-11-04T17:45:00Z",
+  "next_update_note": "Changes in this 12:45 PM EST Nov 4 (17:45 UTC) update: new focus cards for the AgenticFlow breach (sandbox escape, all saved AI keys and tokens exposed) and the Debian/Ubuntu APT package-swap flaw CVE-2026-109518; the trojanized Claude Code extension and Cisco Secure Email Gateway cards moved to the watch list (no new details; their actions still apply); added to the watch list and AI roll-up Hunt.io's ARTEX infrastructure findings, Muji's breach with about 345,000 valid card numbers, SonicWall's unpatched end-of-life GMS flaws, Cisco's Nov 4 advisories (ISE, UCS Central), Barracuda's ESG patch details and an unverified AI-agent academic fraud report; NIKKE's developer has now confirmed its launcher compromise; a LiteLLM post on X recirculates the Oct 21 incident (not new). Some watch items from Oct 26-28 dropped (still in the archive). Next summary update in about 4 hours (around 4:30 PM EST); the feed itself refreshes hourly.",
+  "headline": "New since 8:40 AM EST: AgenticFlow, an AI agent platform, says an attacker escaped its workflow sandbox on Nov 2-3 and held the key protecting every saved connection, so anyone who stored AI keys, Telegram bot tokens or MCP tokens there should replace them now; Debian and Ubuntu shipped fixes for an APT flaw (CVE-2026-109518) that lets a malicious mirror or proxy swap a verified package and run code as root; and Barracuda patched an Email Security Gateway auth bypass that chains to root (update to 9.4.0.030+). Still open: rotate GitBook, Chainstack and Northflank secrets; patch PHP (PHP2Shell), Xen (XSA-523), Rails Active Storage and WordPress 7.1.4 (CISA deadline Nov 6).",
+  "ai_headline": "New AI items: AgenticFlow joins the run of AI platforms breached for the provider keys they store (Railway, Northflank, Trigger.dev, Fireworks AI, OpenCode and others), and Hunt.io's look inside the ARTEX operator's exposed Hong Kong jump server shows the South Korean bank breaches were run by Claude Code rerouted to DeepSeek through the xcai[.]pro reseller, with 19 custom attack skills and about 1,300 ARTEX-tagged IPs worldwide. The week's picture is unchanged: AI agent frameworks (ARTEX, BOSSAI, pentestcode, CyberStrikeAI) behind real break-ins at GitBook, WorkOS, Chainstack and others, while defenders' models keep finding serious bugs (Claude on Xen).",
   "focus": [
     {
       "title": "GitBook (documentation platform) hit by a 'highly targeted attack using AI agents': all API tokens revoked; integration tokens, Git Sync secrets and Assistant questions may have been read",
@@ -83,19 +83,19 @@
       "ai_note": "AI impact: stolen AI provider keys are already being abused, part of the same campaign Wiz documents across nine AI developer platforms this month."
     },
     {
-      "title": "Trojanized 'official' Claude Code extension 2.1.312 and 2.1.313 (served by Cursor's marketplace) planted an SSH backdoor on up to 5,000 machines",
+      "title": "AgenticFlow (AI agent and workflow platform) broken into: attacker escaped its workflow sandbox and held the key protecting every saved connection, so all stored AI keys, Telegram bot tokens and MCP tokens are treated as exposed",
       "severity": "critical",
       "exploited": true,
       "cves": [],
-      "vendor": "Cursor extension marketplace / Anthropic Claude Code extension (anthropic.claude-code)",
-      "why": "Oct 29-30: a malicious version 2.1.313 was published to the Open VSX registry under Anthropic's real extension ID and reached Cursor's marketplace through its mirror between about 2:27 a.m. and 1:35 p.m. PT on Oct 29 (5:27 AM to 4:35 PM EDT); Cursor says at most 5,000 of its users got it. A loader prepended to extension.js runs as soon as the file loads (no interaction needed), adds an attacker key labeled 'svc-telemetry' to ~/.ssh/authorized_keys, tries to enable SSH and open a reverse tunnel to 134.209.82[.]225, installs a LaunchAgent, cron entry or 'SysMon' scheduled task, and beacons host details plus the names of up to 40 secret-looking environment variables to port 8099. New since the last summary: Cursor says the attacker server has been taken offline with its hosting provider, it audited and found no other extensions tampered with, and enabling SSH fails without admin rights, though the key and persistence still land and stay ready if Remote Login is on. How the attacker got publishing access is still unknown (Cursor notice, StepSecurity, The Hacker News). Microsoft (Oct 30) confirms both 2.1.312 and 2.1.313 were tampered, that the VS Code Marketplace and npm copies were not affected, and that the loader also sends the names (not values) of environment variables containing KEY, TOKEN, SECRET, PASS, AWS or GCP.",
-      "action": "If you installed or auto-updated the Claude Code extension in Cursor on Oct 29, run Cursor's check and cleanup scripts, remove any 'svc-telemetry' line from ~/.ssh/authorized_keys and the planted LaunchAgent, cron entry or SysMon task (uninstalling the extension isn't enough), update to 2.1.314, block 134.209.82[.]225, and rotate SSH keys and every credential reachable from that machine from a clean system. Consider turning off extension auto-update on developer machines. Look for an authorized_keys entry tagged svc-telemetry, ~/.config/.smt and .smtk, ~/Library/LaunchAgents/com.apple.sysmond.plist (macOS), an @reboot crontab line (Linux), a SysMon task or Startup sysmon.cmd (Windows), and connections to 134.209.82[.]225; remove only after saving evidence.",
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/10/30/inside-malicious-claude-code-branded-cursor-extension-persistent-ssh-backdoor/",
+      "vendor": "AgenticFlow (Pixel ML)",
+      "why": "New (notice updated Nov 4): AgenticFlow says an attacker on throwaway accounts abused two flaws in the layer that runs customer-built workflows, escaped the sandbox and could read the service's configuration, including the key that protects saved connections, plus the data it holds (conversations, agent threads, datasets, uploads, workflow configs). Earliest activity found was 10:26 UTC Nov 2 (5:26 AM EST); it was spotted when about 290,000 automated agents on about 1,900 throwaway accounts ran AI requests at AgenticFlow's expense, and contained Nov 3. The service is paused while it rebuilds; it says passwords and cards aren't stored there. It has reported affected keys to OpenAI, Google, Anthropic, Pipedream, Telegram, Composio and others, and says it is one of a series of platforms targeted for the AI-provider keys they hold.",
+      "action": "If you use AgenticFlow, replace every key or token you saved there at the service that issued it now (OpenAI, Anthropic, Google/Gemini, DeepSeek, Groq, OpenRouter and other LLM keys; revoke Telegram bot tokens with @BotFather /revoke; disconnect MCP accounts on Pipedream, Composio, Zapier or Make; remove the app from Google/Zoho third-party access). Check usage and billing at those services since Nov 2, and create new AgenticFlow API keys when it returns. Workspace owners got a personalised list of affected connections by email on Nov 3.",
+      "url": "https://docs.agenticflow.ai/policies/security-incident-2026-11",
       "ai_angle": [
-        "product",
-        "impact"
+        "impact",
+        "product"
       ],
-      "ai_note": "AI product supply chain: the backdoor rode in on an AI coding-agent extension under its real publisher ID, aimed at developers' keys and machines."
+      "ai_note": "AI impact and AI product: a sandbox escape in an AI agent platform exposed the AI provider keys it held for customers, the same target as the Railway, Northflank and Trigger.dev breaches."
     },
     {
       "title": "cPGuard (Linux server security tool) update channel hijacked: versions 5.88.12-5.88.19 stole /etc/shadow, root SSH files, database config and shell history",
@@ -106,20 +106,6 @@
       "why": "Updated Nov 4 (SecurityWeek): OpsShield says attackers used compromised credentials to reach its update CDN and served the malicious script for about 70 minutes; about 2,950 servers ran it, and about 7,900 client account records (names, company, addresses, emails, hashed passwords) were copied. Update (BleepingComputer, Nov 3): OPSSHIELD told BleepingComputer that 2,946 servers were affected and had their data copied, and that its billing system database was copied as well. (Nov 2): an attacker with compromised credentials got into OPSSHIELD's update distribution system at 02:06 UTC Nov 2 and pushed malicious cPGuard updates 5.88.12 through 5.88.19 for about 12 hours. The script collected /etc/shadow and /etc/passwd, root's MySQL/MariaDB config, root shell history and root SSH authorized_keys and known_hosts, left a backdoor shell at /var/tmp/.cpg91511_sh and uploaded the loot to OPSSHIELD's own licensing server under a hijacked account; OPSSHIELD confirms the attacker retrieved some of it. Because cPGuard auto-updates, many hosting servers may have run it. 5.88.25 removes the backdoor; 5.88.26 also revokes support access.",
       "action": "Run `cpgcli update --start` and confirm `cpgcli --version` shows 5.88.25 or later, then check `grep 'Successfully updated' /opt/cpguard/logs/install_log` for any of 5.88.12-5.88.19. If found, treat the server as compromised: from a trusted environment reset root and all local passwords, rotate database passwords, S3 keys, DigitalOcean tokens and any secrets in root's shell history, and replace SSH keys and remove old public keys everywhere they're trusted.",
       "url": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/",
-      "ai_angle": [],
-      "ai_note": ""
-    },
-    {
-      "title": "Cisco Secure Email Gateway CVE-2026-76461 (CVSS 9.8): one crafted email gives attackers root; exploited since September, exploit code now online and Cisco updated the 15.5 fix",
-      "severity": "critical",
-      "exploited": true,
-      "cves": [
-        "CVE-2026-76461"
-      ],
-      "vendor": "Cisco Secure Email Gateway (AsyncOS)",
-      "why": "Cisco's advisory (first published Sep 14, revised Nov 3) says an unauthenticated attacker can send a crafted email whose SQL statements lead to commands running as root on any physical or virtual Secure Email Gateway, regardless of configuration; Cisco learned of active exploitation in September. New: because of exploit code available online, Cisco shipped an updated fix for 15.5.5-014 on Oct 31 and now strongly recommends that anyone below 16.5 move to 16.5.0-780. There are no workarounds. Cisco says it has upgraded Secure Email Cloud devices and contacted cloud customers where it saw signs of compromise.",
-      "action": "Upgrade to 16.5.0-780 (or 16.0.4-302; on 15.5.5-014 run retroscannerstatus and confirm Retro Remediation Engine 4.0.2+). Check mail_logs on every cluster member for 'COPY ... TO PROGRAM', and check firewall logs for unexpected traffic from the appliance. If compromised, preserve forensics, redeploy virtual appliances on a fixed release, rebuild every cluster member, and renew credentials, certificates and cluster SSH keys.",
-      "url": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-esa-inj-2bLVGmhX",
       "ai_angle": [],
       "ai_note": ""
     },
@@ -138,6 +124,20 @@
       "ai_note": ""
     },
     {
+      "title": "Debian and Ubuntu APT CVE-2026-109518: anyone who can tamper with package downloads (malicious mirror or proxy) can swap a verified package and run code as root",
+      "severity": "high",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-109518"
+      ],
+      "vendor": "Debian / Ubuntu",
+      "why": "New (Nov 4): APT's developers call it critical (Ubuntu rates it high, CVSS 4.0 7.7). The attack abuses APT's download retries, on by default from Debian 12 and Ubuntu 22.04, using HTTP redirects and temporary server errors; older releases are exposed if Acquire::Retries was turned on. Reported by Max Justicz; no attacks reported and no workaround published, and the advisories don't say whether HTTPS sources are affected. Debian has fixed packages (Debian 11 gets 2.2.5; testing was still unfixed at 14:58 UTC Nov 4).",
+      "action": "Update the apt package itself first: Ubuntu 26.10 to 3.3.3ubuntu0.1, 26.04 LTS to 3.2.1ubuntu0.1, 24.04 LTS to 2.8.4ubuntu0.1, 22.04 LTS to 2.4.15ubuntu0.1 (Ubuntu Pro for 14.04 and other older releases), and Debian's fixed apt from security.debian.org; rebuild container base images. Until patched, install packages only from trusted mirrors over HTTPS and avoid untrusted networks or proxies, and check whether your scripts set Acquire::Retries on older releases.",
+      "url": "https://thehackernews.com/2026/11/debian-and-ubuntu-apt-flaw-lets-mitm.html",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
       "title": "Ruby on Rails Active Storage GHSA-f3w6-w445-fwh9 (CVSS 9.8): an unauthenticated image upload can read or write server files when ImageMagick analyzes it",
       "severity": "critical",
       "exploited": false,
@@ -152,55 +152,65 @@
   ],
   "news": [
     {
-      "title": "Xen Hypervisor Flaws Let One Malicious VM Read and Write Any Other VM's Memory",
+      "title": "Security Incident — November 2026",
+      "source": "AgenticFlow",
+      "url": "https://docs.agenticflow.ai/policies/security-incident-2026-11",
+      "blurb": "Attacker escaped the workflow sandbox and held the key protecting saved connections; every stored AI key, bot token and MCP token is treated as exposed."
+    },
+    {
+      "title": "Debian and Ubuntu APT Flaw Lets MitM Attackers Swap Verified Packages and Run Code as Root",
       "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/xen-hypervisor-flaws-let-one-malicious.html",
-      "blurb": "XSA-523, found by Anthropic with Claude, breaks VM isolation on Xen 4.6 and later; patch and reboot hosts."
+      "url": "https://thehackernews.com/2026/11/debian-and-ubuntu-apt-flaw-lets-mitm.html",
+      "blurb": "CVE-2026-109518 abuses APT's default download retries; update the apt package first."
+    },
+    {
+      "title": "ARTEX Exposed: Mapping the Infrastructure Behind the South Korean Bank Breaches",
+      "source": "Hunt.io",
+      "url": "https://hunt.io/blog/artex-south-korea-bank-infrastructure",
+      "blurb": "An exposed jump server shows Claude Code rerouted to DeepSeek, 19 attack skills and about 1,300 ARTEX-tagged IPs."
+    },
+    {
+      "title": "Barracuda ESG Authentication Bypass Flaw Opens Path to Root",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/barracuda-email-security-gateway-authentication-bypass-opens-path-to-root/",
+      "blurb": "Two chained flaws give root on Email Security Gateway; patch to 9.4.0.030 or later."
     },
     {
       "title": "AI-Linked Breaches Mount as WorkOS, Northflank, Trigger.dev Disclose Hacks",
       "source": "SecurityWeek",
       "url": "https://www.securityweek.com/ai-linked-breaches-mount-as-workos-northflank-trigger-dev-disclose-hacks/",
-      "blurb": "At least a dozen AI developer platforms hit in a month; Wiz saw stolen enterprise keys abused within 30 minutes and shared among several crews."
+      "blurb": "At least a dozen AI developer platforms hit in a month by attackers hunting stored AI keys."
     },
     {
-      "title": "Critical Rails Flaw Lets Attackers Write Server Files via Crafted ImageMagick Uploads",
+      "title": "Xen Hypervisor Flaws Let One Malicious VM Read and Write Any Other VM's Memory",
       "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/critical-rails-flaw-lets-attackers.html",
-      "blurb": "9.8 Active Storage flaw; upgrade to 8.1.4.1 or 8.0.5.2 and rotate secrets if you use Disk storage."
+      "url": "https://thehackernews.com/2026/11/xen-hypervisor-flaws-let-one-malicious.html",
+      "blurb": "XSA-523, found by Anthropic with Claude; patch Xen, XCP-ng and Qubes hosts."
     },
     {
-      "title": "Security incident",
-      "source": "GitBook",
-      "url": "https://www.gitbook.com/status/security-incident-2026-11-03",
-      "blurb": "GitBook declares its AI-agent breach resolved; customers still need to rotate tokens and secrets."
+      "title": "Credit card numbers may have leaked in cyberattack on Japan's Muji",
+      "source": "The Straits Times",
+      "url": "https://www.straitstimes.com/asia/east-asia/credit-card-numbers-may-have-leaked-in-cyberattack-on-japans-muji",
+      "blurb": "About 1.09 million records, including about 345,000 valid card numbers."
     },
     {
-      "title": "Hackers use n-day exploits in zero-click attacks on iOS, Android devices",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-use-n-day-exploits-in-zero-click-attacks-on-ios-android-devices/",
-      "blurb": "Sekoia ties watering-hole sites in the US, Ukraine, Czechia and Bulgaria to APT29; all flaws are patched, so update phones."
-    },
-    {
-      "title": "Chinese hackers use ARTEX AI in automated attacks against 200 orgs",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-use-artex-ai-in-automated-attacks-against-200-orgs/",
-      "blurb": "CrowdStrike's Vapor Panda ran ARTEX agents against 200+ organizations in 14 countries, compromising at least nine."
-    },
-    {
-      "title": "Chainstack Reports Production Systems Breach Exposing Customer Data and Password Hashes",
+      "title": "SonicWall Won't Patch EoL GMS Flaws That Could Expose Files, Alter Database Records",
       "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/chainstack-reports-production-systems.html",
-      "blurb": "Rotate node credentials and API keys; linked by The Hacker News to the AI-powered ARTEX campaign."
-    },
-    {
-      "title": "CISA flags WordPress RCE flaw as actively exploited in attacks",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/",
-      "blurb": "CVE-2026-119977 (4.7 through 7.1.3) is now in CISA KEV; update WordPress core."
+      "url": "https://thehackernews.com/2026/11/sonicwall-wont-patch-eol-gms-flaws-that.html",
+      "blurb": "No fixes for end-of-life GMS; a separate CVSS 10 SSRF is under attack."
     }
   ],
   "watch": [
+    "Trojanized Claude Code extension 2.1.312/2.1.313 in Cursor's marketplace (moved off the focus list, no new details): if it installed on Oct 29, run Cursor's check and cleanup scripts, remove any 'svc-telemetry' key from ~/.ssh/authorized_keys and the planted LaunchAgent, cron entry or scheduled task, update to 2.1.314 and rotate credentials from that machine (Microsoft's write-up).",
+    "Cisco Secure Email Gateway CVE-2026-76461 (CVSS 9.8, exploited since September, public exploit code; moved off the focus list): upgrade to 16.5.0-780 or 16.0.4-302 (15.5.5-014 needs Retro Remediation Engine 4.0.2+) and check mail_logs on every cluster member for 'COPY ... TO PROGRAM'.",
+    "Barracuda Email Security Gateway (SecurityWeek, Nov 4): patches out for CVE-2026-116606 (9.3, Mandiant says unauthenticated config-import auth bypass in ESG before 9.4.0.030) and CVE-2026-111560 (8.6, timezone-setting command injection as root, also in Load Balancer ADC, Message Archiver, WAF, WAF Control Center and Web Security Gateway); chained they give root. No exploitation reported. Update firmware, confirm all patches installed (turn automatic patching back on) and keep admin interfaces on trusted networks only.",
+    "Muji (Ryohin Keikaku, Straits Times Nov 4): unauthorized access may have exposed about 1.09 million customer records, including full numbers and birth dates for about 345,000 currently valid Muji Card credit cards, on top of the up to 27.26 million Muji App records reported in late October. Muji Card holders should watch statements and consider a card replacement.",
+    "ARTEX infrastructure (Hunt.io, Nov 4): an exposed Hong Kong jump server (23.248.226[.]250) tied to the South Korean bank breaches held Claude Code 2.1.221 configs rerouted to DeepSeek via xcai[.]pro, 19 custom attack skills (recon, WAF bypass, payment-logic and IDOR testing, cloud phones), a JNDI/LDAP exploit rig and Linux privilege-escalation exploits; about 1,300 ARTEX-tagged IPs in 30 countries. Block 38.244.50[.]120, 23.248.226[.]250, 154.201.79[.]246, xcai[.]pro and direct[.]xcai[.]pro.",
+    "SonicWall GMS (The Hacker News, Nov 4): end-of-life GMS 9.5.2 and earlier has an unauthenticated file read (CVE-2026-109593, 9.1) and an authenticated SQL injection (CVE-2026-109594, 6.8) that will never be patched; migrate to NSM and keep GMS off the internet. Separately, the CVSS 10 SSRF CVE-2026-102255 (patched in October) is being exploited, with about 2,541 attempts since Oct 9 per Previdian.",
+    "Cisco Nov 4 advisories: Identity Services Engine and ISE-PIC CVE-2026-20241 lets an unauthenticated remote attacker obtain an endpoint identity certificate, and UCS Central CVE-2026-76506 lets an authenticated user run code through the web interface; no attacks reported. Check Cisco's advisories for fixed releases.",
+    "NIKKE PC launcher (BleepingComputer, Nov 4): the developers now confirm third parties tampered with launcher script files and pushed a fix around 17:30 UTC Nov 3; a researcher says the files were modified Sep 27 to pull a K2F remote-access agent and a DLL that steals browser data and crypto-wallet recovery phrases. If you ran the PC launcher, reinstall Windows and change passwords and move wallet funds from a clean device.",
+    "Unverified (Reddit r/blueteamsec, Nov 4): a research team says a Chinese-speaking actor, 'leepsmarts', ran an academic fraud operation through AI agents over Telegram that touched 20 universities, 19 in the US (some via data from the November 2025 Harvard breach); the scale varies by school and the AI-agent claim isn't independently confirmed.",
+    "LiteLLM (X, Nov 4): a post about a release built from an attacker's fork, live on PyPI for 1h44m, recirculates the Oct 21 litellm 1.107.0 compromise, not a new incident; if you installed 1.107.0 or pulled the latest Docker image that morning, remove it, pin 1.106.2 or later clean releases and rotate credentials from a clean machine.",
     "APT29 zero-click watering holes (Sekoia via BleepingComputer, Nov 4): compromised sites of a Ukrainian gas producer, a US chemical trade association and a Bulgarian military site, lookalikes of America250 and Raffles London, and a hijacked Plerdy analytics script (Aug 27-Sep 3) served n-day exploit chains to iOS 16.7, iOS 18.5 and Chrome for Android 139-145, stealing cookies, WhatsApp/Telegram databases, Keychain and photos. All patched; update iPhones and Chrome, and reboot clears it (no persistence).",
     "CrowdStrike 'Vapor Panda' (BleepingComputer, Nov 2): a China-nexus group ran ARTEX AI agents against 200+ government, telecom, pharma, semiconductor, defense, nuclear and finance organizations in 14 countries since Oct 17, compromising at least nine; agents forged an admin token at a Greek government body and were told to skip hosts with CrowdStrike Falcon. One intrusion used about 1.4 billion input tokens.",
     "AI-platform breach roll-up (SecurityWeek citing Wiz and Cloud Security Alliance, Nov 4): Andromeda, Nvidia Brev, CommandCode, Fireworks AI, Lightning AI, Northflank, OpenCode, Railway, Trigger.dev, Warp and Zeabur all lost stored customer secrets in about a month; Wiz saw two victims' stolen enterprise keys first abused within 30 minutes and the same keys used by several crews. If you stored AI provider keys on any of them, rotate.",
@@ -210,7 +220,6 @@
     "US indicts two Canadians (SecurityWeek, BleepingComputer, Nov 4) for hijacking US university supercomputers to mine Electroneum; one has been extradited.",
     "BOSSAI: one operator used a 12-agent AI attack mesh to hit hundreds of organizations in 11 countries, stealing emergency-services, university and personal data (moved off the focus list, no new details). Block the IOCs in Acronis's report (for example 112.121.185.218 and the xs1.ccwu.cc, bossjy.kdns.fr and gasjy.kdns.fr domains). The attacks used ordinary weaknesses, so fix the basics agents find fast: SQL injection in legacy apps, default database credentials, unauthenticated APIs, and old services left exposed. Watch web and API logs for bursts of sqlmap, nikto, ffuf and nmap traffic from rotating proxies.",
     "pentestcode: an operator ran a free open-source AI pentest agent against 25 companies (classifieds, hosting and GPU cloud providers, a bank domain, a national telecom) and its reports claim 10 breaches (moved off the focus list, no new details). Block and hunt for the two IPs above (and Huntback's IOC list) in web, VPN and firewall logs since September. If you run a classifieds site, hosting or GPU/VPS service, check for exposed Elasticsearch, admin panels and reused staff tokens, and watch for credential-stuffing bursts. Rate-limit logins and require MFA on admin and customer accounts.",
-    "NIKKE PC launcher (moved off the focus list, no official statement yet): attacker-modified CDN files made the launcher install a remote-control stealer (passwords, cookies, SSH keys, API tokens, crypto wallets) from about Oct 24. Don't open the PC launcher until Level Infinite confirms a fix; if debug.log shows 'k2f_chan' or platform_experience_helper.dll exists under Chrome's User Data folder, treat the PC as compromised and change passwords and tokens from a clean device.",
     "Unverified (X, Nov 4): researchers say they followed the single IOC from a public Ivanti Connect Secure zero-day report to the operator's next proxy, a 9 GB open directory holding the full in-band root exploit chain, 168 run logs and a Russian AI-agent memory file. Not confirmed elsewhere; Volexity had already assessed with medium confidence that LLMs helped build the UTA0576 chain. Patch Ivanti per the Oct 29 fixes and keep memory and network evidence before rebuilding.",
     "Arara email-service breach grows (ITmedia, Kyodo, Nov 3-4): leisure-booking site Asobu says 15.82 million member records (IDs, gender, postal codes, last-login dates, ticket purchases) leaked through Arara Message, and Bic Camera (with Kojima and Sofmap) says about 14.9 million customer records including emails may have leaked. No passwords or cards. Expect phishing aimed at these customers.",
     "Nomura Investor Relations (Kyodo, Nov 4): unauthorized access to its Institutional Navi service for institutional investors and analysts (detected Nov 2) leaked data that may include names and emails; the service is suspended.",
@@ -229,7 +238,6 @@
     "Recirculating on X today, not new: the Carbonato botnet that installs the Hermes AI agent on exposed Docker hosts (port 2375) to steal AI keys (ThreatDown, Sep 22), the F5 BIG-IP APM OAuth zero-day CVE-2026-94127 (KEV Sep 22), TeamCity CVE-2026-63077 ransomware use (KEV flag Sep 23) and the Citrix NetScaler zero-days CVE-2026-88771/88772 (patched Sep 27). If any of these are unpatched or exposed on your side, fix them now.",
     "mSecure password manager (The Register, CyberInsider, Nov 3): maker mSeven emailed current and former customers about 'suspicious activity' and advises changing stored passwords, re-enrolling 2FA and removing passkeys, without saying what happened or whether vaults were read. If you use mSecure, change your most important passwords (email, banking, Apple ID, registrar) through each site directly, move 2FA codes held in mSecure to a separate authenticator, and ignore follow-up 'mSecure' emails with links.",
     "Linux kernel CVE-2026-98432 (MPTCP remote root, the bug Anthropic's lab model exploited): MalwareTech reports internet-wide scanning for exposed systems has started (via kyber.today, Nov 3); no confirmed exploitation yet. Go programs enable MPTCP by default; patch to a fixed kernel or run sysctl -w net.mptcp.enabled=0 where you can't.",
-    "Barracuda (BleepingComputer, Nov 3): CVE-2026-116606 (critical, Email Security Gateway authorization weakness) chains with CVE-2026-111560 (admin OS command injection, also in Load Balancer ADC, Message Archiver, WAF, WAF Control Center and Web Security Gateway) to give root; both need access to the admin interface. Apply Barracuda's patches (ESG BNSF-40425 or BNSF-40430) and keep admin interfaces on trusted networks. No attacks reported.",
     "Flowise 'Greeter' attack framework (Era Research via r/netsec, Nov 3): seven honeypots caught 4,972 'hello' chat messages carrying JavaScript through Flowise's overrideConfig parameter, running reconnaissance, credential and SSH-key searches and cloud-metadata probes without the code ever appearing in saved flows; Era counts 4,372 exposed Flowise instances, 46 apparently unauthenticated. Put authentication in front of Flowise, keep it off the internet and block overrideConfig for public chatflows.",
     "Frontline Education (SecurityWeek, Nov 3): the August breach through third-party software now totals over 1.3 million school staff and students.",
     "New CVEs Nov 3 (no attacks reported): SolarWinds Dameware CVE-2026-28336 (critical, authenticated command injection) plus two high flaws, FreeRDP before 3.32.2 CVE-2026-121392 (critical, certificate checks accept mismatched names), SurrealDB 3.1.0-3.2.x CVE-2026-121419 (8.6, MCP session identity mix-up lets one user run MCP tools as another; fixed in 3.3.0), Label Studio before 1.23.2 SSRF CVE-2026-121561 and AzuraCast through 0.23.8 RCE CVE-2026-121428.",
@@ -346,14 +354,12 @@
     "Gravity Forms CVE-2026-103039 (CVSS 9.8, published Oct 30): PHP object injection through a List-type Post Custom Field in all versions through 3.1.2; update Gravity Forms past 3.1.2 as soon as a fixed release is available. No attacks reported.",
     "AI Engine WordPress plugin CVE-2026-110732 (through 3.8.6): its MCP module's OAuth client-registration endpoint is open to anyone, so an unauthenticated attacker can register an active OAuth client; update the plugin or turn off its MCP module.",
     "AWS DynamoDB MCP server (awslabs.dynamodb-mcp-server, AWS bulletin 2026-097, CVE-2026-85654): MCP schema names were pasted into generated CDK code, allowing code injection; update the package per AWS's bulletin (X report).",
-    "So-net / Plala (Sony's Japanese ISPs): about 2.6 million subscriber records taken Oct 19, plus about 54,000 email-service passwords, which were reset Oct 27 (SecurityWeek). Expect phishing aimed at these customers.",
     "Bithumb finalized its Oct 27 groupware breach: 6,444 customers (844 with ID numbers and ID copies directly exposed) and 715 employees; exchange accounts and assets were not touched, per the company.",
     "Cisco Catalyst SD-WAN CVE-2026-20127: an X post ties the exploitation to Volt Typhoon's 'Silent Train' network (unverified; earlier reporting named UAT-11473).",
     "GoDaddy / 123 Reg (UK registrar): customers are being told a Sep 18 intrusion read names, phone numbers, VAT numbers, account and product details through an API; the company calls it its first AI-driven attack, says the attackers' servers in China and Singapore held copied Anthropic attack skills and ties it to the ARTEX agent (the company's own attribution). Expect targeted phishing; turn on two-step verification.",
     "Shadow AI leaks: Johns Hopkins Bayview is notifying 3,182 patients after a staffer uploaded a patient spreadsheet to an unapproved public AI tool (found Sep 21), and RIZAP put 726 insurance members' health records into a personal AI chat account in August. Block unapproved AI uploads of regulated data.",
     "Fake Solana starter kit (Air Security via BleepingComputer, Oct 29): GitHub repo SolanaUpdateTools/solana-starter-kit ranks top when AI coding agents search for a Solana template; its README's only step is a PowerShell one-liner that installs NetSupport RAT. Don't let agents run install commands from READMEs without review.",
     "Drupal Commerce Core CVE-2026-118539 (highly critical access bypass, exploited per Drupal's SA-CONTRIB-2026-254; moved off the focus list): upgrade to Commerce Core 3.3.13 or 8.x-2.41 and audit recent orders for altered prices or totals.",
-    "Sophos UTM CVE-2026-118633 (critical, disclosed Oct 28): with email-proxy scanning on, an unauthenticated attacker can win a race condition by repeating requests and run code as root; UTM is end-of-life, so update to 9.724 and install Sophos's manual cssd patch per its advisory (no attacks reported).",
     "Progress WS_FTP Server: an X post flags a CVSS 10 unauthenticated admin-credential exposure (CVE-2026-84295) plus OS command injection (CVE-2026-90868, CVE-2026-90865), patched; check Progress's advisory and update (details unverified here).",
     "Padre Terminal: a fake crypto trading app that was on Apple's App Store is linked to about $23,000 stolen from 27 Solana wallets (BleepingComputer, Oct 29); delete it and move funds from any wallet you connected.",
     "atlisp/mcp 1.12.14 on npm (GHSA-65cr-mcfq-59hh): an X post says this MCP server release shipped malware; if an AI agent launched it, treat the machine as compromised and rotate its credentials (single source).",
@@ -374,36 +380,48 @@
     "Arara Message (Japanese bulk email service, Paycloud Holdings): about 3.01 million email addresses taken through a web-server vulnerability on Oct 28; the service is suspended with no restart date. Update (Japan Times, Nov 3): Paycloud now says about 77 million email addresses from up to about 380 corporate clients were leaked, with names, phones and addresses for some; no card numbers.",
     "Other confirmed breaches (Oct 29): Jin Air (1,454 members' data), TFG London, owner of Hobbs and Whistles (customer and employee data may have been accessed), and Eurofiber France (breach via its ticketing system; ByteToBreach's claim of data on about 10,000 business clients is unverified).",
     "Wagyu (crypto exchange): confirmed a three-month data leak that could weaken Monero (XMR) users' privacy (single X/ForkLog report, details unverified).",
-    "Broadcom VMware ESXi CVE-2026-41709 (CISA KEV, added Oct 28): a low-scored (2.7) flaw that lets someone with ESXi admin access run certain commands without them being logged; CrowdStrike says China-nexus WARP PANDA used it as a zero-day as late as early 2026 against US organizations including law firms. Patch to ESXi 9.1.0.0 build 25370933, 9.0.2.0100 build 25595025 or 8.0 U3j build 25429389 (VMSA-2026-0006), and treat ESXi admin credentials as high-value.",
     "Myrealtrip (South Korean travel platform, Oct 29): reports unauthorized access exposing names, phone numbers, encrypted passwords and some passport numbers; it blocked the access and notified authorities. Bithumb now says 6,444 customers were affected by the hack of an internal employee system, 844 with personal data directly exposed (X reports, Oct 29).",
     "RMS Cloud (hotel and holiday-park booking software) breach: guests of Australian hotels (Federal Group in Tasmania, and now Cable Beach Club and Kimberley Accommodation Group in Western Australia, ABC Nov 3) are getting WhatsApp and text phishing that quotes real booking dates and names and asks for card details; RMS says the intrusion is contained and payment details were not accessed. Don't pay or enter card details through links in booking messages; contact the hotel directly.",
     "ConnectWise Cloud Backup / Storm-0940 (ARTEX AI agents): if you use ConnectWise Cloud Backup or an MSP with app access to your Microsoft 365 tenant, review Entra enterprise apps and service principals for credentials, owners or roles added since Oct 15, and sign-ins from 144.172.64[.]99 (moved off the focus list; no new details).",
     "Cathedral's AI agents reached Anthropic's sales, HR and IT systems through unnamed third-party business software in under 12 hours; Anthropic says no conversations, code or model weights were touched. Review scopes and admin accounts of sales, HR and IT SaaS An X post (Oct 29) claims Cathedral got full admin access to Anthropic's Slack workspace; Anthropic's Logan Graham has called claims of reading every message and logging in as any user wrong, so treat it as disputed (moved off the focus list; vendors still unnamed).",
-    "DHS employee data leak (Oct 28): a hacker calling itself 'Department of Peace' published names, job titles and work contacts of 40,000+ DHS staff (about 21,000 CBP, 10,000 ICE/HSI, ~1,000 CISA), saying it came from DHS's Okta single sign-on system; TechCrunch and Reuters matched part of it to real records. DHS has not confirmed how it was taken. Expect targeted phishing of federal staff. An X post (Oct 30) says Okta reports seeing no compromise of its own systems (unverified).",
     "Amadeus airline reservation breach (Singapore Airlines joined on Nov 3 with about 46,000 booking records, about 620 with emails, phones and travel documents; it is changing booking references for customers with upcoming travel, per CNA). Amadeus airline reservation breach (Malaysia Airlines joined on Nov 1; Edaily tallies at least 184,000 affected records across airlines): attackers using credentials for an account in Amadeus's passenger service system accessed reservation data from Aug 2023 to Sep 2026. Japan Airlines about 92,000 customers (about 2,000 with passport numbers), ANA about 37,800, Cathay Pacific about 53,000 bookings, Jin Air 1,454; Korean Air, Asiana and Condor also affected. No card data. Travellers should watch for airline-themed phishing.",
-    "South Korea (Yonhap, Oct 28): Daishin Securities (38,490 customers' names, emails and phone numbers), Mirae Asset Global Investments and crypto exchange Bithumb reported customer data breaches.",
     "Fake AI crawler scanner (Cequence CQ Prime, Oct 28): since late September a scanner rotating through 32 fake AI bot identities (OpenAI, Anthropic, Meta, Perplexity and others) has requested about 90 paths holding config files, cloud credentials and SSH keys; it reached 48% of Cequence-protected organizations on one day, mostly blocked. Don't allowlist traffic by AI user-agent alone and make sure .env, cloud credential and key files are never web-served.",
     "Gitee (China's largest Git host): an X post claims 26,400 live credentials (database strings, API keys, cloud tokens) are exposed in public repos (single X post, unverified).",
     "Warp says an AI 'agent swarm' broke in through a vendor and read agent trace and telemetry data of up to ~1% of users: If you use Warp, watch for a notice from Warp and follow its instructions. If your Warp agent sessions ever printed or handled secrets (API keys, tokens, .env values, cloud credentials), rotate them, since agent traces can contain command output. Nothing to update on your side yet.",
     "Railway platform breach: ~100,000 workspaces' secrets possibly decrypted, attacker hunting AI keys: Anyone who stored secrets on Railway before Oct 21: rotate every env var and revoke old keys at the issuing provider (AI keys first, then database, registry, cloud, Stripe and GitHub tokens), create new Railway API/project tokens, reconnect GitHub and redeploy bucket services, remove public network access to databases, and check provider usage, GitHub and registry audit logs back to Oct 20. If a provider revoked a replacement key, create a new one, update the Railway variable and redeploy; this does not mean the replacement was compromised.",
     "Comet Opik (AI evaluation platform, Oct 24-26): an attacker used an inactive account's API key and a flaw in Opik's AI provider settings to obtain 29 of Comet's internal OpenAI and Anthropic keys; Comet says no customer data, accounts or keys were accessed, revoked the keys and now requires the key to be re-entered when a provider address changes. If you self-host Opik or store provider keys in similar tools, update, restrict provider endpoints and watch provider usage.",
-    "Sony Network Communications (So-net, Japan): attackers took 2,585,481 customer records on Oct 19 (names, phone numbers, emails, user IDs, birth dates, gender, connection IDs) and the passwords of 54,401 email accounts, which Sony reset on Oct 27; 443,495 of the records are NTT Docomo plala (S Course) customers. Expect phishing; affected users should set new passwords via So-net My Page.",
     "MLflow CVE-2026-116692 (CVSS 9.8, RCE) and CVE-2026-116690 (7.5, arbitrary file read): both work against default no-auth MLflow tracking servers; upgrade to MLflow 3.17.0 and put authentication in front of the server. A single X post claims CVE-2026-116690 is exploited, but GitHub's advisory, Feedly and TheHackerWire show no confirmed exploitation or KEV listing (unverified).",
-    "Langflow CVE-2026-105740: MCP stdio command injection lets any authenticated user run shell commands; ZoomEye counts about 19,200 exposed instances. Update Langflow and don't expose it to the internet (no attacks reported).",
-    "US Federal Election Commission took its electronic filing system offline on Oct 26 after an attempted breach (X report; details unconfirmed).",
-    "Oracle E-Business Suite CVE-2026-101767 (CVSS 9.8, unauthenticated SQL injection leading to RCE in the TCF servlet /OA_HTML/AppsTCFServer, EBS 12.2.3-12.2.15, found by Horizon3.ai): Defused's decoys logged the first exploratory attempts on Oct 27, about a week after Oracle's Oct 20 Critical Patch Update fixed it; an X post on Oct 29 repeats Defused's report of exploratory exploit traffic; no confirmed intrusions yet. Apply the October CPU (MOS Note KA923); until then remove /OA_HTML/AppsTCFServer from the EBS URL firewall allowlist, restrict the web tier to trusted networks, and look for unauthenticated POSTs to that path invoking GanttDataServer and oracle-account shells from the Concurrent Manager."
+    "Langflow CVE-2026-105740: MCP stdio command injection lets any authenticated user run shell commands; ZoomEye counts about 19,200 exposed instances. Update Langflow and don't expose it to the internet (no attacks reported)."
   ],
   "ai_activity": {
-    "overview": "Last 7 days: 91 AI-related attack and exploit items, 36 where AI was the cause, 41 involving AI products, 14 AI-impact or AI-key incidents. New since the 4:50 AM EST update: Anthropic's Claude found the Xen XSA-523 VM-escape flaws (patched), SecurityWeek and Wiz tallied at least a dozen AI developer platforms breached in a month with stolen keys abused within 30 minutes, and CrowdStrike's Vapor Panda report shows ARTEX agents run against 200+ organizations. The week's picture: attackers run AI agent frameworks (ARTEX, BOSSAI, pentestcode, Hexstrike, CAIRN, CyberStrikeAI) in real intrusions at GitBook, WorkOS, Chainstack, GoDaddy/123 Reg and Chainalysis, AI models find and weaponize serious bugs (Xen, PHP2Shell, GLM 5.3's Firefox chains), and AI developer platforms keep losing the provider keys they store, which LLMjacking crews cash out at over $100,000 a day.",
+    "overview": "Last 7 days: 92 AI-related attack and exploit items, 38 where AI was the cause, 39 involving AI products, 15 AI-impact or AI-key incidents. New since the 8:40 AM EST update: AgenticFlow disclosed a sandbox-escape breach that exposed every AI key and token customers saved, and Hunt.io published the ARTEX operator's own setup (Claude Code rerouted to DeepSeek, 19 attack skills) from the South Korean bank breaches. The week's picture: attackers run AI agent frameworks (ARTEX, BOSSAI, pentestcode, Hexstrike, CAIRN, CyberStrikeAI) in real intrusions at GitBook, WorkOS, Chainstack, GoDaddy/123 Reg and Chainalysis, AI models find and weaponize serious bugs (Xen, PHP2Shell, GLM 5.3's Firefox chains), and AI platforms keep losing the provider keys they store, which LLMjacking crews cash out at over $100,000 a day.",
     "counts": {
-      "ai_cause": 36,
-      "ai_product_exploited": 41,
-      "ai_impact": 14
+      "ai_cause": 38,
+      "ai_product_exploited": 39,
+      "ai_impact": 15
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Hunt.io maps ARTEX operator's infrastructure behind the South Korean bank breaches",
+            "date": "2026-11-04T15:18:00Z",
+            "summary": "An exposed Hong Kong jump server held Claude Code configs rerouted to DeepSeek through the xcai[.]pro reseller, 19 custom attack skills (recon, WAF bypass, payment-logic testing, cloud phones), a JNDI/LDAP exploit rig and privilege-escalation exploits; Hunt.io counts about 1,300 ARTEX-tagged IPs in 30 countries.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://hunt.io/blog/artex-south-korea-bank-infrastructure",
+            "source": "Hunt.io"
+          },
+          {
+            "title": "Academic fraud campaign against 20 universities reportedly run by AI agents over Telegram",
+            "date": "2026-11-04T14:36:00Z",
+            "summary": "A research team attributes the operation to a Chinese-speaking actor, 'leepsmarts', touching 19 US universities; the AI-agent claim comes from a single Reddit post and isn't independently confirmed.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://www.reddit.com/r/blueteamsec/comments/1xnpswp/stanford_nyu_uc_berkeley_and_17_other/",
+            "source": "r/blueteamsec"
+          },
           {
             "title": "Wiz and SecurityWeek: attackers using AI tooling breached at least a dozen AI developer platforms in a month",
             "date": "2026-11-04T12:43:20Z",
@@ -1169,33 +1187,21 @@
             ],
             "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-110186",
             "source": "NVD"
-          },
-          {
-            "title": "MLflow: RCE (CVE-2026-116692, 9.8) and file read (CVE-2026-116690) on default no-auth tracking servers; exploitation claimed on X only",
-            "date": "2026-10-28T16:08:00Z",
-            "summary": "Fixed in MLflow 3.17.0. One X post says CVE-2026-116690 is exploited in the wild; GitHub's advisory, Feedly and TheHackerWire show no confirmed exploitation and it is not in CISA KEV.",
-            "status": "unverified",
-            "cves": [
-              "CVE-2026-116692",
-              "CVE-2026-116690"
-            ],
-            "url": "https://github.com/advisories/GHSA-m65p-9j7q-6w33",
-            "source": "GitHub Advisory / X"
-          },
-          {
-            "title": "Fake 'GPT-6 Astra' and 'Claude Opus' desktop apps on GitHub Pages bundle real installers with a crypto-miner",
-            "date": "2026-10-28T14:01:00Z",
-            "summary": "Reported on X as a Check Point finding: the sites rank in Google search and each package contains a real signed OpenAI or Claude installer plus a malicious miner. Not yet confirmed from Check Point's own publication here.",
-            "status": "unverified",
-            "cves": [],
-            "url": "https://x.com/sjandfun/status/2115443755004375446",
-            "source": "X (citing Check Point)"
           }
         ]
       },
       {
         "label": "AI impact / AI keys & infrastructure",
         "items": [
+          {
+            "title": "AgenticFlow breach: workflow sandbox escape exposed every saved AI provider key, bot token and MCP token",
+            "date": "2026-11-03T19:40:00Z",
+            "summary": "An attacker abused two flaws in the AI agent platform's workflow layer from Nov 2, escaped the sandbox and held the key protecting saved connections; a swarm of about 290,000 automated agents on throwaway accounts ran AI requests at its expense. Contained Nov 3, service paused; customers must replace stored keys at the issuing services.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://docs.agenticflow.ai/policies/security-incident-2026-11",
+            "source": "AgenticFlow"
+          },
           {
             "title": "Binance: $6.43B theft began with a trojanized Homebrew installed for an AI tool; attackers later abused an internal AI tool to reach wallet engineers",
             "date": "2026-11-03T16:55:58Z",
@@ -1325,6 +1331,6 @@
         ]
       }
     ],
-    "trend_note": "AI is now on both sides of the same bugs: defenders' models (Claude on Xen, Anthropic and OpenAI on Chrome) find critical flaws, while attackers' agents (ARTEX, pentestcode) turn basic weaknesses into break-ins at scale. Since the last update: one new AI-found critical flaw (Xen), one newly surfaced AI-agent campaign report (Vapor Panda) and a cross-vendor tally of AI-key breaches; no new AI-platform breach found in this update's checks."
+    "trend_note": "AI platforms that hold customers' provider keys are now the most consistent target: AgenticFlow joins the at least a dozen AI developer platforms SecurityWeek counted in about a month, and stolen keys get abused within minutes. Since the last update: one new AI-platform breach (AgenticFlow), one deeper look at ARTEX tooling, and no new AI-found critical flaw."
   }
 }
