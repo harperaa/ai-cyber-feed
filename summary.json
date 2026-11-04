@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-04T01:37:00Z",
-  "next_update_note": "Changes in this 8:37 PM EST Nov 3 (01:37 UTC Nov 4) update: new focus card for the NIKKE PC launcher supply-chain stealer (no official statement from Level Infinite yet); the cPGuard card now includes OPSSHIELD's count of 2,946 affected servers and the copied billing database; Singapore Airlines' 46,000 Amadeus-affected bookings added to the Amadeus watch item; Trigger.dev moved to the watch list. No new AI-related items. Next summary update in about 4 hours (around 12:30 AM EST); the feed itself refreshes hourly.",
-  "headline": "New since 4:45 PM EST: players of the game Goddess of Victory: NIKKE are warned that its PC launcher loaded attacker-modified files from publisher Level Infinite's CDN (since Sep 27, payload from about Oct 24) that installed a remote-control stealer taking passwords, cookies, SSH keys, API tokens and crypto wallets, with no official statement yet; OPSSHIELD now says 2,946 servers ran the hijacked cPGuard update and its billing database was copied too; and Singapore Airlines says about 46,000 bookings were read in the Amadeus breach. Still open: rotate GitBook tokens, Chainstack node credentials and API keys, and Northflank secrets; update cPGuard to 5.88.25+ and WordPress to 7.1.4; patch PHP (PHP2Shell) and Cisco Secure Email Gateway; check for the trojanized Claude Code extension; patch or disable MPTCP now that scanning for CVE-2026-98432 has begun.",
-  "ai_headline": "No new AI-caused attacks surfaced in the last four hours; the newest remain Chainstack's breach, which The Hacker News ties to the ARTEX AI agent campaign that also hit WorkOS, and GitBook's own statement that its attacker used AI agents. The week's picture stands: AI agent frameworks drive real break-ins at developer and crypto-infrastructure platforms (GitBook, WorkOS, Chainstack, Chainalysis, GoDaddy/123 Reg, DIVD), AI models turn fresh patches into exploits, AI tools from Anthropic and OpenAI keep finding browser bugs on the defensive side, and stolen AI keys from developer platforms are cashed out at over $100,000 a day.",
+  "updated_at": "2026-11-04T05:40:00Z",
+  "next_update_note": "Changes in this 12:40 AM EST Nov 4 (05:40 UTC) update: new focus card for Acronis's BOSSAI report, a lone operator running a 12-agent AI attack mesh that stole data from Taiwanese emergency services and Thai universities; Docker Sandboxes CVE-2026-103916 (an AI agent could escape the sandbox through sbx cp, fixed in 0.51.0) added to the watch list and the AI roll-up; WorkOS and Chrome 157 moved to the watch list; new malicious npm and PyPI packages noted. Otherwise a quiet overnight. Next summary update in about 4 hours (around 4:30 AM EST); the feed itself refreshes hourly.",
+  "headline": "New since 8:37 PM EST: Acronis published BOSSAI, a detailed look at one Taiwan-based operator who used a mesh of 12 AI agents, mostly on safety-stripped local models, to attack hundreds of organizations in 11 countries and confirm data theft at about 10, including a Taipei fire-department patient-care records platform, a city 119 dispatch system and three Thai universities; and Docker fixed an AI-agent sandbox escape in Docker Sandboxes 0.51.0. No new major platform breaches overnight. Still open: rotate GitBook tokens, Chainstack node credentials and API keys, and Northflank secrets; update cPGuard to 5.88.25+ and WordPress to 7.1.4; check NIKKE PC installs for the launcher stealer; patch PHP (PHP2Shell) and Cisco Secure Email Gateway; check for the trojanized Claude Code extension.",
+  "ai_headline": "New AI-caused activity: Acronis's BOSSAI report (Nov 4) shows a single operator running 12 AI agents (Hermes Agent, Cursor, Trae, CyberStrike and others, wired to Kali, HexStrike and Ghidra through MCP servers) that confirmed data theft at about 10 targets in Taiwan, Thailand and Mexico; commercial models, including Grok and MiniMax, refused the attack work, so the offensive agents ran on abliterated DeepSeek, GLM and Qwen models, and they often hallucinated findings. Also new: Docker Sandboxes CVE-2026-103916, where a prompt-injected agent could read or overwrite host files during sbx cp (fixed in 0.51.0). The week's picture holds: AI agent frameworks drive real break-ins (GitBook, WorkOS, Chainstack, Chainalysis), AI turns patches into exploits, and stolen AI keys are cashed out at over $100,000 a day.",
   "focus": [
     {
       "title": "GitBook (documentation platform) hit by a 'highly targeted attack using AI agents': all API tokens revoked; integration tokens, Git Sync secrets and Assistant questions may have been read",
@@ -33,18 +33,18 @@
       "ai_note": "AI as the cause (reported, not confirmed by the victim): The Hacker News links it to the ARTEX autonomous AI attack framework campaign, which targets developer and crypto-infrastructure firms."
     },
     {
-      "title": "WorkOS (SSO and directory platform for SaaS apps) breached by an AI-assisted attack framework: CRM, call summaries, support tickets and customer Slack excerpts read",
+      "title": "BOSSAI: one operator used a 12-agent AI attack mesh to hit hundreds of organizations in 11 countries, stealing emergency-services, university and personal data",
       "severity": "high",
       "exploited": true,
       "cves": [],
-      "vendor": "WorkOS",
-      "why": "Nov 2 bulletin: on Oct 30 at 16:39 UTC WorkOS detected anomalous traffic to an internal business system. Its customer notice says the attacker, likely driven by the ARTEX autonomous pentest framework from Hong Kong and China IP addresses, reached an internal API used by sales and marketing tools and through it read Salesforce and Snowflake data: business contacts, account and commercial details, support tickets, summaries and excerpts of sales calls and customer Slack conversations, and product-usage metadata. WorkOS says there is no evidence its production services or customer application data were accessed. The public bulletin itself only says 'an AI-assisted offensive security framework'; the ARTEX name comes from the CEO and the customer notice.",
-      "action": "If you are a WorkOS customer, treat any unexpected request that references a real WorkOS conversation, colleague or support ticket as possible phishing and verify it out of band; watch for WorkOS's direct notice about your records. As a general lesson, put internal sales and support APIs behind the same authentication and monitoring as production.",
-      "url": "https://workos.com/security/bulletins/october-30th-2026-data-security-incident",
+      "vendor": "Multiple (Taiwan emergency services, Thai universities, lenders, Mexican directories)",
+      "why": "New (Acronis TRU, Nov 4): researchers found an exposed attack server (about 9 GB, 90,000 files) belonging to a lone operator in Hualien, Taiwan. Over 12 observed days, agents such as Hermes Agent (about 95 sessions, running in auto-approve mode), Cursor, Trae and CyberStrike, using MCP servers for Kali, HexStrike AI and Ghidra, scanned and attacked targets mostly on their own. Acronis confirms data theft or access at roughly 10 targets: a Taipei fire-department patient-care records platform (2018 data), a city 119 dispatch system's case records, a Taiwanese lender (16 SQL injection points), a fire-dispatch vendor's database panel left on default root credentials, three Thai universities, and about 206,800 Mexican residential phone records. Commercial models, including Grok and MiniMax M3, refused attack requests, so offensive agents ran on abliterated (safety-stripped) DeepSeek, GLM and Qwen models; over half of one scanner's high and critical findings were false positives.",
+      "action": "Block the IOCs in Acronis's report (for example 112.121.185.218 and the xs1.ccwu.cc, bossjy.kdns.fr and gasjy.kdns.fr domains). The attacks used ordinary weaknesses, so fix the basics agents find fast: SQL injection in legacy apps, default database credentials, unauthenticated APIs, and old services left exposed. Watch web and API logs for bursts of sqlmap, nikto, ffuf and nmap traffic from rotating proxies.",
+      "url": "https://www.acronis.com/en/tru/posts/bossai-inside-the-ai-attack-mesh-that-targeted-taiwans-emergency-services/",
       "ai_angle": [
         "cause"
       ],
-      "ai_note": "AI as the cause: the company says an autonomous AI attack framework ran the reconnaissance and exploitation."
+      "ai_note": "AI as the cause: AI agents did the reconnaissance, exploitation and data extraction with little human input; commercial models refused, abliterated local models did not."
     },
     {
       "title": "PHP2Shell: unauthenticated RCE in the PHP runtime, exploited (CISA KEV), now confirmed against Palo Alto PAN-OS management interfaces; AI-assisted China-linked actor rooted 25 servers, mostly firewalls",
@@ -64,27 +64,6 @@
         "cause"
       ],
       "ai_note": "AI found it and AI helped exploit it: Calif, Wiz's Atlas agent and OpenAI's Codex Security found the bugs, and Dream found Claude Code, an aiscan offensive platform running DeepSeek and Kimi, and AI-styled scripts on the attacker's servers, though it has no direct proof AI wrote the exploit itself."
-    },
-    {
-      "title": "Anthropic and OpenAI AI tools keep finding Chrome bugs: Chrome 157 (out today) fixes 213 security issues, including at least 14 credited to Anthropic researchers assisted by Claude; Anthropic's unreleased model also built full exploit chains",
-      "severity": "critical",
-      "exploited": false,
-      "cves": [
-        "CVE-2026-121035",
-        "CVE-2026-121156",
-        "CVE-2026-121229",
-        "CVE-2026-121246",
-        "CVE-2026-118306",
-        "CVE-2026-118331"
-      ],
-      "vendor": "Google Chrome (plus other browsers and operating systems)",
-      "why": "New (Nov 3): Google promoted Chrome 157 (157.0.8103.38 Linux, .38/.39 Windows and Mac) to stable with 213 security fixes, 7 of them critical. At least 14 are credited to Anthropic researchers 'assisted by Claude', including the critical Prerender use-after-free CVE-2026-121035, and 7 to OpenAI Codex Security, including three V8 type confusions. No exploitation of these is reported. Background (Oct 27): Anthropic's Frontier Red Team says an unreleased Claude model found critical bugs and wrote five complete attack chains, including a one-click Chrome sandbox escape on default macOS Chrome; Google patched 62 of those in Chrome 156, and other vendors' fixes are still under 90-day disclosure.",
-      "action": "Update Chrome to 157.0.8103.38/.39 as it rolls out (Settings, About Chrome) and restart the browser; until then stay on 156.0.8078.79 or later. Update Edge and other Chromium-based browsers as their builds ship, and keep OS and browser auto-updates on.",
-      "url": "http://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop.html",
-      "ai_angle": [
-        "cause"
-      ],
-      "ai_note": "AI as the cause: AI models are now among the biggest single sources of Chrome security bugs, and Anthropic's lab model showed they can build working exploits too."
     },
     {
       "title": "Northflank (cloud and AI workload platform) breached: assume all environment variables were decrypted; AI keys confirmed abused (BleepingComputer)",
@@ -182,6 +161,18 @@
       "blurb": "Dev-to-production intrusion Oct 26-31 through a third-party component; rotate node credentials and API keys. Linked by the outlet to the ARTEX AI attack campaign."
     },
     {
+      "title": "BOSSAI: Inside the AI attack mesh that targeted Taiwan's emergency services",
+      "source": "Acronis TRU",
+      "url": "https://www.acronis.com/en/tru/posts/bossai-inside-the-ai-attack-mesh-that-targeted-taiwans-emergency-services/",
+      "blurb": "A lone Taiwan-based operator ran 12 AI agents on mostly abliterated local models against hundreds of organizations in 11 countries, confirming data theft at about 10; commercial models refused the attack work."
+    },
+    {
+      "title": "Docker Sandboxes vulnerability lets AI agents access sensitive files outside their sandbox (CVE-2026-103916)",
+      "source": "Endor Labs",
+      "url": "https://www.endorlabs.com/learn/docker-sandboxes-vulnerability-lets-ai-agents-access-sensitive-files-outside-their-sandbox-cve-2026-103916",
+      "blurb": "A sandboxed AI agent could plant symlinks so a later sbx cp read host credentials or wrote files outside the workspace; fixed in Docker Sandboxes 0.51.0 (Nov 3)."
+    },
+    {
       "title": "Binance says fake job interview led to $6.3 billion crypto heist",
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/binance-says-fake-job-interview-led-to-63-billion-crypto-heist/",
@@ -200,18 +191,6 @@
       "blurb": "Modified CDN files made the game's PC launcher install a stealer that takes passwords, tokens, SSH keys and crypto wallets. Stay off the launcher and check debug.log for 'k2f_chan'."
     },
     {
-      "title": "Known Exploited Vulnerabilities Catalog: WordPress Core CVE-2026-119977",
-      "source": "CISA",
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2026-119977",
-      "blurb": "WordPress's core-update race added Nov 3 with a three-day federal deadline; update to 7.1.4 or the branch fix."
-    },
-    {
-      "title": "Stable Channel Update for Desktop (Chrome 157)",
-      "source": "Chrome Releases",
-      "url": "http://chromereleases.googleblog.com/2026/11/stable-channel-update-for-desktop.html",
-      "blurb": "213 security fixes, 7 critical; many found by Anthropic researchers assisted by Claude and by OpenAI Codex Security."
-    },
-    {
       "title": "About 46,000 SIA booking records accessed in data breach involving travel tech company Amadeus",
       "source": "CNA",
       "url": "https://www.channelnewsasia.com/singapore/sia-singapore-airlines-amadeus-data-breach-booking-records-6517151",
@@ -219,6 +198,11 @@
     }
   ],
   "watch": [
+    "Docker Sandboxes CVE-2026-103916 (Endor Labs, CVSS 8.2, fixed Nov 3 in 0.51.0; no attacks reported): a sandboxed AI agent, for example one steered by prompt injection, can plant symlinks so your next sbx cp copies host files such as ~/.aws/credentials or SSH keys into the sandbox, or writes into ~/.zshrc or Git hooks. Upgrade the sbx CLI to 0.51.0 or later.",
+    "WorkOS (moved off the focus list, no new details): BleepingComputer (Nov 3) confirms the CEO's statement that the ARTEX AI pentest suite was used (user agents artex-enrich/1.0 and norma/0.4) to read CRM data, account histories and summaries of sales calls and customer Slack conversations; production and customer app data were not touched. Treat requests that cite real WorkOS conversations as possible phishing.",
+    "Chrome 157 (moved off the focus list): update to 157.0.8103.38/.39; it fixes 213 security issues, at least 14 found by Claude-assisted Anthropic researchers and 7 by OpenAI Codex Security. No exploitation reported.",
+    "New malicious packages (OSV and GitHub advisories, Nov 3-4): npm @touchkey0111/jito-bundle and look-alikes (jito-bundle-jitotip, jito-bundle-solana, jito-bundle-tip-7, jito-bundle-jito-tip7), arbkit, txnforge, tailwind-form-core, tailwind-input-kit, react-contact-forms, mocha-ui-themes, yzx-npm; PyPI zyto, protecteda, hijuko-pilara, filipt, ln9qw38745g. Solana/Jito trading developers are the clearest target; any machine that installed one should be treated as compromised and its keys rotated from another computer.",
+    "Unverified (X, Nov 4): a post about 'npm packages with 2 billion weekly downloads hijacked' appears to recirculate the September 2025 chalk/debug maintainer-phishing hijack; no new incident of that size was found.",
     "Ivanti Connect Secure CVE-2026-111357 and CVE-2026-118527 are recirculating on X tonight (KEV since Oct 30, not new); if you haven't, upgrade to 25.1.1.3 or 22.8R2.6 and run Ivanti's integrity checker.",
     "Trigger.dev (moved off the focus list, no new details): an attacker read environment variables for a subset of customer organizations (Nov 1); if you were notified, rotate every secret stored there (AI provider keys first) at the issuing provider and check usage logs.",
     "Binance's findings on the $6.43B theft (The Hacker News, BleepingComputer, Nov 3): a North Korea-style intrusion that began in June with a trojanized Homebrew installed while setting up an AI coding tool, followed by a fake job interview, abuse of an internal AI tool and a stolen deployment token; BleepingComputer reports $6.3 billion. Developers: install tools only from official sources and treat interview 'coding tests' as hostile.",
@@ -479,16 +463,25 @@
     "Cisco ASA/FTD SSL VPN DoS zero-day CVE-2026-76418 (exploited, CISA KEV, federal deadline today, Nov 1; moved off the focus list): upgrade ASA to 9.16.4.104, 9.18.4.96, 9.20.4.50, 9.22.3.200, 9.23.1.48, 9.24.1.27 or 9.24.10.1, or FTD to 7.0.11, 7.2.13, 7.4.9, 7.6.7, 7.7.14, 10.0.3 or 10.1.1."
   ],
   "ai_activity": {
-    "overview": "No new AI-related exploit items since the 4:45 PM EST update. The latest remain Chainstack's production breach, which The Hacker News links to the ARTEX AI attack campaign, and Chrome 157's fixes for at least 21 bugs found with Anthropic's Claude or OpenAI's Codex Security. The week's picture: attackers run AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI, CyberStrikeAI) in real intrusions at GitBook, WorkOS, Chainstack, GoDaddy/123 Reg and Chainalysis, ransomware crews put agents to work (Aur0ra, likely 3AM), malware hands loot to AI models (VOLTA), AI models turn fresh patches into working exploits (GLM 5.3, Anthropic's lab model), and AI developer platforms keep losing the provider keys they store, which LLMjacking crews cash out at over $100,000 a day.",
+    "overview": "New since the 8:37 PM EST update: Acronis's BOSSAI report, the most detailed look yet at a single attacker running a team of AI agents (12 agents, 13 MCP tool servers at peak) against real targets, with confirmed data theft at about 10 organizations; and Docker Sandboxes CVE-2026-103916, an AI-agent sandbox escape fixed in 0.51.0. The week's picture: attackers run AI agent frameworks (ARTEX, Hexstrike, CAIRN, PentAGI, CyberStrikeAI, BOSSAI) in real intrusions at GitBook, WorkOS, Chainstack, GoDaddy/123 Reg and Chainalysis, ransomware crews put agents to work (Aur0ra, likely 3AM), malware hands loot to AI models (VOLTA), AI models turn fresh patches into working exploits (GLM 5.3, Anthropic's lab model), and AI developer platforms keep losing the provider keys they store, which LLMjacking crews cash out at over $100,000 a day.",
     "counts": {
-      "ai_cause": 33,
-      "ai_product_exploited": 42,
+      "ai_cause": 34,
+      "ai_product_exploited": 41,
       "ai_impact": 16
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "BOSSAI: a lone operator's 12-agent AI attack mesh stole data from Taiwanese emergency services, Thai universities and a Taiwanese lender",
+            "date": "2026-11-04T05:00:00Z",
+            "summary": "Acronis TRU found the operator's exposed attack server: agents (Hermes Agent, Cursor, Trae, CyberStrike) using Kali, HexStrike AI and Ghidra MCP servers attacked hundreds of organizations in 11 countries and confirmed theft or access at about 10, including a Taipei fire-department patient-care platform and a 119 dispatch system. Commercial models (Grok, MiniMax M3) refused offensive work, so attacks ran on abliterated DeepSeek, GLM and Qwen models that often hallucinated findings. IOCs are in the report.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.acronis.com/en/tru/posts/bossai-inside-the-ai-attack-mesh-that-targeted-taiwans-emergency-services/",
+            "source": "Acronis TRU"
+          },
           {
             "title": "Chrome 157 fixes at least 14 bugs found by Anthropic researchers assisted by Claude and 7 found by OpenAI Codex Security",
             "date": "2026-11-03T20:38:00Z",
@@ -816,6 +809,17 @@
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "Docker Sandboxes CVE-2026-103916: a prompt-injected AI agent could escape its sandbox through sbx cp symlinks",
+            "date": "2026-11-04T03:51:00Z",
+            "summary": "Endor Labs found that sbx cp follows sandbox-planted symlinks on the host, letting an agent read credentials and SSH keys or overwrite shell profiles and Git hooks (CVSS 8.2). Proofs of concept only; no attacks reported. Fixed in Docker Sandboxes 0.51.0 (Nov 3).",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-103916"
+            ],
+            "url": "https://www.endorlabs.com/learn/docker-sandboxes-vulnerability-lets-ai-agents-access-sensitive-files-outside-their-sandbox-cve-2026-103916",
+            "source": "Endor Labs"
+          },
           {
             "title": "Flowise 'Greeter' framework: 4,972 'hello' messages smuggle JavaScript through overrideConfig into exposed Flowise servers",
             "date": "2026-11-03T15:11:53Z",
@@ -1235,28 +1239,6 @@
             "cves": [],
             "url": "https://x.com/sjandfun/status/2115443755004375446",
             "source": "X (citing Check Point)"
-          },
-          {
-            "title": "VS Code + Copilot: prompt injection could make the agent silently edit hook files that then run commands (CVE-2026-102232, unverified)",
-            "date": "2026-10-28T04:30:00Z",
-            "summary": "A single X post says chat.hookFilesLocations writes were auto-approved, so a prompt injection could plant a hook that runs as you; it says VS Code 1.141.1 fixes it and suggests chat.useHooks=false until then. Not yet confirmed by Microsoft or in the feed's CVE data.",
-            "status": "unverified",
-            "cves": [
-              "CVE-2026-102232"
-            ],
-            "url": "https://x.com/nullptr_sh/status/2115300021583450398",
-            "source": "X"
-          },
-          {
-            "title": "llama.cpp rpc-server: unauthenticated out-of-bounds write in the RDMA transport (CVE-2026-118375)",
-            "date": "2026-10-28T03:17:14Z",
-            "summary": "Rated 9.2: a peer that advertises RDMA in its HELLO message can send up to 256 KiB into a 1-byte stack variable, crashing the rpc-server or possibly running code. Affects b8841 up to b11865; fixed in b11865. No attacks reported.",
-            "status": "patched",
-            "cves": [
-              "CVE-2026-118375"
-            ],
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118375",
-            "source": "NVD"
           }
         ]
       },
@@ -1410,6 +1392,6 @@
         ]
       }
     ],
-    "trend_note": "Developer and crypto-infrastructure platforms remain the favourite target of AI-agent attackers, and each breach becomes a rotate-every-token job for customers. Since the last update: no new AI-caused, AI-product or AI-key items; tonight's new incidents (the NIKKE launcher stealer, cPGuard's 2,946 affected servers) have no reported AI link, though the NIKKE stealer does take developer and cloud API tokens."
+    "trend_note": "AI-agent attacks are now documented from the inside: BOSSAI shows one person can run a multi-country campaign, but also that safety-stripped local models hallucinate and miss targets, and that commercial models refused. The successes came from basic weaknesses (SQL injection, default credentials, open APIs), so patching and authentication still stop most of it. Since the last update: one new AI-caused campaign report (BOSSAI) and one patched AI-tool flaw (Docker Sandboxes); no new AI-key breaches."
   }
 }
