@@ -1,22 +1,22 @@
 {
-  "updated_at": "2026-11-04T21:45:00Z",
-  "next_update_note": "Changes in this 4:45 PM EST Nov 4 (21:45 UTC) update: new focus cards for the Kernel breach (ARTEX-linked, API keys and app secrets taken), the Chainalysis escalation (customer passwords exposed, products offline), the Zyxel GS1900 zero-day and the DreamHost breach; Northflank, cPGuard, the Debian/Ubuntu APT flaw and the Rails Active Storage flaw moved to the watch list (no new details; their actions still apply). Added to the watch list and AI roll-up: Bitdefender's hybrid AI 3AM ransomware case, DeepSeek Harness CVE-2026-82033, an unverified OpenAI sandbox claim, CISA's KEV add of Apple CVE-2024-27834, the French blood-service refrigeration attack and new malicious PyPI packages. Watch items older than Oct 29 dropped (still in the archive). Next summary update in about 4 hours (around 8:30 PM EST); the feed itself refreshes hourly.",
-  "headline": "New since 12:45 PM EST: Kernel, a cloud-browser service for AI agents, says an attacker it believes runs the ARTEX AI pentest platform stole some customer API keys and app secrets and hijacked GPU servers; Chainalysis's attack escalated, with customer passwords exposed and KYT taken offline; and Zyxel patched a zero-day that hacked about 1,000 GS1900 switches even after June's fix. DreamHost also confirmed attackers stole FTP/SFTP logins over two months, and CISA added an old Apple pointer-authentication bypass (CVE-2024-27834) to its exploited list.",
-  "ai_headline": "New AI items: Kernel and Chainalysis join GitBook, WorkOS and Chainstack among companies hit by AI-agent-driven intrusions this week, and Bitdefender documented a 3AM ransomware attack on a UK school estate where a model-driven loop appears to have handled the retries while a human chose the steps. AI products: DeepSeek Harness had an unauthenticated control plane any local process could use to prompt the agent (CVE-2026-82033).",
+  "updated_at": "2026-11-05T01:45:00Z",
+  "next_update_note": "Changes in this 8:45 PM EST Nov 4 (01:45 UTC Nov 5) update: the GitBook card now reflects its post-mortem (how the attacker got in, which keys GitBook already rotated for you); new focus card for the Mistral Vibe repo-open code execution flaws; Chainstack moved to the watch list (no new details). Added to the watch list and AI roll-up: S-RM's ARTEX response report, Check Point's Haiou Codex 'prompt adware', the tsParticles MCP server flaws, the AWS Firecracker escape, the eMudhra certificate-authority distrust, NSW Health's breach and more Arara email-leak victims (Airdo, Solaseed Air). Next summary update in about 4 hours (around 12:30 AM EST); the feed itself refreshes hourly.",
+  "headline": "New since 4:45 PM EST: GitBook's post-mortem says the attacker used a flaw in its SSO login to pose as GitBook staff, read a misconfigured GitHub App's credentials to reach internal code and a Cloudflare API key, and from there got production secrets; GitBook thinks one customer was the real target. S-RM says ARTEX AI agents took one victim's identity systems, cloud, source code and firewalls within 24 hours, and AWS Firecracker microVMs have a guest-to-host memory flaw (CVE-2026-122192). Kernel, Chainalysis, Zyxel GS1900, DreamHost and the exploited WordPress core flaw still need action.",
+  "ai_headline": "New AI items: S-RM's incident responders describe several October ARTEX intrusions that moved from a web-server foothold to identity, cloud and firewalls in hours, and GitBook's post-mortem details the AI-agent break-in. AI products: Mistral Vibe (Mistral's coding agent) runs attacker code just by opening a crafted repo (three CVEs, fixed in 3.0.3), and Check Point found a popular Codex jailbreak bundle, Haiou, that quietly rewrites Codex's global instructions to push an LLM gateway and was found on a cybercrime actor's server.",
   "focus": [
     {
-      "title": "GitBook (documentation platform) hit by a 'highly targeted attack using AI agents': all API tokens revoked; integration tokens, Git Sync secrets and Assistant questions may have been read",
+      "title": "GitBook (documentation platform) breached in an attack using AI agents: SSO flaw let the attacker pose as staff and reach production secrets; all personal API tokens revoked",
       "severity": "critical",
       "exploited": true,
       "cves": [],
       "vendor": "GitBook",
-      "why": "Updated Nov 4: GitBook now says the incident is resolved and functionality is restored, though Git Sync remains affected by an unrelated GitHub outage; PancakeSwap moved its docs off GitBook (Decrypt). Original notice (Nov 3): GitBook says an attacker using AI agents got unauthorized access to some of its infrastructure credentials at 19:00 CET on Nov 2 (1 PM EST). It took the app and authenticated docs sites offline, replaced every internal credential and secret, and invalidated every customer's API tokens; the app, API and published docs were back at 16:21 CET Nov 3 (10:21 AM EST), some services still degraded. It says the attacker may have accessed integration tokens, Git Sync secrets, API tokens and the questions site visitors asked GitBook Assistant, and it has found no sign that content was modified. It hasn't said how the attacker got in or how many customers were affected; a full post-mortem is promised.",
-      "action": "Create new GitBook API tokens (old personal tokens were revoked), rotate every third-party token or secret connected to GitBook (Git Sync, GitHub/GitLab tokens or deploy keys, integration secrets) at the issuing service, rotate secrets in any integrations you published, and re-authenticate the GitBook MCP server. Check your Git provider and connected services' logs for activity since Nov 2, and treat anything visitors typed into GitBook Assistant as possibly exposed.",
+      "why": "Updated Nov 4-5 (post-mortem): GitBook says that on Nov 2 the attacker used a flaw in its SSO login flow to create sessions acting as GitBook staff, queried the credentials of a misconfigured GitHub App in its own organization to reach internal code repositories and a Cloudflare API key, and used that key to get production secrets with full infrastructure access. While inside, the attacker could reach customer data stored in GitBook; GitBook believes the attack was aimed at one customer and found no sign other customers' content was changed, but says it can't tell whether the attacker acted in customer GitHub repositories. GitBook was offline about 16 hours and fully back at 11:56 UTC Nov 3 (6:56 AM EST). Crypto exchange trade.xyz says GitBook confirmed its docs incident came from GitBook's breach and it is moving its docs off GitBook (TokenPost).",
+      "action": "Create new GitBook API tokens (all personal tokens were revoked) and update apps that use them, rotate every third-party token or secret you connected to GitBook and secrets in any integrations you published, and regenerate your authenticated-access signing key if you use a custom backend. GitBook says it already rotated Git Sync (GitHub app) and GitLab keys, so nothing to do there, but review your connected repositories for commits, branches or webhooks you didn't make since Nov 2, and re-authenticate the GitBook MCP server.",
       "url": "https://www.gitbook.com/status/security-incident-2026-11-03",
       "ai_angle": [
         "cause"
       ],
-      "ai_note": "AI as the cause: GitBook itself says the attack used AI agents, the latest in a run of AI-agent break-ins at developer platforms (WorkOS, GoDaddy/123 Reg, Chainalysis)."
+      "ai_note": "AI as the cause: GitBook itself says the attack used AI agents, one of a run of AI-agent break-ins at developer platforms this week (WorkOS, Chainstack, Kernel, Chainalysis)."
     },
     {
       "title": "Kernel (cloud browsers for AI agents) breached by an attacker it believes used the ARTEX AI pentest platform: some customer API keys and app secrets taken, GPU servers hijacked for cryptomining",
@@ -46,20 +46,6 @@
         "cause"
       ],
       "ai_note": "Chainalysis says the intruder used offensive agentic (AI agent) techniques."
-    },
-    {
-      "title": "Chainstack (blockchain node and API provider) breached through a third-party component: customer emails and password hashes read, node credentials treated as exposed",
-      "severity": "critical",
-      "exploited": true,
-      "cves": [],
-      "vendor": "Chainstack",
-      "why": "New (Nov 3): Chainstack says an external attacker got into a development environment on Oct 26 through a third-party component, escalated into some parts of production, and was detected and cut off on Oct 31. The attacker reached a database with organization names, account holder names, member email addresses and password hashes, and had access to systems holding node credentials; Chainstack has no evidence those were read but treats them as exposed. It hasn't named the component or said how many customers were affected. The Hacker News assesses the attack as part of the AI-powered ARTEX campaign that also hit WorkOS; Chainstack itself hasn't said that.",
-      "action": "If you use Chainstack, rotate node credentials (endpoint URLs and auth keys) and regenerate platform API keys, change your Chainstack password and any other account that shares it, turn on 2FA, and watch for phishing that uses your organization and member names. Check your node usage for traffic you didn't make since Oct 26.",
-      "url": "https://thehackernews.com/2026/11/chainstack-reports-production-systems.html",
-      "ai_angle": [
-        "cause"
-      ],
-      "ai_note": "AI as the cause (reported, not confirmed by the victim): The Hacker News links it to the ARTEX autonomous AI attack framework campaign, which targets developer and crypto-infrastructure firms."
     },
     {
       "title": "PHP2Shell: unauthenticated RCE in the PHP runtime, exploited (CISA KEV), now confirmed against Palo Alto PAN-OS management interfaces; AI-assisted China-linked actor rooted 25 servers, mostly firewalls",
@@ -113,6 +99,24 @@
       "ai_note": "AI impact and AI product: a sandbox escape in an AI agent platform exposed the AI provider keys it held for customers, the same target as the Railway, Northflank and Trigger.dev breaches."
     },
     {
+      "title": "Mistral Vibe (Mistral's AI coding agent): opening a crafted repository runs the attacker's code before any trust prompt (three CVEs)",
+      "severity": "high",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-122133",
+        "CVE-2026-122134",
+        "CVE-2026-122135"
+      ],
+      "vendor": "Mistral AI",
+      "why": "New (NVD, Nov 4; CVSS 8.8 each, no attacks reported): at session start Vibe runs git commands to collect project context, so a malicious repo can run code with your privileges before you're asked to trust it, through a planted git.exe on Windows (before 2.25.5), Git clean or process filter drivers (before 2.25.7), or a repo-set gpg.program with a signed commit (before 3.0.3).",
+      "action": "Update Mistral Vibe to 3.0.3 or later, and until you have, don't open untrusted or freshly cloned repositories with it. If you opened an unknown repo with an older version, check for unexpected processes or changes and rotate credentials that were on that machine.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122135",
+      "ai_angle": [
+        "product"
+      ],
+      "ai_note": "AI product flaw: an AI coding agent's own startup routine turns 'open this repo' into code execution, a pattern also seen in other coding agents."
+    },
+    {
       "title": "Zyxel GS1900 switches CVE-2026-107441: zero-day exploited to hack about 1,000 switches; June's patch didn't stop it",
       "severity": "critical",
       "exploited": true,
@@ -156,6 +160,18 @@
   ],
   "news": [
     {
+      "title": "Security incident | November 2026 (post-mortem)",
+      "source": "GitBook",
+      "url": "https://www.gitbook.com/status/security-incident-2026-11-03",
+      "blurb": "SSO login flaw let the attacker act as staff, then a misconfigured GitHub App and a Cloudflare API key led to production secrets; GitBook lists which tokens you still need to replace."
+    },
+    {
+      "title": "Artex in the wild: Lessons from responding to agentic AI attacks",
+      "source": "S-RM",
+      "url": "https://www.s-rminform.com/latest-thinking/artex-in-the-wild-lessons-from-responding-to-agentic-ai-attacks",
+      "blurb": "Responders saw ARTEX agents go from an exploited web plugin or upload form to identity, cloud, source code and firewalls in 24 hours at one victim, running two or three attack chains at once."
+    },
+    {
       "title": "November 4, 2026 Public Notice of Security Incident",
       "source": "Kernel",
       "url": "https://www.kernel.sh/blog/public-notice-of-security-incident-nov-4-2026",
@@ -180,31 +196,28 @@
       "blurb": "File Manager server exploited from August to Oct 23; FTP/SFTP credentials taken."
     },
     {
-      "title": "UK school estate hit by 3AM ransomware in suspected AI-assisted attack",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/uk-school-estate-hit-by-3am-ransomware-in-suspected-ai-assisted-attack/",
-      "blurb": "Bitdefender says retries came at a steady 40-101 second pace, like an agentic loop, while a human picked the steps; 37 machines encrypted."
-    },
-    {
-      "title": "Cyberattack disrupts blood storage refrigeration systems in France",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/cyberattack-disrupts-blood-storage-refrigeration-systems-in-france/",
-      "blurb": "Attack on a refrigeration supplier's remote monitoring raised temperatures at three EFS sites; no blood lost."
-    },
-    {
-      "title": "AI-Linked Breaches Mount as WorkOS, Northflank, Trigger.dev Disclose Hacks",
-      "source": "SecurityWeek",
-      "url": "https://www.securityweek.com/ai-linked-breaches-mount-as-workos-northflank-trigger-dev-disclose-hacks/",
-      "blurb": "At least a dozen AI developer platforms hit in a month, mostly for stored customer secrets."
-    },
-    {
-      "title": "Xen Hypervisor Flaws Let One Malicious VM Read and Write Any Other VM's Memory",
+      "title": "Researchers Uncover Prompt Adware Hidden in OpenAI Codex Jailbreak Toolkit",
       "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/xen-hypervisor-flaws-let-one-malicious.html",
-      "blurb": "XSA-523, found by Anthropic with Claude; patch and reboot hosts."
+      "url": "https://thehackernews.com/2026/11/researchers-uncover-prompt-adware.html",
+      "blurb": "Check Point's Haiou analysis: a Codex jailbreak bundle with 400+ GitHub stars rewrites global agent instructions to advertise an LLM gateway, and was found alongside Cobalt Strike on a cybercrime server."
+    },
+    {
+      "title": "Escaping AWS Firecracker from guest userspace (CVE-2026-122192)",
+      "source": "Coinspect",
+      "url": "https://www.coinspect.com/blog/firecracker-escape/",
+      "blurb": "A microVM restored from a snapshot with the File memory backend can end up reaching memory of the Firecracker process on the host; coordinated with AWS."
     }
   ],
   "watch": [
+    "S-RM (Nov 4) on several October ARTEX intrusions it handled: each began with probing internet-facing servers and exploiting a web-server plugin or misconfigured upload function, then agents pulled credentials, tested them everywhere and moved on; one went from initial access to all identity infrastructure, cloud, source code and perimeter firewalls in 24 hours, another reached central management platforms in four hours. Patch internet-facing web plugins and upload handlers fast, and alert on one credential being tried across many systems.",
+    "Check Point 'prompt adware' (Haiou, Nov 3-4): a Codex jailbreak bundle (haiou-codex on GitHub, 403 stars, 77 forks) installs pentest, cracking and reverse-engineering skills and writes an ad for an LLM gateway (zz.aiapi2025[.]top) into Codex's global instructions; Check Point found it on a cybercrime actor's server next to Cobalt Strike and the VulnClaw agent, but saw no data theft and doesn't call the gateway malicious. Check ~/.codex/AGENTS.md and installed skills for content you didn't add, and don't route agents through unknown gateways.",
+    "tsParticles MCP server (@tsparticles/mcp-server, CVE records via X, Nov 4): its HTTP mode accepted unauthenticated requests (CVE-2026-63655) and had two more flaws (CVE-2026-76892, CVE-2026-76893); update to 4.3.2 or later, or use stdio mode.",
+    "AWS Firecracker CVE-2026-122192 (Coinspect, Nov 4, coordinated with AWS; no attacks reported): when a microVM is restored from a snapshot using the File memory backend, a failed memory remap can leave KVM pointing at host memory, so code in the guest can reach the Firecracker process's memory. If you run Firecracker yourself with snapshot restore, update to AWS's fixed release; managed AWS services are AWS's to patch.",
+    "eMudhra certificate authorities (Cisco informational, Nov 4): a researcher showed in mid-October that private keys for eight eMudhra intermediate certificates, made in an April 2025 key ceremony, could be brute-forced, so its roots and intermediates are being distrusted in an emergency. Replace any eMudhra-issued certificates you rely on and update trust stores and Cisco products per Cisco's notice.",
+    "NSW Health (ABC, Nov 4): police are investigating a 'major incident' after about 4 GB of personal identification data on dentists in the Oral Health Fee For Service Scheme was taken from one isolated server (found Oct 29); officials say no patient data was affected.",
+    "More Arara Message victims (Straits Times, Nov 4): Japanese airlines Airdo (673,920 email records) and Solaseed Air (up to 490,000 email addresses) and retailer Workman join Bic Camera and Asobu; no card data. Expect airline- and shop-themed phishing.",
+    "Cisco (Nov 4) says October's Node.js and Brotli fixes, including the exploited 'Node2Shell' CVE-2026-111497, affect some Cisco products; check its advisory for fixed releases.",
+    "Chainstack (moved off the focus list, no new details): an attacker got from a development environment into parts of production (Oct 26-31) through a third-party component and read customer emails and password hashes; The Hacker News links it to ARTEX. Rotate node credentials, regenerate platform API keys and change your Chainstack password.",
     "Bitdefender 3AM ransomware case (Nov 3-4, BleepingComputer, Dark Reading, Infosecurity): a 3AM affiliate broke into a UK school estate Sep 10-19, pulled credentials from three Veeam backup servers, ran Mimikatz, built two-way domain trusts to reach other schools and encrypted about 37 of 50 machines. Bitdefender says retries arrived every 40-101 seconds whatever the change, which looks like a model-driven loop with a human choosing the steps, but it couldn't see the attacker's machine or the model. Lock down Veeam credentials, watch for new domain trusts and alert on Mimikatz/LSASS dumping.",
     "DeepSeek Harness CVE-2026-82033 (CVSS 8.6, NVD Nov 4; no attacks reported): before 0.1.2-alpha.2 its web profile HTTP and WebSocket control plane had no authentication, so any local process, even under another OS user, could create sessions and prompt the agent to run its tools. Update to 0.1.2-alpha.2 or later and don't run it on shared machines.",
     "CISA added Apple CVE-2024-27834 (pointer-authentication bypass for an attacker who already has memory read/write, fixed May 2024 in iOS 17.5, macOS Sonoma 14.5 and Safari 17.5) to its exploited list on Nov 4. Make sure no Apple device is still below those versions.",
@@ -396,10 +409,10 @@
     "Langflow CVE-2026-105740: MCP stdio command injection lets any authenticated user run shell commands; ZoomEye counts about 19,200 exposed instances. Update Langflow and don't expose it to the internet (no attacks reported)."
   ],
   "ai_activity": {
-    "overview": "Last 7 days: 95 AI-related attack and exploit items, 39 where AI was the cause, 40 involving AI products, 16 AI-impact or AI-key incidents. New since the 12:45 PM EST update: Kernel says an ARTEX-linked attacker stole customer secrets and hijacked GPU servers, Chainalysis's AI-agent intrusion escalated to exposed customer passwords and products taken offline, and Bitdefender documented a ransomware intrusion with an apparent AI loop doing the retries. The week's picture: attackers run AI agent frameworks (ARTEX, BOSSAI, pentestcode, Hexstrike, CAIRN, CyberStrikeAI) in real intrusions at GitBook, WorkOS, Chainstack, Kernel and Chainalysis, AI models find serious bugs (Xen, PHP2Shell, GLM 5.3's Firefox chains), and AI platforms keep losing the provider keys they store.",
+    "overview": "Last 7 days: 99 AI-related attack and exploit items, 40 where AI was the cause, 43 involving AI products, 16 AI-impact or AI-key incidents. New since the 4:45 PM EST update: GitBook's post-mortem explains how its AI-agent attacker got from an SSO flaw to production secrets, S-RM published first-hand response notes on fast ARTEX intrusions, Mistral Vibe got three repo-open code execution fixes, and Check Point documented a Codex jailbreak bundle that rewrites the agent's instructions. The week's picture: attackers run AI agent frameworks (ARTEX, BOSSAI, pentestcode, Hexstrike, CAIRN, CyberStrikeAI) in real intrusions at GitBook, WorkOS, Chainstack, Kernel and Chainalysis, AI models find serious bugs (Xen, PHP2Shell, GLM 5.3's Firefox chains), and AI platforms keep losing the provider keys they store.",
     "counts": {
-      "ai_cause": 39,
-      "ai_product_exploited": 40,
+      "ai_cause": 40,
+      "ai_product_exploited": 43,
       "ai_impact": 16
     },
     "groups": [
@@ -441,6 +454,15 @@
             "cves": [],
             "url": "https://hunt.io/blog/artex-south-korea-bank-infrastructure",
             "source": "Hunt.io"
+          },
+          {
+            "title": "S-RM: ARTEX agents took identity, cloud, source code and firewalls within 24 hours in one of several October intrusions",
+            "date": "2026-11-04T14:48:00Z",
+            "summary": "Incident responders describe several ARTEX intrusions: web-server plugin or upload-function exploits, then automatic credential harvesting and reuse across systems, with two or three attack chains running at once; another victim's management platforms were reached in four hours.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.s-rminform.com/latest-thinking/artex-in-the-wild-lessons-from-responding-to-agentic-ai-attacks",
+            "source": "S-RM"
           },
           {
             "title": "Academic fraud campaign against 20 universities reportedly run by AI agents over Telegram",
@@ -527,7 +549,7 @@
           {
             "title": "GitBook: 'highly targeted attack using AI agents' reached infrastructure credentials; all customer API tokens revoked",
             "date": "2026-11-03T15:21:00Z",
-            "summary": "Attacker got infrastructure credentials at 19:00 CET Nov 2; GitBook says integration tokens, Git Sync secrets, API tokens and GitBook Assistant questions may have been accessed, content not modified. Rotate GitBook and connected tokens and re-authenticate its MCP server.",
+            "summary": "Post-mortem (Nov 4-5): an SSO login flaw let the attacker act as GitBook staff, then a misconfigured GitHub App's credentials gave internal repos and a Cloudflare API key, which led to production secrets with full infrastructure access; GitBook thinks one customer was the target and found no content changes elsewhere. Replace GitBook API tokens and connected secrets; GitBook rotated Git Sync and GitLab keys itself.",
             "status": "exploited",
             "cves": [],
             "url": "https://www.gitbook.com/status/security-incident-2026-11-03",
@@ -790,6 +812,32 @@
         "label": "AI products being exploited",
         "items": [
           {
+            "title": "tsParticles MCP server HTTP mode accepted unauthenticated requests, plus two more flaws",
+            "date": "2026-11-04T23:55:00Z",
+            "summary": "@tsparticles/mcp-server before 4.3.1/4.3.2; update or use stdio mode. Reported via CVE-record posts on X.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-63655",
+              "CVE-2026-76892",
+              "CVE-2026-76893"
+            ],
+            "url": "https://x.com/CVEnew/status/2118130048490156331",
+            "source": "X (CVE records)"
+          },
+          {
+            "title": "Mistral Vibe: opening a crafted repo runs attacker code before the trust prompt (three CVEs, fixed in 3.0.3)",
+            "date": "2026-11-04T21:18:00Z",
+            "summary": "Planted git.exe on Windows, Git filter drivers or a repo-set gpg.program run when Vibe collects project context at startup; CVSS 8.8 each, no attacks reported.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-122133",
+              "CVE-2026-122134",
+              "CVE-2026-122135"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122135",
+            "source": "NVD"
+          },
+          {
             "title": "DeepSeek Harness CVE-2026-82033: unauthenticated control plane let any local process prompt the agent",
             "date": "2026-11-04T19:17:41Z",
             "summary": "Before 0.1.2-alpha.2 the web profile HTTP and WebSocket RPC had no authentication, so another local user or process could call session.create and session.prompt and drive the agent's tools (CVSS 8.6). No attacks reported.",
@@ -819,6 +867,15 @@
             "cves": [],
             "url": "https://www.reddit.com/r/netsec/comments/1xmviny/we_found_4972_hello_messages_hiding_thousands_of/",
             "source": "Era Research (r/netsec)"
+          },
+          {
+            "title": "Haiou Codex jailbreak bundle rewrites Codex's global instructions to inject ads ('prompt adware'); found on a cybercrime actor's server",
+            "date": "2026-11-03T12:00:00Z",
+            "summary": "Check Point: the bundle installs offensive skills and an ad for an LLM gateway into Codex's global agent instructions; seen alongside Cobalt Strike and the VulnClaw agent. No data theft seen; an X post calling it a supply-chain attack overstates Check Point's finding.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://research.checkpoint.com/2026/free-the-model-sell-the-gateway-prompt-adware-hidden-in-jailbreak-bundles/",
+            "source": "Check Point Research"
           },
           {
             "title": "SurrealDB MCP sessions keyed to the access method, not the user, so one user could run MCP tools as another (CVE-2026-121419)",
@@ -1362,6 +1419,6 @@
         ]
       }
     ],
-    "trend_note": "ARTEX keeps showing up by name in victim notices (WorkOS, Chainstack, Kernel, DIVD, GoDaddy/123 Reg), and attackers are going after any service that holds customers' secrets, not just AI platforms. Since the last update: two new AI-linked breaches (Kernel, Chainalysis escalation), one documented human-plus-AI ransomware case, and no new AI-found critical flaw."
+    "trend_note": "ARTEX keeps showing up by name in victim and responder reports (WorkOS, Chainstack, Kernel, DIVD, GoDaddy/123 Reg, S-RM's cases), and the common entry points are ordinary: web plugins, upload forms, leaked API keys and SSO or app misconfigurations. Since the last update: no new AI-linked breach victim, more detail on existing ones, and one new batch of AI coding-agent flaws."
   }
 }
