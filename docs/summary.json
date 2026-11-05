@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-05T17:34:22Z",
-  "next_update_note": "Next summary around 4:30 PM EST (21:30 UTC); the feed itself refreshes hourly.",
-  "headline": "New since 8:36 AM EST: SignalPlus, a crypto options trading platform, was breached after an engineer opened a fake Microsoft Teams invite, so Binance, Deribit and other exchanges revoked every SignalPlus API key (losses under $82,000, users to be reimbursed). YOOtheme Pro CVE-2026-102785 (CVSS 10, unauthenticated web-shell upload) is being exploited, NTT Docomo says up to about 300,000 customer records leaked from its online shop and My docomo, and DigiCert disclosed that an internet-exposed internal system leaked customer contact details and some identity documents. Chainalysis, Crafty Falcon, OpenAI's 948 root exploits, GitBook, Kernel, AgenticFlow, PHP2Shell, the backdoored ARTEX image and the exploited WordPress core flaw still need action.",
-  "ai_headline": "No new AI-run intrusion was confirmed in the last four hours; Chainalysis's all-users credential exposure and CERT-In's Crafty Falcon advisory remain the biggest AI-cause stories, and OpenAI's 948 AI-built Linux root exploits the biggest AI-found-flaw story. New on the AI side: a researcher write-up says a flaw in Claude Dispatch let a browser extension run code on the computer through Claude Desktop (reported, Dispatch is being retired), and Irregular found the open-weight GLM-5.3 model refused none of 13 offensive tasks.",
+  "updated_at": "2026-11-05T21:38:28Z",
+  "next_update_note": "Next summary around 8:30 PM EST (01:30 UTC Nov 6); the feed itself refreshes hourly.",
+  "headline": "New since 12:34 PM EST: Check Point disclosed a ChatGPT Lockdown Mode bypass that let nested HTML-preview iframes silently exfiltrate entire chat histories (zero-click in ChatGPT Classic); OpenAI fixed it on Sep 18. DigiCert, SignalPlus, NTT Docomo, Zyxel GS1900 CVE-2026-107441, CWPdoor and Truffle's 1.4M-secret revocation program are the other big non-AI stories. Chainalysis, Crafty Falcon, OpenAI's 948 root exploits, GitBook, Kernel, AgenticFlow, PHP2Shell, the backdoored ARTEX image and YOOtheme Pro still need action.",
+  "ai_headline": "Biggest new AI item: Check Point's ChatGPT Lockdown Mode bypass (patched). Microsoft's Storm-0940 ConnectWise/ARTEX supply-chain campaign is recirculating. Chainalysis's all-users credential exposure and CERT-In's Crafty Falcon advisory remain the biggest AI-cause stories, and OpenAI's 948 AI-built Linux root exploits the biggest AI-found-flaw story.",
   "focus": [
     {
       "title": "OpenAI AI pipeline built 948 working Linux root exploits in one 30-hour run; patches going to kernel maintainers",
@@ -38,7 +38,7 @@
       "exploited": true,
       "cves": [],
       "vendor": "Chainalysis",
-      "why": "New (Chainalysis update, 11 PM EST Nov 4; The Record, Nov 5): on Monday it found that names, usernames, password hashes and live tokens for all Chainalysis users had been exposed. After new abnormal activity on Nov 4 it took KYT (interface and API), address screening and the login page offline and is notifying customers whose KYT accounts appear to have been accessed without authorization. Reactor and Data Solutions stay offline. It says it still has no evidence investigations data was accessed or attribution data changed, and plans to start restoring KYT and Address Screening on Nov 5 for allowlisted IPs.",
+      "why": "Chainalysis update (11 PM EST Nov 4; The Record, Nov 5): names, usernames, password hashes and live tokens for all Chainalysis users were exposed. After new abnormal activity on Nov 4 it took KYT (interface and API), address screening and the login page offline and is notifying customers whose KYT accounts appear to have been accessed without authorization. Reactor and Data Solutions stay offline. It says it still has no evidence investigations data was accessed or attribution data changed, and planned to start restoring KYT and Address Screening on Nov 5 for allowlisted IPs.",
       "action": "If your organization uses Chainalysis: send your trusted IP addresses to support@chainalysis.com or your account team for the allowlist, then reset every user's password and rotate all Chainalysis API keys (KYT transaction registration included) as soon as access returns; treat existing sessions and tokens as compromised. Reset only via the normal login page, change reused passwords elsewhere, turn on 2FA, and review KYT activity for actions you didn't make.",
       "url": "https://www.chainalysis.com/blog/security-incident-october-30/",
       "ai_angle": [
@@ -52,7 +52,7 @@
       "exploited": true,
       "cves": [],
       "vendor": "GitBook",
-      "why": "Updated Nov 4-5 (post-mortem): GitBook says that on Nov 2 the attacker used a flaw in its SSO login flow to create sessions acting as GitBook staff, queried the credentials of a misconfigured GitHub App in its own organization to reach internal code repositories and a Cloudflare API key, and used that key to get production secrets with full infrastructure access. While inside, the attacker could reach customer data stored in GitBook; GitBook believes the attack was aimed at one customer and found no sign other customers' content was changed, but says it can't tell whether the attacker acted in customer GitHub repositories. GitBook was offline about 16 hours and fully back at 11:56 UTC Nov 3 (6:56 AM EST). Crypto exchange trade.xyz says GitBook confirmed its docs incident came from GitBook's breach and it is moving its docs off GitBook (TokenPost).",
+      "why": "GitBook post-mortem (Nov 4-5): on Nov 2 the attacker used a flaw in its SSO login flow to create sessions acting as GitBook staff, queried the credentials of a misconfigured GitHub App in its own organization to reach internal code repositories and a Cloudflare API key, and used that key to get production secrets with full infrastructure access. While inside, the attacker could reach customer data stored in GitBook; GitBook believes the attack was aimed at one customer and found no sign other customers' content was changed, but says it can't tell whether the attacker acted in customer GitHub repositories. GitBook was offline about 16 hours and fully back at 11:56 UTC Nov 3 (6:56 AM EST). Crypto exchange trade.xyz says GitBook confirmed its docs incident came from GitBook's breach and it is moving its docs off GitBook.",
       "action": "Create new GitBook API tokens (all personal tokens were revoked) and update apps that use them, rotate every third-party token or secret you connected to GitBook and secrets in any integrations you published, and regenerate your authenticated-access signing key if you use a custom backend. GitBook says it already rotated Git Sync (GitHub app) and GitLab keys, so nothing to do there, but review your connected repositories for commits, branches or webhooks you didn't make since Nov 2, and re-authenticate the GitBook MCP server.",
       "url": "https://www.gitbook.com/status/security-incident-2026-11-03",
       "ai_angle": [
@@ -66,7 +66,7 @@
       "exploited": true,
       "cves": [],
       "vendor": "Kernel (kernel.sh)",
-      "why": "New (Kernel notice, Nov 4): an attacker used a leaked Kernel API key to read internal profile data on Oct 24, then reached a staff login at Kernel's logging provider on Oct 27 and downloaded logs that held a small number of Kernel API keys and customers' app-deployment third-party secrets. On Nov 3 the same actor used a stolen hosting-provider credential to get onto four GPU servers, three of them running customer browser sessions, and started a cryptominer. Kernel says 0.28% of customers were affected and were notified, the actor is financially motivated and appears to use ARTEX as a command center, and all affected credentials were rotated.",
+      "why": "Kernel notice (Nov 4): an attacker used a leaked Kernel API key to read internal profile data on Oct 24, then reached a staff login at Kernel's logging provider on Oct 27 and downloaded logs that held a small number of Kernel API keys and customers' app-deployment third-party secrets. On Nov 3 the same actor used a stolen hosting-provider credential to get onto four GPU servers, three of them running customer browser sessions, and started a cryptominer. Kernel says 0.28% of customers were affected and were notified, the actor is financially motivated and appears to use ARTEX as a command center, and all affected credentials were rotated.",
       "action": "If you use Kernel, check for its notice; rotate your Kernel API keys (switch to scoped keys) and every third-party secret you gave app deployments, and treat logins or cookies held in browser sessions that ran Nov 3 as possibly exposed: sign those accounts out and reset them. Researchers can request the attacker fingerprint from security@kernel.sh.",
       "url": "https://www.kernel.sh/blog/public-notice-of-security-incident-nov-4-2026",
       "ai_angle": [
@@ -86,13 +86,27 @@
         "CVE-2026-46300"
       ],
       "vendor": "PHP",
-      "why": "A China-linked actor used FOFA to find about 19,000 internet-facing firewalls from one vendor, narrowed them to 240 in the US, Japan, Taiwan and South Korea, and on Oct 23-24 chained PHP2Shell with the Fragnesia Linux kernel flaw (CVE-2026-46300) to plant root PHP web shells on 24 devices, then tunnelled into a US government-affiliated network, hit its internal firewall management server, took every managed firewall's config and credentials and tried AD password spraying and backdoor accounts (Dream, via The Hacker News and SecurityWeek). New since the last summary: CISA added the Fragnesia kernel flaw CVE-2026-46300 to its Known Exploited Vulnerabilities catalog on Oct 28 (federal deadline Oct 31), noting it is chained with the PHP flaws to implant web shells and run commands as root. CISA has listed CVE-2026-109618 and CVE-2026-109619 as exploited since Oct 26 (federal patch deadline Oct 29). New since the last summary: Palo Alto's updated advisory (via The Hacker News, Oct 29) confirms active exploitation against internet-exposed PAN-OS management web UIs and XML APIs; no special configuration is needed, and dataplane interfaces are only affected if a management profile is attached. The Hacker News notes the timing fits Dream's unnamed 'large vendor' firewall campaign, but neither company has confirmed the link. Delft's honeypots logged about 72,500 exploit requests from 664 IPs since Oct 21 (175 sending code or droppers), but Axios, Wiz, CrowdStrike and Praetorian note that mass exploitation is hard and confirmed compromises are still few; targeted custom chains are what is working. A separate RCE path (CVE-2026-115560) in unusual session configurations is not fixed by the Oct 21 PHP releases. Upgrading PHP on disk leaves vulnerable code loaded in running workers until they restart (Google Cloud/Mandiant). New since the last summary: Perplexity's detection lead Adel Karimi says honeypots recorded the first confirmed successful remote code execution with usable memory disclosure against an Apache mod_php install running PHP 8.4.26 (BleepingComputer, Cybersecurity Dive). New (Oct 30): Cisco published an advisory listing its products affected by the PHP2Shell flaws (and a separate one for the Node.js Brotli fixes), so check Cisco appliances too.",
-      "action": "Take firewall and appliance management interfaces off the internet now and ask your vendor whether its embedded PHP (including 8.0.x) is patched. Upgrade PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 (including containers), then restart php-fpm, Apache, FrankenPHP, LiteSpeed and supervised workers; set session.upload_progress.enabled=0 to block CVE-2026-115560. Patch the Linux kernel for CVE-2026-46300 on any host or appliance running PHP. Palo Alto: restrict the management web UI and XML API to trusted internal IPs now and install your branch's PAN-OS hotfix (for example 12.2.4-h1, 11.2.16-h1, 11.1.16-h4, 10.2.18-h13; 12.1.4-h13 and 10.2.10-h42 due Oct 29, 12.1.10-h3, 11.2.4-h23, 11.1.7-h12 and 10.2.7-h39 due Oct 30); until then follow Palo Alto's interim mitigations (route management through a dataplane port with threat prevention and decryption, replace the inbound management certificate). If an exposed PHP system or appliance was unpatched, hunt back to Oct 17 for PHP workers spawning shells, web shells and reverse SSH tunnels (logs for 15.204.59.70 and 162.35.99.94), and rotate credentials stored on it (including LDAP service accounts). PHP 8.1 and older get no fix: use a vendor-patched package, upgrade, or take the system offline.",
+      "why": "A China-linked actor used FOFA to find about 19,000 internet-facing firewalls from one vendor, narrowed them to 240 in the US, Japan, Taiwan and South Korea, and on Oct 23-24 chained PHP2Shell with the Fragnesia Linux kernel flaw (CVE-2026-46300) to plant root PHP web shells on 24 devices, then tunnelled into a US government-affiliated network. CISA lists CVE-2026-109618, CVE-2026-109619 and CVE-2026-46300 as exploited. Palo Alto confirms active exploitation against internet-exposed PAN-OS management web UIs and XML APIs. Delft's honeypots logged about 72,500 exploit requests from 664 IPs since Oct 21; targeted custom chains are what is working. A separate RCE path (CVE-2026-115560) in unusual session configurations is not fixed by the Oct 21 PHP releases. Upgrading PHP on disk leaves vulnerable code loaded in running workers until they restart. Perplexity's detection lead Adel Karimi says honeypots recorded the first confirmed successful RCE with usable memory disclosure against Apache mod_php on PHP 8.4.26. Cisco published an advisory listing products affected by the PHP2Shell flaws.",
+      "action": "Take firewall and appliance management interfaces off the internet now and ask your vendor whether its embedded PHP (including 8.0.x) is patched. Upgrade PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 (including containers), then restart php-fpm, Apache, FrankenPHP, LiteSpeed and supervised workers; set session.upload_progress.enabled=0 to block CVE-2026-115560. Patch the Linux kernel for CVE-2026-46300 on any host or appliance running PHP. Palo Alto: restrict the management web UI and XML API to trusted internal IPs now and install your branch's PAN-OS hotfix (for example 12.2.4-h1, 11.2.16-h1, 11.1.16-h4, 10.2.18-h13); until then follow Palo Alto's interim mitigations. If an exposed PHP system or appliance was unpatched, hunt back to Oct 17 for PHP workers spawning shells, web shells and reverse SSH tunnels, and rotate credentials stored on it. PHP 8.1 and older get no fix: use a vendor-patched package, upgrade, or take the system offline.",
       "url": "https://thehackernews.com/2026/10/attackers-exploit-php2shell-flaws-in.html",
       "ai_angle": [
         "cause"
       ],
-      "ai_note": "AI found it and AI helped exploit it: Calif, Wiz's Atlas agent and OpenAI's Codex Security found the bugs, and Dream found Claude Code, an aiscan offensive platform running DeepSeek and Kimi, and AI-styled scripts on the attacker's servers, though it has no direct proof AI wrote the exploit itself."
+      "ai_note": "AI found it and AI helped exploit it: Calif, Wiz's Atlas agent and OpenAI's Codex Security found the bugs, and Dream found Claude Code, an aiscan offensive platform running DeepSeek and Kimi, and AI-styled scripts on the attacker's servers."
+    },
+    {
+      "title": "ChatGPT Lockdown Mode bypass (Check Point): nested HTML-preview iframes let attackers silently exfiltrate entire chat history; OpenAI fixed it Sep 18",
+      "severity": "high",
+      "exploited": false,
+      "cves": [],
+      "vendor": "OpenAI / ChatGPT",
+      "why": "New disclosure (Check Point Research, Nov 5): Lockdown Mode is meant to stop prompt-injection exfiltration by cutting off outbound web, image, Canvas, Deep Research, Agent Mode, connectors and downloads. Check Point found the HTML page-preview sandbox still allowed allow-popups and allow-popups-to-escape-sandbox, so a nested iframe could call the real window.open, escape the sandbox and open attacker-controlled popups. That enabled silent theft of entire chat history (zero-click in ChatGPT Classic / Electron), phishing windows that kept the ChatGPT icon, malware delivery through shared chats, and forced sign-out to steal credentials. Attack paths included a malicious prompt, a malicious GPT or a shared chat. OpenAI told Check Point on Sep 18 it had removed those sandbox permissions; Check Point retested and confirmed the technique no longer works. No evidence of in-the-wild abuse was published.",
+      "action": "Nothing to patch on your side (server-side fix already live). Keep Lockdown Mode on for sensitive ChatGPT work, treat shared chats and third-party GPTs as untrusted content, and don't enter credentials into unexpected ChatGPT popups or 'update' prompts. Rotate ChatGPT / OpenAI session tokens and connected-account OAuth if you used ChatGPT Classic with untrusted GPTs or shared chats before mid-September.",
+      "url": "https://research.checkpoint.com/2026/chatgpt-lockdown-mode-bypass-phishing-malware-delivery-and-silent-data-exfiltration/",
+      "ai_angle": [
+        "product"
+      ],
+      "ai_note": "Flaw in an AI product's client sandbox that defeated the Lockdown Mode control meant to stop prompt-injection data theft."
     },
     {
       "title": "Backdoored ARTEX Docker image (tomicdd/artex) gives an unauthenticated root shell; 62 exposed consoles running it",
@@ -114,7 +128,7 @@
       "exploited": true,
       "cves": [],
       "vendor": "AgenticFlow (Pixel ML)",
-      "why": "New (notice updated Nov 4): AgenticFlow says an attacker on throwaway accounts abused two flaws in the layer that runs customer-built workflows, escaped the sandbox and could read the service's configuration, including the key that protects saved connections, plus the data it holds (conversations, agent threads, datasets, uploads, workflow configs). Earliest activity found was 10:26 UTC Nov 2 (5:26 AM EST); it was spotted when about 290,000 automated agents on about 1,900 throwaway accounts ran AI requests at AgenticFlow's expense, and contained Nov 3. The service is paused while it rebuilds; it says passwords and cards aren't stored there. It has reported affected keys to OpenAI, Google, Anthropic, Pipedream, Telegram, Composio and others, and says it is one of a series of platforms targeted for the AI-provider keys they hold.",
+      "why": "AgenticFlow notice (updated Nov 4): an attacker on throwaway accounts abused two flaws in the layer that runs customer-built workflows, escaped the sandbox and could read the service's configuration, including the key that protects saved connections, plus the data it holds (conversations, agent threads, datasets, uploads, workflow configs). Earliest activity found was 10:26 UTC Nov 2 (5:26 AM EST); it was spotted when about 290,000 automated agents on about 1,900 throwaway accounts ran AI requests at AgenticFlow's expense, and contained Nov 3. The service is paused while it rebuilds; it says passwords and cards aren't stored there. It has reported affected keys to OpenAI, Google, Anthropic, Pipedream, Telegram, Composio and others, and says it is one of a series of platforms targeted for the AI-provider keys they hold.",
       "action": "If you use AgenticFlow, replace every key or token you saved there at the service that issued it now (OpenAI, Anthropic, Google/Gemini, DeepSeek, Groq, OpenRouter and other LLM keys; revoke Telegram bot tokens with @BotFather /revoke; disconnect MCP accounts on Pipedream, Composio, Zapier or Make; remove the app from Google/Zoho third-party access). Check usage and billing at those services since Nov 2, and create new AgenticFlow API keys when it returns. Workspace owners got a personalised list of affected connections by email on Nov 3.",
       "url": "https://docs.agenticflow.ai/policies/security-incident-2026-11",
       "ai_angle": [
@@ -122,18 +136,6 @@
         "product"
       ],
       "ai_note": "AI impact and AI product: a sandbox escape in an AI agent platform exposed the AI provider keys it held for customers, the same target as the Railway, Northflank and Trigger.dev breaches."
-    },
-    {
-      "title": "SignalPlus (crypto options trading platform) breached via fake Teams invite: exchanges revoked all SignalPlus API keys",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "SignalPlus (with Binance, Deribit, Coincall and other exchanges)",
-      "why": "SignalPlus says an attacker posing as a vendor contact on a hijacked Telegram account sent one of its engineers a fake Microsoft Teams meeting invite, sat dormant on the engineer's computer, then on Nov 4 used that access to attack its internal network. Accounts whose exchange API keys had no IP allowlist were hit; it puts losses under $82,000 and says it will reimburse them. Deribit and Binance (Nov 5) removed all SignalPlus-linked API keys and say their own systems and funds are unaffected.",
-      "action": "If you ever connected an exchange account to SignalPlus, revoke those API keys on every exchange yourself (not only Binance and Deribit), check positions, orders and withdrawals directly on each exchange, and when you create new keys turn on IP allowlisting and leave withdrawal permission off. Treat unexpected Teams or Zoom 'meeting' links sent over Telegram as hostile.",
-      "url": "https://www.coindesk.com/tech/2026/11/05/binance-cuts-signalplus-access-after-security-warning-urges-users-to-check-accounts",
-      "ai_angle": [],
-      "ai_note": ""
     },
     {
       "title": "YOOtheme Pro CVE-2026-102785 (CVSS 10): unauthenticated web-shell upload through its image handler, exploited since Oct 26",
@@ -148,23 +150,21 @@
       "url": "https://raw.githubusercontent.com/PaloAltoNetworks/Unit42-timely-threat-intel/main/2026-10-26-exploitation-of-CVE-2026-102785.txt",
       "ai_angle": [],
       "ai_note": ""
-    },
-    {
-      "title": "WordPress Core CVE-2026-119977: unauthenticated code execution during core updates now on CISA's exploited list (versions 4.7 through 7.1.3)",
-      "severity": "high",
-      "exploited": true,
-      "cves": [
-        "CVE-2026-119977"
-      ],
-      "vendor": "WordPress",
-      "why": "New (Nov 3): CISA added this upgrade-window race to its Known Exploited Vulnerabilities catalog with a Nov 6 federal deadline and forensic triage required. During a full-package core update, WordPress unpacks the new copy, installer included, into a predictable, web-reachable folder under wp-content/upgrade; an attacker who hits the staged installer in the few seconds before cleanup can point it at their own database and get to PHP code execution. Wordfence saw over 18,500 requests for those paths in the first 21 hours after its rule shipped, some sources polling the same sites for about 14.5 hours. No specific site takeover has been described publicly. WordPress's own advisory rates it Low; Wordfence scores it 8.1.",
-      "action": "Update to WordPress 7.1.4 or your branch's fixed release (7.0.8, 6.9.11, 6.8.12, 6.7.11, 6.6.11, 6.5.14 down to 4.7.39) and run 'wp core verify-checksums'. Deny web access to wp-content/upgrade/ at the web server, and check logs for successful requests to setup-config.php or other PHP files under that path, including during the update to 7.1.4 itself.",
-      "url": "https://www.wordfence.com/blog/2026/10/wordpress-7-1-4-security-release-rce/",
-      "ai_angle": [],
-      "ai_note": ""
     }
   ],
   "news": [
+    {
+      "title": "ChatGPT Lockdown Mode Bypass: Phishing, Malware Delivery, and Silent Data Exfiltration",
+      "source": "Check Point Research",
+      "url": "https://research.checkpoint.com/2026/chatgpt-lockdown-mode-bypass-phishing-malware-delivery-and-silent-data-exfiltration/",
+      "blurb": "Nested HTML-preview iframes defeated Lockdown Mode and enabled zero-click chat exfiltration in ChatGPT Classic; OpenAI fixed it Sep 18 by removing allow-popups sandbox permissions."
+    },
+    {
+      "title": "DigiCert data breach exposes customer information, identity documents",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/digicert-data-breach-exposes-customer-information-identity-documents/",
+      "blurb": "A 2025 migration left an internal archive reachable from the internet; an unauthorized account read customer contacts and some ID documents June 27–July 2. Certificates and logins not affected."
+    },
     {
       "title": "CZ warns crypto traders to pull SignalPlus API keys as Binance severs access",
       "source": "CoinDesk",
@@ -172,34 +172,22 @@
       "blurb": "Binance and Deribit revoked every SignalPlus-linked API key; SignalPlus says a fake Teams invite compromised an engineer and losses are under $82,000."
     },
     {
-      "title": "DigiCert data breach exposes customer information, identity documents",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/digicert-data-breach-exposes-customer-information-identity-documents/",
-      "blurb": "A 2025 server migration exposed an internal system to the internet; an unauthorized account read archived customer contact data and some ID documents from June 27 to July 2. Certificates and logins not affected."
-    },
-    {
-      "title": "NTT Docomo Faces Massive Data Breach due to Cyberattack",
-      "source": "Nippon.com (Jiji Press)",
-      "url": "https://www.nippon.com/en/articles/-/56982",
-      "blurb": "Up to about 300,000 customers' names, addresses, birth dates and phone numbers leaked from Docomo Online Shop and My docomo; both are offline with no restore date."
-    },
-    {
       "title": "Chainalysis warns all users hit in cyber breach involving 'agentic' techniques",
       "source": "The Record",
       "url": "https://therecord.media/chainalysis-all-users-hit-by-agentic-cyberattack",
-      "blurb": "Names, usernames, password hashes and live tokens for all users exposed; some passwords were also intercepted in an 'on-path' attack. All users must reset passwords and rotate API keys."
+      "blurb": "Names, usernames, password hashes and live tokens for all users exposed; all users must reset passwords and rotate API keys."
     },
     {
       "title": "CERT-In Flags AI-Driven Attacks as Backdoored ARTEX Exposes 62 Consoles to Root Access",
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html",
-      "blurb": "Crafty Falcon uses ARTEX, PentAGI, Cairn and CyberStrikeAI against Indian lenders, fintechs and crypto exchanges; a backdoored ARTEX image gives attackers root on 62 exposed consoles."
+      "blurb": "Crafty Falcon uses ARTEX and other AI pentest tools against Indian lenders and crypto exchanges; a backdoored ARTEX image gives root on 62 exposed consoles."
     },
     {
-      "title": "YOOtheme Pro CVE-2026-102785 exploited to deploy web shells",
-      "source": "Unit 42",
-      "url": "https://raw.githubusercontent.com/PaloAltoNetworks/Unit42-timely-threat-intel/main/2026-10-26-exploitation-of-CVE-2026-102785.txt",
-      "blurb": "Automated scanners plant JPEG/PHP polyglot web shells, followed by a human operator; update to 5.0.53."
+      "title": "Zyxel Switch Hacks Blamed on Patched Flaw Actually Exploited a Zero-Day",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/zyxel-switch-hacks-blamed-on-patched-flaw-actually-exploited-a-zero-day/",
+      "blurb": "CVE-2026-107441 (out-of-bounds write) let Kapibala/Red Heron root nearly 1,000 GS1900 switches even after the June CVE-2026-7273 patch; install .3C0 firmware."
     },
     {
       "title": "Hackers backdoor Linux servers using trojanized CWP web server",
@@ -208,13 +196,18 @@
       "blurb": "CWPdoor replaces Control Web Panel's cwpsrv binary with a silent backdoor that hides its own requests from logs; found alongside Ebury."
     },
     {
-      "title": "A thousand fewer paths to root",
-      "source": "OpenAI",
-      "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
-      "blurb": "OpenAI's agents built 948 working Linux kernel root exploits in one run; patches are going to maintainers."
+      "title": "Nearly 1.5 million exposed secrets targeted in new revocation program",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/truffle-security-launches-program-to-revoke-14-million-live-secrets/",
+      "blurb": "Truffle Security's free Secrets Revocation Program helps API key issuers revoke about 1.4 million still-valid publicly exposed secrets."
     }
   ],
   "watch": [
+    "SignalPlus (moved off the focus list; Binance/Deribit already revoked linked keys): if you ever connected an exchange account to SignalPlus, revoke those API keys on every exchange yourself, check positions and withdrawals, and when you create new keys turn on IP allowlisting and leave withdrawal permission off. Treat unexpected Teams or Zoom 'meeting' links sent over Telegram as hostile.",
+    "WordPress Core CVE-2026-119977 (moved off the focus list; still on CISA KEV with Nov 6 federal deadline): update to 7.1.4 or your branch's fixed release, deny web access to wp-content/upgrade/, and check logs for setup-config.php under that path.",
+    "ChatGPT Lockdown Mode (Check Point, Nov 5; fixed Sep 18): nested HTML-preview iframes defeated Lockdown Mode for silent chat exfiltration, phishing and malware delivery (zero-click in ChatGPT Classic). Server-side fix is live; keep Lockdown Mode on and treat shared chats / third-party GPTs as untrusted. See focus.",
+    "Storm-0940 / ConnectWise Cloud Backup (Microsoft Security Blog Oct 21; recirculating on X Nov 5): China-linked Storm-0940 used ARTEX AI agents in a supply-chain compromise of ConnectWise Cloud Backup / SkyKick, attempting sign-ins to more than 2,250 Microsoft 365 tenants. MSPs and customers: review service-principal sign-ins and audit logs since Oct 13, investigate 144.172.64[.]128, disable affected ConnectWise/SkyKick apps if unexpected, and follow ConnectWise's remediation guide.",
+    "Truffle Security Secrets Revocation Program (BleepingComputer, Nov 5): about 1.4 million still-valid publicly exposed API secrets are being pushed for issuer revocation. If you issue API keys, join the program; if you store secrets in public repos or CI logs, rotate them now.",
     "Crédit Mutuel Arkéa (moved off the focus list, no new details): attackers used a service provider's platform to move about €100 million out of the bank's own account on Nov 4; customer accounts weren't touched. Banks and payment firms should review what third-party platforms can initiate payments from their treasury accounts.",
     "Zyxel GS1900 CVE-2026-107441 (moved off the focus list, still exploited): install Zyxel's Oct 22 firmware on all GS1900 models, keep web management off the internet and reset admin passwords on any switch that was exposed.",
     "DigiCert (BleepingComputer, The Hacker News, Nov 5): a February 2025 server migration left an internal business system with open self-registration reachable from the internet; an unauthorized account read archived customer names, business emails, phones, addresses and for some people driver's licenses, passports or utility bills (June 27 to July 2). DigiCert says certificates, CertCentral, DigiCert ONE and logins weren't affected. If you've validated certificates with DigiCert, expect a notice and watch for targeted phishing.",
@@ -443,16 +436,25 @@
     "Langflow CVE-2026-105740: MCP stdio command injection lets any authenticated user run shell commands; ZoomEye counts about 19,200 exposed instances. Update Langflow and don't expose it to the internet (no attacks reported)."
   ],
   "ai_activity": {
-    "overview": "In the past week AI-run intrusions hit crypto analytics (Chainalysis, all users' password hashes and live tokens exposed), developer and AI platforms (GitBook, Kernel, AgenticFlow, Chainstack, WorkOS, Warp, Northflank and others), Indian and South Korean financial firms (Crafty Falcon, ARTEX), and 200+ government and industry targets (Vapor Panda, BOSSAI, CyberStrikeAI). On the AI-found side, OpenAI's agents built 948 Linux root exploits and Anthropic's Claude found Xen and Chrome bugs. Since the last update only smaller items were added: a reported Claude Dispatch code-execution flaw, an unverified warning about archived Anthropic MCP servers, and Irregular's finding that GLM-5.3 refuses no offensive tasks.",
+    "overview": "In the past week AI-run intrusions hit crypto analytics (Chainalysis, all users' password hashes and live tokens exposed), developer and AI platforms (GitBook, Kernel, AgenticFlow, Chainstack, WorkOS, Warp, Northflank and others), MSP/backup supply chains (Storm-0940 via ConnectWise Cloud Backup with ARTEX), Indian and South Korean financial firms (Crafty Falcon, ARTEX), and 200+ government and industry targets (Vapor Panda, BOSSAI, CyberStrikeAI). On the AI-found side, OpenAI's agents built 948 Linux root exploits and Anthropic's Claude found Xen and Chrome bugs. New in this update: Check Point's ChatGPT Lockdown Mode bypass (patched Sep 18) and recirculation of Microsoft's Storm-0940/ConnectWise ARTEX campaign.",
     "counts": {
-      "ai_cause": 37,
-      "ai_product_exploited": 46,
+      "ai_cause": 38,
+      "ai_product_exploited": 48,
       "ai_impact": 18
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Storm-0940 used ARTEX AI agents in ConnectWise Cloud Backup supply-chain compromise (Microsoft; recirculating)",
+            "date": "2026-11-05T19:40:00Z",
+            "summary": "Microsoft (Oct 21 blog; recirculating Nov 5) attributes a ConnectWise Cloud Backup / SkyKick supply-chain compromise to China-linked Storm-0940, which used the ARTEX AI pentest framework to speed reconnaissance, password spraying and OAuth abuse, attempting sign-ins to more than 2,250 Microsoft 365 tenants. ConnectWise published a technical investigation and remediation guide.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
+            "source": "Microsoft Security Blog"
+          },
           {
             "title": "Chainalysis: AI-agent-driven intrusion now exposed names, usernames, password hashes and live tokens for ALL users; some KYT accounts accessed",
             "date": "2026-11-05T04:00:00Z",
@@ -811,6 +813,24 @@
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "ChatGPT Lockdown Mode bypass: nested HTML-preview iframes enabled silent chat exfiltration, phishing and malware delivery; OpenAI fixed Sep 18",
+            "date": "2026-11-05T17:28:19Z",
+            "summary": "Check Point Research (Nov 5) found Lockdown Mode could be defeated via nested sandboxed iframes that still had allow-popups and allow-popups-to-escape-sandbox, enabling zero-click exfiltration of entire chat history in ChatGPT Classic, credential phishing and malware delivery through shared chats or malicious GPTs. OpenAI removed those sandbox permissions on Sep 18; Check Point confirmed the technique no longer works. No in-the-wild abuse reported.",
+            "status": "patched",
+            "cves": [],
+            "url": "https://research.checkpoint.com/2026/chatgpt-lockdown-mode-bypass-phishing-malware-delivery-and-silent-data-exfiltration/",
+            "source": "Check Point Research"
+          },
+          {
+            "title": "Unverified / recirculating: OpenAI Codex supply-chain prompt injection via malicious GitHub configuration bundle",
+            "date": "2026-11-04T23:57:40Z",
+            "summary": "An X post says researchers observed a supply-chain attack on OpenAI Codex users using a malicious GitHub configuration bundle with natural-language prompt injection that silently hijacks the agent's global system prompt (no executable payload). Single-source; treat as unverified until a vendor or multi-source write-up lands.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/aviatrixtrc/status/2118130592889921856",
+            "source": "X"
+          },
           {
             "title": "'ThisBash Escape': Claude Dispatch flaw let a browser extension run code on the OS through Claude Desktop",
             "date": "2026-11-05T14:40:00Z",
@@ -1461,6 +1481,6 @@
         ]
       }
     ],
-    "trend_note": "A quiet four hours for new AI-run breaches, but the week's pattern holds: disclosures keep widening after first notice (Chainalysis, GitBook, Kernel), and the entry points are ordinary ones such as exposed test systems, static API tokens and missing MFA. Today's non-AI breaches (SignalPlus, DigiCert, Docomo) show the same basics failing."
+    "trend_note": "The last four hours added an AI-product disclosure (ChatGPT Lockdown Mode, already patched) rather than a new AI-run breach; the week's pattern still holds: AI-agent frameworks (especially ARTEX) keep showing up in confirmed platform and supply-chain intrusions, and post-breach disclosures keep widening (Chainalysis, GitBook, Kernel)."
   }
 }
