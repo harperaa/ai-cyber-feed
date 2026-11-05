@@ -112,6 +112,7 @@ CPE_AI = re.compile(r"(?:ray-project:ray|mlflow:|pytorch:|tensorflow:|google:ten
                     r"onnx|paddlepaddle|keras|scikit-learn|lm-studio|open-webui)", re.I)
 
 PRODUCT = [
+    ("LLM-based agent platform", r"\blarge[- ]model[- ]based\b" + GAP(60) + r"\b(?:agents?|platforms?|knowledge bases?)\b"),
     ("LLM runtime/server", r"\bollama\b|\bvllm\b|llama\.cpp|\bllama[- ]?cpp\b|\bllama[- ]?index\b|\bllamaindex\b|\blitellm\b|\blm studio\b|\bgpt4all\b|\blocalai\b|text[- ]generation[- ](?:webui|inference)|open[- ]?webui|\bsglang\b|\blmdeploy\b|\bgguf\b"),
     ("ML framework/platform", r"\bpytorch\b|\btensorflow\b|\bkeras\b|\bonnx\b|hugging ?face|\bhf hub\b|\btransformers (?:library|v?\d)|\blangchain\b|\blanggraph\b|\blangflow\b|\blangflow_oss\b|\bflowise\b|\bdify\b|\bmlflow\b|\bkubeflow\b|"
                              r"\bgradio\b|\bcomfy ?ui\b|\bjupyter\w*\b|\bray-project\b|\bray (?:ai|dashboard|cluster|is an)\b|\banyscale\b|\bdeepspeed\b|\bmegatron\b|\bnvidia (?:triton|nemo|aistore|dgx|merlin|cuda toolkit)|"
@@ -167,6 +168,7 @@ IMPACT = [
 
 # Hand-curated angles for specific CVE ids (use for things heuristics cannot know). type, why, optional source url
 MANUAL = {
+    "CVE-2026-97693": [("product", "Critical (CVSS 9.9) flaw in Yuxi, a large-model-based knowledge-base and knowledge-graph AI agent development platform (from 0.6.0.beta1)")],
     "CVE-2026-98432": [("cause", "Linux IPv4 TCP use-after-free (CVSS 9.8): reports say Anthropic's AI built a working remote exploit in about 53 minutes")],
     "CVE-2026-120338": [("product", "Prefab UI generative-UI sandbox escape: caller-supplied Python in Pyodide/Deno escapes to host RCE")],
     "CVE-2026-118306": [("impact", "Chrome sandbox escape still shipped in Playwright 1.64.1's bundled Chromium (sandbox off by default), exposing web-browsing AI agents")],
