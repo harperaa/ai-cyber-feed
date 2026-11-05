@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-05T05:45:00Z",
-  "next_update_note": "Next summary around 4:30 AM EST (09:30 UTC); the feed itself refreshes hourly.",
-  "headline": "New since 8:45 PM EST: OpenAI says an autonomous pipeline running an unreleased cyber model reproduced 1,724 Linux kernel bugs and built 948 working root exploits in one 30-hour run (fixes reported to maintainers), and Appwrite disclosed that for about 11 hours on Nov 1 an attacker could read environment variables of Functions and Sites in its Frankfurt region. Kyverno also shipped 1.19.2 for a batch of critical tenant-escape flaws. GitBook, Kernel, Chainalysis, AgenticFlow, PHP2Shell, Zyxel GS1900 and the exploited WordPress core flaw still need action.",
-  "ai_headline": "New AI items: OpenAI's 'A thousand fewer paths to root' shows AI agents finding, exploiting and patching Linux privilege-escalation bugs at about $1,279 per exploit, with at least 10 new exploitation techniques; OpenAI says an unpatched box where an attacker has any low-privileged account should be treated as rooted. The UK NCSC's new assessment says AI tools have almost certainly increased zero-day discovery and that AI-enabled malware is highly likely to be used against critical infrastructure by 2028. ARTEX-driven breaches (GitBook, Kernel, WorkOS, Chainstack) remain the main live AI-cause threat.",
+  "updated_at": "2026-11-05T09:45:00Z",
+  "next_update_note": "Next summary around 8:30 AM EST (13:30 UTC); the feed itself refreshes hourly.",
+  "headline": "New since 12:45 AM EST: India's CERT-In says an AI-assisted group it calls Crafty Falcon is actively breaking into Indian lenders, fintechs, payment firms and crypto exchanges with ARTEX, PentAGI, Cairn and CyberStrikeAI, moving money through victims' own payment APIs, and a backdoored ARTEX Docker image (tomicdd/artex, about 9,000 pulls) gives anyone an unauthenticated root shell on 62 exposed consoles. South Korea's regulator now counts 40 data-leak incidents at 37 financial firms since Sept 30. OpenAI's 948 Linux root exploits, GitBook, Kernel, Chainalysis, AgenticFlow, Appwrite, PHP2Shell, Zyxel GS1900 and the exploited WordPress core flaw still need action.",
+  "ai_headline": "New AI items: CERT-In's critical advisory (CIAD-2026-0058, Nov 4) names Crafty Falcon as an active, AI-assisted attacker of Indian financial firms that reached production from test environments, used stolen static API tokens and forged commits, and tested theft with Rs 1 transfers; entities that had already remediated were hit again. Separately, a copy of the ARTEX attack tool on GitHub (2,449 stars) pulls a Docker image with a hidden root shell in its login handler, so people running ARTEX may themselves be compromised. OpenAI's 'A thousand fewer paths to root' (948 AI-built Linux root exploits) and the ARTEX-driven breaches (GitBook, Kernel, WorkOS, Chainstack) remain the main AI-cause stories.",
   "focus": [
     {
       "title": "OpenAI AI pipeline built 948 working Linux root exploits in one 30-hour run; patches going to kernel maintainers",
@@ -17,6 +17,20 @@
         "cause"
       ],
       "ai_note": "AI found and weaponized the bugs end to end; the largest AI-built exploit run disclosed so far."
+    },
+    {
+      "title": "Crafty Falcon: AI-assisted group draining Indian lenders, fintechs and crypto exchanges through their own payment APIs (CERT-In, active)",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Indian BFSI sector (NBFCs, fintechs, payment aggregators, crypto exchanges)",
+      "why": "CERT-In's critical advisory CIAD-2026-0058 (Nov 4, reported Nov 5 by The Hacker News, Indian Express, CNA) says the group uses ARTEX, PentAGI, Cairn and CyberStrikeAI to run attack chains at machine speed. It gets in through exposed apps and APIs, stolen long-lived API tokens, forged commits in source repositories, plaintext credentials and services without MFA, pivots from public test environments to production, steals payment-gateway and partner-bank API credentials, then calls fund-transfer and merchant-settlement APIs from the victim's own allow-listed systems after Rs 1 test transfers. Crypto exchanges lost wallet keys and funds, and firms that had already remediated were breached again.",
+      "action": "If you run payment, lending or wallet systems: replace long-lived static API tokens with short-lived scoped ones, require MFA on every remote service, keep test environments off the internet and off production credentials, validate transactions server-side instead of trusting the client app, alert on bursts of micro-value transfers, and after an incident do full forensic eradication before declaring it closed.",
+      "url": "https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "AI as the cause: CERT-In says the tools run complete attack chains on their own and the large number of on-the-fly scripts points to AI-written code."
     },
     {
       "title": "GitBook (documentation platform) breached in an attack using AI agents: SSO flaw let the attacker pose as staff and reach production secrets; all personal API tokens revoked",
@@ -81,21 +95,18 @@
       "ai_note": "AI found it and AI helped exploit it: Calif, Wiz's Atlas agent and OpenAI's Codex Security found the bugs, and Dream found Claude Code, an aiscan offensive platform running DeepSeek and Kimi, and AI-styled scripts on the attacker's servers, though it has no direct proof AI wrote the exploit itself."
     },
     {
-      "title": "Xen hypervisor XSA-523 (CVE-2026-102703, CVE-2026-102704): one malicious guest VM can read and write every other VM's memory, including dom0; found by Anthropic with Claude",
-      "severity": "critical",
+      "title": "Backdoored ARTEX Docker image (tomicdd/artex) gives an unauthenticated root shell; 62 exposed consoles running it",
+      "severity": "high",
       "exploited": false,
-      "cves": [
-        "CVE-2026-102703",
-        "CVE-2026-102704"
-      ],
-      "vendor": "Xen Project",
-      "why": "New (Xen advisory Nov 3, The Hacker News Nov 4): a mistake in grant copy, the operation Xen uses to copy data between VMs, lets a guest skip permission re-checks and touch memory it doesn't own. All Xen versions from 4.6 on are affected, there is no mitigation, and XCP-ng says a single compromised guest can take over the whole host. No attacks reported. Debian bookworm, trixie and forky were still listed as vulnerable on Nov 4.",
-      "action": "If you run Xen, XCP-ng or Qubes OS: apply the XSA-523 patches (Xen 4.17-4.19 and unstable; no patch for 4.6-4.16), install xen-4.17.7-4.2.xcpng8.3 on XCP-ng 8.3 and reboot hosts, or update Qubes 4.3 to Xen 4.19.6-3 and restart dom0 (Anti Evil Maid users reseal). Ask your hosting or cloud provider if it runs Xen and whether it has patched.",
-      "url": "https://thehackernews.com/2026/11/xen-hypervisor-flaws-let-one-malicious.html",
+      "cves": [],
+      "vendor": "ARTEX (open-source AI pentest framework) copies on GitHub and Docker Hub",
+      "why": "After ARTEX's developer pulled the repository, a GitHub copy (trhhubsd/ARTEXX, 2,449 stars, 600+ forks) changed one line of docker-compose.yml to pull tomicdd/artex (about 9,000 downloads), whose login handler runs any command after a secret marker in the CAPTCHA field as root, before checking credentials. congdonglinux/artex is identical. Researcher Badbyte found 62 internet-facing consoles serving the backdoored build between Nov 2 and 4 (26 in the US) out of 1,645 ARTEX consoles. A hijacked console exposes its targets' findings, stolen credentials and sessions. No confirmed use of the backdoor reported yet.",
+      "action": "If anyone on your team tried ARTEX, check which image they pulled; treat any host that ran tomicdd/artex or congdonglinux/artex as compromised, rebuild it and rotate every credential it held. Don't run unvetted attack tools as root on an open port.",
+      "url": "https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html",
       "ai_angle": [
-        "cause"
+        "product"
       ],
-      "ai_note": "AI as the cause: the Xen Project credits Anthropic, using its Claude model, with finding the flaws; Ada Logics validated them and CodeAnt AI later reported the same issue."
+      "ai_note": "Flaw in an AI product: a trojanized copy of an AI agent attack framework."
     },
     {
       "title": "AgenticFlow (AI agent and workflow platform) broken into: attacker escaped its workflow sandbox and held the key protecting every saved connection, so all stored AI keys, Telegram bot tokens and MCP tokens are treated as exposed",
@@ -125,24 +136,6 @@
         "impact"
       ],
       "ai_note": "Environment variables commonly hold AI provider keys, the target in this month's platform breaches."
-    },
-    {
-      "title": "Mistral Vibe (Mistral's AI coding agent): opening a crafted repository runs the attacker's code before any trust prompt (three CVEs)",
-      "severity": "high",
-      "exploited": false,
-      "cves": [
-        "CVE-2026-122133",
-        "CVE-2026-122134",
-        "CVE-2026-122135"
-      ],
-      "vendor": "Mistral AI",
-      "why": "New (NVD, Nov 4; CVSS 8.8 each, no attacks reported): at session start Vibe runs git commands to collect project context, so a malicious repo can run code with your privileges before you're asked to trust it, through a planted git.exe on Windows (before 2.25.5), Git clean or process filter drivers (before 2.25.7), or a repo-set gpg.program with a signed commit (before 3.0.3).",
-      "action": "Update Mistral Vibe to 3.0.3 or later, and until you have, don't open untrusted or freshly cloned repositories with it. If you opened an unknown repo with an older version, check for unexpected processes or changes and rotate credentials that were on that machine.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-122135",
-      "ai_angle": [
-        "product"
-      ],
-      "ai_note": "AI product flaw: an AI coding agent's own startup routine turns 'open this repo' into code execution, a pattern also seen in other coding agents."
     },
     {
       "title": "Zyxel GS1900 switches CVE-2026-107441: zero-day exploited to hack about 1,000 switches; June's patch didn't stop it",
@@ -175,6 +168,18 @@
     }
   ],
   "news": [
+    {
+      "title": "CERT-In Flags AI-Driven Attacks as Backdoored ARTEX Exposes 62 Consoles to Root Access",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html",
+      "blurb": "India names Crafty Falcon, an AI-assisted group hitting financial firms with ARTEX and PentAGI, while a trojanized ARTEX image hands out root shells."
+    },
+    {
+      "title": "India flags Chinese-linked AI tools in hacking campaign against financial firms",
+      "source": "CNA (Reuters)",
+      "url": "https://www.channelnewsasia.com/asia/india-flags-chinese-linked-ai-tools-hacking-campaign-financial-firms-6526931",
+      "blurb": "India joins the countries where AI attack tools such as ARTEX have been used against banks."
+    },
     {
       "title": "A thousand fewer paths to root",
       "source": "OpenAI",
@@ -210,21 +215,15 @@
       "source": "The Record",
       "url": "https://therecord.media/russia-cyberattack-beget-cloud",
       "blurb": "Attackers in Beget's infrastructure management ran wiping scripts; VPS, S3 and Kubernetes data and all binary VPS backups were lost."
-    },
-    {
-      "title": "More Asian airlines announce data breaches after attack on Spanish IT provider Amadeus",
-      "source": "The Record",
-      "url": "https://therecord.media/asian-airlines-announce-data-breach-it-provider-incident",
-      "blurb": "Amadeus now says a vulnerability in a booking-display environment exposed data; JAL, Cathay, Singapore, Malaysia, Korean and Asiana affected."
-    },
-    {
-      "title": "Zyxel fixes zero-day exploited to hack nearly 1,000 network switches",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches/",
-      "blurb": "GS1900 switches were hacked even after June's patch; apply the new firmware."
     }
   ],
   "watch": [
+    "South Korea's Financial Services Commission (Korea Times, Nov 5): 40 data-leak incidents at 37 financial companies since Sept 30 (including four commercial banks) exposed more than 470,000 records and about 1 billion won (about $745,000) was stolen from some smaller firms; it will check security at 580 firms by end of November. This is the same wave as the ARTEX-linked Korean bank breaches, though the FSC didn't name a tool.",
+    "SMBC (Sumitomo Mitsui Banking Corporation, Nov 5): 227,216 email addresses of its corporate and sole-proprietor customers leaked through the Arara Message email service breach; no account numbers or logins. Expect bank-themed phishing in Japan.",
+    "Zyxel GS1900 (The Hacker News, Nov 5): confirms June's patch did not block the zero-day that gives root command execution; still on the focus list.",
+    "Yuxi (LLM knowledge-base and agent platform) CVE-2026-97693, rated 9.9 critical, affects versions from 0.6.0.beta1, per a post on X (Nov 5); not yet in the feed's CVE data and no attacks reported. Check the project's advisory and update if you run it.",
+    "Xen hypervisor XSA-523 (CVE-2026-102703, CVE-2026-102704): one malicious guest VM can read and write every other VM's memory, including dom0; found by Anthropic with Claude (moved off the focus list, no new details): If you run Xen, XCP-ng or Qubes OS: apply the XSA-523 patches (Xen 4.17-4.19 and unstable; no patch for 4.6-4.16), install xen-4.17.7-4.2.xcpng8.3 on XCP-ng 8.3 and reboot hosts, or update Qubes 4.3 to Xen 4.19.6-3 and restart dom0 (Anti Evil Maid users reseal). Ask your hosting or cloud provider if it runs Xen and whether it has patched.",
+    "Mistral Vibe (Mistral's AI coding agent): opening a crafted repository runs the attacker's code before any trust prompt (three CVEs) (moved off the focus list, no new details): Update Mistral Vibe to 3.0.3 or later, and until you have, don't open untrusted or freshly cloned repositories with it. If you opened an unknown repo with an older version, check for unexpected processes or changes and rotate credentials that were on that machine.",
     "UK NCSC assessment (Nov 3-4, via AP and The Hacker News): AI-powered tools have almost certainly increased zero-day discovery, defensive AI has shortened the zero-day-to-patch window, and AI-enabled malware is highly likely to be used in ransomware against critical infrastructure by 2028. It urges faster patching, tighter admin access, monitoring and backups.",
     "Kyverno (Kubernetes policy engine) 1.19.2 fixes a batch of critical flaws published Nov 5 (CVE-2026-122302, -122303, -122304, -122310, -122311, -122313 at 9.8-9.9, and a 9.1 image-signature verification bypass, CVE-2026-122321): namespace-level users or tenants can escape their namespace or exceed their RBAC through policies, generate and cleanup rules. No attacks reported; upgrade to 1.19.2 if you run multi-tenant clusters.",
     "Beget update (The Record, Nov 4): the Russian host says attackers reached its infrastructure management systems and ran wiping scripts; VPS, S3 and Kubernetes data and all binary VPS backups were lost (file-level backups survived), and over 1,000 servers are being checked by hand. Customers should change passwords and keys stored on its servers.",
@@ -432,10 +431,10 @@
     "Langflow CVE-2026-105740: MCP stdio command injection lets any authenticated user run shell commands; ZoomEye counts about 19,200 exposed instances. Update Langflow and don't expose it to the internet (no attacks reported)."
   ],
   "ai_activity": {
-    "overview": "Last 7 days: 103 AI-related attack and exploit items, 42 where AI was the cause, 43 involving AI products, 18 AI-impact or AI-key incidents. New since the 8:45 PM EST update: OpenAI disclosed an AI pipeline that built 948 working Linux root exploits in one run, the UK NCSC said AI has almost certainly increased zero-day discovery, and Appwrite disclosed a Nov 1 runtime exploit that exposed customer environment variables. The week's picture: attackers run AI agent frameworks (ARTEX, BOSSAI, pentestcode, Hexstrike, CAIRN, CyberStrikeAI) in real intrusions at GitBook, WorkOS, Chainstack, Kernel and Chainalysis, AI models find serious bugs at scale (Linux kernel, Xen, PHP2Shell, GLM 5.3's Firefox chains), and AI and developer platforms keep losing the provider keys they store.",
+    "overview": "Last 7 days: 105 AI-related attack and exploit items, 43 where AI was the cause, 44 involving AI products, 18 AI-impact or AI-key incidents. New since the 12:45 AM EST update: India's CERT-In named Crafty Falcon, an AI-assisted group actively stealing funds from Indian financial firms with ARTEX, PentAGI, Cairn and CyberStrikeAI, and a backdoored ARTEX Docker image was found handing root shells on 62 exposed consoles. The week's picture: attackers run AI agent frameworks (ARTEX, BOSSAI, pentestcode, PentAGI, CAIRN, CyberStrikeAI) in real intrusions at GitBook, WorkOS, Chainstack, Kernel, Chainalysis and now Indian and Korean financial firms, AI models find serious bugs at scale (OpenAI's 948 Linux root exploits, Xen, PHP2Shell), and AI and developer platforms keep losing the provider keys they store.",
     "counts": {
-      "ai_cause": 42,
-      "ai_product_exploited": 43,
+      "ai_cause": 43,
+      "ai_product_exploited": 44,
       "ai_impact": 18
     },
     "groups": [
@@ -522,6 +521,15 @@
             "cves": [],
             "url": "https://www.securityweek.com/ai-linked-breaches-mount-as-workos-northflank-trigger-dev-disclose-hacks/",
             "source": "SecurityWeek"
+          },
+          {
+            "title": "CERT-In: AI-assisted group Crafty Falcon breaching Indian lenders, fintechs, payment firms and crypto exchanges",
+            "date": "2026-11-04T12:00:00Z",
+            "summary": "Critical advisory CIAD-2026-0058: ARTEX, PentAGI, Cairn and CyberStrikeAI run attack chains at machine speed; attackers pivot from test to production, steal payment API credentials and move funds through victims' own APIs after Rs 1 test transfers; crypto exchanges lost keys and funds; re-attacks after remediation.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html",
+            "source": "CERT-In via The Hacker News, Indian Express, CNA"
           },
           {
             "title": "Xen XSA-523 guest-to-host memory flaws found by Anthropic with Claude",
@@ -852,6 +860,15 @@
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "Backdoored ARTEX copy: tomicdd/artex Docker image gives an unauthenticated root shell; 62 consoles exposed",
+            "date": "2026-11-05T00:00:00Z",
+            "summary": "A popular GitHub copy of the AI attack framework pulls an image whose login handler runs attacker commands as root; about 9,000 pulls, 62 exposed consoles running it Nov 2-4 out of 1,645 ARTEX consoles. No confirmed use of the backdoor yet.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html",
+            "source": "Badbyte via The Hacker News"
+          },
           {
             "title": "tsParticles MCP server HTTP mode accepted unauthenticated requests, plus two more flaws",
             "date": "2026-11-04T23:55:00Z",
@@ -1314,13 +1331,13 @@
         "label": "AI impact / AI keys & infrastructure",
         "items": [
           {
-            "title": "Appwrite Cloud: function-runtime exploit exposed Frankfurt Functions and Sites environment variables for about 11 hours (Nov 1)",
-            "date": "2026-11-04T12:00:00Z",
-            "summary": "An attacker running code in an Appwrite project exposed an internal service's credentials; one could read environment variables (often AI and payment keys) from 03:53 to 14:46 UTC Nov 1. Affected customers were emailed and must rotate. No AI-tool use by the attacker reported.",
+            "title": "Kernel breach: customer app secrets and API keys stolen from logs, GPU servers used for cryptomining",
+            "date": "2026-11-04T18:00:00Z",
+            "summary": "Financially motivated actor (ARTEX-linked per Kernel) took secrets customers gave app deployments, which can include AI provider keys, and ran miners on GPU servers; affected customers notified and credentials rotated.",
             "status": "exploited",
             "cves": [],
-            "url": "https://appwrite.io/blog/post/incident-report-sites-functions-runtime-vulnerability",
-            "source": "Appwrite"
+            "url": "https://www.kernel.sh/blog/public-notice-of-security-incident-nov-4-2026",
+            "source": "Kernel"
           },
           {
             "title": "Unverified: Railway preliminary report puts exposed workspaces at up to about 100,000 (1.85%)",
@@ -1332,13 +1349,13 @@
             "source": "X"
           },
           {
-            "title": "Kernel breach: customer app secrets and API keys stolen from logs, GPU servers used for cryptomining",
-            "date": "2026-11-04T18:00:00Z",
-            "summary": "Financially motivated actor (ARTEX-linked per Kernel) took secrets customers gave app deployments, which can include AI provider keys, and ran miners on GPU servers; affected customers notified and credentials rotated.",
+            "title": "Appwrite Cloud: function-runtime exploit exposed Frankfurt Functions and Sites environment variables for about 11 hours (Nov 1)",
+            "date": "2026-11-04T12:00:00Z",
+            "summary": "An attacker running code in an Appwrite project exposed an internal service's credentials; one could read environment variables (often AI and payment keys) from 03:53 to 14:46 UTC Nov 1. Affected customers were emailed and must rotate. No AI-tool use by the attacker reported.",
             "status": "exploited",
             "cves": [],
-            "url": "https://www.kernel.sh/blog/public-notice-of-security-incident-nov-4-2026",
-            "source": "Kernel"
+            "url": "https://appwrite.io/blog/post/incident-report-sites-functions-runtime-vulnerability",
+            "source": "Appwrite"
           },
           {
             "title": "AgenticFlow breach: workflow sandbox escape exposed every saved AI provider key, bot token and MCP token",
@@ -1478,6 +1495,6 @@
         ]
       }
     ],
-    "trend_note": "AI exploit production is now industrial on the research side (about $1,300 per working Linux root exploit), while real attackers mostly still enter through ordinary weaknesses: web plugins, upload forms, leaked API keys, SSO and app misconfigurations. Since the last update: no new ARTEX victim, one new platform secrets exposure (Appwrite) and the largest AI-built exploit run disclosed so far."
+    "trend_note": "ARTEX-style AI attack tooling has spread to a third national financial sector (South Korea, then India) and the tooling itself is now a supply-chain target, with trojanized copies backdooring the people who run it. Entry points remain ordinary: exposed test environments, static API tokens, missing MFA and web upload flaws. No new AI-platform secrets breach since the last update."
   }
 }
