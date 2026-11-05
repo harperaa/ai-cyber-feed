@@ -1,9 +1,23 @@
 {
-  "updated_at": "2026-11-05T01:45:00Z",
-  "next_update_note": "Changes in this 8:45 PM EST Nov 4 (01:45 UTC Nov 5) update: the GitBook card now reflects its post-mortem (how the attacker got in, which keys GitBook already rotated for you); new focus card for the Mistral Vibe repo-open code execution flaws; Chainstack moved to the watch list (no new details). Added to the watch list and AI roll-up: S-RM's ARTEX response report, Check Point's Haiou Codex 'prompt adware', the tsParticles MCP server flaws, the AWS Firecracker escape, the eMudhra certificate-authority distrust, NSW Health's breach and more Arara email-leak victims (Airdo, Solaseed Air). Next summary update in about 4 hours (around 12:30 AM EST); the feed itself refreshes hourly.",
-  "headline": "New since 4:45 PM EST: GitBook's post-mortem says the attacker used a flaw in its SSO login to pose as GitBook staff, read a misconfigured GitHub App's credentials to reach internal code and a Cloudflare API key, and from there got production secrets; GitBook thinks one customer was the real target. S-RM says ARTEX AI agents took one victim's identity systems, cloud, source code and firewalls within 24 hours, and AWS Firecracker microVMs have a guest-to-host memory flaw (CVE-2026-122192). Kernel, Chainalysis, Zyxel GS1900, DreamHost and the exploited WordPress core flaw still need action.",
-  "ai_headline": "New AI items: S-RM's incident responders describe several October ARTEX intrusions that moved from a web-server foothold to identity, cloud and firewalls in hours, and GitBook's post-mortem details the AI-agent break-in. AI products: Mistral Vibe (Mistral's coding agent) runs attacker code just by opening a crafted repo (three CVEs, fixed in 3.0.3), and Check Point found a popular Codex jailbreak bundle, Haiou, that quietly rewrites Codex's global instructions to push an LLM gateway and was found on a cybercrime actor's server.",
+  "updated_at": "2026-11-05T05:45:00Z",
+  "next_update_note": "Next summary around 4:30 AM EST (09:30 UTC); the feed itself refreshes hourly.",
+  "headline": "New since 8:45 PM EST: OpenAI says an autonomous pipeline running an unreleased cyber model reproduced 1,724 Linux kernel bugs and built 948 working root exploits in one 30-hour run (fixes reported to maintainers), and Appwrite disclosed that for about 11 hours on Nov 1 an attacker could read environment variables of Functions and Sites in its Frankfurt region. Kyverno also shipped 1.19.2 for a batch of critical tenant-escape flaws. GitBook, Kernel, Chainalysis, AgenticFlow, PHP2Shell, Zyxel GS1900 and the exploited WordPress core flaw still need action.",
+  "ai_headline": "New AI items: OpenAI's 'A thousand fewer paths to root' shows AI agents finding, exploiting and patching Linux privilege-escalation bugs at about $1,279 per exploit, with at least 10 new exploitation techniques; OpenAI says an unpatched box where an attacker has any low-privileged account should be treated as rooted. The UK NCSC's new assessment says AI tools have almost certainly increased zero-day discovery and that AI-enabled malware is highly likely to be used against critical infrastructure by 2028. ARTEX-driven breaches (GitBook, Kernel, WorkOS, Chainstack) remain the main live AI-cause threat.",
   "focus": [
+    {
+      "title": "OpenAI AI pipeline built 948 working Linux root exploits in one 30-hour run; patches going to kernel maintainers",
+      "severity": "high",
+      "exploited": false,
+      "cves": [],
+      "vendor": "Linux kernel / OpenAI",
+      "why": "OpenAI (Nov 4) says agents using an upcoming cyber model scanned about 2.8 million lines of kernel code, reproduced 1,724 vulnerabilities in mid-October and produced 948 distinct local privilege-escalation exploits plus 291 information-leak proofs of concept against a stock desktop Linux distribution, for $1.21 million in API costs ($1,279 per exploit), using at least 10 new exploitation techniques. Humans reviewed the results before reporting them with AI-written patches. Research only, no attacks; but the same capability is available to attackers, and OpenAI says a low-privileged account on an out-of-date Linux system should be treated as equivalent to root.",
+      "action": "Apply kernel updates on a fast cadence (and reboot or live-patch) as the resulting fixes land in your distro, especially on multi-user hosts, CI runners and container hosts where untrusted code runs as an unprivileged user; don't rely on local-user separation on unpatched kernels, and isolate untrusted workloads in VMs rather than shared-kernel containers.",
+      "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "AI found and weaponized the bugs end to end; the largest AI-built exploit run disclosed so far."
+    },
     {
       "title": "GitBook (documentation platform) breached in an attack using AI agents: SSO flaw let the attacker pose as staff and reach production secrets; all personal API tokens revoked",
       "severity": "critical",
@@ -99,6 +113,20 @@
       "ai_note": "AI impact and AI product: a sandbox escape in an AI agent platform exposed the AI provider keys it held for customers, the same target as the Railway, Northflank and Trigger.dev breaches."
     },
     {
+      "title": "Appwrite (backend platform) Cloud: attacker exploited its function runtime and could read Functions and Sites environment variables in Frankfurt for about 11 hours",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Appwrite",
+      "why": "Appwrite's incident report says an attacker running code in an Appwrite project exploited a function-runtime vulnerability on Nov 1, exposing credentials of an internal service; from 03:53 to 14:46 UTC (10:53 PM Oct 31 to 9:46 AM EST Nov 1) one of them could read the environment variables of Functions and Sites on Frankfurt compute. Appwrite's own scan caught it the next day and it was contained within hours. New to this feed.",
+      "action": "If Appwrite emailed you, treat every matching environment variable as exposed: create new values at the issuing service (payment, email, AI provider, database), revoke the old ones, replace Appwrite API keys with narrowly scoped new ones, update each function or site and redeploy, then check each service's logs for activity since 03:53 UTC Nov 1.",
+      "url": "https://appwrite.io/blog/post/incident-report-sites-functions-runtime-vulnerability",
+      "ai_angle": [
+        "impact"
+      ],
+      "ai_note": "Environment variables commonly hold AI provider keys, the target in this month's platform breaches."
+    },
+    {
       "title": "Mistral Vibe (Mistral's AI coding agent): opening a crafted repository runs the attacker's code before any trust prompt (three CVEs)",
       "severity": "high",
       "exploited": false,
@@ -132,18 +160,6 @@
       "ai_note": ""
     },
     {
-      "title": "DreamHost breach: attackers in its web File Manager for two months stole FTP/SFTP logins; some webmail sessions exposed",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "DreamHost",
-      "why": "New (BleepingComputer, Nov 4): DreamHost's breach notice says an attacker exploited a vulnerability in the server behind files.dreamhost.com and took FTP/SFTP usernames and passwords of everyone who logged into File Manager from about August to Oct 23, and may have reached webmail session data for a limited number of users. DreamHost says control-panel logins and payment data weren't accessed, it fixed the flaw, ended sessions and invalidated passwords. It hasn't said how many accounts.",
-      "action": "If you host with DreamHost: set new FTP/SFTP and email passwords (and anywhere you reused them), check your site files for added or changed files and web shells, and review webmail forwarding rules and filters.",
-      "url": "https://www.bleepingcomputer.com/news/security/dreamhost-confirms-data-breach-exposed-ftp-logins-and-webmail-sessions/",
-      "ai_angle": [],
-      "ai_note": ""
-    },
-    {
       "title": "WordPress Core CVE-2026-119977: unauthenticated code execution during core updates now on CISA's exploited list (versions 4.7 through 7.1.3)",
       "severity": "high",
       "exploited": true,
@@ -160,55 +176,62 @@
   ],
   "news": [
     {
+      "title": "A thousand fewer paths to root",
+      "source": "OpenAI",
+      "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
+      "blurb": "An autonomous discovery, exploitation and patching pipeline produced 948 working Linux root exploits in a 30-hour run for $1.2 million in API credits."
+    },
+    {
+      "title": "Incident report: Sites & Functions runtime vulnerability, November 1st, 2026",
+      "source": "Appwrite",
+      "url": "https://appwrite.io/blog/post/incident-report-sites-functions-runtime-vulnerability",
+      "blurb": "An attacker could read Frankfurt Functions and Sites environment variables for about 11 hours; affected customers must rotate."
+    },
+    {
       "title": "Security incident | November 2026 (post-mortem)",
       "source": "GitBook",
       "url": "https://www.gitbook.com/status/security-incident-2026-11-03",
-      "blurb": "SSO login flaw let the attacker act as staff, then a misconfigured GitHub App and a Cloudflare API key led to production secrets; GitBook lists which tokens you still need to replace."
+      "blurb": "SSO flaw to staff sessions to a misconfigured GitHub App to a Cloudflare key to production secrets; rotate GitBook API tokens and connected secrets."
     },
     {
       "title": "Artex in the wild: Lessons from responding to agentic AI attacks",
       "source": "S-RM",
       "url": "https://www.s-rminform.com/latest-thinking/artex-in-the-wild-lessons-from-responding-to-agentic-ai-attacks",
-      "blurb": "Responders saw ARTEX agents go from an exploited web plugin or upload form to identity, cloud, source code and firewalls in 24 hours at one victim, running two or three attack chains at once."
+      "blurb": "Responders describe ARTEX intrusions reaching identity, cloud, code and firewalls within hours of a web-server foothold."
     },
     {
       "title": "November 4, 2026 Public Notice of Security Incident",
       "source": "Kernel",
       "url": "https://www.kernel.sh/blog/public-notice-of-security-incident-nov-4-2026",
-      "blurb": "Leaked API key led to logging-provider access, stolen customer secrets and cryptomining on GPU servers; Kernel ties the attacker to ARTEX."
+      "blurb": "A leaked API key led to logging-provider data with customer secrets and hijacked GPU servers; Kernel ties the attacker to ARTEX."
     },
     {
-      "title": "Updated Nov 4: Chainalysis Security Incident Information",
-      "source": "Chainalysis",
-      "url": "https://www.chainalysis.com/blog/security-incident-october-30/",
-      "blurb": "An on-path attack exposed some customer passwords; KYT, Reactor and other products are offline during an 'ongoing multifront cyberattack'."
+      "title": "Cyberattack wipes cloud data at major Russian hosting provider Beget",
+      "source": "The Record",
+      "url": "https://therecord.media/russia-cyberattack-beget-cloud",
+      "blurb": "Attackers in Beget's infrastructure management ran wiping scripts; VPS, S3 and Kubernetes data and all binary VPS backups were lost."
+    },
+    {
+      "title": "More Asian airlines announce data breaches after attack on Spanish IT provider Amadeus",
+      "source": "The Record",
+      "url": "https://therecord.media/asian-airlines-announce-data-breach-it-provider-incident",
+      "blurb": "Amadeus now says a vulnerability in a booking-display environment exposed data; JAL, Cathay, Singapore, Malaysia, Korean and Asiana affected."
     },
     {
       "title": "Zyxel fixes zero-day exploited to hack nearly 1,000 network switches",
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches/",
-      "blurb": "CVE-2026-107441 bypassed June's GS1900 patch; Binarly found it in Red Heron infrastructure."
-    },
-    {
-      "title": "DreamHost confirms data breach exposed FTP logins and webmail sessions",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/dreamhost-confirms-data-breach-exposed-ftp-logins-and-webmail-sessions/",
-      "blurb": "File Manager server exploited from August to Oct 23; FTP/SFTP credentials taken."
-    },
-    {
-      "title": "Researchers Uncover Prompt Adware Hidden in OpenAI Codex Jailbreak Toolkit",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/researchers-uncover-prompt-adware.html",
-      "blurb": "Check Point's Haiou analysis: a Codex jailbreak bundle with 400+ GitHub stars rewrites global agent instructions to advertise an LLM gateway, and was found alongside Cobalt Strike on a cybercrime server."
-    },
-    {
-      "title": "Escaping AWS Firecracker from guest userspace (CVE-2026-122192)",
-      "source": "Coinspect",
-      "url": "https://www.coinspect.com/blog/firecracker-escape/",
-      "blurb": "A microVM restored from a snapshot with the File memory backend can end up reaching memory of the Firecracker process on the host; coordinated with AWS."
+      "blurb": "GS1900 switches were hacked even after June's patch; apply the new firmware."
     }
   ],
   "watch": [
+    "UK NCSC assessment (Nov 3-4, via AP and The Hacker News): AI-powered tools have almost certainly increased zero-day discovery, defensive AI has shortened the zero-day-to-patch window, and AI-enabled malware is highly likely to be used in ransomware against critical infrastructure by 2028. It urges faster patching, tighter admin access, monitoring and backups.",
+    "Kyverno (Kubernetes policy engine) 1.19.2 fixes a batch of critical flaws published Nov 5 (CVE-2026-122302, -122303, -122304, -122310, -122311, -122313 at 9.8-9.9, and a 9.1 image-signature verification bypass, CVE-2026-122321): namespace-level users or tenants can escape their namespace or exceed their RBAC through policies, generate and cleanup rules. No attacks reported; upgrade to 1.19.2 if you run multi-tenant clusters.",
+    "Beget update (The Record, Nov 4): the Russian host says attackers reached its infrastructure management systems and ran wiping scripts; VPS, S3 and Kubernetes data and all binary VPS backups were lost (file-level backups survived), and over 1,000 servers are being checked by hand. Customers should change passwords and keys stored on its servers.",
+    "Amadeus (The Record, Nov 4) now says a vulnerability in a travel booking-display environment exposed booking data, with no evidence of payment data access; airlines had said the attackers used credentials for a system account. Air Creebec (Canada, Nov 4) separately confirmed an intrusion with exfiltrated employee and passenger files.",
+    "adminide-stack npm compromise (greenflagged.dev via r/blueteamsec, Nov 5): an Ethereum-contract dead drop leads to a Node RAT that persists through npm and editor start-up; if you installed it, treat the machine as compromised and rotate its secrets.",
+    "Krebs (Nov 4): several White House staffers' computers or phones carry residential-proxy software that lets others rent their internet address; check managed devices for proxyware SDKs bundled in free apps.",
+    "DreamHost (moved off the focus list, no new details): attackers in its web File Manager (Aug to Oct 23) stole FTP/SFTP logins of anyone who used it and some webmail sessions; check site files for changes, review webmail forwarding rules and change reused passwords.",
     "S-RM (Nov 4) on several October ARTEX intrusions it handled: each began with probing internet-facing servers and exploiting a web-server plugin or misconfigured upload function, then agents pulled credentials, tested them everywhere and moved on; one went from initial access to all identity infrastructure, cloud, source code and perimeter firewalls in 24 hours, another reached central management platforms in four hours. Patch internet-facing web plugins and upload handlers fast, and alert on one credential being tried across many systems.",
     "Check Point 'prompt adware' (Haiou, Nov 3-4): a Codex jailbreak bundle (haiou-codex on GitHub, 403 stars, 77 forks) installs pentest, cracking and reverse-engineering skills and writes an ad for an LLM gateway (zz.aiapi2025[.]top) into Codex's global instructions; Check Point found it on a cybercrime actor's server next to Cobalt Strike and the VulnClaw agent, but saw no data theft and doesn't call the gateway malicious. Check ~/.codex/AGENTS.md and installed skills for content you didn't add, and don't route agents through unknown gateways.",
     "tsParticles MCP server (@tsparticles/mcp-server, CVE records via X, Nov 4): its HTTP mode accepted unauthenticated requests (CVE-2026-63655) and had two more flaws (CVE-2026-76892, CVE-2026-76893); update to 4.3.2 or later, or use stdio mode.",
@@ -409,16 +432,34 @@
     "Langflow CVE-2026-105740: MCP stdio command injection lets any authenticated user run shell commands; ZoomEye counts about 19,200 exposed instances. Update Langflow and don't expose it to the internet (no attacks reported)."
   ],
   "ai_activity": {
-    "overview": "Last 7 days: 99 AI-related attack and exploit items, 40 where AI was the cause, 43 involving AI products, 16 AI-impact or AI-key incidents. New since the 4:45 PM EST update: GitBook's post-mortem explains how its AI-agent attacker got from an SSO flaw to production secrets, S-RM published first-hand response notes on fast ARTEX intrusions, Mistral Vibe got three repo-open code execution fixes, and Check Point documented a Codex jailbreak bundle that rewrites the agent's instructions. The week's picture: attackers run AI agent frameworks (ARTEX, BOSSAI, pentestcode, Hexstrike, CAIRN, CyberStrikeAI) in real intrusions at GitBook, WorkOS, Chainstack, Kernel and Chainalysis, AI models find serious bugs (Xen, PHP2Shell, GLM 5.3's Firefox chains), and AI platforms keep losing the provider keys they store.",
+    "overview": "Last 7 days: 103 AI-related attack and exploit items, 42 where AI was the cause, 43 involving AI products, 18 AI-impact or AI-key incidents. New since the 8:45 PM EST update: OpenAI disclosed an AI pipeline that built 948 working Linux root exploits in one run, the UK NCSC said AI has almost certainly increased zero-day discovery, and Appwrite disclosed a Nov 1 runtime exploit that exposed customer environment variables. The week's picture: attackers run AI agent frameworks (ARTEX, BOSSAI, pentestcode, Hexstrike, CAIRN, CyberStrikeAI) in real intrusions at GitBook, WorkOS, Chainstack, Kernel and Chainalysis, AI models find serious bugs at scale (Linux kernel, Xen, PHP2Shell, GLM 5.3's Firefox chains), and AI and developer platforms keep losing the provider keys they store.",
     "counts": {
-      "ai_cause": 40,
+      "ai_cause": 42,
       "ai_product_exploited": 43,
-      "ai_impact": 16
+      "ai_impact": 18
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "OpenAI pipeline with an unreleased cyber model reproduces 1,724 Linux kernel bugs and builds 948 working root exploits in 30 hours",
+            "date": "2026-11-04T22:00:00Z",
+            "summary": "Mid-October research run against a stock desktop distribution: 2,308 candidate findings, 1,724 reproduced, 291 info-leak PoCs and 948 distinct local privilege-escalation exploits for $1.21M ($1,279 each), with at least 10 new exploitation techniques; humans reviewed exploits and AI-written patches before reporting to maintainers. Research, no attacks.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
+            "source": "OpenAI; The Hacker News"
+          },
+          {
+            "title": "UK NCSC: AI tools have almost certainly increased zero-day discovery; AI-enabled ransomware against critical infrastructure highly likely by 2028",
+            "date": "2026-11-04T20:00:00Z",
+            "summary": "Government assessment, not an incident: attackers lose less by burning access because replacing it is cheap, and organizations must speed up patching and testing to match AI-paced discovery.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://apnews.com/article/europe-britain-cybersecurity-attacks-artificial-intelligence-4e61bf9b55c7d1d15cfd075859d2ba08",
+            "source": "AP; The Hacker News"
+          },
           {
             "title": "Kernel (AI-agent cloud browsers) breached; it believes the attacker runs ARTEX as a command center",
             "date": "2026-11-04T18:00:00Z",
@@ -1273,6 +1314,24 @@
         "label": "AI impact / AI keys & infrastructure",
         "items": [
           {
+            "title": "Appwrite Cloud: function-runtime exploit exposed Frankfurt Functions and Sites environment variables for about 11 hours (Nov 1)",
+            "date": "2026-11-04T12:00:00Z",
+            "summary": "An attacker running code in an Appwrite project exposed an internal service's credentials; one could read environment variables (often AI and payment keys) from 03:53 to 14:46 UTC Nov 1. Affected customers were emailed and must rotate. No AI-tool use by the attacker reported.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://appwrite.io/blog/post/incident-report-sites-functions-runtime-vulnerability",
+            "source": "Appwrite"
+          },
+          {
+            "title": "Unverified: Railway preliminary report puts exposed workspaces at up to about 100,000 (1.85%)",
+            "date": "2026-11-04T15:03:00Z",
+            "summary": "A single X post says Railway's preliminary report on the Oct 21 incident found environment variables of up to about 100,000 workspaces may have been exposed and the attacker wanted AI and platform API keys; not confirmed against Railway's own report here. Rotate keys stored on Railway and redeploy.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/AgentFieldKit/status/2117996167032127651",
+            "source": "X"
+          },
+          {
             "title": "Kernel breach: customer app secrets and API keys stolen from logs, GPU servers used for cryptomining",
             "date": "2026-11-04T18:00:00Z",
             "summary": "Financially motivated actor (ARTEX-linked per Kernel) took secrets customers gave app deployments, which can include AI provider keys, and ran miners on GPU servers; affected customers notified and credentials rotated.",
@@ -1419,6 +1478,6 @@
         ]
       }
     ],
-    "trend_note": "ARTEX keeps showing up by name in victim and responder reports (WorkOS, Chainstack, Kernel, DIVD, GoDaddy/123 Reg, S-RM's cases), and the common entry points are ordinary: web plugins, upload forms, leaked API keys and SSO or app misconfigurations. Since the last update: no new AI-linked breach victim, more detail on existing ones, and one new batch of AI coding-agent flaws."
+    "trend_note": "AI exploit production is now industrial on the research side (about $1,300 per working Linux root exploit), while real attackers mostly still enter through ordinary weaknesses: web plugins, upload forms, leaked API keys, SSO and app misconfigurations. Since the last update: no new ARTEX victim, one new platform secrets exposure (Appwrite) and the largest AI-built exploit run disclosed so far."
   }
 }
