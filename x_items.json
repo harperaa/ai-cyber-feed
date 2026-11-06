@@ -1,5 +1,47 @@
 [
  {
+  "url": "https://x.com/MsftSecIntel/status/2118491118308352329",
+  "author": "MsftSecIntel",
+  "created_at": "2026-11-05T23:50:16Z",
+  "text": "Microsoft Threat Intelligence: threat actors are using agentic AI tools to search public GitHub repos for exposed secrets, then leveraging stolen credentials against compromised orgs. Rotate keys in any Key Vault a compromised app could read.",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/SCMagazine/status/2118494072205619614",
+  "author": "SCMagazine",
+  "created_at": "2026-11-06T00:02:01Z",
+  "text": "More than 1,000 GitLab servers remain exposed to actively exploited critical RCE CVE-2026-97229 (CI/CD regex; sibling CVE-2026-110264 CVSS 10.0). Patch to 19.5.1 / 19.4.3 / 19.3.6 / 19.2.9; credential theft and supply-chain risk.",
+  "cves": ["CVE-2026-97229", "CVE-2026-110264"]
+ },
+ {
+  "url": "https://x.com/aviatrixtrc/status/2118492969191825730",
+  "author": "aviatrixtrc",
+  "created_at": "2026-11-05T23:57:38Z",
+  "text": "OpenSSH *sshole CVE-2026-123158: on musl/Alpine with PAM off, any 257–1024 byte password can log into passwordless/key-only accounts (incl. some cloud images). OpenSSH 10.6p2 critical fix shipped Nov 5; disable PasswordAuthentication.",
+  "cves": ["CVE-2026-123158"]
+ },
+ {
+  "url": "https://x.com/secpoint/status/2118493736350970030",
+  "author": "secpoint",
+  "created_at": "2026-11-06T00:00:41Z",
+  "text": "ClickHouse Server CVE-2026-116366: under certain conditions an unauthenticated attacker with network access can execute arbitrary code on the server. Disclosed 30 Oct 2026; patch exposed instances.",
+  "cves": ["CVE-2026-116366"]
+ },
+ {
+  "url": "https://x.com/Reuters/status/2118458366171213838",
+  "author": "Reuters",
+  "created_at": "2026-11-05T21:40:08Z",
+  "text": "French bank Crédit Mutuel Arkéa: ~€100M missing after cyberattack. Attackers used a third-party/supplier path to move funds from the bank's own account; customer assets unaffected. Recovery uncertain.",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/ether_world/status/2118385580149252562",
+  "author": "ether_world",
+  "created_at": "2026-11-05T16:50:54Z",
+  "text": "CERT-In warns of CRAFTY FALCON: AI-powered group (ARTEX, PentAGI, CyberStrikeAI, Cairn) automating attacks on Indian banks, fintechs, NBFCs and crypto exchanges via weak test systems and payment APIs; ₹1 test transfers then larger thefts.",
+  "cves": []
+ },
+ {
   "url": "https://x.com/MarcosRGjr/status/2118468297926578337",
   "author": "MarcosRGjr",
   "created_at": "2026-11-05T22:19:36Z",
@@ -14,30 +56,18 @@
   "cves": []
  },
  {
-  "url": "https://x.com/kman62/status/2118463220046614731",
-  "author": "kman62",
-  "created_at": "2026-11-05T21:59:25Z",
-  "text": "OpenAI's AI agents found and exploited 948 Linux kernel root-access flaws in one run at about $1.2M API cost. Earlier run reported 200; human review cut many.",
-  "cves": []
- },
- {
   "url": "https://x.com/PHPSiteAudit/status/2118466134378688669",
   "author": "PHPSiteAudit",
   "created_at": "2026-11-05T22:11:00Z",
   "text": "PHP knew about PHP2Shell in 2024 with no concrete attack path so no fix. Researchers using AI found the way in within about a week. PHP Foundation calls the delay a structural failure.",
-  "cves": [
-   "CVE-2026-109618",
-   "CVE-2026-109619"
-  ]
+  "cves": ["CVE-2026-109618", "CVE-2026-109619"]
  },
  {
   "url": "https://x.com/RohanBhanotAI/status/2118373868201021573",
   "author": "RohanBhanotAI",
   "created_at": "2026-11-05T16:04:22Z",
   "text": "Linux kernel CVE-2026-98432 CVSS 9.8 remote root, no login needed. Anthropic's AI found the path. ~2.1 million MPTCP-facing servers already being scanned. Ubuntu still shipping the patch late.",
-  "cves": [
-   "CVE-2026-98432"
-  ]
+  "cves": ["CVE-2026-98432"]
  },
  {
   "url": "https://x.com/DFIR_Radar/status/2118478986317902089",
@@ -50,7 +80,7 @@
   "url": "https://x.com/cubillas888/status/2118474690889187796",
   "author": "cubillas888",
   "created_at": "2026-11-05T22:45:00Z",
-  "text": "Supply chain attack on AI pentest tool tomicdd/artex Docker image (~7,946 pulls): backdoor only in image, GitHub source clean; 62 public consoles served it Nov 2\u20134; Docker removed images Nov 5.",
+  "text": "Supply chain attack on AI pentest tool tomicdd/artex Docker image (~7,946 pulls): backdoor only in image, GitHub source clean; 62 public consoles served it Nov 2–4; Docker removed images Nov 5.",
   "cves": []
  },
  {
@@ -68,10 +98,10 @@
   "cves": []
  },
  {
-  "url": "https://x.com/michael_varis/status/2118465950080999832",
-  "author": "michael_varis",
-  "created_at": "2026-11-05T22:10:16Z",
-  "text": "Anthropic logged ThisBash as valid in May, closed it as a duplicate, paid no bounty, issued no CVE, and missed its own October plan to retire Dispatch. Support still says keep using it.",
+  "url": "https://x.com/TheRegister/status/2118329665278644449",
+  "author": "TheRegister",
+  "created_at": "2026-11-05T13:08:43Z",
+  "text": "Exclusive: vuln in Anthropic Claude products lets any browser extension that can control Claude Dispatch make Claude Desktop run code on the computer — no browser exploit, minimal user interaction.",
   "cves": []
  },
  {
@@ -82,146 +112,130 @@
   "cves": []
  },
  {
+  "url": "https://x.com/Sujeet/status/2118495281201435069",
+  "author": "Sujeet",
+  "created_at": "2026-11-06T00:06:49Z",
+  "text": "Mozilla is changing how Firefox patches ship specifically to slow AI-assisted exploit development from public patches. Disclosure-to-exploit window now measured in hours.",
+  "cves": []
+ },
+ {
   "url": "https://x.com/EnclaveRadar/status/2118466089688481894",
   "author": "EnclaveRadar",
   "created_at": "2026-11-05T22:10:49Z",
   "text": "New CVE with public exploit: CVE-2026-48705 (CVSS 9.3). MONAILabel Server crash and silent inference corruption via crafted DICOM (pydicom DS/IS validation bypass). Remote, no login. AI medical imaging toolkit.",
-  "cves": [
-   "CVE-2026-48705"
-  ]
+  "cves": ["CVE-2026-48705"]
  },
  {
   "url": "https://x.com/EmunaEliran/status/2118480609404223962",
   "author": "EmunaEliran",
   "created_at": "2026-11-05T23:08:31Z",
-  "text": "CVE-2026-77596: CVSS 9.6 critical. Kubeflow Pipelines multi-user HTTP endpoints POST /apis/v2beta1/pipelines/upload (and related) prior to 2.18.0 \u2014 ML workflow platform flaw.",
-  "cves": [
-   "CVE-2026-77596"
-  ]
- },
- {
-  "url": "https://x.com/itszn13/status/2118478829543211358",
-  "author": "itszn13",
-  "created_at": "2026-11-05T23:01:27Z",
-  "text": "GPT-6 Cyber is OpenAI's latest model for vulnerability research and redteaming, combining Astra capabilities with training from OpenAI's vulnerability research team.",
-  "cves": []
+  "text": "CVE-2026-77596: CVSS 9.6 critical. Kubeflow Pipelines multi-user HTTP endpoints POST /apis/v2beta1/pipelines/upload (and related) prior to 2.18.0 — ML workflow platform flaw.",
+  "cves": ["CVE-2026-77596"]
  },
  {
   "url": "https://x.com/baldwinstonex/status/2118481879670423794",
   "author": "baldwinstonex",
   "created_at": "2026-11-05T23:13:34Z",
   "text": "CVE-2026-83844: remote code execution vulnerability in Microsoft Paint over the network. Microsoft Store fix; no known in-the-wild exploitation reported yet.",
-  "cves": [
-   "CVE-2026-83844"
-  ]
- },
- {
-  "url": "https://x.com/ayushsood/status/2118470264505979096",
-  "author": "ayushsood",
-  "created_at": "2026-11-05T22:27:24Z",
-  "text": "CVE-2026-83844: Windows Paint RCE.",
-  "cves": [
-   "CVE-2026-83844"
-  ]
+  "cves": ["CVE-2026-83844"]
  },
  {
   "url": "https://x.com/Python_s_/status/2118480103747330547",
   "author": "Python_s_",
   "created_at": "2026-11-05T23:06:30Z",
-  "text": "APT package manager (Debian/Ubuntu): CVE-2026-109518 HIGH CVSS 7.7 \u2014 improper hard-link verification can install malicious packages with root privileges.",
-  "cves": [
-   "CVE-2026-109518"
-  ]
+  "text": "APT package manager (Debian/Ubuntu): CVE-2026-109518 HIGH CVSS 7.7 — improper hard-link verification can install malicious packages with root privileges.",
+  "cves": ["CVE-2026-109518"]
  },
  {
   "url": "https://x.com/Python_s_/status/2118479961506136285",
   "author": "Python_s_",
   "created_at": "2026-11-05T23:05:56Z",
   "text": "Critical kaniko flaw CVE-2026-105769 / GHSA-5q7h-w9jf-cx97 can expose Azure access tokens to attacker-controlled registries (Chainguard-forks kaniko).",
-  "cves": [
-   "CVE-2026-105769"
-  ]
- },
- {
-  "url": "https://x.com/EmunaEliran/status/2118479352941678915",
-  "author": "EmunaEliran",
-  "created_at": "2026-11-05T23:03:31Z",
-  "text": "CVE-2026-71550: CVSS 9.9 critical SuiteCRM \u2014 workflow controller path-traversal in aow_action require_once(); patched in 7.15.2 and 8.10.2.",
-  "cves": [
-   "CVE-2026-71550"
-  ]
+  "cves": ["CVE-2026-105769"]
  },
  {
   "url": "https://x.com/busenur038/status/2118480690203230317",
   "author": "busenur038",
   "created_at": "2026-11-05T23:08:50Z",
   "text": "SuiteCRM CVE-2026-71550 critical CVSS 9.9: Workflow-role user can reach code execution via file inclusion; no admin needed. Patched 7.15.2 / 8.10.2. Not in CISA KEV.",
-  "cves": [
-   "CVE-2026-71550"
-  ]
+  "cves": ["CVE-2026-71550"]
+ },
+ {
+  "url": "https://x.com/EmunaEliran/status/2118490112145203241",
+  "author": "EmunaEliran",
+  "created_at": "2026-11-05T23:46:17Z",
+  "text": "CVE-2026-100358: CVSS 9.4 critical SuiteCRM — Studio Dropdown Editor passes $dropdown_name through html_entity_decode() then writes it; patched in 7.15.2 and 8.10.2.",
+  "cves": ["CVE-2026-100358"]
  },
  {
   "url": "https://x.com/dailycve/status/2118477109345792080",
   "author": "dailycve",
   "created_at": "2026-11-05T22:54:36Z",
-  "text": "Splunk Enterprise CVE-2026-20253 Critical \u2014 arbitrary file creation and RCE.",
-  "cves": [
-   "CVE-2026-20253"
-  ]
+  "text": "Splunk Enterprise CVE-2026-20253 Critical — arbitrary file creation and RCE.",
+  "cves": ["CVE-2026-20253"]
  },
  {
   "url": "https://x.com/EmunaEliran/status/2118479596039401645",
   "author": "EmunaEliran",
   "created_at": "2026-11-05T23:04:29Z",
-  "text": "CVE-2026-123198: CVSS 9.8 LMFDB SSTI in render_knowl \u2014 unauthenticated Jinja injection via request parameters.",
-  "cves": [
-   "CVE-2026-123198"
-  ]
+  "text": "CVE-2026-123198: CVSS 9.8 LMFDB SSTI in render_knowl — unauthenticated Jinja injection via request parameters.",
+  "cves": ["CVE-2026-123198"]
  },
  {
   "url": "https://x.com/EmunaEliran/status/2118482083987218679",
   "author": "EmunaEliran",
   "created_at": "2026-11-05T23:14:22Z",
   "text": "CVE-2026-116790: CVSS 9.1 critical FreeSWITCH advisory.",
-  "cves": [
-   "CVE-2026-116790"
-  ]
+  "cves": ["CVE-2026-116790"]
  },
  {
-  "url": "https://x.com/EmunaEliran/status/2118478553801163016",
+  "url": "https://x.com/EmunaEliran/status/2118489625865896133",
   "author": "EmunaEliran",
-  "created_at": "2026-11-05T23:00:21Z",
+  "created_at": "2026-11-05T23:44:21Z",
   "text": "CVE-2026-116779: CVSS 9.8 critical FreeSWITCH advisory.",
-  "cves": [
-   "CVE-2026-116779"
-  ]
+  "cves": ["CVE-2026-116779"]
+ },
+ {
+  "url": "https://x.com/EmunaEliran/status/2118489868816760885",
+  "author": "EmunaEliran",
+  "created_at": "2026-11-05T23:45:19Z",
+  "text": "CVE-2026-116785: CVSS 9.1 critical FreeSWITCH advisory.",
+  "cves": ["CVE-2026-116785"]
  },
  {
   "url": "https://x.com/cvedotnew/status/2118478499581174165",
   "author": "cvedotnew",
   "created_at": "2026-11-05T23:00:08Z",
-  "text": "CVE-2026-73100 CRITICAL CVSS 10.0 \u2014 Apache Juneau through 9.2.0 logs sensitive request headers in cleartext on server errors.",
-  "cves": [
-   "CVE-2026-73100"
-  ]
+  "text": "CVE-2026-73100 CRITICAL CVSS 10.0 — Apache Juneau through 9.2.0 logs sensitive request headers in cleartext on server errors.",
+  "cves": ["CVE-2026-73100"]
  },
  {
   "url": "https://x.com/neo_logos_/status/2118471092964913487",
   "author": "neo_logos_",
   "created_at": "2026-11-05T22:30:42Z",
   "text": "US federal civilian agencies face CISA deadline to secure systems against actively exploited WordPress RCE CVE-2026-119977.",
-  "cves": [
-   "CVE-2026-119977"
-  ]
+  "cves": ["CVE-2026-119977"]
  },
  {
-  "url": "https://x.com/zoomeyebot/status/2118474767372267661",
-  "author": "zoomeyebot",
-  "created_at": "2026-11-05T22:45:18Z",
-  "text": "Checkmk mk-oracle local privilege escalation CVE-2026-113461 affecting Checkmk 2.5.0p14; ~2.4k exposed instances.",
-  "cves": [
-   "CVE-2026-113461"
-  ]
+  "url": "https://x.com/rst_cloud/status/2118484270104592736",
+  "author": "rst_cloud",
+  "created_at": "2026-11-05T23:23:04Z",
+  "text": "PolinRider returns: hijacked npm packages use Ethereum blockchain dead-drops to conceal malware infrastructure (supply-chain technique).",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/CodingNoobie/status/2118400234049155548",
+  "author": "CodingNoobie",
+  "created_at": "2026-11-05T17:49:08Z",
+  "text": "Chainalysis disclosed a cyberattack exposing names, usernames, password hashes and live authentication tokens; potentially unauthorized access to customer accounts; some services temporarily taken offline. Rotate credentials.",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/PreppingWithDex/status/2118465494571446295",
+  "author": "PreppingWithDex",
+  "created_at": "2026-11-05T22:08:27Z",
+  "text": "CISA, FBI, USDA/HHS/DOT joint warning: ongoing cyberattacks on internet-connected industrial refrigeration/cold-chain systems (Europe supermarket and France blood-service incidents). Isolate controllers, patch, change defaults.",
+  "cves": []
  },
  {
   "url": "https://x.com/CyberScoopNews/status/2118465885635596771",
@@ -234,94 +248,35 @@
   "url": "https://x.com/rst_cloud/status/2118461516890411128",
   "author": "rst_cloud",
   "created_at": "2026-11-05T21:52:39Z",
-  "text": "SOC Files: Ghost in the pipeline \u2014 fileless SharePoint breach by Storm-2603 / Warlock (cyber espionage).",
+  "text": "SOC Files: Ghost in the pipeline — fileless SharePoint breach by Storm-2603 / Warlock (cyber espionage).",
   "cves": []
  },
  {
-  "url": "https://x.com/valeriixai/status/2118479304501903450",
-  "author": "valeriixai",
-  "created_at": "2026-11-05T23:03:20Z",
-  "text": "GitHub can now detect exposed Starlink API keys and alert SpaceX; developers using Starlink API should rotate compromised keys.",
-  "cves": []
- },
- {
-  "url": "https://x.com/UndercodeUpdate/status/2118480614857097683",
-  "author": "UndercodeUpdate",
-  "created_at": "2026-11-05T23:08:32Z",
-  "text": "AI-generated bug bounty slop: HackerOne data shows 32% drop in signal efficiency amid surge in automated vulnerability reports.",
-  "cves": []
- },
- {
-  "url": "https://x.com/baltimore465/status/2118467713777447064",
-  "author": "baltimore465",
-  "created_at": "2026-11-05T22:17:16Z",
-  "text": "OpenAI just launched GPT-6 Cyber. In testing: 81 new Firefox vulnerabilities, exploits for 948 Linux kernel flaws, a critical bug in Brotli validated. All disclosed and patched. Daybreak Red only.",
-  "cves": []
- },
- {
-  "url": "https://x.com/SiliconANGLE/status/2118477744161841214",
-  "author": "SiliconANGLE",
-  "created_at": "2026-11-05T22:57:08Z",
-  "text": "OpenAI launches GPT-6 Cyber, a GPT-6 Astra model built to keep vulnerability research in scope.",
-  "cves": []
- },
- {
-  "url": "https://x.com/rohanpaul_ai/status/2118470407313646054",
-  "author": "rohanpaul_ai",
-  "created_at": "2026-11-05T22:27:59Z",
-  "text": "OpenAI released GPT-6 Cyber for finding/exploiting vulns within authorized targets; Daybreak Red customers only. Confirmed 1,724 findings on real software.",
-  "cves": []
+  "url": "https://x.com/GridwatchSignal/status/2118473779584331854",
+  "author": "GridwatchSignal",
+  "created_at": "2026-11-05T22:41:23Z",
+  "text": "Upcoming patch windows: Google Brotli CVE-2026-111497 and Adobe Commerce CVE-2026-48356 (both Nov 10). Node.js also scheduling HIGH-severity fixes for 22.x/24.x/26.x on/after Nov 11.",
+  "cves": ["CVE-2026-111497", "CVE-2026-48356"]
  },
  {
   "url": "https://x.com/EmunaEliran/status/2118481841267052881",
   "author": "EmunaEliran",
   "created_at": "2026-11-05T23:13:25Z",
-  "text": "CVE-2026-102940: CVSS 9.6 OpenEMR \u2014 C_Document.class.php write actions including move_action_process() do not verify caller prior to 8.4.0.",
-  "cves": [
-   "CVE-2026-102940"
-  ]
+  "text": "CVE-2026-102940: CVSS 9.6 OpenEMR — C_Document.class.php write actions including move_action_process() do not verify caller prior to 8.4.0.",
+  "cves": ["CVE-2026-102940"]
  },
  {
-  "url": "https://x.com/EmunaEliran/status/2118481598450417718",
-  "author": "EmunaEliran",
-  "created_at": "2026-11-05T23:12:27Z",
-  "text": "CVE-2026-46350: CVSS 9.1 dcmjs DICOM JS lib \u2014 DecimalString/IntegerString permissive regex sanitization prior to 0.52.0.",
-  "cves": [
-   "CVE-2026-46350"
-  ]
+  "url": "https://x.com/zoomeyebot/status/2118474767372267661",
+  "author": "zoomeyebot",
+  "created_at": "2026-11-05T22:45:18Z",
+  "text": "Checkmk mk-oracle local privilege escalation CVE-2026-113461 affecting Checkmk 2.5.0p14; ~2.4k exposed instances.",
+  "cves": ["CVE-2026-113461"]
  },
  {
-  "url": "https://x.com/EmunaEliran/status/2118481354530652543",
-  "author": "EmunaEliran",
-  "created_at": "2026-11-05T23:11:29Z",
-  "text": "CVE-2026-85076: CVSS 9.0 Cronicle \u2014 authenticated non-admin with event privileges can supply undeclared keys in event params prior to 0.9.124.",
-  "cves": [
-   "CVE-2026-85076"
-  ]
- },
- {
-  "url": "https://x.com/EmunaEliran/status/2118480862924738661",
-  "author": "EmunaEliran",
-  "created_at": "2026-11-05T23:09:31Z",
-  "text": "CVE-2026-120446: CVSS 9.4 madong-admin-saas missing auth in platform tenant management API (platformapi middleware mismatch) through 5.1.4.",
-  "cves": [
-   "CVE-2026-120446"
-  ]
- },
- {
-  "url": "https://x.com/dailycve/status/2118477790169506211",
-  "author": "dailycve",
-  "created_at": "2026-11-05T22:57:19Z",
-  "text": "Shuffle CVE-2026-92716 High \u2014 cross-tenant privilege escalation.",
-  "cves": [
-   "CVE-2026-92716"
-  ]
- },
- {
-  "url": "https://x.com/Komodosec/status/2118482147002782101",
-  "author": "Komodosec",
-  "created_at": "2026-11-05T23:14:37Z",
-  "text": "OpenAI\u2019s GPT-6 Cyber ups the ante on vulnerability discovery (CSO Online).",
-  "cves": []
+  "url": "https://x.com/gagansuie/status/2118381338109640756",
+  "author": "gagansuie",
+  "created_at": "2026-11-05T16:34:03Z",
+  "text": "Ivanti Connect Secure: CVE-2026-111357 and CVE-2026-118527 patched 29 Oct; CISA added both to KEV 30 Oct with federal deadlines 2 and 13 Nov. Prior CVE-2026-104935 (8.6) patched 13 Oct.",
+  "cves": ["CVE-2026-111357", "CVE-2026-118527", "CVE-2026-104935"]
  }
 ]
