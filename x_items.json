@@ -1,77 +1,270 @@
 [
   {
-    "url": "https://x.com/coinkong/status/2118755506949157153",
-    "author": "coinkong",
-    "text": "Hunting a kernel bug used to be one expert, one bug, weeks of work. OpenAI ran it as a process instead. The pipeline scans the Linux kernel for suspicious spots, breaks a real machine running stock Linux to prove the spot is real.",
-    "created_at": "2026-11-06T17:20:52.000Z",
+    "url": "https://x.com/davidarngar/status/2118770533307138176",
+    "author": "davidarngar",
+    "text": "Claude Code exposed users' email addresses to third-party websites without their knowledge. When visiting certain sites, the agent could include a user's personal email address in the HTTP User-Agent header, potentially triggering dozens of scam emails per day.",
+    "created_at": "2026-11-06T18:20:34.000Z",
     "cves": []
   },
   {
-    "url": "https://x.com/keithrull/status/2118755434010141012",
-    "author": "keithrull",
-    "text": "Cyber is Critical \u2014 and labs are accelerating with AI in the loop. GPT-6 Cyber ships under Daybreak Red; METR: Anthropic ~2x faster on task progress; Claude Enterprise inference hooks go GA",
-    "created_at": "2026-11-06T17:20:34.000Z",
+    "url": "https://x.com/bsormagec/status/2118766031032242304",
+    "author": "bsormagec",
+    "text": "Your coding agent has been handing out your email address to every website it visits. Claude Code put users' account email in the User-Agent header of web requests it composed. The reporter who filed the bug now gets dozens of scam emails a day.",
+    "created_at": "2026-11-06T18:02:41.000Z",
     "cves": []
   },
   {
-    "url": "https://x.com/severitydaily/status/2118754617777442895",
-    "author": "severitydaily",
-    "text": "Craft CMS proved an unauthenticated SQL injection could set the admin flag, rated it High, and gave it no CVE. VulnCheck (@VulnCheckAI) scored it 9.8 today, 50 days after the fix. No exploitation reported.",
-    "created_at": "2026-11-06T17:17:20.000Z",
+    "url": "https://x.com/SGImike/status/2118765088630821064",
+    "author": "SGImike",
+    "text": "BREAKING: Claude Code leaked your email to sites it visited. GitHub #107757 hit #1 on HN. Users got dozens of scam emails/day. Fix: Update to 2.1.317+; /plugins \u2192 privacy mod ON. Agents that browse for you also leak for you.",
+    "created_at": "2026-11-06T17:58:56.000Z",
     "cves": []
   },
   {
-    "url": "https://x.com/pwnwatch_app/status/2118754535628046360",
+    "url": "https://x.com/Pick_Analytica/status/2118770185746448621",
+    "author": "Pick_Analytica",
+    "text": "The Hacker News: SSHole is already being exploited. Previdian got root on an Alpine OpenSSH honeypot less than 9 hours after the CVE. Eight attempts came from one Japan IP. Update to OpenSSH 10.6p2 and restart sshd if you run musl without PAM.",
+    "created_at": "2026-11-06T18:19:11.000Z",
+    "cves": [
+      "CVE-2026-123158"
+    ]
+  },
+  {
+    "url": "https://x.com/jeromerousselot/status/2118763957259293038",
+    "author": "jeromerousselot",
+    "text": "sshole critical ssh vulnerability on Alpine Linux, OpenWRT Linux and all other Linux systems using musl library instead of glibc. Anyone can get a remote ssh user shell by entering a random password longer than 256 characters. https://sshhole.com/",
+    "created_at": "2026-11-06T17:54:26.000Z",
+    "cves": [
+      "CVE-2026-123158"
+    ]
+  },
+  {
+    "url": "https://x.com/FOSSForce/status/2118757918120042960",
+    "author": "FOSSForce",
+    "text": "Here we go again: Meet *sshole, the vulnerability that lets hackers SSH into Linux devices",
+    "created_at": "2026-11-06T17:30:26.000Z",
+    "cves": [
+      "CVE-2026-123158"
+    ]
+  },
+  {
+    "url": "https://x.com/SinghalPratul/status/2118541454671069403",
+    "author": "SinghalPratul",
+    "text": "A long password can break into Alpine servers. sshole: CVE-2026-123158, rated 8.1. Any password 257 to 1024 chars gets in. Accounts meant for keys only are the target. Fix is out in OpenSSH 10.6p2, patch now.",
+    "created_at": "2026-11-06T03:10:18.000Z",
+    "cves": [
+      "CVE-2026-123158"
+    ]
+  },
+  {
+    "url": "https://x.com/MarwanMoftah/status/2118766166210433106",
+    "author": "MarwanMoftah",
+    "text": "XSA-523 (CVE-2026-102703/102704): Xen grant-copy bugs let a guest read/write other guests and Dom0. Who: Xen 4.6+, XCP-ng, Qubes. Fix: upstream 4.17+ patches (Nov 3); reboot Dom0. Can't patch: no known mitigation. Exploited: none public. Discovered by Anthropic.",
+    "created_at": "2026-11-06T18:03:13.000Z",
+    "cves": [
+      "CVE-2026-102703",
+      "CVE-2026-102704"
+    ]
+  },
+  {
+    "url": "https://x.com/amartya_jha_/status/2118762701082230885",
+    "author": "amartya_jha_",
+    "text": "Claude wasn't alone on the CVE credit. Xen also credited our team at @CodeAntAI for independently finding this 11-year-old bug and building a working guest-to-dom0 exploit. Blog: Xenbleed grant-copy cache bug (CVE-2026-102704).",
+    "created_at": "2026-11-06T17:49:27.000Z",
+    "cves": [
+      "CVE-2026-102704"
+    ]
+  },
+  {
+    "url": "https://x.com/TheHackerWire/status/2118765358219919372",
+    "author": "TheHackerWire",
+    "text": "Critical Pre-Auth RCE in Apache OFBiz (CVE-2026-83542, CVSS 9.8). Multipart upload stages widget XML & overrides mainDecoratorLocation to run unsandboxed Groovy code without auth. Action: Upgrade to 24.09.08.",
+    "created_at": "2026-11-06T18:00:00.000Z",
+    "cves": [
+      "CVE-2026-83542"
+    ]
+  },
+  {
+    "url": "https://x.com/SecAlertsCo/status/2118761045867065431",
+    "author": "SecAlertsCo",
+    "text": "Apache OFBiz CVE-2026-83542: unauthenticated RCE via login-page widget injection, CVSS 9.8. A public PoC is already out. Versions before 24.09.08 are exposed. Patch now.",
+    "created_at": "2026-11-06T17:42:52.000Z",
+    "cves": [
+      "CVE-2026-83542"
+    ]
+  },
+  {
+    "url": "https://x.com/Abbas_Mistrah/status/2118762933962358804",
+    "author": "Abbas_Mistrah",
+    "text": "Your MCP debugger is attack surface. Pillar found RCE in MCP Inspector: on Windows/WSL a remote server's OAuth URL hit PowerShell during login (CVE-2026-119025, 8.8). The tool built to vet hostile servers trusted one. Upgrade to 2.12.0+.",
+    "created_at": "2026-11-06T17:50:22.000Z",
+    "cves": [
+      "CVE-2026-119025"
+    ]
+  },
+  {
+    "url": "https://x.com/TrustMountAI/status/2118757142505423034",
+    "author": "TrustMountAI",
+    "text": "The tool meant to vet untrusted MCP servers got RCE'd. Pillar Security (5 Nov): high-severity RCE in the official MCP Inspector on Windows/WSL \u2014 during remote MCP OAuth, no extra consent. CVE-2026-119025.",
+    "created_at": "2026-11-06T17:27:22.000Z",
+    "cves": [
+      "CVE-2026-119025"
+    ]
+  },
+  {
+    "url": "https://x.com/Levitt_Matt/status/2118760730908660171",
+    "author": "Levitt_Matt",
+    "text": "Chainalysis Breach Exposes All Users' Credentials, Forces Shutdown of Key Services",
+    "created_at": "2026-11-06T17:41:37.000Z",
+    "cves": []
+  },
+  {
+    "url": "https://x.com/2Workly/status/2118757995232493614",
+    "author": "2Workly",
+    "text": "Attackers exploit LiteLLM flaw CVE-2026-40217 to escalate API keys and resell enterprise access via Jet Night. Mandiant reports losses over $1M. Audit model gateways and enforce rate limits.",
+    "created_at": "2026-11-06T17:30:45.000Z",
+    "cves": [
+      "CVE-2026-40217"
+    ]
+  },
+  {
+    "url": "https://x.com/ThreatIntelDgst/status/2118757816680739093",
+    "author": "ThreatIntelDgst",
+    "text": "UPDATE: Mandiant says attackers exploited LiteLLM CVE-2026-40217 in one LLMjacking intrusion to upgrade ordinary keys to admin credentials, adding a new route from stolen cloud access to control of AI accounts.",
+    "created_at": "2026-11-06T17:30:02.000Z",
+    "cves": [
+      "CVE-2026-40217"
+    ]
+  },
+  {
+    "url": "https://x.com/networkCPU/status/2118767925771345925",
+    "author": "networkCPU",
+    "text": "Cisco disclosed Nov. 4: a high-severity UCS Central RCE (CVSS 7.6) plus medium-impact flaws in UCM and ISE. No workarounds exist\u2014inventory affected deployments and prioritize fixed releases.",
+    "created_at": "2026-11-06T18:10:12.000Z",
+    "cves": []
+  },
+  {
+    "url": "https://x.com/CloudDoctrineHQ/status/2118727986413269277",
+    "author": "CloudDoctrineHQ",
+    "text": "Cisco confirms two critical PHP RCE flaws (CVE-2026-109618, CVE-2026-109619), tracked as PHP2shell, affect Expressway, URWB and Duo Access Gateway. Patches available. Check the Cisco advisory and upgrade now. Source: Cisco Security Advisory, Nov 6, 2026.",
+    "created_at": "2026-11-06T15:31:30.000Z",
+    "cves": [
+      "CVE-2026-109618",
+      "CVE-2026-109619"
+    ]
+  },
+  {
+    "url": "https://x.com/SecurityAr58409/status/2118766391239016570",
+    "author": "SecurityAr58409",
+    "text": "CVE-2026-83844: Microsoft Paint RCE Fix Now Available \u2014 Why Windows Update Won't Deliver It. In late 2026, Microsoft addressed a critical remote code execution vulnerability in Windows Paint.",
+    "created_at": "2026-11-06T18:04:07.000Z",
+    "cves": [
+      "CVE-2026-83844"
+    ]
+  },
+  {
+    "url": "https://x.com/pwnwatch_app/status/2118728866084913367",
     "author": "pwnwatch_app",
-    "text": "High \u00b7 Patched Avast/AVG/Norton 26.7: sandbox escapes and WFP stream-parser crash (CVE-2026-80301\u201380303) CVE-2026-80302, CVE-2026-80303 Fixed in: 26.7",
-    "created_at": "2026-11-06T17:17:00.000Z",
+    "text": "High \u00b7 Patched. Microsoft Paint RCE CVE-2026-83844 fixed in Store build 11.2609.401.0 (not via Windows Update).",
+    "created_at": "2026-11-06T15:35:00.000Z",
     "cves": [
-      "CVE-2026-80301",
-      "CVE-2026-80302",
-      "CVE-2026-80303"
+      "CVE-2026-83844"
     ]
   },
   {
-    "url": "https://x.com/ExpComputer/status/2118754367696191552",
-    "author": "ExpComputer",
-    "text": "Security flaw could expose ChatGPT conversations to data theft and malware attacks",
-    "created_at": "2026-11-06T17:16:20.000Z",
+    "url": "https://x.com/Pirat_Nation/status/2118446148713361874",
+    "author": "Pirat_Nation",
+    "text": "Microsoft Paint has a security vulnerability that could let hackers run malicious code on your PC over a network. The flaw, tracked as CVE-2026-83844, is rated 8.1 (High) and could allow attackers to execute code over a network without permission.",
+    "created_at": "2026-11-05T20:51:35.000Z",
+    "cves": [
+      "CVE-2026-83844"
+    ]
+  },
+  {
+    "url": "https://x.com/PacketReport1/status/2118765720276181091",
+    "author": "PacketReport1",
+    "text": "Zyxel GS1900 switches: Patch 2 didn't close the hole. Binarly says the same exploit still works; Zyxel's new CVE-2026-107441 fix is 2.90 Patch 3 (10 models). Check: what firmware is your GS1900 on, and is its web UI off the open network?",
+    "created_at": "2026-11-06T18:01:27.000Z",
+    "cves": [
+      "CVE-2026-107441"
+    ]
+  },
+  {
+    "url": "https://x.com/CveTodo/status/2118750712196657570",
+    "author": "CveTodo",
+    "text": "Zyxel has released firmware updates to close a zero-day vulnerability, tracked as CVE-2026-107441, that a suspected Chinese-speaking threat actor exploited to breach nearly 1,000 GS1900 series network switches.",
+    "created_at": "2026-11-06T17:01:48.000Z",
+    "cves": [
+      "CVE-2026-107441"
+    ]
+  },
+  {
+    "url": "https://x.com/CloneSystemsInc/status/2118701674101367073",
+    "author": "CloneSystemsInc",
+    "text": "CVE-2026-111357: Ivanti Connect Secure is on CISA's exploited list. The missing authentication flaw lets a local authenticated user escalate privileges. Patch now, then run a scan.",
+    "created_at": "2026-11-06T13:46:57.000Z",
+    "cves": [
+      "CVE-2026-111357"
+    ]
+  },
+  {
+    "url": "https://x.com/junli_sec8/status/2118766608529207804",
+    "author": "junli_sec8",
+    "text": "Ivanti Connect Secure CVE-2026-111357 (KEV) chains with CVE-2026-104935 and CVE-2026-118527. Takeaway: patching an edge VPN box closes the hole; it doesn't tell you what ran before.",
+    "created_at": "2026-11-06T18:04:58.000Z",
+    "cves": [
+      "CVE-2026-104935",
+      "CVE-2026-111357",
+      "CVE-2026-118527"
+    ]
+  },
+  {
+    "url": "https://x.com/DailyDarkWeb/status/2118756208140034342",
+    "author": "DailyDarkWeb",
+    "text": "Barracuda ESG: researchers demonstrate a pre-auth root execution chain when the admin interface is reachable. CVE-2026-116606 + CVE-2026-111560: restrict admin access and verify vendor patches. No in-the-wild exploitation confirmed.",
+    "created_at": "2026-11-06T17:23:39.000Z",
+    "cves": [
+      "CVE-2026-111560",
+      "CVE-2026-116606"
+    ]
+  },
+  {
+    "url": "https://x.com/aviatrixtrc/status/2118750938919801033",
+    "author": "aviatrixtrc",
+    "text": "Attackers can chain CVE-2026-116606 and CVE-2026-111560 to reach root on Barracuda ESG with zero credentials \u2014 no login, no admin account, just a forged backup and a hardcoded secret buried in the firmware.",
+    "created_at": "2026-11-06T17:02:42.000Z",
+    "cves": [
+      "CVE-2026-111560",
+      "CVE-2026-116606"
+    ]
+  },
+  {
+    "url": "https://x.com/xingyuwang/status/2118767671193829518",
+    "author": "xingyuwang",
+    "text": "948 Linux flaws are not 948 completed fixes. Review, backports, releases and deployment still take work. I mapped that chain and examined what the evidence says about maintainer capacity. Pressure is real; collapse is not established.",
+    "created_at": "2026-11-06T18:09:12.000Z",
     "cves": []
   },
   {
-    "url": "https://x.com/hazemomier/status/2118754154906820688",
-    "author": "hazemomier",
-    "text": "Kyverno CVE-2026-122313 (critical): NamespacedMutatingPolicy authors can reach other namespaces' resources via the background controller's cluster SA. Upgrade to 1.19.2+.",
-    "created_at": "2026-11-06T17:15:29.000Z",
-    "cves": [
-      "CVE-2026-122313"
-    ]
-  },
-  {
-    "url": "https://x.com/pwnwatch_app/status/2118753780087074956",
-    "author": "pwnwatch_app",
-    "text": "High \u00b7 Patched Symfony Serializer: UploadedFile / data-URI denormalization can read arbitrary server files (CVE-2026-118515, CVE-2026-121623) Fixed in: 5.4.56, 6.4.50, 7.4.23, 8.1.11",
-    "created_at": "2026-11-06T17:14:00.000Z",
-    "cves": [
-      "CVE-2026-118515",
-      "CVE-2026-121623"
-    ]
-  },
-  {
-    "url": "https://x.com/stretchcloud/status/2118753528294576157",
-    "author": "stretchcloud",
-    "text": "OpenAI rated GPT-6 Cyber Critical for cybersecurity on November 4, the first time any of its released models crossed that line under the Preparedness Framework. The model is restricted to a small set of approved Daybreak Red customers through the API and Codex.",
-    "created_at": "2026-11-06T17:13:00.000Z",
+    "url": "https://x.com/TeresaButlsr/status/2118769382285348870",
+    "author": "TeresaButlsr",
+    "text": "AI is becoming a powerful cybersecurity weapon on both sides. OpenAI reportedly developed a security model that identified 948 Linux kernel exploits. AI could transform vulnerability research, but it also raises serious questions about cyber risks.",
+    "created_at": "2026-11-06T18:16:00.000Z",
     "cves": []
   },
   {
-    "url": "https://x.com/EnclaveRadar/status/2118752967364837395",
-    "author": "EnclaveRadar",
-    "text": "Public exploit released: CVE-2026-118423 (CVSS 10.0) Unknown WP Libre Form \u00b7 Remote code execution Remote, no login needed. The WP Libre Form WordPress plugin 1.5.0.1 does not validate the type of files uploaded through its form.",
-    "created_at": "2026-11-06T17:10:46.000Z",
-    "cves": [
-      "CVE-2026-118423"
-    ]
+    "url": "https://x.com/RaviReddy1947/status/2118563994390962358",
+    "author": "RaviReddy1947",
+    "text": "OpenAI's GPT-6 Cyber found 81 previously unknown high-severity Firefox vulnerabilities. Its exploit benchmark score jumped from 32.1% to 48.5%. The bigger question: Can defenders patch vulnerabilities as quickly as AI discovers them?",
+    "created_at": "2026-11-06T04:39:51.000Z",
+    "cves": []
+  },
+  {
+    "url": "https://x.com/MeghUpdates/status/2118770196223852848",
+    "author": "MeghUpdates",
+    "text": "BIG CYBERSECURITY ALERT. China-linked AI tools are being flagged in a sophisticated hacking campaign targeting India's financial sector. CERT-In has identified four AI-powered hacking tools reportedly linked to Chinese cyber operations.",
+    "created_at": "2026-11-06T18:19:14.000Z",
+    "cves": []
   },
   {
     "url": "https://x.com/a16z/status/2118752443089780837",
@@ -81,18 +274,22 @@
     "cves": []
   },
   {
-    "url": "https://x.com/EvelynOnSec/status/2118752222674665694",
-    "author": "EvelynOnSec",
-    "text": "CISA warns of active in-the-wild exploitation of a critical GitLab unauthenticated RCE flaw\u2014patch immediately.",
-    "created_at": "2026-11-06T17:07:49.000Z",
-    "cves": []
+    "url": "https://x.com/rajamanjunathan/status/2118768967535714773",
+    "author": "rajamanjunathan",
+    "text": "Bun's creator just said \"Dependencies are over\" after one Brotli bug hit .NET, Node, Bun, and Envoy at the same time. The hard part wasn't the patch. It was that almost nobody had put Brotli on their risk list. CVE-2026-111497.",
+    "created_at": "2026-11-06T18:14:21.000Z",
+    "cves": [
+      "CVE-2026-111497"
+    ]
   },
   {
-    "url": "https://x.com/AIWorkfloway/status/2118752035449278504",
-    "author": "AIWorkfloway",
-    "text": "OpenAI unveiled GPT-6 Cyber, an AI hacker\u2014the model has been assigned the highest threat level. It can independently search for and exploit vulnerabilities even in systems with very strong security. It was this model that wrote working exploits for 948 vulnerabilities.",
-    "created_at": "2026-11-06T17:07:04.000Z",
-    "cves": []
+    "url": "https://x.com/wirelesslyhere/status/2118451238023070186",
+    "author": "wirelesslyhere",
+    "text": "Self-hosted Metabase: Singapore's CSA says CVE-2026-72898 (CVSS 10.0) is being exploited. Pre-auth SQLi on /api/session/reset_password can plant an admin session. Patch now (0.58.24 / 0.59.21 / 0.60.17 / 0.61.11 / 0.62.9 / 0.63.5+), revoke sessions, rotate DB creds.",
+    "created_at": "2026-11-05T21:11:48.000Z",
+    "cves": [
+      "CVE-2026-72898"
+    ]
   },
   {
     "url": "https://x.com/EvelynOnSec/status/2118751790002733093",
@@ -104,161 +301,45 @@
     ]
   },
   {
-    "url": "https://x.com/DominicKramerr/status/2118751335969378762",
-    "author": "DominicKramerr",
-    "text": "LLMs can find sooooo many vulnerabilities in any complex real-world codebase, and one of the additional AI problems we face now is to use AI to prioritize which of these.",
-    "created_at": "2026-11-06T17:04:17.000Z",
-    "cves": []
-  },
-  {
-    "url": "https://x.com/Gruve_ai/status/2118751269179507127",
-    "author": "Gruve_ai",
-    "text": "Gruve's CXO AI DailySignal - November 6, 2026 Nearly 37,000 software vulnerabilities were disclosed in the third quarter, triple a year earlier, as companies moved to continuous AI-assisted detection and patching.",
-    "created_at": "2026-11-06T17:04:01.000Z",
-    "cves": []
-  },
-  {
-    "url": "https://x.com/CRudinschi/status/2118750719717056727",
-    "author": "CRudinschi",
-    "text": "Three critical zero-day vulnerabilities in a patch management platform allowed unauthenticated remote code execution across enterprises in early 2026. CISA flagged them as Known Exploited Vulnerabilities. Partner content with @OPSWAT.",
-    "created_at": "2026-11-06T17:01:50.000Z",
-    "cves": []
-  },
-  {
-    "url": "https://x.com/3WEBBOX/status/2118750577421107361",
-    "author": "3WEBBOX",
-    "text": "Attackers now use autonomous AI frameworks to turn one compromised identity into a cloud-wide breach in minutes. Static IAM roles & perimeter firewalls won't stop automated lateral movement.",
-    "created_at": "2026-11-06T17:01:16.000Z",
-    "cves": []
-  },
-  {
-    "url": "https://x.com/cvedotnew/status/2118750305794056352",
-    "author": "cvedotnew",
-    "text": "CVE-2026-123488 \u00b7 CRITICAL \u00b7 CVSS 9.8 Craft CMS 4.0.0 before 4.18.9 and 5.0.0 before 5.11.2 contains an unauthenticated SQL injection vulnerability in the element search endpoint.",
-    "created_at": "2026-11-06T17:00:12.000Z",
+    "url": "https://x.com/DFIR_Lab/status/2118525117370126462",
+    "author": "DFIR_Lab",
+    "text": "CRITICAL: CVE-2026-107640 (CVSS 9.1). Integrics Enswitch 3.13-4.4 auth bypass in /api/json/user/password/update/ lets attackers reset ANY password without authentication. Admin takeover risk after username enum. Patch NOW!",
+    "created_at": "2026-11-06T02:05:22.000Z",
     "cves": [
-      "CVE-2026-123488"
+      "CVE-2026-107640"
     ]
   },
   {
-    "url": "https://x.com/trustedciso/status/2118750301440401494",
-    "author": "trustedciso",
-    "text": "Anthropic says an unreleased Claude model wrote a working zero-click remote root exploit for Linux flaw CVE-2026-98432 (CVSS 9.8) in about 53 minutes. As of Nov 4, neither Red Hat nor Ubuntu had shipped a fixed kernel.",
-    "created_at": "2026-11-06T17:00:10.000Z",
+    "url": "https://x.com/mergenewsapp/status/2118539647571616039",
+    "author": "mergenewsapp",
+    "text": "Critical Jenkins Remoting flaw (CVE-2026-70426) allows attackers to bypass security and run arbitrary code. Patch now.",
+    "created_at": "2026-11-06T03:03:07.000Z",
     "cves": [
-      "CVE-2026-98432"
+      "CVE-2026-70426"
     ]
   },
   {
-    "url": "https://x.com/Clone4105/status/2118750260113613208",
-    "author": "Clone4105",
-    "text": "Binance's $6.3B hack didn't start in the code. Binance says it started with a fake job interview and a compromised internal AI tool.",
-    "created_at": "2026-11-06T17:00:01.000Z",
+    "url": "https://x.com/iamsstef/status/2118688563931779149",
+    "author": "iamsstef",
+    "text": "iOS Security Advisory. Security researchers have identified two exploit kits targeting outdated iPhones: Coruna: iOS 13.0\u201317.2.1; DarkSword: iOS 18.4\u201318.7. These attacks exploit iOS itself, sometimes through compromised websites or ads.",
+    "created_at": "2026-11-06T12:54:51.000Z",
     "cves": []
   },
   {
-    "url": "https://x.com/SadraMajidi04/status/2118750259379626061",
-    "author": "SadraMajidi04",
-    "text": "CVE-2026-109518 (CVSS 7.7, High): an on-path attacker or malicious mirror can make APT install an unverified .deb and run code as root. Affected by default: Debian 12+, Ubuntu 22.04+.",
-    "created_at": "2026-11-06T17:00:00.000Z",
+    "url": "https://x.com/Npj8448/status/2118622669935669367",
+    "author": "Npj8448",
+    "text": "Zero-day exploits hit Zyxel switches (CVE-2026-107441) and SonicWall GMS (CVE-2026-102255) while Lazarus Group breached Binance via a fake interview. Patch now, hunt phishing kits, watch API-key abuse.",
+    "created_at": "2026-11-06T08:33:01.000Z",
     "cves": [
-      "CVE-2026-109518"
+      "CVE-2026-102255",
+      "CVE-2026-107441"
     ]
   },
   {
-    "url": "https://x.com/YourDailyCVE/status/2118749732503986254",
-    "author": "YourDailyCVE",
-    "text": "CVE-2024-27834 \u2014 Apple Pointer Authentication bypass, used by Russia-linked APT29. CVSS 5.5. KEV Nov 4. Due Nov 18. Who should care: anyone with Apple devices that skipped the May 2024 updates.",
-    "created_at": "2026-11-06T16:57:55.000Z",
-    "cves": [
-      "CVE-2024-27834"
-    ]
-  },
-  {
-    "url": "https://x.com/StartupHakk/status/2118749713122177213",
-    "author": "StartupHakk",
-    "text": "An AI just wrote a working exploit that can take over a Linux server from across the internet. No password. No click. Just packets.",
-    "created_at": "2026-11-06T16:57:50.000Z",
-    "cves": []
-  },
-  {
-    "url": "https://x.com/MohakBajaj5/status/2118749668905738559",
-    "author": "MohakBajaj5",
-    "text": "claude code was putting some users' signed-in email into the user-agent on outbound curls. nobody hacked anything. edgar and wikipedia ask scrapers for a contact; the agent had an email in session context, so it volunteered it. anthropic shipped a privacy mitigation in 2.1.317",
-    "created_at": "2026-11-06T16:57:40.000Z",
-    "cves": []
-  },
-  {
-    "url": "https://x.com/aviatrixtrc/status/2118749627419668532",
-    "author": "aviatrixtrc",
-    "text": "A low-privileged authenticated user chaining CVE-2026-63017 and CVE-2026-63774 can escalate to admin access and execute unauthorized SQL commands inside Subnet Solutions PowerSYSTEM Center \u2014 targeting energy and critical manufacturing ICS networks.",
-    "created_at": "2026-11-06T16:57:30.000Z",
-    "cves": [
-      "CVE-2026-63017",
-      "CVE-2026-63774"
-    ]
-  },
-  {
-    "url": "https://x.com/n5s_ai/status/2118749457378353527",
-    "author": "n5s_ai",
-    "text": "OpenAI released GPT 6 Cyber to vetted Daybreak Red customers to help security researchers find and fix vulnerabilities before attackers can exploit them. The model already uncovered 81 high severity Firefox flaws and 588 new Linux kernel vulnerabilities.",
-    "created_at": "2026-11-06T16:56:49.000Z",
-    "cves": []
-  },
-  {
-    "url": "https://x.com/AgentFieldKit/status/2118749090313884108",
-    "author": "AgentFieldKit",
-    "text": "Instatic before 0.0.21: MCP content read tools skipped the HTTP API's row checks, so a low-priv user could read other users' drafts (CVE-2026-121458). Upgrade to 0.0.21. MCP tools are a second API \u2014 same auth path, or don't ship them.",
-    "created_at": "2026-11-06T16:55:22.000Z",
-    "cves": [
-      "CVE-2026-121458"
-    ]
-  },
-  {
-    "url": "https://x.com/AgentFieldKit/status/2118749087746900229",
-    "author": "AgentFieldKit",
-    "text": "mcp-go before 1.2.1 and ChatCLI before 1.215.2: MCP OAuth let the server name the token audience (CVE-2026-123272 / 123271). Upgrade. After ChatCLI upgrade, logout any untrusted MCP server and revoke the OAuth client.",
-    "created_at": "2026-11-06T16:55:21.000Z",
-    "cves": [
-      "CVE-2026-123271",
-      "CVE-2026-123272"
-    ]
-  },
-  {
-    "url": "https://x.com/cvedotnow/status/2118748139674857872",
-    "author": "cvedotnow",
-    "text": "New CVEs JetBrains CLion: 2 critical CVEs Worst: code execution in Safe Mode via Meson project settings (CVE-2026-123831)",
-    "created_at": "2026-11-06T16:51:35.000Z",
-    "cves": [
-      "CVE-2026-123831"
-    ]
-  },
-  {
-    "url": "https://x.com/itautomates/status/2118745989167104108",
-    "author": "itautomates",
-    "text": "LEAKED an api key on github and deleted the commit 10 minutes later? already too slow! microsoft threat intelligence published this on nov 5: since august 2026 attackers have been using an agentic ai offensive framework (ARTEX) to fire large volumes of searches at github looking",
-    "created_at": "2026-11-06T16:43:02.000Z",
-    "cves": []
-  },
-  {
-    "url": "https://x.com/Asteri_eth/status/2118744291262521512",
-    "author": "Asteri_eth",
-    "text": "CLAUDE CODE HAS BEEN SENDING YOUR EMAIL TO THE WEBSITES IT VISITS nobody hacked anything. it was sitting in the prompt the whole time every session Claude Code puts your login email into the model's instructions.",
-    "created_at": "2026-11-06T16:36:18.000Z",
-    "cves": []
-  },
-  {
-    "url": "https://x.com/OmerYounus1/status/2118740911551311927",
-    "author": "OmerYounus1",
-    "text": "Warp's vendor breach exposed agent decision logs for ~1% of its 800k users \u2014 a week after OpenCode's API-key breach. Solo devs: where do your agent traces live?",
-    "created_at": "2026-11-06T16:22:52.000Z",
-    "cves": []
-  },
-  {
-    "url": "https://x.com/cyber_rekk/status/2118740841468424445",
-    "author": "cyber_rekk",
-    "text": "An organisation can accidentally publish a credential on GitHub and lose control of its cloud infrastructure before anyone on its security team notices. Microsoft observed an AI agent go from searching public repositories for exposed credentials to extracting data from an",
-    "created_at": "2026-11-06T16:22:35.000Z",
+    "url": "https://x.com/Business_Real_/status/2118768639063056534",
+    "author": "Business_Real_",
+    "text": "OpenAI has stopped letting its most powerful models see the internet while they train. The reason is two incidents in three months. In July during a cyber-capability test, OpenAI agents (Including GPT-5.6 Sol and an internal model) found a zero-day vulnerability.",
+    "created_at": "2026-11-06T18:13:03.000Z",
     "cves": []
   }
 ]

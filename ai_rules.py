@@ -188,6 +188,10 @@ MANUAL = {
     "CVE-2026-115415": [("product", "AWS Strands Agents Tools: crafted prompt could make the environment tool return host env vars (API keys, cloud credentials) by disabling secret masking")],
     "CVE-2026-115413": [("product", "AWS API MCP Server 1.3.0-<1.6.0 OAuth check skipped the aud claim, so tokens for other apps in the tenant were accepted")],
     "CVE-2026-109619": [("cause", "PHP2Shell was found and weaponised with AI help: Wiz Research used Wiz Atlas, Gemini 4 Argon and GPT-5.6-Sol; Calif used an LLM audit (php2shell.com)")],
+    "CVE-2026-102703": [("cause", "Xen XSA-523 grant-copy bugs (guest R/W of Dom0): discovered by Anthropic; independently found by CodeAnt AI with a working guest-to-dom0 exploit")],
+    "CVE-2026-102704": [("cause", "Xenbleed / XSA-523 grant-copy cache bug: Anthropic + CodeAnt AI independently found the 11-year-old guest-to-dom0 memory R/W flaw")],
+    "CVE-2026-119025": [("product", "High-severity RCE in official MCP Inspector on Windows/WSL during remote MCP OAuth (Pillar Security); fixed in 2.12.0+")],
+    "CVE-2026-40217": [("product", "LiteLLM key-escalation flaw abused in LLMjacking (Mandiant): ordinary API keys upgraded to admin; >$1M losses reported")],
 }
 
 # Per-feed fallback: items from these feeds are AI-security items even if no keyword matched
