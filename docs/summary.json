@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-11-06T09:40:48Z",
+  "updated_at": "2026-11-06T13:36:27Z",
   "next_update_note": "Next summary update around 8:30 AM EST.",
-  "headline": "Little new since 12:40 AM EST. Still top: BOSSAI one-person AI-agent breach campaign across 11 countries, Microsoft-flagged ARTEX agentic framework breaching Azure tenants via GitHub secrets, Chainalysis breach now covering all users (rotate tokens), and actively exploited PHP2Shell RCE hitting PAN-OS. Unverified chatter claims OpenAI's AI pipeline found 948 Linux kernel root bugs.",
+  "headline": "Little new since 4:40 AM EST. Still top: BOSSAI one-person AI-agent breach campaign across 11 countries, Microsoft-flagged ARTEX agentic framework breaching Azure tenants via GitHub secrets, Chainalysis breach covering all users (rotate tokens), and actively exploited PHP2Shell RCE hitting PAN-OS. OpenAI's claim of 948 AI-found Linux kernel root bugs is still unverified.",
   "ai_headline": "Two new confirmed AI-caused stories: the BOSSAI multi-agent campaign (Acronis) and Microsoft's warning that ARTEX finds leaked GitHub secrets and pivots into Azure in about five minutes. OpenAI's 948 AI-built Linux root exploits, Crafty Falcon and the Chainalysis 'offensive agentic' breach remain the other top AI items.",
   "focus": [
     {
@@ -206,10 +206,10 @@
     "Cr\u00e9dit Mutuel Ark\u00e9a (moved off the focus list, no new details): attackers used a service provider's platform to move about \u20ac100 million out of the bank's own account on Nov 4; customer accounts weren't touched. Banks and payment firms should review what third-party platforms can initiate payments from their treasury accounts."
   ],
   "ai_activity": {
-    "overview": "28 AI-related exploit/attack items in the last 7 days: 15 where AI was the cause, 11 AI products exploited, 2 AI impact / AI-key items.",
+    "overview": "29 AI-related exploit/attack items in the last 7 days: 14 where AI was the cause, 13 AI products exploited, 2 AI impact / AI-key items.",
     "counts": {
-      "ai_cause": 15,
-      "ai_product_exploited": 11,
+      "ai_cause": 14,
+      "ai_product_exploited": 13,
       "ai_impact": 2
     },
     "groups": [
@@ -217,30 +217,21 @@
         "label": "AI as the cause",
         "items": [
           {
-            "title": "BOSSAI multi-agent AI campaign breaches emergency services, banks and universities in 11 countries",
-            "date": "2026-11-05T12:00:00Z",
-            "summary": "Acronis found one operator using about a dozen AI coding/agent tools to scan, write exploits and steal data.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://cybersecuritynews.com/one-hacker-uses-12-ai-agents/",
-            "source": "Cybersecurity News"
-          },
-          {
-            "title": "Microsoft warns ARTEX agentic framework scans GitHub in 5 minutes to breach Azure clouds",
-            "date": "2026-11-06T02:58:00Z",
-            "summary": "Leaked secrets in public repos found and used against Azure tenants within minutes.",
-            "status": "reported",
-            "cves": [],
-            "url": "https://www.microsoft.com/en-us/security/blog/",
-            "source": "feed chatter"
-          },
-          {
-            "title": "OpenAI says GPT-6 Cyber built exploits for 948 Linux kernel bugs; analysis of what is claimed vs shown.",
-            "date": "2026-11-05T20:43:18Z",
-            "summary": "OpenAI says GPT-6 Cyber built exploits for 948 Linux kernel bugs; analysis of what is claimed vs shown.",
+            "title": "OpenAI says an AI pipeline (GPT-6 Cyber) found 948 Linux kernel local privilege escalation bugs with working exploits in one ~$1.2M run.",
+            "date": "2026-11-06T01:16:06Z",
+            "summary": "OpenAI says an AI pipeline (GPT-6 Cyber) found 948 Linux kernel local privilege escalation bugs with working exploits in one ~$1.2M run.",
             "status": "unverified",
             "cves": [],
-            "url": "https://x.com/prompt48/status/2118444066350457285",
+            "url": "https://x.com/harundotdev/status/2118512718487429549",
+            "source": "X"
+          },
+          {
+            "title": "IPI Bench: frontier models remain broadly susceptible to indirect prompt injection in realistic workplace agent tasks.",
+            "date": "2026-11-05T17:18:14Z",
+            "summary": "IPI Bench: frontier models remain broadly susceptible to indirect prompt injection in realistic workplace agent tasks.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/gen_analysis/status/2118392456974942400",
             "source": "X"
           },
           {
@@ -253,9 +244,9 @@
             "source": "r/LocalLLaMA"
           },
           {
-            "title": "Linux kernel CVE-2026-98432 CVSS 9.8 remote root, no login needed. Anthropic's AI found the path. ~2.1M MPTCP-facing servers being scanned; Ubuntu patch late.",
+            "title": "Linux kernel CVE-2026-98432 CVSS 9.8 remote root, no login. Anthropic's AI found the path. ~2.1M MPTCP-facing servers being scanned.",
             "date": "2026-11-05T16:04:22Z",
-            "summary": "Linux kernel CVE-2026-98432 CVSS 9.8 remote root, no login needed. Anthropic's AI found the path. ~2.1M MPTCP-facing servers being scanned; Ubuntu patch late.",
+            "summary": "Linux kernel CVE-2026-98432 CVSS 9.8 remote root, no login. Anthropic's AI found the path. ~2.1M MPTCP-facing servers being scanned.",
             "status": "unverified",
             "cves": [
               "CVE-2026-98432"
@@ -365,6 +356,42 @@
         "label": "AI products being exploited",
         "items": [
           {
+            "title": "OpenAI Says New GPT-6 Cyber Model Hunts Flaws Without Crossing the Line",
+            "date": "2026-11-06T13:19:52Z",
+            "summary": "Rated Critical for cybersecurity, OpenAI\u2019s new model beats GPT-5.6 Cyber at exploitation while staying in scope more reliably. The post OpenAI Says New GPT-6 Cyber Model Hunts Flaws Without Crossing the Line appeared first on SecurityWeek .",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.securityweek.com/openai-says-new-gpt-6-cyber-model-hunts-flaws-without-crossing-the-line/",
+            "source": "SecurityWeek"
+          },
+          {
+            "title": "Malicious Browser Extensions Could Use Claude Dispatch to Run Code on Users' Computers",
+            "date": "2026-11-06T12:06:35Z",
+            "summary": "A browser extension that can run scripts on claude.ai could make Claude Desktop run code on a person's computer, researchers at Forever Security, an endpoint security company, showed in a test. The attack needs Dispatch, a Claude feature that lets people send ",
+            "status": "reported",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/11/malicious-browser-extensions-could-use.html",
+            "source": "The Hacker News"
+          },
+          {
+            "title": "Binance $6.34B hack incident report: initial compromise via tampered installer an engineer downloaded while looking for an AI coding tool.",
+            "date": "2026-11-06T11:46:51Z",
+            "summary": "Binance $6.34B hack incident report: initial compromise via tampered installer an engineer downloaded while looking for an AI coding tool.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/piunknown043/status/2118671449452061170",
+            "source": "X"
+          },
+          {
+            "title": "Chainalysis Breach Exposes All Users' Credentials, Forces Shutdown of Key Services",
+            "date": "2026-11-06T08:04:49Z",
+            "summary": "Blockchain analysis firm Chainalysis has revealed that its ongoing investigation into the agentic cyber attack targeting its systems also exposed names, usernames, password hashes and live tokens for all users. \"While we investigated, we removed access to Reac",
+            "status": "reported",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/11/chainalysis-breach-exposes-all-users.html",
+            "source": "The Hacker News"
+          },
+          {
             "title": "Fake OpenAI, SpaceX events used to steal Microsoft, Google accounts",
             "date": "2026-11-05T21:30:30Z",
             "summary": "Hackers are using fake OpenAI, SpaceX, and Anthropic event invitations to lure employees into phishing attacks, using two different phishing-as-a-service platforms to steal Microsoft and Google account credentials and authentication sessions. [...]",
@@ -401,9 +428,9 @@
             "source": "The Hacker News"
           },
           {
-            "title": "Warp disclosed a vendor breach that may expose AI agent logs (~1% users); rotate keys the agent used.",
+            "title": "Warp disclosed a vendor breach that may expose AI agent logs (~1% of users); rotate keys the agent used.",
             "date": "2026-11-05T13:37:34Z",
-            "summary": "Warp disclosed a vendor breach that may expose AI agent logs (~1% users); rotate keys the agent used.",
+            "summary": "Warp disclosed a vendor breach that may expose AI agent logs (~1% of users); rotate keys the agent used.",
             "status": "unverified",
             "cves": [],
             "url": "https://x.com/liuziqi529/status/2118336923701768665",
@@ -446,24 +473,6 @@
             "cves": [],
             "url": "https://www.reddit.com/r/blueteamsec/comments/1xk3fhf/loadmine_a_hugging_face_malware_campaign_returns/",
             "source": "r/blueteamsec"
-          },
-          {
-            "title": "Inside a malicious Claude Code-branded extension and its persistent SSH backdoor",
-            "date": "2026-10-31T06:41:01Z",
-            "summary": "Inside a malicious Claude Code-branded extension and its persistent SSH backdoor",
-            "status": "unverified",
-            "cves": [],
-            "url": "https://www.reddit.com/r/blueteamsec/comments/1xk34wd/inside_a_malicious_claude_codebranded_extension/",
-            "source": "r/blueteamsec"
-          },
-          {
-            "title": "Anatomy of an OpenAI Phishing Kit: Rotating WordPress Hosts, Live Operators, and OTP Theft",
-            "date": "2026-10-31T06:40:25Z",
-            "summary": "Anatomy of an OpenAI Phishing Kit: Rotating WordPress Hosts, Live Operators, and OTP Theft",
-            "status": "unverified",
-            "cves": [],
-            "url": "https://www.reddit.com/r/blueteamsec/comments/1xk34ia/anatomy_of_an_openai_phishing_kit_rotating/",
-            "source": "r/blueteamsec"
           }
         ]
       },
@@ -491,6 +500,6 @@
         ]
       }
     ],
-    "trend_note": "AI-run intrusion campaigns keep growing: BOSSAI and ARTEX join Chainalysis, GitBook, Kernel and Crafty Falcon this week, mostly exploiting leaked secrets and basic web flaws at machine speed. The last four hours added an AI-product disclosure (ChatGPT Lockdown Mode, already patched) rather than a new AI-run breach; the week's pattern still holds: AI-agent frameworks (especially ARTEX) keep showing up in confirmed platform and supply-chain intrusions, and post-breach disclosures keep widening (Chainalysis, GitBook, Kernel)."
+    "trend_note": "DRAFT - 17 of 29 items are dated within the last 48 hours."
   }
 }
