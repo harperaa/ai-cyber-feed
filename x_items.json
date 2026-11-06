@@ -7,59 +7,46 @@
     "cves": []
   },
   {
-    "url": "https://x.com/bsormagec/status/2118766031032242304",
-    "author": "bsormagec",
-    "text": "Your coding agent has been handing out your email address to every website it visits. Claude Code put users' account email in the User-Agent header of web requests it composed. The reporter who filed the bug now gets dozens of scam emails a day.",
-    "created_at": "2026-11-06T18:02:41.000Z",
+    "url": "https://x.com/Itsfoss/status/2118617375658405998",
+    "author": "Itsfoss",
+    "text": "Use Claude code for development? Your email address is leaked to every website Claude fetches on your behalf. The AI that is finding bugs in all the legacy software is not able to create a bug-free software for itself?",
+    "created_at": "2026-11-06T08:11:59.000Z",
     "cves": []
   },
   {
-    "url": "https://x.com/SGImike/status/2118765088630821064",
-    "author": "SGImike",
-    "text": "BREAKING: Claude Code leaked your email to sites it visited. GitHub #107757 hit #1 on HN. Users got dozens of scam emails/day. Fix: Update to 2.1.317+; /plugins \u2192 privacy mod ON. Agents that browse for you also leak for you.",
-    "created_at": "2026-11-06T17:58:56.000Z",
+    "url": "https://x.com/hackerlogs/status/2118500976344592894",
+    "author": "hackerlogs",
+    "text": "Claude Code was stuffing your account email into outbound User-Agent headers on web and shell tool calls. Developers reported scam floods after third parties harvested it. Anthropic says it was not an intentional feature.",
+    "created_at": "2026-11-06T00:29:27.000Z",
     "cves": []
   },
   {
-    "url": "https://x.com/Pick_Analytica/status/2118770185746448621",
-    "author": "Pick_Analytica",
-    "text": "The Hacker News: SSHole is already being exploited. Previdian got root on an Alpine OpenSSH honeypot less than 9 hours after the CVE. Eight attempts came from one Japan IP. Update to OpenSSH 10.6p2 and restart sshd if you run musl without PAM.",
-    "created_at": "2026-11-06T18:19:11.000Z",
+    "url": "https://x.com/Abbas_Mistrah/status/2118783582772646010",
+    "author": "Abbas_Mistrah",
+    "text": "Your agent harness leaked its own keys. OpenHuman <0.57.5 wrote the RPC bearer into SQLite, logs and RPC responses (CVE-2026-54145, 8.8). Patch, then rotate.",
+    "created_at": "2026-11-06T19:12:25.000Z",
     "cves": [
-      "CVE-2026-123158"
+      "CVE-2026-54145"
     ]
   },
   {
-    "url": "https://x.com/jeromerousselot/status/2118763957259293038",
-    "author": "jeromerousselot",
-    "text": "sshole critical ssh vulnerability on Alpine Linux, OpenWRT Linux and all other Linux systems using musl library instead of glibc. Anyone can get a remote ssh user shell by entering a random password longer than 256 characters. https://sshhole.com/",
-    "created_at": "2026-11-06T17:54:26.000Z",
-    "cves": [
-      "CVE-2026-123158"
-    ]
+    "url": "https://x.com/battista212/status/2118782095623393465",
+    "author": "battista212",
+    "text": "OpenAI cites 81 novel Firefox vulnerabilities found, exploits for 948 Linux kernel flaws, and a critical Brotli RCE bug caught during development \u2014 released first to its Daybreak Red red-teaming program.",
+    "created_at": "2026-11-06T19:06:31.000Z",
+    "cves": []
   },
   {
-    "url": "https://x.com/FOSSForce/status/2118757918120042960",
-    "author": "FOSSForce",
-    "text": "Here we go again: Meet *sshole, the vulnerability that lets hackers SSH into Linux devices",
-    "created_at": "2026-11-06T17:30:26.000Z",
-    "cves": [
-      "CVE-2026-123158"
-    ]
-  },
-  {
-    "url": "https://x.com/SinghalPratul/status/2118541454671069403",
-    "author": "SinghalPratul",
-    "text": "A long password can break into Alpine servers. sshole: CVE-2026-123158, rated 8.1. Any password 257 to 1024 chars gets in. Accounts meant for keys only are the target. Fix is out in OpenSSH 10.6p2, patch now.",
-    "created_at": "2026-11-06T03:10:18.000Z",
-    "cves": [
-      "CVE-2026-123158"
-    ]
+    "url": "https://x.com/PHPSiteAudit/status/2118582903580074040",
+    "author": "PHPSiteAudit",
+    "text": "AI found the PHP bugs. Now it's finding them everywhere. Chrome 157 shipped this week with 213 fixes \u2014 14 of them credited to Anthropic researchers assisted by AI.",
+    "created_at": "2026-11-06T05:55:00.000Z",
+    "cves": []
   },
   {
     "url": "https://x.com/MarwanMoftah/status/2118766166210433106",
     "author": "MarwanMoftah",
-    "text": "XSA-523 (CVE-2026-102703/102704): Xen grant-copy bugs let a guest read/write other guests and Dom0. Who: Xen 4.6+, XCP-ng, Qubes. Fix: upstream 4.17+ patches (Nov 3); reboot Dom0. Can't patch: no known mitigation. Exploited: none public. Discovered by Anthropic.",
+    "text": "XSA-523 (CVE-2026-102703/102704): Xen grant-copy bugs let a guest read/write other guests and Dom0. Who: Xen 4.6+, XCP-ng, Qubes. Fix: upstream 4.17+ patches (Nov 3); reboot Dom0. Discovered by Anthropic.",
     "created_at": "2026-11-06T18:03:13.000Z",
     "cves": [
       "CVE-2026-102703",
@@ -76,47 +63,13 @@
     ]
   },
   {
-    "url": "https://x.com/TheHackerWire/status/2118765358219919372",
-    "author": "TheHackerWire",
-    "text": "Critical Pre-Auth RCE in Apache OFBiz (CVE-2026-83542, CVSS 9.8). Multipart upload stages widget XML & overrides mainDecoratorLocation to run unsandboxed Groovy code without auth. Action: Upgrade to 24.09.08.",
-    "created_at": "2026-11-06T18:00:00.000Z",
-    "cves": [
-      "CVE-2026-83542"
-    ]
-  },
-  {
-    "url": "https://x.com/SecAlertsCo/status/2118761045867065431",
-    "author": "SecAlertsCo",
-    "text": "Apache OFBiz CVE-2026-83542: unauthenticated RCE via login-page widget injection, CVSS 9.8. A public PoC is already out. Versions before 24.09.08 are exposed. Patch now.",
-    "created_at": "2026-11-06T17:42:52.000Z",
-    "cves": [
-      "CVE-2026-83542"
-    ]
-  },
-  {
     "url": "https://x.com/Abbas_Mistrah/status/2118762933962358804",
     "author": "Abbas_Mistrah",
-    "text": "Your MCP debugger is attack surface. Pillar found RCE in MCP Inspector: on Windows/WSL a remote server's OAuth URL hit PowerShell during login (CVE-2026-119025, 8.8). The tool built to vet hostile servers trusted one. Upgrade to 2.12.0+.",
+    "text": "Your MCP debugger is attack surface. Pillar found RCE in MCP Inspector: on Windows/WSL a remote server's OAuth URL hit PowerShell during login (CVE-2026-119025, 8.8). Upgrade to 2.12.0+.",
     "created_at": "2026-11-06T17:50:22.000Z",
     "cves": [
       "CVE-2026-119025"
     ]
-  },
-  {
-    "url": "https://x.com/TrustMountAI/status/2118757142505423034",
-    "author": "TrustMountAI",
-    "text": "The tool meant to vet untrusted MCP servers got RCE'd. Pillar Security (5 Nov): high-severity RCE in the official MCP Inspector on Windows/WSL \u2014 during remote MCP OAuth, no extra consent. CVE-2026-119025.",
-    "created_at": "2026-11-06T17:27:22.000Z",
-    "cves": [
-      "CVE-2026-119025"
-    ]
-  },
-  {
-    "url": "https://x.com/Levitt_Matt/status/2118760730908660171",
-    "author": "Levitt_Matt",
-    "text": "Chainalysis Breach Exposes All Users' Credentials, Forces Shutdown of Key Services",
-    "created_at": "2026-11-06T17:41:37.000Z",
-    "cves": []
   },
   {
     "url": "https://x.com/2Workly/status/2118757995232493614",
@@ -137,16 +90,193 @@
     ]
   },
   {
-    "url": "https://x.com/networkCPU/status/2118767925771345925",
-    "author": "networkCPU",
-    "text": "Cisco disclosed Nov. 4: a high-severity UCS Central RCE (CVSS 7.6) plus medium-impact flaws in UCM and ISE. No workarounds exist\u2014inventory affected deployments and prioritize fixed releases.",
-    "created_at": "2026-11-06T18:10:12.000Z",
+    "url": "https://x.com/RuntimeAI_io/status/2118784220298658136",
+    "author": "RuntimeAI_io",
+    "text": "The LiteLLM supply chain hit is the one that should keep everyone up at night \u2014 a compromised package in a widely-used AI proxy layer means credential theft at scale across the entire LLM toolchain.",
+    "created_at": "2026-11-06T19:14:57.000Z",
     "cves": []
+  },
+  {
+    "url": "https://x.com/_pksharma/status/2118665559944343785",
+    "author": "_pksharma",
+    "text": "Threat actors weaponize agentic AI (ARTEX) to advance from GitHub secret discovery to Azure Key Vault data exfiltration in five minutes. Microsoft Threat Intelligence and Todyl documented the intrusions.",
+    "created_at": "2026-11-06T11:23:27.000Z",
+    "cves": []
+  },
+  {
+    "url": "https://x.com/cubillas888/status/2118474690889187796",
+    "author": "cubillas888",
+    "text": "Supply chain attack: hunters of an AI pentest tool got a root shell, BadByte says. tomicdd/artex: ~7,946 pulls by Nov 3. Backdoor only in the image; GitHub source looked clean. 62 public consoles served it Nov 2\u20134. Docker removed images Nov 5.",
+    "created_at": "2026-11-05T22:45:00.000Z",
+    "cves": []
+  },
+  {
+    "url": "https://x.com/AgentFilipHQ/status/2118781935904260341",
+    "author": "AgentFilipHQ",
+    "text": "Hundreds of servers running Artex, an AI penetration testing tool, are exposed to the open internet, per TechCrunch. Anyone who finds one can use the hacking tool. This is a deployment failure, repeated hundreds of times.",
+    "created_at": "2026-11-06T19:05:53.000Z",
+    "cves": []
+  },
+  {
+    "url": "https://x.com/BadgerSignalHQ/status/2118606272476123589",
+    "author": "BadgerSignalHQ",
+    "text": "Hijacked enterprise LLM access is running up cloud AI bills of more than $100,000 a day. Google reports LLMJacking incidents in 2026 in which attackers used compromised credentials to run large generative AI jobs on enterprise Google Cloud LLM accounts.",
+    "created_at": "2026-11-06T07:27:51.000Z",
+    "cves": []
+  },
+  {
+    "url": "https://x.com/Sujeet/status/2118501983850201237",
+    "author": "Sujeet",
+    "text": "Check Point found AI agent instruction hijacking: prompt adware that injects ads through a jailbroken agent. Prompt injection isn't a lab curiosity anymore.",
+    "created_at": "2026-11-06T00:33:27.000Z",
+    "cves": []
+  },
+  {
+    "url": "https://x.com/ZetsubosenseiG/status/2118733751496638940",
+    "author": "ZetsubosenseiG",
+    "text": "Postman desktop update silently installed plugins into Claude Code and Codex. In Codex, it added a SessionStart hook instructing the agent \u2014 a security risk in AI agent development.",
+    "created_at": "2026-11-06T15:54:25.000Z",
+    "cves": []
+  },
+  {
+    "url": "https://x.com/SeanJHKwon/status/2118665893450223890",
+    "author": "SeanJHKwon",
+    "text": "Someone scanned the 99 most-starred MCP servers on GitHub (9,965 tools total) for security bugs. Hidden prompt-injection in descriptions: 0. The real vulnerabilities were much worse, and half the HTTP servers had the same bug.",
+    "created_at": "2026-11-06T11:24:46.000Z",
+    "cves": []
+  },
+  {
+    "url": "https://x.com/Pick_Analytica/status/2118770185746448621",
+    "author": "Pick_Analytica",
+    "text": "The Hacker News: SSHole is already being exploited. Previdian got root on an Alpine OpenSSH honeypot less than 9 hours after the CVE. Eight attempts came from one Japan IP. Update to OpenSSH 10.6p2 and restart sshd if you run musl without PAM.",
+    "created_at": "2026-11-06T18:19:11.000Z",
+    "cves": [
+      "CVE-2026-123158"
+    ]
+  },
+  {
+    "url": "https://x.com/Huntio/status/2118776693854814281",
+    "author": "Huntio",
+    "text": "CVE-2026-123158: OpenSSH Authentication Bypass Already Under Attack. SSHole affects musl-based Linux systems without PAM, including Alpine Linux on default settings.",
+    "created_at": "2026-11-06T18:45:03.000Z",
+    "cves": [
+      "CVE-2026-123158"
+    ]
+  },
+  {
+    "url": "https://x.com/CCBalert/status/2118737185885081999",
+    "author": "CCBalert",
+    "text": "Warning: Actively exploited CVE-2026-123158 (CVSS 8.1) affects OpenSSH sshd on Linux systems using musl libc without PAM, allowing remote attackers to bypass password authentication.",
+    "created_at": "2026-11-06T16:08:04.000Z",
+    "cves": [
+      "CVE-2026-123158"
+    ]
+  },
+  {
+    "url": "https://x.com/jeromerousselot/status/2118763957259293038",
+    "author": "jeromerousselot",
+    "text": "sshole critical ssh vulnerability on Alpine Linux, OpenWRT Linux and all other Linux systems using musl library instead of glibc. Anyone can get a remote ssh user shell by entering a random password longer than 256 characters. https://sshhole.com/",
+    "created_at": "2026-11-06T17:54:26.000Z",
+    "cves": [
+      "CVE-2026-123158"
+    ]
+  },
+  {
+    "url": "https://x.com/InvisDeveloper/status/2118785079551967232",
+    "author": "InvisDeveloper",
+    "text": "CVE-2026-58115 is a CVSS 10 in Node-RED, and it's idiotically simple: the admin API has no authentication. One POST request deploys a flow that runs shell commands with max privileges. Already exploited!!",
+    "created_at": "2026-11-06T19:18:22.000Z",
+    "cves": [
+      "CVE-2026-58115"
+    ]
+  },
+  {
+    "url": "https://x.com/0xmrma_/status/2118735043308781928",
+    "author": "0xmrma_",
+    "text": "Clone2Creds / CVE-2026-62960. A zero-day I discovered in Git for Windows. Clone a repository. I have your credentials. Full technical writeup and exploit on GitHub.",
+    "created_at": "2026-11-06T15:59:33.000Z",
+    "cves": [
+      "CVE-2026-62960"
+    ]
+  },
+  {
+    "url": "https://x.com/tihana_dam/status/2118774597848048000",
+    "author": "tihana_dam",
+    "text": "WP: update to 7.1.4, but block /wp-content/upgrade/ first. CVE-2026-119977 is actively exploited, the flaw sits in the updater itself. Deny web access to folder, confirm 403, then update.",
+    "created_at": "2026-11-06T18:36:43.000Z",
+    "cves": [
+      "CVE-2026-119977"
+    ]
+  },
+  {
+    "url": "https://x.com/zerohuntai/status/2118712567203824033",
+    "author": "zerohuntai",
+    "text": "Exploited this week, and the build that fixes it: WordPress (CVE-2026-119977): 7.1.4 / 7.0.8 / 6.9.11 / 6.8.12; OpenSSH (CVE-2026-123158): 10.6p2; Ivanti Connect Secure (CVE-2026-111357): latest build for your branch.",
+    "created_at": "2026-11-06T14:30:14.000Z",
+    "cves": [
+      "CVE-2026-119977",
+      "CVE-2026-123158",
+      "CVE-2026-111357"
+    ]
+  },
+  {
+    "url": "https://x.com/emits_ca/status/2118774013656723828",
+    "author": "emits_ca",
+    "text": "Zyxel GS1900 owners: June's Patch 2 firmware did NOT stop this zero-day. CVE-2026-107441 (8.8) lets a network attacker run commands with no login. Install your model's 2.90 Patch 3 build.",
+    "created_at": "2026-11-06T18:34:24.000Z",
+    "cves": [
+      "CVE-2026-107441"
+    ]
+  },
+  {
+    "url": "https://x.com/OrigoHubTech/status/2118432121140191721",
+    "author": "OrigoHubTech",
+    "text": "Zyxel patches the CVE-2026-107441 zero-day in GS1900 switches, exploited against nearly 1,000 devices. Binarly says the June fix didn't stop it. Install Patch 3 for your model.",
+    "created_at": "2026-11-05T19:55:50.000Z",
+    "cves": [
+      "CVE-2026-107441"
+    ]
+  },
+  {
+    "url": "https://x.com/TheHackerWire/status/2118765358219919372",
+    "author": "TheHackerWire",
+    "text": "Critical Pre-Auth RCE in Apache OFBiz (CVE-2026-83542, CVSS 9.8). Multipart upload stages widget XML & overrides mainDecoratorLocation to run unsandboxed Groovy code without auth. Action: Upgrade to 24.09.08.",
+    "created_at": "2026-11-06T18:00:00.000Z",
+    "cves": [
+      "CVE-2026-83542"
+    ]
+  },
+  {
+    "url": "https://x.com/CCBalert/status/2118721607707291832",
+    "author": "CCBalert",
+    "text": "Warning: Critical CVE-2026-122006 (CVSS 9.8) affects Ruby on Rails Active Storage, allowing unauthenticated attackers to read and write server files via malicious image uploads processed by ImageMagick.",
+    "created_at": "2026-11-06T15:06:09.000Z",
+    "cves": [
+      "CVE-2026-122006"
+    ]
+  },
+  {
+    "url": "https://x.com/thiscitze/status/2118698962706223389",
+    "author": "thiscitze",
+    "text": "CVE-2026-118423 - WP Libre Form <= 1.5.0.1. Unauthenticated upload: a .php file lands in wp-content/uploads and executes. RCE. CVSS 10.0. PoC available.",
+    "created_at": "2026-11-06T13:36:10.000Z",
+    "cves": [
+      "CVE-2026-118423"
+    ]
+  },
+  {
+    "url": "https://x.com/cvedotnow/status/2118783621779599795",
+    "author": "cvedotnow",
+    "text": "Newly rated critical, disclosed Nov 2. Apache Syncope: 4 critical CVEs. Worst: remote code execution via JUEL expressions in workflows (CVE-2026-109083). No patch listed yet.",
+    "created_at": "2026-11-06T19:12:35.000Z",
+    "cves": [
+      "CVE-2026-109083"
+    ]
   },
   {
     "url": "https://x.com/CloudDoctrineHQ/status/2118727986413269277",
     "author": "CloudDoctrineHQ",
-    "text": "Cisco confirms two critical PHP RCE flaws (CVE-2026-109618, CVE-2026-109619), tracked as PHP2shell, affect Expressway, URWB and Duo Access Gateway. Patches available. Check the Cisco advisory and upgrade now. Source: Cisco Security Advisory, Nov 6, 2026.",
+    "text": "Cisco confirms two critical PHP RCE flaws (CVE-2026-109618, CVE-2026-109619), tracked as PHP2shell, affect Expressway, URWB and Duo Access Gateway. Patches available.",
     "created_at": "2026-11-06T15:31:30.000Z",
     "cves": [
       "CVE-2026-109618",
@@ -156,190 +286,49 @@
   {
     "url": "https://x.com/SecurityAr58409/status/2118766391239016570",
     "author": "SecurityAr58409",
-    "text": "CVE-2026-83844: Microsoft Paint RCE Fix Now Available \u2014 Why Windows Update Won't Deliver It. In late 2026, Microsoft addressed a critical remote code execution vulnerability in Windows Paint.",
+    "text": "CVE-2026-83844: Microsoft Paint RCE Fix Now Available \u2014 Why Windows Update Won't Deliver It. Store build required.",
     "created_at": "2026-11-06T18:04:07.000Z",
     "cves": [
       "CVE-2026-83844"
     ]
   },
   {
-    "url": "https://x.com/pwnwatch_app/status/2118728866084913367",
-    "author": "pwnwatch_app",
-    "text": "High \u00b7 Patched. Microsoft Paint RCE CVE-2026-83844 fixed in Store build 11.2609.401.0 (not via Windows Update).",
-    "created_at": "2026-11-06T15:35:00.000Z",
+    "url": "https://x.com/UK_Daniel_Card/status/2118784411688980810",
+    "author": "UK_Daniel_Card",
+    "text": "FYI I think the MS PAINT 'RCE' is not an RCE! I think there was a mess up on the CVSS and it should be CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H = 7.0 (High).",
+    "created_at": "2026-11-06T19:15:43.000Z",
     "cves": [
       "CVE-2026-83844"
     ]
   },
   {
-    "url": "https://x.com/Pirat_Nation/status/2118446148713361874",
-    "author": "Pirat_Nation",
-    "text": "Microsoft Paint has a security vulnerability that could let hackers run malicious code on your PC over a network. The flaw, tracked as CVE-2026-83844, is rated 8.1 (High) and could allow attackers to execute code over a network without permission.",
-    "created_at": "2026-11-05T20:51:35.000Z",
+    "url": "https://x.com/vulnipulse/status/2118783224252158048",
+    "author": "vulnipulse",
+    "text": "NetApp: 21 new CVEs. Most severe: CVE-2026-100075 (CRITICAL) - Linux Kernel Vulnerability in NetApp Products.",
+    "created_at": "2026-11-06T19:11:00.000Z",
     "cves": [
-      "CVE-2026-83844"
+      "CVE-2026-100075"
     ]
   },
   {
-    "url": "https://x.com/PacketReport1/status/2118765720276181091",
-    "author": "PacketReport1",
-    "text": "Zyxel GS1900 switches: Patch 2 didn't close the hole. Binarly says the same exploit still works; Zyxel's new CVE-2026-107441 fix is 2.90 Patch 3 (10 models). Check: what firmware is your GS1900 on, and is its web UI off the open network?",
-    "created_at": "2026-11-06T18:01:27.000Z",
-    "cves": [
-      "CVE-2026-107441"
-    ]
-  },
-  {
-    "url": "https://x.com/CveTodo/status/2118750712196657570",
-    "author": "CveTodo",
-    "text": "Zyxel has released firmware updates to close a zero-day vulnerability, tracked as CVE-2026-107441, that a suspected Chinese-speaking threat actor exploited to breach nearly 1,000 GS1900 series network switches.",
-    "created_at": "2026-11-06T17:01:48.000Z",
-    "cves": [
-      "CVE-2026-107441"
-    ]
-  },
-  {
-    "url": "https://x.com/CloneSystemsInc/status/2118701674101367073",
-    "author": "CloneSystemsInc",
-    "text": "CVE-2026-111357: Ivanti Connect Secure is on CISA's exploited list. The missing authentication flaw lets a local authenticated user escalate privileges. Patch now, then run a scan.",
-    "created_at": "2026-11-06T13:46:57.000Z",
-    "cves": [
-      "CVE-2026-111357"
-    ]
-  },
-  {
-    "url": "https://x.com/junli_sec8/status/2118766608529207804",
-    "author": "junli_sec8",
-    "text": "Ivanti Connect Secure CVE-2026-111357 (KEV) chains with CVE-2026-104935 and CVE-2026-118527. Takeaway: patching an edge VPN box closes the hole; it doesn't tell you what ran before.",
-    "created_at": "2026-11-06T18:04:58.000Z",
-    "cves": [
-      "CVE-2026-104935",
-      "CVE-2026-111357",
-      "CVE-2026-118527"
-    ]
-  },
-  {
-    "url": "https://x.com/DailyDarkWeb/status/2118756208140034342",
-    "author": "DailyDarkWeb",
-    "text": "Barracuda ESG: researchers demonstrate a pre-auth root execution chain when the admin interface is reachable. CVE-2026-116606 + CVE-2026-111560: restrict admin access and verify vendor patches. No in-the-wild exploitation confirmed.",
-    "created_at": "2026-11-06T17:23:39.000Z",
-    "cves": [
-      "CVE-2026-111560",
-      "CVE-2026-116606"
-    ]
-  },
-  {
-    "url": "https://x.com/aviatrixtrc/status/2118750938919801033",
-    "author": "aviatrixtrc",
-    "text": "Attackers can chain CVE-2026-116606 and CVE-2026-111560 to reach root on Barracuda ESG with zero credentials \u2014 no login, no admin account, just a forged backup and a hardcoded secret buried in the firmware.",
-    "created_at": "2026-11-06T17:02:42.000Z",
-    "cves": [
-      "CVE-2026-111560",
-      "CVE-2026-116606"
-    ]
-  },
-  {
-    "url": "https://x.com/xingyuwang/status/2118767671193829518",
-    "author": "xingyuwang",
-    "text": "948 Linux flaws are not 948 completed fixes. Review, backports, releases and deployment still take work. I mapped that chain and examined what the evidence says about maintainer capacity. Pressure is real; collapse is not established.",
-    "created_at": "2026-11-06T18:09:12.000Z",
+    "url": "https://x.com/Levitt_Matt/status/2118760730908660171",
+    "author": "Levitt_Matt",
+    "text": "Chainalysis Breach Exposes All Users' Credentials, Forces Shutdown of Key Services",
+    "created_at": "2026-11-06T17:41:37.000Z",
     "cves": []
   },
   {
-    "url": "https://x.com/TeresaButlsr/status/2118769382285348870",
-    "author": "TeresaButlsr",
-    "text": "AI is becoming a powerful cybersecurity weapon on both sides. OpenAI reportedly developed a security model that identified 948 Linux kernel exploits. AI could transform vulnerability research, but it also raises serious questions about cyber risks.",
-    "created_at": "2026-11-06T18:16:00.000Z",
+    "url": "https://x.com/dailytechonx/status/2118621839102529685",
+    "author": "dailytechonx",
+    "text": "Urgent: Chainalysis just disclosed a breach that exposed all users' credentials\u2014including password hashes and live tokens. Reactor, Data Solutions, KYT, and Address Screening are offline.",
+    "created_at": "2026-11-06T08:29:43.000Z",
     "cves": []
   },
   {
-    "url": "https://x.com/RaviReddy1947/status/2118563994390962358",
-    "author": "RaviReddy1947",
-    "text": "OpenAI's GPT-6 Cyber found 81 previously unknown high-severity Firefox vulnerabilities. Its exploit benchmark score jumped from 32.1% to 48.5%. The bigger question: Can defenders patch vulnerabilities as quickly as AI discovers them?",
-    "created_at": "2026-11-06T04:39:51.000Z",
-    "cves": []
-  },
-  {
-    "url": "https://x.com/MeghUpdates/status/2118770196223852848",
-    "author": "MeghUpdates",
-    "text": "BIG CYBERSECURITY ALERT. China-linked AI tools are being flagged in a sophisticated hacking campaign targeting India's financial sector. CERT-In has identified four AI-powered hacking tools reportedly linked to Chinese cyber operations.",
-    "created_at": "2026-11-06T18:19:14.000Z",
-    "cves": []
-  },
-  {
-    "url": "https://x.com/a16z/status/2118752443089780837",
-    "author": "a16z",
-    "text": "AI can now help turn a published fix into a working exploit in hours. Patching still takes weeks, and for many old routers, cameras, and supermarket fridges, a fix never arrives.",
-    "created_at": "2026-11-06T17:08:41.000Z",
-    "cves": []
-  },
-  {
-    "url": "https://x.com/rajamanjunathan/status/2118768967535714773",
-    "author": "rajamanjunathan",
-    "text": "Bun's creator just said \"Dependencies are over\" after one Brotli bug hit .NET, Node, Bun, and Envoy at the same time. The hard part wasn't the patch. It was that almost nobody had put Brotli on their risk list. CVE-2026-111497.",
-    "created_at": "2026-11-06T18:14:21.000Z",
-    "cves": [
-      "CVE-2026-111497"
-    ]
-  },
-  {
-    "url": "https://x.com/wirelesslyhere/status/2118451238023070186",
-    "author": "wirelesslyhere",
-    "text": "Self-hosted Metabase: Singapore's CSA says CVE-2026-72898 (CVSS 10.0) is being exploited. Pre-auth SQLi on /api/session/reset_password can plant an admin session. Patch now (0.58.24 / 0.59.21 / 0.60.17 / 0.61.11 / 0.62.9 / 0.63.5+), revoke sessions, rotate DB creds.",
-    "created_at": "2026-11-05T21:11:48.000Z",
-    "cves": [
-      "CVE-2026-72898"
-    ]
-  },
-  {
-    "url": "https://x.com/EvelynOnSec/status/2118751790002733093",
-    "author": "EvelynOnSec",
-    "text": "CISA added WordPress Core RCE flaw CVE-2026-119977 to KEV\u2014patch now before peripheral blogs become corporate backdoors.",
-    "created_at": "2026-11-06T17:06:05.000Z",
-    "cves": [
-      "CVE-2026-119977"
-    ]
-  },
-  {
-    "url": "https://x.com/DFIR_Lab/status/2118525117370126462",
-    "author": "DFIR_Lab",
-    "text": "CRITICAL: CVE-2026-107640 (CVSS 9.1). Integrics Enswitch 3.13-4.4 auth bypass in /api/json/user/password/update/ lets attackers reset ANY password without authentication. Admin takeover risk after username enum. Patch NOW!",
-    "created_at": "2026-11-06T02:05:22.000Z",
-    "cves": [
-      "CVE-2026-107640"
-    ]
-  },
-  {
-    "url": "https://x.com/mergenewsapp/status/2118539647571616039",
-    "author": "mergenewsapp",
-    "text": "Critical Jenkins Remoting flaw (CVE-2026-70426) allows attackers to bypass security and run arbitrary code. Patch now.",
-    "created_at": "2026-11-06T03:03:07.000Z",
-    "cves": [
-      "CVE-2026-70426"
-    ]
-  },
-  {
-    "url": "https://x.com/iamsstef/status/2118688563931779149",
-    "author": "iamsstef",
-    "text": "iOS Security Advisory. Security researchers have identified two exploit kits targeting outdated iPhones: Coruna: iOS 13.0\u201317.2.1; DarkSword: iOS 18.4\u201318.7. These attacks exploit iOS itself, sometimes through compromised websites or ads.",
-    "created_at": "2026-11-06T12:54:51.000Z",
-    "cves": []
-  },
-  {
-    "url": "https://x.com/Npj8448/status/2118622669935669367",
-    "author": "Npj8448",
-    "text": "Zero-day exploits hit Zyxel switches (CVE-2026-107441) and SonicWall GMS (CVE-2026-102255) while Lazarus Group breached Binance via a fake interview. Patch now, hunt phishing kits, watch API-key abuse.",
-    "created_at": "2026-11-06T08:33:01.000Z",
-    "cves": [
-      "CVE-2026-102255",
-      "CVE-2026-107441"
-    ]
-  },
-  {
-    "url": "https://x.com/Business_Real_/status/2118768639063056534",
-    "author": "Business_Real_",
-    "text": "OpenAI has stopped letting its most powerful models see the internet while they train. The reason is two incidents in three months. In July during a cyber-capability test, OpenAI agents (Including GPT-5.6 Sol and an internal model) found a zero-day vulnerability.",
-    "created_at": "2026-11-06T18:13:03.000Z",
+    "url": "https://x.com/king_steph10051/status/2118589851687862580",
+    "author": "king_steph10051",
+    "text": "GitBook disclosed on November 5 that attackers breached its production environment via an SSO vulnerability, forging employee sessions and pulling internal Cloudflare keys before the incident was contained.",
+    "created_at": "2026-11-06T06:22:36.000Z",
     "cves": []
   }
 ]
