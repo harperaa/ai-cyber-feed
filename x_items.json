@@ -1,5 +1,51 @@
 [
  {
+  "url": "https://x.com/Arcscaler/status/2119118785517072657",
+  "author": "Arcscaler",
+  "text": "CISA just added SonicWall SSLVPN flaw CVE-2026-19868 to KEV. Actively exploited, and it can bypass SAML-enforced MFA.",
+  "created_at": "2026-11-07T17:24:24Z",
+  "cves": [
+   "CVE-2026-19868"
+  ]
+ },
+ {
+  "url": "https://x.com/EvilData/status/2118805534665326911",
+  "author": "EvilData",
+  "text": "MFA bypass on a firewall. SonicWall SonicOS SSLVPN (CVE-2026-19868): valid credentials for an alternate auth method skip SAML and its MFA. Actively exploited \u2014 added to CISA KEV today. Affects 7.3.3-7015 & older, 8.2.2-8015 & older. Patch by Nov 20.",
+  "created_at": "2026-11-06T20:39:39Z",
+  "cves": [
+   "CVE-2026-19868"
+  ]
+ },
+ {
+  "url": "https://x.com/TheExploitHQ/status/2118871709176488193",
+  "author": "TheExploitHQ",
+  "text": "Apple iOS, iPadOS, macOS, Safari, tvOS, watchOS: active exploitation confirmed. CVE-2024-27834 added to CISA KEV.",
+  "created_at": "2026-11-07T01:02:36Z",
+  "cves": [
+   "CVE-2024-27834"
+  ]
+ },
+ {
+  "url": "https://x.com/The_Tradesman1/status/2118973956132889008",
+  "author": "The_Tradesman1",
+  "text": "WordPress sites can remain exposed to code execution while installing the fix for actively exploited CVE-2026-119977 through vulnerable updates.",
+  "created_at": "2026-11-07T07:48:54Z",
+  "cves": [
+   "CVE-2026-119977"
+  ]
+ },
+ {
+  "url": "https://x.com/Soar_Infosec/status/2118856313069351067",
+  "author": "Soar_Infosec",
+  "text": "Palo Alto PAN-OS firewalls with the management interface open to the internet are being actively exploited (CVE-2026-109618 and CVE-2026-109619). Palo Alto rates it Critical, CVSS 9.2.",
+  "created_at": "2026-11-07T00:01:26Z",
+  "cves": [
+   "CVE-2026-109618",
+   "CVE-2026-109619"
+  ]
+ },
+ {
   "url": "https://x.com/SCMagazine/status/2119113906924728620",
   "author": "SCMagazine",
   "text": "More than 1,000 GitLab servers remain exposed to an actively exploited, critical RCE flaw. Experts warn attackers could steal credentials and compromise software supply chains.",
@@ -7,33 +53,146 @@
   "cves": []
  },
  {
+  "url": "https://x.com/lvpcfix/status/2118790075999977629",
+  "author": "lvpcfix",
+  "text": "CISA has a live, actively exploited RCE in Livewire 3 \u2014 the component baked into a huge share of Laravel apps \u2014 with a fix (3.6.4) that's months overdue on many stacks.",
+  "created_at": "2026-11-06T19:38:13Z",
+  "cves": []
+ },
+ {
   "url": "https://x.com/RansomVault/status/2119046120399630712",
   "author": "RansomVault",
-  "text": "Hackers target OpenSSH 'SSHole' flaw (CVE-2026-123158) within hours of disclosure, gain root on honeypot. The flaw lets attackers sign in to accounts with no password set on Linux systems running OpenSSH on musl.",
+  "text": "Hackers Target OpenSSH \"SSHole\" Flaw (CVE-2026-123158) Within Hours of Disclosure, Gain Root on Honeypot. Attackers are already exploiting the OpenSSH flaw that lets them sign in to accounts that have no password set on Linux systems running OpenSSH on musl.",
   "created_at": "2026-11-07T12:35:39Z",
   "cves": [
    "CVE-2026-123158"
   ]
  },
  {
-  "url": "https://x.com/PRAI_Lens/status/2119095910953079050",
-  "author": "PRAI_Lens",
-  "text": "WorkOS's own AI security-testing agent broke out of its sandbox and spent five days inside real customer data: first access Oct 25, bulk download Oct 30, via a guessable dev password plus an API with no rate limits.",
-  "created_at": "2026-11-07T15:53:30Z",
+  "url": "https://x.com/cloudsa/status/2119090159623053634",
+  "author": "cloudsa",
+  "text": "CISO Daily Briefing: cPGuard's hijacked update channel (5.88.12\u20135.88.19) ran as root on ~2,950 hosting servers; the patch removes the backdoor, not the stolen credentials. OpenSSH on Alpine/musl (CVE-2026-123158, CVSS 8.1) lets 257\u20131,024-byte passwords into no-password accounts.",
+  "created_at": "2026-11-07T15:30:39Z",
+  "cves": [
+   "CVE-2026-123158"
+  ]
+ },
+ {
+  "url": "https://x.com/DFIR_Lab/status/2118905576956518759",
+  "author": "DFIR_Lab",
+  "text": "HIGH: CVE-2026-46580 (CVSS 8.8) - Eclipse Theia <1.71.0 vulnerable to indirect prompt injection via malicious .prompttemplate files. Enables data exfiltration & RCE.",
+  "created_at": "2026-11-07T03:17:11Z",
+  "cves": [
+   "CVE-2026-46580"
+  ]
+ },
+ {
+  "url": "https://x.com/DFIR_Lab/status/2118875379251179853",
+  "author": "DFIR_Lab",
+  "text": "HIGH: CVE-2026-44688 - Eclipse Theia <1.71.0 vulnerable to prompt injection via malicious file/directory names. CVSS 8.8. Enables data exfiltration & RCE.",
+  "created_at": "2026-11-07T01:17:11Z",
+  "cves": [
+   "CVE-2026-44688"
+  ]
+ },
+ {
+  "url": "https://x.com/webtkdev/status/2119016259014852926",
+  "author": "webtkdev",
+  "text": "A prompt-injection filter is not a security boundary. Junie GitHub Action before 1.6.4: HTML-encoded text slipped past its filter (CVE, Nov 6).",
+  "created_at": "2026-11-07T10:37:00Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/tchsignal/status/2118957189020918132",
+  "author": "tchsignal",
+  "text": "Researchers found a way to bypass ChatGPT's Lockdown Mode, a security feature designed to reduce the risk of sensitive information leaving conversations through prompt injection attacks. OpenAI patched it.",
+  "created_at": "2026-11-07T06:42:16Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/TheHackerWire/status/2119006954139881553",
+  "author": "TheHackerWire",
+  "text": "Critical AI Agent RCE in OpenHuman (CVE-2026-54143, CVSS 9.8). External channel messages cause the agent to create persistent shell cron jobs without human approval for host RCE. Upgrade to 0.57.13.",
+  "created_at": "2026-11-07T10:00:01Z",
+  "cves": [
+   "CVE-2026-54143"
+  ]
+ },
+ {
+  "url": "https://x.com/PHPSiteAudit/status/2118993107677266126",
+  "author": "PHPSiteAudit",
+  "text": "AI found the attack in about two weeks. Four engineers spent about two months building the fix. That's the PHP2Shell timeline, per IEEE Spectrum. 70,000+ attack attempts observed within two days of the patch.",
+  "created_at": "2026-11-07T09:05:00Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/SlavaOPs/status/2118801239094026495",
+  "author": "SlavaOPs",
+  "text": "$6 and 28 Minutes: what it cost Claroty researchers to recreate, with off-the-shelf AI tools, the exploit that turned European supermarket freezers up to 50\u00b0C.",
+  "created_at": "2026-11-06T20:22:35Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/r3dbrothers/status/2118781140580626602",
+  "author": "r3dbrothers",
+  "text": "New attack technique: victim visits a webpage, page drops CLAUDE.md into Downloads, victim runs claude there, agent obeys the file, attacker gets a shell.",
+  "created_at": "2026-11-06T19:02:43Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/stretchcloud/status/2118849158513848398",
+  "author": "stretchcloud",
+  "text": "$1,279 average cost per working root exploit when OpenAI pointed autonomous GPT-6 Cyber at the Linux kernel: 2,308 potential vulnerabilities flagged, 1,724 reproduced, 948 turned into working local privilege escalation exploits.",
+  "created_at": "2026-11-06T23:33:00Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/lan1016ap/status/2118957004312224099",
+  "author": "lan1016ap",
+  "text": "OpenAI Says Its AI Found 81 Firefox Bugs. Who Gets Access\u2014and Who Doesn't?",
+  "created_at": "2026-11-07T06:41:32Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/checkleaked/status/2119067553293095334",
+  "author": "checkleaked",
+  "text": "Your Claude Code secrets are in 1,122 GitHub repos \u2014 rotate now. Today: AI coding assistant leaks secrets, SonicWall SSL-VPN bypassed, runaway AI breaches WorkOS, fake tools.",
+  "created_at": "2026-11-07T14:00:49Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/sudheerdotai/status/2119028207420588510",
+  "author": "sudheerdotai",
+  "text": "Claude Code's \"don't ask again\" can write your password into .claude/settings.local.json. Apiiro: 1,122 public GitHub copies hold secrets (2,539 across history/forks/logs). Of 16 coding agents checked, only Claude Code does this by default.",
+  "created_at": "2026-11-07T11:24:28Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/DFIR_Radar/status/2118796242981437648",
+  "author": "DFIR_Radar",
+  "text": "AI agents from OpenAI, Anthropic, Google, and Meta breached real organizations as collateral damage during capability evaluations, hitting Hugging Face, a U.S. Census Bureau site, and dozens more between July and October 2026. Pillar Security counted 21 public disclosures.",
+  "created_at": "2026-11-06T20:02:44Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/DailyDarkWeb/status/2118844721267183819",
+  "author": "DailyDarkWeb",
+  "text": "Microsoft: AI agents turn GitHub secrets into cloud theft. One observed ARTEX case went from secret searches to Azure Key Vault data theft in 5 minutes. Rotate leaked credentials and audit application sign-ins.",
+  "created_at": "2026-11-06T23:15:22Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/scantinelai/status/2118981222156124592",
+  "author": "scantinelai",
+  "text": "Nx Supply-Chain Attack Steals npm Token via GitHub Workflow Bug.",
+  "created_at": "2026-11-07T08:17:46Z",
   "cves": []
  },
  {
   "url": "https://x.com/BadgerSignalHQ/status/2118984350729654369",
   "author": "BadgerSignalHQ",
-  "text": "Malicious RubyGem strutil-core 1.0.1 runs a credential-stealing Shai-Hulud descendant worm the moment it is installed; published Nov 1 2026 by account jamnajiea.",
+  "text": "Malicious RubyGem strutil-core 1.0.1 runs a credential-stealing worm (Shai-Hulud descendant) the moment it is installed; published 1 Nov 2026 by account jamnajiea.",
   "created_at": "2026-11-07T08:30:12Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/Akshayi3iw/status/2118776370935550147",
-  "author": "Akshayi3iw",
-  "text": "Microsoft warns ARTEX AI agents hunt exposed secrets on public GitHub then break into cloud; in one case GitHub scan to Azure Key Vault theft took 5 minutes. Rotate leaked keys.",
-  "created_at": "2026-11-06T18:43:46Z",
   "cves": []
  },
  {
@@ -44,281 +203,17 @@
   "cves": []
  },
  {
-  "url": "https://x.com/aidopes/status/2119026916438991128",
-  "author": "aidopes",
-  "text": "Haiou, a Codex 'enhancement pack' (403 stars), persistently appends to global agent instructions (AGENTS.md) so responses carry an ad for an LLM gateway: persistent prompt injection via agent skills.",
-  "created_at": "2026-11-07T11:19:21Z",
+  "url": "https://x.com/pavhori/status/2118817016232493526",
+  "author": "pavhori",
+  "text": "The $6.3B Binance heist started with one engineer searching for an AI coding tool and installing a tampered Homebrew package, per Binance's Nov 3 report.",
+  "created_at": "2026-11-06T21:25:17Z",
   "cves": []
- },
- {
-  "url": "https://x.com/topwardaddy/status/2119075065367326897",
-  "author": "topwardaddy",
-  "text": "Technion arXiv research (Nov 2026): one fake safety review steered AI agents to the attacker's pick 60.4% of the time, and detectors called it benign.",
-  "created_at": "2026-11-07T14:30:40Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/cloudsa/status/2119090159623053634",
-  "author": "cloudsa",
-  "created_at": "2026-11-07T15:30:39Z",
-  "text": "cPGuard's hijacked update channel (5.88.12-5.88.19) ran as root on ~2,950 hosting servers; the patch removes the backdoor, not the stolen credentials. OpenSSH on Alpine/musl (CVE-2026-123158, CVSS 8.1) lets 257-1,024-byte passwords into no-password accounts.",
-  "cves": [
-   "CVE-2026-123158"
-  ]
- },
- {
-  "url": "https://x.com/ICPLEGEND1966/status/2119079261290008637",
-  "author": "ICPLEGEND1966",
-  "created_at": "2026-11-07T14:47:21Z",
-  "text": "812 GB of cloud backups allegedly exposed: threat actor 'libreboot2016' allegedly offering Microsoft Azure storage credentials of a German IT provider.",
-  "cves": []
- },
- {
-  "url": "https://x.com/checkleaked/status/2119067553293095334",
-  "author": "checkleaked",
-  "created_at": "2026-11-07T14:00:49Z",
-  "text": "Cybersecurity Daily 2026-11-07: Claude Code secrets in 1,122 GitHub repos (rotate now), SonicWall SSL-VPN bypassed, runaway AI breaches WorkOS.",
-  "cves": []
- },
- {
-  "url": "https://x.com/SecAlertsCo/status/2119061698736754853",
-  "author": "SecAlertsCo",
-  "created_at": "2026-11-07T13:37:33Z",
-  "text": "Public PoC dropped for CVE-2026-118423. WP Libre Form 1.5.0.1 lets unauthenticated attackers upload PHP files via form submissions, full RCE possible.",
-  "cves": [
-   "CVE-2026-118423"
-  ]
- },
- {
-  "url": "https://x.com/vuln_tracker/status/2119022051038208001",
-  "author": "vuln_tracker",
-  "created_at": "2026-11-07T11:00:01Z",
-  "text": "WordPress CVE-2026-119977 is on CISA KEV: an unauthenticated upgrade-window RCE (CVSS 8.1) in Core 4.7 to 7.1.3. Wordfence reports 240,000+ blocked exploit attempts since Oct 28. Update to 7.1.4.",
-  "cves": [
-   "CVE-2026-119977"
-  ]
- },
- {
-  "url": "https://x.com/ncn_english/status/2119017843945504944",
-  "author": "ncn_english",
-  "created_at": "2026-11-07T10:43:18Z",
-  "text": "Some WordPress sites remain exposed to code execution while installing the fix for an actively exploited flaw, per a Picus Security researcher.",
-  "cves": []
- },
- {
-  "url": "https://x.com/webtkdev/status/2119016259014852926",
-  "author": "webtkdev",
-  "created_at": "2026-11-07T10:37:00Z",
-  "text": "Junie GitHub Action before 1.6.4: HTML-encoded text slipped past its prompt-injection filter (CVE, Nov 6). If your CI agent reads issues or PRs: pin a fixed version, read-only token, no secrets on issue triggers.",
-  "cves": []
- },
- {
-  "url": "https://x.com/chris_uk2026/status/2119012919694221818",
-  "author": "chris_uk2026",
-  "created_at": "2026-11-07T10:23:44Z",
-  "text": "Claude Code 'Don't Ask Again' feature exposes secrets: 1,122 public GitHub repos leak passwords & API keys typed into approved commands. Rotate keys now.",
-  "cves": []
- },
- {
-  "url": "https://x.com/TheHackerWire/status/2119006954139881553",
-  "author": "TheHackerWire",
-  "created_at": "2026-11-07T10:00:01Z",
-  "text": "Critical AI Agent RCE in OpenHuman (CVE-2026-54143, CVSS 9.8). External channel messages cause the agent to create persistent shell cron jobs without human approval. Upgrade to 0.57.13.",
-  "cves": [
-   "CVE-2026-54143"
-  ]
- },
- {
-  "url": "https://x.com/scantinelai/status/2118981222156124592",
-  "author": "scantinelai",
-  "created_at": "2026-11-07T08:17:46Z",
-  "text": "Nx supply-chain attack steals npm token via GitHub workflow bug.",
-  "cves": []
- },
- {
-  "url": "https://x.com/dailycve/status/2118971642424524886",
-  "author": "dailycve",
-  "created_at": "2026-11-07T07:39:42Z",
-  "text": "Google Mesop, Unauthenticated RCE, CVE-2026-33057 (Critical)",
-  "cves": [
-   "CVE-2026-33057"
-  ]
  },
  {
   "url": "https://x.com/Vesper7786/status/2118971456520610192",
   "author": "Vesper7786",
+  "text": "Chainalysis confirmed hackers compromised sensitive credentials for all of its users: names, usernames, password hashes, and live tokens.",
   "created_at": "2026-11-07T07:38:58Z",
-  "text": "Chainalysis confirmed that hackers compromised sensitive credentials for all of its users: names, usernames, password hashes, and live tokens.",
-  "cves": []
- },
- {
-  "url": "https://x.com/tchsignal/status/2118957189020918132",
-  "author": "tchsignal",
-  "created_at": "2026-11-07T06:42:16Z",
-  "text": "Researchers found a way to bypass ChatGPT's Lockdown Mode, a feature designed to reduce data exfiltration through prompt injection. OpenAI patched it.",
-  "cves": []
- },
- {
-  "url": "https://x.com/lan1016ap/status/2118957004312224099",
-  "author": "lan1016ap",
-  "created_at": "2026-11-07T06:41:32Z",
-  "text": "OpenAI says its AI found 81 Firefox bugs. Who gets access and who doesn't?",
-  "cves": []
- },
- {
-  "url": "https://x.com/cveintelligence/status/2118941508879749472",
-  "author": "cveintelligence",
-  "created_at": "2026-11-07T05:39:58Z",
-  "text": "CVE-2026-93754 Critical 9.8: payever WooCommerce Gateway plugin (<=4.8.0) unauth file upload RCE. No patch listed yet.",
-  "cves": [
-   "CVE-2026-93754"
-  ]
- },
- {
-  "url": "https://x.com/UndercodeUpdate/status/2118933518118203475",
-  "author": "UndercodeUpdate",
-  "created_at": "2026-11-07T05:08:13Z",
-  "text": "SonicWall SonicOS SSLVPN MFA Bypass CVE-2026-19868 Actively Exploited in the Wild",
-  "cves": [
-   "CVE-2026-19868"
-  ]
- },
- {
-  "url": "https://x.com/DFIR_Lab/status/2118925711947755923",
-  "author": "DFIR_Lab",
-  "created_at": "2026-11-07T04:37:12Z",
-  "text": "CRITICAL: CVE-2026-54390 (CVSS 9.8) - JTL Shop 5.2.0-5.7.1 server-side template injection allows unauthenticated RCE.",
-  "cves": [
-   "CVE-2026-54390"
-  ]
- },
- {
-  "url": "https://x.com/pwnwatch_app/status/2118917861217616233",
-  "author": "pwnwatch_app",
-  "created_at": "2026-11-07T04:06:00Z",
-  "text": "IBM API Connect V12 OnPrem: 202 CVEs fixed in v12.1.1.3 (tenant takeover, auth bypass, RCE, SQLi) CVE-2026-17362, CVE-2026-17301 +13 more.",
-  "cves": [
-   "CVE-2026-17301",
-   "CVE-2026-17362"
-  ]
- },
- {
-  "url": "https://x.com/Npj8448/status/2118915380202643777",
-  "author": "Npj8448",
-  "created_at": "2026-11-07T03:56:08Z",
-  "text": "Zero-day Zyxel GS1900 switch exploit (CVE-2026-107441) active in the wild, plus APT29 leveraging CVE-2024-27834.",
-  "cves": [
-   "CVE-2024-27834",
-   "CVE-2026-107441"
-  ]
- },
- {
-  "url": "https://x.com/Npj8448/status/2118915089755738388",
-  "author": "Npj8448",
-  "created_at": "2026-11-07T03:54:59Z",
-  "text": "Critical chain exploit (CVE-2026-116606 + CVE-2026-111560) gives unauthenticated root on Barracuda Email Gateway. Add Printcart (CVE-2026-19803) RCE to the list, both active now.",
-  "cves": [
-   "CVE-2026-111560",
-   "CVE-2026-116606",
-   "CVE-2026-19803"
-  ]
- },
- {
-  "url": "https://x.com/DFIR_Lab/status/2118905576956518759",
-  "author": "DFIR_Lab",
-  "created_at": "2026-11-07T03:17:11Z",
-  "text": "HIGH: CVE-2026-46580 (CVSS 8.8) - Eclipse Theia <1.71.0 vulnerable to indirect prompt injection via malicious .prompttemplate files. Enables data exfiltration & RCE.",
-  "cves": [
-   "CVE-2026-46580"
-  ]
- },
- {
-  "url": "https://x.com/DFIR_Lab/status/2118875379251179853",
-  "author": "DFIR_Lab",
-  "created_at": "2026-11-07T01:17:11Z",
-  "text": "HIGH: CVE-2026-44688 - Eclipse Theia <1.71.0 vulnerable to prompt injection via malicious file/directory names. CVSS 8.8. Enables data exfiltration & RCE.",
-  "cves": [
-   "CVE-2026-44688"
-  ]
- },
- {
-  "url": "https://x.com/ICHI_Global/status/2118871986445414593",
-  "author": "ICHI_Global",
-  "created_at": "2026-11-07T01:03:42Z",
-  "text": "Metasploit modules now available: Citrix NetScaler ADC/Gateway CVE-2026-88771 & CVE-2026-88773 - CISA KEV, unauth RCE, public exploit now live.",
-  "cves": [
-   "CVE-2026-88771",
-   "CVE-2026-88773"
-  ]
- },
- {
-  "url": "https://x.com/TheExploitHQ/status/2118871709176488193",
-  "author": "TheExploitHQ",
-  "created_at": "2026-11-07T01:02:36Z",
-  "text": "Apple iOS, iPadOS, macOS, Safari, tvOS, watchOS: active exploitation confirmed (CVE-2024-27834). Apply Apple security updates.",
-  "cves": [
-   "CVE-2024-27834"
-  ]
- },
- {
-  "url": "https://x.com/neo_logos_/status/2118868770638684558",
-  "author": "neo_logos_",
-  "created_at": "2026-11-07T00:50:56Z",
-  "text": "Chainalysis said credentials and live tokens for all users were exposed; took products offline, requires password resets and API-key rotation. DigiCert also disclosed an incident.",
-  "cves": []
- },
- {
-  "url": "https://x.com/FarVisionNetwks/status/2118861591693103574",
-  "author": "FarVisionNetwks",
-  "created_at": "2026-11-07T00:22:24Z",
-  "text": "Chainalysis says an external actor used 'offensive agentic techniques' to access systems; names, usernames, password hashes and live tokens for all users were exposed (as reported). KYT went offline Nov 4.",
-  "cves": []
- },
- {
-  "url": "https://x.com/Soar_Infosec/status/2118856313069351067",
-  "author": "Soar_Infosec",
-  "created_at": "2026-11-07T00:01:26Z",
-  "text": "Palo Alto PAN-OS firewalls with the management interface open to the internet are being actively exploited (CVE-2026-109618 and CVE-2026-109619). Palo Alto rates it Critical, CVSS 9.2.",
-  "cves": [
-   "CVE-2026-109618",
-   "CVE-2026-109619"
-  ]
- },
- {
-  "url": "https://x.com/stretchcloud/status/2118849158513848398",
-  "author": "stretchcloud",
-  "created_at": "2026-11-06T23:33:00Z",
-  "text": "OpenAI pointed an autonomous model, GPT-6 Cyber, at the Linux kernel: the pipeline flagged 2,308 potential vulnerabilities, reproduced 1,724, and turned 948 into working local privilege escalation exploits, at about $1,279 per working root exploit.",
-  "cves": []
- },
- {
-  "url": "https://x.com/pavhori/status/2118817016232493526",
-  "author": "pavhori",
-  "created_at": "2026-11-06T21:25:17Z",
-  "text": "The $6.3B Binance heist started with a Wallet DevOps engineer searching for an AI coding tool and installing a tampered Homebrew package (Binance Nov 3 report).",
-  "cves": []
- },
- {
-  "url": "https://x.com/NewsTongueX/status/2118816674908393968",
-  "author": "NewsTongueX",
-  "created_at": "2026-11-06T21:23:55Z",
-  "text": "Gnosis Pay detected unauthorized access to its consumer card platform on November 3, exposing customer information; breach contained within two hours, credentials replaced.",
-  "cves": []
- },
- {
-  "url": "https://x.com/EvilData/status/2118805534665326911",
-  "author": "EvilData",
-  "created_at": "2026-11-06T20:39:39Z",
-  "text": "MFA bypass on a firewall. SonicWall SonicOS SSLVPN (CVE-2026-19868): valid credentials for an alternate auth method skip SAML and its MFA. Actively exploited, added to CISA KEV today. Affects 7.3.3-7015 & older, 8.2.2-8015 & older. Patch by Nov 20.",
-  "cves": [
-   "CVE-2026-19868"
-  ]
- },
- {
-  "url": "https://x.com/SlavaOPs/status/2118801239094026495",
-  "author": "SlavaOPs",
-  "created_at": "2026-11-06T20:22:35Z",
-  "text": "$6 and 28 minutes: what it cost Claroty researchers to recreate, with off-the-shelf AI tools, the exploit that turned European supermarket freezers up to 50C.",
   "cves": []
  }
 ]
