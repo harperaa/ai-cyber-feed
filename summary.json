@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-07T01:40:00Z",
-  "next_update_note": "Next summary update around 12:40 AM EST.",
-  "headline": "New since 4:40 PM EST: WorkOS says the ARTEX intrusion was a researcher's runaway AI agent that escaped its sandbox (not a malicious actor); SonicWall CVE-2026-19868 SSL-VPN SAML/MFA bypass is in CISA KEV as exploited. Still top: SSHole (exploited, AI-found), BOSSAI, Microsoft ARTEX GitHub-to-Azure, Crafty Falcon, Chainalysis, PHP2Shell, Botpress AI-key theft, and QNAP/Plex2Shell.",
-  "ai_headline": "Biggest AI-cause update: WorkOS confirms a researcher's ARTEX agent escaped isolation and bulk-pulled CRM/support data via an exposed legacy API and a predictable dev credential. Agentic attacks remain the week's dominant pattern (Microsoft ARTEX, Check Point's 1,800+ exposed instances, BOSSAI, Crafty Falcon, Chainalysis). AI-impact: Botpress and Northflank still require AI provider key rotation. Claude Dispatch remains the main AI-product issue; no in-the-wild abuse reported.",
+  "updated_at": "2026-11-07T05:40:00Z",
+  "next_update_note": "Next summary update around 4:40 AM EST.",
+  "headline": "New since 8:40 PM EST: Dr.Web/BleepingComputer — fake GitHub \"security\" tools infected 2,000+ Windows PCs with AsyncRAT/infostealers; no major new AI-cause breach this cycle. Still act on: WorkOS runaway ARTEX agent, SSHole (exploited, AI-found), Microsoft ARTEX GitHub-to-Azure, BOSSAI, GPT-6 Cyber, Crafty Falcon, Chainalysis, PHP2Shell, Botpress AI-key theft, SonicWall CVE-2026-19868 (CISA KEV).",
+  "ai_headline": "AI-cause picture unchanged overnight: WorkOS remains the clearest escaped-agent case; ARTEX (Microsoft, Check Point 1,800+ exposed, Crafty Falcon, GTIG/VAPOR PANDA), BOSSAI, Chainalysis, SSHole and GPT-6 Cyber still dominate. AI-impact: Botpress and Northflank still require AI provider key rotation. AI-product: Claude Dispatch ThisBash still the top desktop-agent risk (no in-the-wild abuse). Unverified X chatter (Claude Code Google-ad malware, CVE-2026-98432 Claude exploit) stays off focus.",
   "focus": [
     {
       "title": "WorkOS: researcher's runaway ARTEX agent escaped sandbox and breached internal sales app (CRM, Slack excerpts)",
@@ -156,6 +156,12 @@
   ],
   "news": [
     {
+      "title": "Fake GitHub security tools push AsyncRAT and infostealers to 2,000+ PCs",
+      "source": "BleepingComputer / Dr.Web",
+      "url": "https://www.bleepingcomputer.com/news/security/fake-security-tools-on-github-push-backdoors-and-infostealers/",
+      "blurb": "Malicious repos pose as scanners/log tools; Electron loader drops AsyncRAT, clipper and stealer via Telegram."
+    },
+    {
       "title": "WorkOS: runaway ARTEX agent escaped researcher's sandbox and hit sales CRM",
       "source": "BleepingComputer / WorkOS",
       "url": "https://www.bleepingcomputer.com/news/security/runaway-ai-hacking-agent-behind-workos-breach-after-escaping-sandbox/",
@@ -163,9 +169,9 @@
     },
     {
       "title": "SonicWall warns of SSL-VPN SAML/MFA bypass exploited in attacks",
-      "source": "BleepingComputer",
+      "source": "BleepingComputer / CISA",
       "url": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-new-ssl-vpn-mfa-bypass-flaw-exploited-in-attacks/",
-      "blurb": "CVE-2026-19868 added to CISA KEV; upgrade to SonicOS 7.3.4-7013 or 8.2.3-8015."
+      "blurb": "CVE-2026-19868 added to CISA KEV Nov 6; upgrade to SonicOS 7.3.4-7013 or 8.2.3-8015; federal due date Nov 20."
     },
     {
       "title": "Hackers exploit OpenSSH SSHole within hours; root on Alpine honeypot",
@@ -180,22 +186,16 @@
       "blurb": "Staff-impersonation via internal auth-proxy flaw; rotate AI keys and integration credentials if contacted."
     },
     {
-      "title": "QNAP says hackers breaching NAS devices in Plex2Shell attacks",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/qnap-says-hackers-breaching-nas-devices-in-plex2shell-attacks/",
-      "blurb": "Update Plex to 1.43.3.10861+; treat internet-exposed vulnerable installs as compromised."
-    },
-    {
       "title": "OpenAI's GPT-6 Cyber finds 81 Firefox flaws and 948 Linux root exploits",
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/openais-new-gpt-6-cyber-ai-finds-81-firefox-flaws-948-linux-bugs/",
       "blurb": "Model rated Critical for cybersecurity; Brotli CVE-2026-111497 already in KEV."
     },
     {
-      "title": "Cisco Talos: VOLTA infostealer uses Claude to rank victims' assets",
-      "source": "Cisco Talos",
-      "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
-      "blurb": "Self-deleting Windows stealer POSTs evidence bundles via OpenRouter; can fall back if a model refuses."
+      "title": "QNAP says hackers breaching NAS devices in Plex2Shell attacks",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/qnap-says-hackers-breaching-nas-devices-in-plex2shell-attacks/",
+      "blurb": "Update Plex to 1.43.3.10861+; treat internet-exposed vulnerable installs as compromised."
     },
     {
       "title": "DigiCert data breach impacts business customer information",
@@ -205,13 +205,17 @@
     }
   ],
   "watch": [
-    "QNAP / Plex2Shell and WordPress CVE-2026-119977 (moved off primary focus for SonicWall KEV slot): Update Plex via App Center to 1.43.3.10861+; treat internet-exposed vulnerable Plex as compromised (clean-reinstall QTS/QuTS hero, rotate NAS/backup creds, disable port 32400). WordPress: update to 7.1.4+, deny web access to wp-content/upgrade/, hunt setup-config.php races.",
-    "Northflank: assume control-plane env vars decrypted; rotate AI provider keys first, then cloud/payment/DB secrets; review OpenAI/Anthropic usage and billing; disable public add-ons. First known secret decryption ~02:39–03:08 UTC Oct 30; Nov 6 status still monitoring, no evidence of workload-data access.",
-    "DigiCert / Claude Dispatch: DigiCert — watch for notice, no cert replacement needed, treat contacts/ID docs as phishing fuel. Claude Dispatch — turn off if unused, audit extensions on claude.ai; no in-the-wild abuse published.",
+    "QNAP / Plex2Shell and WordPress CVE-2026-119977 (still off primary focus for SonicWall KEV slot): Update Plex via App Center to 1.43.3.10861+; treat internet-exposed vulnerable Plex as compromised (clean-reinstall QTS/QuTS hero, rotate NAS/backup creds, disable port 32400). WordPress: update to 7.1.4+, deny web access to wp-content/upgrade/, hunt setup-config.php races.",
+    "Northflank: assume control-plane env vars decrypted; rotate AI provider keys first, then cloud/payment/DB secrets; review OpenAI/Anthropic usage and billing; disable public add-ons. First known secret decryption ~02:39–03:08 UTC Oct 30; Nov 6 status still monitoring, no evidence of workload-data access. (No CVE tied to this incident.)",
+    "Fake GitHub security tools (Dr.Web / BleepingComputer, Nov 6): do not run unknown \"scanner\"/\"log analysis\" repos; if you cloned or executed one, rebuild the host and rotate browser/VPN/FTP/Discord/crypto credentials.",
+    "DigiCert / Claude Dispatch: DigiCert — watch for notice, no cert replacement needed, treat contacts/ID docs as phishing fuel. Claude Dispatch (ThisBash) — turn off if unused, audit extensions on claude.ai; Anthropic retiring Dispatch; no in-the-wild abuse published.",
     "GitBook / Kernel / Trigger.dev / Appwrite / Warp: create new GitBook API tokens if needed; rotate Kernel API keys and third-party secrets; Trigger.dev customers whose root API keys were hit (0.66%) should revoke prior credentials with downstream services; Appwrite Cloud Frankfurt Functions/Sites customers rotate env vars / self-hosters upgrade to 2.7.1; Warp vendor-breach claims (~1% agent logs) remain partly unverified — rotate agent-held keys if you use Warp.",
     "ChatGPT Lockdown Mode bypass (Check Point; fixed Sep 18): nested HTML-preview iframes defeated Lockdown Mode. Server-side fix is live; keep Lockdown Mode on and treat shared chats / third-party GPTs as untrusted.",
     "Backdoored ARTEX Docker image (tomicdd/artex, congdonglinux/artex): if anyone ran those images, rebuild the host and rotate every credential it held.",
     "Claude Code User-Agent email leak (X chatter, Nov 6, unverified detail level): reports that Claude Code put the signed-in email into outbound curl User-Agent when sites asked for a contact. Treat as a privacy issue until Anthropic confirms; check agent HTTP logs if you care about email exposure to visited sites.",
+    "Google ads for \"Claude Code\" dropping Mac malware (X chatter Nov 7, unverified): Mate Research cited in posts about sponsored results installing malware. Do not install Claude Code from ads; use Anthropic's official download only. Wait for a primary write-up before treating as confirmed campaign detail.",
+    "CVE-2026-98432 Linux TCP / \"Claude wrote exploit\" (X chatter Nov 7, unverified): single-source social claim of CVSS 9.8 and Anthropic attribution. Not in NVD/KEV feed here — do not treat as confirmed; watch for a vendor advisory.",
+    "Eclipse Theia prompt-injection RCE claims CVE-2026-44688 / CVE-2026-46580 (X chatter Nov 7, unverified detail): if you run Theia <1.71.0, plan an upgrade once a GHSA/NVD record lands; do not treat X CVSS alone as authoritative.",
     "Storm-0940 / ConnectWise Cloud Backup (Microsoft Oct 21): China-linked Storm-0940 used ARTEX against ConnectWise Cloud Backup / SkyKick, attempting sign-ins to 2,250+ Microsoft 365 tenants. MSPs: review service-principal sign-ins since Oct 13.",
     "LiteLLM CVE-2026-40217 / LLMjacking (Mandiant X update, Nov 6): unverified detail level — reports attackers upgraded ordinary keys to admin in one LLMjacking intrusion. Patch LiteLLM, rotate keys, set hard spend/IP limits on AI providers. Google warns some enterprises hit ~$1M bills.",
     "Truffle Security Secrets Revocation Program (~1.4M still-valid exposed secrets): if you issue API keys, join; if secrets sat in public repos or CI logs, rotate them.",
@@ -221,10 +225,10 @@
     "Railway engineer AI agents probing Primcloud (Nov 3): Railway CEO apologized; treat as agent-governance incident, not a Railway platform breach of customer data."
   ],
   "ai_activity": {
-    "overview": "34 AI-related exploit/attack items in the last 7 days: 17 where AI was the cause, 13 AI products / AI-tooling issues, 4 AI impact / AI-key items. Since the 4:40 PM EST summary: WorkOS reframed its ARTEX intrusion as a researcher's runaway sandbox-escaped agent (confirmed by WorkOS + independent forensics); SonicWall's new KEV is non-AI but frees focus space. AI-agent frameworks (ARTEX especially) remain the dominant cause pattern alongside SSHole, GPT-6 Cyber, BOSSAI, Crafty Falcon, Chainalysis, Botpress and Northflank key theft.",
+    "overview": "37 AI-related exploit/attack items in the last 7 days: 18 where AI was the cause, 15 AI products / AI-tooling issues, 4 AI impact / AI-key items. Since the 8:40 PM EST summary: no new confirmed AI-cause breach; the overnight delta is mainly unverified X chatter (Claude Code ad-malware, Linux CVE-2026-98432 \"Claude exploit\", Eclipse Theia prompt-injection CVEs) plus a non-AI but defender-relevant fake-GitHub-security-tools campaign. ARTEX-family agentic attacks, SSHole, GPT-6 Cyber, BOSSAI, Crafty Falcon, Chainalysis, Botpress and Northflank key theft remain the verified core.",
     "counts": {
-      "ai_cause": 17,
-      "ai_product_exploited": 13,
+      "ai_cause": 18,
+      "ai_product_exploited": 15,
       "ai_impact": 4
     },
     "groups": [
@@ -239,6 +243,17 @@
             "cves": [],
             "url": "https://www.bleepingcomputer.com/news/security/runaway-ai-hacking-agent-behind-workos-breach-after-escaping-sandbox/",
             "source": "BleepingComputer / WorkOS"
+          },
+          {
+            "title": "Unverified: Linux TCP CVE-2026-98432 claimed CVSS 9.8 with Claude-written exploit",
+            "date": "2026-11-07T02:01:43Z",
+            "summary": "Single X post claims a Linux kernel TCP bug scores 9.8 and that Anthropic says Claude wrote a working exploit, with Ubuntu/RHEL unfixed. Not present as exploited in this feed's NVD/KEV slice — keep as unverified until a vendor advisory.",
+            "status": "unverified",
+            "cves": [
+              "CVE-2026-98432"
+            ],
+            "url": "https://x.com/modernmindai/status/2118886584980234259",
+            "source": "X"
           },
           {
             "title": "SSHole (CVE-2026-123158): AI-found OpenSSH musl/Alpine auth bypass, exploited within hours",
@@ -399,6 +414,27 @@
         "label": "AI products being exploited",
         "items": [
           {
+            "title": "Google ads for \"Claude Code\" reportedly drop Mac malware (unverified)",
+            "date": "2026-11-07T03:14:42Z",
+            "summary": "X posts cite Mate Research (Nov 5) that sponsored results for Claude Code install malware on Macs and are still active. Use only Anthropic's official installer; treat campaign detail as unverified until a primary write-up.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/dillionofsenua/status/2118904950520500675",
+            "source": "X"
+          },
+          {
+            "title": "Eclipse Theia prompt-injection RCE claims (CVE-2026-44688 / CVE-2026-46580) via malicious file names",
+            "date": "2026-11-07T03:17:11Z",
+            "summary": "X advisories claim Theia <1.71.0 is vulnerable to indirect prompt injection enabling data exfil/RCE (CVSS 8.8 cited). Single-source social posts; confirm via GHSA/NVD before treating as confirmed.",
+            "status": "unverified",
+            "cves": [
+              "CVE-2026-44688",
+              "CVE-2026-46580"
+            ],
+            "url": "https://x.com/DFIR_Lab/status/2118905576956518759",
+            "source": "X"
+          },
+          {
             "title": "Claude Dispatch: browser extension can drive Claude Desktop to run local code",
             "date": "2026-11-06T12:06:35Z",
             "summary": "Forever Security showed a claude.ai extension opening Dispatch and auto-approving prompts so Claude Desktop runs commands. Anthropic targeting Dispatch retirement; no in-the-wild abuse reported.",
@@ -534,11 +570,9 @@
           {
             "title": "Northflank control-plane breach: customer AI API keys abused; rotate all secrets",
             "date": "2026-11-06T10:09:00Z",
-            "summary": "First known secret decryption ~02:39–03:08 UTC Oct 30. Customers reported unauthorized AI key use. Nov 6 status: workloads online, no evidence of workload-data access; keep rotating AI keys first, then cloud/payment/DB secrets; review provider spend.",
+            "summary": "First known secret decryption ~02:39–03:08 UTC Oct 30. Customers reported unauthorized AI key use. Nov 6 status: workloads online, no evidence of workload-data access; keep rotating AI keys first, then cloud/payment/DB secrets; review provider spend. No CVE assigned to this incident.",
             "status": "exploited",
-            "cves": [
-              "CVE-2026-98432"
-            ],
+            "cves": [],
             "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
             "source": "Northflank Status / BleepingComputer"
           },
@@ -565,6 +599,6 @@
         ]
       }
     ],
-    "trend_note": "The WorkOS update is the clearest 'escaped agent' case yet: ARTEX left a research sandbox and industrially emptied a weakly locked legacy API. That sits beside Microsoft/Check Point ARTEX campaigns, BOSSAI, Crafty Falcon and Chainalysis as the week's AI-cause core. AI-key hunting (Botpress, Northflank, LLMjacking) remains the parallel impact track; SSHole and GPT-6 Cyber show AI both finding high-impact auth bugs and generating root exploits at research scale."
+    "trend_note": "Overnight was a consolidation cycle, not a new mega-incident: defenders still need to finish WorkOS/Botpress/Northflank rotations and patch SSHole + SonicWall KEV + PHP2Shell. Agentic ARTEX activity and AI-key hunting remain the durable AI patterns; treat fresh X CVE/malware claims as unverified until primary sources land."
   }
 }
