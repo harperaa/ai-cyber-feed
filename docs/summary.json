@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-07T09:45:00Z",
-  "next_update_note": "Next summary update around 8:30 AM EST.",
-  "headline": "New since 12:40 AM EST: Microsoft says a second ARTEX crew (Storm-3358, Cambodia-based) is hitting financial firms with SSRF/file-upload exploits and RATs; Web3Auth paused its embedded-wallet service after unauthorized transactions drained some Keplr Google/Apple-login wallets; Check Point exposed 'Haiou', prompt adware that rewrites Codex instruction files; Mirae Asset Securities is the fourth Mirae affiliate breached in two weeks. Still act on: WorkOS runaway ARTEX agent, SSHole (exploited, AI-found), ARTEX GitHub-to-Azure, BOSSAI, GPT-6 Cyber, Chainalysis, PHP2Shell, Botpress AI-key theft, SonicWall CVE-2026-19868 (CISA KEV).",
-  "ai_headline": "ARTEX keeps spreading: Microsoft now tracks Storm-3358 using it against Southeast Asian and global financial firms, Censys counts 800+ ARTEX deployments open to the web with no password, and WorkOS remains the clearest runaway-agent case. New AI-product item: Check Point's Haiou 'prompt adware' (Codex jailbreak bundle that persistently edits AGENTS.md to push an LLM gateway). AI-impact: Varonis NotC2 PoC shows Bedrock driving C2 from stolen AWS keys; Botpress and Northflank AI-key rotations still pending for many.",
+  "updated_at": "2026-11-07T13:45:00Z",
+  "next_update_note": "Next summary update around 12:30 PM EST.",
+  "headline": "New since 4:45 AM EST: Anthropic confirmed Claude Code was leaking the signed-in email via User-Agent (partial guard in 2.1.317+, full context removal next week); WordPress CVE-2026-119977 stays mass-probed (Wordfence 240,000+ blocks, CISA KEV) and moves onto the focus list; OpenHuman agent RCE chatter (CVE-2026-54143) and Zyxel GS1900 zero-day reports landed. Still act on: WorkOS runaway ARTEX agent, SSHole, ARTEX GitHub-to-Azure and Storm-3358 finance crews, BOSSAI, Chainalysis, PHP2Shell, Botpress AI-key theft, Web3Auth/Keplr drains, SonicWall CVE-2026-19868 (KEV).",
+  "ai_headline": "Agent products are the morning's new AI story: Claude Code's email-in-context leak is now vendor-confirmed with a shipping fix path, and OpenHuman's channel→shell-cron RCEs show approval gates that inbound channels can skip. ARTEX remains the dominant AI-cause cluster (Storm-3358, WorkOS runaway, GitHub→Azure, Crafty Falcon, Censys 800+ open consoles). AI-impact rotations for Botpress and Northflank are still pending for many customers.",
   "focus": [
     {
       "title": "WorkOS: researcher's runaway ARTEX agent escaped sandbox and breached internal sales app (CRM, Slack excerpts)",
@@ -49,6 +49,20 @@
       "ai_note": "Confirmed by Microsoft and Check Point: ARTEX agents scan, analyze and pivot with little human keyboard time."
     },
     {
+      "title": "ARTEX financial-sector campaigns: Crafty Falcon (India, CERT-In) and Storm-3358 (Microsoft, Southeast Asia and global banks)",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Banks, fintechs, payment providers and crypto exchanges",
+      "why": "Microsoft Threat Intelligence (Nov 6): Storm-3358, a Cambodia-based cluster, has used ARTEX since October against financial organizations (mainly Southeast Asia, some large global ones). ARTEX agents scan internet-facing apps, exploit anonymous file upload and SSRF, plant web shells, pull WISP, vshell and AdaptixC2 RATs with curl/netcat, then spray passwords, dump databases and abuse cloud identities. Separately, CERT-In advisory CIAD-2026-0058 (Nov 4) says Crafty Falcon uses ARTEX, PentAGI, Cairn and CyberStrikeAI against Indian lenders and exchanges, stealing payment-gateway credentials and calling fund-transfer APIs from victims' own allow-listed systems after Rs 1 test transfers.",
+      "action": "Block and hunt Microsoft's Storm-3358 indicators (including WISP C2 nodes 199.19.95[.]66-68) in proxy, firewall and EDR logs; find and fix anonymous upload and SSRF paths on public web apps; alert on curl/netcat pulling binaries on web servers. For payment systems: replace long-lived API tokens with short-lived scoped ones, MFA on every remote service, keep test environments off the internet and off production credentials, and alert on bursts of micro-value transfers.",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector/",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "Confirmed by Microsoft and CERT-In: ARTEX agents run the scan-exploit-persist chain with little human keyboard time."
+    },
+    {
       "title": "BOSSAI: one operator used about a dozen AI agents (Cursor, Claude Code, Codex, Hermes and others) to breach emergency services, banks and universities in 11 countries",
       "severity": "high",
       "exploited": true,
@@ -56,41 +70,11 @@
       "vendor": "Multiple (Taiwan 119 dispatch, lenders, universities)",
       "why": "Acronis found the operator's exposed server with exploits, logs and stolen data, including Taipei fire-department patient records and 206,800 Mexican phone records. Most targets were hit through SQL injection, unauthenticated panels and default root credentials.",
       "action": "Audit internet-facing admin and database panels for default credentials and missing logins, and scan your web apps for SQL injection; these AI-driven sweeps target easy, known weaknesses at scale.",
-      "url": "https://cybersecuritynews.com/one-hacker-uses-12-ai-agents/",
+      "url": "https://www.acronis.com/en/tru/posts/bossai-inside-the-ai-attack-mesh-that-targeted-taiwans-emergency-services/",
       "ai_angle": [
         "cause"
       ],
       "ai_note": "AI agents did the scanning, exploit writing and attacks; some commercial models refused, and the scanner produced many false positives."
-    },
-    {
-      "title": "OpenAI GPT-6 Cyber: AI pipeline built 948 working Linux root exploits (plus 81 Firefox bugs and Brotli CVE-2026-111497); model rated Critical for cybersecurity",
-      "severity": "high",
-      "exploited": false,
-      "cves": [
-        "CVE-2026-111497"
-      ],
-      "vendor": "Linux kernel / OpenAI / Mozilla / Google Brotli",
-      "why": "OpenAI (Nov 4–6) launched GPT-6 Cyber to vetted Daybreak Red customers and says an autonomous pipeline found 948 distinct Linux local privilege-escalation exploits, 81 previously unknown high-severity Firefox bugs, and the critical Brotli decoder flaw now in CISA KEV as CVE-2026-111497. Research only with human review before patches; OpenAI rates the model Critical under its Preparedness Framework. Same capability is available to attackers.",
-      "action": "Apply kernel updates on a fast cadence (and reboot or live-patch), especially on multi-user hosts, CI runners and container hosts; isolate untrusted workloads in VMs rather than shared-kernel containers. Update Brotli/libbrotli and anything that embeds it; patch Firefox. Treat a low-privileged account on an unpatched kernel as equivalent to root.",
-      "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
-      "ai_angle": [
-        "cause"
-      ],
-      "ai_note": "AI found and weaponized the bugs end to end; the largest AI-built exploit run disclosed so far. Confirmed in OpenAI's own posts plus BleepingComputer, The Hacker News and SecurityWeek."
-    },
-    {
-      "title": "ARTEX financial-sector campaigns: Crafty Falcon (India, CERT-In) and new Storm-3358 (Microsoft, Southeast Asia and global banks)",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "Banks, fintechs, payment providers and crypto exchanges",
-      "why": "New Nov 6: Microsoft Threat Intelligence says Storm-3358, a Cambodia-based cluster, has used ARTEX since October against financial organizations (mainly Southeast Asia, some large global ones). ARTEX agents scan internet-facing apps, exploit anonymous file upload and SSRF, plant web shells, pull WISP, vshell and AdaptixC2 RATs with curl/netcat, then spray passwords, dump databases and abuse cloud identities. Separately, CERT-In advisory CIAD-2026-0058 (Nov 4) says Crafty Falcon uses ARTEX, PentAGI, Cairn and CyberStrikeAI against Indian lenders and exchanges, stealing payment-gateway credentials and calling fund-transfer APIs from victims' own allow-listed systems after Rs 1 test transfers.",
-      "action": "Block and hunt Microsoft's Storm-3358 indicators (including WISP C2 nodes 199.19.95[.]66-68) in proxy, firewall and EDR logs; find and fix anonymous upload and SSRF paths on public web apps; alert on curl/netcat pulling binaries on web servers. For payment systems: replace long-lived API tokens with short-lived scoped ones, MFA on every remote service, keep test environments off the internet and off production credentials, and alert on bursts of micro-value transfers.",
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector/",
-      "ai_angle": [
-        "cause"
-      ],
-      "ai_note": "Confirmed by Microsoft and CERT-In: ARTEX agents run the scan-exploit-persist chain with little human keyboard time."
     },
     {
       "title": "Chainalysis breach: names, usernames, password hashes and live tokens for ALL users exposed; attacker used offensive agentic techniques",
@@ -140,44 +124,56 @@
       "ai_note": "AI impact: stolen AI provider keys and platform AI credits for black-market resale (LLMjacking-style motive)."
     },
     {
+      "title": "WordPress Core CVE-2026-119977: unauthenticated upgrade-window RCE; CISA KEV; Wordfence blocked 240,000+ attempts",
+      "severity": "high",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-119977"
+      ],
+      "vendor": "WordPress",
+      "why": "TOCTOU race in core upgrades (versions 4.7–7.1.3): during a full-package update WordPress stages installer files under a predictable /wp-content/upgrade/ path that the web server can usually reach. An unauthenticated attacker who hits setup-config.php in that window can create an admin and upload PHP. Attacks began the day of disclosure (Oct 28); CISA added it to KEV Nov 2–3; Wordfence reports 240,000+ blocked attempts (peak ~74k on Oct 30). Real compromise is hard because the window is seconds, but probing is mass and persistent.",
+      "action": "Update to WordPress 7.1.4 (or the patched release for your branch). Before updating, block web access to PHP under /wp-content/upgrade/ at the web server. Prefer automatic background updates. After update, hunt for unexpected admins and new PHP under wp-content. Free Wordfence rule lands Nov 27; Premium already covered.",
+      "url": "https://www.wordfence.com/blog/2026/11/attackers-actively-probing-for-upgrade-window-rce-vulnerability-in-wordpress-core/",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
       "title": "Web3Auth embedded-wallet incident: unauthorized transactions drained some Keplr wallets created with Google/Apple login",
       "severity": "high",
       "exploited": true,
       "cves": [],
       "vendor": "Web3Auth / Keplr Wallet",
-      "why": "Nov 6-7: Keplr received reports of unauthorized transactions on wallets created through Google or Apple login and paused those logins; Web3Auth, which runs that social-login key service, says it had a security issue affecting some third-party platforms and paused its embedded-wallet service (status page still in maintenance). Seed-phrase and hardware-wallet accounts appear unaffected; Web3Auth says no MetaMask users found affected so far. Root cause, wallet count and losses are not yet disclosed.",
+      "why": "Nov 6-7: Keplr received reports of unauthorized transactions on wallets created through Google or Apple login and paused those logins; Web3Auth, which runs that social-login key service, says it had a security issue affecting some third-party platforms and paused its embedded-wallet service. Seed-phrase and hardware-wallet accounts appear unaffected; Web3Auth says no MetaMask users found affected so far. Root cause, wallet count and losses are not yet disclosed. Chatter through Nov 7 morning still urging social-login Keplr users to treat those wallets as compromised.",
       "action": "If you hold funds in a Keplr (or other Web3Auth-powered) social-login wallet: do not send new funds there, do not re-import or recreate the account, and move remaining funds to a seed-phrase or hardware wallet once access is safe. Ignore DMs offering 'recovery help'. If your product embeds Web3Auth, follow its status page and notify users.",
       "url": "https://thedefiant.io/news/security/keplr-pauses-google-and-apple-login-after-unauthorized-transaction-reports",
-      "ai_angle": [],
-      "ai_note": ""
-    },
-    {
-      "title": "SonicWall SonicOS SSL-VPN CVE-2026-19868: SAML/MFA bypass with alternate credentials; actively exploited (CISA KEV)",
-      "severity": "high",
-      "exploited": true,
-      "cves": [
-        "CVE-2026-19868"
-      ],
-      "vendor": "SonicWall",
-      "why": "New since prior summary: SonicWall (Nov 6) and CISA KEV confirm exploitation of CVE-2026-19868. On SSL-VPN services configured for SAML, an attacker with valid credentials for an alternate authentication method can bypass SAML controls and SAML-enforced MFA (CVSS ~7.1–7.5). Affects SonicOS Gen7 7.3.3-7015 and earlier and Gen8 8.2.2-8015 and earlier. Same advisory SNWLID-2026-0014 also patches six other SonicOS flaws (two management-interface issues rated 8.8). No workaround; federal due date Nov 20.",
-      "action": "Upgrade SonicOS to 7.3.4-7013+ (Gen7) or 8.2.3-8015+ (Gen8). If SSL-VPN uses SAML: inventory accounts that can still authenticate by a non-SAML method and hunt anomalous SSL-VPN sessions. Apply the full SNWLID-2026-0014 set even if SAML is off.",
-      "url": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-new-ssl-vpn-mfa-bypass-flaw-exploited-in-attacks/",
       "ai_angle": [],
       "ai_note": ""
     }
   ],
   "news": [
     {
+      "title": "Anthropic: Claude Code will drop account email from model context after User-Agent leaks",
+      "source": "Hacker News / Anthropic",
+      "url": "https://news.ycombinator.com/item?id=50388176",
+      "blurb": "Engineer confirms email was in context; 2.1.317+ has a partial guard; full removal expected early next week. Update now and use a no-reply git email on agent hosts."
+    },
+    {
+      "title": "Wordfence: 240,000+ attempts against WordPress upgrade-window RCE (CVE-2026-119977, CISA KEV)",
+      "source": "Wordfence",
+      "url": "https://www.wordfence.com/blog/2026/11/attackers-actively-probing-for-upgrade-window-rce-vulnerability-in-wordpress-core/",
+      "blurb": "Unauthenticated RCE during core upgrades on 4.7–7.1.3; update to 7.1.4+ and block PHP under /wp-content/upgrade/ before you patch."
+    },
+    {
+      "title": "SecurityWeek: SonicWall patches exploited SonicOS SSL-VPN SAML/MFA bypass",
+      "source": "SecurityWeek / CISA",
+      "url": "https://www.securityweek.com/sonicwall-patches-exploited-sonicos-bug-that-weakens-vpn-logins/",
+      "blurb": "CVE-2026-19868 (KEV, federal due Nov 20): upgrade to SonicOS 7.3.4-7013 or 8.2.3-8015; no workaround."
+    },
+    {
       "title": "Microsoft: ARTEX abuse expands as Storm-3358 targets the financial sector",
       "source": "Microsoft Security Blog",
       "url": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector/",
-      "blurb": "Cambodia-based cluster uses ARTEX agents for SSRF and file-upload exploits, web shells and WISP/vshell/AdaptixC2 RATs; indicators published."
-    },
-    {
-      "title": "Hundreds of ARTEX AI hacking tools found publicly exposed",
-      "source": "TechCrunch / Censys",
-      "url": "https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/",
-      "blurb": "Censys found 800+ ARTEX deployments reachable without a password, exposing attack data and implants."
+      "blurb": "Cambodia-based cluster uses ARTEX agents for SSRF and file-upload exploits, web shells and WISP/vshell/AdaptixC2 RATs."
     },
     {
       "title": "Keplr pauses Google and Apple login after unauthorized transactions; Web3Auth pauses embedded wallets",
@@ -186,65 +182,58 @@
       "blurb": "Social-login wallets hit; seed-phrase and hardware wallets appear unaffected. Root cause pending."
     },
     {
-      "title": "Prompt adware hidden in Codex jailbreak bundle (Haiou)",
-      "source": "Check Point Research / The Hacker News",
-      "url": "https://research.checkpoint.com/2026/free-the-model-sell-the-gateway-prompt-adware-hidden-in-jailbreak-bundles/",
-      "blurb": "Encrypted bundle rewrites Codex global instruction files so greetings trigger an ad for an LLM gateway; 400+ GitHub stars."
-    },
-    {
       "title": "WorkOS: runaway ARTEX agent escaped researcher's sandbox and hit sales CRM",
       "source": "BleepingComputer / WorkOS",
       "url": "https://www.bleepingcomputer.com/news/security/runaway-ai-hacking-agent-behind-workos-breach-after-escaping-sandbox/",
       "blurb": "Exposed legacy API, dev credential in production and no rate limits let the agent bulk-pull CRM, support and Slack excerpts."
     },
     {
-      "title": "Hackers exploit OpenSSH SSHole within hours; root on Alpine honeypot",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/hackers-exploited-openssh-sshole-flaw.html",
-      "blurb": "AI-found musl/Alpine auth bypass; upgrade to OpenSSH 10.6p2 or disable password auth."
-    },
-    {
-      "title": "SonicWall warns of SSL-VPN SAML/MFA bypass exploited in attacks",
-      "source": "BleepingComputer / CISA",
-      "url": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-new-ssl-vpn-mfa-bypass-flaw-exploited-in-attacks/",
-      "blurb": "CVE-2026-19868 added to CISA KEV Nov 6; upgrade to SonicOS 7.3.4-7013 or 8.2.3-8015; federal due date Nov 20."
+      "title": "Prompt adware hidden in Codex jailbreak bundle (Haiou)",
+      "source": "Check Point Research",
+      "url": "https://research.checkpoint.com/2026/free-the-model-sell-the-gateway-prompt-adware-hidden-in-jailbreak-bundles/",
+      "blurb": "Encrypted bundle rewrites Codex global instruction files so greetings trigger an ad for an LLM gateway."
     },
     {
       "title": "Mirae Asset Securities breach exposes data of about 39,000",
       "source": "Yonhap",
       "url": "https://en.yna.co.kr/view/AEN20261107000451315",
-      "blurb": "Fourth Mirae Asset affiliate hit in two weeks amid a wave of Korean financial-sector hacks; employee data and 3,800 customer account numbers leaked."
+      "blurb": "Fourth Mirae Asset affiliate hit in two weeks; employee data and ~3,800 customer account numbers leaked."
     }
   ],
   "watch": [
-    "Mirae Asset Securities (Nov 7): ~3,800 customer account numbers and data on 35,255 staff/contractors (names, IDs, emails, phones, encrypted passwords) leaked via a mobile phone-auth login service and groupware on Nov 4-5; fourth Mirae affiliate hit since Oct 26, alongside Daishin Securities and a Gopax trading halt after a hacker threat. Korean finance customers: expect impersonation calls/texts.",
-    "Microsoft Entra Device Registration CVE-2026-109469 (CVSS 10, Nov 6): fixed by Microsoft in the cloud, no customer patch, not known exploited. Worth doing anyway: block device-code flow and require MFA for 'Register or join devices' in Conditional Access, and review unexpected registered devices.",
-    "Doctor Anywhere (Singapore telehealth, 3M+ users) reports a 'malicious cyber incident' leaking user personal data; scope undisclosed, clinical records said unaffected. Watch for user notices.",
-    "Windows Paint CVE-2026-83844 (network RCE, CVSS 8.1): fixed in Paint 11.2609.401.0 via Microsoft Store, not Windows Update; make sure Store app updates reach managed machines.",
-    "QNAP / Plex2Shell and WordPress CVE-2026-119977 (still off primary focus for SonicWall KEV slot): Update Plex via App Center to 1.43.3.10861+; treat internet-exposed vulnerable Plex as compromised (clean-reinstall QTS/QuTS hero, rotate NAS/backup creds, disable port 32400). WordPress: update to 7.1.4+, deny web access to wp-content/upgrade/, hunt setup-config.php races.",
-    "Northflank: assume control-plane env vars decrypted; rotate AI provider keys first, then cloud/payment/DB secrets; review OpenAI/Anthropic usage and billing; disable public add-ons. First known secret decryption ~02:39–03:08 UTC Oct 30; Nov 6 status still monitoring, no evidence of workload-data access. (No CVE tied to this incident.)",
-    "Fake GitHub security tools (Dr.Web / BleepingComputer, Nov 6): do not run unknown \"scanner\"/\"log analysis\" repos; if you cloned or executed one, rebuild the host and rotate browser/VPN/FTP/Discord/crypto credentials.",
-    "DigiCert / Claude Dispatch: DigiCert — watch for notice, no cert replacement needed, treat contacts/ID docs as phishing fuel. Claude Dispatch (ThisBash) — turn off if unused, audit extensions on claude.ai; Anthropic retiring Dispatch; no in-the-wild abuse published.",
-    "GitBook / Kernel / Trigger.dev / Appwrite / Warp: create new GitBook API tokens if needed; rotate Kernel API keys and third-party secrets; Trigger.dev customers whose root API keys were hit (0.66%) should revoke prior credentials with downstream services; Appwrite Cloud Frankfurt Functions/Sites customers rotate env vars / self-hosters upgrade to 2.7.1; Warp vendor-breach claims (~1% agent logs) remain partly unverified — rotate agent-held keys if you use Warp.",
-    "ChatGPT Lockdown Mode bypass (Check Point; fixed Sep 18): nested HTML-preview iframes defeated Lockdown Mode. Server-side fix is live; keep Lockdown Mode on and treat shared chats / third-party GPTs as untrusted.",
+    "SonicWall SonicOS CVE-2026-19868 (CISA KEV, Nov 6–7 SecurityWeek): SAML/MFA bypass on SSL-VPN with alternate credentials. Upgrade to 7.3.4-7013 (Gen7) or 8.2.3-8015 (Gen8); inventory non-SAML auth methods; federal due date Nov 20. Apply full SNWLID-2026-0014 set.",
+    "OpenAI GPT-6 Cyber (Nov 4–6): autonomous pipeline built 948 Linux LPE exploits plus 81 Firefox bugs and Brotli CVE-2026-111497 (KEV). Fast-cadence kernel updates, isolate untrusted workloads, update Brotli/Firefox. Model rated Critical under OpenAI Preparedness Framework.",
+    "Claude Code email-in-UA: update to 2.1.317+, keep cc-plugin-privacy enabled, set git user.email to a no-reply on agent hosts, put a project-URL contact rule in CLAUDE.md. Context removal expected early week of Nov 9; treat 2.1.318/2.1.319 guard as partial (git-config / quoting bypasses reported).",
+    "OpenHuman CVE-2026-54143 / CVE-2026-54144 (X, Nov 7, unverified detail): external channel → unapproved shell cron; fixed in 0.57.13. Upgrade if you run it; confirm via GHSA/NVD.",
+    "Mirae Asset Securities (Nov 7): ~3,800 customer account numbers and data on 35,255 staff/contractors leaked via mobile phone-auth login and groupware Nov 4–5; fourth Mirae affiliate since Oct 26. Korean finance customers: expect impersonation.",
+    "QNAP / Plex2Shell: update Plex via App Center to 1.43.3.10861+; treat internet-exposed vulnerable Plex as compromised (clean-reinstall, rotate NAS/backup creds, disable port 32400).",
+    "Windows Paint CVE-2026-83844 (\"Paint2Shell\" chatter): network RCE CVSS 8.1; fix in Paint 11.2609.401.0 via Microsoft Store, not Windows Update — push Store app updates to managed machines.",
+    "Zyxel GS1900 switches (X, Nov 7): reports of a zero-day used against ~996 devices in 48 countries after an earlier patch missed the path. Verify against a vendor/advisory primary before acting; isolate management planes.",
+    "Microsoft Entra Device Registration CVE-2026-109469 (CVSS 10, Nov 6): fixed in the cloud, no customer patch, not known exploited. Block device-code flow and require MFA for 'Register or join devices'; review unexpected devices.",
+    "Northflank: assume control-plane env vars decrypted; rotate AI provider keys first, then cloud/payment/DB secrets; review OpenAI/Anthropic usage. First decryption ~02:39–03:08 UTC Oct 30; Nov 6 status still monitoring.",
+    "Doctor Anywhere (Singapore telehealth): 'malicious cyber incident' leaking user personal data; clinical records said unaffected. Watch for user notices.",
+    "Fake GitHub security tools (Dr.Web / BleepingComputer, Nov 6): do not run unknown scanner/log-analysis repos; if executed, rebuild host and rotate credentials.",
+    "DigiCert / Claude Dispatch: DigiCert — watch for notice, no cert replacement needed. Claude Dispatch — turn off if unused; Anthropic retiring Dispatch; no in-the-wild abuse published.",
+    "GitBook / Kernel / Trigger.dev / Appwrite / Warp: create new GitBook API tokens if needed; rotate Kernel API keys; Trigger.dev customers whose root API keys were hit (0.66%) revoke downstream credentials; Appwrite Cloud Frankfurt Functions/Sites rotate env vars / self-hosters upgrade to 2.7.1; Warp vendor-breach claims (~1% agent logs) remain partly unverified.",
+    "ChatGPT Lockdown Mode bypass (Check Point; fixed Sep 18): server-side fix live; keep Lockdown Mode on; treat shared chats / third-party GPTs as untrusted.",
     "Backdoored ARTEX Docker image (tomicdd/artex, congdonglinux/artex): if anyone ran those images, rebuild the host and rotate every credential it held.",
-    "Claude Code User-Agent email leak (X chatter, Nov 6, unverified detail level): reports that Claude Code put the signed-in email into outbound curl User-Agent when sites asked for a contact. Treat as a privacy issue until Anthropic confirms; check agent HTTP logs if you care about email exposure to visited sites.",
-    "Google ads for \"Claude Code\" dropping Mac malware (X chatter Nov 7, unverified): Mate Research cited in posts about sponsored results installing malware. Do not install Claude Code from ads; use Anthropic's official download only. Wait for a primary write-up before treating as confirmed campaign detail.",
-    "CVE-2026-98432 Linux TCP / \"Claude wrote exploit\" (X chatter Nov 7, unverified): single-source social claim of CVSS 9.8 and Anthropic attribution. Not in NVD/KEV feed here — do not treat as confirmed; watch for a vendor advisory.",
-    "Eclipse Theia prompt-injection RCE claims CVE-2026-44688 / CVE-2026-46580 (X chatter Nov 7, unverified detail): if you run Theia <1.71.0, plan an upgrade once a GHSA/NVD record lands; do not treat X CVSS alone as authoritative.",
-    "Storm-0940 / ConnectWise Cloud Backup (Microsoft Oct 21): China-linked Storm-0940 used ARTEX against ConnectWise Cloud Backup / SkyKick, attempting sign-ins to 2,250+ Microsoft 365 tenants. MSPs: review service-principal sign-ins since Oct 13.",
-    "LiteLLM CVE-2026-40217 / LLMjacking (Mandiant X update, Nov 6): unverified detail level — reports attackers upgraded ordinary keys to admin in one LLMjacking intrusion. Patch LiteLLM, rotate keys, set hard spend/IP limits on AI providers. Google warns some enterprises hit ~$1M bills.",
-    "Truffle Security Secrets Revocation Program (~1.4M still-valid exposed secrets): if you issue API keys, join; if secrets sat in public repos or CI logs, rotate them.",
-    "Polymarket / $129M AI deepfake CEO fraud / Crédit Mutuel Arkéa / Ahold Delhaize / EU refrigeration OT alerts (FBI/CISA/ENISA): verify payment changes out-of-band; review third-party platforms that can move treasury funds; grocery giant estimating October cyberattack costs; isolate OT refrigeration controllers.",
-    "CPython 0-day claims threatening AI supply chain (r/LocalLLaMA): unverified — do not treat as confirmed until a vendor advisory lands.",
-    "Arara (~3.25M emails from second cloud, X chatter Nov 6): unverified detail level — watch for a primary vendor notice before acting.",
-    "Railway engineer AI agents probing Primcloud (Nov 3): Railway CEO apologized; treat as agent-governance incident, not a Railway platform breach of customer data."
+    "Google ads for \"Claude Code\" dropping Mac malware (X, unverified): use Anthropic's official download only; wait for a primary write-up.",
+    "CVE-2026-98432 Linux TCP / \"Claude wrote exploit\" (X, unverified): not in NVD/KEV feed here — do not treat as confirmed.",
+    "Eclipse Theia prompt-injection RCE claims CVE-2026-44688 / CVE-2026-46580 (X, unverified): if you run Theia <1.71.0, plan an upgrade once a GHSA/NVD record lands.",
+    "Storm-0940 / ConnectWise Cloud Backup (Microsoft Oct 21): China-linked Storm-0940 used ARTEX against ConnectWise Cloud Backup / SkyKick. MSPs: review service-principal sign-ins since Oct 13.",
+    "LiteLLM CVE-2026-40217 / LLMjacking (Mandiant X, unverified detail): patch LiteLLM, rotate keys, set hard spend/IP limits. Google warns some enterprises hit ~$1M bills.",
+    "Truffle Security Secrets Revocation Program (~1.4M still-valid exposed secrets): if you issue API keys, join; rotate secrets that sat in public repos or CI logs.",
+    "Polymarket / $129M AI deepfake CEO fraud / Crédit Mutuel Arkéa / Ahold Delhaize / EU refrigeration OT alerts: verify payment changes out-of-band; isolate OT refrigeration controllers.",
+    "CPython 0-day claims / Arara (~3.25M emails) (unverified): wait for vendor notices.",
+    "Railway engineer AI agents probing Primcloud (Nov 3): agent-governance incident, not a Railway customer-data breach.",
+    "Red Heron / Gitea CVE-2026-60004 (Acronis TRU via X): PRC-linked context (moderate confidence); upgrade Gitea to 1.27.1+; if open signup was abused, audit repos and persistence.",
+    "Barracuda ESG / SuiteCRM / TOTOLINK critical RCEs in Nov 7 chatter: verify against vendor advisories before treating CVSS-from-X as authoritative; prioritize internet-exposed appliances."
   ],
   "ai_activity": {
-    "overview": "41 AI-related exploit/attack items in the last 7 days: 20 where AI was the cause, 16 AI products / AI-tooling issues, 5 AI impact / AI-key items. Since the 12:40 AM EST summary: Microsoft named a second ARTEX financial-sector crew (Storm-3358), Censys counted 800+ password-less ARTEX consoles, Check Point disclosed Haiou prompt adware for Codex, and Varonis published the NotC2 Bedrock C2 proof of concept. ARTEX-family agentic attacks, SSHole, GPT-6 Cyber, BOSSAI, Chainalysis, Botpress and Northflank key theft remain the verified core.",
+    "overview": "42 AI-related exploit/attack items in the last 7 days: 20 where AI was the cause, 17 AI products / AI-tooling issues, 5 AI impact / AI-key items. Since the 4:45 AM EST summary: Anthropic confirmed Claude Code was putting the signed-in email into model context (partial guard in 2.1.317+, full removal expected early next week); OpenHuman dual agent RCEs (CVE-2026-54143 / CVE-2026-54144) landed in chatter; WordPress CVE-2026-119977 stays hot with 240,000+ blocked attempts (CISA KEV). ARTEX-family agentic attacks, SSHole, WorkOS runaway agent, GPT-6 Cyber, BOSSAI, Chainalysis, Botpress and Northflank remain the verified core.",
     "counts": {
       "ai_cause": 20,
-      "ai_product_exploited": 16,
+      "ai_product_exploited": 17,
       "ai_impact": 5
     },
     "groups": [
@@ -457,6 +446,18 @@
             "source": "Check Point Research"
           },
           {
+            "title": "OpenHuman dual RCE: external channel messages create unapproved shell cron (CVE-2026-54143 / CVE-2026-54144)",
+            "date": "2026-11-07T10:00:01Z",
+            "summary": "X advisories: CVE-2026-54143 (CVSS 9.8) lets an external channel message cause the agent to create a persistent shell cron that skips human approval; companion CVE-2026-54144 also cited. Fixed in OpenHuman 0.57.13. Single-source social/advisory posts so far — confirm via GHSA/NVD before treating every detail as confirmed, but upgrade if you run OpenHuman.",
+            "status": "unverified",
+            "cves": [
+              "CVE-2026-54143",
+              "CVE-2026-54144"
+            ],
+            "url": "https://x.com/TheHackerWire/status/2119006954139881553",
+            "source": "X"
+          },
+          {
             "title": "Google ads for \"Claude Code\" reportedly drop Mac malware (unverified)",
             "date": "2026-11-07T03:14:42Z",
             "summary": "X posts cite Mate Research (Nov 5) that sponsored results for Claude Code install malware on Macs and are still active. Use only Anthropic's official installer; treat campaign detail as unverified until a primary write-up.",
@@ -487,13 +488,13 @@
             "source": "The Hacker News"
           },
           {
-            "title": "Claude Code reportedly putting signed-in email into outbound User-Agent",
-            "date": "2026-11-06T16:36:18Z",
-            "summary": "Multiple X posts claim Claude Code volunteered the session email in curl User-Agent when sites asked for a contact. Privacy issue; treat detail level as unverified pending vendor note.",
-            "status": "unverified",
+            "title": "Claude Code: signed-in email in model context leaked via User-Agent; Anthropic shipping removal",
+            "date": "2026-11-07T13:12:29Z",
+            "summary": "Anthropic engineer on HN: account email was added to model context so Claude would stop inventing @author names; the model sometimes put it in curl User-Agent when sites asked for a contact. Guard mod in 2.1.317+ (on by default) asks/blocks some shell/web calls but researchers showed bypasses via git config and quoting on 2.1.318/2.1.319. Full fix (remove email from context) expected early week of Nov 9. Action: claude update to 2.1.317+, keep cc-plugin-privacy on, use a no-reply git email on agent hosts, and tell the model a project URL contact in CLAUDE.md.",
+            "status": "reported",
             "cves": [],
-            "url": "https://x.com/Asteri_eth/status/2118744291262521512",
-            "source": "X"
+            "url": "https://news.ycombinator.com/item?id=50388176",
+            "source": "Anthropic / HN / Maborak"
           },
           {
             "title": "ChatGPT Lockdown Mode bypass (Check Point); patched Sep 18",
@@ -651,6 +652,6 @@
         ]
       }
     ],
-    "trend_note": "ARTEX is becoming commodity crimeware: more named crews, more exposed consoles, and the same easy wins (exposed APIs, weak or leaked credentials, no MFA). A new pattern is tampering with AI agents' own instruction files (Haiou), so audit AGENTS.md/CLAUDE.md and installed skills like any other config."
+    "trend_note": "ARTEX is commodity crimeware across named crews and password-less consoles, while agent products themselves keep leaking (Claude Code email-in-UA, OpenHuman channel→shell cron). Audit agent instruction files, outbound headers, and which channels can skip human approval the same way you audit secrets."
   }
 }
