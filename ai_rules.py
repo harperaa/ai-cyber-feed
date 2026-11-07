@@ -90,6 +90,7 @@ CAUSE = [
     ("vibe-coded / AI-written code flaw", r"\bvibe[- ]?cod\w+|\b(?:" + AI + r"|llm)[- ]generated code\b|\bcode (?:written|generated) by (?:an? )?(?:" + AI + r"|llm|copilot|chatgpt|claude)\b|\bslopsquat\w*|\bhallucinated (?:package|dependenc)\w+"),
     ("AI helped build the exploit", r"\b(?:" + AI + r"|llms?|claude|gpt[- ]?[\w.]*|gemini)\b\s+(?:helped|help)\s+(?:build|write|develop|craft)\b" + GAP(15) + r"\b(?:the |an? )?(?:exploits?|poc|attack)\b"),
     ("AI model turned security fixes into working exploits", r"\b(?:model|llm|glm[- ]?[\w.]*|claude|gpt[- ]?[\w.]*|gemini)\b" + GAP(30) + r"\bturned\b" + GAP(50) + r"\binto (?:working |functional )?(?:attacks|exploits)\b"),
+    ("GPT-6 Cyber found/built vulns or exploits", r"\bgpt[- ]?6 cyber\b" + GAP(80) + r"\b(?:found|finds|uncovered|identified|built|produced|hunted|wrote|drafted)\b" + GAP(60) + r"\b(?:vulnerabilit\w+|flaws?|bugs?|exploits?|patches?|firefox|linux|kernel)\b"),
 ]
 
 # ---- product: vulnerable AI/ML software ----------------------------------------------------------
@@ -193,6 +194,8 @@ MANUAL = {
     "CVE-2026-102704": [("cause", "Xenbleed / XSA-523 grant-copy cache bug: Anthropic + CodeAnt AI independently found the 11-year-old guest-to-dom0 memory R/W flaw")],
     "CVE-2026-119025": [("product", "High-severity RCE in official MCP Inspector on Windows/WSL during remote MCP OAuth (Pillar Security); fixed in 2.12.0+")],
     "CVE-2026-40217": [("product", "LiteLLM key-escalation flaw abused in LLMjacking (Mandiant): ordinary API keys upgraded to admin; >$1M losses reported")],
+    "CVE-2026-54143": [("product", "OpenHuman AI agent: external channel messages create unapproved persistent shell cron jobs for host RCE (CVSS 9.8); fixed in 0.57.13")],
+    "CVE-2026-54141": [("product", "OpenHuman AI agent: Yuanbao DM channel can reach host actions while bypassing the human-approval gate; fixed in 0.57.13")],
 }
 
 # Per-feed fallback: items from these feeds are AI-security items even if no keyword matched
