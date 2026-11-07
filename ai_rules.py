@@ -91,6 +91,9 @@ CAUSE = [
     ("AI helped build the exploit", r"\b(?:" + AI + r"|llms?|claude|gpt[- ]?[\w.]*|gemini)\b\s+(?:helped|help)\s+(?:build|write|develop|craft)\b" + GAP(15) + r"\b(?:the |an? )?(?:exploits?|poc|attack)\b"),
     ("AI model turned security fixes into working exploits", r"\b(?:model|llm|glm[- ]?[\w.]*|claude|gpt[- ]?[\w.]*|gemini)\b" + GAP(30) + r"\bturned\b" + GAP(50) + r"\binto (?:working |functional )?(?:attacks|exploits)\b"),
     ("GPT-6 Cyber found/built vulns or exploits", r"\bgpt[- ]?6 cyber\b" + GAP(80) + r"\b(?:found|finds|uncovered|identified|built|produced|hunted|wrote|drafted)\b" + GAP(60) + r"\b(?:vulnerabilit\w+|flaws?|bugs?|exploits?|patches?|firefox|linux|kernel)\b"),
+    ("GPT-6 Cyber near vulns/exploits (stats/coverage)", r"\bgpt[- ]?6 cyber\b" + GAP(120) + r"\b(?:vulnerabilit\w+|flaws?|bugs?|exploits?|firefox|linux|kernel|privilege[- ]escalat\w+|exploitgym)\b"),
+    ("AI helps find vulns", AI + r"\s+helps?\s+(?:to\s+)?(?:find|discover|uncover|identify|build|write)\b" + GAP(60) + r"\b(?:vulnerabilit\w+|flaws?|bugs?|exploits?|firefox|linux|cves?)\b"),
+    ("AI agents tried/attempted to breach", r"\b(?:" + AI + r"|llm)[- ]?agents?\b" + GAP(40) + r"\b(?:tried to|attempted to|attempting to)\b" + GAP(20) + r"\b(?:breach|hack|compromise|access|attack|infiltrate)\b"),
 ]
 
 # ---- product: vulnerable AI/ML software ----------------------------------------------------------
