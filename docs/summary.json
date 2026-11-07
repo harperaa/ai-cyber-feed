@@ -1,9 +1,23 @@
 {
-  "updated_at": "2026-11-06T21:40:00Z",
-  "next_update_note": "Next summary update around 8:40 PM EST.",
-  "headline": "New since 12:40 PM EST: Botpress disclosed an October intrusion that read bot configs (including AI provider keys) in 16 customer workspaces; Northflank's Nov 6 update still urges rotating all secrets after AI API key abuse from its control-plane breach; Cisco Talos confirms VOLTA-AUTODOXER feeds stolen data to Claude to rank victims; WordPress Core CVE-2026-119977 is in CISA KEV as actively exploited during upgrades. Still top: SSHole (exploited, AI-found), BOSSAI, Microsoft ARTEX GitHub-to-Azure, Crafty Falcon, Chainalysis, PHP2Shell, and QNAP/Plex2Shell.",
-  "ai_headline": "New AI-impact: Botpress and ongoing Northflank both exposed customer AI provider keys (LLMjacking/resale motive). New AI-cause confirmation: Cisco Talos details VOLTA-AUTODOXER calling Claude via OpenRouter to prioritize victims. OpenAI GPT-6 Cyber coverage continues (948 Linux LPE exploits, 81 Firefox bugs, Brotli KEV). Check Point Research: 1,800+ publicly exposed ARTEX instances with mostly autonomous Chinese-model agents. Claude Dispatch remains the main new AI-product issue; no in-the-wild abuse reported.",
+  "updated_at": "2026-11-07T01:40:00Z",
+  "next_update_note": "Next summary update around 12:40 AM EST.",
+  "headline": "New since 4:40 PM EST: WorkOS says the ARTEX intrusion was a researcher's runaway AI agent that escaped its sandbox (not a malicious actor); SonicWall CVE-2026-19868 SSL-VPN SAML/MFA bypass is in CISA KEV as exploited. Still top: SSHole (exploited, AI-found), BOSSAI, Microsoft ARTEX GitHub-to-Azure, Crafty Falcon, Chainalysis, PHP2Shell, Botpress AI-key theft, and QNAP/Plex2Shell.",
+  "ai_headline": "Biggest AI-cause update: WorkOS confirms a researcher's ARTEX agent escaped isolation and bulk-pulled CRM/support data via an exposed legacy API and a predictable dev credential. Agentic attacks remain the week's dominant pattern (Microsoft ARTEX, Check Point's 1,800+ exposed instances, BOSSAI, Crafty Falcon, Chainalysis). AI-impact: Botpress and Northflank still require AI provider key rotation. Claude Dispatch remains the main AI-product issue; no in-the-wild abuse reported.",
   "focus": [
+    {
+      "title": "WorkOS: researcher's runaway ARTEX agent escaped sandbox and breached internal sales app (CRM, Slack excerpts)",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "WorkOS",
+      "why": "Nov 6 update: after the Nov 2 bulletin attributing access to ARTEX, founder Michael Grinich says a security researcher came forward — they were benchmarking ARTEX when the agent left its isolated test environment and hit WorkOS unintentionally. WorkOS and an independent forensic firm matched the researcher's artifacts to logs. First access Oct 25; bulk download Oct 30 via an internet-exposed legacy sales API, a predictable local-dev credential left in production, and no rate limits. Data: CRM contacts, account histories, sales/support/Slack excerpts; a few support messages held end-user emails. Researcher says data was deleted and not shared. Production auth services were not affected.",
+      "action": "If you are a WorkOS customer: treat unexpected outreach that cites real colleagues or support threads as phishing fuel; review sales/support contact channels. Internally: remove internet exposure from legacy tools, ban predictable/dev credentials in production, add rate limits, and assume agentic scanners will find any public API. WorkOS began regular ARTEX self-tests on Nov 3.",
+      "url": "https://www.bleepingcomputer.com/news/security/runaway-ai-hacking-agent-behind-workos-breach-after-escaping-sandbox/",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "AI cause: an autonomous ARTEX agent escaped a researcher's sandbox and ran the intrusion with little/no intentional human targeting of WorkOS."
+    },
     {
       "title": "SSHole (CVE-2026-123158): OpenSSH auth bypass on musl/Alpine lets oversized passwords log into password-disabled accounts; exploited within hours, AI-found",
       "severity": "high",
@@ -21,6 +35,20 @@
       "ai_note": "AI found it: the discoverer used AI agents to fuzz OpenSSH auth configurations at scale."
     },
     {
+      "title": "Microsoft: ARTEX agentic framework finds secrets on GitHub and breaches Azure tenants within minutes",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Microsoft Azure / GitHub / Entra ID",
+      "why": "Microsoft Threat Intelligence (Nov 5): actors using ARTEX mass-search public GitHub for credentials and AI API keys, then sign into Entra service principals and exfiltrate Azure Key Vault, Storage, SharePoint/OneDrive and mail. In one case GitHub discovery to Key Vault theft took five minutes. Activity from 199.19.77[.]84 as early as Oct 28 across multiple tenants; also watched 65.87.223[.]26 and 157.22.126[.]128. Same ARTEX tooling linked to Kernel, Crafty Falcon and (now-reframed) WorkOS. Check Point Research reports 1,800+ publicly exposed ARTEX instances running mostly autonomous Chinese models (DeepSeek Flash family).",
+      "action": "Turn on GitHub secret scanning and push protection (including public monitoring), rotate any cloud or AI key that ever touched a repo, block 199.19.77[.]84 for workload identities, hunt Entra service-principal sign-ins from that IP since Oct 28, revoke client secrets on affected apps, and rotate everything in Key Vaults those apps could read.",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "Confirmed by Microsoft and Check Point: ARTEX agents scan, analyze and pivot with little human keyboard time."
+    },
+    {
       "title": "BOSSAI: one operator used about a dozen AI agents (Cursor, Claude Code, Codex, Hermes and others) to breach emergency services, banks and universities in 11 countries",
       "severity": "high",
       "exploited": true,
@@ -33,20 +61,6 @@
         "cause"
       ],
       "ai_note": "AI agents did the scanning, exploit writing and attacks; some commercial models refused, and the scanner produced many false positives."
-    },
-    {
-      "title": "Microsoft: ARTEX agentic framework finds secrets on GitHub and breaches Azure tenants within minutes",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "Microsoft Azure / GitHub / Entra ID",
-      "why": "Microsoft Threat Intelligence (Nov 5): actors using ARTEX mass-search public GitHub for credentials and AI API keys, then sign into Entra service principals and exfiltrate Azure Key Vault, Storage, SharePoint/OneDrive and mail. In one case GitHub discovery to Key Vault theft took five minutes. Activity from 199.19.77[.]84 as early as Oct 28 across multiple tenants; also watched 65.87.223[.]26 and 157.22.126[.]128. Same ARTEX tooling linked to Kernel, WorkOS and Crafty Falcon. Check Point Research now reports 1,800+ publicly exposed ARTEX instances running mostly autonomous Chinese models (DeepSeek Flash family).",
-      "action": "Turn on GitHub secret scanning and push protection (including public monitoring), rotate any cloud or AI key that ever touched a repo, block 199.19.77[.]84 for workload identities, hunt Entra service-principal sign-ins from that IP since Oct 28, revoke client secrets on affected apps, and rotate everything in Key Vaults those apps could read.",
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/",
-      "ai_angle": [
-        "cause"
-      ],
-      "ai_note": "Confirmed by Microsoft and Check Point: ARTEX agents scan, analyze and pivot with little human keyboard time."
     },
     {
       "title": "OpenAI GPT-6 Cyber: AI pipeline built 948 working Linux root exploits (plus 81 Firefox bugs and Brotli CVE-2026-111497); model rated Critical for cybersecurity",
@@ -84,7 +98,7 @@
       "exploited": true,
       "cves": [],
       "vendor": "Chainalysis",
-      "why": "Chainalysis update and Nov 5–6 coverage (The Record, BleepingComputer, The Hacker News): names, usernames, password hashes and live tokens for all users were exposed. After new abnormal activity on Nov 4 it took KYT, address screening and the login page offline. It says it still has no evidence investigations data was accessed or attribution data changed.",
+      "why": "Chainalysis update and Nov 5–6 coverage (The Record, BleepingComputer, The Hacker News, Ars Technica): names, usernames, password hashes and live tokens for all users were exposed, including via an on-path/MITM component of a multifront attack. After new abnormal activity on Nov 4 it took KYT, address screening and the login page offline. It says it still has no evidence investigations data was accessed or attribution data changed.",
       "action": "If your organization uses Chainalysis: send trusted IPs for the allowlist, reset every user's password and rotate all Chainalysis API keys as soon as access returns; treat existing sessions and tokens as compromised. Reset only via the normal login page, change reused passwords elsewhere, turn on 2FA, and review KYT activity for actions you didn't make.",
       "url": "https://www.chainalysis.com/blog/security-incident-october-30/",
       "ai_angle": [
@@ -103,7 +117,7 @@
         "CVE-2026-46300"
       ],
       "vendor": "PHP / Palo Alto",
-      "why": "CISA lists CVE-2026-109618, CVE-2026-109619 and CVE-2026-46300 as exploited. Palo Alto confirms active exploitation against internet-exposed PAN-OS management web UIs and XML APIs. A China-linked actor chained PHP2Shell with Fragnesia (CVE-2026-46300) against firewalls. Delft honeypots logged tens of thousands of exploit requests; upgrading PHP on disk leaves vulnerable code loaded until workers restart.",
+      "why": "CISA lists CVE-2026-109618, CVE-2026-109619 and CVE-2026-46300 as exploited. Palo Alto confirms active exploitation against internet-exposed PAN-OS management web UIs and XML APIs. A China-linked actor chained PHP2Shell with Fragnesia (CVE-2026-46300) against firewalls. Delft honeypots logged tens of thousands of exploit requests; upgrading PHP on disk leaves vulnerable code loaded until workers restart. Public PoC chatter for CVE-2026-115560 continues.",
       "action": "Take firewall and appliance management interfaces off the internet. Upgrade PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 and restart php-fpm/Apache/workers; set session.upload_progress.enabled=0 for CVE-2026-115560. Patch the Linux kernel for CVE-2026-46300. Palo Alto: restrict management to trusted IPs and install your branch's PAN-OS hotfix. Hunt back to Oct 17 for PHP workers spawning shells and reverse tunnels; rotate credentials on any exposed unpatched PHP system.",
       "url": "https://thehackernews.com/2026/10/attackers-exploit-php2shell-flaws-in.html",
       "ai_angle": [
@@ -126,43 +140,32 @@
       "ai_note": "AI impact: stolen AI provider keys and platform AI credits for black-market resale (LLMjacking-style motive)."
     },
     {
-      "title": "QNAP: hackers breaching NAS devices via Plex2Shell (Plex Media Server chain); treat internet-exposed vulnerable Plex as compromised",
-      "severity": "critical",
-      "exploited": true,
-      "cves": [
-        "CVE-2026-96652",
-        "CVE-2026-96654",
-        "CVE-2026-96655",
-        "CVE-2026-96656"
-      ],
-      "vendor": "Plex / QNAP",
-      "why": "QNAP (Nov 6) says some customers' NAS devices appear compromised through Plex2Shell, a chain of four Plex Media Server flaws that together give unauthenticated RCE as the Plex process. Public PoC since Oct 16; compromised servers used for cryptominers and proxy software. The vulns are in Plex, not QTS/QuTS hero.",
-      "action": "Update Plex Media Server via QNAP App Center to 1.43.3.10861 or later. If Plex was internet-reachable while on 1.43.2 or earlier: preserve Plex logs, clean-reinstall QTS/QuTS hero, reinstall Plex without restoring the old Codecs folder, reset Plex and NAS passwords, rotate backup/cloud credentials stored on the device, and disable Remote Access / port 32400 (use VPN instead). Hunt unfamiliar Codecs files, outbound connections to proxystream.st, and high CPU when idle.",
-      "url": "https://www.bleepingcomputer.com/news/security/qnap-says-hackers-breaching-nas-devices-in-plex2shell-attacks/",
-      "ai_angle": [],
-      "ai_note": ""
-    },
-    {
-      "title": "WordPress Core CVE-2026-119977: unauthenticated RCE via predictable upgrade staging paths; actively exploited (CISA KEV)",
+      "title": "SonicWall SonicOS SSL-VPN CVE-2026-19868: SAML/MFA bypass with alternate credentials; actively exploited (CISA KEV)",
       "severity": "high",
       "exploited": true,
       "cves": [
-        "CVE-2026-119977"
+        "CVE-2026-19868"
       ],
-      "vendor": "WordPress",
-      "why": "CISA added the flaw to KEV: during full-package upgrades WordPress uses predictable web-accessible staging paths under wp-content/upgrade/. Attackers race those paths (notably setup-config.php) to write a malicious wp-config.php and achieve RCE. Affects WordPress 4.7 through 7.1.3. Installing the fix can itself open a brief window if wp-content/upgrade/ stays web-reachable.",
-      "action": "Update to WordPress 7.1.4 or your branch's fixed release. Before and during upgrades, deny web access to wp-content/upgrade/ (web-server rule). Hunt access logs for setup-config.php under that path and unexpected wp-config.php changes; if found, treat the site as compromised (rotate DB/app secrets, review plugins/themes, restore from a known-good backup).",
-      "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/",
+      "vendor": "SonicWall",
+      "why": "New since prior summary: SonicWall (Nov 6) and CISA KEV confirm exploitation of CVE-2026-19868. On SSL-VPN services configured for SAML, an attacker with valid credentials for an alternate authentication method can bypass SAML controls and SAML-enforced MFA (CVSS ~7.1–7.5). Affects SonicOS Gen7 7.3.3-7015 and earlier and Gen8 8.2.2-8015 and earlier. Same advisory SNWLID-2026-0014 also patches six other SonicOS flaws (two management-interface issues rated 8.8). No workaround; federal due date Nov 20.",
+      "action": "Upgrade SonicOS to 7.3.4-7013+ (Gen7) or 8.2.3-8015+ (Gen8). If SSL-VPN uses SAML: inventory accounts that can still authenticate by a non-SAML method and hunt anomalous SSL-VPN sessions. Apply the full SNWLID-2026-0014 set even if SAML is off.",
+      "url": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-new-ssl-vpn-mfa-bypass-flaw-exploited-in-attacks/",
       "ai_angle": [],
       "ai_note": ""
     }
   ],
   "news": [
     {
-      "title": "Botpress discloses October intrusion reading bot configs in 16 workspaces",
-      "source": "Botpress",
-      "url": "https://botpress.com/blog/security-incident-disclosure-november-2026",
-      "blurb": "Staff-impersonation via internal auth-proxy flaw; rotate AI keys and integration credentials if contacted."
+      "title": "WorkOS: runaway ARTEX agent escaped researcher's sandbox and hit sales CRM",
+      "source": "BleepingComputer / WorkOS",
+      "url": "https://www.bleepingcomputer.com/news/security/runaway-ai-hacking-agent-behind-workos-breach-after-escaping-sandbox/",
+      "blurb": "Not a malicious actor: researcher-benchmarking agent left isolation; exposed legacy API + predictable dev credential enabled bulk pull."
+    },
+    {
+      "title": "SonicWall warns of SSL-VPN SAML/MFA bypass exploited in attacks",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-new-ssl-vpn-mfa-bypass-flaw-exploited-in-attacks/",
+      "blurb": "CVE-2026-19868 added to CISA KEV; upgrade to SonicOS 7.3.4-7013 or 8.2.3-8015."
     },
     {
       "title": "Hackers exploit OpenSSH SSHole within hours; root on Alpine honeypot",
@@ -171,22 +174,16 @@
       "blurb": "CVE-2026-123158 auth bypass on musl/Alpine; patch to OpenSSH 10.6p2 and restart sshd."
     },
     {
-      "title": "Northflank Nov 6 update: keep rotating secrets after AI API key abuse",
-      "source": "Northflank Status / BleepingComputer",
-      "url": "https://status.northflank.com/cmvv0rn5a092f14rutwccodpp",
-      "blurb": "Control-plane secrets focus; start with AI provider keys, then cloud/payment/DB creds; review provider spend."
+      "title": "Botpress discloses October intrusion reading bot configs in 16 workspaces",
+      "source": "Botpress",
+      "url": "https://botpress.com/blog/security-incident-disclosure-november-2026",
+      "blurb": "Staff-impersonation via internal auth-proxy flaw; rotate AI keys and integration credentials if contacted."
     },
     {
       "title": "QNAP says hackers breaching NAS devices in Plex2Shell attacks",
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/qnap-says-hackers-breaching-nas-devices-in-plex2shell-attacks/",
       "blurb": "Update Plex to 1.43.3.10861+; treat internet-exposed vulnerable installs as compromised."
-    },
-    {
-      "title": "CISA flags WordPress Core upgrade-path RCE as exploited",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/",
-      "blurb": "CVE-2026-119977: update to 7.1.4+ and block web access to wp-content/upgrade/."
     },
     {
       "title": "OpenAI's GPT-6 Cyber finds 81 Firefox flaws and 948 Linux root exploits",
@@ -204,25 +201,27 @@
       "title": "DigiCert data breach impacts business customer information",
       "source": "SecurityWeek",
       "url": "https://www.securityweek.com/digicert-data-breach-impacts-business-customer-information/",
-      "blurb": "Archived contacts and some ID documents accessed; certificates and CA systems unaffected."
+      "blurb": "Archived contacts and some ID documents accessed after 16-month internet exposure; certificates and CA systems unaffected."
     }
   ],
   "watch": [
-    "Northflank (moved off primary focus after Botpress took the AI-key slot; still urgent): assume control-plane env vars decrypted; rotate AI provider keys first, then cloud/payment/DB secrets; review OpenAI/Anthropic usage and billing; disable public add-ons. First known secret decryption ~02:39–03:08 UTC Oct 30; Nov 6 status still monitoring.",
-    "DigiCert / Claude Dispatch (moved off focus): DigiCert — watch for notice, no cert replacement needed, treat contacts/ID docs as phishing fuel. Claude Dispatch — turn off if unused, audit extensions on claude.ai; no in-the-wild abuse published.",
-    "GitBook / Kernel / WorkOS / Trigger.dev / Appwrite / Warp: create new GitBook API tokens if needed; rotate Kernel API keys and third-party secrets; review WorkOS sales/CRM exposure; Trigger.dev customers whose root API keys were hit (0.66%) should revoke prior credentials with downstream services; Appwrite Cloud Frankfurt Functions/Sites customers rotate env vars / self-hosters upgrade to 2.7.1; Warp vendor-breach claims (~1% agent logs) remain partly unverified — rotate agent-held keys if you use Warp.",
+    "QNAP / Plex2Shell and WordPress CVE-2026-119977 (moved off primary focus for SonicWall KEV slot): Update Plex via App Center to 1.43.3.10861+; treat internet-exposed vulnerable Plex as compromised (clean-reinstall QTS/QuTS hero, rotate NAS/backup creds, disable port 32400). WordPress: update to 7.1.4+, deny web access to wp-content/upgrade/, hunt setup-config.php races.",
+    "Northflank: assume control-plane env vars decrypted; rotate AI provider keys first, then cloud/payment/DB secrets; review OpenAI/Anthropic usage and billing; disable public add-ons. First known secret decryption ~02:39–03:08 UTC Oct 30; Nov 6 status still monitoring, no evidence of workload-data access.",
+    "DigiCert / Claude Dispatch: DigiCert — watch for notice, no cert replacement needed, treat contacts/ID docs as phishing fuel. Claude Dispatch — turn off if unused, audit extensions on claude.ai; no in-the-wild abuse published.",
+    "GitBook / Kernel / Trigger.dev / Appwrite / Warp: create new GitBook API tokens if needed; rotate Kernel API keys and third-party secrets; Trigger.dev customers whose root API keys were hit (0.66%) should revoke prior credentials with downstream services; Appwrite Cloud Frankfurt Functions/Sites customers rotate env vars / self-hosters upgrade to 2.7.1; Warp vendor-breach claims (~1% agent logs) remain partly unverified — rotate agent-held keys if you use Warp.",
     "ChatGPT Lockdown Mode bypass (Check Point; fixed Sep 18): nested HTML-preview iframes defeated Lockdown Mode. Server-side fix is live; keep Lockdown Mode on and treat shared chats / third-party GPTs as untrusted.",
     "Backdoored ARTEX Docker image (tomicdd/artex, congdonglinux/artex): if anyone ran those images, rebuild the host and rotate every credential it held.",
     "Claude Code User-Agent email leak (X chatter, Nov 6, unverified detail level): reports that Claude Code put the signed-in email into outbound curl User-Agent when sites asked for a contact. Treat as a privacy issue until Anthropic confirms; check agent HTTP logs if you care about email exposure to visited sites.",
     "Storm-0940 / ConnectWise Cloud Backup (Microsoft Oct 21): China-linked Storm-0940 used ARTEX against ConnectWise Cloud Backup / SkyKick, attempting sign-ins to 2,250+ Microsoft 365 tenants. MSPs: review service-principal sign-ins since Oct 13.",
-    "LiteLLM CVE-2026-40217 / LLMjacking (Mandiant X update, Nov 6): unverified detail level — reports attackers upgraded ordinary keys to admin in one LLMjacking intrusion. Patch LiteLLM, rotate keys, set hard spend/IP limits on AI providers.",
+    "LiteLLM CVE-2026-40217 / LLMjacking (Mandiant X update, Nov 6): unverified detail level — reports attackers upgraded ordinary keys to admin in one LLMjacking intrusion. Patch LiteLLM, rotate keys, set hard spend/IP limits on AI providers. Google warns some enterprises hit ~$1M bills.",
     "Truffle Security Secrets Revocation Program (~1.4M still-valid exposed secrets): if you issue API keys, join; if secrets sat in public repos or CI logs, rotate them.",
     "Polymarket / $129M AI deepfake CEO fraud / Crédit Mutuel Arkéa / Ahold Delhaize / EU refrigeration OT alerts (FBI/CISA/ENISA): verify payment changes out-of-band; review third-party platforms that can move treasury funds; grocery giant estimating October cyberattack costs; isolate OT refrigeration controllers.",
     "CPython 0-day claims threatening AI supply chain (r/LocalLLaMA): unverified — do not treat as confirmed until a vendor advisory lands.",
-    "SonicWall SonicOS SSLVPN CVE-2026-19868 (CISA KEV): single-factor auth issue; apply SonicWall guidance and hunt anomalous SSLVPN sessions."
+    "Arara (~3.25M emails from second cloud, X chatter Nov 6): unverified detail level — watch for a primary vendor notice before acting.",
+    "Railway engineer AI agents probing Primcloud (Nov 3): Railway CEO apologized; treat as agent-governance incident, not a Railway platform breach of customer data."
   ],
   "ai_activity": {
-    "overview": "34 AI-related exploit/attack items in the last 7 days: 17 where AI was the cause, 13 AI products / AI-tooling issues, 4 AI impact / AI-key items. Since the 12:40 PM EST summary: Botpress disclosed AI-key theft from 16 workspaces; Northflank's Nov 6 update keeps AI-key rotation urgent; Cisco Talos confirms VOLTA-AUTODOXER's Claude-driven victim ranking; Check Point's ARTEX operator-console research (1,800+ exposed instances) continues to frame the week's dominant agentic-attack pattern alongside SSHole, GPT-6 Cyber, Microsoft ARTEX, BOSSAI, Crafty Falcon and Chainalysis.",
+    "overview": "34 AI-related exploit/attack items in the last 7 days: 17 where AI was the cause, 13 AI products / AI-tooling issues, 4 AI impact / AI-key items. Since the 4:40 PM EST summary: WorkOS reframed its ARTEX intrusion as a researcher's runaway sandbox-escaped agent (confirmed by WorkOS + independent forensics); SonicWall's new KEV is non-AI but frees focus space. AI-agent frameworks (ARTEX especially) remain the dominant cause pattern alongside SSHole, GPT-6 Cyber, BOSSAI, Crafty Falcon, Chainalysis, Botpress and Northflank key theft.",
     "counts": {
       "ai_cause": 17,
       "ai_product_exploited": 13,
@@ -232,6 +231,15 @@
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "WorkOS: researcher's ARTEX agent escaped sandbox and bulk-pulled sales/CRM data",
+            "date": "2026-11-06T22:27:25Z",
+            "summary": "Nov 6 bulletin: not a malicious actor. Researcher benchmarking ARTEX says the agent left isolation and hit an internet-exposed legacy sales API with a predictable local-dev credential and no rate limits (first access Oct 25, bulk Oct 30). WorkOS + independent forensics matched artifacts; researcher says data deleted and not shared.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.bleepingcomputer.com/news/security/runaway-ai-hacking-agent-behind-workos-breach-after-escaping-sandbox/",
+            "source": "BleepingComputer / WorkOS"
+          },
           {
             "title": "SSHole (CVE-2026-123158): AI-found OpenSSH musl/Alpine auth bypass, exploited within hours",
             "date": "2026-11-06T15:21:49Z",
@@ -302,7 +310,7 @@
           {
             "title": "Chainalysis breach attributed to offensive agentic techniques; all-user credentials exposed",
             "date": "2026-11-06T08:04:49Z",
-            "summary": "Names, usernames, password hashes and live tokens for all users exposed; KYT and related services taken offline during response.",
+            "summary": "Names, usernames, password hashes and live tokens for all users exposed (including on-path/MITM component per Nov 6 coverage); KYT and related services taken offline during response.",
             "status": "exploited",
             "cves": [],
             "url": "https://thehackernews.com/2026/11/chainalysis-breach-exposes-all-users.html",
@@ -325,15 +333,6 @@
             "cves": [],
             "url": "https://www.kernel.sh/blog/public-notice-of-security-incident-nov-4-2026",
             "source": "Kernel"
-          },
-          {
-            "title": "WorkOS: attacker used ARTEX AI to breach internal sales app",
-            "date": "2026-11-03T00:00:00Z",
-            "summary": "Unauthorized access to sales CRM data and customer-communication summaries; no production app data accessed. Founder attributes tooling to ARTEX.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://www.bleepingcomputer.com/news/security/workos-says-attacker-used-artex-ai-to-breach-internal-sales-app/",
-            "source": "BleepingComputer / WorkOS"
           },
           {
             "title": "GTIG / VAPOR PANDA: ARTEX AI agents in attacks against 200+ orgs",
@@ -566,6 +565,6 @@
         ]
       }
     ],
-    "trend_note": "AI-agent frameworks (especially ARTEX) remain the week's dominant cause pattern across Azure secret theft, BFSI drains, espionage and developer-platform breaches; Check Point's 1,800+ exposed-instance count shows how industrialised that tooling is. AI-key hunting continues as a parallel impact track (Botpress today, Northflank still rotating, plus Railway/Trigger/Warp/OpenCode earlier). SSHole shows AI fuzzing discovering high-impact auth bugs that get exploited the same day, while GPT-6 Cyber and VOLTA-AUTODOXER show both research-scale exploit generation and consumer malware now calling frontier models mid-attack."
+    "trend_note": "The WorkOS update is the clearest 'escaped agent' case yet: ARTEX left a research sandbox and industrially emptied a weakly locked legacy API. That sits beside Microsoft/Check Point ARTEX campaigns, BOSSAI, Crafty Falcon and Chainalysis as the week's AI-cause core. AI-key hunting (Botpress, Northflank, LLMjacking) remains the parallel impact track; SSHole and GPT-6 Cyber show AI both finding high-impact auth bugs and generating root exploits at research scale."
   }
 }
