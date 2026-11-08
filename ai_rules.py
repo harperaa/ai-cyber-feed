@@ -155,6 +155,8 @@ INCIDENT_VERBS = r"(?:breach\w*|hack\w*|compromis\w+|cyber ?-?attack\w*|intrusio
 IMPACT = [
     ("attackers using AI", r"\b(?:attackers?|threat actors?|hackers?|criminals?|scammers?|apt\d*|groups?|malware)\b" + GAP(45) + r"\b(?:us(?:e|es|ed|ing)|leverag\w+|abus\w+|weaponi[sz]\w+|employ\w*|rely\w*|turn\w*)\b" + GAP(25) + r"\b" + MODEL + r"\b"),
     ("deepfake / AI phishing / scams", r"\bdeep ?fakes?\b|\bvoice[- ]clon\w+|\b" + AI + r"[- ](?:generated|voice|powered|written|enabled|driven)?[- ]?(?:phishing|scams?|fraud|impersonation|disinformation|lures?)\b|\b(?:phishing|scams?|fraud)\b" + GAP(30) + r"\b(?:using|with|via|powered by)\b" + GAP(12) + r"\b" + MODEL + r"\b"),
+    ("trojanized AI pentest-tool images", r"\b(?:trojani[sz]ed|malicious)\b" + GAP(50) + r"\bARTEX\b" + GAP(40) + r"\b(?:images?|docker)\b|\bARTEX\b" + GAP(40) + r"\b(?:trojani[sz]ed|docker hub)\b"),
+    ("AI pentest systems exposed", r"\b(?:exposed|publicly accessible|internet[- ]facing)\b" + GAP(40) + r"\bARTEX\b|\bARTEX\b" + GAP(80) + r"\b(?:publicly accessible|exposed online|left exposed)\b"),
     ("AI supply chain", r"\b" + AI + r"[- ](?:supply[- ]chain|package|model)s?\b" + GAP(40) + r"\b(?:compromis\w+|malicious|backdoor\w*|hijack\w*|poison\w*|trojan\w*)|"
                         r"\b(?:malicious|compromised|backdoored|trojan\w*|poisoned)\b" + GAP(25) + r"\b(?:models?|checkpoints?|hugging ?face|pypi|npm)\b" + GAP(40) + r"\b(?:llm|ai|ml|model|agent|gateway)\w*|"
                         r"\b(?:llm|ai) (?:gateway|proxy|agent)\b" + GAP(60) + r"\b(?:compromis\w+|malicious|token leak|hijack\w*)"),
@@ -213,6 +215,12 @@ _I = [(lbl, re.compile(rx, re.I)) for lbl, rx in IMPACT]
 SEC_CTX = re.compile(r"vulnerab|insecure|flaw|exploit|\bcve\b", re.I)
 # Text about sandboxing/executing model-written code describes a flaw in an AI product, not an AI-made exploit
 SANDBOX_CTX = re.compile(r"\bsandbox\w*\b.{0,40}\b(?:ai|llm|model)[- ](?:generated|written)\b|\b(?:ai|llm|model)[- ](?:generated|written) code\b.{0,40}\bsandbox|\b(?:ran|runs|run|execut\w+)\b.{0,30}\b(?:the model wrote|model[- ]written|llm[- ]generated)", re.I)
+# ARTEX as a trojanized image or an exposed instance is supply-chain / exposure, not "AI caused the vuln"
+ARTEX_SUPPLY_OR_EXPOSURE = re.compile(
+    r"trojani[sz]ed.{0,120}\bARTEX\b|\bARTEX\b.{0,100}(?:images?\s+on\s+Docker|Docker Hub|trojani[sz]ed)|"
+    r"publicly accessible.{0,40}\bARTEX\b|\bARTEX\b.{0,100}(?:publicly accessible|exposed online|left exposed)",
+    re.I,
+)
 RANK = {"cause": 3, "product": 2, "impact": 1}
 
 
@@ -246,6 +254,8 @@ def classify(text, packages=(), cpes=(), cve_ids=(), feed=None):
         if m and lbl.startswith("vibe") and not SEC_CTX.search(text):
             continue
         if m and lbl in ("AI-generated exploit/malware", "vibe-coded / AI-written code flaw") and SANDBOX_CTX.search(text):
+            continue
+        if m and ARTEX_SUPPLY_OR_EXPOSURE.search(text):
             continue
         if m:
             add("cause", f"{lbl}: “{_snip(m, text)}”")
