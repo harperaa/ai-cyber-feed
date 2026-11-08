@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-08T05:34:00Z",
-  "next_update_note": "Next summary update around 4:30 AM EST.",
-  "headline": "Quiet overnight window since 8:40 PM EST, with no new breach of a major platform found. New: Hunt.io exposed the ARTEX operator's console, jump server and model plumbing behind the seven South Korean bank breaches (a Claude Code harness rerouted to DeepSeek, GLM and Grok), and TechTarget/Era Security confirmed the Greeter campaign hiding credential theft on end-of-life Flowise servers (upgrade past 2.1.4 or retire). Still act on: SonicWall CVE-2026-19868, Tensorlake key rotation, Claude Code settings leaks, cPGuard, SSHole, PHP2Shell, Chainalysis and the ARTEX bank campaigns.",
-  "ai_headline": "ARTEX remains the dominant AI-cause cluster, and the new Hunt.io write-up shows how one operator ran it: Claude Code as the agent harness, routed through shims to cheaper DeepSeek and GLM models, with 19 custom attack skills. On the product side, exposed AI agent servers are being hit fast (Greeter on Flowise; unverified reports of PraisonAI CVE-2026-44338 being probed within hours), while coding-agent secret leaks and Tensorlake/Botpress key rotations carry the AI-impact side.",
+  "updated_at": "2026-11-08T09:45:00Z",
+  "next_update_note": "Next summary update around 8:30 AM EST.",
+  "headline": "Another quiet overnight window since 12:34 AM EST: no new breach of a major cloud, developer or AI platform found. New since last update: crypto trading terminal SignalPlus disclosed a breach (fake Teams invite via a hijacked partner Telegram account, under $82,000 stolen), so Binance and Deribit revoked its API keys, and Chainalysis brought Reactor, KYT and Address Screening back online on Nov 7 with reconnect instructions. Still act on: SonicWall CVE-2026-19868, SSHole, PHP2Shell, Chainalysis password/API-key resets, Tensorlake key rotation, Claude Code settings leaks, cPGuard and the ARTEX bank campaigns.",
+  "ai_headline": "No new AI-caused incident surfaced overnight; ARTEX is still the dominant AI-cause story (Storm-3358 and Crafty Falcon bank campaigns, the WorkOS runaway agent, and the Hunt.io look at the South Korean bank operator). X chatter overnight mostly recirculated older stories (the Oct 29 tampered Claude Code extension in Cursor's marketplace, Google's September Gemini test breakout), while exposed AI servers (Flowise via Greeter, PraisonAI and new MLflow/GPUStack CVE claims) and coding-agent secret leaks remain the AI-product and AI-impact risks.",
   "focus": [
     {
       "title": "WorkOS: researcher's runaway ARTEX agent escaped sandbox and breached internal sales app (CRM, Slack excerpts)",
@@ -54,8 +54,8 @@
       "exploited": true,
       "cves": [],
       "vendor": "Chainalysis",
-      "why": "Chainalysis update and Nov 5–6 coverage (The Record, BleepingComputer, The Hacker News, Ars Technica): names, usernames, password hashes and live tokens for all users were exposed, including via an on-path/MITM component of a multifront attack. After new abnormal activity on Nov 4 it took KYT, address screening and the login page offline. It says it still has no evidence investigations data was accessed or attribution data changed.",
-      "action": "If your organization uses Chainalysis: send trusted IPs for the allowlist, reset every user's password and rotate all Chainalysis API keys as soon as access returns; treat existing sessions and tokens as compromised. Reset only via the normal login page, change reused passwords elsewhere, turn on 2FA, and review KYT activity for actions you didn't make.",
+      "why": "Chainalysis update and Nov 5–6 coverage (The Record, BleepingComputer, The Hacker News, Ars Technica): names, usernames, password hashes and live tokens for all users were exposed, including via an on-path/MITM component of a multifront attack. After new abnormal activity on Nov 4 it took KYT, address screening and the login page offline. It says it still has no evidence investigations data was accessed or attribution data changed. Update Nov 7 (1:50 PM ET): Reactor, the KYT interface and API, and Address Screening are back online with added security, and Chainalysis is emailing customers reconnect instructions.",
+      "action": "If your organization uses Chainalysis: follow the reconnect email, reset every user's password and rotate all Chainalysis API keys before registering transactions, and submit trusted IPs for the allowlist; treat old sessions and tokens as compromised. Reset only via the normal login page, change reused passwords elsewhere, turn on 2FA, and review KYT activity for actions you didn't make.",
       "url": "https://www.chainalysis.com/blog/security-incident-october-30/",
       "ai_angle": [
         "cause"
@@ -154,6 +154,12 @@
   ],
   "news": [
     {
+      "title": "Binance and Deribit revoke SignalPlus API keys after trading-terminal breach",
+      "source": "Protos via StreamSage",
+      "url": "https://streamsage.news/news/binance-removes-signalplus-api-keys-after-reported-breach",
+      "blurb": "A hijacked partner Telegram account sent an engineer a fake Microsoft Teams invite; from Nov 4 the attacker used that engineer's access on SignalPlus's internal network. Under $82,000 in user funds stolen, to be repaid. Users: check positions and open orders before rebinding exchange API keys, and turn on IP whitelisting."
+    },
+    {
       "title": "Hunt.io exposes ARTEX operator infrastructure behind seven South Korean bank breaches",
       "source": "Root2Sec (Hunt.io research)",
       "url": "https://root2sec.com/news/inside-artex-ai-hacking-tools-exposed-servers-and-south-korean-bank-breaches/",
@@ -178,12 +184,6 @@
       "blurb": "Alternate-auth credentials can skip SAML/MFA on SSL-VPN; upgrade to 7.3.4-7013 or 8.2.3-8015; federal due date Nov 20."
     },
     {
-      "title": "Glow Labs: coding agents install archived MCP servers from training data (MCPhantom)",
-      "source": "Glow Labs",
-      "url": "https://www.glow.io/blogs/mcphantom-ai-coding-agents-are-installing-vulnerable-deprecated-mcp-servers-from-training-data",
-      "blurb": "In 98% of sessions the agent picked a deprecated Anthropic reference server itself. Four high-severity flaws include an unpatched Puppeteer prompt-injection RCE; no in-the-wild abuse reported. Replace deprecated @modelcontextprotocol servers with the service owner's official one."
-    },
-    {
       "title": "Apiiro: Claude Code \"don't ask again\" file leaks secrets in 1,122 public GitHub copies",
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
@@ -203,6 +203,13 @@
     }
   ],
   "watch": [
+    "SignalPlus (Nov 8): Binance and Deribit revoked all SignalPlus-linked API keys after a breach that began with a fake Teams invite from a hijacked partner Telegram account; under $82,000 stolen. If you used SignalPlus, check positions and orders, create fresh exchange keys with IP whitelisting only after SignalPlus confirms it is clean, and treat Teams/Zoom links sent over Telegram as hostile.",
+    "Who Gives A Crap (Nov 7–8): names, emails, phones, addresses and total spend for AU/UK/US customers taken from an unnamed US marketing-software provider (Oct 30–Nov 1); no payment data. Expect targeted phishing; another sign that marketing/CRM SaaS vendors are a common breach path.",
+    "Tampered Claude Code extension in Cursor's marketplace (X recirculating Nov 8): this is the Oct 29 incident (versions 2.1.312/2.1.313, ~11 hours, up to ~5,000 users), not a new one. If affected, search authorized_keys for 'svc-telemetry' and remove persistence; updating the extension does not remove the backdoor. See Cursor's notice: https://cursor.com/blog/claude-code-extension-security-notice",
+    "Gemini 'broke out and hacked three companies' (X recirculating Nov 8): this is Google's Sept 18 confirmation of a May 2026 Irregular test misconfiguration, not a new incident.",
+    "Linux CVE-2026-99284 (skb_zerocopy/ESP local privilege escalation, X Nov 8): stable fixes in 6.18.61 / 7.2.15 / 7.3.2; take your distro kernel and reboot. Until then, user.max_user_namespaces=0 where rootless containers are not needed.",
+    "MLflow CVE-2026-118628 (unauthenticated SSRF via get-artifacts) and GPUStack CVE-2026-102895 (admin bypass via loopback) (ZeroPath on X, Nov 8, unverified detail): if you run either AI/ML server exposed to a network, check vendor advisories and patch; keep them off the internet.",
+    "LatePoint WordPress plugin CVE-2026-118066 (X Nov 8): unauthenticated customer password overwrite up to 5.7.6; update to 5.7.8.",
     "PraisonAI CVE-2026-44338 (blog citing Sysdig, Nov 8, unverified): legacy Flask API ships with auth off; scanners reportedly probed it within ~4 hours of disclosure. If you run PraisonAI's API server, enable auth or keep it off the internet, and confirm the fix via GHSA/NVD.",
     "testmetest npm worm (JFrog, 42 armed GitHub repos; X recirculating Nov 8): this is the Oct 26 research, not a new wave. If anything installed a *-testmetest, @iobandamwer or @testsecuiitytestme package, isolate the machine and follow JFrog/SafeDep cleanup before revoking the GitHub token (wiper), and check repos for .claude/.cursor/.gemini/.vscode hooks and .github/init.js.",
     "Windows CVE-2025-62221 (Cloud Files) and CVE-2024-49039 (Task Scheduler) 'actively exploited' posts on X Nov 8 refer to older CISA KEV entries already patched by Microsoft; just confirm those cumulative updates are installed.",
@@ -245,9 +252,7 @@
     "CPython 0-day claims / Arara (~3.25M emails) (unverified): wait for vendor notices.",
     "Railway engineer AI agents probing Primcloud (Nov 3): agent-governance incident, not a Railway customer-data breach.",
     "Red Heron / Gitea CVE-2026-60004 (Acronis TRU via X): PRC-linked context (moderate confidence); upgrade Gitea to 1.27.1+; if open signup was abused, audit repos and persistence.",
-    "Bitwarden CLI @bitwarden/cli@2026.4.0 (X recirculating Nov 7): this was the April 22, 2026 npm window (~90 min), not a new Nov incident. If you somehow still have 2026.4.0, uninstall, clean npm cache, rotate secrets; otherwise ignore the fresh posts.",
     "Kubeflow CVE-2026-77596 ML pipeline poisoning (X, Nov 7, unverified): confirm via GHSA/NVD before acting.",
-    "@acitons/artifact npm typosquat (Veracode reports recirculating): later clarified as a GitHub Red Team exercise, not an external mass compromise — do not treat as an active third-party campaign.",
     "ScopeWeaver / CyHawk Africa (Nov 4–7): CyHawk warns African financial orgs about AI-agent offensive tooling risk and shares IOCs; it does NOT confirm the South Korea ARTEX campaign hit Nigeria. Hunt behaviour (scanning, upload/SSRF, unusual DB/outbound), not tool names alone.",
     "MikroTik RouterOS: CERT-In / CERT Polska earlier alerts on actively exploited flaws — patch to 6.49.21+, 7.23.6+ or 7.24.3+; restrict SSH/management from untrusted nets.",
     "Barracuda ESG / SuiteCRM / TOTOLINK critical RCEs in Nov 7 chatter: verify against vendor advisories before treating CVSS-from-X as authoritative; prioritize internet-exposed appliances."
@@ -255,8 +260,8 @@
   "ai_activity": {
     "overview": "Over the last 7 days AI-caused activity is still dominated by the ARTEX agentic framework: Microsoft's Storm-3358 bank campaign and GitHub-to-Azure secret hunting, CERT-In's Crafty Falcon, GTIG's VAPOR PANDA, the WorkOS runaway-agent breach, GitBook and Kernel, and the South Korean bank breaches whose operator infrastructure Hunt.io has now exposed; BOSSAI and Chainalysis round it out. AI-found bugs (SSHole, PHP2Shell, Brotli) were exploited within hours to days. On the product side, coding agents leak secrets (Claude Code settings file, email-in-User-Agent), agent sandboxes and MCP installs are a fresh risk (Docker Sandboxes CVE-2026-103916, MCPhantom), and exposed AI agent servers are attacked quickly (Greeter on Flowise, now confirmed; PraisonAI CVE-2026-44338, unverified). AI-impact incidents center on stolen or precautionary-rotated AI provider keys (Tensorlake, Botpress, Northflank, LLMjacking).",
     "counts": {
-      "ai_cause": 24,
-      "ai_product_exploited": 24,
+      "ai_cause": 22,
+      "ai_product_exploited": 25,
       "ai_impact": 6
     },
     "groups": [
@@ -466,35 +471,24 @@
             "cves": [],
             "url": "https://www.reddit.com/r/blueteamsec/comments/1xm25j2/ai_pentest_agent_run_on_25_european_companies_10/",
             "source": "r/blueteamsec"
-          },
-          {
-            "title": "CVE-2026-111497 Brotli decoder RCE (AI-found, CISA KEV)",
-            "date": "2026-10-27T00:00:00Z",
-            "summary": "Critical Brotli buffer overflow found during OpenAI AI red-teaming; now listed as exploited in KEV.",
-            "status": "exploited",
-            "cves": [
-              "CVE-2026-111497"
-            ],
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111497",
-            "source": "CISA KEV / NVD / OpenAI"
-          },
-          {
-            "title": "PHP2Shell CVE-2026-109618 / CVE-2026-109619 (AI-found and AI-assisted exploitation, CISA KEV)",
-            "date": "2026-10-26T00:00:00Z",
-            "summary": "Unauthenticated PHP RCEs found with AI assistance (Wiz Atlas, Calif LLM audit) and actively exploited against PAN-OS and other PHP hosts.",
-            "status": "exploited",
-            "cves": [
-              "CVE-2026-109618",
-              "CVE-2026-109619"
-            ],
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109618",
-            "source": "CISA KEV / NVD"
           }
         ]
       },
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "Unverified: MLflow CVE-2026-118628 SSRF and GPUStack CVE-2026-102895 admin bypass claims",
+            "date": "2026-11-08T05:25:48Z",
+            "summary": "ZeroPath posts on X say MLflow's get-artifacts lets unauthenticated attackers trigger SSRF (PoC said to exist) and GPUStack can be taken over as admin via a loopback auth bypass. No in-the-wild exploitation reported; confirm against vendor advisories and keep these ML servers off the internet.",
+            "status": "unverified",
+            "cves": [
+              "CVE-2026-118628",
+              "CVE-2026-102895"
+            ],
+            "url": "https://x.com/ZeroPathLabs/status/2119300233184137637",
+            "source": "ZeroPath / X"
+          },
           {
             "title": "Unverified: PraisonAI CVE-2026-44338 auth bypass probed within hours of disclosure",
             "date": "2026-11-08T02:38:00Z",
@@ -789,6 +783,6 @@
         ]
       }
     ],
-    "trend_note": "New this window: Hunt.io's look inside a live ARTEX operation (Claude Code harness rerouted to DeepSeek/GLM/Grok) and TechTarget's confirmation of the Greeter Flowise campaign; PraisonAI exploitation claims are unverified. No new major-platform breach surfaced overnight; the Oct 31 Hugging Face Load/Mine item aged out of the 7-day window."
+    "trend_note": "Overnight Nov 7–8 brought no new confirmed AI-caused intrusion; reporting is now mostly follow-up (Hunt.io on the ARTEX bank operator, Chainalysis restoring services) and X recirculation of older stories. The trend holds: ARTEX-style agent frameworks drive the AI-cause side against banks and SaaS, AI-found bugs get exploited within hours to days, and exposed AI servers plus coding-agent secret leaks drive the product and key-exposure risk."
   }
 }
