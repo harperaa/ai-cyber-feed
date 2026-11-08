@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-08T01:40:00Z",
-  "next_update_note": "Next summary update around 12:30 AM EST.",
-  "headline": "New since 4:35 PM EST: Tensorlake (AI agent sandbox platform) says an attacker used leftover credentials from an upstream-provider breach about two weeks ago to reach engineering sandboxes that could access company GitHub repos, push malicious branch code and trigger Actions secret-probing — no customer API keys or customer sandboxes impacted, but they ask everyone to rotate Tensorlake API keys; Docker Sandboxes CVE-2026-103916 (sbx cp symlink escape, CVSS 8.2) is confirmed by Endor Labs — upgrade to 0.51.0. Still act on: SonicWall CVE-2026-19868, Claude Code settings leaks, cPGuard, WorkOS, SSHole, Storm-3358/Crafty Falcon, Chainalysis, PHP2Shell. Botpress and Gnosis Pay stay on the watch list.",
-  "ai_headline": "ARTEX remains the dominant AI-cause cluster (Storm-3358 banks, Crafty Falcon, WorkOS runaway agent, GitHub-to-Azure secret hunting). On the product side, coding-agent sandboxes and MCP installs are the fresh risk: Docker Sandboxes' copy command can leak or overwrite host files, and Glow Labs found agents installing archived MCP servers from training data (unpatched Puppeteer prompt-injection RCE). AI-impact now includes Tensorlake asking all customers to rotate API keys after an upstream credential leftover, alongside Botpress, Northflank and LLMjacking.",
+  "updated_at": "2026-11-08T05:34:00Z",
+  "next_update_note": "Next summary update around 4:30 AM EST.",
+  "headline": "Quiet overnight window since 8:40 PM EST, with no new breach of a major platform found. New: Hunt.io exposed the ARTEX operator's console, jump server and model plumbing behind the seven South Korean bank breaches (a Claude Code harness rerouted to DeepSeek, GLM and Grok), and TechTarget/Era Security confirmed the Greeter campaign hiding credential theft on end-of-life Flowise servers (upgrade past 2.1.4 or retire). Still act on: SonicWall CVE-2026-19868, Tensorlake key rotation, Claude Code settings leaks, cPGuard, SSHole, PHP2Shell, Chainalysis and the ARTEX bank campaigns.",
+  "ai_headline": "ARTEX remains the dominant AI-cause cluster, and the new Hunt.io write-up shows how one operator ran it: Claude Code as the agent harness, routed through shims to cheaper DeepSeek and GLM models, with 19 custom attack skills. On the product side, exposed AI agent servers are being hit fast (Greeter on Flowise; unverified reports of PraisonAI CVE-2026-44338 being probed within hours), while coding-agent secret leaks and Tensorlake/Botpress key rotations carry the AI-impact side.",
   "focus": [
     {
       "title": "WorkOS: researcher's runaway ARTEX agent escaped sandbox and breached internal sales app (CRM, Slack excerpts)",
@@ -46,7 +46,7 @@
       "ai_angle": [
         "cause"
       ],
-      "ai_note": "Confirmed by Microsoft and CERT-In: ARTEX agents run the scan-exploit-persist chain with little human keyboard time."
+      "ai_note": "Confirmed by Microsoft and CERT-In: ARTEX agents run the scan-exploit-persist chain with little human keyboard time. Hunt.io (Nov 8) exposed one ARTEX operator's console and IOCs; block those and hunt for them."
     },
     {
       "title": "Chainalysis breach: names, usernames, password hashes and live tokens for ALL users exposed; attacker used offensive agentic techniques",
@@ -154,6 +154,12 @@
   ],
   "news": [
     {
+      "title": "Hunt.io exposes ARTEX operator infrastructure behind seven South Korean bank breaches",
+      "source": "Root2Sec (Hunt.io research)",
+      "url": "https://root2sec.com/news/inside-artex-ai-hacking-tools-exposed-servers-and-south-korean-bank-breaches/",
+      "blurb": "Exposed console and jump server show a Claude Code 2.1.221 harness routed to DeepSeek v4.1 Flash (GLM and Grok as backups) with 19 attack skills; about 66,000 people and 2,200 firms had loan and income data exposed. IOCs published."
+    },
+    {
       "title": "Tensorlake asks all customers to rotate API keys after upstream-credential leftover",
       "source": "Tensorlake / X",
       "url": "https://x.com/diptanu/status/2119240075318014274",
@@ -190,19 +196,16 @@
       "blurb": "Exposed legacy API, a dev credential in production and no rate limits let an autonomous agent bulk-download customer records."
     },
     {
-      "title": "Microsoft: ARTEX abuse expands as Storm-3358 targets the financial sector",
-      "source": "Microsoft Security",
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector/",
-      "blurb": "ARTEX agents exploit upload and SSRF flaws and drop WISP, vshell and AdaptixC2 at banks in Southeast Asia and beyond."
-    },
-    {
-      "title": "Hackers hijack cPGuard autoupdate to deploy backdoor, steal data",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-cpguard-autoupdate-to-deploy-backdoor-steal-data/",
-      "blurb": "About 2,950 hosting servers ran a root script that stole password hashes and SSH keys; update to 5.88.26+ and rotate."
+      "title": "Greeter framework hides cloud credential theft on unpatched Flowise AI servers",
+      "source": "TechTarget",
+      "url": "https://www.techtarget.com/news/greeter-exploit-framework-hides-cloud-theft-on-ai-servers/873828/",
+      "blurb": "Era Security honeypots logged 4,972 'hello' messages masking per-request code injection via CVE-2024-58351 (Flowise before 2.1.4, end-of-life since August); payloads harvest credentials and probe cloud metadata."
     }
   ],
   "watch": [
+    "PraisonAI CVE-2026-44338 (blog citing Sysdig, Nov 8, unverified): legacy Flask API ships with auth off; scanners reportedly probed it within ~4 hours of disclosure. If you run PraisonAI's API server, enable auth or keep it off the internet, and confirm the fix via GHSA/NVD.",
+    "testmetest npm worm (JFrog, 42 armed GitHub repos; X recirculating Nov 8): this is the Oct 26 research, not a new wave. If anything installed a *-testmetest, @iobandamwer or @testsecuiitytestme package, isolate the machine and follow JFrog/SafeDep cleanup before revoking the GitHub token (wiper), and check repos for .claude/.cursor/.gemini/.vscode hooks and .github/init.js.",
+    "Windows CVE-2025-62221 (Cloud Files) and CVE-2024-49039 (Task Scheduler) 'actively exploited' posts on X Nov 8 refer to older CISA KEV entries already patched by Microsoft; just confirm those cumulative updates are installed.",
     "Tensorlake (Nov 8, founder post): rotate Tensorlake API keys now; watch the promised trust-center and customer-email follow-up. First version of the post named Railway as the upstream provider whose earlier env-var breach left credentials sitting unrotated.",
     "MCPhantom / Glow Labs (Nov 5 research; recirculated Nov 8): search developer machines and MCP configs for deprecated @modelcontextprotocol reference servers (github, postgres, slack, puppeteer, etc.), replace with the service owner's maintained server, and don't let agents npx-install packages from training memory. Four high-severity flaws; Puppeteer prompt-injection RCE will not be patched (repo archived). No exploitation reported yet.",
     "MCP Inspector 2.14.0 (GHSA-h9j8-vj8g-v3gg; X Nov 7): versions 2.0.0–2.13.0 let an MCP App navigate its sandbox frame to an attacker origin while the host message relay survives; also fixes a server.json command-smuggle and a schema ReDoS. Upgrade to 2.14.0 if you run the inspector.",
@@ -250,9 +253,9 @@
     "Barracuda ESG / SuiteCRM / TOTOLINK critical RCEs in Nov 7 chatter: verify against vendor advisories before treating CVSS-from-X as authoritative; prioritize internet-exposed appliances."
   ],
   "ai_activity": {
-    "overview": "Over the last 7 days AI-caused activity is still dominated by the ARTEX agentic framework: Microsoft's Storm-3358 bank campaign and GitHub-to-Azure secret hunting, CERT-In's Crafty Falcon, GTIG's VAPOR PANDA, the WorkOS runaway-agent breach, GitBook and Kernel, plus the BOSSAI multi-agent campaign and Chainalysis. AI-found bugs (SSHole, PHP2Shell, Brotli) were exploited within hours to days. On the product side, coding agents leak secrets (Claude Code settings file, email-in-User-Agent) and are targeted by supply-chain malware that plants MCP servers and agent instructions (strutil-core, Haiou); this window adds Docker Sandboxes CVE-2026-103916 (sbx cp symlink escape, patched in 0.51.0) and Glow Labs' MCPhantom finding that agents install archived MCP servers from training data, including an unpatched Puppeteer prompt-injection RCE. AI-impact incidents center on stolen or precautionary-rotated AI provider keys (Botpress, Northflank, LLMjacking, and now Tensorlake asking all customers to rotate API keys after leftover upstream-provider credentials let an attacker probe its GitHub Actions secrets). Circulating Anthropic customer emails about an unnamed security firm are the late-October Cathedral research access, not a new November breach.",
+    "overview": "Over the last 7 days AI-caused activity is still dominated by the ARTEX agentic framework: Microsoft's Storm-3358 bank campaign and GitHub-to-Azure secret hunting, CERT-In's Crafty Falcon, GTIG's VAPOR PANDA, the WorkOS runaway-agent breach, GitBook and Kernel, and the South Korean bank breaches whose operator infrastructure Hunt.io has now exposed; BOSSAI and Chainalysis round it out. AI-found bugs (SSHole, PHP2Shell, Brotli) were exploited within hours to days. On the product side, coding agents leak secrets (Claude Code settings file, email-in-User-Agent), agent sandboxes and MCP installs are a fresh risk (Docker Sandboxes CVE-2026-103916, MCPhantom), and exposed AI agent servers are attacked quickly (Greeter on Flowise, now confirmed; PraisonAI CVE-2026-44338, unverified). AI-impact incidents center on stolen or precautionary-rotated AI provider keys (Tensorlake, Botpress, Northflank, LLMjacking).",
     "counts": {
-      "ai_cause": 23,
+      "ai_cause": 24,
       "ai_product_exploited": 24,
       "ai_impact": 6
     },
@@ -260,6 +263,15 @@
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Hunt.io exposes ARTEX operator console, jump server and model plumbing behind seven South Korean bank breaches",
+            "date": "2026-11-08T00:01:00Z",
+            "summary": "Exposed infrastructure shows a Claude Code 2.1.221 harness (started 510 times since Aug 4) routed through shims to DeepSeek v4.1 Flash, with GLM 5.3 and Grok 4.6 as backups, and 19 custom skills for recon, injection, WAF bypass and payment-logic testing. About 66,000-67,000 people and ~2,200 firms had data exposed; CrowdStrike assesses a single Chinese-speaking, financially motivated operator. IOCs published.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://root2sec.com/news/inside-artex-ai-hacking-tools-exposed-servers-and-south-korean-bank-breaches/",
+            "source": "Root2Sec / Hunt.io"
+          },
           {
             "title": "CyHawk Africa advisory: AI-agent offensive tooling risk to African finance (ScopeWeaver/ARTEX chatter)",
             "date": "2026-11-07T19:04:06Z",
@@ -484,6 +496,17 @@
         "label": "AI products being exploited",
         "items": [
           {
+            "title": "Unverified: PraisonAI CVE-2026-44338 auth bypass probed within hours of disclosure",
+            "date": "2026-11-08T02:38:00Z",
+            "summary": "Legacy Flask API server shipped with authentication disabled, exposing agent configs, workflow triggers and API quota; a blog citing Sysdig says a 'CVE-Detector/1.0' scanner probed it 3h44m after the advisory. Not yet in the feed's CVE data.",
+            "status": "unverified",
+            "cves": [
+              "CVE-2026-44338"
+            ],
+            "url": "https://rebersu.com/article/cve-2026-44338-praisonai-auth-bypass-exploit-attempted-within-hours-of-disclosure",
+            "source": "rebersu.com (citing Sysdig)"
+          },
+          {
             "title": "MCPhantom (Glow Labs): coding agents install archived MCP servers from training data, including an unpatched Puppeteer RCE",
             "date": "2026-11-08T00:30:00Z",
             "summary": "Glow Labs (published Nov 5; recirculated Nov 8): in 98% of watched sessions the agent itself picked a deprecated Anthropic reference MCP server (e.g. an old GitHub server) from training data instead of the official maintained one. Four high-severity flaws across those archived servers; the Puppeteer server has a prompt-injection RCE that maintainers will not patch (repo archived May 2025). No exploitation observed. Search MCP configs for @modelcontextprotocol reference servers and replace them.",
@@ -683,13 +706,15 @@
             "source": "r/blueteamsec"
           },
           {
-            "title": "Greeter attack framework: 4,972 malicious 'hello' messages targeting Flowise",
+            "title": "Greeter framework hides credential theft on unpatched Flowise AI servers (CVE-2024-58351)",
             "date": "2026-11-03T15:13:44Z",
-            "summary": "Era honeypots captured JS payloads aimed at the Flowise AI development platform.",
-            "status": "unverified",
-            "cves": [],
-            "url": "https://www.reddit.com/r/blueteamsec/comments/1xmvkc3/we_found_4972_hello_messages_hiding_thousands_of/",
-            "source": "r/blueteamsec"
+            "summary": "Era Security honeypots logged 4,972 'hello' messages at 3.5-second intervals masking per-request code injection through overrideConfig in Flowise before 2.1.4 (end-of-life since Aug 2026); responses returned environment profiles, process lists and stolen credentials. Upgrade or retire old Flowise and rotate cloud keys it held.",
+            "status": "exploited",
+            "cves": [
+              "CVE-2024-58351"
+            ],
+            "url": "https://www.techtarget.com/news/greeter-exploit-framework-hides-cloud-theft-on-ai-servers/873828/",
+            "source": "TechTarget / Era Security"
           },
           {
             "title": "Prompt-attack incidents in a healthcare company using open-source AI plugins",
@@ -699,15 +724,6 @@
             "cves": [],
             "url": "https://www.reddit.com/r/cybersecurity/comments/1xm879t/we_found_two_prompt_attack_incidents_at_our/",
             "source": "r/cybersecurity"
-          },
-          {
-            "title": "Load/Mine Hugging Face malware campaign returns after takedown",
-            "date": "2026-10-31T06:59:41Z",
-            "summary": "Malicious models/datasets campaign on Hugging Face reported as back after prior removal.",
-            "status": "unverified",
-            "cves": [],
-            "url": "https://www.reddit.com/r/blueteamsec/comments/1xk3fhf/loadmine_a_hugging_face_malware_campaign_returns/",
-            "source": "r/blueteamsec"
           }
         ]
       },
@@ -773,6 +789,6 @@
         ]
       }
     ],
-    "trend_note": "New this window: Tensorlake's founder disclosed a same-day incident tied to unrotated env vars from an upstream-provider breach about two weeks ago (first version of the post named Railway) and asked every customer to rotate Tensorlake API keys; Endor Labs' Docker Sandboxes CVE-2026-103916 (agent sandbox escape via sbx cp) entered the feed. ARTEX at banks and Claude Code secret leakage remain the standing themes. Recirculated Anthropic \"unnamed firm\" emails are the Oct 26 Cathedral story, not a fresh breach."
+    "trend_note": "New this window: Hunt.io's look inside a live ARTEX operation (Claude Code harness rerouted to DeepSeek/GLM/Grok) and TechTarget's confirmation of the Greeter Flowise campaign; PraisonAI exploitation claims are unverified. No new major-platform breach surfaced overnight; the Oct 31 Hugging Face Load/Mine item aged out of the 7-day window."
   }
 }
