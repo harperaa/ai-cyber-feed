@@ -108,7 +108,7 @@ ML_PACKAGES = [
     "langflow*", "flowise*", "dify*", "open-webui", "open_webui", "n8n-nodes-langchain", "gpt4all", "localai", "ctransformers",
     "chromadb", "qdrant*", "weaviate*", "milvus*", "pymilvus", "pinecone*", "faiss*", "lancedb", "pgvector",
     "mcp", "fastmcp", "mcp-*", "@modelcontextprotocol/*", "*-mcp-server", "*mcp-server*", "*-mcp", "deepspeed", "megatron*", "nemo*", "paddlepaddle",
-    "scikit-learn", "xgboost", "lightgbm", "numpy-financial-ml", "wandb", "clearml", "gguf", "unsloth", "axolotl", "oobabooga*",
+    "scikit-learn", "xgboost", "lightgbm", "numpy-financial-ml", "wandb", "clearml", "gguf", "unsloth", "axolotl", "oobabooga*", "gpustack*",
 ]
 _PKG = [re.compile("^" + re.escape(p).replace(r"\*", ".*") + "$", re.I) for p in ML_PACKAGES]
 # packages too generic to treat as AI on their own (only counted if the text also looks AI-ish)
@@ -120,7 +120,7 @@ CPE_AI = re.compile(r"(?:ray-project:ray|mlflow:|pytorch:|tensorflow:|google:ten
 
 PRODUCT = [
     ("LLM-based agent platform", r"\blarge[- ]model[- ]based\b" + GAP(60) + r"\b(?:agents?|platforms?|knowledge bases?)\b"),
-    ("LLM runtime/server", r"\bollama\b|\bvllm\b|llama\.cpp|\bllama[- ]?cpp\b|\bllama[- ]?index\b|\bllamaindex\b|\blitellm\b|\blm studio\b|\bgpt4all\b|\blocalai\b|text[- ]generation[- ](?:webui|inference)|open[- ]?webui|\bsglang\b|\blmdeploy\b|\bgguf\b"),
+    ("LLM runtime/server", r"\bollama\b|\bvllm\b|\bgpustack\b|llama\.cpp|\bllama[- ]?cpp\b|\bllama[- ]?index\b|\bllamaindex\b|\blitellm\b|\blm studio\b|\bgpt4all\b|\blocalai\b|text[- ]generation[- ](?:webui|inference)|open[- ]?webui|\bsglang\b|\blmdeploy\b|\bgguf\b"),
     ("ML framework/platform", r"\bpytorch\b|\btensorflow\b|\bkeras\b|\bonnx\b|hugging ?face|\bhf hub\b|\btransformers (?:library|v?\d)|\blangchain\b|\blanggraph\b|\blangflow\b|\blangflow_oss\b|\bflowise\b|\bdify\b|\bmlflow\b|\bkubeflow\b|"
                              r"\bgradio\b|\bcomfy ?ui\b|\bjupyter\w*\b|\bray-project\b|\bray (?:ai|dashboard|cluster|is an)\b|\banyscale\b|\bdeepspeed\b|\bmegatron\b|\bnvidia (?:triton|nemo|aistore|dgx|merlin|cuda toolkit)|"
                              r"\btriton inference\b|\bbentoml\b|\bkserve\b|\bpaddlepaddle\b|\bscikit-learn\b|\bcrewai\b|\bautogen\b|\bsmolagents\b|\bstrands agents?\b|\bwandb\b|\bweights ?& ?biases\b"),
@@ -201,6 +201,7 @@ MANUAL = {
     "CVE-2026-40217": [("product", "LiteLLM key-escalation flaw abused in LLMjacking (Mandiant): ordinary API keys upgraded to admin; >$1M losses reported")],
     "CVE-2026-54143": [("product", "OpenHuman AI agent: external channel messages create unapproved persistent shell cron jobs for host RCE (CVSS 9.8); fixed in 0.57.13")],
     "CVE-2026-54141": [("product", "OpenHuman AI agent: Yuanbao DM channel can reach host actions while bypassing the human-approval gate; fixed in 0.57.13")],
+    "CVE-2026-102895": [("product", "GPUStack (LLM/GPU cluster manager) admin access bypass via loopback: attackers can gain admin without credentials")],
 }
 
 # Per-feed fallback: items from these feeds are AI-security items even if no keyword matched
