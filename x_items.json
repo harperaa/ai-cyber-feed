@@ -1,5 +1,28 @@
 [
  {
+  "url": "https://x.com/DarkControlAI/status/2119384654151098421",
+  "author": "DarkControlAI",
+  "text": "Check Point found a Codex jailbreak bundle that also edits the agent's configuration so greetings trigger an ad for an LLM gateway. It saw no data theft, but the method matters. Baseline your agents' global instructions and Skills, and alert on changes.",
+  "created_at": "2026-11-08T11:00:52Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/secbrief/status/2119384607439090017",
+  "author": "secbrief",
+  "text": "Anthropic told orgs a third-party security firm accessed names, emails and enterprise plan data. Not chats, passwords or cards.\n\nIf you got the mail, verify unexpected billing emails through your usual account channels; the phishing follow-up already knows your work email.",
+  "created_at": "2026-11-08T11:00:41Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/Unreal_IRCd/status/2119384419081269433",
+  "author": "Unreal_IRCd",
+  "text": "We are now seeing attempts by bad guys to actively exploit CVE-2026-114713 in UnrealIRCd on the internet. If you have not hot-patched or upgraded, do so ASAP!",
+  "created_at": "2026-11-08T10:59:56Z",
+  "cves": [
+   "CVE-2026-114713"
+  ]
+ },
+ {
   "url": "https://x.com/kkaasolutions/status/2119369996220731657",
   "author": "kkaasolutions",
   "text": "CVE-2026-123550 (CRITICAL / 9.8) — OpenAM before 16.1.4 contains an authentication bypass vulnerability in its SAML v2.0 service provider that accepts unsigned assertions.",
@@ -24,15 +47,6 @@
   "created_at": "2026-11-08T09:37:43Z",
   "cves": [
    "CVE-2026-120281"
-  ]
- },
- {
-  "url": "https://x.com/0xManan/status/2119361271359295976",
-  "author": "0xManan",
-  "text": "UnrealIRCd <6.2.7.1: any user on a multi-server network injects S2S commands via unescaped IRCv3 label tag\n\nCVE-2026-114713 · labeled-response module echoes label without sanitization → reply stream treated as server protocol → KILL/GLINE/etc with full server authority",
-  "created_at": "2026-11-08T09:27:57Z",
-  "cves": [
-   "CVE-2026-114713"
   ]
  },
  {
@@ -86,11 +100,29 @@
   ]
  },
  {
+  "url": "https://x.com/TheHackerWire/status/2119339144191283577",
+  "author": "TheHackerWire",
+  "text": "Internal Network SSRF in Chartbrew BI Platform (CVE-2026-68935, CVSS 9.1)\n\nAPI connection creation accepts user-controlled allowPrivateHost input, overriding network protections to reach internal HTTP services.\n\nAction: Upgrade to 5.2.3.",
+  "created_at": "2026-11-08T08:00:02Z",
+  "cves": [
+   "CVE-2026-68935"
+  ]
+ },
+ {
   "url": "https://x.com/brofindAI/status/2119336303913501076",
   "author": "brofindAI",
   "text": "A tampered Claude Code update tried to add a stranger's SSH key to devs' machines 🔑\n\nIt sat in Cursor's marketplace ~11 hours. Cursor says it wasn't built by Anthropic; Anthropic says its systems weren't compromised.\n\nFull video: https://t.co/qwFHf6189H https://t.co/9KJ9A4JkUC",
   "created_at": "2026-11-08T07:48:44Z",
   "cves": []
+ },
+ {
+  "url": "https://x.com/fc_vulns/status/2119332012620156941",
+  "author": "fc_vulns",
+  "text": "Flagging this new critical IBM API Connect flaw. CVE-2026-17049 — CVSS 9.9.\n\nIBM API Connect 12.1.0–12.1.1.2: auth'd attacker can read sensitive data and modify docs via authz bypass (user-controlled keys).",
+  "created_at": "2026-11-08T07:31:41Z",
+  "cves": [
+   "CVE-2026-17049"
+  ]
  },
  {
   "url": "https://x.com/nyuszkoreal/status/2119331123276783863",
@@ -183,6 +215,15 @@
   "created_at": "2026-11-08T05:45:18Z",
   "cves": [
    "CVE-2026-42037"
+  ]
+ },
+ {
+  "url": "https://x.com/SecAlertsCo/status/2119303559669862709",
+  "author": "SecAlertsCo",
+  "text": "Apache Juneau: CVSS 10 CRLF injection in HTTP response headers lets attackers split responses and redirect users. If your app sets headers or redirects from request data, you're exposed. CVE-2026-73117",
+  "created_at": "2026-11-08T05:38:38Z",
+  "cves": [
+   "CVE-2026-73117"
   ]
  },
  {
@@ -300,6 +341,13 @@
   ]
  },
  {
+  "url": "https://x.com/lejjel78/status/2119215371005882420",
+  "author": "lejjel78",
+  "text": "A privacy bug in Claude Code put users' account email addresses into the User-Agent header sent to third-party websites during web searches — without the users' permission.\n\nThe report hit #1 on Hacker News. Anthropic shipped a mitigation the same day. Users say it doesn't fully",
+  "created_at": "2026-11-07T23:48:12Z",
+  "cves": []
+ },
+ {
   "url": "https://x.com/theadvtech/status/2119194296947474791",
   "author": "theadvtech",
   "text": "Docker Sandboxes flaw (CVE-2026-103916, CVSS 8.2) let an AI agent escape its sandbox via a symlink in the sbx cp copy command. Docker's first fix in v0.48.0 was incomplete; the final fix shipped Nov 3 in v0.51.0. Source: Endor Labs.",
@@ -372,29 +420,6 @@
   "created_at": "2026-11-07T14:53:08Z",
   "cves": [
    "CVE-2026-42945"
-  ]
- },
- {
-  "url": "https://x.com/webtkdev/status/2119016259014852926",
-  "author": "webtkdev",
-  "text": "A prompt-injection filter is not a security boundary. Junie GitHub Action before 1.6.4: HTML-encoded text slipped past its filter (CVE, Nov 6). If your CI agent reads issues or PRs: pin a fixed version, read-only token, no secrets on issue triggers.",
-  "created_at": "2026-11-07T10:37:00Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/PumpkinSecurity/status/2119016003506253899",
-  "author": "PumpkinSecurity",
-  "text": "A Railway engineer admitted testing AI agents on Primcloud, whose founder says they sought customer secrets and scanned its network.",
-  "created_at": "2026-11-07T10:35:59Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/TheHackerWire/status/2119006954139881553",
-  "author": "TheHackerWire",
-  "text": "Critical AI Agent RCE in OpenHuman (CVE-2026-54143, CVSS 9.8): external channel messages cause the agent to create persistent shell cron jobs without human approval for host RCE. Upgrade to 0.57.13.",
-  "created_at": "2026-11-07T10:00:01Z",
-  "cves": [
-   "CVE-2026-54143"
   ]
  }
 ]
