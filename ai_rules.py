@@ -90,6 +90,7 @@ CAUSE = [
     ("vibe-coded / AI-written code flaw", r"\bvibe[- ]?cod\w+|\b(?:" + AI + r"|llm)[- ]generated code\b|\bcode (?:written|generated) by (?:an? )?(?:" + AI + r"|llm|copilot|chatgpt|claude)\b|\bslopsquat\w*|\bhallucinated (?:package|dependenc)\w+"),
     ("AI helped build the exploit", r"\b(?:" + AI + r"|llms?|claude|gpt[- ]?[\w.]*|gemini)\b\s+(?:helped|help)\s+(?:build|write|develop|craft)\b" + GAP(15) + r"\b(?:the |an? )?(?:exploits?|poc|attack)\b"),
     ("AI model turned security fixes into working exploits", r"\b(?:model|llm|glm[- ]?[\w.]*|claude|gpt[- ]?[\w.]*|gemini)\b" + GAP(30) + r"\bturned\b" + GAP(50) + r"\binto (?:working |functional )?(?:attacks|exploits)\b"),
+    ("AI turned a known flaw into a threat/exploit", AI + r"\s+turned\b" + GAP(80) + r"\b(?:flaws?|vulnerabilit\w+|bugs?|issues?)\b" + GAP(40) + r"\binto\b" + GAP(40) + r"\b(?:threats?|exploit\w*|weapon\w*|attacks?|rce)\b"),
     ("GPT-6 Cyber found/built vulns or exploits", r"\bgpt[- ]?6 cyber\b" + GAP(80) + r"\b(?:found|finds|uncovered|identified|built|produced|hunted|wrote|drafted)\b" + GAP(60) + r"\b(?:vulnerabilit\w+|flaws?|bugs?|exploits?|patches?|firefox|linux|kernel)\b"),
     ("GPT-6 Cyber near vulns/exploits (stats/coverage)", r"\bgpt[- ]?6 cyber\b" + GAP(120) + r"\b(?:vulnerabilit\w+|flaws?|bugs?|exploits?|firefox|linux|kernel|privilege[- ]escalat\w+|exploitgym)\b"),
     ("AI helps find vulns", AI + r"\s+helps?\s+(?:to\s+)?(?:find|discover|uncover|identify|build|write)\b" + GAP(60) + r"\b(?:vulnerabilit\w+|flaws?|bugs?|exploits?|firefox|linux|cves?)\b"),
