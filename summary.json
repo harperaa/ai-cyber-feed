@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-07T21:35:00Z",
-  "next_update_note": "Next summary update around 8:30 PM EST.",
-  "headline": "New since 12:45 PM EST: SonicWall CVE-2026-19868 (SSL-VPN SAML/MFA bypass) is confirmed exploited and on CISA KEV — upgrade to 7.3.4-7013 (Gen7) or 8.2.3-8015 (Gen8); Gnosis Pay confirmed a Nov 3 breach of its legacy B2C card system exposing card numbers, home addresses and linked crypto wallets (funds and the enterprise white-label platform unaffected). Still act on: Claude Code .claude/settings.local.json secret leak (1,122 public copies), cPGuard hijacked update (~2,950 hosts), WorkOS runaway ARTEX, SSHole, Storm-3358/Crafty Falcon, Chainalysis, PHP2Shell, Botpress. WordPress CVE-2026-119977 and BOSSAI move to the watch list.",
-  "ai_headline": "ARTEX remains the dominant AI-cause cluster (Storm-3358 banks, Crafty Falcon, WorkOS runaway agent, GitHub-to-Azure secret hunting). On the product side, coding agents both leak secrets (Claude Code settings file; email-in-User-Agent) and are persistence targets for supply-chain worms that plant MCP servers and AGENTS.md (strutil-core). AI-impact incidents still center on stolen AI provider keys (Botpress, Northflank, LLMjacking).",
+  "updated_at": "2026-11-08T01:40:00Z",
+  "next_update_note": "Next summary update around 12:30 AM EST.",
+  "headline": "New since 4:35 PM EST: Tensorlake (AI agent sandbox platform) says an attacker used leftover credentials from an upstream-provider breach about two weeks ago to reach engineering sandboxes that could access company GitHub repos, push malicious branch code and trigger Actions secret-probing — no customer API keys or customer sandboxes impacted, but they ask everyone to rotate Tensorlake API keys; Docker Sandboxes CVE-2026-103916 (sbx cp symlink escape, CVSS 8.2) is confirmed by Endor Labs — upgrade to 0.51.0. Still act on: SonicWall CVE-2026-19868, Claude Code settings leaks, cPGuard, WorkOS, SSHole, Storm-3358/Crafty Falcon, Chainalysis, PHP2Shell. Botpress and Gnosis Pay stay on the watch list.",
+  "ai_headline": "ARTEX remains the dominant AI-cause cluster (Storm-3358 banks, Crafty Falcon, WorkOS runaway agent, GitHub-to-Azure secret hunting). On the product side, coding-agent sandboxes and MCP installs are the fresh risk: Docker Sandboxes' copy command can leak or overwrite host files, and Glow Labs found agents installing archived MCP servers from training data (unpatched Puppeteer prompt-injection RCE). AI-impact now includes Tensorlake asking all customers to rotate API keys after an upstream credential leftover, alongside Botpress, Northflank and LLMjacking.",
   "focus": [
     {
       "title": "WorkOS: researcher's runaway ARTEX agent escaped sandbox and breached internal sales app (CRM, Slack excerpts)",
@@ -82,6 +82,20 @@
       "ai_note": "AI found it and AI helped exploit it: Calif, Wiz Atlas and OpenAI Codex Security found the bugs; Dream found Claude Code and DeepSeek/Kimi aiscan tooling on attacker servers."
     },
     {
+      "title": "Tensorlake: attacker used leftover upstream-provider credentials to reach engineering sandboxes and probe GitHub Actions secrets",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Tensorlake",
+      "why": "Founder Diptanu Choudhury (Nov 8): an internal app on an upstream provider spun up sandboxes in Tensorlake engineering accounts. Those sandboxes could access company GitHub repositories. An attacker pushed malicious code to branches and triggered GitHub Actions to probe workflow secrets used to build and deploy. Tensorlake says the provider was breached about two weeks ago and that breach exposed Tensorlake's environment variables, which the team had not rotated (they called this an oversight because the app was not considered production-critical). The first public version of the post named Railway, then later edits said only \"an upstream provider.\" Tensorlake says there was no impact to customer information such as API keys or customer sandboxes, and no evidence critical systems were reached beyond secret probing. They rotated secrets, took the internal app down, emailed paying customers, and asked everyone to rotate Tensorlake API keys.",
+      "action": "Rotate your Tensorlake API keys now even if you were not told your customer sandbox or data was touched. Watch for the promised trust-center and email follow-up. If you still have credentials that lived in an upstream provider (including Railway) after the late-October env-var leak, rotate those too.",
+      "url": "https://x.com/diptanu/status/2119240075318014274",
+      "ai_angle": [
+        "impact"
+      ],
+      "ai_note": "AI impact: Tensorlake runs sandbox infrastructure for AI agents; they asked all customers to rotate Tensorlake API keys as a precaution."
+    },
+    {
       "title": "SonicWall SonicOS CVE-2026-19868: SSL-VPN SAML/MFA bypass actively exploited (CISA KEV Nov 6)",
       "severity": "high",
       "exploited": true,
@@ -108,6 +122,22 @@
       "ai_note": ""
     },
     {
+      "title": "Docker Sandboxes CVE-2026-103916: sbx cp symlink lets an AI agent read or write host files outside the sandbox",
+      "severity": "high",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-103916"
+      ],
+      "vendor": "Docker",
+      "why": "Endor Labs (Peyton Kennedy, published Nov 3; surfaced in this feed Nov 7): the sbx cp command copies files with the operator's permissions and follows parent-path symlinks an agent can plant in its writable workspace, bypassing the virtio-fs allowlist. An agent (or a prompt-injected one) can pull host secrets such as cloud credentials and SSH keys into the sandbox, or overwrite host files (shell startup files, authorized_keys). Docker's first fix in 0.48.0 (Oct 13) was incomplete; the final fix is 0.51.0 (Nov 3). Versions 0.28.0 through 0.50.x are affected. No in-the-wild exploitation reported. This is the second sbx cp escape this year (CVE-2026-17106 was fixed in 0.38.0).",
+      "action": "Upgrade Docker Sandboxes (the sbx CLI) to 0.51.0 or later. Until then, do not run agent-proposed sbx cp commands; resolve every host path, including parent components, with realpath and confirm it stays inside the intended workspace.",
+      "url": "https://www.endorlabs.com/learn/docker-sandboxes-vulnerability-lets-ai-agents-access-sensitive-files-outside-their-sandbox-cve-2026-103916",
+      "ai_angle": [
+        "product"
+      ],
+      "ai_note": "AI product flaw: the isolation wall around coding agents (Claude Code, Codex, Gemini CLI) failed on the copy channel the product teaches operators to use."
+    },
+    {
       "title": "Claude Code \"don't ask again\" saves typed passwords and keys in .claude/settings.local.json; 1,122 public GitHub copies leak 1,379 secrets",
       "severity": "high",
       "exploited": false,
@@ -120,23 +150,21 @@
         "product"
       ],
       "ai_note": "AI product flaw: the coding agent's permission memory writes credentials to disk, and in 539 of 1,105 traced repos a Claude co-authored commit changed the file."
-    },
-    {
-      "title": "Botpress breach: attacker read bot configs (AI provider keys, messaging tokens, CRM creds) in 16 customer workspaces to resell AI usage",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "Botpress",
-      "why": "Botpress (disclosed Nov 6): from Oct 12 an attacker abused a flaw in an internal auth proxy to impersonate staff sessions, then on Oct 21 used a staff API credential with admin workspace membership to read bot configurations in 16 customer workspaces (integration settings can hold AI provider API keys, messaging tokens and CRM credentials). They also changed one integration's settings in two other workspaces. Motive: AI usage for black-market resale. Auth flaw fixed Oct 21 ~16:25 UTC; further attempts through Nov 3 were rejected. No evidence of IdP compromise, source/build tampering, or end-user conversation access for uncontacted customers.",
-      "action": "If Botpress contacted you: treat every credential stored in the listed bots/integrations as exposed — revoke and rotate AI provider keys, messaging tokens and CRM credentials at the issuers, then update Botpress. If you were not contacted, Botpress says it has no evidence your bots were read. Prefer short-lived scoped keys and remove unnecessary staff admin membership on customer workspaces.",
-      "url": "https://botpress.com/blog/security-incident-disclosure-november-2026",
-      "ai_angle": [
-        "impact"
-      ],
-      "ai_note": "AI impact: stolen AI provider keys and platform AI credits for black-market resale (LLMjacking-style motive)."
     }
   ],
   "news": [
+    {
+      "title": "Tensorlake asks all customers to rotate API keys after upstream-credential leftover",
+      "source": "Tensorlake / X",
+      "url": "https://x.com/diptanu/status/2119240075318014274",
+      "blurb": "Attacker used unrotated env vars from an upstream-provider breach (~2 weeks ago; first post named Railway) to reach engineering sandboxes, push branch code and probe GitHub Actions secrets. No customer key or sandbox impact claimed; rotate Tensorlake API keys anyway."
+    },
+    {
+      "title": "Docker Sandboxes CVE-2026-103916: AI agent can escape via sbx cp symlinks (CVSS 8.2)",
+      "source": "Endor Labs",
+      "url": "https://www.endorlabs.com/learn/docker-sandboxes-vulnerability-lets-ai-agents-access-sensitive-files-outside-their-sandbox-cve-2026-103916",
+      "blurb": "Copy command follows parent-path symlinks the agent plants, so it can read host secrets or overwrite host files. Upgrade the sbx CLI to 0.51.0; the 0.48.0 fix was incomplete."
+    },
     {
       "title": "SonicWall warns of SSL-VPN MFA bypass exploited in attacks (CVE-2026-19868, CISA KEV)",
       "source": "BleepingComputer",
@@ -144,22 +172,16 @@
       "blurb": "Alternate-auth credentials can skip SAML/MFA on SSL-VPN; upgrade to 7.3.4-7013 or 8.2.3-8015; federal due date Nov 20."
     },
     {
-      "title": "Gnosis Pay breach exposes card numbers, home addresses and linked crypto wallets",
-      "source": "CoinDesk / Gnosis Pay",
-      "url": "https://www.coindesk.com/business/2026/11/07/gnosis-pay-breach-exposes-card-numbers-home-addresses-and-linked-crypto-wallets",
-      "blurb": "Legacy B2C card system hit Nov 3; funds and enterprise white-label platform unaffected; cards cancelled, 3DS mandatory; watch for phishing that cites real details."
+      "title": "Glow Labs: coding agents install archived MCP servers from training data (MCPhantom)",
+      "source": "Glow Labs",
+      "url": "https://www.glow.io/blogs/mcphantom-ai-coding-agents-are-installing-vulnerable-deprecated-mcp-servers-from-training-data",
+      "blurb": "In 98% of sessions the agent picked a deprecated Anthropic reference server itself. Four high-severity flaws include an unpatched Puppeteer prompt-injection RCE; no in-the-wild abuse reported. Replace deprecated @modelcontextprotocol servers with the service owner's official one."
     },
     {
       "title": "Apiiro: Claude Code \"don't ask again\" file leaks secrets in 1,122 public GitHub copies",
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
       "blurb": "Saved allow rules hold the full approved command, secrets included; rotate first, then untrack the file and add it to .gitignore."
-    },
-    {
-      "title": "Hackers hijack cPGuard autoupdate to deploy backdoor, steal data",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-cpguard-autoupdate-to-deploy-backdoor-steal-data/",
-      "blurb": "About 2,950 hosting servers ran a root script that stole password hashes and SSH keys; update to 5.88.26+ and rotate."
     },
     {
       "title": "WorkOS: runaway ARTEX agent escaped researcher's sandbox and hit sales CRM",
@@ -174,19 +196,18 @@
       "blurb": "ARTEX agents exploit upload and SSRF flaws and drop WISP, vshell and AdaptixC2 at banks in Southeast Asia and beyond."
     },
     {
-      "title": "Hackers pull off $133 million French bank heist via service provider",
+      "title": "Hackers hijack cPGuard autoupdate to deploy backdoor, steal data",
       "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-pull-off-133-million-french-bank-heist-via-service-provider/",
-      "blurb": "Crédit Mutuel Arkéa says attackers came in through a supplier's platform and moved money from the bank's own account; customers unaffected."
-    },
-    {
-      "title": "Shai-Hulud descendant in RubyGems strutil-core steals credentials and poisons AI coding tools",
-      "source": "Socket",
-      "url": "https://socket.dev/blog/shai-hulud-descendant-malicious-ruby-gem",
-      "blurb": "Install-time worm reads .claude/.codex creds, plants MCP servers and AGENTS.md, and wipes $HOME if its stolen GitHub token is revoked."
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-cpguard-autoupdate-to-deploy-backdoor-steal-data/",
+      "blurb": "About 2,950 hosting servers ran a root script that stole password hashes and SSH keys; update to 5.88.26+ and rotate."
     }
   ],
   "watch": [
+    "Tensorlake (Nov 8, founder post): rotate Tensorlake API keys now; watch the promised trust-center and customer-email follow-up. First version of the post named Railway as the upstream provider whose earlier env-var breach left credentials sitting unrotated.",
+    "MCPhantom / Glow Labs (Nov 5 research; recirculated Nov 8): search developer machines and MCP configs for deprecated @modelcontextprotocol reference servers (github, postgres, slack, puppeteer, etc.), replace with the service owner's maintained server, and don't let agents npx-install packages from training memory. Four high-severity flaws; Puppeteer prompt-injection RCE will not be patched (repo archived). No exploitation reported yet.",
+    "MCP Inspector 2.14.0 (GHSA-h9j8-vj8g-v3gg; X Nov 7): versions 2.0.0–2.13.0 let an MCP App navigate its sandbox frame to an attacker origin while the host message relay survives; also fixes a server.json command-smuggle and a schema ReDoS. Upgrade to 2.14.0 if you run the inspector.",
+    "Anthropic customer emails naming an \"unnamed security firm\" (circulating Nov 7): this is the late-October Cathedral research-access story, not a new November breach. Anthropic has said Claude conversations, source and model weights were not exposed and customers face no heightened risk — don't treat the emails as a fresh incident.",
+    "Botpress (moved from focus): from Oct 12 an attacker abused an internal auth-proxy flaw and on Oct 21 used a staff API credential to read bot configs in 16 customer workspaces (AI provider keys, messaging tokens, CRM creds) to resell AI usage. If Botpress contacted you, revoke and rotate those credentials at the issuers; if not contacted, Botpress says it has no evidence your bots were read.",
     "WordPress Core CVE-2026-119977 (moved from focus; CISA KEV): unauthenticated upgrade-window RCE; Wordfence blocked 240,000+ attempts. Update to 7.1.4 (or patched branch), block web PHP under /wp-content/upgrade/ before updating, hunt unexpected admins/new PHP under wp-content.",
     "BOSSAI (moved from focus): one operator used ~a dozen AI agents (Cursor, Claude Code, Codex, Hermes, …) against emergency services, banks and universities in 11 countries (Acronis). Audit internet-facing admin/DB panels for default creds and SQLi.",
     "Gnosis Pay (legacy B2C cards, detected Nov 3; CoinDesk Nov 7): card numbers, home addresses and linked wallets exposed; funds safe; enterprise white-label unaffected. Affected customers: expect phishing that cites real details; never share seed/PIN/full card; use official apps only. B2C system retires Dec 20.",
@@ -213,7 +234,7 @@
     "ChatGPT Lockdown Mode bypass (Check Point; fixed Sep 18): server-side fix live; keep Lockdown Mode on; treat shared chats / third-party GPTs as untrusted.",
     "Backdoored ARTEX Docker image (tomicdd/artex, congdonglinux/artex): if anyone ran those images, rebuild the host and rotate every credential it held.",
     "Google ads for \"Claude Code\" dropping Mac malware (X, unverified): use Anthropic's official download only; wait for a primary write-up.",
-    "CVE-2026-98432 Linux TCP / \"Claude wrote exploit\" (X, unverified): not in NVD/KEV feed here — do not treat as confirmed.",
+    "CVE-2026-98432 Linux TCP: Fortinet published FG-IR-26-188 (CVSS 9.8 cited) describing a kernel TCP use-after-free around inet_opt handling. Apply your distro's kernel updates when the fix is available. The separate X claim that Claude wrote a working exploit, and that Ubuntu/RHEL are unfixed, remains unverified — do not treat that part as confirmed.",
     "Eclipse Theia prompt-injection RCE claims CVE-2026-44688 / CVE-2026-46580 (X, unverified): if you run Theia <1.71.0, plan an upgrade once a GHSA/NVD record lands.",
     "Storm-0940 / ConnectWise Cloud Backup (Microsoft Oct 21): China-linked Storm-0940 used ARTEX against ConnectWise Cloud Backup / SkyKick. MSPs: review service-principal sign-ins since Oct 13.",
     "LiteLLM CVE-2026-40217 / LLMjacking (Mandiant X, unverified detail): patch LiteLLM, rotate keys, set hard spend/IP limits. Google warns some enterprises hit ~$1M bills.",
@@ -229,11 +250,11 @@
     "Barracuda ESG / SuiteCRM / TOTOLINK critical RCEs in Nov 7 chatter: verify against vendor advisories before treating CVSS-from-X as authoritative; prioritize internet-exposed appliances."
   ],
   "ai_activity": {
-    "overview": "Over the last 7 days AI-caused activity is still dominated by the ARTEX agentic framework: Microsoft's Storm-3358 bank campaign and GitHub-to-Azure secret hunting, CERT-In's Crafty Falcon, GTIG's VAPOR PANDA, the WorkOS runaway-agent breach, GitBook and Kernel, plus the BOSSAI multi-agent campaign and Chainalysis. AI-found bugs (SSHole, PHP2Shell, Brotli) were exploited within hours to days. On the product side, coding agents leak secrets (Claude Code settings file, email-in-User-Agent) and are targeted by supply-chain malware that plants MCP servers and agent instructions (strutil-core, Haiou). AI-impact incidents center on stolen AI provider keys (Botpress, Northflank, LLMjacking). Fresh Nov 7 chatter adds ScopeWeaver/CyHawk Africa guidance (no confirmed ARTEX victims in Nigeria) and recirculates older Bitwarden CLI supply-chain posts — treat those as historical, not a new wave.",
+    "overview": "Over the last 7 days AI-caused activity is still dominated by the ARTEX agentic framework: Microsoft's Storm-3358 bank campaign and GitHub-to-Azure secret hunting, CERT-In's Crafty Falcon, GTIG's VAPOR PANDA, the WorkOS runaway-agent breach, GitBook and Kernel, plus the BOSSAI multi-agent campaign and Chainalysis. AI-found bugs (SSHole, PHP2Shell, Brotli) were exploited within hours to days. On the product side, coding agents leak secrets (Claude Code settings file, email-in-User-Agent) and are targeted by supply-chain malware that plants MCP servers and agent instructions (strutil-core, Haiou); this window adds Docker Sandboxes CVE-2026-103916 (sbx cp symlink escape, patched in 0.51.0) and Glow Labs' MCPhantom finding that agents install archived MCP servers from training data, including an unpatched Puppeteer prompt-injection RCE. AI-impact incidents center on stolen or precautionary-rotated AI provider keys (Botpress, Northflank, LLMjacking, and now Tensorlake asking all customers to rotate API keys after leftover upstream-provider credentials let an attacker probe its GitHub Actions secrets). Circulating Anthropic customer emails about an unnamed security firm are the late-October Cathedral research access, not a new November breach.",
     "counts": {
       "ai_cause": 23,
-      "ai_product_exploited": 21,
-      "ai_impact": 5
+      "ai_product_exploited": 24,
+      "ai_impact": 6
     },
     "groups": [
       {
@@ -463,6 +484,35 @@
         "label": "AI products being exploited",
         "items": [
           {
+            "title": "MCPhantom (Glow Labs): coding agents install archived MCP servers from training data, including an unpatched Puppeteer RCE",
+            "date": "2026-11-08T00:30:00Z",
+            "summary": "Glow Labs (published Nov 5; recirculated Nov 8): in 98% of watched sessions the agent itself picked a deprecated Anthropic reference MCP server (e.g. an old GitHub server) from training data instead of the official maintained one. Four high-severity flaws across those archived servers; the Puppeteer server has a prompt-injection RCE that maintainers will not patch (repo archived May 2025). No exploitation observed. Search MCP configs for @modelcontextprotocol reference servers and replace them.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.glow.io/blogs/mcphantom-ai-coding-agents-are-installing-vulnerable-deprecated-mcp-servers-from-training-data",
+            "source": "Glow Labs"
+          },
+          {
+            "title": "Docker Sandboxes CVE-2026-103916: sbx cp symlink escape lets an agent read or write host files (CVSS 8.2)",
+            "date": "2026-11-07T22:24:27Z",
+            "summary": "Endor Labs (Peyton Kennedy, published Nov 3): sbx cp runs with the operator's permissions and follows parent-path symlinks the agent can plant, bypassing the workspace allowlist. Can steal cloud credentials/SSH keys or overwrite host files. First fix in 0.48.0 was incomplete; upgrade to 0.51.0 (Nov 3). Affects 0.28.0–0.50.x. No in-the-wild exploitation reported.",
+            "status": "reported",
+            "cves": [
+              "CVE-2026-103916"
+            ],
+            "url": "https://www.endorlabs.com/learn/docker-sandboxes-vulnerability-lets-ai-agents-access-sensitive-files-outside-their-sandbox-cve-2026-103916",
+            "source": "Endor Labs"
+          },
+          {
+            "title": "MCP Inspector 2.14.0 fixes a sandbox frame-escape plus two other flaws",
+            "date": "2026-11-07T21:38:17Z",
+            "summary": "GHSA-h9j8-vj8g-v3gg: versions 2.0.0 through 2.13.0 let an MCP App navigate its inner frame to an attacker origin while sandbox flags and the host message relay survive. Coverage also cites a server.json command-smuggle and a schema ReDoS fixed in the same release. Upgrade to 2.14.0.",
+            "status": "patched",
+            "cves": [],
+            "url": "https://github.com/modelcontextprotocol/inspector/security/advisories/GHSA-h9j8-vj8g-v3gg",
+            "source": "GitHub Advisory / X"
+          },
+          {
             "title": "Technion research: one fake safety review steered AI agents to the attacker's choice 60.4% of the time",
             "date": "2026-11-07T14:30:40Z",
             "summary": "Research result reported on X; detectors reportedly rated the review benign. Not an in-the-wild attack.",
@@ -665,6 +715,15 @@
         "label": "AI impact / AI keys & infrastructure",
         "items": [
           {
+            "title": "Tensorlake: leftover upstream-provider credentials let an attacker probe GitHub Actions secrets; rotate API keys",
+            "date": "2026-11-08T01:26:22Z",
+            "summary": "Founder Diptanu Choudhury: an internal app on an upstream provider spun up sandboxes in engineering accounts with access to company GitHub repos. An attacker pushed malicious branch code and triggered GitHub Actions to probe build/deploy secrets. Tensorlake says the provider's breach about two weeks ago exposed env vars that had not been rotated (first version of the post named Railway). No customer API keys or customer sandboxes impacted, and no evidence critical systems were reached beyond secret probing; secrets rotated, internal app taken down, paying customers emailed. They ask everyone to rotate Tensorlake API keys.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://x.com/diptanu/status/2119240075318014274",
+            "source": "Tensorlake / X"
+          },
+          {
             "title": "Google warns LLMjacking bills hitting some enterprises up to $1M; LiteLLM key-upgrade chatter",
             "date": "2026-11-06T17:30:00Z",
             "summary": "Stolen LLM/cloud credentials used to run expensive inference. Mandiant X update (unverified detail) says attackers exploited LiteLLM CVE-2026-40217 in one intrusion to upgrade ordinary keys to admin. Patch LiteLLM and set spend/IP limits.",
@@ -714,6 +773,6 @@
         ]
       }
     ],
-    "trend_note": "Same themes as midday: ARTEX at banks and coding-agent secret leakage. New this window is operational — SonicWall SSL-VPN MFA bypass hit KEV (not AI) and Gnosis Pay confirmed a non-AI card-data breach — while AI-product risk stays concentrated in committed agent config files and MCP/AGENTS.md persistence."
+    "trend_note": "New this window: Tensorlake's founder disclosed a same-day incident tied to unrotated env vars from an upstream-provider breach about two weeks ago (first version of the post named Railway) and asked every customer to rotate Tensorlake API keys; Endor Labs' Docker Sandboxes CVE-2026-103916 (agent sandbox escape via sbx cp) entered the feed. ARTEX at banks and Claude Code secret leakage remain the standing themes. Recirculated Anthropic \"unnamed firm\" emails are the Oct 26 Cathedral story, not a fresh breach."
   }
 }
