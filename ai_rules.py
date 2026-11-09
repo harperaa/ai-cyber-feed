@@ -94,6 +94,7 @@ CAUSE = [
     ("GPT-6 Cyber found/built vulns or exploits", r"\bgpt[- ]?6 cyber\b" + GAP(80) + r"\b(?:found|finds|uncovered|identified|built|produced|hunted|wrote|drafted)\b" + GAP(60) + r"\b(?:vulnerabilit\w+|flaws?|bugs?|exploits?|patches?|firefox|linux|kernel)\b"),
     ("GPT-6 Cyber near vulns/exploits (stats/coverage)", r"\bgpt[- ]?6 cyber\b" + GAP(120) + r"\b(?:vulnerabilit\w+|flaws?|bugs?|exploits?|firefox|linux|kernel|privilege[- ]escalat\w+|exploitgym)\b"),
     ("AI helps find vulns", AI + r"\s+helps?\s+(?:to\s+)?(?:find|discover|uncover|identify|build|write)\b" + GAP(60) + r"\b(?:vulnerabilit\w+|flaws?|bugs?|exploits?|firefox|linux|cves?)\b"),
+    ("attackers' AI agent mines/scans repos for leaked secrets", r"\b(?:attackers?|hackers?|threat actors?)(?:'s?)?\b" + GAP(40) + r"\b(?:" + AI + r"|llm)[- ]?agents?\b" + GAP(30) + r"\b(?:mines?|mining|scans?|scanning|search\w*|hunt\w*)\b" + GAP(40) + r"\b(?:secrets?|api keys?|credentials|keys)\b|\b(?:" + AI + r")[- ]agents?\s+(?:searching|scanning|mining)\s+github\s+for\b"),
     ("AI agents tried/attempted to breach", r"\b(?:" + AI + r"|llm)[- ]?agents?\b" + GAP(40) + r"\b(?:tried to|attempted to|attempting to)\b" + GAP(20) + r"\b(?:breach|hack|compromise|access|attack|infiltrate)\b"),
 ]
 
@@ -120,6 +121,7 @@ CPE_AI = re.compile(r"(?:ray-project:ray|mlflow:|pytorch:|tensorflow:|google:ten
                     r"onnx|paddlepaddle|keras|scikit-learn|lm-studio|open-webui)", re.I)
 
 PRODUCT = [
+    ("Pydantic AI agent framework", r"\bpydantic[- ]?ai\b"),
     ("LLM-based agent platform", r"\blarge[- ]model[- ]based\b" + GAP(60) + r"\b(?:agents?|platforms?|knowledge bases?)\b"),
     ("LLM runtime/server", r"\bollama\b|\bvllm\b|\bgpustack\b|llama\.cpp|\bllama[- ]?cpp\b|\bllama[- ]?index\b|\bllamaindex\b|\blitellm\b|\blm studio\b|\bgpt4all\b|\blocalai\b|text[- ]generation[- ](?:webui|inference)|open[- ]?webui|\bsglang\b|\blmdeploy\b|\bgguf\b"),
     ("ML framework/platform", r"\bpytorch\b|\btensorflow\b|\bkeras\b|\bonnx\b|hugging ?face|\bhf hub\b|\btransformers (?:library|v?\d)|\blangchain\b|\blanggraph\b|\blangflow\b|\blangflow_oss\b|\bflowise\b|\bdify\b|\bmlflow\b|\bkubeflow\b|"
