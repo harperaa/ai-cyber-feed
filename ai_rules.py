@@ -98,6 +98,8 @@ CAUSE = [
     ("AI helps find vulns", AI + r"\s+helps?\s+(?:to\s+)?(?:find|discover|uncover|identify|build|write)\b" + GAP(60) + r"\b(?:vulnerabilit\w+|flaws?|bugs?|exploits?|firefox|linux|cves?)\b"),
     ("attackers' AI agent mines/scans repos for leaked secrets", r"\b(?:attackers?|hackers?|threat actors?)(?:'s?)?\b" + GAP(40) + r"\b(?:" + AI + r"|llm)[- ]?agents?\b" + GAP(30) + r"\b(?:mines?|mining|scans?|scanning|search\w*|hunt\w*)\b" + GAP(40) + r"\b(?:secrets?|api keys?|credentials|keys)\b|\b(?:" + AI + r")[- ]agents?\s+(?:searching|scanning|mining)\s+github\s+for\b"),
     ("AI agents tried/attempted to breach", r"\b(?:" + AI + r"|llm)[- ]?agents?\b" + GAP(40) + r"\b(?:tried to|attempted to|attempting to)\b" + GAP(20) + r"\b(?:breach|hack|compromise|access|attack|infiltrate)\b"),
+    ("AI agent caught exploiting systems", r"\b(?:tied to|linked to|run by|operated by)\s+an?\s+" + AI + r"[- ]agents?\b" + GAP(120) + r"\b(?:breaking into|exploit\w*|attack\w*|hack\w*)\b"),
+    ("criminal exploit operation run by AI agents", r"\bexploit(?:ation)?\b" + GAP(30) + r"\b" + AI + r"[- ]agents? with standing orders\b|\b" + AI + r"[- ]agents?\b" + GAP(40) + r"\bexploit (?:panel|line|pipeline)\b"),
 ]
 
 # ---- product: vulnerable AI/ML software ----------------------------------------------------------
@@ -174,6 +176,7 @@ IMPACT = [
     ("Trigger.dev AI-agent platform breach (customer env vars / model keys exposed)", r"\btrigger\.dev\b|\btriggerdotdev\b" + GAP(120) + r"\b(?:breach\w*|hack\w*|compromis\w+|incident|unauthori[sz]ed|leak\w*|stolen|rotat\w+|attacker|environment variables|env vars)\b|"
                                                    r"\b(?:breach\w*|incident|unauthori[sz]ed|attacker)\b" + GAP(80) + r"\btrigger\.dev\b"),
     ("Nvidia Brev AI/GPU developer platform breach (customer VM SSH keys exposed)", r"\b(?:nvidia(?:'s)? )?brev\b(?: cloud| platform|\.dev)?" + GAP(120) + r"\b(?:breach\w*|hack\w*|compromis\w+|incident|unauthori[sz]ed|leak\w*|exposed|stolen|rotat\w+|attackers?|ssh keys?)\b"),
+    ("malicious package poisons AI tool configs", r"\b(?:poison\w*|tamper\w*|hijack\w*|backdoor\w*)\b" + GAP(15) + r"\b" + AI + r" (?:tool|agent|assistant|coding)[- ]?(?:configs?|configurations?|settings)\b"),
     ("AI tool abuse in breach", r"\b" + AI + r"[- ](?:coding )?(?:tools?|tooling|assistants?|agents?) (?:abuse|misuse|hijacking)\b"),
     ("attackers abused an internal AI tool in the breach", r"\b(?:leverag\w+|abus\w+|used|using|exploit\w*|hijack\w*|compromis\w+)\b" + GAP(30) + r"\b(?:an? |the |its )?internal " + AI + r"[- ](?:coding )?(?:tools?|assistants?|agents?|tooling)\b|\binternal " + AI + r" (?:tool|tooling|assistant|agent)s?\b" + GAP(30) + r"\b(?:became part of|in) the (?:attack )?chain\b"),
     ("breach touching AI provider / inference keys", r"\b" + INCIDENT_VERBS + r"\b" + GAP(80) + r"\b(?:openai|anthropic|hugging ?face|mistral|cohere|replicate|together ?ai|groq|inference (?:providers?|keys?|platforms?|endpoints?)|(?:ai|llm|model) (?:providers?|platforms?|vendors?|labs?)|(?:openai|anthropic|llm|ai|inference|model) (?:api )?(?:keys?|credentials|tokens))\b|"
