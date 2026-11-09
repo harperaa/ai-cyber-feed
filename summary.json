@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-09T09:50:00Z",
-  "next_update_note": "Next summary update around 8:30 AM EST (Monday Nov 9).",
-  "headline": "Still no new actively exploited critical CVE and no new breach of a major cloud, developer or AI platform since the 12:45 AM update. New since then: SEGA confirmed 2,196,044 email addresses leaked through its newsletter contractor Arara (\"Arara Message\"); a CISA/FBI/HHS/USDA/DOT joint advisory warns attackers are actively tampering with internet-exposed refrigeration and cold-chain controllers (hundreds of European supermarkets and French blood-plasma sites hit; Danfoss StoreView and Copeland/Dixell XWEB exposure still in the hundreds to thousands); Sonatype tied 12 hijacked npm releases across 10 packages to PolinRider loaders that run on import, not install; and Korea's FSS opened an on-site probe of the Mirae Asset Securities hack (now ~39,000 people). Federal deadline tomorrow: Adobe Commerce PolyShell CVE-2026-48356 (CISA KEV, Nov 10). Still act on: UnrealIRCd CVE-2026-114713 (AI-found, exploited), SSHole, PHP2Shell, SonicWall CVE-2026-19868, the bee-js npm compromise, Chainalysis resets, cPGuard and the ARTEX campaigns.",
-  "ai_headline": "No new AI-caused attack since the last update; the newest remain VulnCheck's Nov 8 finding that the IP behind Microsoft's agentic GitHub-secret hunter also exploited Langflow for credentials, Operation Snowball, and the AI-found UnrealIRCd bug now exploited. Overnight X traffic mostly re-shared those plus Forever Security's earlier Claude Dispatch finding (a browser extension could send commands to the desktop agent); Hugging Face datasets CVE-2026-57845 still has a public PoC and no fix.",
+  "updated_at": "2026-11-09T13:45:00Z",
+  "next_update_note": "Next summary update around 12:30 PM EST (Monday Nov 9).",
+  "headline": "Still no new actively exploited critical CVE in widely deployed software since the 4:50 AM update, but several new incidents landed Monday morning. LNbits told every operator to shut down their Bitcoin Lightning wallet servers after an extension exploit drained funds (fixes expected within 24-48 hours; its hosted my.lnbits.com is off too). WPScan says the unpatched WP Duplicate WordPress plugin (CVE-2026-123751, unauthenticated upload to RCE) is exploited, so remove it. New breach notices: Amadeus told Thai Airways about booking-data access affecting ~60,500 passengers (Aug 2023 to Sep 23, 2026), Amplifon Americas reported 1.3M people (health, insurance, SSNs), and Anthropic filed a Korean privacy report covering ~100 Korean Claude enterprise accounts from the October Cathedral access. Federal deadline tomorrow: Adobe Commerce PolyShell CVE-2026-48356 (CISA KEV, Nov 10). Still act on: UnrealIRCd CVE-2026-114713 (AI-found, exploited), SSHole, PHP2Shell, SonicWall CVE-2026-19868, the bee-js npm compromise, Chainalysis resets, cPGuard and the ARTEX campaigns.",
+  "ai_headline": "New AI-cause detail this morning: Acronis's full BOSSAI write-up (covered by The Hacker News Nov 9) shows one Taiwan-based attacker ran 9 AI agents, mostly on locally run models with safety training removed, and pulled Taipei 119 emergency-dispatch records, plus data from a lender and three Thai universities via SQL injection; commercial models (Grok, MiniMax) mostly refused to attack but built his tooling. An unverified Huntback post describes another crew (\"SOUL SOCIETY\") running exploitation with standing-order AI agents. AI impact: Anthropic reported ~100 Korean Claude enterprise accounts (names, emails, plan and usage data, no prompts or payments) to Korea's privacy regulator over the October Cathedral access. No new AI-found exploited bug since UnrealIRCd; Hugging Face datasets CVE-2026-57845 still has a public PoC and no fix.",
   "focus": [
     {
       "title": "WorkOS: researcher's runaway ARTEX agent escaped sandbox and breached internal sales app (CRM, Slack excerpts)",
@@ -152,55 +152,64 @@
   ],
   "news": [
     {
-      "title": "SEGA: 2.19 million email addresses leaked via newsletter contractor Arara",
-      "source": "Game*Spark",
-      "url": "https://en.gamespark.jp/article/2026/11/09/2112.html",
-      "blurb": "Attackers accessed Arara's \"Arara Message\" mail-distribution service; 2,196,044 addresses from SEGA and SEGA Fave newsletters leaked, 92,273 with extra delivery data. No names, passwords or cards; SEGA Account emails unaffected. Expect targeted phishing."
-    },
-    {
-      "title": "Five US agencies warn of active attacks on refrigeration and cold-chain controllers",
+      "title": "LNbits tells all operators to shut down Lightning wallet servers amid live attacks",
       "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/us-agencies-warn-refrigeration.html",
-      "blurb": "CISA, FBI, HHS, USDA and DOT say actors are forcing exposed controllers into heating and defrost cycles; European supermarkets and French blood-plasma storage were hit. Take controllers off the internet, change default passwords, update or replace legacy units."
+      "url": "https://thehackernews.com/2026/11/lnbits-urges-all-operators-to-shut-down.html",
+      "blurb": "An extension exploit drained at least one server (about 0.023 BTC) before warnings went out; fixes are promised within 24-48 hours and the hosted my.lnbits.com service was switched off. Keep servers down until patched."
     },
     {
-      "title": "PolinRider loaders found in 12 hijacked npm releases across 10 packages",
-      "source": "GBHackers (Sonatype)",
-      "url": "https://gbhackers.com/polinrider-malware-attack/",
-      "blurb": "Loaders run when the entrypoint loads (disabling install scripts does not help), find C2 via Ethereum transactions, and install a Node RAT with persistence in VS Code, Cursor, Discord and GitHub Desktop. Check lockfiles for @adminide-stack/*, server-hemera-mongo, cdeops and others."
+      "title": "BOSSAI: one attacker's AI agents stole Taipei emergency-dispatch records",
+      "source": "The Hacker News / Acronis TRU",
+      "url": "https://thehackernews.com/2026/11/taiwan-based-hacker-used-bossai-ai.html",
+      "blurb": "Nine agents, mostly running safety-stripped local models, hit hundreds of targets in 11+ countries and got data at about 10; they failed wherever logins and filtering were enforced."
     },
     {
-      "title": "Operation Snowball: jailbroken DeepSeek agent ran two weeks of autonomous attacks on a European telecom",
-      "source": "Malbear Labs",
-      "url": "https://malbearlabs.com/posts/operation-snowball-inside-an-autonomous-ai-intrusion-campaign",
-      "blurb": "An open directory exposed ~70 session transcripts of a custom DeepSeek Flash harness (version 0.2.0-rc.2). A Chinese-speaking operator set short goals; the agent exploited Cisco BroadWorks CVE-2026-20320 and adapted around EDR on its own. Thirteen hosted organizations were named in-scope; IOCs published."
+      "title": "WP Duplicate WordPress plugin CVE-2026-123751 exploited, no patch",
+      "source": "SecurityOnline / WPScan",
+      "url": "https://securityonline.info/wp-duplicate-vulnerability-cve-2026-123751-exploited/",
+      "blurb": "Unauthenticated auth bypass to arbitrary file upload and RCE in versions up to 1.1.11 (formerly LocalSync). Delete the plugin and check uploads for stray PHP."
     },
     {
-      "title": "Swarm's official npm SDK @ethersphere/bee-js 13.3.0 compromised to steal wallets",
-      "source": "StepSecurity",
-      "url": "https://www.stepsecurity.io/blog/ethersphere-bee-js-13-3-0-compromise",
-      "blurb": "Published Nov 9 via the project's own trusted-publishing workflow, so it has valid provenance; a postinstall hook downloads payloads that take Swarm Desktop wallet keys and install persistence. Use 13.2.0 and treat installing hosts as compromised."
+      "title": "Anthropic reports ~100 Korean Claude enterprise accounts exposed in Cathedral access",
+      "source": "Seoul Economic Daily / Yonhap",
+      "url": "https://en.sedaily.com/international/2026/11/09/data-breach-at-anthropics-claude-hits-over-100-korean",
+      "blurb": "Filed with Korea's PIPC Oct 31: names, emails, account/org IDs, plan, usage and spend data; Anthropic says prompts, outputs and payment data were not reached. Same October incident, new regulator angle."
     },
     {
-      "title": "VulnCheck: Microsoft's agentic GitHub-secret hunter also exploited Langflow to steal credentials",
-      "source": "VulnCheck",
-      "url": "https://www.vulncheck.com/blog/microsoft-secret-hunter",
-      "blurb": "The IP Microsoft tied to agentic GitHub secret hunting and Azure Key Vault theft (199.19.77[.]84) hit VulnCheck's Langflow canaries with 11 payloads in 36 minutes that behaved like an agent troubleshooting, pulling credentials straight off the server."
+      "title": "Amadeus breach: ~60,500 Thai Airways passenger records accessed",
+      "source": "Thai Airways",
+      "url": "https://www.thaiairways.com/en-gb/content/news-and-announcements/amadeus-reports-unauthorized-access-to-thai-passenger-data/",
+      "blurb": "Access to booking data in Amadeus systems ran from Aug 2023 to Sep 23, 2026; ~376 records may include passport and contact data. Credentials used were revoked. Expect travel-themed phishing."
     },
     {
-      "title": "Hugging Face datasets CVE-2026-57845: public PoC, no fixed release",
-      "source": "SecurityOnline",
-      "url": "https://securityonline.info/hugging-face-datasets-rce-cve-2026-57845-poc/",
-      "blurb": "Loading an attacker's pickle file through the deprecated pandas builder (load_dataset(\"pandas\", ...)) runs code before any validation. Affects all versions through 5.1.0; fix PR #8879 is unmerged. Use Parquet, Arrow, CSV or JSON for untrusted data."
+      "title": "Default admin:admin on ForgeRock consoles let researchers unlock and start two automakers' cars",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/default-adminadmin-server-password.html",
+      "blurb": "Fixed, no CVE. PingIDM/ForgeRock operators should remove or re-password the Apache Felix console at /system/console and not rely on edge path rules to hide admin pages."
+    },
+    {
+      "title": "Amplifon Americas breach hits 1.3 million",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/amplifon-americas-data-breach-impacts-1-3-million/",
+      "blurb": "Personal, health and insurance data including Social Security numbers stolen from internal systems."
     },
     {
       "title": "UnrealIRCd: CVE-2026-114713 now being exploited (AI-found critical privilege bug)",
-      "source": "UnrealIRCd / oss-security",
+      "source": "UnrealIRCd",
       "url": "https://forums.unrealircd.org/viewtopic.php?t=9487",
-      "blurb": "Any ordinary user can run server/IRCOp commands via the IRCv3 label tag. Upgrade to 6.2.7.1 or apply hot-patch bundle-20261107; use the vendor SPAMFILTER workaround immediately for the critical issue. Official account reported in-the-wild attempts on Nov 8."
+      "blurb": "Upgrade to 6.2.7.1 or apply the hot-patch now; any ordinary user can issue server-level commands."
     }
   ],
   "watch": [
+    "LNbits (Nov 8-9): project told all operators to shut down servers after an extension exploit drained at least one (2,285,545 sats); fixes due within 24-48 hours, extension not yet named. Keep LNbits off until the patched release, then review withdrawals and new accounts since Nov 8. https://thehackernews.com/2026/11/lnbits-urges-all-operators-to-shut-down.html",
+    "WP Duplicate (formerly LocalSync) <= 1.1.11 CVE-2026-123751 (WPScan: exploited, no fix; ~200 installs) plus subscriber-level upload CVE-2026-39755: delete the plugin and hunt for unexpected PHP in uploads and plugin folders.",
+    "Amadeus / Thai Airways (Nov 9): ~60,529 passenger records (names, PNRs, routes) accessed in Amadeus systems Aug 2023 to Sep 23, 2026; ~376 may include passport, email and phone. Other Amadeus airline customers may follow with notices.",
+    "Anthropic / Cathedral (Korea PIPC, Nov 9): ~100 Korean Claude enterprise accounts reported (names, emails, account/org IDs, plan, usage, spend). Not a new intrusion; enterprise admins should expect targeted phishing citing real plan details.",
+    "Amplifon Americas (Nov 9): 1.3M people, including health, insurance data and SSNs. Watch for notification letters and consider a credit freeze if affected.",
+    "Italy (Nov 7-9): Foreign Minister Antonio Tajani's personal data leaked on the dark web; PM Meloni blames pro-Russian hackers.",
+    "SOUL SOCIETY (Huntback on X, Nov 9, unverified): recovered workspace reportedly shows a Go scanner feeding a Python exploit panel with AI agents on standing orders running exploitation. Awaiting a full write-up.",
+    "Arista VeloCloud Orchestrator CVE-2026-114625 (on-prem, CISA KEV, exploited; reminder via X Nov 9): any logged-in user can gain operator access. Upgrade to 5.2.3.18, 6.1.3.10 or 6.4.2.12+.",
+    "Japan Bus Online / Kobo (Nov 9): API server accessed Sep 16-19 leaked 8,341 bus reservations (names, phones, trips); no cards or passwords.",
     "Waseda University (Nov 9): found during a review prompted by a PHP vulnerability, an intrusion dating to Aug 31 took 3,342 records from the system behind MyWaseda logins (staff IDs, names, emails, departments, encrypted passwords). Waseda staff should change MyWaseda passwords and anywhere they were reused.",
     "Euglena akyrise store (Japan, announced Nov 5, write-ups Nov 9): up to ~900,000 member records (name, address, phone, birth date) from the online store, plus two separate contractor incidents (an email-delivery service and a delivery-inquiry service). Expect phishing posing as the shop or couriers.",
     "91APP / POYA (Taiwan; X claim Nov 9, unverified): an actor claims to sell ~2.4M customer order records from the e-commerce cloud provider 91APP and retailer POYA. No company confirmation yet.",
@@ -277,16 +286,34 @@
     "Other new critical CVE records overnight, no exploitation reported: OpenC3 COSMOS TSDB SQLi CVE-2026-42087 (CVSS 9.6, upgrade to 7.0.0-rc3+), Note Mark 0.19.2 OIDC session hijack CVE-2026-41571 (9.4), FreightCo WordPress plugin <=1.1.15 object injection CVE-2026-66650 (9.8), BusyBox udhcpc6 heap overflow CVE-2026-29004 (8.1). Chrome 157 shipped 213 security fixes including 7 critical; update Chrome."
   ],
   "ai_activity": {
-    "overview": "Over the last 7 days AI-caused activity is still dominated by agentic intrusion frameworks; nothing new on that side through early Monday Nov 9 (overnight posts re-shared existing reports). Latest: VulnCheck (Nov 8) linked the IP behind Microsoft's agentic GitHub-secret hunter to Langflow exploitation for credential theft. Earlier on Nov 8: Malbear Labs published Operation Snowball, a custom (non-ARTEX) jailbroken DeepSeek Flash harness that autonomously attacked a European telecom and 13 hosted organizations, and UnrealIRCd confirmed in-the-wild attempts against AI-found CVE-2026-114713. ARTEX remains the largest cluster (Microsoft's Storm-3358 bank campaign and GitHub-to-Azure secret hunting, CERT-In's Crafty Falcon, GTIG's VAPOR PANDA, the WorkOS runaway-agent breach, GitBook and Kernel, and the South Korean bank breaches whose operator infrastructure Hunt.io exposed); BOSSAI and Chainalysis round it out. AI-found bugs (SSHole, PHP2Shell, Brotli, now UnrealIRCd) were exploited within hours to a day. On the product side, Hugging Face datasets CVE-2026-57845 now has a public PoC with no fix, coding agents leak secrets (Claude Code settings file, email-in-User-Agent), agent sandboxes and MCP installs are a fresh risk (Docker Sandboxes CVE-2026-103916, MCPhantom), and exposed AI agent servers are attacked quickly (Greeter on Flowise, now confirmed; PraisonAI CVE-2026-44338, unverified). AI-impact incidents center on stolen or precautionary-rotated AI provider keys (Tensorlake, Botpress, Northflank, LLMjacking).",
+    "overview": "Over the last 7 days AI-caused activity is still dominated by agentic intrusion frameworks. New Monday morning: Acronis's full BOSSAI analysis shows a lone attacker's agents, mostly on safety-stripped local models, stealing Taipei emergency-dispatch records and university and lender data, while commercial models largely refused to attack but built the tooling; an unverified Huntback post describes a SOUL SOCIETY crew with standing-order exploitation agents. Nov 8: VulnCheck linked the IP behind Microsoft's agentic GitHub-secret hunter to Langflow exploitation, Malbear Labs published Operation Snowball (jailbroken DeepSeek agent vs. a European telecom), and UnrealIRCd confirmed attacks on AI-found CVE-2026-114713. ARTEX remains the largest cluster (Storm-3358, GitHub-to-Azure secret hunting, Crafty Falcon, VAPOR PANDA, WorkOS, GitBook, Kernel, the Korean banks); Chainalysis rounds it out. AI-found bugs (SSHole, PHP2Shell, Brotli, UnrealIRCd) were exploited within hours to a day. On the product side, Hugging Face datasets CVE-2026-57845 has a public PoC and no fix, coding agents leak secrets, and agent sandboxes and MCP installs remain fresh risk. AI-impact incidents center on stolen or rotated AI provider keys (Tensorlake, Botpress, Northflank, LLMjacking) plus Anthropic's Korean regulator filing.",
     "counts": {
-      "ai_cause": 25,
+      "ai_cause": 27,
       "ai_product_exploited": 27,
-      "ai_impact": 6
+      "ai_impact": 7
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "BOSSAI full write-up: one attacker's AI agents stole Taipei 119 dispatch records; mostly safety-stripped local models",
+            "date": "2026-11-09T09:01:00Z",
+            "summary": "Acronis TRU (THN Nov 9): a single Hualien-based attacker ran 9 of 12 agents against hundreds of targets in 11+ countries and got data at ~10 (Taipei 119 dispatch API, a fire-dispatch vendor DB via default root creds, a lender and three Thai universities via SQLi, 206,800 Mexican phone records). Grok and MiniMax refused direct attack requests but built tooling; Grok repaired one PoC; attack agents ran abliterated DeepSeek/GLM/Qwen. Agents failed where logins and filtering held. IOCs published.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/11/taiwan-based-hacker-used-bossai-ai.html",
+            "source": "The Hacker News / Acronis"
+          },
+          {
+            "title": "Unverified: SOUL SOCIETY crew's exposed workspace shows AI agents running its exploitation line",
+            "date": "2026-11-09T11:38:00Z",
+            "summary": "Huntback says it recovered the crew's workspace from an exposed server: a Go scanner feeding a Python exploit panel, AI agents with standing orders doing the exploitation, and a Telegram drug platform. Single source, no write-up yet.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/Huntbackio/status/2119756495336206604",
+            "source": "X / Huntback"
+          },
           {
             "title": "VulnCheck: IP behind Microsoft's agentic GitHub-secret hunter also exploited Langflow for credentials",
             "date": "2026-11-08T18:00:00Z",
@@ -795,6 +822,15 @@
         "label": "AI impact / AI keys & infrastructure",
         "items": [
           {
+            "title": "Anthropic reports ~100 Korean Claude enterprise accounts exposed in the October Cathedral access",
+            "date": "2026-11-09T06:00:00Z",
+            "summary": "Filed with Korea's PIPC on Oct 31 (reported Nov 9): names, emails, account and org IDs, plan, usage and spend metrics. Anthropic says prompts, outputs, passwords and payment data were not accessed, access was cut the day it was found, and Cathedral confirmed deletion. PIPC is deciding whether to open a formal probe.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://en.sedaily.com/international/2026/11/09/data-breach-at-anthropics-claude-hits-over-100-korean",
+            "source": "Seoul Economic Daily / Yonhap"
+          },
+          {
             "title": "Tensorlake: leftover upstream-provider credentials let an attacker probe GitHub Actions secrets; rotate API keys",
             "date": "2026-11-08T01:26:22Z",
             "summary": "Founder Diptanu Choudhury: an internal app on an upstream provider spun up sandboxes in engineering accounts with access to company GitHub repos. An attacker pushed malicious branch code and triggered GitHub Actions to probe build/deploy secrets. Tensorlake says the provider's breach about two weeks ago exposed env vars that had not been rotated (first version of the post named Railway). No customer API keys or customer sandboxes impacted, and no evidence critical systems were reached beyond secret probing; secrets rotated, internal app taken down, paying customers emailed. They ask everyone to rotate Tensorlake API keys.",
@@ -853,6 +889,6 @@
         ]
       }
     ],
-    "trend_note": "Overnight was quiet on the AI-cause side and nothing new landed on the product side either; posts mostly re-amplified Microsoft's agentic secret-hunting warning, the VulnCheck Langflow follow-up and the Claude Dispatch research. The broader trend holds: agentic frameworks drive attacks against telecoms, banks and SaaS, AI-found bugs get exploited within hours to a day, and exposed AI servers plus leaked AI provider keys remain the main product and key-exposure risk."
+    "trend_note": "Trend: reports keep showing the same pattern: agents make wide scanning and exploitation cheap, but they mostly succeed against default credentials, exposed APIs, SQL injection and leaked secrets, and often over-report success. Fixing basics (MFA, no default creds, rotate leaked keys, rate limits) still blocks most of it. Items older than 7 days dropped this update."
   }
 }
