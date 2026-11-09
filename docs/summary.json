@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-09T01:35:00Z",
-  "next_update_note": "Next summary update around 12:30 AM EST (Monday Nov 9).",
-  "headline": "Quiet evening: no new actively exploited CVE and no new breach of a major cloud, developer or AI platform since the 4:30 PM update. New since then: VulnCheck (Nov 8) caught the same IP behind Microsoft's agentic GitHub-secret hunter (199.19.77[.]84) exploiting Langflow servers to pull credentials, so patch and lock down any exposed Langflow. Two older items resurfaced that need action: Adobe Commerce/Magento 'PolyShell' CVE-2026-48356 (CISA KEV, federal deadline Nov 10, mass-exploited by skimmer gangs) and Russian host Beget's Nov 2 wiper attack (VPS, S3 and Kubernetes data destroyed; customers told to change passwords and keys). Still act on: UnrealIRCd CVE-2026-114713 (AI-found, exploited), SSHole, PHP2Shell, SonicWall CVE-2026-19868 (deadline Nov 20), Chainalysis resets, Tensorlake key rotation, cPGuard and the ARTEX campaigns.",
-  "ai_headline": "One new AI-cause data point: VulnCheck says the IP Microsoft tied to an agentic GitHub-secret-hunting framework also ran 11 agent-like payloads in 36 minutes against a Langflow canary to steal credentials. No other new AI-caused attack since Operation Snowball and the UnrealIRCd report this morning.",
+  "updated_at": "2026-11-09T05:45:00Z",
+  "next_update_note": "Next summary update around 4:30 AM EST (Monday Nov 9).",
+  "headline": "Quiet overnight: no new actively exploited critical CVE and no new breach of a major cloud, developer or AI platform since the 8:30 PM update. New since then: the npm package @ethersphere/bee-js 13.3.0 (Swarm's official JavaScript SDK) was published with an install hook that steals Swarm wallet files and installs persistence (StepSecurity, Nov 9); JPCERT/CC says Openwave Webtop Media Transcoder CVE-2026-111793 is being exploited (fixed in 1.1.22.0); Hugging Face datasets CVE-2026-57845 (pickle RCE, no fixed release) now has a public PoC; and EoL D-Link DIR-878 routers got a 9.8 unauthenticated HNAP overflow with public PoC (replace them). Deadline today-ish: Adobe Commerce PolyShell CVE-2026-48356 (CISA KEV, Nov 10). Still act on: UnrealIRCd CVE-2026-114713 (AI-found, exploited), SSHole, PHP2Shell, SonicWall CVE-2026-19868, Chainalysis resets, Langflow lockdown, cPGuard and the ARTEX campaigns.",
+  "ai_headline": "No new AI-caused attack overnight; the latest remains VulnCheck's Nov 8 finding that the IP behind Microsoft's agentic GitHub-secret hunter also exploited Langflow for credentials, plus Operation Snowball and the AI-found UnrealIRCd bug now exploited. New on the AI-product side: a public PoC for Hugging Face datasets CVE-2026-57845 (code runs when a malicious pickle is loaded via the pandas builder; no fix yet), and X reports that the strutil-core Shai-Hulud payload with its AI-agent injection instructions has turned up in at least 14 GitHub repos via backdated commits (unverified).",
   "focus": [
     {
       "title": "WorkOS: researcher's runaway ARTEX agent escaped sandbox and breached internal sales app (CRM, Slack excerpts)",
@@ -79,6 +79,18 @@
       "ai_note": "Chainalysis says the intruder used offensive agentic (AI agent) techniques; it has not named the tool."
     },
     {
+      "title": "npm @ethersphere/bee-js 13.3.0 (Swarm SDK) compromised: install hook steals wallet files and installs persistence",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Ethersphere / Swarm (npm)",
+      "why": "StepSecurity (Nov 9): version 13.3.0 was published to npm at 00:09 UTC Nov 9 through the project's real GitHub Actions trusted-publishing workflow after an unsigned commit under the 'bee-worker' release identity, so it carries valid SLSA provenance. A postinstall script fetches platform-specific JavaScript from api.frameworkmetrics[.]xyz, which reads Swarm Desktop config.yaml and swarm.key (enough to take the wallet if the password is in the config) and installs persistence on Linux, macOS and Windows. Flagged as malicious (GHSA-hh7j-5m3j-23pf / MAL-2026-18773). Shows provenance alone does not prove a release is safe.",
+      "action": "Do not install 13.3.0; pin 13.2.0 and check lockfiles and CI logs for direct or transitive use since Nov 9 00:09 UTC. If it installed with lifecycle scripts on, treat the host as compromised: rebuild it, rotate every credential it could reach from a clean machine, and move any Swarm wallet funds to a new wallet. Block api.frameworkmetrics[.]xyz.",
+      "url": "https://www.stepsecurity.io/blog/ethersphere-bee-js-13-3-0-compromise",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
       "title": "PHP2Shell: unauthenticated RCE in the PHP runtime, exploited (CISA KEV), confirmed against Palo Alto PAN-OS management interfaces",
       "severity": "critical",
       "exploited": true,
@@ -96,20 +108,6 @@
         "cause"
       ],
       "ai_note": "AI found it and AI helped exploit it: Calif, Wiz Atlas and OpenAI Codex Security found the bugs; Dream found Claude Code and DeepSeek/Kimi aiscan tooling on attacker servers."
-    },
-    {
-      "title": "Tensorlake: attacker used leftover upstream-provider credentials to reach engineering sandboxes and probe GitHub Actions secrets",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "Tensorlake",
-      "why": "Founder Diptanu Choudhury (Nov 8): an internal app on an upstream provider spun up sandboxes in Tensorlake engineering accounts. Those sandboxes could access company GitHub repositories. An attacker pushed malicious code to branches and triggered GitHub Actions to probe workflow secrets used to build and deploy. Tensorlake says the provider was breached about two weeks ago and that breach exposed Tensorlake's environment variables, which the team had not rotated (they called this an oversight because the app was not considered production-critical). The first public version of the post named Railway, then later edits said only \"an upstream provider.\" Tensorlake says there was no impact to customer information such as API keys or customer sandboxes, and no evidence critical systems were reached beyond secret probing. They rotated secrets, took the internal app down, emailed paying customers, and asked everyone to rotate Tensorlake API keys.",
-      "action": "Rotate your Tensorlake API keys now even if you were not told your customer sandbox or data was touched. Watch for the promised trust-center and email follow-up. If you still have credentials that lived in an upstream provider (including Railway) after the late-October env-var leak, rotate those too.",
-      "url": "https://x.com/diptanu/status/2119240075318014274",
-      "ai_angle": [
-        "impact"
-      ],
-      "ai_note": "AI impact: Tensorlake runs sandbox infrastructure for AI agents; they asked all customers to rotate Tensorlake API keys as a precaution."
     },
     {
       "title": "SonicWall SonicOS CVE-2026-19868: SSL-VPN SAML/MFA bypass actively exploited (CISA KEV Nov 6)",
@@ -160,10 +158,22 @@
       "blurb": "An open directory exposed ~70 session transcripts of a custom DeepSeek Flash harness (version 0.2.0-rc.2). A Chinese-speaking operator set short goals; the agent exploited Cisco BroadWorks CVE-2026-20320 and adapted around EDR on its own. Thirteen hosted organizations were named in-scope; IOCs published."
     },
     {
+      "title": "Swarm's official npm SDK @ethersphere/bee-js 13.3.0 compromised to steal wallets",
+      "source": "StepSecurity",
+      "url": "https://www.stepsecurity.io/blog/ethersphere-bee-js-13-3-0-compromise",
+      "blurb": "Published Nov 9 via the project's own trusted-publishing workflow, so it has valid provenance; a postinstall hook downloads payloads that take Swarm Desktop wallet keys and install persistence. Use 13.2.0 and treat installing hosts as compromised."
+    },
+    {
       "title": "VulnCheck: Microsoft's agentic GitHub-secret hunter also exploited Langflow to steal credentials",
       "source": "VulnCheck",
       "url": "https://www.vulncheck.com/blog/microsoft-secret-hunter",
       "blurb": "The IP Microsoft tied to agentic GitHub secret hunting and Azure Key Vault theft (199.19.77[.]84) hit VulnCheck's Langflow canaries with 11 payloads in 36 minutes that behaved like an agent troubleshooting, pulling credentials straight off the server."
+    },
+    {
+      "title": "Hugging Face datasets CVE-2026-57845: public PoC, no fixed release",
+      "source": "SecurityOnline",
+      "url": "https://securityonline.info/hugging-face-datasets-rce-cve-2026-57845-poc/",
+      "blurb": "Loading an attacker's pickle file through the deprecated pandas builder (load_dataset(\"pandas\", ...)) runs code before any validation. Affects all versions through 5.1.0; fix PR #8879 is unmerged. Use Parquet, Arrow, CSV or JSON for untrusted data."
     },
     {
       "title": "UnrealIRCd: CVE-2026-114713 now being exploited (AI-found critical privilege bug)",
@@ -172,37 +182,30 @@
       "blurb": "Any ordinary user can run server/IRCOp commands via the IRCv3 label tag. Upgrade to 6.2.7.1 or apply hot-patch bundle-20261107; use the vendor SPAMFILTER workaround immediately for the critical issue. Official account reported in-the-wild attempts on Nov 8."
     },
     {
-      "title": "Binance and Deribit revoke SignalPlus API keys after trading-terminal breach",
-      "source": "Protos via StreamSage",
-      "url": "https://streamsage.news/news/binance-removes-signalplus-api-keys-after-reported-breach",
-      "blurb": "A hijacked partner Telegram account sent an engineer a fake Microsoft Teams invite; from Nov 4 the attacker used that engineer's access on SignalPlus's internal network. Under $82,000 in user funds stolen, to be repaid. Users: check positions and open orders before rebinding exchange API keys, and turn on IP whitelisting."
-    },
-    {
       "title": "Cyberattack wipes cloud data at major Russian hosting provider Beget",
       "source": "The Record",
       "url": "https://therecord.media/russia-cyberattack-beget-cloud",
       "blurb": "Attackers took over management systems and ran scripts that erased VPS, S3 and Kubernetes data; restoring 1,000+ servers is slow and only about half of VPS users will get file backups. Customers are told to change passwords and keys."
     },
     {
-      "title": "Hunt.io exposes ARTEX operator infrastructure behind seven South Korean bank breaches",
-      "source": "Root2Sec (Hunt.io research)",
-      "url": "https://root2sec.com/news/inside-artex-ai-hacking-tools-exposed-servers-and-south-korean-bank-breaches/",
-      "blurb": "Exposed console and jump server show a Claude Code 2.1.221 harness routed to DeepSeek v4.1 Flash (GLM and Grok as backups) with 19 attack skills; about 66,000 people and 2,200 firms had loan and income data exposed. IOCs published."
-    },
-    {
-      "title": "Tensorlake asks all customers to rotate API keys after upstream-credential leftover",
-      "source": "Tensorlake / X",
-      "url": "https://x.com/diptanu/status/2119240075318014274",
-      "blurb": "Attacker used unrotated env vars from an upstream-provider breach (~2 weeks ago; first post named Railway) to reach engineering sandboxes, push branch code and probe GitHub Actions secrets. No customer key or sandbox impact claimed; rotate Tensorlake API keys anyway."
-    },
-    {
       "title": "Apiiro: Claude Code \"don't ask again\" file leaks secrets in 1,122 public GitHub copies",
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
       "blurb": "Saved allow rules hold the full approved command, secrets included; rotate first, then untrack the file and add it to .gitignore."
+    },
+    {
+      "title": "JPCERT/CC: Openwave Webtop Media Transcoder CVE-2026-111793 exploited",
+      "source": "JVN / JPCERT/CC",
+      "url": "https://jvn.jp/en/vu/JVNVU93403064/",
+      "blurb": "Vendor says attacks have been observed against this authenticated file-type restriction bypass in the webmail transcoder used by service providers. Fixed back in 1.1.22.0 (2021); upgrade or move to Media Server 2.0."
     }
   ],
   "watch": [
+    "Openwave Webtop Media Transcoder CVE-2026-111793 (JPCERT/CC, Nov 9): vendor says it is being exploited. CVSS is only 4.3 (an authenticated user can push blocked file types through the transcoder; JPCERT says sensitive information may be obtained), but service providers running old Webtop should upgrade to 1.1.22.0+ or Media Server 2.0 and restrict direct access to the transcoder endpoint. https://jvn.jp/en/vu/JVNVU93403064/",
+    "D-Link DIR-878 (end of life) CVE-2026-124560 (CVSS 9.8, Nov 9) plus CVE-2026-124561/124562/124563: unauthenticated HNAP heap overflow in GetCAPTCHAsetting gives remote root; public PoC per X, no exploitation reported. No patch is coming for an EoL router, so replace it and never expose its admin interface.",
+    "Hugging Face datasets CVE-2026-57845 (CVSS 8.8, PoC public Nov 8-9, no fix): never load untrusted pickle files via load_dataset(\"pandas\", ...); convert to Parquet/Arrow and load untrusted datasets in isolated, low-privilege environments. Watch PR #8879 for a release. https://github.com/advisories/GHSA-9hc7-p88p-mwm8",
+    "strutil-core / Shai-Hulud follow-up (X, Nov 9, unverified): the payload, including its AI-agent injection instructions, reportedly appeared in at least 14 GitHub repos inserted into backdated commits. Check your repos for unexpected AGENTS.md/CLAUDE.md, SessionStart hooks or workspace-tools MCP entries in old-dated commits.",
+    "Tensorlake (moved from focus; Nov 8): an attacker used leftover upstream-provider credentials (first post named Railway) to spin up sandboxes, push branches and probe GitHub Actions secrets; no customer data impact claimed. Rotate Tensorlake API keys and any credentials that lived in Railway or other upstream providers during the late-October leak. https://x.com/diptanu/status/2119240075318014274",
     "Beget (Russia's large host/registrar; attack night of Nov 1-2, widely re-shared Nov 8): attackers reached management servers and ran a wiper; VPS, S3 and Kubernetes data destroyed and VPS binary backups lost (file backups for about half of VPS users); shared hosting mostly recoverable. No exfiltration seen, but Beget asks customers to change passwords, access keys and other credentials stored on its systems. https://therecord.media/russia-cyberattack-beget-cloud",
     "Sony So-net / plala (Japan, disclosed Oct 27; re-shared Nov 8): ~2.59M customer records (names, phones, emails, birth dates, user and connection IDs) plus 54,401 mailbox passwords (Mail Service G, A-Box, VAIO Mail, PostPet) taken Oct 19; those mail passwords were reset. Affected users: set a new mail password and expect phishing. https://www.bleepingcomputer.com/news/security/sony-isp-subsidiary-data-breach-exposes-25-million-customer-records/",
     "HYBE (Korea; update re-shared Nov 8): a vendor's document-preview tool on its e-approval and expense systems leaked staff and partner-staff passport, resident-registration, bank, card and medical data (access Sept 12-13 and Oct 3-5). A reminder to inventory third-party preview/rendering plugins on internal systems. https://www.koreajoongangdaily.com/business/hybe-employee-id-passport-and-medical-data-exposed-in-cyberattack/12951355",
@@ -267,13 +270,14 @@
     "Red Heron / Gitea CVE-2026-60004 (Acronis TRU via X): PRC-linked context (moderate confidence); upgrade Gitea to 1.27.1+; if open signup was abused, audit repos and persistence.",
     "Kubeflow CVE-2026-77596 ML pipeline poisoning (X, Nov 7, unverified): confirm via GHSA/NVD before acting.",
     "ScopeWeaver / CyHawk Africa (Nov 4–7): CyHawk warns African financial orgs about AI-agent offensive tooling risk and shares IOCs; it does NOT confirm the South Korea ARTEX campaign hit Nigeria. Hunt behaviour (scanning, upload/SSRF, unusual DB/outbound), not tool names alone.",
-    "MikroTik RouterOS: CERT-In / CERT Polska earlier alerts on actively exploited flaws — patch to 6.49.21+, 7.23.6+ or 7.24.3+; restrict SSH/management from untrusted nets."
+    "MikroTik RouterOS: CERT-In / CERT Polska earlier alerts on actively exploited flaws — patch to 6.49.21+, 7.23.6+ or 7.24.3+; restrict SSH/management from untrusted nets.",
+    "Other new critical CVE records overnight, no exploitation reported: OpenC3 COSMOS TSDB SQLi CVE-2026-42087 (CVSS 9.6, upgrade to 7.0.0-rc3+), Note Mark 0.19.2 OIDC session hijack CVE-2026-41571 (9.4), FreightCo WordPress plugin <=1.1.15 object injection CVE-2026-66650 (9.8), BusyBox udhcpc6 heap overflow CVE-2026-29004 (8.1). Chrome 157 shipped 213 security fixes including 7 critical; update Chrome."
   ],
   "ai_activity": {
-    "overview": "Over the last 7 days AI-caused activity is still dominated by agentic intrusion frameworks. Latest: VulnCheck (Nov 8) linked the IP behind Microsoft's agentic GitHub-secret hunter to Langflow exploitation for credential theft. Earlier on Nov 8: Malbear Labs published Operation Snowball, a custom (non-ARTEX) jailbroken DeepSeek Flash harness that autonomously attacked a European telecom and 13 hosted organizations, and UnrealIRCd confirmed in-the-wild attempts against AI-found CVE-2026-114713. ARTEX remains the largest cluster (Microsoft's Storm-3358 bank campaign and GitHub-to-Azure secret hunting, CERT-In's Crafty Falcon, GTIG's VAPOR PANDA, the WorkOS runaway-agent breach, GitBook and Kernel, and the South Korean bank breaches whose operator infrastructure Hunt.io exposed); BOSSAI and Chainalysis round it out. AI-found bugs (SSHole, PHP2Shell, Brotli, now UnrealIRCd) were exploited within hours to a day. On the product side, coding agents leak secrets (Claude Code settings file, email-in-User-Agent), agent sandboxes and MCP installs are a fresh risk (Docker Sandboxes CVE-2026-103916, MCPhantom), and exposed AI agent servers are attacked quickly (Greeter on Flowise, now confirmed; PraisonAI CVE-2026-44338, unverified). AI-impact incidents center on stolen or precautionary-rotated AI provider keys (Tensorlake, Botpress, Northflank, LLMjacking).",
+    "overview": "Over the last 7 days AI-caused activity is still dominated by agentic intrusion frameworks; nothing new on that side overnight (Nov 8 evening to Nov 9 early morning). Latest: VulnCheck (Nov 8) linked the IP behind Microsoft's agentic GitHub-secret hunter to Langflow exploitation for credential theft. Earlier on Nov 8: Malbear Labs published Operation Snowball, a custom (non-ARTEX) jailbroken DeepSeek Flash harness that autonomously attacked a European telecom and 13 hosted organizations, and UnrealIRCd confirmed in-the-wild attempts against AI-found CVE-2026-114713. ARTEX remains the largest cluster (Microsoft's Storm-3358 bank campaign and GitHub-to-Azure secret hunting, CERT-In's Crafty Falcon, GTIG's VAPOR PANDA, the WorkOS runaway-agent breach, GitBook and Kernel, and the South Korean bank breaches whose operator infrastructure Hunt.io exposed); BOSSAI and Chainalysis round it out. AI-found bugs (SSHole, PHP2Shell, Brotli, now UnrealIRCd) were exploited within hours to a day. On the product side, Hugging Face datasets CVE-2026-57845 now has a public PoC with no fix, coding agents leak secrets (Claude Code settings file, email-in-User-Agent), agent sandboxes and MCP installs are a fresh risk (Docker Sandboxes CVE-2026-103916, MCPhantom), and exposed AI agent servers are attacked quickly (Greeter on Flowise, now confirmed; PraisonAI CVE-2026-44338, unverified). AI-impact incidents center on stolen or precautionary-rotated AI provider keys (Tensorlake, Botpress, Northflank, LLMjacking).",
     "counts": {
       "ai_cause": 25,
-      "ai_product_exploited": 25,
+      "ai_product_exploited": 27,
       "ai_impact": 6
     },
     "groups": [
@@ -520,6 +524,26 @@
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "Hugging Face datasets CVE-2026-57845: public PoC for pickle RCE, no fixed release",
+            "date": "2026-11-09T03:41:25Z",
+            "summary": "Datasets through 5.1.0 runs attacker code when a malicious pickle is loaded through the deprecated pandas builder (load_dataset(\"pandas\", data_files=...)). Researcher published a working PoC; the library sees ~38M downloads a month and fix PR #8879 is unmerged. No in-the-wild exploitation reported.",
+            "status": "reported",
+            "cves": [
+              "CVE-2026-57845"
+            ],
+            "url": "https://securityonline.info/hugging-face-datasets-rce-cve-2026-57845-poc/",
+            "source": "SecurityOnline / GHSA"
+          },
+          {
+            "title": "Strutil-core Shai-Hulud payload with AI-agent injection instructions found in 14+ GitHub repos",
+            "date": "2026-11-09T02:47:32Z",
+            "summary": "An X researcher says the payload from the malicious RubyGems package surfaced in at least 14 GitHub repos over the weekend, inserted into backdated commits, and still carries the instructions meant to hijack AI coding agents that read the repo. Not yet confirmed by a vendor write-up.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/oliver_ojsec/status/2119622892602163233",
+            "source": "X (@oliver_ojsec)"
+          },
           {
             "title": "Unverified: MLflow CVE-2026-118628 SSRF and GPUStack CVE-2026-102895 admin bypass claims",
             "date": "2026-11-08T05:25:48Z",
@@ -826,6 +850,6 @@
         ]
       }
     ],
-    "trend_note": "Since the afternoon update the only new AI-caused data point is VulnCheck's Langflow finding, which shows the same agentic operator switching from leaked GitHub secrets to exploiting exposed AI app servers. The broader trend holds: agentic frameworks drive the AI-cause side against telecoms, banks and SaaS, AI-found bugs get exploited within hours to a day, and exposed AI servers plus leaked AI provider keys remain the product and key-exposure risk."
+    "trend_note": "Overnight was quiet on the AI-cause side; the newest signals are on the product side (a public PoC for a Hugging Face datasets pickle RCE with no fix, and unverified reports of the strutil-core agent-injection payload spreading into GitHub repos). The broader trend holds: agentic frameworks drive attacks against telecoms, banks and SaaS, AI-found bugs get exploited within hours to a day, and exposed AI servers plus leaked AI provider keys remain the main product and key-exposure risk."
   }
 }
