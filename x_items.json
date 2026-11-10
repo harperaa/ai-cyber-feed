@@ -1,50 +1,10 @@
 [
  {
-  "url": "https://x.com/timwork_notes/status/2120100614743130346",
-  "author": "timwork_notes",
-  "created_at": "2026-11-10T10:25:50Z",
+  "url": "https://x.com/StanleyCui/status/2120136982982746262",
+  "author": "StanleyCui",
+  "created_at": "2026-11-10T12:50:21Z",
   "cves": [],
-  "text": "Claude Code before 2.1.321 could send your MCP OAuth refresh token to another host when a server redirected the request. No CVE, one line in the Nov 9 changelog. Update and revoke the grant on any remote MCP server you don't run."
- },
- {
-  "url": "https://x.com/linklin63793/status/2119949806827340251",
-  "author": "linklin63793",
-  "created_at": "2026-11-10T00:26:35Z",
-  "cves": [],
-  "text": "Claude Code 2.1.321 (Nov 9 changelog): fixed MCP OAuth sending secrets such as refresh tokens to another host when a server redirected them; also fixed a read-only Bash path that could skip the sandbox."
- },
- {
-  "url": "https://x.com/TanmayK_03/status/2119913530006937948",
-  "author": "TanmayK_03",
-  "created_at": "2026-11-09T22:02:26Z",
-  "cves": [
-   "CVE-2026-77604"
-  ],
-  "text": "New CVE-2026-77604 in Code Graph RAG's MCP server (fixed in 0.0.345): read_file skipped its path check when offset or limit was set, allowing path traversal via absolute paths."
- },
- {
-  "url": "https://x.com/UpwindMDR/status/2119782646221775134",
-  "author": "UpwindMDR",
-  "created_at": "2026-11-09T13:22:21Z",
-  "cves": [],
-  "text": "HIGH - Authorization bypass in mcp-atlassian scopes (GHSA-xv8h-26ch-vfh9): the Model Context Protocol (MCP) server lets callers bypass configured project and space isolation (JIRA_PROJECTS_FILTER)."
- },
- {
-  "url": "https://x.com/dailycve/status/2119928731070341498",
-  "author": "dailycve",
-  "created_at": "2026-11-09T23:02:50Z",
-  "cves": [
-   "CVE-2026-76892",
-   "CVE-2026-76893"
-  ],
-  "text": "@tsps/mcp-server MCP server: denial of service via JSON.parse, CVE-2026-76892 (High); singletons state hijacking, CVE-2026-76893 (Medium)."
- },
- {
-  "url": "https://x.com/_pksharma/status/2119874157345189950",
-  "author": "_pksharma",
-  "created_at": "2026-11-09T19:25:59Z",
-  "cves": [],
-  "text": "Attacker exploited a flaw in Mittwald's MCP server on 27 Oct, five minutes after registering an account; Mittwald blocked the first attacker account on 4 Nov, nearly 8 days later."
+  "text": "Inference providers are now part of your attack surface: Fireworks AI and NEAR AI both disclosed incidents this week, one via a cloud vendor, one via an SGLang RCE. Rotate keys and scope credentials."
  },
  {
   "url": "https://x.com/ESultanik/status/2120127257322955101",
@@ -54,146 +14,6 @@
   "text": "Attempted supply chain attack on Graphtage: a trusted external contributor's PR was green in CI, then the contributor's GitHub account was presumably compromised and used to push malicious changes."
  },
  {
-  "url": "https://x.com/DailyDarkWeb/status/2119993656429936749",
-  "author": "DailyDarkWeb",
-  "created_at": "2026-11-10T03:20:49Z",
-  "text": "CHROME ZERO-DAY CVE-2026-125350 EXPLOITED IN THE WILD (XML USE-AFTER-FREE). Google's Nov 9, 2026 Stable Channel Update patches a High-severity use-after-free in Chrome's XML component that Google says is already exploited in the wild.",
-  "cves": [
-   "CVE-2026-125350"
-  ]
- },
- {
-  "url": "https://x.com/ICHI_Global/status/2119832422967566786",
-  "author": "ICHI_Global",
-  "created_at": "2026-11-09T16:40:08Z",
-  "text": "CRITICAL: CVE-2026-116779 SignalWire FreeSwitch <1.11.3 code injection, CVSS 9.8, CISA KEV actively exploited. Unauthenticated code injection via ESL socket. Patch: FreeSwitch 1.11.3+",
-  "cves": [
-   "CVE-2026-116779"
-  ]
- },
- {
-  "url": "https://x.com/UpwindMDR/status/2119857972473909297",
-  "author": "UpwindMDR",
-  "created_at": "2026-11-09T18:21:40Z",
-  "text": "Critical - WP Duplicate unauth arbitrary file upload to RCE (CVE-2026-123751), plugin <= 1.1.11.",
-  "cves": [
-   "CVE-2026-123751"
-  ]
- },
- {
-  "url": "https://x.com/2Workly/status/2119826234016510166",
-  "author": "2Workly",
-  "created_at": "2026-11-09T16:15:33Z",
-  "text": "Plex2Shell (CVE-2026-96652 chain) is actively exploited against QNAP NAS Plex instances for unauthenticated RCE. Patch to 1.43.3+.",
-  "cves": [
-   "CVE-2026-96652"
-  ]
- },
- {
-  "url": "https://x.com/yogsec/status/2119974653083181299",
-  "author": "yogsec",
-  "created_at": "2026-11-10T02:05:19Z",
-  "text": "CVE-2026-119977 WordPress Core TOCTOU race during core upgrades: unauthenticated RCE via web-accessible staging paths. Actively exploited; CISA KEV Nov 3. Fixed in 7.1.4.",
-  "cves": [
-   "CVE-2026-119977"
-  ]
- },
- {
-  "url": "https://x.com/threatpodium/status/2119894348368142548",
-  "author": "threatpodium",
-  "created_at": "2026-11-09T20:46:13Z",
-  "text": "CVE-2026-102895 CRITICAL, actively exploited per CISA KEV: GPUStack (AI GPU cluster manager). CVSS 9.8.",
-  "cves": [
-   "CVE-2026-102895"
-  ]
- },
- {
-  "url": "https://x.com/SecurityAr58409/status/2119973826071040284",
-  "author": "SecurityAr58409",
-  "created_at": "2026-11-10T02:02:02Z",
-  "text": "CVE-2026-123218: IBM Aspera Faspex authorization bypass actively exploited; CISA added to KEV Nov 9, 2026.",
-  "cves": [
-   "CVE-2026-123218"
-  ]
- },
- {
-  "url": "https://x.com/PureVPNcom/status/2120076544068722990",
-  "author": "PureVPNcom",
-  "created_at": "2026-11-10T08:50:11Z",
-  "text": "CISA flagged four vulnerabilities actively exploited in the wild, affecting OpenSSH (SSHole auth bypass), GPUStack, FreeSWITCH, and IBM Aspera Faspex.",
-  "cves": []
- },
- {
-  "url": "https://x.com/mad31k/status/2120029344185676032",
-  "author": "mad31k",
-  "created_at": "2026-11-10T05:42:38Z",
-  "text": "The critical Xen Orchestra vulnerability we discovered is now public and being actively exploited. If you have Xen Orchestra exposed to the internet, patch now.",
-  "cves": []
- },
- {
-  "url": "https://x.com/infrastack_ai/status/2119924547579519119",
-  "author": "infrastack_ai",
-  "created_at": "2026-11-09T22:46:13Z",
-  "text": "Unpatched flaws in xAI's Grok Bot agent sandbox let one prompt-injected command take root, Profero found. Saved logins, cookies or API keys at risk.",
-  "cves": []
- },
- {
-  "url": "https://x.com/DFIR_Radar/status/2120034386414555457",
-  "author": "DFIR_Radar",
-  "created_at": "2026-11-10T06:02:40Z",
-  "text": "ARTEX, an open-source AI pentesting framework, went from GitHub release to attacker staple in under three months, used by financial criminals and Chinese state-aligned groups at machine speed.",
-  "cves": []
- },
- {
-  "url": "https://x.com/DFIR_Radar/status/2119853024697078155",
-  "author": "DFIR_Radar",
-  "created_at": "2026-11-09T18:02:00Z",
-  "text": "ARTEX, an AI-native autonomous penetration framework tied to Storm-0940, observed attacking live AWS environments hunting secrets and cloud credentials via compromised IAM keys and public Cognito pools.",
-  "cves": []
- },
- {
-  "url": "https://x.com/ArslanCoreAI/status/2119755861534884133",
-  "author": "ArslanCoreAI",
-  "created_at": "2026-11-09T11:35:55Z",
-  "text": "Microsoft: attackers use AI agents to scan public GitHub repos for leaked API keys. One case went from scan to Azure Key Vault theft in ~5 min.",
-  "cves": []
- },
- {
-  "url": "https://x.com/KriptoCrafter/status/2119872066111287374",
-  "author": "KriptoCrafter",
-  "created_at": "2026-11-09T19:17:40Z",
-  "text": "Claude Code 'yes, don't ask again' saves approved commands to .claude/settings.local.json, passwords and API keys included. Apiiro found 100k+ such files on GitHub, 1,100+ with credentials.",
-  "cves": []
- },
- {
-  "url": "https://x.com/SlowMist_Team/status/2119998212497125582",
-  "author": "SlowMist_Team",
-  "created_at": "2026-11-10T03:38:56Z",
-  "text": "Supply chain attack compromised Ethersphere's npm package @ethersphere/bee-js@13.3.0 and Swarm Desktop v0.56.2 via compromised GitHub accounts and legitimate release pipelines.",
-  "cves": []
- },
- {
-  "url": "https://x.com/cubillas888/status/2119882725607854445",
-  "author": "cubillas888",
-  "created_at": "2026-11-09T20:00:01Z",
-  "text": "Ruby gem strutil-core 1.0.1 poisons AI tool configs; a monitor checks the stolen GitHub token every 45s and revoking first can wipe your home folder (Socket).",
-  "cves": []
- },
- {
-  "url": "https://x.com/BadgerSignalHQ/status/2120060498372854236",
-  "author": "BadgerSignalHQ",
-  "created_at": "2026-11-10T07:46:26Z",
-  "text": "GhostAction returns: hijacked GitHub maintainer accounts push fake 'security audit' Actions workflows that steal cloud, AI and package-publishing secrets (Socket).",
-  "cves": []
- },
- {
-  "url": "https://x.com/TheCyberSecHub/status/2119800902093869265",
-  "author": "TheCyberSecHub",
-  "created_at": "2026-11-09T14:34:53Z",
-  "text": "New supply chain attack compromises tens of thousands of GitHub repositories via a malicious workflow.",
-  "cves": []
- },
- {
   "url": "https://x.com/ZeroDayFacts/status/2120105886463242465",
   "author": "ZeroDayFacts",
   "created_at": "2026-11-10T10:46:47Z",
@@ -201,10 +21,38 @@
   "cves": []
  },
  {
+  "url": "https://x.com/timwork_notes/status/2120100614743130346",
+  "author": "timwork_notes",
+  "created_at": "2026-11-10T10:25:50Z",
+  "cves": [],
+  "text": "Claude Code before 2.1.321 could send your MCP OAuth refresh token to another host when a server redirected the request. No CVE, one line in the Nov 9 changelog. Update and revoke the grant on any remote MCP server you don't run."
+ },
+ {
   "url": "https://x.com/Joshua_WD/status/2120093445117059362",
   "author": "Joshua_WD",
   "created_at": "2026-11-10T09:57:21Z",
   "text": "Fireworks AI's breach notice now covers billing data, stored secrets and some customer datasets, and Notion says some of its AI chats were exposed.",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/eastsidemccarty/status/2120090381446696969",
+  "author": "eastsidemccarty",
+  "created_at": "2026-11-10T09:45:10Z",
+  "text": "Coordinated software supply chain attack targeting Zcash, Vizor, Cosmos and Keplr wallet projects using a Rust dependency confusion attack.",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/undercode_news/status/2120078522857480300",
+  "author": "undercode_news",
+  "text": "Hackers build self-sustaining AI agent to steal API keys, exploit academic systems and commit student data fraud.",
+  "created_at": "2026-11-10T08:58:03Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/PureVPNcom/status/2120076544068722990",
+  "author": "PureVPNcom",
+  "created_at": "2026-11-10T08:50:11Z",
+  "text": "CISA flagged four vulnerabilities actively exploited in the wild, affecting OpenSSH (SSHole auth bypass), GPUStack, FreeSWITCH, and IBM Aspera Faspex.",
   "cves": []
  },
  {
@@ -215,10 +63,10 @@
   "cves": []
  },
  {
-  "url": "https://x.com/eastsidemccarty/status/2120090381446696969",
-  "author": "eastsidemccarty",
-  "created_at": "2026-11-10T09:45:10Z",
-  "text": "Coordinated software supply chain attack targeting Zcash, Vizor, Cosmos and Keplr wallet projects using a Rust dependency confusion attack.",
+  "url": "https://x.com/BadgerSignalHQ/status/2120060498372854236",
+  "author": "BadgerSignalHQ",
+  "created_at": "2026-11-10T07:46:26Z",
+  "text": "GhostAction returns: hijacked GitHub maintainer accounts push fake 'security audit' Actions workflows that steal cloud, AI and package-publishing secrets (Socket).",
   "cves": []
  },
  {
@@ -231,20 +79,110 @@
   ]
  },
  {
-  "url": "https://x.com/threatpodium/status/2119894376105070782",
-  "author": "threatpodium",
-  "text": "CVE-2026-116779 \u2014 CRITICAL \u2014 actively exploited per CISA KEV. SignalWire FreeSwitch. CVSS 9.8.",
-  "created_at": "2026-11-09T20:46:19Z",
+  "url": "https://x.com/mergenewsapp/status/2120042043921650072",
+  "author": "mergenewsapp",
+  "text": "Docker Sandboxes flaw (CVE-2026-77179) on macOS shows need for AI agent security updates to v0.42.0+.",
+  "created_at": "2026-11-10T06:33:06Z",
   "cves": [
-   "CVE-2026-116779"
+   "CVE-2026-77179"
   ]
  },
  {
-  "url": "https://x.com/undercode_news/status/2120078522857480300",
-  "author": "undercode_news",
-  "text": "Hackers build self-sustaining AI agent to steal API keys, exploit academic systems and commit student data fraud.",
-  "created_at": "2026-11-10T08:58:03Z",
+  "url": "https://x.com/DFIR_Radar/status/2120034386414555457",
+  "author": "DFIR_Radar",
+  "created_at": "2026-11-10T06:02:40Z",
+  "text": "ARTEX, an open-source AI pentesting framework, went from GitHub release to attacker staple in under three months, used by financial criminals and Chinese state-aligned groups at machine speed.",
   "cves": []
+ },
+ {
+  "url": "https://x.com/zoomeyebot/status/2120030018944557169",
+  "author": "zoomeyebot",
+  "created_at": "2026-11-10T05:45:19Z",
+  "cves": [
+   "CVE-2026-79860"
+  ],
+  "text": "CVE-2026-79860: unauthenticated HPE ArubaOS AOS-8 PAPI overflow can execute privileged code (critical). ~211 exposed instances."
+ },
+ {
+  "url": "https://x.com/mad31k/status/2120029344185676032",
+  "author": "mad31k",
+  "created_at": "2026-11-10T05:42:38Z",
+  "text": "The critical Xen Orchestra vulnerability we discovered is now public and being actively exploited. If you have Xen Orchestra exposed to the internet, patch now.",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/SlowMist_Team/status/2119998212497125582",
+  "author": "SlowMist_Team",
+  "created_at": "2026-11-10T03:38:56Z",
+  "text": "Supply chain attack compromised Ethersphere's npm package @ethersphere/bee-js@13.3.0 and Swarm Desktop v0.56.2 via compromised GitHub accounts and legitimate release pipelines.",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/DailyDarkWeb/status/2119993656429936749",
+  "author": "DailyDarkWeb",
+  "created_at": "2026-11-10T03:20:49Z",
+  "text": "CHROME ZERO-DAY CVE-2026-125350 EXPLOITED IN THE WILD (XML USE-AFTER-FREE). Google's Nov 9, 2026 Stable Channel Update patches a High-severity use-after-free in Chrome's XML component that Google says is already exploited in the wild.",
+  "cves": [
+   "CVE-2026-125350"
+  ]
+ },
+ {
+  "url": "https://x.com/yogsec/status/2119974653083181299",
+  "author": "yogsec",
+  "created_at": "2026-11-10T02:05:19Z",
+  "text": "CVE-2026-119977 WordPress Core TOCTOU race during core upgrades: unauthenticated RCE via web-accessible staging paths. Actively exploited; CISA KEV Nov 3. Fixed in 7.1.4.",
+  "cves": [
+   "CVE-2026-119977"
+  ]
+ },
+ {
+  "url": "https://x.com/SecurityAr58409/status/2119973826071040284",
+  "author": "SecurityAr58409",
+  "created_at": "2026-11-10T02:02:02Z",
+  "text": "CVE-2026-123218: IBM Aspera Faspex authorization bypass actively exploited; CISA added to KEV Nov 9, 2026.",
+  "cves": [
+   "CVE-2026-123218"
+  ]
+ },
+ {
+  "url": "https://x.com/linklin63793/status/2119949806827340251",
+  "author": "linklin63793",
+  "created_at": "2026-11-10T00:26:35Z",
+  "cves": [],
+  "text": "Claude Code 2.1.321 (Nov 9 changelog): fixed MCP OAuth sending secrets such as refresh tokens to another host when a server redirected them; also fixed a read-only Bash path that could skip the sandbox."
+ },
+ {
+  "url": "https://x.com/threatroundup/status/2119936133878485263",
+  "author": "threatroundup",
+  "text": "Etugen found the Ivanti VPN zero-day operator's next proxy serving an open directory: exploit framework, 168 run logs and a Russian AI-agent memo.",
+  "created_at": "2026-11-09T23:32:15Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/dailycve/status/2119928731070341498",
+  "author": "dailycve",
+  "created_at": "2026-11-09T23:02:50Z",
+  "cves": [
+   "CVE-2026-76892",
+   "CVE-2026-76893"
+  ],
+  "text": "@tsps/mcp-server MCP server: denial of service via JSON.parse, CVE-2026-76892 (High); singletons state hijacking, CVE-2026-76893 (Medium)."
+ },
+ {
+  "url": "https://x.com/infrastack_ai/status/2119924547579519119",
+  "author": "infrastack_ai",
+  "created_at": "2026-11-09T22:46:13Z",
+  "text": "Unpatched flaws in xAI's Grok Bot agent sandbox let one prompt-injected command take root, Profero found. Saved logins, cookies or API keys at risk.",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/TanmayK_03/status/2119913530006937948",
+  "author": "TanmayK_03",
+  "created_at": "2026-11-09T22:02:26Z",
+  "cves": [
+   "CVE-2026-77604"
+  ],
+  "text": "New CVE-2026-77604 in Code Graph RAG's MCP server (fixed in 0.0.345): read_file skipped its path check when offset or limit was set, allowing path traversal via absolute paths."
  },
  {
   "url": "https://x.com/vulnpocalypse/status/2119912685517304127",
@@ -256,41 +194,95 @@
   ]
  },
  {
-  "url": "https://x.com/DuckButTurttle/status/2119813017143554354",
-  "author": "DuckButTurttle",
-  "text": "Operation Snowball: an AI-agent intrusion into a European telecom exploited Cisco BroadWorks CVE-2026-20320. Hospital records system access via default credentials unverified. Source: GBHackers.",
-  "created_at": "2026-11-09T15:23:02Z",
+  "url": "https://x.com/fireball_triada/status/2119898537601245479",
+  "author": "fireball_triada",
+  "created_at": "2026-11-09T21:02:51Z",
   "cves": [
-   "CVE-2026-20320"
+   "CVE-2026-123022"
+  ],
+  "text": "AgentScope CVE-2026-123022: command injection via the MCP workspace API, through 2.0.11. Exploit public; still unfixed as of 10 Nov. No auth needed per reporter; keep that endpoint off the network until a fix ships."
+ },
+ {
+  "url": "https://x.com/threatpodium/status/2119894376105070782",
+  "author": "threatpodium",
+  "text": "CVE-2026-116779 — CRITICAL — actively exploited per CISA KEV. SignalWire FreeSwitch. CVSS 9.8.",
+  "created_at": "2026-11-09T20:46:19Z",
+  "cves": [
+   "CVE-2026-116779"
   ]
  },
  {
-  "url": "https://x.com/adeilsonrbrito/status/2119763561341763966",
-  "author": "adeilsonrbrito",
-  "text": "In the BOSSAI case, per Acronis, Grok was the main infrastructure builder: across 14 sessions it installed HexStrike AI as an MCP tool server and wired it into every attacking agent.",
-  "created_at": "2026-11-09T12:06:30Z",
+  "url": "https://x.com/threatpodium/status/2119894348368142548",
+  "author": "threatpodium",
+  "created_at": "2026-11-09T20:46:13Z",
+  "text": "CVE-2026-102895 CRITICAL, actively exploited per CISA KEV: GPUStack (AI GPU cluster manager). CVSS 9.8.",
+  "cves": [
+   "CVE-2026-102895"
+  ]
+ },
+ {
+  "url": "https://x.com/cubillas888/status/2119882725607854445",
+  "author": "cubillas888",
+  "created_at": "2026-11-09T20:00:01Z",
+  "text": "Ruby gem strutil-core 1.0.1 poisons AI tool configs; a monitor checks the stolen GitHub token every 45s and revoking first can wipe your home folder (Socket).",
   "cves": []
  },
  {
-  "url": "https://x.com/engniiokai/status/2119727765154918532",
-  "author": "engniiokai",
-  "text": "A single attacker used BOSSAI AI agents to steal emergency dispatch records covering seven districts in Taipei; over 90,000 files found on the attacker's system.",
-  "created_at": "2026-11-09T09:44:16Z",
+  "url": "https://x.com/_pksharma/status/2119874157345189950",
+  "author": "_pksharma",
+  "created_at": "2026-11-09T19:25:59Z",
+  "cves": [],
+  "text": "Attacker exploited a flaw in Mittwald's MCP server on 27 Oct, five minutes after registering an account; Mittwald blocked the first attacker account on 4 Nov, nearly 8 days later."
+ },
+ {
+  "url": "https://x.com/KriptoCrafter/status/2119872066111287374",
+  "author": "KriptoCrafter",
+  "created_at": "2026-11-09T19:17:40Z",
+  "text": "Claude Code 'yes, don't ask again' saves approved commands to .claude/settings.local.json, passwords and API keys included. Apiiro found 100k+ such files on GitHub, 1,100+ with credentials.",
   "cves": []
  },
  {
-  "url": "https://x.com/threatroundup/status/2119936133878485263",
-  "author": "threatroundup",
-  "text": "Etugen found the Ivanti VPN zero-day operator's next proxy serving an open directory: exploit framework, 168 run logs and a Russian AI-agent memo.",
-  "created_at": "2026-11-09T23:32:15Z",
+  "url": "https://x.com/UpwindMDR/status/2119857972473909297",
+  "author": "UpwindMDR",
+  "created_at": "2026-11-09T18:21:40Z",
+  "text": "Critical - WP Duplicate unauth arbitrary file upload to RCE (CVE-2026-123751), plugin <= 1.1.11.",
+  "cves": [
+   "CVE-2026-123751"
+  ]
+ },
+ {
+  "url": "https://x.com/DFIR_Radar/status/2119853024697078155",
+  "author": "DFIR_Radar",
+  "created_at": "2026-11-09T18:02:00Z",
+  "text": "ARTEX, an AI-native autonomous penetration framework tied to Storm-0940, observed attacking live AWS environments hunting secrets and cloud credentials via compromised IAM keys and public Cognito pools.",
   "cves": []
  },
  {
-  "url": "https://x.com/Huntbackio/status/2119756495336206604",
-  "author": "Huntbackio",
-  "text": "Recovered workspace of crew SO\u00dbL SOCIETY: Go scanner feeding a Python exploit panel, AI agents with standing orders, and a Telegram drug platform.",
-  "created_at": "2026-11-09T11:38:26Z",
-  "cves": []
+  "url": "https://x.com/zoomeyebot/status/2119833727463465200",
+  "author": "zoomeyebot",
+  "created_at": "2026-11-09T16:45:19Z",
+  "cves": [
+   "CVE-2026-79846"
+  ],
+  "text": "HPE ArubaOS AOS-8 command injection enables unauthenticated remote code execution (CVE-2026-79846, critical)."
+ },
+ {
+  "url": "https://x.com/ICHI_Global/status/2119832422967566786",
+  "author": "ICHI_Global",
+  "created_at": "2026-11-09T16:40:08Z",
+  "text": "CRITICAL: CVE-2026-116779 SignalWire FreeSwitch <1.11.3 code injection, CVSS 9.8, CISA KEV actively exploited. Unauthenticated code injection via ESL socket. Patch: FreeSwitch 1.11.3+",
+  "cves": [
+   "CVE-2026-116779"
+  ]
+ },
+ {
+  "url": "https://x.com/2Workly/status/2119826234016510166",
+  "author": "2Workly",
+  "created_at": "2026-11-09T16:15:33Z",
+  "text": "Plex2Shell (CVE-2026-96652 chain) is actively exploited against QNAP NAS Plex instances for unauthenticated RCE. Patch to 1.43.3+.",
+  "cves": [
+   "CVE-2026-96652"
+  ]
  },
  {
   "url": "https://x.com/saltrocklabs/status/2119816786065477955",
@@ -300,12 +292,28 @@
   "cves": []
  },
  {
-  "url": "https://x.com/mergenewsapp/status/2120042043921650072",
-  "author": "mergenewsapp",
-  "text": "Docker Sandboxes flaw (CVE-2026-77179) on macOS shows need for AI agent security updates to v0.42.0+.",
-  "created_at": "2026-11-10T06:33:06Z",
+  "url": "https://x.com/DuckButTurttle/status/2119813017143554354",
+  "author": "DuckButTurttle",
+  "text": "Operation Snowball: an AI-agent intrusion into a European telecom exploited Cisco BroadWorks CVE-2026-20320. Hospital records system access via default credentials unverified. Source: GBHackers.",
+  "created_at": "2026-11-09T15:23:02Z",
   "cves": [
-   "CVE-2026-77179"
+   "CVE-2026-20320"
   ]
+ },
+ {
+  "url": "https://x.com/zoomeyebot/status/2119803538989879652",
+  "author": "zoomeyebot",
+  "created_at": "2026-11-09T14:45:22Z",
+  "cves": [
+   "CVE-2026-79844"
+  ],
+  "text": "HPE ArubaOS AOS-10 authentication bypass can lead to remote code execution (CVE-2026-79844, critical)."
+ },
+ {
+  "url": "https://x.com/TheCyberSecHub/status/2119800902093869265",
+  "author": "TheCyberSecHub",
+  "created_at": "2026-11-09T14:34:53Z",
+  "text": "New supply chain attack compromises tens of thousands of GitHub repositories via a malicious workflow.",
+  "cves": []
  }
 ]
