@@ -1,5 +1,53 @@
 [
  {
+  "url": "https://x.com/JPTechHubNews/status/2120003575191319002",
+  "author": "JPTechHubNews",
+  "text": "Linux admins: patch tonight. The OpenSSH sshole bug (CVE-2026-123158) is being actively exploited on musl systems like Alpine and OpenWrt. Update to OpenSSH 10.6p2, restart sshd and check your logs.",
+  "created_at": "2026-11-10T04:00:14Z",
+  "cves": [
+   "CVE-2026-123158"
+  ]
+ },
+ {
+  "url": "https://x.com/DailyDarkWeb/status/2119993656429936749",
+  "author": "DailyDarkWeb",
+  "text": "Chrome zero-day CVE-2026-125350 exploited in the wild (XML use-after-free). Google's Nov 9, 2026 Stable Channel Update patches a High-severity UAF in Chrome's XML component that Google says is already exploited in the wild.",
+  "created_at": "2026-11-10T03:20:49Z",
+  "cves": [
+   "CVE-2026-125350"
+  ]
+ },
+ {
+  "url": "https://x.com/SlowMist_Team/status/2119998212497125582",
+  "author": "SlowMist_Team",
+  "text": "SlowMist TI Alert: A supply chain attack has compromised Ethersphere's npm package @ethersphere/bee-js@13.3.0 and Swarm Desktop v0.56.2. Attackers abused compromised GitHub accounts and legitimate release pipelines to distribute malicious code across Windows, macOS, and Linux.",
+  "created_at": "2026-11-10T03:38:56Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/kidtsang/status/2119907685533421851",
+  "author": "kidtsang",
+  "text": "Claude Code's 'don't ask again' stores secrets. Apiiro found 104,185 .claude/settings.local.json files on GitHub; 1,122 held live secrets: DB passwords, AWS keys, SSH creds. Rotate first; git history keeps it.",
+  "created_at": "2026-11-09T21:39:12Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/Rachidmarcil/status/2119896581608534222",
+  "author": "Rachidmarcil",
+  "text": "CISA adds IBM Aspera Faspex CVE-2026-123218 to KEV, actively exploited. CVSS 9.8 incorrect-authorization flaw lets an authorized user gain full admin privileges. Affects 5.0.0-5.0.19; fixed in 5.0.19 PL1.",
+  "created_at": "2026-11-09T20:55:05Z",
+  "cves": [
+   "CVE-2026-123218"
+  ]
+ },
+ {
+  "url": "https://x.com/webtkdev/status/2119724177552797845",
+  "author": "webtkdev",
+  "text": "An AI agent went from searching GitHub for a leaked secret to pulling Azure Key Vault data in five minutes. Microsoft on ARTEX: when its cloud calls failed, it fixed them and retried within 28 to 80 seconds. Rotate leaked keys.",
+  "created_at": "2026-11-09T09:30:01Z",
+  "cves": []
+ },
+ {
   "url": "https://x.com/BytesNora/status/2119855038612865385",
   "author": "BytesNora",
   "text": "CVE-2026-116779 in FreeSWITCH is a critical RCE (CVSS 9.8) that's actively exploited, despite a low EPSS (1%). Prioritize patching: confirmed exploitation always trumps predictive scores.\n\n#ThreatIntel #CyberSecurity #InfoSec",
@@ -275,48 +323,6 @@
   "author": "UrekaDev",
   "text": "Don't ask again\" leaked 2,539 secrets to public GitHub \ud83d\udc80\nApiiro: 1,122 Claude Code settings files held real creds: 379 DB passwords, 23 AWS keys.\nFix: rotate keys, add .claude/settings.local.json to .gitignore.\nDo you click \"don't ask again\"? \ud83d\udc47 #DevSecOps #AI https://t.co/G3v54fsivI",
   "created_at": "2026-11-09T16:49:16.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/cubillas888/status/2119882725607854445",
-  "author": "cubillas888",
-  "text": "Supply chain attack: revoking a stolen GitHub token first can wipe your home folder, Socket says of a Ruby gem.\n\n- strutil-core 1.0.1 poisons AI tool configs\n- A monitor checks the token every 45s\n- No confirmed victims\n- Socket: isolate, remove monitor, then revoke",
-  "created_at": "2026-11-09T20:00:01.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/lyrie_ai/status/2119810777666420752",
-  "author": "lyrie_ai",
-  "text": "$6.3B heist. 335.9M-line \"leak.\" One sequel built on fear.\n\nOn Oct 29, attackers moved ~$6.34B out of Binance hot wallets \u2014 not by breaking a blockchain, but by reaching an internal wallet-signing service through compromised employee computers and stolen credentials. Eleven days https://t.co/4eyMgVWAZh",
-  "created_at": "2026-11-09T15:14:08.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/hiwinit/status/2119962492269195753",
-  "author": "hiwinit",
-  "text": "The last three weeks were rough enough that people on X started calling it \"Black October.\" It kicked off with PHP2Shell, two remote code execution bugs that hit basically every PHP site back to version 5.4. Attackers were using them before anyone disclosed them, and CISA gave https://t.co/D3Dl40AdWJ",
-  "created_at": "2026-11-10T01:16:59.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/Huntbackio/status/2119756495336206604",
-  "author": "Huntbackio",
-  "text": "One exposed server. An exploitation line, AI agents with standing orders, and a Telegram drug platform. \ud83c\uddeb\ud83c\uddf7\ud83d\udc8a\n\nWe recovered the workspace of a crew calling itself SO\u00dbL SOCIETY from 146.19.213[.]192:\n\nA Go scanner (UA SoulSociety/2.0) feeding a Python exploit panel that picks https://t.co/GIJGnQvF0u",
-  "created_at": "2026-11-09T11:38:26.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/DFIR_Radar/status/2119853024697078155",
-  "author": "DFIR_Radar",
-  "text": "ARTEX, an AI-native autonomous penetration framework tied to Chinese \ud83c\udde8\ud83c\uddf3 Storm-0940, was observed attacking live AWS environments in October 2026, hunting for financial data, secrets, and cloud credentials through compromised IAM keys and public Cognito pools.\n\nKey findings:\n\n- https://t.co/826rP0PiD3",
-  "created_at": "2026-11-09T18:02:00.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/klm10000/status/2119789314276032828",
-  "author": "klm10000",
-  "text": "OpenSSH sshole Flaw Exploited Within Hours! https://t.co/z4r0SSsfid",
-  "created_at": "2026-11-09T13:48:50.000Z",
   "cves": []
  }
 ]
