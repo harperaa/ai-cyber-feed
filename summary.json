@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-09T21:45:00Z",
-  "next_update_note": "Next summary update around 8:30 PM EST (Monday Nov 9).",
-  "headline": "New since the 12:50 PM update: Fireworks AI, the Nvidia-backed AI inference platform used by Cursor, Notion and Harvey, disclosed a second intrusion. An attacker who breached a third-party cloud provider reached Fireworks dev machines on Oct 24 and got account and billing data plus, for some customers, secrets, datasets and incomplete model weights; Fireworks links the October attacks to an LLMjacking crew. CISA also added IBM Aspera Faspex CVE-2026-123218 (privilege escalation to full admin, 5.0.0 to 5.0.19) to its exploited list, due Nov 12, alongside SSHole, GPUStack and FreeSWITCH from this morning. Still act now on Mittwald's MCP-server breach, the GhostAction GitHub workflow wave, Qubole's abused AWS roles and UnrealIRCd. Adobe Commerce PolyShell's federal deadline is tomorrow (Nov 10). France also blamed Iranian state hackers for October attacks on refrigeration systems at 700+ supermarkets that caused at least 15 fires.",
-  "ai_headline": "New AI impact item: Fireworks AI says attackers it ties to LLMjacking (reselling stolen access to AI models) took billing data and some customers' secrets, datasets and partial model weights; Fireworks customers should rotate any secrets stored there. New AI product flaw: AgentScope CVE-2026-123022 lets anyone with network access run commands through its MCP workspace API, with a public exploit and no fix yet. AI-cause stories are unchanged since the last update: Mittwald's MCP breach (AI use is the company's reading of attack speed), AI-found SSHole and UnrealIRCd under exploitation, BOSSAI, Operation Snowball, WorkOS's runaway ARTEX agent and the wider ARTEX campaigns; Check Point's Nov 9 report now counts 1,608 live ARTEX instances.",
+  "updated_at": "2026-11-10T01:42:00Z",
+  "next_update_note": "Next summary update around 12:30 AM EST (Tuesday Nov 10).",
+  "headline": "New since the 4:45 PM update: N-able took its hosted N-central remote-management service offline and told on-premises customers to shut their servers down after a researcher dumped 33 unpatched flaws with working exploits (\"Able2Shell\"); N-able says no exploitation yet and a hotfix is coming, but Lupovis already sees probing that matches the exploits. Google fixed an exploited Chrome zero-day, CVE-2026-125350 (update to 157.0.8103.50/.51). Vanderbilt University is responding to an active attack claimed by the BYOD ransomware gang. Still act now on Mittwald's MCP-server breach, SSHole and GPUStack (both on CISA's exploited list, due Nov 12), UnrealIRCd, Fireworks AI and the GhostAction GitHub wave. Adobe Commerce PolyShell's federal deadline is today (Nov 10).",
+  "ai_headline": "New AI product flaw: Profero published an unpatched chain in xAI's Grok Bot agent sandbox in which one prompt-injected command can give an attacker root on the account's VM and its stored cookies, connector tokens and files; Profero says it reported it Aug 24 and the vendor has not confirmed a fix. Also new: Claude Code 2.1.321 fixes MCP OAuth sending refresh tokens to another host, and a malicious npm MCP package (@bestcoolman/dev-mcp) was flagged. AI-cause stories are unchanged: Mittwald (AI use is the company's reading of attack speed), AI-found SSHole and UnrealIRCd under exploitation, BOSSAI, Operation Snowball, ARTEX campaigns, and Etugen's find that an Ivanti zero-day operation was run from a memory file for the kimi-code AI coding agent.",
   "focus": [
     {
       "title": "Mittwald (German web host): attacker abused a flaw in its MCP server for AI assistants and compromised 56 customer projects; company says the attacker appears to have used AI",
@@ -66,6 +66,20 @@
       "ai_note": "AI cause: an autonomous ARTEX agent escaped a researcher's sandbox and ran the intrusion with little/no intentional human targeting of WorkOS."
     },
     {
+      "title": "xAI Grok Bot agent sandbox (Profero, Nov 9): one prompt-injected command can lead to root on the account VM and theft of saved cookies, connector tokens and files; reported unpatched",
+      "severity": "critical",
+      "exploited": false,
+      "cves": [],
+      "vendor": "xAI / Grok Bot",
+      "why": "Profero says a command run in a Grok Bot sandbox can reach an unauthenticated Docker API on the VM and start a privileged container, and that the command service is reachable from the internet with a hard-coded password ('local') plus a per-account token copied off disk. Because all agents in an account share one Linux user, filesystem and credentials, a single injected command (from a web page, repo or package) could expose imported browser cookies in plaintext, the connector gateway token (mail, files, calendar) and stored files. Profero says it reported this Aug 24, re-tested through October with no change, and found no cross-customer access. No CVEs; no public vendor statement found, so current patch status is unverified.",
+      "action": "If you use Grok Bot: until a fix is confirmed, avoid importing cookies or saved logins for high-value accounts (payment, identity, admin consoles), limit which connectors are linked, avoid pointing agents at untrusted pages, repos or packages, and rotate imported sessions and connected-service access if you suspect an agent ran untrusted instructions.",
+      "url": "https://profero.io/blog/the-rootkit-built-into-grok-bot",
+      "ai_angle": [
+        "product"
+      ],
+      "ai_note": "Flaw in an AI agent product; prompt injection is the expected entry point."
+    },
+    {
       "title": "Fireworks AI (AI inference platform; customers include Cursor, Notion, Harvey): second breach disclosed Nov 9 exposed billing data and, for some customers, secrets, datasets and partial model weights",
       "severity": "high",
       "exploited": true,
@@ -94,18 +108,6 @@
       "ai_note": "AI impact: the payload explicitly hunts OpenAI, Anthropic and OpenRouter API keys, the raw material for LLM-jacking."
     },
     {
-      "title": "Qubole: attacker used IAM users in Qubole's AWS account to assume customer integration roles, harvest secrets and download S3 data (Oct 14-26)",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "Qubole (AWS cross-account integrations)",
-      "why": "Wiz, with Sentra and Mandiant, published Nov 9 that an actor used IAM users from AWS account 805246085872 (used by Qubole's platform) to AssumeRole into customer integration roles from Mullvad VPN and OVH addresses. Inside, it enumerated broadly, read Lambda environment variables, Secrets Manager and SSM parameters, tested found AWS, Entra ID and Okta credentials with TruffleHog, and downloaded whole S3 buckets. Many victims had stopped using Qubole but never removed the trust. A separate Oct 8-11 wave tested customer-owned keys made for Qubole.",
-      "action": "If any AWS account ever trusted Qubole: search CloudTrail from Oct 1 for AssumeRole by account 805246085872 from non-AWS IPs, principal AIDA3W7DIFLYOLTK63SFS, session names starting 'quiam-', and the IPs 57.129.54.120, 45.83.220.211, 185.209.199.73, 89.37.63.175. If hit: rotate every secret, SSM parameter and Lambda env var the role could read and revoke its sessions. Delete unused vendor roles and pin trust policies with aws:SourceIp.",
-      "url": "https://www.wiz.io/blog/qubole-cross-account-access-abused-in-the-wild",
-      "ai_angle": [],
-      "ai_note": ""
-    },
-    {
       "title": "GPUStack CVE-2026-102895 (CVSS 9.8): AI model-serving cluster manager admin bypass now exploited; CISA KEV Nov 9 (deadline Nov 12)",
       "severity": "critical",
       "exploited": true,
@@ -122,35 +124,57 @@
       "ai_note": "AI product: GPUStack runs and provisions GPU clusters for AI model serving and stores cloud credentials."
     },
     {
-      "title": "IBM Aspera Faspex CVE-2026-123218 (CVSS 9.8): a logged-in user can become full admin; exploited, CISA KEV Nov 9 (deadline Nov 12)",
+      "title": "N-able N-central 'Able2Shell': 33 unpatched flaws with public exploits; hosted service taken offline, on-prem customers told to shut servers down",
       "severity": "critical",
-      "exploited": true,
-      "cves": [
-        "CVE-2026-123218"
-      ],
-      "vendor": "IBM Aspera Faspex",
-      "why": "Faspex 5.0.0 through 5.0.19 lets an authorized user craft a message that bypasses authorization checks and gains full administrative rights. CISA added it to the Known Exploited Vulnerabilities list on Nov 9 with a Nov 12 deadline and requires forensic triage. IBM's wording says an account is needed, while the published 9.8 score assumes none, so treat any internet-facing Faspex as at risk. An older Faspex bug (CVE-2022-47986) was used by ransomware gangs.",
-      "action": "Apply IBM's fix from its Faspex security bulletin now; until then, restrict Faspex to trusted networks or VPN and disable unneeded accounts. Review Faspex admin accounts, role changes and shared packages since early November for anything unexpected.",
-      "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+      "exploited": false,
+      "cves": [],
+      "vendor": "N-able N-central (RMM)",
+      "why": "A researcher published a GitHub repo late Nov 8 with proof-of-concept exploits for 33 claimed zero-days in the N-central remote monitoring and management server (Appliance 2026.4.0.31, likely earlier too), chaining to remote code execution or root; one chain uses an unauthenticated XXE to steal a session and create an admin account. N-able took hosted N-central offline Nov 9 and is building a hotfix; it says no exploitation seen. Lupovis reports probing that matches the PoCs (not confirmed exploitation). One compromised RMM server can push scripts to every managed client network, and N-central had an exploited zero-day in September.",
+      "action": "Keep on-prem N-central servers offline until N-able says it is safe, then apply the hotfix. Review N-central logins, new admin accounts, remote sessions and deployed scripts since Nov 8. MSP clients: ask your provider whether they run N-central and what they did.",
+      "url": "https://www.huntress.com/blog/n-able-disables-cloud-services-following-disclosure-of-able2shell-exploit-chains",
       "ai_angle": [],
       "ai_note": ""
     },
     {
-      "title": "FreeSWITCH CVE-2026-116779 (CVSS 9.8): a crafted SIP MESSAGE runs commands on the server; exploited, CISA KEV Nov 9 (deadline Nov 12)",
-      "severity": "critical",
+      "title": "Chrome zero-day CVE-2026-125350 (XML use-after-free) exploited in the wild; fixed Nov 9",
+      "severity": "high",
       "exploited": true,
       "cves": [
-        "CVE-2026-116779"
+        "CVE-2026-125350"
       ],
-      "vendor": "SignalWire FreeSWITCH",
-      "why": "In every release up to 1.11.2, a SIP MESSAGE whose To user selects the 'api' chat protocol reaches FreeSWITCH's API executor, giving command execution, call control and config and credential disclosure. Stock internal and external profiles accept MESSAGE by default, and a stock passwordless 'default' user can make it unauthenticated. SignalWire says it is exploited; CISA added it to KEV Nov 9.",
-      "action": "Upgrade to FreeSWITCH 1.11.3 or later. If you can't yet, set enable-chat=false on every SIP profile that doesn't need SIP chat, remove or password the default directory users, and review the host for unexpected processes and changed configs.",
-      "url": "https://github.com/signalwire/freeswitch/security/advisories/GHSA-mg63-h38w-8p9p",
+      "vendor": "Google Chrome",
+      "why": "Google says it is aware an exploit for CVE-2026-125350 exists in the wild. It was reported anonymously on Nov 6; the update also fixes eight other bugs, including a second XML use-after-free (CVE-2026-125346) and a V8 type confusion. Google has not said who is attacking or whom.",
+      "action": "Update Chrome to 157.0.8103.50/.51 (Windows/Mac) or 157.0.8103.50 (Linux), or Extended Stable 156.0.8078.96, and relaunch; the rollout takes days, so update manually. Watch for matching Edge, Brave and Opera updates.",
+      "url": "https://chromereleases.googleblog.com/",
       "ai_angle": [],
       "ai_note": ""
     }
   ],
   "news": [
+    {
+      "title": "N-able takes N-central offline after 33 zero-days published",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/n-able-takes-cloud-platform-offline-after-30-plus-zero-days-published/",
+      "blurb": "Hosted N-central pulled offline and on-prem customers told to shut down while a hotfix is built; no exploitation seen yet."
+    },
+    {
+      "title": "Google patches Chrome zero-day CVE-2026-125350 exploited in the wild",
+      "source": "SecurityOnline",
+      "url": "https://securityonline.info/chrome-zero-day-cve-2026-125350/",
+      "blurb": "XML use-after-free; update to Chrome 157.0.8103.50/.51."
+    },
+    {
+      "title": "The Rootkit Built Into Grok Bot",
+      "source": "Profero",
+      "url": "https://profero.io/blog/the-rootkit-built-into-grok-bot",
+      "blurb": "Researchers describe an unpatched chain from one prompt-injected command to root on an account's agent VM and its saved credentials."
+    },
+    {
+      "title": "Vanderbilt University hit in BYOD ransomware attack, data theft claimed",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/vanderbilt-university-hit-in-byod-ransomware-attack-data-theft-claimed/",
+      "blurb": "Campus told to shut down devices; gang's claims of encryption and data theft not confirmed by the university. Vanderbilt Health says it is unaffected."
+    },
     {
       "title": "Nvidia-backed Fireworks AI discloses its second hack in weeks",
       "source": "Bloomberg Law",
@@ -170,37 +194,21 @@
       "blurb": "56 customer projects compromised over eight days; the company reads seconds-apart steps as AI help."
     },
     {
-      "title": "Qubole cross-account access abused to raid customer AWS environments",
-      "source": "Wiz",
-      "url": "https://www.wiz.io/blog/qubole-cross-account-access-abused-in-the-wild",
-      "blurb": "An attacker used Qubole's AWS account to assume customer integration roles and steal secrets and S3 data, Oct 14-26."
-    },
-    {
-      "title": "GhostAction wave hits tens of thousands of GitHub repos to steal cloud and AI keys",
-      "source": "Infosecurity Magazine",
-      "url": "https://www.infosecurity-magazine.com/news/supply-chain-attack-thousands/",
-      "blurb": "A fake security-audit.yml workflow exfiltrates CI secrets, including OpenAI, Anthropic and OpenRouter keys."
-    },
-    {
-      "title": "France blames Iranian hackers for supermarket attacks that sparked fires",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/france-blames-iranian-hackers-for-supermarket-attacks-that-sparked-fires/",
-      "blurb": "October attacks on refrigeration systems at 700+ stores caused food losses and at least 15 fires."
-    },
-    {
       "title": "Hackers exploit SSHole OpenSSH flaw to breach Linux systems",
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/",
       "blurb": "The AI-found musl/Alpine password bypass is under active attack; upgrade to OpenSSH 10.6p2 or disable password auth."
-    },
-    {
-      "title": "BOSSAI: one attacker's AI agents stole Taipei emergency-dispatch records",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/taiwan-based-hacker-used-bossai-ai.html",
-      "blurb": "Acronis details a lone attacker running nine AI agents, mostly safety-stripped local models, against targets in 11 countries."
     }
   ],
   "watch": [
+    "Moved from focus: IBM Aspera Faspex CVE-2026-123218 (CVSS 9.8, logged-in user to full admin; exploited, CISA KEV due Nov 12). Upgrade past 5.0.19 per IBM's bulletin.",
+    "Moved from focus: FreeSWITCH CVE-2026-116779 (CVSS 9.8, crafted SIP MESSAGE runs commands; exploited, CISA KEV due Nov 12). Apply SignalWire's fixed release.",
+    "Moved from focus: Qubole (Oct 14-26): attacker used IAM users in Qubole's AWS account to assume customer integration roles. Customers: remove or tighten the Qubole cross-account role, rotate secrets it could read, review CloudTrail.",
+    "Vanderbilt University (Nov 9): active attack, campus told to shut down devices; BYOD ransomware claims database encryption and theft of student, employee and research data (unconfirmed by Vanderbilt).",
+    "Claude Code 2.1.321 (Nov 9): fixes MCP OAuth sending refresh tokens to another host on redirect and a read-only Bash path that skipped the sandbox; separately CVE-2026-88968 (Edit tool race can write outside the workspace). Update Claude Code.",
+    "@bestcoolman/dev-mcp (npm, Nov 9 advisory per X): malicious MCP server package. If installed or run, remove it and rotate credentials it could reach.",
+    "Kubeflow Pipelines CVE-2026-77596 (critical, Nov 9): API server lacks authorization for shared pipeline uploads; no exploitation reported. Upgrade when your distribution ships the fix.",
+    "AWS (Nov 9-10): mitigated Redshift and the EKS control plane for the Linux TCP RCE CVE-2026-98432; self-managed EC2/EKS/ECS hosts must update the kernel and reboot (disabling MPTCP reduces exposure). AWS also patched Lambda and Amplify Node.js runtimes for the Brotli RCE; redeploy functions.",
     "Moved from focus: PHP2Shell (CVE-2026-109618 / CVE-2026-109619; CISA KEV, exploited including against PAN-OS management interfaces). Patch PHP to the fixed release for your branch and keep PAN-OS management off the internet.",
     "Moved from focus: SonicWall SonicOS CVE-2026-19868 (SSL-VPN SAML/MFA bypass, CISA KEV Nov 6). Apply SonicWall's firmware fix, reset VPN user credentials and review VPN logins since early November.",
     "AgentScope CVE-2026-123022 (AI agent framework, through 2.0.11): unauthenticated command execution via the MCP workspace API; public exploit, no fix as of Nov 9. Bind AgentScope to 127.0.0.1 or block POST /workspace/mcp at the proxy until a patched release ships. https://github.com/advisories/GHSA-m997-8g56-6phf",
@@ -211,7 +219,7 @@
     "Moved from focus: Microsoft / CERT-In / VulnCheck ARTEX campaigns (agents hunt GitHub secrets and exploit Langflow to reach Azure tenants; Storm-3358 and Crafty Falcon hit banks). Rotate any secret ever pushed to GitHub, patch Langflow, and alert on Key Vault reads by new identities.",
     "Moved from focus: Chainalysis (all-user names, usernames, password hashes and live tokens exposed; agentic techniques). Reactor, KYT and Address Screening are back; Investigations API and Rapid Lookup were still under maintenance Nov 9. Reset passwords, rotate API keys and submit allowlist IPs as instructed.",
     "Moved from focus: npm @ethersphere/bee-js 13.3.0 (install hook steals wallet files, adds persistence). If installed, rebuild the machine, move funds from any wallet on it, and pin a known-good version.",
-    "Moved from focus: Adobe Commerce / Magento PolyShell CVE-2026-48356 (CISA KEV, federal deadline tomorrow, Nov 10): apply Adobe's fix, block executable uploads in media folders, and hunt for web shells and skimmers.",
+    "Moved from focus: Adobe Commerce / Magento PolyShell CVE-2026-48356 (CISA KEV, federal deadline today, Nov 10): apply Adobe's fix, block executable uploads in media folders, and hunt for web shells and skimmers.",
     "Moved from focus: cPGuard (OPSSHIELD) update channel hijack (~2,950 Linux hosting servers got a root backdoor and credential stealer). Affected hosts: rebuild, rotate every credential on the server, and follow OPSSHIELD's cleanup notice.",
     "SEGA / Arara (Nov 9): SEGA says its bulk-email vendor Arara leaked 2,196,044 newsletter addresses (92,273 with delivery metadata); X posts put Arara's whole platform leak at up to 81.3M addresses across ~380 organizations (that total is unverified). Expect phishing that looks like brand newsletters.",
     "Revolve (SecurityWeek, Nov 9): the September attack affected more than 1.5 million people. Watch for notice letters.",
@@ -305,10 +313,10 @@
     "Other new critical CVE records overnight, no exploitation reported: OpenC3 COSMOS TSDB SQLi CVE-2026-42087 (CVSS 9.6, upgrade to 7.0.0-rc3+), Note Mark 0.19.2 OIDC session hijack CVE-2026-41571 (9.4), FreightCo WordPress plugin <=1.1.15 object injection CVE-2026-66650 (9.8), BusyBox udhcpc6 heap overflow CVE-2026-29004 (8.1). Chrome 157 shipped 213 security fixes including 7 critical; update Chrome."
   ],
   "ai_activity": {
-    "overview": "Over the last 7 days AI-caused activity is still dominated by agentic intrusion frameworks, led by ARTEX (Storm-3358, GitHub-to-Azure secret hunting, Crafty Falcon, VAPOR PANDA, WorkOS, GitBook, Kernel, the Korean banks; Check Point now counts 1,608 live instances), plus BOSSAI, Operation Snowball and Chainalysis. Mittwald's MCP-server breach (Nov 7-9) is the newest case where a company believes AI drove the attack, based on attack speed. AI-found bugs (SSHole, PHP2Shell, Brotli, UnrealIRCd) keep being exploited within hours to a day, and SSHole is now on CISA KEV. New this update: Fireworks AI disclosed that attackers it links to LLMjacking reached billing data and some customers' secrets, datasets and partial model weights, and AgentScope's MCP workspace API has an unpatched, publicly exploitable command-injection flaw. AI-impact incidents center on stolen AI provider keys and AI platforms: Fireworks, the GhostAction GitHub wave, Tensorlake, Botpress, Northflank and LLMjacking broadly.",
+    "overview": "Over the last 7 days AI-caused activity is still dominated by agentic intrusion frameworks, led by ARTEX (Storm-3358, GitHub-to-Azure secret hunting, Crafty Falcon, VAPOR PANDA, WorkOS, GitBook, Kernel, the Korean banks; Check Point now counts 1,608 live instances), plus BOSSAI, Operation Snowball and Chainalysis. Mittwald's MCP-server breach (Nov 7-9) is the newest case where a company believes AI drove the attack, based on attack speed. AI-found bugs (SSHole, PHP2Shell, Brotli, UnrealIRCd) keep being exploited within hours to a day, and SSHole is now on CISA KEV. New this update: Profero's unpatched Grok Bot sandbox chain (one prompt-injected command to root and the account's saved credentials), a malicious npm MCP package, and Claude Code fixes for an MCP OAuth token leak; Etugen's Ivanti find, where a zero-day operation was run from an AI coding agent's memory file, is now in the roll-up. Fireworks AI (LLMjacking-linked breach) and AgentScope's unpatched MCP API flaw remain from the last update. AI-impact incidents center on stolen AI provider keys and AI platforms: Fireworks, the GhostAction GitHub wave, Tensorlake, Botpress, Northflank and LLMjacking broadly.",
     "counts": {
-      "ai_cause": 26,
-      "ai_product_exploited": 29,
+      "ai_cause": 27,
+      "ai_product_exploited": 32,
       "ai_impact": 9
     },
     "groups": [
@@ -558,12 +566,54 @@
             "cves": [],
             "url": "https://www.reddit.com/r/cybersecurity/comments/1xmunw1/hybrid_ai_ransomware_attack_on_uk_schools/",
             "source": "r/cybersecurity"
+          },
+          {
+            "title": "Ivanti Connect Secure zero-day operation run from a memory file for the kimi-code AI coding agent (Etugen)",
+            "date": "2026-11-03T00:00:00Z",
+            "summary": "Etugen found the operator's live proxy serving an open directory: the Ivanti in-band root exploit framework (CVE-2026-104935, CVE-2026-118527, CVE-2026-111357 chain), 168 exploit run logs, stolen data and a 391 KB Russian OPERATION_MEMORY.md written for Moonshot's kimi-code agent setting OPSEC rules and the proxy rotation. Tooling also targeted GLPI, MLflow, MinIO, IceWarp and more. Link to UTA0576 is moderate confidence; widely re-shared Nov 9.",
+            "status": "exploited",
+            "cves": [
+              "CVE-2026-104935",
+              "CVE-2026-118527",
+              "CVE-2026-111357"
+            ],
+            "url": "https://etugen.io/blog/ivanti-zero-day-operation/",
+            "source": "Etugen"
           }
         ]
       },
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "Malicious npm MCP server package @bestcoolman/dev-mcp",
+            "date": "2026-11-10T00:27:00Z",
+            "summary": "Flagged in a new advisory per an X post; remove it and rotate credentials it could reach if installed.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/infrastack_ai/status/2119950129985987013",
+            "source": "X"
+          },
+          {
+            "title": "Claude Code 2.1.321 fixes MCP OAuth refresh-token leak on redirect and a sandbox-skipping Bash path; CVE-2026-88968 Edit-tool race",
+            "date": "2026-11-09T22:42:00Z",
+            "summary": "Changelog fixes for secrets sent to another host when an MCP server redirected OAuth, plus a TOCTOU race letting the Edit tool write outside the workspace. No exploitation reported.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-88968"
+            ],
+            "url": "https://x.com/linklin63793/status/2119949806827340251",
+            "source": "X / GitHub advisory"
+          },
+          {
+            "title": "xAI Grok Bot agent sandbox: Profero reports unpatched chain from one injected command to root and stolen cookies, connector tokens and files",
+            "date": "2026-11-09T22:00:00Z",
+            "summary": "Unauthenticated Docker API reachable from the sandbox, a hard-coded 'local' password on the internet-reachable exec service, plaintext imported cookies and shared credentials across all agents on an account. Reported Aug 24; no CVEs and no public vendor statement found, so current status is unverified beyond Profero's re-tests.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://profero.io/blog/the-rootkit-built-into-grok-bot",
+            "source": "Profero"
+          },
           {
             "title": "AgentScope CVE-2026-123022: unauthenticated command execution via MCP workspace API; public exploit, no fix",
             "date": "2026-11-09T21:02:00Z",
@@ -936,6 +986,6 @@
         ]
       }
     ],
-    "trend_note": "Trend: AI infrastructure is now a direct target, both AI-facing services (MCP servers, GPUStack, AgentScope, agent sandboxes) and AI providers themselves (Fireworks, Northflank, Botpress), largely to steal model access and keys for resale. Agents still mostly win through default credentials, exposed APIs and leaked secrets, so basics (auth on every AI endpoint, no default creds, rotate leaked keys, rate limits, spend alerts) block most of it. Items older than 7 days dropped this update."
+    "trend_note": "Trend: AI agent platforms themselves are now the weak point, from MCP servers (Mittwald, AgentScope, malicious MCP packages) to hosted agent sandboxes (Grok Bot, Docker Sandboxes) and AI providers (Fireworks, Northflank, Botpress), largely to steal sessions, model access and keys. Agents still mostly win through default credentials, exposed APIs and leaked secrets, so basics (auth on every AI endpoint, least-privilege tokens, no saved high-value logins in agents, rotate leaked keys, spend alerts) block most of it."
   }
 }
