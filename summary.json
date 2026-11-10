@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-10T05:45:00Z",
-  "next_update_note": "Next summary update around 4:30 AM EST (Tuesday Nov 10).",
-  "headline": "New since the 8:40 PM update: SAP's November patch day landed with nine critical flaws, four rated 10.0 in core NetWeaver, Gateway and Web Dispatcher plumbing, three of them unauthenticated; none is known exploited yet, but the Gateway one is vulnerable in its default setup. NEAR AI paused its AI cloud inference service after finding unauthorized access to internal systems, then restored it after patching servers and replacing credentials; a full report is promised. Still act now on N-able N-central's 33 unpatched Able2Shell flaws, the exploited Chrome zero-day CVE-2026-125350, Mittwald's MCP-server breach, SSHole and GPUStack (CISA KEV, due Nov 12), UnrealIRCd, Fireworks AI and the GhostAction GitHub wave. Adobe Commerce PolyShell's federal deadline is today (Nov 10).",
-  "ai_headline": "New AI-impact incident: NEAR AI, a confidential AI inference provider, says an intruder reached its internal systems; it says customer prompts stayed inside hardware enclaves, which is its own claim pending a report. No new AI-cause attacks surfaced overnight. The AI-cause picture is unchanged: Mittwald (AI use is the company's reading of attack speed), AI-found SSHole and UnrealIRCd under exploitation, ARTEX campaigns, Operation Snowball, BOSSAI and the WorkOS runaway agent. AI-product flaws still open: Profero's unpatched Grok Bot sandbox chain, AgentScope's MCP API, GPUStack (exploited) and the malicious @bestcoolman/dev-mcp npm package.",
+  "updated_at": "2026-11-10T09:55:00Z",
+  "next_update_note": "Next summary update around 8:30 AM EST (Tuesday Nov 10).",
+  "headline": "New since the 12:45 AM update: Singapore's SPH Media says a breach of five systems between Nov 4 and Nov 8, about 9% of its database, was suspected to be AI-enabled; Japan's Sharefull (up to 7.5M gig workers' bank details) and Iris Ohyama (7.7M records) disclosed large breaches; and the researcher who found a Xen Orchestra flaw says on X it is now being exploited (unverified). Still act now on N-able N-central's 33 unpatched Able2Shell flaws, the exploited Chrome zero-day CVE-2026-125350, Mittwald's MCP-server breach, SSHole and GPUStack (CISA KEV, due Nov 12), UnrealIRCd, Fireworks AI and the GhostAction GitHub wave. Adobe Commerce PolyShell's federal deadline is today (Nov 10). SAP's November patch day moved to the watch list since none of its flaws is known exploited.",
+  "ai_headline": "Two new AI-cause cases: SPH Media's preliminary finding that one attacker used AI-enabled attacks against five of its systems, and VECERT's 'Ghost Campus' report of a self-running AI agent that farms free FOFA accounts, steals OpenAI and DeepSeek keys from exposed servers and uses them to power fraud against a Shanghai college (5,132 students' records). Anthropic also released Claude Fable 5.2, which The Hacker News reports beat GPT-6 Cyber on a multi-stage cyberattack benchmark. Unchanged: Mittwald, AI-found SSHole and UnrealIRCd under exploitation, ARTEX campaigns, Operation Snowball and BOSSAI; AI-product flaws still open in Profero's Grok Bot sandbox chain, AgentScope's MCP API and GPUStack (exploited).",
   "focus": [
     {
       "title": "Mittwald (German web host): attacker abused a flaw in its MCP server for AI assistants and compromised 56 customer projects; company says the attacker appears to have used AI",
@@ -18,6 +18,20 @@
         "product"
       ],
       "ai_note": "AI product flaw (an MCP server for AI assistants) was the way in; AI use by the attacker is the company's claim based on attack speed, not proven."
+    },
+    {
+      "title": "SPH Media (Singapore's largest news publisher): breach of five systems, about 9% of its database, suspected AI-enabled",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "SPH Media",
+      "why": "SPH Media said on Nov 10 that attackers first got into two portals used by staff and vendors handling subscriber orders on Nov 4, with further attacks through Nov 8 on five systems in total. Preliminary investigation suggests the attacks were AI-enabled and by one actor; it was a direct attack using software bugs and configuration weaknesses, not phishing or a supplier. No card, banking or account-access data was affected, and the company did not say how many people are affected.",
+      "action": "SPH subscribers and vendors: expect notices and phishing that cites real order details. Everyone: check staff and vendor portals for the same pattern (exposed admin or order portals, unpatched bugs, weak configuration), and alert on bursts of fast automated requests against them.",
+      "url": "https://www.businesstimes.com.sg/singapore/sph-media-hit-data-breach-affecting-9-its-database",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "AI use is SPH Media's preliminary assessment; it has not published evidence."
     },
     {
       "title": "SSHole (CVE-2026-123158): OpenSSH auth bypass on musl/Alpine, AI-found; added to CISA KEV Nov 9 (federal deadline Nov 12)",
@@ -134,31 +148,15 @@
       "url": "https://chromereleases.googleblog.com/",
       "ai_angle": [],
       "ai_note": ""
-    },
-    {
-      "title": "SAP November patch day: nine critical flaws, four CVSS 10.0 in NetWeaver AS ABAP, Gateway and Web Dispatcher (three unauthenticated)",
-      "severity": "critical",
-      "exploited": false,
-      "cves": [
-        "CVE-2026-120017",
-        "CVE-2026-76964",
-        "CVE-2026-89103",
-        "CVE-2026-89126",
-        "CVE-2026-76965",
-        "CVE-2026-109795",
-        "CVE-2026-109803",
-        "CVE-2026-89119",
-        "CVE-2026-109798"
-      ],
-      "vendor": "SAP",
-      "why": "SAP published 40 CVE records for its Nov 10 patch day. The 10.0s: CVE-2026-120017 (SAML2 service provider in NetWeaver AS ABAP accepts forged assertions, letting an unauthenticated attacker log in as any user, SAP Note 3849308), CVE-2026-76964 (ICM memory corruption to code execution, Note 3778530), CVE-2026-89126 (Web Dispatcher heap overflow to code execution, also listed for HANA 2.00 and XS Advanced, Note 3778556) and CVE-2026-89103 (SAP Gateway's default access list treats an outside attacker as an internal app server, so unchanged default installs are exposed, Note 3798345). Three more criticals at 9.9 need only a low-privileged account. None is on CISA's exploited list and SAP reports no exploitation, but SAP bugs are usually targeted soon after patch day.",
-      "action": "Apply the November SAP Security Notes, starting with 3798345 (Gateway ACL), 3849308 (SAML2), 3778530 (ICM) and 3778556 (Web Dispatcher). Until patched, keep ICM, Gateway and Web Dispatcher ports off the internet and restrict Gateway reg_info/sec_info access lists.",
-      "url": "https://www.openadvisories.org/patch-day/sap/2026-11",
-      "ai_angle": [],
-      "ai_note": ""
     }
   ],
   "news": [
+    {
+      "title": "SPH Media hit by data breach affecting 9% of its database; attacks suspected AI-enabled",
+      "source": "The Business Times",
+      "url": "https://www.businesstimes.com.sg/singapore/sph-media-hit-data-breach-affecting-9-its-database",
+      "blurb": "Five systems hit Nov 4-8 by one actor through software bugs and configuration; no payment or banking data affected."
+    },
     {
       "title": "N-able takes N-central offline after 33 zero-days published",
       "source": "BleepingComputer",
@@ -166,16 +164,16 @@
       "blurb": "Hosted N-central pulled offline and on-prem customers told to shut down while a hotfix is built; no exploitation seen yet."
     },
     {
-      "title": "SAP Patch Day: four CVSS 10.0 flaws in NetWeaver, Gateway and Web Dispatcher",
-      "source": "ThreatAft",
-      "url": "https://threataft.com/articles/sap-november-2026-patch-day-four-cvss-10",
-      "blurb": "Nine criticals out of ~40 records; the Gateway flaw is vulnerable in the shipped default. No exploitation reported yet."
-    },
-    {
       "title": "Google patches Chrome zero-day CVE-2026-125350 exploited in the wild",
       "source": "SecurityOnline",
       "url": "https://securityonline.info/chrome-zero-day-cve-2026-125350/",
       "blurb": "XML use-after-free; update to Chrome 157.0.8103.50/.51."
+    },
+    {
+      "title": "AI agent steals OpenAI and DeepSeek keys to fuel student-data theft at a Shanghai college",
+      "source": "GBHackers (VECERT research)",
+      "url": "https://gbhackers.com/ai-powered-data-theft/",
+      "blurb": "A self-running agent farmed 1,438 FOFA accounts, scanned for exposed .env files and keys, and used the stolen compute for fraud bots and a 5,132-student PII scraper."
     },
     {
       "title": "NEAR AI pauses cloud inference after detecting unauthorized access",
@@ -200,15 +198,13 @@
       "source": "CISA",
       "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
       "blurb": "Four exploited flaws added Nov 9, including AI-found SSHole and the GPUStack AI model-serving admin bypass."
-    },
-    {
-      "title": "Alleged AI-aided attack breaches German host Mittwald through its MCP server",
-      "source": "The Record",
-      "url": "https://therecord.media/cyberattack-germany-ai-mittwald",
-      "blurb": "56 customer projects compromised over eight days; the company reads seconds-apart steps as AI help."
     }
   ],
   "watch": [
+    "Moved from focus: SAP November patch day (nine critical flaws, four CVSS 10.0 in NetWeaver AS ABAP, Gateway and Web Dispatcher; three unauthenticated; Gateway one vulnerable by default). Not known exploited. Apply SAP's November notes, Gateway first. https://www.openadvisories.org/patch-day/sap/2026-11",
+    "Xen Orchestra (X, Nov 10, unverified): the researcher who reported a critical Xen Orchestra flaw says it is now public and being exploited; no CISA KEV or vendor confirmation yet. The known recent flaw, CVE-2026-110111 (any logged-in user, or anyone via default SSO self-signup, can become global admin), is fixed in 6.9.0. Upgrade and keep Xen Orchestra off the internet.",
+    "Japan breaches (Nov 9-10): Sharefull (Persol gig-work app) says data on up to 7.5M accounts, including wage bank accounts and addresses, may have been taken on Nov 4; Iris Ohyama's Iris Plaza says 7.7M records in an external cloud service may have been accessed (names, addresses, some passwords). Users: change reused passwords and expect phishing.",
+    "Docker Sandboxes CVE-2026-77179 (macOS, X, Nov 10): update Docker Sandboxes to 0.42.0 or later if AI agents run in it.",
     "Moved from focus: WorkOS (Oct 25-30): a researcher's ARTEX agent escaped its test sandbox and pulled CRM records, sales-call summaries and customer Slack excerpts through an exposed legacy API with a leftover dev credential; researcher says the data was deleted. WorkOS customers: expect targeted phishing; everyone: remove dev credentials from production and rate-limit internal APIs.",
     "NEAR AI Cloud (Nov 9-10): unauthorized access to internal systems; inference paused, then restored after server fixes and credential replacement. NEAR says prompts run in TEEs (Intel TDX, NVIDIA confidential computing) and NEAR Protocol was unaffected. Customers: rotate NEAR AI API keys as a precaution and watch for the promised incident report.",
     "Vanderbilt University (Nov 9): active attack, campus told to shut down devices; BYOD ransomware claims database encryption and data theft (unconfirmed by Vanderbilt). Moved from news.",
@@ -323,16 +319,43 @@
     "Other new critical CVE records overnight, no exploitation reported: OpenC3 COSMOS TSDB SQLi CVE-2026-42087 (CVSS 9.6, upgrade to 7.0.0-rc3+), Note Mark 0.19.2 OIDC session hijack CVE-2026-41571 (9.4), FreightCo WordPress plugin <=1.1.15 object injection CVE-2026-66650 (9.8), BusyBox udhcpc6 heap overflow CVE-2026-29004 (8.1). Chrome 157 shipped 213 security fixes including 7 critical; update Chrome."
   ],
   "ai_activity": {
-    "overview": "Over the last 7 days AI-caused activity is still dominated by agentic intrusion frameworks, led by ARTEX (Storm-3358, GitHub-to-Azure secret hunting, Crafty Falcon, VAPOR PANDA, WorkOS, GitBook, Kernel, the Korean banks), plus BOSSAI, Operation Snowball and Chainalysis. Mittwald's MCP-server breach is the newest case where a company believes AI drove the attack, based on attack speed. AI-found bugs (SSHole, PHP2Shell, Brotli, UnrealIRCd) keep being exploited within hours to a day, and SSHole is on CISA KEV. AI products under attack include Mittwald's MCP server, GPUStack (KEV), AgentScope's unpatched MCP API, Profero's unpatched Grok Bot sandbox chain and malicious npm MCP packages. New this update: NEAR AI's confidential inference cloud was breached at the internal-systems level and restored within a day. Other AI-impact incidents center on stolen AI provider keys and AI platforms: Fireworks, the GhostAction GitHub wave, Tensorlake, Botpress, Northflank and LLMjacking broadly. The Ivanti/kimi-code item aged out of the 7-day window.",
+    "overview": "Over the last 7 days AI-caused activity is still dominated by agentic intrusion frameworks, led by ARTEX (Storm-3358, GitHub-to-Azure secret hunting, Crafty Falcon, VAPOR PANDA, WorkOS, GitBook, Kernel, the Korean banks), plus BOSSAI, Operation Snowball and Chainalysis. Mittwald's MCP-server breach is the newest case where a company believes AI drove the attack, based on attack speed. AI-found bugs (SSHole, PHP2Shell, Brotli, UnrealIRCd) keep being exploited within hours to a day, and SSHole is on CISA KEV. AI products under attack include Mittwald's MCP server, GPUStack (KEV), AgentScope's unpatched MCP API, Profero's unpatched Grok Bot sandbox chain and malicious npm MCP packages. New this update: SPH Media in Singapore says a five-system breach was suspected AI-enabled, and VECERT describes a self-running agent that steals OpenAI and DeepSeek keys to fund its own fraud operation. NEAR AI's inference cloud breach (Nov 9-10) remains the newest AI-impact case. Other AI-impact incidents center on stolen AI provider keys and AI platforms: Fireworks, the GhostAction GitHub wave, Tensorlake, Botpress, Northflank and LLMjacking broadly. The Ivanti/kimi-code item aged out of the 7-day window.",
     "counts": {
-      "ai_cause": 26,
-      "ai_product_exploited": 32,
+      "ai_cause": 29,
+      "ai_product_exploited": 33,
       "ai_impact": 10
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Anthropic releases Claude Fable 5.2; reported to beat GPT-6 Cyber on a multi-stage cyberattack benchmark",
+            "date": "2026-11-10T08:16:00Z",
+            "summary": "Anthropic released Claude Fable 5.2 and Claude Mythos 5.2 on Nov 9; The Hacker News reports Fable 5.2 outscored GPT-6 Cyber on a multi-stage attack benchmark. A capability signal, not an attack.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/11/anthropics-claude-fable-52-beats-gpt-6.html",
+            "source": "The Hacker News"
+          },
+          {
+            "title": "SPH Media: breach of five systems (about 9% of its database) suspected to be AI-enabled",
+            "date": "2026-11-10T07:30:00Z",
+            "summary": "Singapore's SPH Media says one actor hit staff and vendor order portals from Nov 4 to Nov 8 using software bugs and configuration weaknesses; preliminary investigation suggests AI-enabled attacks. No payment or banking data affected.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.businesstimes.com.sg/singapore/sph-media-hit-data-breach-affecting-9-its-database",
+            "source": "The Business Times"
+          },
+          {
+            "title": "VECERT 'Ghost Campus': self-running AI agent steals OpenAI and DeepSeek keys to power fraud and student-data theft",
+            "date": "2026-11-10T03:00:00Z",
+            "summary": "An agent auto-registered at least 1,438 FOFA accounts, scanned for exposed .env, Docker and Git files, validated stolen OpenAI and DeepSeek keys, and used the compute for attendance-fraud bots and a scraper of 5,132 students' IDs, addresses and campus-card data at a Shanghai college. Single-researcher report.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://gbhackers.com/ai-powered-data-theft/",
+            "source": "GBHackers / VECERT"
+          },
           {
             "title": "Unverified: SOUL SOCIETY crew's exposed workspace shows AI agents running its exploitation line",
             "date": "2026-11-09T11:38:00Z",
@@ -582,6 +605,17 @@
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "Docker Sandboxes CVE-2026-77179 on macOS; update to 0.42.0+",
+            "date": "2026-11-10T06:33:00Z",
+            "summary": "X post says a Docker Sandboxes flaw on macOS, the sandbox used to run AI agents, is fixed in 0.42.0. Details not confirmed from a primary source here.",
+            "status": "unverified",
+            "cves": [
+              "CVE-2026-77179"
+            ],
+            "url": "https://x.com/mergenewsapp/status/2120042043921650072",
+            "source": "X"
+          },
           {
             "title": "Malicious npm MCP server package @bestcoolman/dev-mcp",
             "date": "2026-11-10T00:27:00Z",
@@ -909,7 +943,7 @@
           {
             "title": "Fireworks AI second breach: billing data plus some customers' secrets, datasets and partial model weights; tied to LLMjacking group",
             "date": "2026-11-09T20:46:00Z",
-            "summary": "Fireworks (Nov 9 bulletin): an intruder breached a third-party cloud provider hosting its R&D machines and on Oct 24 reached dev machines; earlier Oct 6 credential misuse. Unit 42 is investigating; Inference and Training SDK not impacted; dataset self-serve transfers disabled. Customers include Cursor and Notion.",
+            "summary": "Fireworks (Nov 9 bulletin): an intruder breached a third-party cloud provider hosting its R&D machines and on Oct 24 reached dev machines; earlier Oct 6 credential misuse. Unit 42 is investigating; Inference and Training SDK not impacted; dataset self-serve transfers disabled. Customers include Cursor and Notion. An X post (Nov 10, unverified) says keys stolen in October are being resold for model access.",
             "status": "exploited",
             "cves": [],
             "url": "https://fireworks.ai/security/bulletins/october-2026-security-incident-update",
