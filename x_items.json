@@ -1,5 +1,59 @@
 [
  {
+  "url": "https://x.com/timwork_notes/status/2120100614743130346",
+  "author": "timwork_notes",
+  "created_at": "2026-11-10T10:25:50Z",
+  "cves": [],
+  "text": "Claude Code before 2.1.321 could send your MCP OAuth refresh token to another host when a server redirected the request. No CVE, one line in the Nov 9 changelog. Update and revoke the grant on any remote MCP server you don't run."
+ },
+ {
+  "url": "https://x.com/linklin63793/status/2119949806827340251",
+  "author": "linklin63793",
+  "created_at": "2026-11-10T00:26:35Z",
+  "cves": [],
+  "text": "Claude Code 2.1.321 (Nov 9 changelog): fixed MCP OAuth sending secrets such as refresh tokens to another host when a server redirected them; also fixed a read-only Bash path that could skip the sandbox."
+ },
+ {
+  "url": "https://x.com/TanmayK_03/status/2119913530006937948",
+  "author": "TanmayK_03",
+  "created_at": "2026-11-09T22:02:26Z",
+  "cves": [
+   "CVE-2026-77604"
+  ],
+  "text": "New CVE-2026-77604 in Code Graph RAG's MCP server (fixed in 0.0.345): read_file skipped its path check when offset or limit was set, allowing path traversal via absolute paths."
+ },
+ {
+  "url": "https://x.com/UpwindMDR/status/2119782646221775134",
+  "author": "UpwindMDR",
+  "created_at": "2026-11-09T13:22:21Z",
+  "cves": [],
+  "text": "HIGH - Authorization bypass in mcp-atlassian scopes (GHSA-xv8h-26ch-vfh9): the Model Context Protocol (MCP) server lets callers bypass configured project and space isolation (JIRA_PROJECTS_FILTER)."
+ },
+ {
+  "url": "https://x.com/dailycve/status/2119928731070341498",
+  "author": "dailycve",
+  "created_at": "2026-11-09T23:02:50Z",
+  "cves": [
+   "CVE-2026-76892",
+   "CVE-2026-76893"
+  ],
+  "text": "@tsps/mcp-server MCP server: denial of service via JSON.parse, CVE-2026-76892 (High); singletons state hijacking, CVE-2026-76893 (Medium)."
+ },
+ {
+  "url": "https://x.com/_pksharma/status/2119874157345189950",
+  "author": "_pksharma",
+  "created_at": "2026-11-09T19:25:59Z",
+  "cves": [],
+  "text": "Attacker exploited a flaw in Mittwald's MCP server on 27 Oct, five minutes after registering an account; Mittwald blocked the first attacker account on 4 Nov, nearly 8 days later."
+ },
+ {
+  "url": "https://x.com/ESultanik/status/2120127257322955101",
+  "author": "ESultanik",
+  "created_at": "2026-11-10T12:11:42Z",
+  "cves": [],
+  "text": "Attempted supply chain attack on Graphtage: a trusted external contributor's PR was green in CI, then the contributor's GitHub account was presumably compromised and used to push malicious changes."
+ },
+ {
   "url": "https://x.com/DailyDarkWeb/status/2119993656429936749",
   "author": "DailyDarkWeb",
   "created_at": "2026-11-10T03:20:49Z",
@@ -253,56 +307,5 @@
   "cves": [
    "CVE-2026-77179"
   ]
- },
- {
-  "url": "https://x.com/ren0day/status/2119777872047202733",
-  "author": "ren0day",
-  "text": "ChatGPT lockdown mode prompt injection bypass via HTML preview, CVE-2025-51591 (Check Point); zero-click in desktop app, fixed Sept 18.",
-  "created_at": "2026-11-09T13:03:22Z",
-  "cves": [
-   "CVE-2025-51591"
-  ]
- },
- {
-  "url": "https://x.com/AIBandwagon/status/2119995866928893970",
-  "author": "AIBandwagon",
-  "text": "Fireworks AI told customers an intruder got in on Oct 24 through a cloud provider and reached billing data, plus secrets, datasets and partial model weights for some accounts. Second breach in weeks. Rotate keys.",
-  "created_at": "2026-11-10T03:29:36Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/foukation/status/2120032770244141233",
-  "author": "foukation",
-  "text": "On November 9, Fireworks AI updated its disclosure of an October breach; stolen API keys resold for access to models.",
-  "created_at": "2026-11-10T05:56:15Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/cubillas888/status/2119928030462136674",
-  "author": "cubillas888",
-  "text": "Malicious bee-js 13.3.0 had valid npm provenance from the project's CI. Socket: pin 13.2.0, rotate creds; Swarm Desktop 0.56.2 was Apple-notarized, fixed in 0.56.3.",
-  "created_at": "2026-11-09T23:00:03Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/TheCyberSecHub/status/2119882856583594243",
-  "author": "TheCyberSecHub",
-  "text": "Attackers backdoor trusted AWS integrations to steal secrets: Wiz researchers uncovered the secret-stealing supply-chain attack (The Register).",
-  "created_at": "2026-11-09T20:00:33Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/Stringcoding/status/2119800303436677277",
-  "author": "Stringcoding",
-  "text": "GitHub has confirmed a security breach involving poisoned VS Code extensions used as supply-chain attack vectors.",
-  "created_at": "2026-11-09T14:32:30Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/lyrie_ai/status/2119810777666420752",
-  "author": "lyrie_ai",
-  "text": "On Oct 29 attackers moved ~$6.34B out of Binance hot wallets by reaching an internal wallet-signing service through compromised employee computers and stolen credentials.",
-  "created_at": "2026-11-09T15:14:08Z",
-  "cves": []
  }
 ]
