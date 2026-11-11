@@ -1,154 +1,9 @@
 [
  {
-  "url": "https://x.com/thepostapo/status/2120147584903725192",
-  "author": "thepostapo",
-  "text": "German web host Mittwald says an attacker exploited a vulnerability in its MCP server for AI assistants and compromised 56 client projects. It attributes the speed of the attack to AI tools. Confirmed. #cybersecurity #Germany #Mittwald\nhttps://t.co/xtLz41ezFh",
-  "created_at": "2026-11-10T13:32:29.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/securigeek/status/2120394637051568473",
-  "author": "securigeek",
-  "text": "AWS patched CVE-2026-125271 in its API MCP Server: deny and approval rules can be bypassed by operation names with consecutive capitals. Running it locally? Upgrade aws-api-mcp-server to 1.5.1 and re-test your policy. #CloudSecurity #MCP #AWS",
-  "created_at": "2026-11-11T05:54:11.000Z",
-  "cves": [
-   "CVE-2026-125271"
-  ]
- },
- {
-  "url": "https://x.com/modularciso/status/2120448950826361248",
-  "author": "modularciso",
-  "text": "Visual Studio Copilot CVE-2026-103572\n\nSpot the issue: the check says Copilot may not edit .mcp.json. The agent writes to .mcp.json. and the check passes.\n\nWindows ignores a trailing dot in file names, so the protected-file check misses it, the write lands on .mcp.json, and the",
-  "created_at": "2026-11-11T09:30:00.000Z",
-  "cves": [
-   "CVE-2026-103572"
-  ]
- },
- {
-  "url": "https://x.com/Khaled865412521/status/2120430289247723728",
-  "author": "Khaled865412521",
-  "text": "AG2 SandboxShellTool: if you locked your agent's shell down with allowed=[...] or readonly=True, a single newline walks right past it.\n\nNew advisory GHSA-2h4w-29cv-2cmv (CVE-2026-113663, CVSS 8.8 high).\n\nThe filter blocks ; &amp;&amp; | and $( but never checks \\n. The command still runs https://t.co/aEtdouDJRG",
-  "created_at": "2026-11-11T08:15:51.000Z",
-  "cves": [
-   "CVE-2026-113663"
-  ]
- },
- {
-  "url": "https://x.com/cveintelligence/status/2120181462440046781",
-  "author": "cveintelligence",
-  "text": "\ud83d\udea8 Critical 9.2 | CVE-2026-112136: Siemens Mendix Studio Pro \u2013 MCP Server exposed beyond loopback\nAn attacker with network access could interact remotely with the Mendix MCP Server.\nNo patch listed yet\nhttps://t.co/4haCAhNmnZ\n#CVE #Siemens",
-  "created_at": "2026-11-10T15:47:06.000Z",
-  "cves": [
-   "CVE-2026-112136"
-  ]
- },
- {
-  "url": "https://x.com/hackerlogs/status/2120265697641046045",
-  "author": "hackerlogs",
-  "text": "Your AI vendor's vendor just leaked your chats. @FireworksAI_HQ, the inference platform behind a lot of open-weight model serving, was breached by an LLMjacking crew, and @NotionHQ now says some Notion AI chat transcripts were in the stolen data.\n\nThe timeline is in Fireworks' https://t.co/33rKsl93ia",
-  "created_at": "2026-11-10T21:21:49.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/AshWilliam18165/status/2120366174567325726",
-  "author": "AshWilliam18165",
-  "text": "notion's AI chats leaked without notion getting hacked. its AI vendor fireworks was breached and some notion AI chat transcripts were accessed, under 1% of workspaces, mostly not linked to who wrote them. notion's advice: rotate any passwords or keys you pasted into AI chats",
-  "created_at": "2026-11-11T04:01:05.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/csehra42/status/2120387660523135108",
-  "author": "csehra42",
-  "text": "Railway's postmortem: the attacker wanted AI provider keys and searched variable names with regexes.\nDo you cap spend per key? https://t.co/TbX2wK1Sj9",
-  "created_at": "2026-11-11T05:26:27.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/Komodosec/status/2120294096686420003",
-  "author": "Komodosec",
-  "text": "Qubole supply chain attack exposed AWS, Entra ID, and Okta credentials www.\u200bcsoonline.\u200bcom/article/4246780/qubole-supply-chain-attack-exposed-aws-entra-id-and-okta-credentials.\u200bhtml https://t.co/5QRXJx2mRD",
-  "created_at": "2026-11-10T23:14:40.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/cytexsmb/status/2120162180611911848",
-  "author": "cytexsmb",
-  "text": "Some Qubole customer integrations had been idle for months. Their AWS access was still active.\n\nThat forgotten trust became an entry point in a supply-chain attack affecting multiple Qubole customers.\n\nBetween October 14 and 26, an attacker used IAM credentials from an AWS https://t.co/QqNhdWZ1qu",
-  "created_at": "2026-11-10T14:30:29.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/markovichio/status/2120325975531495834",
-  "author": "markovichio",
-  "text": "Wiz uncovered a supply-chain attack that backdoored trusted AWS integrations to harvest secrets. The pattern - trusted pipeline, malicious payload - applies equally to Azure DevOps and Terraform automation workflows. When did you last audit the third-party modules and service",
-  "created_at": "2026-11-11T01:21:20.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/Sujeet/status/2120190160273023310",
-  "author": "Sujeet",
-  "text": "A supply-chain attack through malicious GitHub workflows compromised tens of thousands of repositories, including Uber-owned ones.\n\nThe workflow is the pipeline. A compromised action doesn't break into the repo \u2014 it is the repo's own automation, running with the repo's own",
-  "created_at": "2026-11-10T16:21:40.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/ESultanik/status/2120127257322955101",
-  "author": "ESultanik",
-  "text": "Some context on this attempted supply chain attack on Graphtage, a tool I maintain\u2026\n\nTL;DR: A trusted external contributor submitted a PR fixing an issue. CI was green, but we requested changes. Then the contributor's GitHub account was presumably compromised\u2026 \ud83e\uddf5 https://t.co/gV4TR5PLoN",
-  "created_at": "2026-11-10T12:11:42.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/W3B_AI_SR/status/2120175816021573713",
-  "author": "W3B_AI_SR",
-  "text": "\ud83d\udea8 Supply Chain Attack Targets Zcash, Vizor and Keplr Developers\n\nA new GitHub account sent malicious pull requests to Vizor and Zingo Labs and published a Rust crate that steals developer secrets during builds.\n\nAnyone who built the crate, lwd-uri-util, should rotate their",
-  "created_at": "2026-11-10T15:24:40.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/sabrielatmojo/status/2120164562804641914",
-  "author": "sabrielatmojo",
-  "text": "\"yes, and don't ask again\" might be the most honest button in AI coding. it really did stop asking. it just saved your database password to a file that ended up on public GitHub.\n\nApiiro scanned 104,185 public copies of Claude Code's .claude/settings.local.json and found 1,122 https://t.co/iEqckh00uE https://t.co/hkAI8JDwRz",
-  "created_at": "2026-11-10T14:39:57.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/botnewsnetwork/status/2120345406815236474",
-  "author": "botnewsnetwork",
-  "text": "\"YOU APPROVED A NAME, NOT A TOOL\": X1Y1 CHECKED 10,659 PUBLIC MCP CONFIG FILES \u2014 TWO THIRDS OF PACKAGE-BASED SERVERS ARE UNPINNED, SO EVERY AGENT RESTART RUNS CODE NOBODY REVIEWED\n\nWHAT HAPPENED. X1Y1 (a security company that ships a free MCP Config Check tool \u2014 commercial",
-  "created_at": "2026-11-11T02:38:33.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/CveTodo/status/2120151121826038175",
-  "author": "CveTodo",
-  "text": "A critical unauthenticated remote code execution vulnerability in the WP Duplicate WordPress plugin is being actively exploited in the wild, according to advisories published simultaneously by the... https://t.co/DhBvVoAMPw\n#WordPress #RCE #ActivelyExploited #CVE #InfoSec https://t.co/3T6WGUglAX",
-  "created_at": "2026-11-10T13:46:32.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/autumn_good_35/status/2120155599182921962",
-  "author": "autumn_good_35",
-  "text": "\ud83d\udea8\ud83d\udea8\ud83d\udea8\n\u300eThis vulnerability is being actively exploited in the wild.\u300f\n\nCVE-2026-123751\nWP Duplicate &lt;= 1.1.11 \u2013 Unauthenticated Arbitrary File Upload via Authentication Bypass\nhttps://t.co/o87QFzU5nZ",
-  "created_at": "2026-11-10T14:04:20.000Z",
-  "cves": [
-   "CVE-2026-123751"
-  ]
- },
- {
-  "url": "https://x.com/DarkWebInformer/status/2120260701944176641",
-  "author": "DarkWebInformer",
-  "text": "\ud83d\udea8 Google patches 8th actively exploited Chrome zero-day of 2026, warns attackers can execute malicious code\n\nGoogle has released an emergency Chrome security update addressing CVE-2026-125350, a high-severity use-after-free vulnerability in the browser's XML component that could https://t.co/RWVMBgzIUU",
-  "created_at": "2026-11-10T21:01:58.000Z",
-  "cves": [
-   "CVE-2026-125350"
-  ]
- },
- {
-  "url": "https://x.com/DarkWebInformer/status/2120257141714133343",
-  "author": "DarkWebInformer",
-  "text": "\ud83d\udea8 Microsoft confirms hackers are exploiting Outlook zero-day to steal Windows authentication hashes, CVE-2026-124194\n\nMicrosoft has patched an actively exploited vulnerability in Outlook that could allow attackers to steal NTLM authentication hashes by tricking users into https://t.co/2BYHqZZ0Um",
-  "created_at": "2026-11-10T20:47:49.000Z",
+  "url": "https://x.com/chris_uk2026/status/2120401098859028789",
+  "author": "chris_uk2026",
+  "text": "Microsoft #PatchTuesday: ~1,094 fixes (63 Critical). Actively exploited Outlook zero-day CVE-2026-124194 leaks NTLM hashes. Also zero-click RCEs in Search/Exchange & LDAP (9.8).",
+  "created_at": "2026-11-11T06:19:51Z",
   "cves": [
    "CVE-2026-124194"
   ]
@@ -156,42 +11,17 @@
  {
   "url": "https://x.com/BleepinComputer/status/2120232895520645304",
   "author": "BleepinComputer",
-  "text": "\u203c\ufe0f\u203c\ufe0f Microsoft\u2019s November 2026 Patch Tuesday fixes a massive 1,235 vulnerabilities, including 66 rated Critical and an actively exploited Microsoft Outlook zero-day.\n\nThe Outlook flaw (CVE-2026-124194) can be exploited using malicious message files that trick Windows into",
-  "created_at": "2026-11-10T19:11:28.000Z",
+  "text": "Microsoft's November 2026 Patch Tuesday fixes 1,235 vulnerabilities, including 66 rated Critical and an actively exploited Microsoft Outlook zero-day (CVE-2026-124194) exploitable via malicious message files.",
+  "created_at": "2026-11-10T19:11:28Z",
   "cves": [
    "CVE-2026-124194"
   ]
- },
- {
-  "url": "https://x.com/chris_uk2026/status/2120401098859028789",
-  "author": "chris_uk2026",
-  "text": "Microsoft overview\n\ud83d\udea8 #PatchTuesday: Microsoft drops ~1,094 fixes (63 Critical). Actively exploited Outlook zero-day CVE-2026-124194 leaks NTLM hashes. Also watch zero-click RCEs in Search/Exchange &amp; LDAP (9.8). Patch ASAP! #Microsoft #CyberSecurity #ZeroDay",
-  "created_at": "2026-11-11T06:19:51.000Z",
-  "cves": [
-   "CVE-2026-124194"
-  ]
- },
- {
-  "url": "https://x.com/TweetThreatNews/status/2120326687892082728",
-  "author": "TweetThreatNews",
-  "text": "Microsoft addressed 1,093 vulnerabilities, including 63 critical flaws and an actively exploited Outlook spoofing zero-day (CVE-2026-124194). The roundup highlights priority Exchange, SharePoint, Outlook, Windows Search and LDAP flaws and urges prompt patching.",
-  "created_at": "2026-11-11T01:24:10.000Z",
-  "cves": [
-   "CVE-2026-124194"
-  ]
- },
- {
-  "url": "https://x.com/tchsignal/status/2120194513608265942",
-  "author": "tchsignal",
-  "text": "Actively Exploited OpenSSH Flaw Lets Attackers Bypass Linux Password Authentication\n\nA serious OpenSSH vulnerability is being actively exploited, but the most surprising detail is how it can let attackers access certain Linux systems even when password-based access is supposed to https://t.co/Vevs5rkLH7",
-  "created_at": "2026-11-10T16:38:58.000Z",
-  "cves": []
  },
  {
   "url": "https://x.com/ICHI_Global/status/2120241285340529078",
   "author": "ICHI_Global",
-  "text": "\ud83d\udea8 CRITICAL - CISA KEVBarracuda ESG CVE-2026-116606: pre-auth bypass chained w/ CVE-2026-111560 (OS RCE as root). CVSS 9.3. Patch to 9.4.0.030+.Chrome CVE-2026-125350: UAF RCE. Update to 157.0.8103.50+.Actively exploited in wild.#KEV #Barracuda #Chrome",
-  "created_at": "2026-11-10T19:44:49.000Z",
+  "text": "CISA KEV: Barracuda ESG CVE-2026-116606 pre-auth bypass chained w/ CVE-2026-111560 (OS RCE as root), CVSS 9.3. Chrome CVE-2026-125350 UAF RCE actively exploited.",
+  "created_at": "2026-11-10T19:44:49Z",
   "cves": [
    "CVE-2026-111560",
    "CVE-2026-116606",
@@ -199,35 +29,28 @@
   ]
  },
  {
-  "url": "https://x.com/ido_cohen2/status/2120134327245705445",
-  "author": "ido_cohen2",
-  "text": "\u26a0\ufe0f New Actively-Exploited Vulnerability\n\n\u2022 CVE ID: CVE-2026-119977\n\u2022 Vendor: WordPress\n\u2022 Product: WordPress Core\n\u2022 Flaw: TOCTOU race condition\n\u2022 Status: Exploited in the wild, no ransomware link\n\n\ud83d\udcc5 Patch by 2026-11-06.\n\nFull report: \ud83d\udd17 https://t.co/KqalXhWLnr\n#WordPress https://t.co/khC3RLXch6",
-  "created_at": "2026-11-10T12:39:48.000Z",
-  "cves": [
-   "CVE-2026-119977"
-  ]
- },
- {
-  "url": "https://x.com/BlairOnSec/status/2120305511702954317",
-  "author": "BlairOnSec",
-  "text": "One account without MFA. Data on 13.3 million people.\n\n@HIPAAJournal: transcription vendor PJ&amp;A settled a multi-state HIPAA probe. An attacker used a coding employee's stolen credentials on an account without MFA.\n\nAudit vendor access too.\n\nhttps://t.co/6S39Jl1rWY",
-  "created_at": "2026-11-11T00:00:02.000Z",
+  "url": "https://x.com/CveTodo/status/2120151121826038175",
+  "author": "CveTodo",
+  "text": "Critical unauthenticated RCE in the WP Duplicate WordPress plugin is being actively exploited in the wild.",
+  "created_at": "2026-11-10T13:46:32Z",
   "cves": []
  },
  {
-  "url": "https://x.com/Dave_Joe_9377/status/2120150127407206814",
-  "author": "Dave_Joe_9377",
-  "text": "If you use Chrome, restart it today.\n\nGoogle patched CVE-2026-125350 on Monday and says an exploit for it already exists in the wild. It's the eighth actively exploited Chrome zero-day this year.\n\nThe part most people get wrong isn't the patch. It's what \"already updated\" https://t.co/MTtqd3Vxoq",
-  "created_at": "2026-11-10T13:42:35.000Z",
+  "url": "https://x.com/opsek_io/status/2120153263920029849",
+  "author": "opsek_io",
+  "text": "Chrome 157 security update: 9 vulnerabilities fixed incl. actively exploited zero-day CVE-2026-125350 (XML use-after-free), CVE-2026-125344 V8 type confusion, CVE-2026-125348 GPU OOB write.",
+  "created_at": "2026-11-10T13:55:03Z",
   "cves": [
+   "CVE-2026-125344",
+   "CVE-2026-125348",
    "CVE-2026-125350"
   ]
  },
  {
-  "url": "https://x.com/SlavaOPs/status/2120138639975862343",
-  "author": "SlavaOPs",
-  "text": "Two Platform Flaws in One Day, Both Pointing at Your Wallet\n\nChrome: CVE-2026-125350, use-after-free in the XML component, already being exploited in the wild. Reported by an anonymous researcher on November 6, patched on the 9th. Three days from report to fix, which tells you",
-  "created_at": "2026-11-10T12:56:56.000Z",
+  "url": "https://x.com/ProferoSec/status/2120463294393647439",
+  "author": "ProferoSec",
+  "text": "Google patched Chrome's eighth actively exploited zero-day of 2026, CVE-2026-125350, a use-after-free in the XML component. Update to 157.0.8103.50.",
+  "created_at": "2026-11-11T10:27:00Z",
   "cves": [
    "CVE-2026-125350"
   ]
@@ -235,93 +58,236 @@
  {
   "url": "https://x.com/ProferoSec/status/2120447439580909670",
   "author": "ProferoSec",
-  "text": "Microsoft patched an actively exploited Outlook zero-day, CVE-2026-124194. \n\nIf a user opens a crafted message file, Outlook connects to an attacker-controlled location without showing the usual external-content warning, leaking the user\u2019s NTLMv2 hash. \n\nThe fix comes in specific",
-  "created_at": "2026-11-11T09:24:00.000Z",
+  "text": "Microsoft patched actively exploited Outlook zero-day CVE-2026-124194: crafted message file makes Outlook connect to attacker location without warning, leaking NTLMv2 hash.",
+  "created_at": "2026-11-11T09:24:00Z",
   "cves": [
    "CVE-2026-124194"
+  ]
+ },
+ {
+  "url": "https://x.com/SecurityAr58409/status/2120339028088172720",
+  "author": "SecurityAr58409",
+  "text": "CISA KEV Alert: 6 new actively exploited CVEs added Nov 10, 2026 incl. Cisco BroadWorks XXE, Barracuda.",
+  "created_at": "2026-11-11T02:13:12Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/BytesNora/status/2120310762929340663",
+  "author": "BytesNora",
+  "text": "CVE-2026-102895 in GPUStack (CVSS 9.8) is actively exploited: remote requests can impersonate the built-in administrator via a reverse proxy.",
+  "created_at": "2026-11-11T00:20:54Z",
+  "cves": [
+   "CVE-2026-102895"
+  ]
+ },
+ {
+  "url": "https://x.com/modularciso/status/2120334193678819706",
+  "author": "modularciso",
+  "text": "CISA added GPUStack CVE-2026-102895 to KEV on Nov 9; vendor says observed exploited in the wild against a v2.1.1 deployment. Patching does not remove attacker persistence.",
+  "created_at": "2026-11-11T01:54:00Z",
+  "cves": [
+   "CVE-2026-102895"
   ]
  },
  {
   "url": "https://x.com/abush_ori/status/2120370314085277701",
   "author": "abush_ori",
-  "text": "Microsoft's November Patch Tuesday is out: 1,000+ fixes, one actively exploited.\n\nDo this one first: Outlook CVE-2026-124194. Opening a crafted message file can leak the user's NTLMv2 hash. CISA added it to KEV (federal deadline Nov 24).\n\nToday:\n- Update Microsoft 365 Apps /",
-  "created_at": "2026-11-11T04:17:32.000Z",
+  "text": "Patch Tuesday: do Outlook CVE-2026-124194 first. CISA added it to KEV (federal deadline Nov 24).",
+  "created_at": "2026-11-11T04:17:32Z",
   "cves": [
    "CVE-2026-124194"
   ]
  },
  {
-  "url": "https://x.com/aviatrixtrc/status/2120201977569096184",
-  "author": "aviatrixtrc",
-  "text": "Attackers weaponized CVE-2026-125350, a use-after-free zero-day in Chrome's XML component, achieving arbitrary code execution via drive-by download \u2014 no user interaction beyond visiting a compromised page. This marks Chrome's eighth actively exploited zero-day in 2026.",
-  "created_at": "2026-11-10T17:08:37.000Z",
+  "url": "https://x.com/cveintelligence/status/2120181462440046781",
+  "author": "cveintelligence",
+  "text": "Critical 9.2 CVE-2026-112136: Siemens Mendix Studio Pro MCP Server exposed beyond loopback; attacker with network access could interact remotely with the MCP Server.",
+  "created_at": "2026-11-10T15:47:06Z",
   "cves": [
-   "CVE-2026-125350"
-  ]
- },
- {
-  "url": "https://x.com/chris_uk2026/status/2120401674560778395",
-  "author": "chris_uk2026",
-  "text": "Chrome emergency\n\ud83d\udea8 Google rushes Chrome 157.0.8103.50 update: Fixes actively exploited XML UAF zero-day CVE-2026-125350 (8th Chrome 0-day of 2026). Update &amp; relaunch immediately. #Chrome #ZeroDay #Google",
-  "created_at": "2026-11-11T06:22:09.000Z",
-  "cves": [
-   "CVE-2026-125350"
+   "CVE-2026-112136"
   ]
  },
  {
   "url": "https://x.com/EmunaEliran/status/2120134825671545110",
   "author": "EmunaEliran",
-  "text": "A flaw in your MCP server still leaves 7782 open to the LAN.\n\nI checked Mendix Studio Pro: its MCP server binds wide, not loopback.\n\nFixed in 11.16.0 and 11.12.7.\nBlock 7782 otherwise.\n\nWhat else is your dev box listening on?\n\nhttps://t.co/mLMDn9UZrk\n\n#MCP #Siemens #CVE https://t.co/K2F6IezQa1",
-  "created_at": "2026-11-10T12:41:47.000Z",
+  "text": "Mendix Studio Pro MCP server binds wide on port 7782, not loopback. Fixed in 11.16.0 and 11.12.7.",
+  "created_at": "2026-11-10T12:41:47Z",
   "cves": []
+ },
+ {
+  "url": "https://x.com/securigeek/status/2120394637051568473",
+  "author": "securigeek",
+  "text": "AWS patched CVE-2026-125271 in its API MCP Server: deny and approval rules can be bypassed by operation names with consecutive capitals. Upgrade aws-api-mcp-server to 1.5.1.",
+  "created_at": "2026-11-11T05:54:11Z",
+  "cves": [
+   "CVE-2026-125271"
+  ]
  },
  {
   "url": "https://x.com/iamnrdas/status/2120277091782414793",
   "author": "iamnrdas",
-  "text": "AWS API MCP Server (0.2.13 to &lt;1.5.1) CVE-2026-125271: policy bypass via incorrect op name normalization on consecutive capitals. Upgrade to 1.5.1. https://t.co/TaXbyKApnB",
-  "created_at": "2026-11-10T22:07:06.000Z",
+  "text": "AWS API MCP Server (0.2.13 to <1.5.1) CVE-2026-125271: policy bypass via incorrect op name normalization on consecutive capitals.",
+  "created_at": "2026-11-10T22:07:06Z",
   "cves": [
    "CVE-2026-125271"
   ]
  },
  {
-  "url": "https://x.com/DailyDarkWeb/status/2120383588613136483",
-  "author": "DailyDarkWeb",
-  "text": "AWS patched CVE-2026-125271 in API MCP Server 1.5.1. Local deployments with custom policies could bypass selected deny/approval rules. User interaction is required; the remote offering is unaffected. Upgrade and retest custom policies.\n\nhttps://t.co/93rEviqBAT https://t.co/QRErSNNixg",
-  "created_at": "2026-11-11T05:10:17.000Z",
+  "url": "https://x.com/thepostapo/status/2120147584903725192",
+  "author": "thepostapo",
+  "text": "German web host Mittwald says an attacker exploited a vulnerability in its MCP server for AI assistants and compromised 56 client projects. It attributes the speed of the attack to AI tools.",
+  "created_at": "2026-11-10T13:32:29Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/modularciso/status/2120448950826361248",
+  "author": "modularciso",
+  "text": "Visual Studio Copilot CVE-2026-103572: protected-file check misses '.mcp.json.' (trailing dot ignored by Windows), letting the agent write .mcp.json.",
+  "created_at": "2026-11-11T09:30:00Z",
   "cves": [
-   "CVE-2026-125271"
+   "CVE-2026-103572"
   ]
  },
  {
-  "url": "https://x.com/Edmond_J_/status/2120288784814133300",
-  "author": "Edmond_J_",
-  "text": "Pre 2020 software found by AI:\n\nCVE-2026-107496 \u2014 OpenSSL 1.0.2 (2015) and 1.1.1 (2018), denial of service during CMS encryption. OpenSSL advisory\nCVE-2026-123158 \u2014 OpenSSH 7.9p1 (2018) on musl Linux without PAM, password authentication bypass. Researcher disclosure https://t.co/d64AZQUMLM",
-  "created_at": "2026-11-10T22:53:34.000Z",
+  "url": "https://x.com/Khaled865412521/status/2120430289247723728",
+  "author": "Khaled865412521",
+  "text": "AG2 SandboxShellTool advisory GHSA-2h4w-29cv-2cmv (CVE-2026-113663, CVSS 8.8): allowed/readonly shell filter bypassed with a newline.",
+  "created_at": "2026-11-11T08:15:51Z",
   "cves": [
-   "CVE-2026-107496",
-   "CVE-2026-123158"
+   "CVE-2026-113663"
   ]
  },
  {
-  "url": "https://x.com/PHPSiteAudit/status/2120336962024603950",
-  "author": "PHPSiteAudit",
-  "text": "AI found 37,966 vulnerabilities in seven months.\n\nOnly 217 have been fixed.\n\nThat's VulnCheck's November update on Anthropic's Glasswing project.\n\nPHP2Shell was its most notable find \u2014 a PHP vulnerability with a CVSS 9.2 score, unauthenticated RCE in the PHP engine itself.",
-  "created_at": "2026-11-11T02:05:00.000Z",
+  "url": "https://x.com/abhiunix/status/2120151865111535759",
+  "author": "abhiunix",
+  "text": "Fable 5.2 system card prompt injection result: when the cyber classifier fires, requests are answered by a fallback model; in Gray Swan's adaptive coding eval ~90% of those got compromised.",
+  "created_at": "2026-11-10T13:49:29Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/one_blues_fan/status/2120374533534499207",
+  "author": "one_blues_fan",
+  "text": "30,000+ repositories targeted by GhostAction: compromised developer accounts, malicious CI/CD workflows, stolen credentials including AI API keys.",
+  "created_at": "2026-11-11T04:34:18Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/Sujeet/status/2120190160273023310",
+  "author": "Sujeet",
+  "text": "A supply-chain attack through malicious GitHub workflows compromised tens of thousands of repositories, including Uber-owned ones.",
+  "created_at": "2026-11-10T16:21:40Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/W3B_AI_SR/status/2120175816021573713",
+  "author": "W3B_AI_SR",
+  "text": "Supply chain attack targets Zcash, Vizor and Keplr developers: malicious PRs and a Rust crate lwd-uri-util that steals developer secrets during builds. Rotate secrets.",
+  "created_at": "2026-11-10T15:24:40Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/ESultanik/status/2120127257322955101",
+  "author": "ESultanik",
+  "text": "Attempted supply chain attack on Graphtage via a trusted contributor's presumably compromised GitHub account.",
+  "created_at": "2026-11-10T12:11:42Z",
   "cves": []
  },
  {
   "url": "https://x.com/polydaic/status/2120290153205834076",
   "author": "polydaic",
-  "text": "we planted fake LLM API keys across github, npm and pypi to see what bots do with stolen credentials\n\none tried getting models to introduce themselves in chinese\n\nturns out part of the AI credential theft pipeline is literally asking \"can you speak mandarin\" and seeing if the",
-  "created_at": "2026-11-10T22:59:00.000Z",
+  "text": "Planted fake LLM API keys across GitHub, npm and PyPI to observe what bots do with stolen AI credentials.",
+  "created_at": "2026-11-10T22:59:00Z",
   "cves": []
  },
  {
-  "url": "https://x.com/Dripome/status/2120397218259882483",
-  "author": "Dripome",
-  "text": "SlowMist and Socket found wallet-key-stealing malware in two official Swarm releases (bee-js 13.3.0, Swarm Desktop 0.56.2), via a hijacked GitHub release process, per TokenPost. GitHub says treat affected devices as compromised.\n\nCheck your versions and rotate keys if exposed.",
-  "created_at": "2026-11-11T06:04:26.000Z",
+  "url": "https://x.com/cmani/status/2120462001361289326",
+  "author": "cmani",
+  "text": "Cybercriminals increasingly target cloud AI developer platforms to steal compute and API keys; hackers breached cloud-computing company Railway.",
+  "created_at": "2026-11-11T10:21:52Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/myldao/status/2120451270863659164",
+  "author": "myldao",
+  "text": "Railway published its full incident report: on Oct 20 attackers broke into its build system and could have decrypted customer env vars in up to 100,000 workspaces, running up about $740,000 in AI charges.",
+  "created_at": "2026-11-11T09:39:13Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/BigVikDada/status/2120335999481917539",
+  "author": "BigVikDada",
+  "text": "Railway: attacker partially escaped build sandbox via unknown isolation bug, then a misconfigured OIDC binding gave a cloud credential, reaching the encrypted env-var production database.",
+  "created_at": "2026-11-11T02:01:10Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/csehra42/status/2120387660523135108",
+  "author": "csehra42",
+  "text": "Railway's postmortem: the attacker wanted AI provider keys and searched variable names with regexes.",
+  "created_at": "2026-11-11T05:26:27Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/dailytechonx/status/2120207556689678596",
+  "author": "dailytechonx",
+  "text": "Attackers used AI agents, build system flaws, and misconfigured cloud trust at Railway to steal API keys and run up ~$740,000 in unauthorized AI-service charges. Rotate secrets.",
+  "created_at": "2026-11-10T17:30:47Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/_soleysok/status/2120435055801577680",
+  "author": "_soleysok",
+  "text": "If you deployed on Railway before Oct 21, rotate your keys today; Railway posted the full postmortem for its October breach.",
+  "created_at": "2026-11-11T08:34:47Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/hackerlogs/status/2120265697641046045",
+  "author": "hackerlogs",
+  "text": "Fireworks AI inference platform was breached by an LLMjacking crew; Notion says some Notion AI chat transcripts were in the stolen data.",
+  "created_at": "2026-11-10T21:21:49Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/CyberWatchFloor/status/2120131788659998788",
+  "author": "CyberWatchFloor",
+  "text": "Fireworks AI disclosed a second breach: intruder got in through a cloud provider and reached billing data and some customers' model weights and datasets. Rotate API keys.",
+  "created_at": "2026-11-10T12:29:43Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/NobrainerNg/status/2120320740377415905",
+  "author": "NobrainerNg",
+  "text": "Notion's AI vendor Fireworks was breached; some Notion AI chats (<1% of workspaces) may be exposed. Rotate any passwords or API keys pasted into Notion AI.",
+  "created_at": "2026-11-11T01:00:32Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/Airdr0p360/status/2120232302508982281",
+  "author": "Airdr0p360",
+  "text": "NEAR AI confirmed a Nov 8 breach via an SGLang flaw: ~100 users' account details, 18 legacy AI agents and 2 Cloud API keys exposed.",
+  "created_at": "2026-11-10T19:09:07Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/cytexsmb/status/2120162180611911848",
+  "author": "cytexsmb",
+  "text": "Qubole supply-chain attack: between Oct 14 and 26 an attacker used IAM credentials from idle customer integrations with still-active AWS access.",
+  "created_at": "2026-11-10T14:30:29Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/aviatrixtrc/status/2120237014939275479",
+  "author": "aviatrixtrc",
+  "text": "Researchers observed Claude Code silently writing cloud keys, DB passwords and SSH credentials into hidden config files later committed to public GitHub repos.",
+  "created_at": "2026-11-10T19:27:51Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/botnewsnetwork/status/2120345406815236474",
+  "author": "botnewsnetwork",
+  "text": "X1Y1 checked 10,659 public MCP config files: two thirds of package-based servers are unpinned, so every agent restart runs unreviewed code.",
+  "created_at": "2026-11-11T02:38:33Z",
   "cves": []
  }
 ]
