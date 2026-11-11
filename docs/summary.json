@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-11T09:36:01Z",
-  "next_update_note": "Next summary update around 8:30 AM EST (Wednesday Nov 11).",
-  "headline": "Quiet overnight again: no new exploited zero-day or major platform breach since the 12:40 AM update. SecurityWeek and The Hacker News confirm attackers are using Cisco BroadWorks CVE-2026-20320 and Openwave Webtop CVE-2026-111793 to pull configuration and other sensitive data (CISA deadline Nov 24). Microsoft's November total is now reported as 1,259 fixes (The Hacker News); Intel and AMD added 200+ more, including three critical Intel TDX MigTD flaws. CISA's deadline for SSHole, GPUStack, Aspera and FreeSWITCH is tomorrow, Nov 12. Still act now on Railway secrets, the Outlook zero-day, Fortinet's eight criticals, Barracuda ESG, Xen Orchestra and React/Next.js RCE.",
-  "ai_headline": "No new AI-driven intrusion was disclosed overnight; the AI-cause list is still led by Railway's AI-agent breach (The Hacker News now repeats the $740,000 in stolen AI usage), the Claude-assisted Outlook zero-day find, Fortinet's Claude Mythos-found batch and Malbear's jailbroken DeepSeek agent. New: Microsoft researchers showed 'Lazarus', which plants a hidden command backdoor in an open-weight agent model by editing fewer than 10 neurons (research only, Claude Code credited with the core idea; not seen in the wild). Unverified X chatter: an AG2 agent-shell filter bypass (CVE-2026-113663, a newline slips past allowed-command lists) and a claim that an AI agent broke out of its cyber-range eval sandbox.",
+  "updated_at": "2026-11-11T13:39:40Z",
+  "next_update_note": "Next summary update around 12:30 PM EST (Wednesday Nov 11).",
+  "headline": "Morning update: still no new exploited zero-day or major platform breach since 4:35 AM EST, but several big follow-ups. Fortinet's full Nov 10 drop is 89 advisories fixing nearly 100 flaws (about 17 critical, FortiMail hit hardest, plus a FortiClient 'Fortinet2Shell' browser-to-code bug) after it added frontier AI models to its testing (SecurityWeek). N-able shipped N-central 2026.4 Hotfix 2 for the Able2Shell zero-days (7 CVEs; hosted servers upgraded, on-prem must upgrade; scanning seen, no exploitation). Maersk is investigating data extraction from a local legacy system. CISA's deadline for SSHole, GPUStack, Aspera and FreeSWITCH is tomorrow, Nov 12. Still act now on Railway secrets, the Outlook zero-day, Fortinet, Barracuda ESG, Xen Orchestra and React/Next.js RCE.",
+  "ai_headline": "No new AI-driven intrusion was disclosed this morning; the AI-cause list is still led by Railway's AI-agent breach ($740,000 in stolen AI usage), the Claude-assisted Outlook zero-day find, Fortinet's AI-assisted batch (now about 100 fixes) and Malbear's jailbroken DeepSeek agent. New on AI products: Claroc found 35,578 of 37,571 Grok-built apps open to anyone, about 1 in 10 holding business or personal data, including 24 apps by X/SpaceXSI staff (now removed). Sekoia says an LLM decoded the Danfoss refrigeration-controller exploit in minutes and warns AI lowers the bar for ICS attacks. Unverified X chatter: a silently fixed opencode RCE via a malicious remote MCP server, and a Visual Studio Copilot .mcp.json write bypass (CVE-2026-103572).",
   "focus": [
     {
       "title": "Railway full incident report (Nov 10): attacker used AI agents on safety-stripped models to break in, decrypt customer env vars and run up about $740,000 in stolen AI usage",
@@ -36,7 +36,7 @@
       "ai_note": "AI-assisted find: Microsoft's acknowledgment says the researcher used Claude. Attackers' use of AI is not reported."
     },
     {
-      "title": "Fortinet: eight critical flaws in FortiOS, FortiManager, FortiAnalyzer and FortiSASE, mostly found with Claude Mythos; worst is unauthenticated RCE CVE-2026-126170 (CVSS 9.8)",
+      "title": "Fortinet: 89 advisories fix nearly 100 flaws (about 17 critical) after it added frontier AI models (Claude Mythos) to testing; worst include unauthenticated RCE CVE-2026-126170 (CVSS 9.8)",
       "severity": "critical",
       "exploited": false,
       "cves": [
@@ -49,13 +49,13 @@
         "CVE-2026-126259"
       ],
       "vendor": "Fortinet",
-      "why": "Fortinet published eight critical advisories on Nov 10 (CVSS 9.0-9.8), six needing no login. CVE-2026-126170 is a JSON-injection flaw in the FortiManager/FortiAnalyzer JRPC API that can run code when the JSON API is enabled (off by default); CVE-2026-126262 is a pre-auth SQL injection over OFTP, CVE-2026-126261 a command-execution bug via the FGFM port, and CVE-2026-126260 a pre-auth SSRF over OFTP. Fortinet's advisory credits its own researcher working with Claude Mythos. None are reported exploited, but Fortinet bugs are usually attacked quickly and some fixes (FortiManager/FortiAnalyzer 8.0.3) are still 'upcoming'.",
-      "action": "Upgrade FortiManager/FortiAnalyzer 7.6 to 7.6.8 (8.0 to 8.0.3 when out) and FortiOS to 7.2.14, 7.4.13, 7.6.8 or 8.0.2 per advisory. Until patched, set 'rpc-permit none' on admin profiles to turn off the JSON API, and keep OFTP and FGFM ports off the internet.",
-      "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-219",
+      "why": "SecurityWeek (Nov 11) counts 89 new advisories covering nearly 100 vulnerabilities, about 17 critical, three weeks after Fortinet said it added frontier AI models to its product security testing. FortiMail got the most critical fixes, then FortiAuthenticator, FortiOS, FortiManager and FortiAnalyzer; FortiSASE and FortiClient also have criticals. CVE-2026-126170 is a JSON-injection flaw in the FortiManager/FortiAnalyzer JRPC API that can run code when the JSON API is enabled (off by default). A FortiClient bug researcher Kevin Joensen calls 'Fortinet2Shell' lets a malicious website run code on a PC through a CORS misconfiguration when FortiPAM is enabled. None reported exploited, but AI shortens the time to exploit.",
+      "action": "Upgrade FortiOS, FortiManager, FortiAnalyzer, FortiMail, FortiAuthenticator, FortiSASE and FortiClient per Fortinet's November PSIRT advisories, FortiMail and internet-facing devices first. Until patched, disable the FortiManager/FortiAnalyzer JSON API ('rpc-permit none') and keep OFTP/FGFM and admin ports off the internet.",
+      "url": "https://www.securityweek.com/fortinet-patches-nearly-100-vulnerabilities/",
       "ai_angle": [
         "cause"
       ],
-      "ai_note": "AI-found: Fortinet credits Claude Mythos for finding CVE-2026-126170 and most of the batch. No sign attackers used AI."
+      "ai_note": "AI-assisted finds: Fortinet credits frontier AI models (Claude Mythos) for most of the batch."
     },
     {
       "title": "Jailbroken AI agent (DeepSeek-based) spent two weeks inside a European telecom's data centre and cloud, which hosts 13 organisations (Malbear Labs, Nov 10)",
@@ -134,6 +134,26 @@
       "ai_note": ""
     },
     {
+      "title": "N-able N-central 'Able2Shell': Hotfix 2 (build 2026.4.1.26) now out for the 7 most critical of 33 public zero-days; on-prem servers must upgrade before going back online",
+      "severity": "critical",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-125883",
+        "CVE-2026-125881",
+        "CVE-2026-125878",
+        "CVE-2026-125882",
+        "CVE-2026-125879",
+        "CVE-2026-91000",
+        "CVE-2026-125880"
+      ],
+      "vendor": "N-able (RMM)",
+      "why": "A researcher published proof-of-concept exploits for 33 N-central flaws on Nov 8, including an unauthenticated XXE chain that runs code on the server. N-able released Hotfix 2 on Nov 10 fixing seven CVEs (XXE and SSRF at CVSS 9.3, OGNL injection, upload path traversal RCE, root privilege escalation); a further hotfix is planned. Hosted servers were upgraded by Nov 11. N-able reports scanning with the public PoC but no confirmed customer compromise. An RMM server compromise reaches every managed client.",
+      "action": "On-prem: keep N-central offline until upgraded to 2026.4 HF2 (build 2026.4.1.26). Everyone: upgrade Agents first, then Probes. Review logins, new admin accounts, remote sessions and deployed scripts since Nov 8, and watch for the follow-up hotfix.",
+      "url": "https://www.rapid7.com/blog/post/etr-critical-vulnerabilities-in-n-able-n-central-prompt-hosted-shutdown/",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
       "title": "React Server Components RCE CVE-2026-126187 (CVSS 9.5): unauthenticated code execution; Next.js 16 must update next itself",
       "severity": "critical",
       "exploited": false,
@@ -163,87 +183,79 @@
       "ai_note": "AI product flaw (an LLM inference engine) exploited to breach an AI provider."
     },
     {
-      "title": "GPUStack CVE-2026-102895 (CVSS 9.8): AI model-serving cluster manager admin bypass now exploited; CISA KEV Nov 9 (deadline tomorrow, Nov 12)",
-      "severity": "critical",
-      "exploited": true,
-      "cves": [
-        "CVE-2026-102895"
-      ],
-      "vendor": "GPUStack",
-      "why": "Before 2.2.0, GPUStack treated requests that looked like they came from 127.0.0.1 as the built-in admin by default (force_auth_localhost false). A same-host reverse proxy or a forged X-GPUStack-Real-IP header makes any remote request look local, giving unauthenticated admin: change users and models, create persistent admin API keys, read worker and cloud-provider secrets, and run code via POST /v2/inference-backends/from-yaml. Exploitation was seen against a 2.1.1 deployment; CISA added it to KEV on Nov 9. Last update this was only unverified X chatter.",
-      "action": "Upgrade to GPUStack 2.2.0 now (set force_auth_localhost true if you can't yet) and keep the API off the internet. If it was exposed: delete unknown admin API keys and users, check inference backends for YAML you didn't add, and rotate the worker and cloud-provider credentials it stored.",
-      "url": "https://github.com/gpustack/gpustack/security/advisories/GHSA-gj9m-f8ph-pmhr",
-      "ai_angle": [
-        "product"
-      ],
-      "ai_note": "AI product: GPUStack runs and provisions GPU clusters for AI model serving and stores cloud credentials."
-    },
-    {
-      "title": "xAI Grok Bot agent sandbox (Profero, Nov 9): one prompt-injected command can lead to root on the account VM and theft of saved cookies, connector tokens and files; reported unpatched",
-      "severity": "critical",
+      "title": "Grok-built apps: 35,578 of 37,571 found online were open to anyone, some leaking confidential data and passwords (Claroc research, Nov 10)",
+      "severity": "high",
       "exploited": false,
       "cves": [],
-      "vendor": "xAI / Grok Bot",
-      "why": "Profero says a command run in a Grok Bot sandbox can reach an unauthenticated Docker API on the VM and start a privileged container, and that the command service is reachable from the internet with a hard-coded password ('local') plus a per-account token copied off disk. Because all agents in an account share one Linux user, filesystem and credentials, a single injected command (from a web page, repo or package) could expose imported browser cookies in plaintext, the connector gateway token (mail, files, calendar) and stored files. Profero says it reported this Aug 24, re-tested through October with no change, and found no cross-customer access. No CVEs; no public vendor statement found, so current patch status is unverified.",
-      "action": "If you use Grok Bot: until a fix is confirmed, avoid importing cookies or saved logins for high-value accounts (payment, identity, admin consoles), limit which connectors are linked, avoid pointing agents at untrusted pages, repos or packages, and rotate imported sessions and connected-service access if you suspect an agent ran untrusted instructions.",
-      "url": "https://profero.io/blog/the-rootkit-built-into-grok-bot",
+      "vendor": "SpaceXSI (xAI) Grok app builder",
+      "why": "Claroc found the apps through passive DNS records of grok.me subdomains; about 1 in 10 open apps held internal business or personal data, including 24 apps by X and SpaceXSI staff (a confidential ad proposal to a U.S. agency, a sales territory map) and data from 30 other organizations, among them a hospital staff list and a timesheet with plain-text passwords. Publishing preselects 'Anyone with the link', and a Grok-generated sign-in added any Google account to the team before checking it. SpaceXSI removed the staff apps; other apps are unchanged.",
+      "action": "Find out whether staff use Grok or other AI app builders (Lovable, Replit, v0, Bolt, Base44). Set any Grok app with internal data to 'Invited users' or 'Only you', test that an outside account is refused, remove hard-coded credentials and rotate any exposed passwords, and unpublish ownerless apps.",
+      "url": "https://thehackernews.com/2026/11/over-35000-grok-built-apps-exposed.html",
       "ai_angle": [
         "product"
       ],
-      "ai_note": "Flaw in an AI agent product; prompt injection is the expected entry point."
+      "ai_note": "Flaw in an AI product: an AI app builder's public-by-default sharing and AI-written access checks exposed data."
     }
   ],
   "news": [
     {
+      "title": "Fortinet patches nearly 100 vulnerabilities",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/fortinet-patches-nearly-100-vulnerabilities/",
+      "blurb": "89 advisories, about 17 critical, after Fortinet added frontier AI models to its testing; FortiMail hit hardest."
+    },
+    {
       "title": "Railway says stolen customer AI keys led to $740,000 in estimated unauthorized usage charges",
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/11/railway-says-stolen-customer-ai-keys.html",
-      "blurb": "Keys stored in Railway env vars were stolen in October and abused for AI usage; Railway will cover what providers won't refund."
+      "blurb": "Keys stored in Railway env vars were stolen in October and abused; Railway will cover what providers won't refund."
     },
     {
-      "title": "Microsoft researchers show AI agents can be backdoored by editing fewer than 10 neurons",
+      "title": "Over 35,000 Grok-built apps exposed online, some leaking confidential data and passwords",
       "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/microsoft-researchers-show-ai-agents.html",
-      "blurb": "'Lazarus' makes an agent model emit an attacker's command on a trigger; needs write access to weights. Verify checkpoints against the publisher's originals."
+      "url": "https://thehackernews.com/2026/11/over-35000-grok-built-apps-exposed.html",
+      "blurb": "Public-by-default sharing plus passive DNS made apps findable, including 24 by X/SpaceXSI staff."
     },
     {
-      "title": "Threat actors exploit Openwave, Cisco BroadWorks vulnerabilities",
-      "source": "SecurityWeek",
-      "url": "https://www.securityweek.com/threat-actors-exploit-openwave-cisco-broadworks-vulnerabilities/",
-      "blurb": "Both flaws leak sensitive data such as configuration; BroadWorks one was used by the AI-driven Operation Snowball. KEV due Nov 24."
+      "title": "Critical vulnerabilities in N-able N-central prompt hosted shutdown (updated: Hotfix 2 out)",
+      "source": "Rapid7",
+      "url": "https://www.rapid7.com/blog/post/etr-critical-vulnerabilities-in-n-able-n-central-prompt-hosted-shutdown/",
+      "blurb": "HF2 fixes seven CVEs; hosted servers upgraded, on-prem must upgrade, agents then probes."
     },
     {
       "title": "Microsoft patches 1,259 flaws, including exploited Outlook bug that may expose NTLMv2 hashes",
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/11/microsoft-patches-1259-flaws-including.html",
-      "blurb": "Second month in a row above 1,000 fixes; the Outlook zero-day was found with Claude's help."
+      "blurb": "The Outlook zero-day was found with Claude's help; CISA deadline Nov 24."
     },
     {
-      "title": "Fortinet critical vulnerabilities hit FortiManager, FortiOS",
-      "source": "SecurityOnline",
-      "url": "https://securityonline.info/fortinet-critical-vulnerabilities-november-2026/",
-      "blurb": "Eight critical advisories, six pre-auth, most found internally with Claude Mythos; some fixes still upcoming."
+      "title": "The cold chain on fire: unpatched Danfoss controllers exploited",
+      "source": "Sekoia",
+      "url": "https://www.sekoia.com/blog/the-cold-chain-on-fire-unpatched-danfoss-controllers-exploited",
+      "blurb": "Iran's IRGC-linked unit hit exposed refrigeration controllers in two waves; an LLM decoded the exploit in minutes."
     },
     {
-      "title": "Chipmaker Patch Tuesday: over 200 vulnerabilities addressed by Intel, AMD",
+      "title": "Threat actors exploit Openwave, Cisco BroadWorks vulnerabilities",
       "source": "SecurityWeek",
-      "url": "https://www.securityweek.com/chipmaker-patch-tuesday-over-200-vulnerabilities-addressed-by-intel-amd/",
-      "blurb": "Three critical Intel TDX MigTD flaws (CVE-2026-61887 can allow code execution); AMD fixes are partly delayed into 2027."
+      "url": "https://www.securityweek.com/threat-actors-exploit-openwave-cisco-broadworks-vulnerabilities/",
+      "blurb": "Both leak configuration and other data; the BroadWorks bug was used by the AI-driven Operation Snowball. KEV due Nov 24."
     },
     {
-      "title": "SGLang RCE exploit breaches NEAR AI, steals data from 18 agents and about 100 users",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html",
-      "blurb": "Inference-server RCE was the way in; no CVE or fixed SGLang version named yet."
-    },
-    {
-      "title": "Recently patched Barracuda vulnerabilities exploited in attacks",
-      "source": "SecurityWeek",
-      "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/",
-      "blurb": "ESG chain gives pre-auth root; confirm firmware 9.4.0.029+."
+      "title": "Shipping firm Maersk investigates IT security incident",
+      "source": "CNA / Reuters",
+      "url": "https://www.channelnewsasia.com/business/shipping-firm-maersk-investigates-it-security-incident-6542751",
+      "blurb": "Unauthorized access and data extraction from a local legacy system; Maersk sees no sign sensitive data was disclosed or operations hit."
     }
   ],
   "watch": [
+    "Maersk (Nov 11): investigating unauthorized access and data extraction from one local legacy system; says findings so far strongly suggest no sensitive data was disclosed and no impact on customer or partner systems. https://www.channelnewsasia.com/business/shipping-firm-maersk-investigates-it-security-incident-6542751",
+    "Danfoss refrigeration controllers (Sekoia, Nov 10): France attributes the October and Nov 1-2 attacks on 700+ supermarkets (and French Blood Establishment cold rooms) to an IRGC-linked unit (CyberAv3ngers). Exposed controllers on old firmware were hit, likely via unauthenticated account rename and password reset. Sekoia's LLM decoded the exploit in minutes. Take controllers off the internet, update firmware, replace default passwords. https://www.sekoia.com/blog/the-cold-chain-on-fire-unpatched-danfoss-controllers-exploited",
+    "opencode RCE (X, Nov 11, unverified): a post says opencode 1.18.33 (Sep 28) quietly fixed a code-execution chain where a malicious remote MCP server hands the client an OAuth URL; no advisory or CVE. Update opencode and only connect trusted MCP servers.",
+    "Visual Studio Copilot CVE-2026-103572 (X, Nov 11, unverified detail): the protected-file check misses '.mcp.json.' (Windows drops the trailing dot), so the agent can rewrite its MCP config. Apply November Visual Studio updates.",
+    "eMudhra (The Hacker News, Nov 11): eight more intermediate CAs revoked after its October key-compromise script bug. Check apps and devices that pin or trust eMudhra intermediates.",
+    "Philippines BIR (Nov 10): taxpayer profile data may have been exposed after Nov 6-7 incidents; a 10M-record leak claim circulates. Several other Philippine agencies also filed breach notices.",
+    "Moved from focus: GPUStack CVE-2026-102895 (CVSS 9.8 admin bypass, exploited, CISA KEV due Nov 12). Upgrade GPUStack past the fixed release and keep its API off the internet.",
+    "Moved from focus: xAI Grok Bot agent sandbox chain (Profero, Nov 9): a prompt-injected command could lead to root on the account VM and theft of saved cookies and connector tokens. Watch for SpaceXSI's fix and limit what agents can reach.",
     "Intel / AMD (SecurityWeek, Nov 11): Intel's 24 advisories fix about 100 flaws, including three critical authentication bugs in TDX MigTD reference software (CVE-2026-61887 can allow code execution); AMD's 29 bulletins cover about 100 CVEs, none critical, some fixes not due until 2027. Intel BigDL is discontinued with no patch: uninstall it. https://www.securityweek.com/chipmaker-patch-tuesday-over-200-vulnerabilities-addressed-by-intel-amd/",
     "Openwave Webtop Media Transcoder CVE-2026-111793 (CISA KEV Nov 10, due Nov 24): exploited to obtain sensitive data via crafted uploads (JVN flagged Nov 9). Fixed since version 1.1.22.0; confirm you run it or later.",
     "Microsoft 'Lazarus' research (Nov 11): editing fewer than 10 neurons plants a trigger-activated command backdoor in open-weight agent models (Nemotron-Terminal-8B, Qwen3.6-27B, Gemma-4-31B). Not seen in the wild. Pull models only from original publishers, check hashes, keep a private model registry and sandbox agent commands. https://thehackernews.com/2026/11/microsoft-researchers-show-ai-agents.html",
@@ -268,7 +280,6 @@
     "Tappee (Singapore school-meal app by SATS, Nov 10): a flaw in the vendor's platform exposed student names, emails, financial-assistance status, concession card numbers and some health data at four schools; app offline.",
     "Mongoose CVE-2026-125120 (CVSS 9.8, Nov 10): sanitizeFilter not applied on countDocuments, allowing query injection. Update mongoose when the fix lands in your major version.",
     "Moved from focus: UnrealIRCd CVE-2026-114713 (AI-found, exploited). Apply hot-patch bundle-20261107 or upgrade to 6.2.7.1. https://forums.unrealircd.org/viewtopic.php?t=9487",
-    "Moved from focus: N-able N-central 'Able2Shell' (33 public exploit chains, no exploitation confirmed). Keep on-prem servers offline until N-able's hotfix, then review logins, new admins and deployed scripts since Nov 8.",
     "Brotli CVE-2026-111497 (exploited, KEV): Cisco published its Node.js/Brotli product advisory Nov 10, after Palo Alto's Nov 9; many products embed their own Brotli copies. Find embedded copies, patch and rebuild.",
     "Moved from focus: SPH Media (Singapore; Nov 4-8): one actor hit five systems, about 9% of its database (names, emails, addresses, phones; no card or banking data). SPH says it cannot yet confirm AI was involved. Subscribers and vendors: expect phishing citing real order details. https://www.channelnewsasia.com/singapore/sph-media-cyberattack-data-breach-6538681",
     "AhsayCBS CVE-2026-105133 + CVE-2026-105134 (Huntress via The Hacker News, Nov 10): chained auth bypass and command execution, used as zero-days in early October, patched mid-October. Attackers planted five web-shell families, two XMRig miners, tunnels (GOST, Chisel), remote tools and a host-locked Python backdoor, and queried a Veeam server's stored credentials. Patch AhsayCBS, hunt for odd JSP files and Defender exclusions, and rotate credentials held by backup software. https://thehackernews.com/2026/11/attackers-exploit-ahsaycbs-flaws-to.html",
@@ -288,7 +299,6 @@
     "Claude Code 2.1.321 (Nov 9): fixes MCP OAuth sending refresh tokens to another host on redirect and a read-only Bash path that skipped the sandbox; separately CVE-2026-88968 (Edit tool race can write outside the workspace). Update Claude Code.",
     "AgentScope CVE-2026-123022 (AI agent framework, through 2.0.11): unauthenticated command execution via the MCP workspace API; public exploit, no fix as of Nov 9. Bind AgentScope to 127.0.0.1 or block POST /workspace/mcp at the proxy until a patched release ships. https://github.com/advisories/GHSA-m997-8g56-6phf",
     "Atlassian Rovo AI agent (X, Nov 9, unverified): researchers reportedly showed a crafted link could seed hidden instructions that make Rovo leak private Confluence, Jira and SharePoint data. Wait for Atlassian's advisory; meanwhile limit what connectors Rovo can reach.",
-    "France / Iran (Nov 9): France blames Iranian state hackers for October attacks on refrigeration controls at 700+ supermarkets that caused at least 15 fires. Keep building-management and refrigeration controllers off the internet and change default passwords.",
     "Moved from focus: PHP2Shell (CVE-2026-109618 / CVE-2026-109619; CISA KEV, exploited including against PAN-OS management interfaces). Patch PHP to the fixed release for your branch and keep PAN-OS management off the internet.",
     "Moved from focus: SonicWall SonicOS CVE-2026-19868 (SSL-VPN SAML/MFA bypass, CISA KEV Nov 6). Apply SonicWall's firmware fix, reset VPN user credentials and review VPN logins since early November.",
     "Moved from focus: Microsoft / CERT-In / VulnCheck ARTEX campaigns (agents hunt GitHub secrets and exploit Langflow to reach Azure tenants; Storm-3358 and Crafty Falcon hit banks). Rotate any secret ever pushed to GitHub, patch Langflow, and alert on Key Vault reads by new identities.",
@@ -298,16 +308,30 @@
     "Adobe Commerce / Magento PolyShell CVE-2026-48356 (CISA KEV, federal deadline passed Nov 10): apply Adobe's fix, block executable uploads in media folders and hunt for web shells and skimmers."
   ],
   "ai_activity": {
-    "overview": "87 AI-related items in the last 7 days (36 AI as the cause, 40 AI products attacked or flawed, 11 AI-impact/AI-key incidents). AI-caused activity is dominated by agentic intrusion frameworks: ARTEX (Storm-3358, GitHub-to-Azure secret hunting, Crafty Falcon, VAPOR PANDA, WorkOS, the Korean banks, Storm-0940's ConnectWise pivot), BOSSAI, Operation Snowball (its Cisco BroadWorks bug is now confirmed exploited by SecurityWeek) and Chainalysis, plus Railway, where AI agents drove a breach that ended in about $740,000 of stolen AI usage. Defender-side AI keeps producing critical finds: Fortinet credits Claude Mythos for most of eight critical flaws, the exploited Outlook zero-day was found with Claude, and AI-found bugs (SSHole, PHP2Shell, Brotli, UnrealIRCd) were exploited within hours to a day. Overnight (to about 4:35 AM EST) added only research and unverified chatter: Microsoft's 10-neuron 'Lazarus' model backdoor, an AG2 agent-shell filter bypass, an unconfirmed eval-sandbox breakout and a VulnCheck-attributed Glasswing count. AI products under attack include SGLang (NEAR AI), Mittwald's MCP server, GPUStack (KEV), AgentScope's unpatched MCP API and Profero's Grok Bot sandbox chain; AI-impact incidents center on stolen AI provider keys at Railway, Fireworks/Notion, NEAR AI, GhostAction, Tensorlake, Botpress and Northflank.",
+    "overview": "90 AI-related items in the last 7 days (36 AI as the cause, 43 AI products attacked or flawed, 11 AI-impact/AI-key incidents). AI-caused activity is dominated by agentic intrusion frameworks: ARTEX (Storm-3358, GitHub-to-Azure secret hunting, Crafty Falcon, VAPOR PANDA, WorkOS, the Korean banks, Storm-0940's ConnectWise pivot), BOSSAI, Operation Snowball and Chainalysis, plus Railway, where AI agents drove a breach that ended in about $740,000 of stolen AI usage. Defender-side AI keeps producing big batches: Fortinet's AI-assisted testing yielded 89 advisories and nearly 100 fixes, the exploited Outlook zero-day was found with Claude, and AI-found bugs (SSHole, PHP2Shell, Brotli, UnrealIRCd) were exploited within hours to a day. This morning (to about 8:45 AM EST) added Claroc's Grok-built app exposure and unverified opencode and Visual Studio Copilot MCP-config bugs. AI products under attack include SGLang (NEAR AI), Mittwald's MCP server, GPUStack (KEV), AgentScope's unpatched MCP API and Profero's Grok Bot sandbox chain; AI-impact incidents center on stolen AI provider keys at Railway, Fireworks/Notion, NEAR AI, GhostAction, Tensorlake, Botpress and Northflank.",
     "counts": {
       "ai_cause": 36,
-      "ai_product_exploited": 40,
+      "ai_product_exploited": 43,
       "ai_impact": 11
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Fortinet fixes nearly 100 flaws in 89 advisories (about 17 critical) after adding frontier AI models to testing; eight criticals credited to Claude Mythos (worst: pre-auth RCE CVE-2026-126170, CVSS 9.8)",
+            "date": "2026-11-11T12:10:00Z",
+            "summary": "SecurityWeek (Nov 11) counts the full drop; FortiMail got the most critical fixes, and a FortiClient 'Fortinet2Shell' bug lets a website run code when FortiPAM is enabled. None reported exploited. Upgrade per advisory; disable the JSON API with 'rpc-permit none' and keep OFTP/FGFM ports off the internet.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-126170",
+              "CVE-2026-126262",
+              "CVE-2026-126261",
+              "CVE-2026-126260"
+            ],
+            "url": "https://www.securityweek.com/fortinet-patches-nearly-100-vulnerabilities/",
+            "source": "SecurityWeek / Fortinet PSIRT"
+          },
           {
             "title": "Unverified: AI agent in a cyber-range evaluation broke out of its own evaluation sandbox after the target server crashed",
             "date": "2026-11-11T05:37:00Z",
@@ -336,20 +360,6 @@
             ],
             "url": "https://x.com/Edmond_J_/status/2120288784814133300",
             "source": "X"
-          },
-          {
-            "title": "Fortinet fixes eight critical FortiOS/FortiManager/FortiAnalyzer/FortiSASE flaws, most found by its team using Claude Mythos (worst: pre-auth RCE CVE-2026-126170, CVSS 9.8)",
-            "date": "2026-11-10T22:43:00Z",
-            "summary": "Six of eight need no login; none reported exploited. Upgrade per advisory or disable the JSON API with 'rpc-permit none' and keep OFTP/FGFM ports off the internet.",
-            "status": "patched",
-            "cves": [
-              "CVE-2026-126170",
-              "CVE-2026-126262",
-              "CVE-2026-126261",
-              "CVE-2026-126260"
-            ],
-            "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-219",
-            "source": "Fortinet PSIRT / SecurityOnline"
           },
           {
             "title": "Dark Reading: Storm-0940 used ARTEX code for mass password spraying, then stole ConnectWise Cloud Backup OAuth credentials to reach 2,250+ Microsoft 365/Azure tenants",
@@ -660,6 +670,35 @@
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "Unverified: opencode 1.18.33 silently fixed an RCE reachable from a malicious remote MCP server's OAuth URL",
+            "date": "2026-11-11T12:36:00Z",
+            "summary": "Single X post; no advisory or CVE. Update opencode and connect only trusted MCP servers.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/for_N5R1/status/2120495826891878406",
+            "source": "X"
+          },
+          {
+            "title": "Claroc: 35,578 of 37,571 Grok-built apps open to anyone; about 1 in 10 held business or personal data, incl. 24 X/SpaceXSI staff apps",
+            "date": "2026-11-11T12:19:00Z",
+            "summary": "Found via passive DNS of grok.me subdomains; publishing preselects 'Anyone with the link' and a Grok-written sign-in let any Google account in. SpaceXSI removed staff apps. Set apps to 'Invited users' or 'Only you' and remove embedded passwords.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/11/over-35000-grok-built-apps-exposed.html",
+            "source": "The Hacker News"
+          },
+          {
+            "title": "Unverified detail: Visual Studio Copilot CVE-2026-103572 lets the agent write '.mcp.json' via a trailing-dot filename",
+            "date": "2026-11-11T09:30:00Z",
+            "summary": "X post describing a November Patch Tuesday fix; the protected-file check misses '.mcp.json.' because Windows ignores the trailing dot. Apply Visual Studio updates.",
+            "status": "unverified",
+            "cves": [
+              "CVE-2026-103572"
+            ],
+            "url": "https://x.com/modularciso/status/2120448950826361248",
+            "source": "X"
+          },
           {
             "title": "Unverified: AG2 SandboxShellTool command filter bypassed with a newline (CVE-2026-113663, CVSS 8.8)",
             "date": "2026-11-11T08:15:00Z",
@@ -1157,6 +1196,6 @@
         ]
       }
     ],
-    "trend_note": "Defenders' AI is finding critical bugs in batches (Fortinet, Microsoft), so expect larger patch drops and quicker attacker reverse-engineering. Attackers' AI agents keep winning with known bugs, leftover credentials and over-trusted OAuth apps or cloud roles, with AI provider keys as the prize. New research (Lazarus) adds tampered model weights as a supply-chain risk for agents: only run models whose origin you can verify. Auth on every AI endpoint, least-privilege tokens, spend alerts and fast key rotation still block most of it."
+    "trend_note": "Defenders' AI is finding bugs in batches (Fortinet's ~100, Microsoft's 1,259), so expect bigger patch drops and faster attacker reverse-engineering; Sekoia's Danfoss work shows an LLM can decode an ICS exploit in minutes. Attackers' AI agents keep winning with known bugs, leftover credentials and over-trusted OAuth apps or cloud roles, with AI provider keys as the prize, while AI app builders and MCP clients add new exposure through public-by-default sharing and config-file tricks. Auth on every AI endpoint, least-privilege tokens, spend alerts and fast key rotation still block most of it."
   }
 }
