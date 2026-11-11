@@ -1,5 +1,12 @@
 [
  {
+  "url": "https://x.com/_soleysok/status/2120435055801577680",
+  "author": "_soleysok",
+  "text": "if you deployed on railway before oct 21, rotate your keys today.\n\nrailway just posted the full postmortem for its october breach. short version:\n- attacker partly escaped build isolation and grabbed a build server credential\n- that credential was meant only for pushing images,",
+  "created_at": "2026-11-11T08:34:47.000Z",
+  "cves": []
+ },
+ {
   "url": "https://x.com/Khaled865412521/status/2120430289247723728",
   "author": "Khaled865412521",
   "text": "AG2 SandboxShellTool: if you locked your agent's shell down with allowed=[...] or readonly=True, a single newline walks right past it.\n\nNew advisory GHSA-2h4w-29cv-2cmv (CVE-2026-113663, CVSS 8.8 high).\n\nThe filter blocks ; &amp;&amp; | and $( but never checks \\n. The command still runs https://t.co/aEtdouDJRG",
@@ -7,6 +14,13 @@
   "cves": [
    "CVE-2026-113663"
   ]
+ },
+ {
+  "url": "https://x.com/RightAgentai/status/2120415833641943158",
+  "author": "RightAgentai",
+  "text": "Two reminders this week that your AI vendor has vendors too:\n\nFireworks AI says an October breach reached billing records and, for some accounts, secrets and datasets.\n\nNotion says some AI chat transcripts were exposed through a third-party AI provider, under 1% of workspaces. https://t.co/0qtKwkg4sH",
+  "created_at": "2026-11-11T07:18:24.000Z",
+  "cves": []
  },
  {
   "url": "https://x.com/chris_uk2026/status/2120401674560778395",
@@ -227,11 +241,29 @@
   "cves": []
  },
  {
+  "url": "https://x.com/DarkWebInformer/status/2120260701944176641",
+  "author": "DarkWebInformer",
+  "text": "\ud83d\udea8 Google patches 8th actively exploited Chrome zero-day of 2026, warns attackers can execute malicious code\n\nGoogle has released an emergency Chrome security update addressing CVE-2026-125350, a high-severity use-after-free vulnerability in the browser's XML component that could https://t.co/RWVMBgzIUU",
+  "created_at": "2026-11-10T21:01:58.000Z",
+  "cves": [
+   "CVE-2026-125350"
+  ]
+ },
+ {
   "url": "https://x.com/_josehelps/status/2120259200349778257",
   "author": "_josehelps",
   "text": "Connect your coding agent to the wrong MCP server and it runs code on your box before the model does anything.\n\n@Pillar_sec (Eilon Cohen) found RCE in @opencode on Windows and WSL through the remote MCP OAuth flow. No prompt injection, no package install:\nhttps://t.co/vf8wvwGUQm",
   "created_at": "2026-11-10T20:56:00.000Z",
   "cves": []
+ },
+ {
+  "url": "https://x.com/DarkWebInformer/status/2120257141714133343",
+  "author": "DarkWebInformer",
+  "text": "\ud83d\udea8 Microsoft confirms hackers are exploiting Outlook zero-day to steal Windows authentication hashes, CVE-2026-124194\n\nMicrosoft has patched an actively exploited vulnerability in Outlook that could allow attackers to steal NTLM authentication hashes by tricking users into https://t.co/2BYHqZZ0Um",
+  "created_at": "2026-11-10T20:47:49.000Z",
+  "cves": [
+   "CVE-2026-124194"
+  ]
  },
  {
   "url": "https://x.com/DodoOnAir/status/2120244696060702952",
@@ -275,47 +307,17 @@
   "cves": []
  },
  {
+  "url": "https://x.com/DFIR_Radar/status/2120231071769837597",
+  "author": "DFIR_Radar",
+  "text": "Agentic AI is now a live threat actor tool. ARTEX, an open-source multi-agent pentest framework, was used in real intrusions weeks after its July 2026 release, including by Chinese \ud83c\udde8\ud83c\uddf3 state-aligned Storm-0940.\n\nKey details:\n\n- ARTEX is written in Go, supports multiple LLM https://t.co/B6hkV1jXf1",
+  "created_at": "2026-11-10T19:04:14.000Z",
+  "cves": []
+ },
+ {
   "url": "https://x.com/sushantx010/status/2120228462195830837",
   "author": "sushantx010",
   "text": "GPUStack before 2.2.0 gives admin to anything that looks like localhost, even requests behind a same-host proxy. It's exploited and in CISA KEV.\n\nWhat I'd do today:\n\nUpgrade, or set force_auth_localhost=true.\nHunt for YAML backends nobody added.\nRotate keys and cloud secrets.",
   "created_at": "2026-11-10T18:53:51.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/Sujeet/status/2120190160273023310",
-  "author": "Sujeet",
-  "text": "A supply-chain attack through malicious GitHub workflows compromised tens of thousands of repositories, including Uber-owned ones.\n\nThe workflow is the pipeline. A compromised action doesn't break into the repo \u2014 it is the repo's own automation, running with the repo's own",
-  "created_at": "2026-11-10T16:21:40.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/cveintelligence/status/2120181462440046781",
-  "author": "cveintelligence",
-  "text": "\ud83d\udea8 Critical 9.2 | CVE-2026-112136: Siemens Mendix Studio Pro \u2013 MCP Server exposed beyond loopback\nAn attacker with network access could interact remotely with the Mendix MCP Server.\nNo patch listed yet\nhttps://t.co/4haCAhNmnZ\n#CVE #Siemens",
-  "created_at": "2026-11-10T15:47:06.000Z",
-  "cves": [
-   "CVE-2026-112136"
-  ]
- },
- {
-  "url": "https://x.com/WeVerveSystems/status/2120178203138691323",
-  "author": "WeVerveSystems",
-  "text": "Adobe Commerce before Black Friday: apply the October update and the September hotfix for an exploited flaw, rotate keys and secrets, and test order integrations against today's Cloud Service release.\n\nhttps://t.co/fq1tuNRsZl\nhttps://t.co/CHKihXSvku\n\n#AdobeCommerce #Magento",
-  "created_at": "2026-11-10T15:34:09.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/W3B_AI_SR/status/2120175816021573713",
-  "author": "W3B_AI_SR",
-  "text": "\ud83d\udea8 Supply Chain Attack Targets Zcash, Vizor and Keplr Developers\n\nA new GitHub account sent malicious pull requests to Vizor and Zingo Labs and published a Rust crate that steals developer secrets during builds.\n\nAnyone who built the crate, lwd-uri-util, should rotate their",
-  "created_at": "2026-11-10T15:24:40.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/DataconomyMedia/status/2120158395479028003",
-  "author": "DataconomyMedia",
-  "text": "Apiiro found 2,539 exposed credentials in 1,994 public GitHub repositories linked to a Claude Code flaw. Teams are urged to rotate keys.\n\nhttps://t.co/q35NL16Nkz https://t.co/fAH5xADVRF",
-  "created_at": "2026-11-10T14:15:26.000Z",
   "cves": []
  }
 ]
