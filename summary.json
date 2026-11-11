@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-11T17:50:00Z",
-  "next_update_note": "Next summary update around 4:30 PM EST (Wednesday Nov 11).",
-  "headline": "Midday update: two big AI-angle disclosures since 8:40 AM EST. Arctic Wolf says attackers are using AntiFox, an open-source AI pentest agent, to break into IIS web apps and AWS accounts and read production secrets, and Depi showed a prompt-injection chain in OpenAI's Codex repo that could have let anyone publish a malicious @openai/codex npm release (fixed, no bad release reported). Maersk now confirms data was taken from a legacy LF Logistics system, with WhiteArmor demanding $5M; Zoom fixed a critical Workplace for Windows flaw (CVE-2026-108186). Still act now on Railway secrets, the Outlook and Chrome zero-days, Fortinet, Barracuda ESG, Xen Orchestra (exploitation confirmed by SecurityWeek) and React/Next.js RCE; CISA's SSHole, GPUStack, Aspera and FreeSWITCH deadline is tomorrow, Nov 12.",
-  "ai_headline": "New AI-cause item: AntiFox, a public multi-agent AI pentest platform, is being run from Alibaba Cloud in real intrusions that pulled AWS Secrets Manager values (Arctic Wolf via The Hacker News and BleepingComputer), joining ARTEX, Railway's AI-agent breach ($740,000 in stolen AI usage), the Claude-found Outlook zero-day, Fortinet's AI-assisted batch and Malbear's jailbroken DeepSeek agent. New AI-product item: Depi's Codex chain started with a prompt injection in a GitHub issue read by the codex-action labeler, escaped the sandbox and reached npm publishing rights; it shows any AI agent reading untrusted issues in CI is a supply-chain risk.",
+  "updated_at": "2026-11-11T21:34:52Z",
+  "next_update_note": "Next summary update around 8:30 PM EST (Wednesday Nov 11).",
+  "headline": "Afternoon update: Reuters and CloudSEK report Kazakhstan-linked Silent Lynx ran a months-long spying campaign on Tajikistan largely through a self-hosted Hermes AI agent (DeepSeek V4.1 Flash), stealing 2,000+ defense-related documents and reaching the state railway network. Apache HTTP Server has a critical mod_http2 race-condition RCE (CVE-2026-119618), found independently by Anthropic and Google; it is fixed in 2.4.71, with no exploit or attacks reported yet. Notion now confirms the Fireworks AI breach exposed Notion AI chat transcripts for under 1% of workspaces. Still act now on Railway secrets, AntiFox-style AWS key theft, the Outlook and Chrome zero-days, Fortinet, Barracuda ESG, Xen Orchestra and React/Next.js RCE; CISA's SSHole, GPUStack, Aspera and FreeSWITCH deadline is tomorrow, Nov 12.",
+  "ai_headline": "New AI-cause item: CloudSEK found Silent Lynx's exposed staging server showing a Hermes agent that did reconnaissance, broke into Tajikistan's electronic document system, wrote its own download and chunking tool, kept notes and tried to clean logs; it is one of the clearest cases yet of a state-linked group handing an espionage operation to an AI agent. Also new: the critical Apache httpd CVE-2026-119618 was found by Anthropic and Google researchers, another AI-era bug-hunting result, and Notion's confirmation shows how an AI inference provider breach reaches its customers' chat data. These join AntiFox, ARTEX, Railway's AI-agent breach ($740,000 in stolen AI usage), the Claude-found Outlook zero-day, Fortinet's AI-assisted batch and the Depi Codex CI chain.",
   "focus": [
     {
       "title": "Railway full incident report (Nov 10): attacker used AI agents on safety-stripped models to break in, decrypt customer env vars and run up about $740,000 in stolen AI usage",
@@ -32,6 +32,20 @@
         "cause"
       ],
       "ai_note": "An autonomous multi-agent AI pentest platform ran the intrusion chain."
+    },
+    {
+      "title": "Silent Lynx espionage run by a self-hosted Hermes AI agent: 2,000+ Tajik defense documents stolen, state railway network breached (CloudSEK via Reuters, Nov 11)",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Central Asian governments (targets); Hermes open-source agent framework, DeepSeek V4.1 Flash via OpenRouter",
+      "why": "CloudSEK recovered the group's exposed server: the agent did recon from mid-August, broke into Tajikistan's electronic document system, wrote its own exfiltration tool, kept notes and tried to wipe logs. Uzbek and Turkmen targets were also hit or staged, and a Pakistan foreign ministry attempt was logged. Entry into the railway came through a compromised employee account.",
+      "action": "Treat compromised staff accounts as the way in: enforce phishing-resistant MFA on document-management and remote-access systems, alert on bulk document downloads and NTDS.dit access, and watch for outbound traffic to LLM APIs (OpenRouter, DeepSeek) from servers that have no reason to use them.",
+      "url": "https://www.livemint.com/technology/kazakhstanlinked-hackers-used-ai-to-steal-tajik-government-documents-researchers-say-11794394933122.html",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "An autonomous AI agent planned and ran most of a state-linked espionage operation."
     },
     {
       "title": "Microsoft Patch Tuesday: Outlook zero-day CVE-2026-124194 exploited to steal NTLM hashes; its discovery credits Anthropic's Claude",
@@ -72,24 +86,6 @@
       "ai_note": "AI-assisted finds: Fortinet credits frontier AI models (Claude Mythos) for most of the batch."
     },
     {
-      "title": "Jailbroken AI agent (DeepSeek-based) spent two weeks inside a European telecom's data centre and cloud, which hosts 13 organisations (Malbear Labs, Nov 10)",
-      "severity": "high",
-      "exploited": true,
-      "cves": [
-        "CVE-2026-20320",
-        "CVE-2020-7961",
-        "CVE-2013-2165"
-      ],
-      "vendor": "Cisco / Liferay / JBoss RichFaces (targets)",
-      "why": "Malbear Labs says a custom agent framework running on DeepSeek Flash, jailbroken with a 78,000-character prompt, did most of the intrusion on its own while the operator only typed 'go on' or 'stop' across 70+ session transcripts. It exploited the known Cisco flaw CVE-2026-20320 (fixed in August), then old Liferay (CVE-2020-7961) and JBoss RichFaces (CVE-2013-2165) bugs for root, and pulled dozens of credential sets, Active Directory data and private keys. It rerouted on its own when one Linux exploit was blocked. Malbear assesses a China-based operator, not linked to a state. Malbear has not said whether all 13 hosted organisations were affected or confirmed the agent's claim of reaching millions of patient billing records. CISA added CVE-2026-20320 to its exploited list (KEV) on Nov 10, federal deadline Nov 24. New Nov 11: SecurityWeek and The Hacker News report attackers are actively exploiting the BroadWorks XXE flaw to read configuration data.",
-      "action": "Upgrade Cisco BroadWorks to RI.2026.07 or later (no workaround; KEV due Nov 24) and retire or patch any old Liferay and JBoss RichFaces still reachable. Hunt for long, quiet intrusions with fast automated steps on data-centre and cloud management hosts, and rotate credentials and private keys stored on hosts the agent could reach.",
-      "url": "https://www.digit.fyi/jailbroken-ai-targeted-euro-telecoms-firm-for-two-weeks/",
-      "ai_angle": [
-        "cause"
-      ],
-      "ai_note": "Agent did the intrusion mostly autonomously, per Malbear Labs' transcripts; victim confirmation not published."
-    },
-    {
       "title": "SSHole (CVE-2026-123158): OpenSSH auth bypass on musl/Alpine, AI-found; added to CISA KEV Nov 9 (federal deadline tomorrow, Nov 12)",
       "severity": "high",
       "exploited": true,
@@ -104,6 +100,36 @@
         "cause"
       ],
       "ai_note": "AI found it: the discoverer used AI agents to fuzz OpenSSH auth configurations at scale."
+    },
+    {
+      "title": "Apache HTTP Server CVE-2026-119618: critical mod_http2 race condition allows unauthenticated remote code execution; found by Anthropic and Google",
+      "severity": "critical",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-119618"
+      ],
+      "vendor": "Apache Software Foundation",
+      "why": "Affects httpd 2.4.55 through 2.4.70 with HTTP/2 enabled; Wiz says 64% of cloud environments have vulnerable resources and 51% have exposed ones. No exploit or attacks reported yet, but AI-found bugs this month (SSHole, PHP2Shell) were exploited within hours.",
+      "action": "Upgrade to Apache httpd 2.4.71 or later (and standalone mod_h2 past 2.0.42); if you can't yet, set `Protocols http/1.1` to turn off HTTP/2.",
+      "url": "https://www.wiz.io/blog/cve-2026-119618-rce-apache-http-server-vulnerability",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "Discovered independently by Anthropic and Google Cloud's vulnerability research team."
+    },
+    {
+      "title": "Fireworks AI breach reaches Notion: Notion AI chat transcripts from under 1% of workspaces exposed; Fireworks also lost some customers' secrets, datasets and partial model weights",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Fireworks AI, Notion",
+      "why": "Notion confirmed on Nov 10-11 that a Fireworks dataset taken by attackers held Notion AI Insights transcripts; it has notified affected workspaces, disabled Insights and dropped Fireworks. Fireworks' Nov 9 bulletin adds billing data for customers and stored secrets for a limited group.",
+      "action": "If Notion notified you, review the exposed chats (Help menu, Security incident review) and rotate any passwords or API keys pasted into Notion AI. If you use Fireworks, rotate its API keys and any secrets stored there, and check usage for unexpected spend.",
+      "url": "https://www.notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+      "ai_angle": [
+        "impact"
+      ],
+      "ai_note": "An AI inference provider breach exposed downstream customers' AI chat data and keys."
     },
     {
       "title": "Barracuda Email Security Gateway CVE-2026-116606 + CVE-2026-111560: chained pre-auth root on the appliance, now exploited",
@@ -129,26 +155,6 @@
       "why": "Vates says a crafted cookie (authenticationToken=j:{}) makes Xen Orchestra log the attacker in as the owner of an existing token with admin rights, which can lead to code execution on managed pools and root on XCP-ng hosts. Vates confirms active exploitation by an actor using 91.211.251.112:8001 and a Tor address. There is no log entry for the unauthenticated access. No CVE has been assigned yet. SecurityWeek (Nov 11) also reports the critical Xen Orchestra flaws exploited in attacks.",
       "action": "Update to Xen Orchestra 6.9.1 (stable, xo-server 5.211.2) or 6.10.0 (latest, xo-server 5.213.1). Keep Xen Orchestra off the internet on a management network, block 91.211.251.112 and Tor, and hunt for a VM named 'pivot2', VMs with 'hvm_serial: file', /etc/cron.d/zz-ustar*, /.ustar5, /.ustar6 and changes to /etc/ld.so.preload. If compromised, rotate all Vates VMS passwords and secrets (proxy, backup, S3, root, users).",
       "url": "https://docs.vates.tech/security-advisories/advisories/2026/vates-sa-2026-062/",
-      "ai_angle": [],
-      "ai_note": ""
-    },
-    {
-      "title": "N-able N-central 'Able2Shell': Hotfix 2 (build 2026.4.1.26) now out for the 7 most critical of 33 public zero-days; on-prem servers must upgrade before going back online",
-      "severity": "critical",
-      "exploited": false,
-      "cves": [
-        "CVE-2026-125883",
-        "CVE-2026-125881",
-        "CVE-2026-125878",
-        "CVE-2026-125882",
-        "CVE-2026-125879",
-        "CVE-2026-91000",
-        "CVE-2026-125880"
-      ],
-      "vendor": "N-able (RMM)",
-      "why": "A researcher published proof-of-concept exploits for 33 N-central flaws on Nov 8, including an unauthenticated XXE chain that runs code on the server. N-able released Hotfix 2 on Nov 10 fixing seven CVEs (XXE and SSRF at CVSS 9.3, OGNL injection, upload path traversal RCE, root privilege escalation); a further hotfix is planned. Hosted servers were upgraded by Nov 11. N-able reports scanning with the public PoC but no confirmed customer compromise. An RMM server compromise reaches every managed client.",
-      "action": "On-prem: keep N-central offline until upgraded to 2026.4 HF2 (build 2026.4.1.26). Everyone: upgrade Agents first, then Probes. Review logins, new admin accounts, remote sessions and deployed scripts since Nov 8, and watch for the follow-up hotfix.",
-      "url": "https://www.rapid7.com/blog/post/etr-critical-vulnerabilities-in-n-able-n-central-prompt-hosted-shutdown/",
       "ai_angle": [],
       "ai_note": ""
     },
@@ -179,28 +185,32 @@
         "product"
       ],
       "ai_note": "Flaw in an AI coding agent's CI integration, reachable by prompt injection."
-    },
-    {
-      "title": "Grok-built apps: 35,578 of 37,571 found online were open to anyone, some leaking confidential data and passwords (Claroc research, Nov 10)",
-      "severity": "high",
-      "exploited": false,
-      "cves": [],
-      "vendor": "SpaceXSI (xAI) Grok app builder",
-      "why": "Claroc found the apps through passive DNS records of grok.me subdomains; about 1 in 10 open apps held internal business or personal data, including 24 apps by X and SpaceXSI staff (a confidential ad proposal to a U.S. agency, a sales territory map) and data from 30 other organizations, among them a hospital staff list and a timesheet with plain-text passwords. Publishing preselects 'Anyone with the link', and a Grok-generated sign-in added any Google account to the team before checking it. SpaceXSI removed the staff apps; other apps are unchanged.",
-      "action": "Find out whether staff use Grok or other AI app builders (Lovable, Replit, v0, Bolt, Base44). Set any Grok app with internal data to 'Invited users' or 'Only you', test that an outside account is refused, remove hard-coded credentials and rotate any exposed passwords, and unpublish ownerless apps.",
-      "url": "https://thehackernews.com/2026/11/over-35000-grok-built-apps-exposed.html",
-      "ai_angle": [
-        "product"
-      ],
-      "ai_note": "Flaw in an AI product: an AI app builder's public-by-default sharing and AI-written access checks exposed data."
     }
   ],
   "news": [
+    {
+      "title": "Kazakhstan-linked hackers used AI to steal Tajik government documents, researchers say",
+      "source": "Reuters (via Mint) / CloudSEK",
+      "url": "https://www.livemint.com/technology/kazakhstanlinked-hackers-used-ai-to-steal-tajik-government-documents-researchers-say-11794394933122.html",
+      "blurb": "Silent Lynx ran a months-long espionage campaign through a self-hosted Hermes AI agent."
+    },
     {
       "title": "AntiFox AI pentesting platform linked to attacks that accessed AWS production secrets",
       "source": "The Hacker News (Arctic Wolf)",
       "url": "https://thehackernews.com/2026/11/antifox-ai-pentesting-platform-linked.html",
       "blurb": "Open-source agentic pentest tool used in IIS web-shell and AWS secret-theft intrusions."
+    },
+    {
+      "title": "Critical RCE vulnerability in Apache HTTP Server (CVE-2026-119618)",
+      "source": "Wiz",
+      "url": "https://www.wiz.io/blog/cve-2026-119618-rce-apache-http-server-vulnerability",
+      "blurb": "mod_http2 race condition, found by Anthropic and Google; fixed in 2.4.71, not yet exploited."
+    },
+    {
+      "title": "Notion says Fireworks breach exposed customer AI chat transcripts",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/notion-says-fireworks-breach-exposed-customer-ai-chat-transcripts/",
+      "blurb": "Under 1% of workspaces affected; Insights disabled and Fireworks dropped."
     },
     {
       "title": "Backdooring the next release of Codex through GitHub Action pipeline exploit chaining",
@@ -221,31 +231,16 @@
       "blurb": "89 advisories, about 17 critical, after Fortinet added frontier AI models to its testing; FortiMail hit hardest."
     },
     {
-      "title": "Maersk confirms data breach as WhiteArmor ransomware demands $5 million",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million/",
-      "blurb": "Data taken from a legacy LF Logistics system; group claims ~100 GB incl. plaintext driver passwords; Maersk says no sensitive data disclosed."
-    },
-    {
       "title": "Google issues Chrome security update for eighth actively exploited zero-day of 2026",
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/11/google-issues-chrome-security-update.html",
       "blurb": "CVE-2026-125350 XML use-after-free; fixed in 157.0.8103.50/.51; CISA KEV due Nov 24."
-    },
-    {
-      "title": "Critical Zoom Workplace flaw could allow unauthenticated remote privilege escalation",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/critical-zoom-workplace-flaw-could.html",
-      "blurb": "CVE-2026-108186 (CVSS 9.6) fixed in Workplace for Windows 7.1.8; CVE-2026-108187 fixed in 7.1.5."
-    },
-    {
-      "title": "Over 35,000 Grok-built apps exposed online, some leaking confidential data and passwords",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/over-35000-grok-built-apps-exposed.html",
-      "blurb": "Public-by-default sharing plus passive DNS made apps findable, including 24 by X/SpaceXSI staff."
     }
   ],
   "watch": [
+    "Moved from focus: Jailbroken AI agent (DeepSeek-based) spent two weeks inside a European telecom's data centre and cloud, which hosts 13 organisations (Malbear Labs, Nov 10) Upgrade Cisco BroadWorks to RI.2026.07 or later (no workaround; KEV due Nov 24) and retire or patch any old Liferay and JBoss RichFaces still reachable. Hunt for long, quiet intrusions with fast automated steps on data-centre and cloud management hosts, and rotate credentials and private keys stored on hosts the agent could reach.",
+    "Moved from focus: N-able N-central 'Able2Shell': Hotfix 2 (build 2026.4.1.26) now out for the 7 most critical of 33 public zero-days; on-prem servers must upgrade before going back online On-prem: keep N-central offline until upgraded to 2026.4 HF2 (build 2026.4.1.26). Everyone: upgrade Agents first, then Probes. Review logins, new admin accounts, remote sessions and deployed scripts since Nov 8, and watch for the follow-up hotfix.",
+    "Moved from focus: Grok-built apps: 35,578 of 37,571 found online were open to anyone, some leaking confidential data and passwords (Claroc research, Nov 10) Find out whether staff use Grok or other AI app builders (Lovable, Replit, v0, Bolt, Base44). Set any Grok app with internal data to 'Invited users' or 'Only you', test that an outside account is refused, remove hard-coded credentials and rotate any exposed passwords, and unpublish ownerless apps.",
     "Maersk (updated Nov 11): now confirms unauthorized access and data extraction from a legacy system from its 2022 LF Logistics acquisition. WhiteArmor claims ~100 GB, including ~16,000 plaintext driver passwords and 33 SUPER_ADMIN accounts, and demands $5M by about Dec 7 (unverified). Maersk says no sensitive data disclosed and no impact on API/EDI integrations. LF Logistics platform users: change passwords. https://www.bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million/",
     "Moved from focus: NEAR AI breach (SGLang inference-server RCE on Nov 8; data on ~100 users and 18 agents; requests in TEE mode seen). Patch or isolate SGLang servers and keep them off the internet.",
     "Moved from focus: Mittwald (attacker abused its MCP server for AI assistants, 56 customer projects compromised, AI use suspected). Customers: rotate project credentials and review mStudio access.",
@@ -316,16 +311,36 @@
     "Adobe Commerce / Magento PolyShell CVE-2026-48356 (CISA KEV, federal deadline passed Nov 10): apply Adobe's fix, block executable uploads in media folders and hunt for web shells and skimmers."
   ],
   "ai_activity": {
-    "overview": "92 AI-related items in the last 7 days (37 AI as the cause, 44 AI products attacked or flawed, 11 AI-impact/AI-key incidents). AI-caused activity is dominated by agentic intrusion frameworks: ARTEX (Storm-3358, GitHub-to-Azure secret hunting, Crafty Falcon, VAPOR PANDA, WorkOS, the Korean banks, Storm-0940's ConnectWise pivot), now AntiFox (Arctic Wolf, Nov 11: IIS web shells and AWS secret theft), BOSSAI, Operation Snowball and Chainalysis, plus Railway, where AI agents drove a breach that ended in about $740,000 of stolen AI usage. Defender-side AI keeps producing big batches: Fortinet's AI-assisted testing yielded 89 advisories and nearly 100 fixes, the exploited Outlook zero-day was found with Claude, and AI-found bugs (SSHole, PHP2Shell, Brotli, UnrealIRCd) were exploited within hours to a day. AI products under attack include SGLang (NEAR AI), Mittwald's MCP server, GPUStack (KEV), AgentScope's unpatched MCP API and Profero's Grok Bot sandbox chain; midday added Depi's OpenAI Codex CI chain. AI-impact incidents center on stolen AI provider keys at Railway, Fireworks/Notion, NEAR AI, GhostAction, Tensorlake, Botpress and Northflank.",
+    "overview": "93 AI-related items in the last 7 days (39 AI as the cause, 43 AI products attacked or flawed, 11 AI-impact/AI-key incidents). AI-caused activity is dominated by agentic intrusion frameworks: ARTEX (Storm-3358, GitHub-to-Azure secret hunting, Crafty Falcon, VAPOR PANDA, WorkOS, the Korean banks, Storm-0940's ConnectWise pivot), AntiFox (IIS web shells and AWS secret theft), BOSSAI, Operation Snowball and Chainalysis, Railway's AI-agent breach (about $740,000 of stolen AI usage), and now state espionage: Silent Lynx ran its Tajikistan campaign through a Hermes agent. Defender-side AI keeps producing big batches: Fortinet's AI-assisted testing (nearly 100 fixes), the Claude-found Outlook zero-day, Anthropic and Google's Apache httpd RCE, and AI-found bugs (SSHole, PHP2Shell, Brotli, UnrealIRCd) exploited within hours to a day. AI products under attack include SGLang (NEAR AI), Mittwald's MCP server, GPUStack (KEV), AgentScope's MCP API, Profero's Grok Bot sandbox chain and Depi's OpenAI Codex CI chain; AI-impact incidents center on stolen AI provider keys and data at Railway, Fireworks/Notion, NEAR AI, GhostAction, Tensorlake, Botpress and Northflank.",
     "counts": {
-      "ai_cause": 37,
-      "ai_product_exploited": 44,
+      "ai_cause": 39,
+      "ai_product_exploited": 43,
       "ai_impact": 11
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Apache HTTP Server mod_http2 RCE CVE-2026-119618 found independently by Anthropic and Google; fixed in 2.4.71",
+            "date": "2026-11-11T19:49:00Z",
+            "summary": "Wiz: a race condition in mod_http2's assign_headers() lets a remote unauthenticated attacker corrupt heap memory for code execution; affects 2.4.55 through 2.4.70. Wiz says 64% of cloud environments have vulnerable resources. No public exploit or in-the-wild use reported yet.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-119618"
+            ],
+            "url": "https://www.wiz.io/blog/cve-2026-119618-rce-apache-http-server-vulnerability",
+            "source": "Wiz"
+          },
+          {
+            "title": "Silent Lynx (Kazakhstan-linked) ran espionage against Tajikistan through a self-hosted Hermes AI agent; 2,000+ defense documents stolen",
+            "date": "2026-11-11T19:00:00Z",
+            "summary": "CloudSEK (via Reuters, Nov 11) found the group's exposed staging server: a Hermes agent framework driven mainly by DeepSeek V4.1 Flash (Gemini 2.5 Flash for sub-tasks) planned recon from mid-August, broke into Tajikistan's electronic document system, wrote a tool to download and chunk files, kept notes and reports, and tried to clean logs. Also reached Tajikistan's state railway network via an employee account, an Uzbek government platform, and staged lures for Turkmenistan. Attribution to Kazakhstan is medium confidence; no government has responded.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.livemint.com/technology/kazakhstanlinked-hackers-used-ai-to-steal-tajik-government-documents-researchers-say-11794394933122.html",
+            "source": "Reuters / CloudSEK"
+          },
           {
             "title": "AntiFox, an open-source AI multi-agent pentest platform, used in real intrusions: IIS web shells and valid AWS identities used to read production secrets",
             "date": "2026-11-11T15:34:00Z",
@@ -1101,23 +1116,21 @@
             "cves": [],
             "url": "https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html",
             "source": "The Hacker News"
-          },
-          {
-            "title": "leepsmarts AI-agent academic fraud campaign against 20 universities",
-            "date": "2026-11-04T14:36:33Z",
-            "summary": "Community research on a Chinese-speaking actor using AI agents over Telegram against US universities.",
-            "status": "unverified",
-            "cves": [
-              "CVE-2026-41940"
-            ],
-            "url": "https://www.reddit.com/r/blueteamsec/comments/1xnpswp/stanford_nyu_uc_berkeley_and_17_other/",
-            "source": "r/blueteamsec"
           }
         ]
       },
       {
         "label": "AI impact / AI keys & infrastructure",
         "items": [
+          {
+            "title": "Fireworks AI breach widens: Notion confirms Notion AI chat transcripts (Insights feature) exposed for <1% of workspaces; Fireworks billing data, datasets and partial model weights also taken",
+            "date": "2026-11-11T20:54:00Z",
+            "summary": "Notion's advisory: Fireworks warned on Nov 6 that customer data may have been accessed and confirmed the dataset Nov 8; it held Notion AI chat transcripts used for the Insights feature, mostly not labeled by author or workspace and without tool-call results. Notion contacted affected customers Nov 9, disabled Insights and stopped serving open-weight models through Fireworks; Render's CEO said Render was affected. Fireworks' Nov 9 bulletin: billing and account data for customers, plus stored secrets, datasets and partial model weights for a limited group; Unit 42 is investigating. Rotate anything pasted into Notion AI if notified, and rotate Fireworks API keys.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
+            "source": "Notion / BleepingComputer"
+          },
           {
             "title": "Unverified: honeypot of fake LLM API keys on GitHub, npm and PyPI shows bots testing stolen keys",
             "date": "2026-11-10T22:59:00Z",
@@ -1144,15 +1157,6 @@
             "cves": [],
             "url": "https://www.bleepingcomputer.com/news/apple/railway-breach-leads-to-740-000-in-fraudulent-ai-charges/",
             "source": "BleepingComputer"
-          },
-          {
-            "title": "Fireworks AI breach widens: Notion confirms Notion AI chat transcripts (Insights feature) exposed for <1% of workspaces; Fireworks billing data, datasets and partial model weights also taken",
-            "date": "2026-11-10T15:33:00Z",
-            "summary": "Fireworks (Nov 9 bulletin): an intruder breached a third-party cloud provider hosting its R&D machines and on Oct 24 reached dev machines; earlier Oct 6 credential misuse. Unit 42 is investigating; Inference and Training SDK not impacted; dataset self-serve transfers disabled. Customers include Cursor and Notion. An X post (Nov 10, unverified) says keys stolen in October are being resold for model access. Nov 10 coverage: Unit 42 ties the Oct 6 breach to a well-known, financially motivated group; Fireworks has not said how many customers were affected.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html",
-            "source": "The Hacker News"
           },
           {
             "title": "GhostAction wave: fake security-audit.yml in ~30,000 GitHub repos steals OpenAI, Anthropic, OpenRouter and cloud keys",
@@ -1222,6 +1226,6 @@
         ]
       }
     ],
-    "trend_note": "Public agentic attack frameworks are multiplying (ARTEX, now AntiFox, among about 45 open-source ones GitGuardian counts), so low-skill actors can run full chains from web exploit to cloud secret theft; leftover long-lived cloud keys and app-config secrets remain the main prize. Defender AI finds bugs in batches while AI agents wired into CI and MCP clients open new supply-chain paths; least-privilege tokens, no agents on untrusted input near release pipelines, spend alerts and fast key rotation still block most of it."
+    "trend_note": "Agentic attack frameworks have moved from crimeware into state espionage (Silent Lynx on Hermes, alongside ARTEX and AntiFox), and operators keep getting caught through their own exposed agent servers. Leftover long-lived cloud keys and app-config secrets remain the main prize, while defender AI keeps finding critical bugs in core software like Apache and OpenSSH; fast patching, least-privilege tokens, spend alerts and quick key rotation still block most of it."
   }
 }
