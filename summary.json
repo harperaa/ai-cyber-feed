@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-11T01:45:00Z",
-  "next_update_note": "Next summary update around 12:30 AM EST (Wednesday Nov 11).",
-  "headline": "New since the 4:39 PM update: Fortinet published eight critical flaws on Nov 10, most found by its own team using the Claude Mythos AI model; the worst, FortiManager/FortiAnalyzer CVE-2026-126170 (CVSS 9.8), lets an unauthenticated attacker run code when the JSON API is on, and none are reported exploited yet. React's Server Components RCE now has a CVE (CVE-2026-126187, CVSS 9.5); Next.js 16 apps need next 16.4.1, not just a react update. BleepingComputer puts Railway's upper bound at about 100,000 workspaces whose env vars may have been decrypted. Still act now on Railway secrets, the exploited Outlook zero-day, Barracuda ESG, Xen Orchestra, SSHole and GPUStack (KEV due Nov 12). The Chrome zero-day and the Fireworks/Notion item moved to the watch list.",
-  "ai_headline": "New AI-cause item: Fortinet says Claude Mythos helped its product security team find most of the eight critical FortiOS, FortiManager, FortiAnalyzer and FortiSASE flaws it fixed today, a sign that AI-found bugs are now arriving in batches from vendors themselves. Dark Reading also reports that China's Storm-0940 used ARTEX code for an October password-spraying run and then stole ConnectWise Cloud Backup OAuth credentials to reach more than 2,250 Microsoft 365 and Azure tenants. Railway's breach (AI agents, about $740,000 in stolen AI usage) is now tied by Railway to Wiz's 'Black October' wave against AI developer platforms. Unverified: an AWS API MCP Server policy bypass (CVE-2026-125271, fixed in 1.5.1). Unchanged: Outlook zero-day found with Claude, Malbear's jailbroken DeepSeek agent, Mittwald's MCP breach, SSHole, NEAR AI via SGLang, and open flaws in Grok Bot's sandbox, AgentScope and GPUStack.",
+  "updated_at": "2026-11-11T05:40:00Z",
+  "next_update_note": "Next summary update around 4:30 AM EST (Wednesday Nov 11).",
+  "headline": "Quiet overnight, no new exploited zero-days since the 8:45 PM update. CISA's Nov 10 KEV batch makes Cisco BroadWorks CVE-2026-20320 (the bug the jailbroken DeepSeek agent used at a European telecom) a must-patch by Nov 24, alongside the Outlook, Chrome and Barracuda flaws already listed. IBM fixed a batch of critical unauthenticated RCEs in AIX 7.2/7.3 and PowerVM VIOS 4.1 (e.g. CVE-2026-16872, CVSS 9.8). The CISA deadline for SSHole, GPUStack, Aspera and FreeSWITCH is tomorrow, Nov 12. Still act now on Railway secrets, the Outlook zero-day, Fortinet's eight criticals, React/Next.js RCE, Barracuda ESG and Xen Orchestra.",
+  "ai_headline": "No new AI-driven intrusion was disclosed overnight; the AI-cause list is still led by Fortinet's Claude Mythos-found batch, the Claude-assisted Outlook zero-day find, Railway's AI-agent breach and Malbear's jailbroken DeepSeek agent. New small items: Microsoft's FORGE Lab says its AI bug-hunting system Hyenas helped find an 11-year-old Rust standard-library memory bug (no practical exploit found), and Corgea flagged a malicious PyPI MCP server (dynamic-mcp) that opens an unauthenticated public shell plus a crates.io package stealing Claude Code OAuth tokens from CI. Unverified: a researcher's honeypot of fake LLM keys on GitHub, npm and PyPI saw bots test stolen keys within the credential-theft pipeline.",
   "focus": [
     {
       "title": "Railway full incident report (Nov 10): attacker used AI agents on safety-stripped models to break in, decrypt customer env vars and run up about $740,000 in stolen AI usage",
@@ -67,8 +67,8 @@
         "CVE-2013-2165"
       ],
       "vendor": "Cisco / Liferay / JBoss RichFaces (targets)",
-      "why": "Malbear Labs says a custom agent framework running on DeepSeek Flash, jailbroken with a 78,000-character prompt, did most of the intrusion on its own while the operator only typed 'go on' or 'stop' across 70+ session transcripts. It exploited the known Cisco flaw CVE-2026-20320 (fixed in August), then old Liferay (CVE-2020-7961) and JBoss RichFaces (CVE-2013-2165) bugs for root, and pulled dozens of credential sets, Active Directory data and private keys. It rerouted on its own when one Linux exploit was blocked. Malbear assesses a China-based operator, not linked to a state. Malbear has not said whether all 13 hosted organisations were affected or confirmed the agent's claim of reaching millions of patient billing records.",
-      "action": "Patch Cisco CVE-2026-20320 and retire or patch any old Liferay and JBoss RichFaces still reachable. Hunt for long, quiet intrusions with fast automated steps on data-centre and cloud management hosts, and rotate credentials and private keys stored on hosts the agent could reach.",
+      "why": "Malbear Labs says a custom agent framework running on DeepSeek Flash, jailbroken with a 78,000-character prompt, did most of the intrusion on its own while the operator only typed 'go on' or 'stop' across 70+ session transcripts. It exploited the known Cisco flaw CVE-2026-20320 (fixed in August), then old Liferay (CVE-2020-7961) and JBoss RichFaces (CVE-2013-2165) bugs for root, and pulled dozens of credential sets, Active Directory data and private keys. It rerouted on its own when one Linux exploit was blocked. Malbear assesses a China-based operator, not linked to a state. Malbear has not said whether all 13 hosted organisations were affected or confirmed the agent's claim of reaching millions of patient billing records. CISA added CVE-2026-20320 to its exploited list (KEV) on Nov 10, federal deadline Nov 24.",
+      "action": "Upgrade Cisco BroadWorks to RI.2026.07 or later (no workaround; KEV due Nov 24) and retire or patch any old Liferay and JBoss RichFaces still reachable. Hunt for long, quiet intrusions with fast automated steps on data-centre and cloud management hosts, and rotate credentials and private keys stored on hosts the agent could reach.",
       "url": "https://www.digit.fyi/jailbroken-ai-targeted-euro-telecoms-firm-for-two-weeks/",
       "ai_angle": [
         "cause"
@@ -91,7 +91,7 @@
       "ai_note": "AI product flaw (an MCP server for AI assistants) was the way in; AI use by the attacker is the company's claim based on attack speed, not proven."
     },
     {
-      "title": "SSHole (CVE-2026-123158): OpenSSH auth bypass on musl/Alpine, AI-found; added to CISA KEV Nov 9 (federal deadline Nov 12)",
+      "title": "SSHole (CVE-2026-123158): OpenSSH auth bypass on musl/Alpine, AI-found; added to CISA KEV Nov 9 (federal deadline tomorrow, Nov 12)",
       "severity": "high",
       "exploited": true,
       "cves": [
@@ -163,7 +163,7 @@
       "ai_note": "AI product flaw (an LLM inference engine) exploited to breach an AI provider."
     },
     {
-      "title": "GPUStack CVE-2026-102895 (CVSS 9.8): AI model-serving cluster manager admin bypass now exploited; CISA KEV Nov 9 (deadline Nov 12)",
+      "title": "GPUStack CVE-2026-102895 (CVSS 9.8): AI model-serving cluster manager admin bypass now exploited; CISA KEV Nov 9 (deadline tomorrow, Nov 12)",
       "severity": "critical",
       "exploited": true,
       "cves": [
@@ -219,6 +219,12 @@
       "blurb": "Forks of ARTEX and 45 similar tools keep powering machine-speed credential attacks; Storm-0940 used it before pivoting to ConnectWise and 2,250+ downstream tenants."
     },
     {
+      "title": "Microsoft's AI bug hunter finds Rust flaw that went undetected for nearly 11 years",
+      "source": "CSO Online",
+      "url": "https://www.csoonline.com/article/4246787/microsofts-ai-bug-hunter-finds-rust-flaw-that-went-undetected-for-nearly-11-years.html",
+      "blurb": "FORGE Lab's Hyenas (research version of Microsoft's MDASH agent) helped find memory-safety bugs in Rust's standard library, including a use-after-free in stable Rust; Microsoft sees practical exploitation as unlikely."
+    },
+    {
       "title": "GHSA-xqc2-xf4c-x3h3: what the React Server Components typed-array RCE means for Next.js",
       "source": "Upwind",
       "url": "https://www.upwind.io/blog/ghsa-xqc2-xf4c-x3h3-what-the-react-server-components-typed-array-rce-means-for-your-next-js-apps",
@@ -231,19 +237,25 @@
       "blurb": "Inference-server RCE was the way in; no CVE or fixed SGLang version named yet."
     },
     {
-      "title": "Fireworks AI gets burned twice as customer data exposure widens",
-      "source": "The Register",
-      "url": "https://www.theregister.com/cyber-crime/2026/11/10/fireworks-ai-gets-burned-twice-as-customer-data-exposure-widens/5308722",
-      "blurb": "A compromised cloud provider gave access to Fireworks dev machines Oct 24; billing data, datasets and partial model weights taken."
-    },
-    {
       "title": "Critical Xen Orchestra auth bypass flaw exploited to hijack VM servers",
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/critical-xen-orchestra-auth-bypass-flaw-exploited-to-hijack-vm-servers/",
       "blurb": "Crafted cookie grants admin; patch Xen Orchestra now."
+    },
+    {
+      "title": "CISA adds six known exploited vulnerabilities to catalog",
+      "source": "CISA",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/11/10/cisa-adds-six-known-exploited-vulnerabilities-catalog",
+      "blurb": "Cisco BroadWorks CVE-2026-20320, Barracuda ESG CVE-2026-111560/116606, Openwave Webtop CVE-2026-111793, Outlook CVE-2026-124194 and Chrome CVE-2026-125350; due Nov 24."
     }
   ],
   "watch": [
+    "IBM AIX 7.2/7.3 and PowerVM VIOS 4.1 (IBM bulletin, Nov 10): a batch of critical unauthenticated network RCEs (e.g. CVE-2026-16872 stack overflow, CVSS 9.8; also CVE-2026-17145, -16919, -17118, -16917, -17141, -17122). None reported exploited. Apply AIX 7.2 TL05 SP13 or 7.3 TL02 SP5 / TL03 SP3 / TL04 SP2, and VIOS 4.1.0.50, 4.1.1.30 or 4.1.2.20 (LPAR reboot or Live Update). https://www.ibm.com/support/pages/security-bulletin-vulnerabilities-ibm-aix-and-powervm-vios",
+    "Openwave Webtop Media Transcoder CVE-2026-111793 (CISA KEV Nov 10, due Nov 24): exploited; apply the vendor fix if you run it.",
+    "Malicious packages (Corgea, Nov 5-8): PyPI dynamic-mcp (0.2.0-1.0.9), a fake kernel crash-analysis MCP server, opens a public Cloudflare tunnel with unauthenticated bash; crates.io env-test-guard steals GITHUB_TOKEN and Claude Code OAuth tokens in CI; labelearthengine-api forwards Google OAuth tokens. Several were still live at publication. Remove them and rotate any exposed tokens. https://corgea.com/research/env-test-guard-dynamic-mcp-labelearthengine-qzc690385-gcp-log-poc-november-2026",
+    "Fullerton Health (Singapore, disclosed Nov 9-11): a server for MOM's Migrant Worker Primary Care Plan was accessed; names, FIN numbers, birth dates, phones, emails and addresses may be affected, no medical or financial data. https://www.channelnewsasia.com/singapore/fullerton-health-migrant-worker-care-plan-cybersecurity-incident-6541451",
+    "Amadeus fallout widens: Thai Airways says about 60,529 booking records (376 with passport and contact details) were accessed via Amadeus between Aug 2023 and Sep 2026, after Finnair, JAL, Cathay Pacific and Malaysia Airlines. Expect more airline notices and phishing. https://techwireasia.com/2026/11/thai-airways-data-breach-amadeus/",
+    "South Korea's Financial Security Institute (Herald / BusinessKorea, Nov 11): intrusion into its continuous-assessment system detected Nov 9; about 200 forms with 300+ personal records and 350+ user records (mostly finance-company staff) leaked, concentrated in mutual-finance firms; major banks unaffected. Expect targeted phishing of security staff.",
     "Storm-0940 / ConnectWise (Dark Reading, Nov 10): China's Storm-0940 reportedly used ARTEX code around Oct 10 for 151,000+ password-spraying attempts against 300+ accounts at eight critical organizations, then stole ConnectWise Cloud Backup OAuth app credentials and reached more than 2,250 downstream Microsoft 365 and Azure environments within three hours. If you use ConnectWise Cloud Backup, review its app consent and sign-ins since October and follow ConnectWise guidance. https://www.darkreading.com/cyberattacks-data-breaches/artex-ai-pen-test-tool-hackers-weapon",
     "Moved from focus: Chrome zero-day CVE-2026-125350 (XML use-after-free, exploited, fixed Nov 9). Make sure Chrome and Chromium-based browsers have restarted onto the latest version.",
     "Moved from focus: Fireworks AI / Notion. Fireworks says a compromised third-party cloud provider let attackers reach its dev machines Oct 24 (billing data, datasets, partial model weights) after the Oct 6 credential misuse; Notion says AI chat transcripts from <1% of workspaces were exposed. Rotate any Fireworks keys and anything pasted into Notion AI during the incident.",
@@ -266,8 +278,6 @@
     "Acronis Cyber Pulse 2026 (Help Net Security, Nov 10): 575+ malicious OpenClaw agent skills posing as utilities delivered trojans, miners and stealers to Windows and macOS; malicious payloads also posed as Hugging Face models and datasets. Only install agent skills from publishers you trust and review what a skill can run. https://www.helpnetsecurity.com/2026/11/10/acronis-ai-agent-cyberattacks-report/",
     "Moved from focus: GhostAction (fake 'security-audit.yml' workflow in ~30,000 GitHub repos stealing CI secrets and AI provider keys). Search your repos for that file, remove it, and rotate every Actions secret and key in repo history.",
     "Turla 'Cereal' (ESET, Nov 10): Russia's Turla uses a new modular toolset to secretly collect email from government Microsoft Exchange servers. Exchange admins: watch for ESET's indicators and review server modules and transport agents.",
-    "South Korea's Financial Security Institute (Yonhap, Nov 10): hackers hit its security-assessment website on Nov 9; security-status data that banks and insurers submitted may have leaked.",
-    "Amadeus / Finnair (Nov 10): Amadeus says flight-list data from several airlines, including about 116,000 Finnair bookings, was exposed between Aug 2023 and Sep 2026; no cards or passwords. Expect more airline notices.",
     "Graphtage (Trail of Bits on X, Nov 10): attempted supply-chain attack where a trusted contributor's PR passed CI, then the contributor's account was apparently hijacked to push malicious changes. Re-review PRs after the last approval before merging.",
     "Electron apps (r/netsec, Nov 10): a researcher's lab tests found many Electron apps auto-update without checking signatures and still trust the revoked eMudhra certificates, letting a network attacker push malware. Avoid untrusted networks for updates until vendors fix.",
     "Apple (Nov 9): iMessage group-chat flaws (a remote attacker could join a group and read messages) and Bluetooth pairing bugs fixed, including for older iPhones and iPads. Update.",
@@ -289,16 +299,27 @@
     "Adobe Commerce / Magento PolyShell CVE-2026-48356 (CISA KEV, federal deadline passed Nov 10): apply Adobe's fix, block executable uploads in media folders and hunt for web shells and skimmers."
   ],
   "ai_activity": {
-    "overview": "Over the last 7 days AI-caused activity is dominated by agentic intrusion frameworks: ARTEX (Storm-3358, GitHub-to-Azure secret hunting, Crafty Falcon, VAPOR PANDA, WorkOS, the Korean banks, and now a Dark Reading account of Storm-0940's ConnectWise pivot into 2,250+ tenants), BOSSAI, Operation Snowball and Chainalysis, plus Railway, where AI agents drove a breach that ended in about $740,000 of stolen AI usage. New tonight: Fortinet credits Claude Mythos for most of eight critical flaws it fixed, following the Claude-assisted Outlook zero-day find earlier today; AI-found bugs (SSHole, PHP2Shell, Brotli, UnrealIRCd) keep being exploited within hours to a day. AI products under attack include SGLang (NEAR AI), Mittwald's MCP server, GPUStack (KEV), AgentScope's unpatched MCP API, Profero's unpatched Grok Bot sandbox chain and malicious agent skills and MCP packages. AI-impact incidents center on stolen AI provider keys and AI platforms: Railway, Fireworks/Notion, NEAR AI, GhostAction, Tensorlake, Botpress and Northflank. GitBook and Kernel (Nov 4) aged out of the 7-day window.",
+    "overview": "Over the last 7 days AI-caused activity is dominated by agentic intrusion frameworks: ARTEX (Storm-3358, GitHub-to-Azure secret hunting, Crafty Falcon, VAPOR PANDA, WorkOS, the Korean banks, and now a Dark Reading account of Storm-0940's ConnectWise pivot into 2,250+ tenants), BOSSAI, Operation Snowball and Chainalysis, plus Railway, where AI agents drove a breach that ended in about $740,000 of stolen AI usage. Overnight (to 12:40 AM EST) brought no new AI-driven intrusion; only Microsoft's Hyenas Rust finds, a malicious PyPI MCP server and an unverified key honeypot were added. Earlier on Nov 10, Fortinet credits Claude Mythos for most of eight critical flaws it fixed, following the Claude-assisted Outlook zero-day find earlier today; AI-found bugs (SSHole, PHP2Shell, Brotli, UnrealIRCd) keep being exploited within hours to a day. AI products under attack include SGLang (NEAR AI), Mittwald's MCP server, GPUStack (KEV), AgentScope's unpatched MCP API, Profero's unpatched Grok Bot sandbox chain and malicious agent skills and MCP packages. AI-impact incidents center on stolen AI provider keys and AI platforms: Railway, Fireworks/Notion, NEAR AI, GhostAction, Tensorlake, Botpress and Northflank. GitBook and Kernel (Nov 4) aged out of the 7-day window.",
     "counts": {
-      "ai_cause": 32,
-      "ai_product_exploited": 37,
-      "ai_impact": 10
+      "ai_cause": 34,
+      "ai_product_exploited": 38,
+      "ai_impact": 11
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Unverified: OpenSSL CMS-encryption DoS CVE-2026-107496 (affects 1.0.2 and 1.1.1) credited to AI discovery",
+            "date": "2026-11-10T22:53:00Z",
+            "summary": "Single X post lists CVE-2026-107496 among pre-2020 bugs found by AI, alongside SSHole. Denial of service only; update OpenSSL per its advisory.",
+            "status": "unverified",
+            "cves": [
+              "CVE-2026-107496"
+            ],
+            "url": "https://x.com/Edmond_J_/status/2120288784814133300",
+            "source": "X"
+          },
           {
             "title": "Fortinet fixes eight critical FortiOS/FortiManager/FortiAnalyzer/FortiSASE flaws, most found by its team using Claude Mythos (worst: pre-auth RCE CVE-2026-126170, CVSS 9.8)",
             "date": "2026-11-10T22:43:00Z",
@@ -321,6 +342,15 @@
             "cves": [],
             "url": "https://www.darkreading.com/cyberattacks-data-breaches/artex-ai-pen-test-tool-hackers-weapon",
             "source": "Dark Reading"
+          },
+          {
+            "title": "Microsoft FORGE Lab: AI bug hunter Hyenas helped find an 11-year-old Rust standard-library bug and a stable-Rust use-after-free",
+            "date": "2026-11-10T20:00:00Z",
+            "summary": "Microsoft researchers used Hyenas (research version of its MDASH agentic vulnerability-discovery system) on unsafe code in Rust's standard library; found a process::exit signal-stack bug present for ~11 years and other undefined-behaviour bugs reachable from safe Rust. Reported to Rust maintainers; Microsoft found no reliable exploitation path.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.csoonline.com/article/4246787/microsofts-ai-bug-hunter-finds-rust-flaw-that-went-undetected-for-nearly-11-years.html",
+            "source": "CSO Online"
           },
           {
             "title": "Exploited Outlook zero-day CVE-2026-124194 (NTLM hash leak) patched; Microsoft credits a researcher who used Claude to find it",
@@ -734,6 +764,15 @@
             "source": "CISA KEV / GPUStack"
           },
           {
+            "title": "Malicious PyPI MCP server dynamic-mcp opens unauthenticated public shell; crates.io env-test-guard steals Claude Code OAuth tokens in CI",
+            "date": "2026-11-09T12:00:00Z",
+            "summary": "Corgea: dynamic-mcp (0.2.0-1.0.9) forces a Cloudflare Quick Tunnel to its 0.0.0.0:8080 server and from 1.0.4 exposes bash -c with no auth; env-test-guard 0.2.0/0.3.0 exfiltrates GITHUB_TOKEN, GH_TOKEN and INPUT_CLAUDE_CODE_OAUTH_TOKEN. Both reported still live at publication.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://corgea.com/research/env-test-guard-dynamic-mcp-labelearthengine-qzc690385-gcp-log-poc-november-2026",
+            "source": "Corgea"
+          },
+          {
             "title": "Mittwald MCP server flaw exploited to reach 56 customer hosting projects",
             "date": "2026-11-09T10:00:00Z",
             "summary": "The MCP bridge that lets customers' AI assistants manage mStudio hosting was the entry point. Unclear if the bug was Mittwald code or open-source MCP libraries.",
@@ -977,6 +1016,15 @@
       {
         "label": "AI impact / AI keys & infrastructure",
         "items": [
+          {
+            "title": "Unverified: honeypot of fake LLM API keys on GitHub, npm and PyPI shows bots testing stolen keys",
+            "date": "2026-11-10T22:59:00Z",
+            "summary": "A researcher on X says planted fake LLM keys were picked up and tested by automated credential-theft bots (one asked models to introduce themselves in Chinese). Single-source.",
+            "status": "unverified",
+            "cves": [],
+            "url": "https://x.com/polydaic/status/2120290153205834076",
+            "source": "X"
+          },
           {
             "title": "NEAR AI breach via SGLang RCE: ~100 Private Chat users' details, data from 18 older agents and 2 customers' API keys taken; confidential-mode requests on one server visible",
             "date": "2026-11-10T19:19:00Z",
