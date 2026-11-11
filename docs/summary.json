@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-10T21:39:00Z",
-  "next_update_note": "Next summary update around 8:30 PM EST (Tuesday Nov 10).",
-  "headline": "New since the 12:55 PM update: Microsoft's Patch Tuesday fixes an exploited Outlook zero-day (CVE-2026-124194) that leaks NTLM hashes when a crafted message file is opened; install the November Office updates. Railway's full report says an attacker used AI agents to break in, decrypt customer environment variables and run up about $740,000 in stolen AI usage; rotate any secrets that lived in Railway. NEAR AI confirms its breach came through an SGLang inference-server RCE, and Notion confirms AI chat transcripts were in the Fireworks AI theft. Git 2.56.1 fixes a recursive-clone code-execution flaw, and Japan's Nitori reports 37.6M customer records possibly stolen. Still act now on Xen Orchestra, Barracuda ESG, the Chrome zero-day, SSHole and GPUStack (KEV due Nov 12). UnrealIRCd and N-able N-central moved to the watch list.",
-  "ai_headline": "Two new AI-cause items: Railway now says AI agents on safety-stripped models drove its October breach (about $740,000 in LLMjacking charges), and the exploited Outlook zero-day was found by a researcher using Claude. AI-product and impact updates: NEAR AI confirms an SGLang RCE as the way in (about 100 users, 18 agents, 2 API keys), and Notion confirms Notion AI chat transcripts were exposed via Fireworks AI. Unverified: Aviatrix says Claude Code wrote cloud keys and passwords into hidden config files later pushed to public GitHub, and Siemens' Mendix Studio Pro MCP server (CVE-2026-112136) was exposed beyond localhost. Unchanged: Malbear's jailbroken DeepSeek agent, Mittwald's MCP breach, AI-found SSHole and UnrealIRCd under exploitation, ARTEX and BOSSAI campaigns, and open flaws in Grok Bot's sandbox, AgentScope and GPUStack.",
+  "updated_at": "2026-11-11T01:45:00Z",
+  "next_update_note": "Next summary update around 12:30 AM EST (Wednesday Nov 11).",
+  "headline": "New since the 4:39 PM update: Fortinet published eight critical flaws on Nov 10, most found by its own team using the Claude Mythos AI model; the worst, FortiManager/FortiAnalyzer CVE-2026-126170 (CVSS 9.8), lets an unauthenticated attacker run code when the JSON API is on, and none are reported exploited yet. React's Server Components RCE now has a CVE (CVE-2026-126187, CVSS 9.5); Next.js 16 apps need next 16.4.1, not just a react update. BleepingComputer puts Railway's upper bound at about 100,000 workspaces whose env vars may have been decrypted. Still act now on Railway secrets, the exploited Outlook zero-day, Barracuda ESG, Xen Orchestra, SSHole and GPUStack (KEV due Nov 12). The Chrome zero-day and the Fireworks/Notion item moved to the watch list.",
+  "ai_headline": "New AI-cause item: Fortinet says Claude Mythos helped its product security team find most of the eight critical FortiOS, FortiManager, FortiAnalyzer and FortiSASE flaws it fixed today, a sign that AI-found bugs are now arriving in batches from vendors themselves. Dark Reading also reports that China's Storm-0940 used ARTEX code for an October password-spraying run and then stole ConnectWise Cloud Backup OAuth credentials to reach more than 2,250 Microsoft 365 and Azure tenants. Railway's breach (AI agents, about $740,000 in stolen AI usage) is now tied by Railway to Wiz's 'Black October' wave against AI developer platforms. Unverified: an AWS API MCP Server policy bypass (CVE-2026-125271, fixed in 1.5.1). Unchanged: Outlook zero-day found with Claude, Malbear's jailbroken DeepSeek agent, Mittwald's MCP breach, SSHole, NEAR AI via SGLang, and open flaws in Grok Bot's sandbox, AgentScope and GPUStack.",
   "focus": [
     {
       "title": "Railway full incident report (Nov 10): attacker used AI agents on safety-stripped models to break in, decrypt customer env vars and run up about $740,000 in stolen AI usage",
@@ -10,9 +10,9 @@
       "exploited": true,
       "cves": [],
       "vendor": "Railway (cloud/developer platform)",
-      "why": "Railway's Nov 10 report says the attacker escaped its build-system file isolation on Oct 20 with a previously unknown flaw, used a build credential to read 353 build histories including secrets, and used AI agents on copied internal code to find new routes after each block. A bad OIDC trust setting on Oct 21 then let the attacker reach a workload-coordination machine and decrypt customer environment variables through Railway's key service; database queries searched for AI provider key names. Up to 1.85% of workspaces may have had env vars decrypted (an upper bound), 1,852 users' linked-account tokens were taken and reset, and about $740,000 in LLMjacking charges followed. Railway says the agent framework was similar to ARTEX and that it will cover charges providers won't refund. New since the last update: this is the first full write-up and the first time Railway described the AI-agent role.",
-      "action": "If you used Railway in October: rotate every secret that was in Railway environment variables, AI provider keys first, check OpenAI/Anthropic/other provider usage and billing since Oct 20, and report fraudulent charges to the provider and Railway.",
-      "url": "https://cybersecuritynews.com/railway-details-data-breach/",
+      "why": "Railway's Nov 10 report says the attacker escaped its build-system file isolation on Oct 20 with a previously unknown flaw, used a build credential to read 353 build histories including secrets, and used AI agents on copied internal code to find new routes after each block. A bad OIDC trust setting on Oct 21 then let the attacker reach a workload-coordination machine and decrypt customer environment variables through Railway's key service; database queries searched for AI provider key names. Up to 1.85% of workspaces may have had env vars decrypted (an upper bound), 1,852 users' linked-account tokens were taken and reset, and about $740,000 in LLMjacking charges followed. Railway says the agent framework was similar to ARTEX and that it will cover charges providers won't refund. BleepingComputer (Nov 10 evening) says the 1.85% upper bound is about 100,000 workspaces, the 1,852 users' tokens included GitHub OAuth tokens and AI agent keys, and Railway links the attack to Wiz's 'Black October' wave against AI developer platforms, aimed at AI keys for resale or model distillation.",
+      "action": "If you used Railway in October: rotate every secret that was in Railway environment variables, AI provider keys first, check OpenAI/Anthropic/other provider usage and billing since Oct 20, and report fraudulent charges to the provider and Railway. Also revoke and reissue any GitHub OAuth apps or agent keys linked to Railway.",
+      "url": "https://www.bleepingcomputer.com/news/apple/railway-breach-leads-to-740-000-in-fraudulent-ai-charges/",
       "ai_angle": [
         "cause",
         "impact"
@@ -34,6 +34,28 @@
         "cause"
       ],
       "ai_note": "AI-assisted find: Microsoft's acknowledgment says the researcher used Claude. Attackers' use of AI is not reported."
+    },
+    {
+      "title": "Fortinet: eight critical flaws in FortiOS, FortiManager, FortiAnalyzer and FortiSASE, mostly found with Claude Mythos; worst is unauthenticated RCE CVE-2026-126170 (CVSS 9.8)",
+      "severity": "critical",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-126170",
+        "CVE-2026-126262",
+        "CVE-2026-126261",
+        "CVE-2026-126260",
+        "CVE-2026-126253",
+        "CVE-2026-126229",
+        "CVE-2026-126259"
+      ],
+      "vendor": "Fortinet",
+      "why": "Fortinet published eight critical advisories on Nov 10 (CVSS 9.0-9.8), six needing no login. CVE-2026-126170 is a JSON-injection flaw in the FortiManager/FortiAnalyzer JRPC API that can run code when the JSON API is enabled (off by default); CVE-2026-126262 is a pre-auth SQL injection over OFTP, CVE-2026-126261 a command-execution bug via the FGFM port, and CVE-2026-126260 a pre-auth SSRF over OFTP. Fortinet's advisory credits its own researcher working with Claude Mythos. None are reported exploited, but Fortinet bugs are usually attacked quickly and some fixes (FortiManager/FortiAnalyzer 8.0.3) are still 'upcoming'.",
+      "action": "Upgrade FortiManager/FortiAnalyzer 7.6 to 7.6.8 (8.0 to 8.0.3 when out) and FortiOS to 7.2.14, 7.4.13, 7.6.8 or 8.0.2 per advisory. Until patched, set 'rpc-permit none' on admin profiles to turn off the JSON API, and keep OFTP and FGFM ports off the internet.",
+      "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-219",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "AI-found: Fortinet credits Claude Mythos for finding CVE-2026-126170 and most of the batch. No sign attackers used AI."
     },
     {
       "title": "Jailbroken AI agent (DeepSeek-based) spent two weeks inside a European telecom's data centre and cloud, which hosts 13 organisations (Malbear Labs, Nov 10)",
@@ -112,16 +134,16 @@
       "ai_note": ""
     },
     {
-      "title": "Chrome zero-day CVE-2026-125350 (XML use-after-free) exploited in the wild; fixed Nov 9",
-      "severity": "high",
-      "exploited": true,
+      "title": "React Server Components RCE CVE-2026-126187 (CVSS 9.5): unauthenticated code execution; Next.js 16 must update next itself",
+      "severity": "critical",
+      "exploited": false,
       "cves": [
-        "CVE-2026-125350"
+        "CVE-2026-126187"
       ],
-      "vendor": "Google Chrome",
-      "why": "Google says it is aware an exploit for CVE-2026-125350 exists in the wild. It was reported anonymously on Nov 6; the update also fixes eight other bugs, including a second XML use-after-free (CVE-2026-125346) and a V8 type confusion. Google has not said who is attacking or whom.",
-      "action": "Update Chrome to 157.0.8103.50/.51 (Windows/Mac) or 157.0.8103.50 (Linux), or Extended Stable 156.0.8078.96, and relaunch; the rollout takes days, so update manually. Watch for matching Edge, Brave and Opera updates.",
-      "url": "https://chromereleases.googleblog.com/",
+      "vendor": "React / Next.js (Meta, Vercel)",
+      "why": "The CVE was assigned Nov 10 for a flaw React quietly fixed Oct 14 (GHSA-xqc2-xf4c-x3h3): crafted payloads to RSC frameworks can run code, in the rare case where responses carry several typed arrays plus an attacker-controlled value. Affects react-server-dom-webpack/parcel/turbopack 19.0.0-19.3.0. Next.js bundles its own copy, so upgrading react alone does not fix it; Vercel offers no workaround. No exploitation reported. Client-only React apps are not affected.",
+      "action": "Upgrade the react-server-dom-* packages to 19.0.9, 19.1.10, 19.2.9 or 19.3.1, and Next.js 16.0.0-16.4.0 to 16.4.1 or later; check other RSC frameworks for bundled copies.",
+      "url": "https://github.com/react/react/security/advisories/GHSA-xqc2-xf4c-x3h3",
       "ai_angle": [],
       "ai_note": ""
     },
@@ -139,20 +161,6 @@
         "impact"
       ],
       "ai_note": "AI product flaw (an LLM inference engine) exploited to breach an AI provider."
-    },
-    {
-      "title": "Fireworks AI breach reaches Notion: Notion confirms AI chat transcripts from its Insights feature were in data taken from Fireworks (<1% of workspaces)",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "Fireworks AI / Notion",
-      "why": "Fireworks' Nov 9 bulletin says attackers came in through a third-party cloud provider hosting its R&D machines (Oct 23-24) and took billing data plus some customers' datasets and partial model weights; it ties the group to LLMjacking. Notion now says fewer than 1% of workspaces were affected and the data included Notion AI chat transcripts used for Insights, mostly not labelled with author or workspace. Notion disabled Insights and stopped serving open-weight models through Fireworks. This confirms what an X post claimed this morning.",
-      "action": "Notion admins: check the in-workspace notice; if people pasted passwords, API keys or other secrets into Notion AI chats in the attack window, rotate them. Fireworks customers: rotate keys and secrets stored with Fireworks and review usage.",
-      "url": "https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html",
-      "ai_angle": [
-        "impact"
-      ],
-      "ai_note": "Breach of an AI inference provider exposing AI chat data and model artifacts."
     },
     {
       "title": "GPUStack CVE-2026-102895 (CVSS 9.8): AI model-serving cluster manager admin bypass now exploited; CISA KEV Nov 9 (deadline Nov 12)",
@@ -187,55 +195,61 @@
   ],
   "news": [
     {
+      "title": "Railway breach leads to $740,000 in fraudulent AI charges",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/apple/railway-breach-leads-to-740-000-in-fraudulent-ai-charges/",
+      "blurb": "Up to about 100,000 workspaces may have had env vars decrypted; AI-agent attackers fought Railway's engineers for about 26 hours; tied to Wiz's 'Black October' wave."
+    },
+    {
+      "title": "Fortinet critical vulnerabilities hit FortiManager, FortiOS",
+      "source": "SecurityOnline",
+      "url": "https://securityonline.info/fortinet-critical-vulnerabilities-november-2026/",
+      "blurb": "Eight critical advisories, six pre-auth, most found internally with Claude Mythos; some fixes still upcoming, workarounds available."
+    },
+    {
       "title": "Microsoft November 2026 Patch Tuesday fixes 1,235 flaws, Outlook zero-day",
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-november-2026-patch-tuesday-fixes-1-235-flaws-outlook-zero-day/",
-      "blurb": "Exploited Outlook CVE-2026-124194 leaks NTLM hashes; 66 critical flaws fixed."
+      "blurb": "Exploited Outlook NTLM leak CVE-2026-124194 plus a record batch of fixes; Krebs counts nearly 1,100."
     },
     {
-      "title": "Railway Reveals How Hackers Used AI Agents to Steal API Keys and Rack Up $740,000 in Charges",
-      "source": "Cyber Security News",
-      "url": "https://cybersecuritynews.com/railway-details-data-breach/",
-      "blurb": "Full report on the October breach: build-isolation escape, OIDC mistake, decrypted env vars."
+      "title": "Artex: the AI pen-test tool hackers turned into a weapon",
+      "source": "Dark Reading",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/artex-ai-pen-test-tool-hackers-weapon",
+      "blurb": "Forks of ARTEX and 45 similar tools keep powering machine-speed credential attacks; Storm-0940 used it before pivoting to ConnectWise and 2,250+ downstream tenants."
     },
     {
-      "title": "SGLang RCE Exploit Breaches NEAR AI, Steals Data From 18 Agents and About 100 Users",
+      "title": "GHSA-xqc2-xf4c-x3h3: what the React Server Components typed-array RCE means for Next.js",
+      "source": "Upwind",
+      "url": "https://www.upwind.io/blog/ghsa-xqc2-xf4c-x3h3-what-the-react-server-components-typed-array-rce-means-for-your-next-js-apps",
+      "blurb": "Narrow trigger, no workaround, and scanners may miss it because Next.js bundles its own React copy."
+    },
+    {
+      "title": "SGLang RCE exploit breaches NEAR AI, steals data from 18 agents and about 100 users",
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html",
-      "blurb": "Inference-engine flaw let the attacker see requests inside NEAR's TEE-based confidential mode."
+      "blurb": "Inference-server RCE was the way in; no CVE or fixed SGLang version named yet."
     },
     {
-      "title": "Fireworks AI Confirms Wider Breach Affecting Customer Datasets, Model Weights and Notion AI Chats",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html",
-      "blurb": "Notion says fewer than 1% of workspaces affected and has disabled its Insights feature."
-    },
-    {
-      "title": "Git Patches Flaw That Lets Malicious Repositories Execute Code During Recursive Clones",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/git-patches-flaw-that-lets-malicious.html",
-      "blurb": "Update to Git 2.56.1 (or 2.50.2-2.55.1); don't recursively clone untrusted repos meanwhile."
-    },
-    {
-      "title": "Hackers exploit trusted AWS access to breach multiple cloud environments",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-trusted-aws-access-to-breach-multiple-cloud-environments/",
-      "blurb": "Wiz and Sentra detail the Qubole cross-account role abuse: dozens of victims, secrets harvested fast."
-    },
-    {
-      "title": "Japanese furniture giant Nitori says hackers stole 37.6M customer records",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/japanese-furniture-giant-nitori-says-hackers-stole-376m-customer-records/",
-      "blurb": "Access since mid-October; no passwords or cards; expect phishing."
+      "title": "Fireworks AI gets burned twice as customer data exposure widens",
+      "source": "The Register",
+      "url": "https://www.theregister.com/cyber-crime/2026/11/10/fireworks-ai-gets-burned-twice-as-customer-data-exposure-widens/5308722",
+      "blurb": "A compromised cloud provider gave access to Fireworks dev machines Oct 24; billing data, datasets and partial model weights taken."
     },
     {
       "title": "Critical Xen Orchestra auth bypass flaw exploited to hijack VM servers",
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/critical-xen-orchestra-auth-bypass-flaw-exploited-to-hijack-vm-servers/",
-      "blurb": "Update to 6.9.1 or 6.10.0 and hunt for Vates' indicators."
+      "blurb": "Crafted cookie grants admin; patch Xen Orchestra now."
     }
   ],
   "watch": [
+    "Storm-0940 / ConnectWise (Dark Reading, Nov 10): China's Storm-0940 reportedly used ARTEX code around Oct 10 for 151,000+ password-spraying attempts against 300+ accounts at eight critical organizations, then stole ConnectWise Cloud Backup OAuth app credentials and reached more than 2,250 downstream Microsoft 365 and Azure environments within three hours. If you use ConnectWise Cloud Backup, review its app consent and sign-ins since October and follow ConnectWise guidance. https://www.darkreading.com/cyberattacks-data-breaches/artex-ai-pen-test-tool-hackers-weapon",
+    "Moved from focus: Chrome zero-day CVE-2026-125350 (XML use-after-free, exploited, fixed Nov 9). Make sure Chrome and Chromium-based browsers have restarted onto the latest version.",
+    "Moved from focus: Fireworks AI / Notion. Fireworks says a compromised third-party cloud provider let attackers reach its dev machines Oct 24 (billing data, datasets, partial model weights) after the Oct 6 credential misuse; Notion says AI chat transcripts from <1% of workspaces were exposed. Rotate any Fireworks keys and anything pasted into Notion AI during the incident.",
+    "AWS API MCP Server CVE-2026-125271 (X, Nov 10, unverified): versions 0.2.13 to before 1.5.1 reportedly allow a policy bypass through incorrect operation-name normalization. Upgrade to 1.5.1 if your AI agents use it.",
+    "Adobe Connect and Experience Manager (Nov 10): many critical flaws in Adobe Connect (SQL injection, path traversal, SSRF, code injection) and AEM (code execution). None reported exploited; apply Adobe's November updates.",
+    "Directus before 12.1.0 (CVE-2026-126539, critical, Nov 11) and WWBN AVideo 6.5-29.7.1 (CVE-2026-126542, critical): unauthenticated authorization/authentication bypasses. Upgrade Directus to 12.1.0 and patch AVideo.",
     "Git CVE-2026-111760 (Nov 10): a malicious repo can run code during a recursive clone with submodules; five other Git flaws fixed too. Update to Git 2.56.1 or 2.50.2/2.51.3/2.52.1/2.53.1/2.54.1/2.55.1, update apps that bundle Git (GitHub Enterprise Server 3.19.15/3.20.11/3.21.9/3.22.4; Git for Windows fix pending), and don't recursively clone untrusted repos. https://thehackernews.com/2026/11/git-patches-flaw-that-lets-malicious.html",
     "Nitori (Japan, Nov 10): intrusion found Nov 6, access likely since mid-October; up to 37.62M customer records may have leaked, no passwords or card data. Customers: expect phishing; Nitori never asks for passwords or card numbers.",
     "Qubole (Wiz / Sentra write-up, Nov 10): two compromised Qubole IAM users assumed trusted roles in dozens of customers' AWS accounts (Oct 14-26), pulled Secrets Manager, SSM and Lambda secrets, validated them with TruffleHog and downloaded all reachable S3 data. Review CloudTrail from Oct 1 for Qubole's account, rotate exposed credentials, revoke role sessions and remove unused third-party trust roles.",
@@ -259,7 +273,6 @@
     "Apple (Nov 9): iMessage group-chat flaws (a remote attacker could join a group and read messages) and Bluetooth pairing bugs fixed, including for older iPhones and iPads. Update.",
     "Moved from focus: SAP November patch day (now nicknamed ICM2SHELL and PROXYGATE) (nine critical flaws, four CVSS 10.0 in NetWeaver AS ABAP, Gateway and Web Dispatcher; three unauthenticated; Gateway one vulnerable by default). Not known exploited. Apply SAP's November notes, Gateway first. https://www.openadvisories.org/patch-day/sap/2026-11",
     "Japan breaches (Nov 9-10): Sharefull (Persol gig-work app) says data on up to 7.5M accounts, including wage bank accounts and addresses, may have been taken on Nov 4; Iris Ohyama's Iris Plaza says 7.7M records in an external cloud service may have been accessed (names, addresses, some passwords). Users: change reused passwords and expect phishing.",
-    "Docker Sandboxes CVE-2026-77179 (macOS, X, Nov 10): update Docker Sandboxes to 0.42.0 or later if AI agents run in it.",
     "Vanderbilt University (Nov 9): active attack, campus told to shut down devices; BYOD ransomware claims database encryption and data theft (unconfirmed by Vanderbilt). Moved from news.",
     "Moved from focus: IBM Aspera Faspex CVE-2026-123218 (CVSS 9.8, logged-in user to full admin; exploited, CISA KEV due Nov 12). Upgrade past 5.0.19 per IBM's bulletin.",
     "Moved from focus: FreeSWITCH CVE-2026-116779 (CVSS 9.8, crafted SIP MESSAGE runs commands; exploited, CISA KEV due Nov 12). Apply SignalWire's fixed release.",
@@ -276,16 +289,39 @@
     "Adobe Commerce / Magento PolyShell CVE-2026-48356 (CISA KEV, federal deadline passed Nov 10): apply Adobe's fix, block executable uploads in media folders and hunt for web shells and skimmers."
   ],
   "ai_activity": {
-    "overview": "Over the last 7 days AI-caused activity is dominated by agentic intrusion frameworks: ARTEX (Storm-3358, GitHub-to-Azure secret hunting, Crafty Falcon, VAPOR PANDA, WorkOS, GitBook, Kernel, the Korean banks), BOSSAI, Operation Snowball and Chainalysis. New this afternoon: Railway's full report says AI agents on safety-stripped models, in an ARTEX-like framework, drove its October breach and the theft of AI keys (about $740,000 in charges), and Microsoft's exploited Outlook zero-day was found by a researcher using Claude. AI-found bugs (SSHole, PHP2Shell, Brotli, UnrealIRCd) keep being exploited within hours to a day. AI products under attack include SGLang (now confirmed as NEAR AI's entry point), Mittwald's MCP server, GPUStack (KEV), AgentScope's unpatched MCP API, Profero's unpatched Grok Bot sandbox chain, and malicious agent skills and MCP packages. AI-impact incidents center on stolen AI provider keys and AI platforms: Railway, Fireworks (now confirmed to include Notion AI chat transcripts), NEAR AI, GhostAction, Tensorlake, Botpress and Northflank. Items from Nov 3 aged out of the 7-day window.",
+    "overview": "Over the last 7 days AI-caused activity is dominated by agentic intrusion frameworks: ARTEX (Storm-3358, GitHub-to-Azure secret hunting, Crafty Falcon, VAPOR PANDA, WorkOS, the Korean banks, and now a Dark Reading account of Storm-0940's ConnectWise pivot into 2,250+ tenants), BOSSAI, Operation Snowball and Chainalysis, plus Railway, where AI agents drove a breach that ended in about $740,000 of stolen AI usage. New tonight: Fortinet credits Claude Mythos for most of eight critical flaws it fixed, following the Claude-assisted Outlook zero-day find earlier today; AI-found bugs (SSHole, PHP2Shell, Brotli, UnrealIRCd) keep being exploited within hours to a day. AI products under attack include SGLang (NEAR AI), Mittwald's MCP server, GPUStack (KEV), AgentScope's unpatched MCP API, Profero's unpatched Grok Bot sandbox chain and malicious agent skills and MCP packages. AI-impact incidents center on stolen AI provider keys and AI platforms: Railway, Fireworks/Notion, NEAR AI, GhostAction, Tensorlake, Botpress and Northflank. GitBook and Kernel (Nov 4) aged out of the 7-day window.",
     "counts": {
       "ai_cause": 32,
-      "ai_product_exploited": 36,
+      "ai_product_exploited": 37,
       "ai_impact": 10
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Fortinet fixes eight critical FortiOS/FortiManager/FortiAnalyzer/FortiSASE flaws, most found by its team using Claude Mythos (worst: pre-auth RCE CVE-2026-126170, CVSS 9.8)",
+            "date": "2026-11-10T22:43:00Z",
+            "summary": "Six of eight need no login; none reported exploited. Upgrade per advisory or disable the JSON API with 'rpc-permit none' and keep OFTP/FGFM ports off the internet.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-126170",
+              "CVE-2026-126262",
+              "CVE-2026-126261",
+              "CVE-2026-126260"
+            ],
+            "url": "https://fortiguard.fortinet.com/psirt/FG-IR-26-219",
+            "source": "Fortinet PSIRT / SecurityOnline"
+          },
+          {
+            "title": "Dark Reading: Storm-0940 used ARTEX code for mass password spraying, then stole ConnectWise Cloud Backup OAuth credentials to reach 2,250+ Microsoft 365/Azure tenants",
+            "date": "2026-11-10T21:00:00Z",
+            "summary": "Around Oct 10: 151,000+ authentication attempts at about 2,900 per minute against 300+ accounts at eight critical organizations without tripping lockouts; the ConnectWise pivot hit downstream tenants within three hours. Single-outlet report so far.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.darkreading.com/cyberattacks-data-breaches/artex-ai-pen-test-tool-hackers-weapon",
+            "source": "Dark Reading"
+          },
           {
             "title": "Exploited Outlook zero-day CVE-2026-124194 (NTLM hash leak) patched; Microsoft credits a researcher who used Claude to find it",
             "date": "2026-11-10T18:00:00Z",
@@ -300,11 +336,11 @@
           {
             "title": "Railway full report: attacker used AI agents (ARTEX-like framework, safety-stripped models) to escape build isolation, decrypt customer env vars and steal AI keys; ~$740,000 in LLMjacking charges",
             "date": "2026-11-10T16:00:00Z",
-            "summary": "Build-isolation escape Oct 20, then a bad OIDC trust setting Oct 21; up to 1.85% of workspaces may have had env vars decrypted, 1,852 users' linked tokens reset. Rotate secrets kept in Railway.",
+            "summary": "Build-isolation escape Oct 20, then a bad OIDC trust setting Oct 21; up to 1.85% of workspaces may have had env vars decrypted, 1,852 users' linked tokens reset. Rotate secrets kept in Railway. BleepingComputer: the upper bound is about 100,000 workspaces; Railway ties it to Wiz's 'Black October' wave.",
             "status": "exploited",
             "cves": [],
-            "url": "https://cybersecuritynews.com/railway-details-data-breach/",
-            "source": "Cyber Security News (Railway report)"
+            "url": "https://www.bleepingcomputer.com/news/apple/railway-breach-leads-to-740-000-in-fraudulent-ai-charges/",
+            "source": "BleepingComputer (Railway report)"
           },
           {
             "title": "Anthropic releases Claude Mythos 5.2 with better bug hunting and fewer sandbox escapes in tests",
@@ -571,30 +607,23 @@
             "cves": [],
             "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-use-artex-ai-in-automated-attacks-against-200-orgs/",
             "source": "BleepingComputer / GTIG"
-          },
-          {
-            "title": "GitBook breached with AI-agent attack via SSO flaw to production secrets",
-            "date": "2026-11-04T00:00:00Z",
-            "summary": "Attacker used SSO flaw to impersonate staff, reached Cloudflare API key and production secrets; all personal API tokens revoked. GitBook says the speed pointed to AI automation.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://www.gitbook.com/status/security-incident-2026-11-03",
-            "source": "GitBook"
-          },
-          {
-            "title": "Kernel (cloud browsers for AI agents) breached; believes attacker used ARTEX",
-            "date": "2026-11-04T00:00:00Z",
-            "summary": "Leaked API key led to logs holding customer secrets; GPU servers hijacked for cryptomining. 0.28% of customers notified; credentials rotated.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://www.kernel.sh/blog/public-notice-of-security-incident-nov-4-2026",
-            "source": "Kernel"
           }
         ]
       },
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "Unverified: AWS API MCP Server CVE-2026-125271 policy bypass via incorrect operation-name normalization (0.2.13 to <1.5.1)",
+            "date": "2026-11-10T22:07:00Z",
+            "summary": "Single X post; upgrade to 1.5.1 if agents use it.",
+            "status": "unverified",
+            "cves": [
+              "CVE-2026-125271"
+            ],
+            "url": "https://x.com/iamnrdas/status/2120277091782414793",
+            "source": "X"
+          },
           {
             "title": "Unverified: Aviatrix says Claude Code wrote cloud keys, database passwords and SSH credentials into hidden config files later committed to public GitHub",
             "date": "2026-11-10T19:27:00Z",
@@ -960,11 +989,11 @@
           {
             "title": "Railway: AI provider keys targeted and decrypted from customer env vars; ~$740,000 in unauthorized AI usage",
             "date": "2026-11-10T16:00:00Z",
-            "summary": "Same incident as the AI-cause item; Railway will cover charges providers do not refund.",
+            "summary": "Same incident as the AI-cause item; stolen linked tokens included GitHub OAuth tokens and AI agent keys. Railway will cover charges providers do not refund.",
             "status": "exploited",
             "cves": [],
-            "url": "https://cybersecuritynews.com/railway-details-data-breach/",
-            "source": "Cyber Security News"
+            "url": "https://www.bleepingcomputer.com/news/apple/railway-breach-leads-to-740-000-in-fraudulent-ai-charges/",
+            "source": "BleepingComputer"
           },
           {
             "title": "Fireworks AI breach widens: Notion confirms Notion AI chat transcripts (Insights feature) exposed for <1% of workspaces; Fireworks billing data, datasets and partial model weights also taken",
@@ -1043,6 +1072,6 @@
         ]
       }
     ],
-    "trend_note": "AI agents keep winning with known bugs, leftover credentials and over-trusted cloud roles rather than novel exploits, and the prize is increasingly AI provider keys for resale (Railway, Fireworks, Northflank, Botpress). AI infrastructure itself, from inference engines (SGLang) to MCP servers and agent sandboxes, is now a regular way in, so auth on every AI endpoint, least-privilege tokens, spend alerts and fast key rotation block most of it."
+    "trend_note": "Defenders' AI is now finding critical bugs in batches (Fortinet, Microsoft), so expect larger patch drops and quicker attacker reverse-engineering. Attackers' AI agents keep winning with known bugs, leftover credentials and over-trusted OAuth apps or cloud roles, with AI provider keys as the prize; auth on every AI endpoint, least-privilege tokens, spend alerts and fast key rotation block most of it."
   }
 }
