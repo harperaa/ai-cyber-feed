@@ -39,7 +39,7 @@ CAUSE = [
                                          r"\b(?:by|with|using)\b" + GAP(15) + r"\b" + MODEL + r"\b"),
     ("AI used to find/build vulns", r"\b(?:us(?:e|es|ed|ing)|leverag\w+|with the help of|powered by|thanks to)\b" + GAP(25) + r"\b" + MODEL + r"\b" + GAP(40) + r"\b(?:to (?:find|discover|hunt|uncover|identify|audit|exploit)|to (?:write|build|develop|craft|generate) (?:an? |the )?(?:exploit|poc|malware|ransomware|payload)|throughout|during (?:discovery|exploit)|for (?:discovery|vulnerability|exploit|bug))"),
     ("AI finds/uncovers vulns", AI + r"[- ](?:agents?|models?|systems?)?\s*(?:uncover|find|discover|hack|hunt|exploit|identif|detect|caught|catch)\w*\b" + GAP(60) + r"\b(?:vulnerabilit\w+|zero[- ]?days?|flaws?|bugs?|rce|cves?)\b"),
-    ("AI-generated exploit/malware", r"\b(?:AI|LLM|llm)[- ](?:generated|written|authored|crafted)\b" + GAP(30) + r"\b(?:exploit|malware|code|payload|poc|ransomware)|"
+    ("AI-generated exploit/malware", r"\b(?:AI|LLM|llm)[- ](?:generated|written|authored|crafted)\b" + GAP(30) + r"\b(?:exploit|malware|code|payload|poc|ransomware|scripts?|attack tool\w*)|"
                                      r"\b(?:exploit|malware|payload|poc|ransomware)\b" + GAP(25) + r"\b(?:generated|written|created|built)\b" + GAP(12) + r"\b(?:by|with|using)\b" + GAP(12) + r"\b" + MODEL + r"\b|"
                                      r"\b" + MODEL + r"\b" + GAP(15) + r"\b(?:built|wrote|developed|created|generated)\b" + GAP(20) + r"\b(?:exploit|poc)s?\b"),
     ("AI-powered attack tooling", r"\b(?:" + AI + r"|agentic|autonomous|llm)[- ]?(?:powered|driven|enabled|based)?[- ]?(?:malware|ransomware|attack|hacking|exploit(?:ation)? (?:tool|framework|agent)|offensive|pentest\w*|red[- ]team)\b"),
