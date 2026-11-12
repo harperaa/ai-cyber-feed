@@ -194,6 +194,7 @@ IMPACT = [
 
 # Hand-curated angles for specific CVE ids (use for things heuristics cannot know). type, why, optional source url
 MANUAL = {
+    "CVE-2026-39987": [("cause", "Marimo flaw exploited in the wild by an autonomous AI agent (self-reported Claude-based harness) to drop crypto miners on honeypots (AIHoneypotWatch, Nov 12)")],
     "CVE-2026-97693": [("product", "Critical (CVSS 9.9) flaw in Yuxi, a large-model-based knowledge-base and knowledge-graph AI agent development platform (from 0.6.0.beta1)")],
     "CVE-2026-98432": [("cause", "Linux IPv4 TCP use-after-free (CVSS 9.8): reports say Anthropic's AI built a working remote exploit in about 53 minutes")],
     "CVE-2026-120338": [("product", "Prefab UI generative-UI sandbox escape: caller-supplied Python in Pyodide/Deno escapes to host RCE")],
