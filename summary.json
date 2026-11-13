@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-13T01:45:00Z",
-  "next_update_note": "Next summary update around 12:30 AM EST (Friday Nov 13).",
-  "headline": "Evening update: researchers have taken apart SCKit, the toolkit behind this week's ScreenConnect MSP attacks. It tries to jump from an infected customer PC to the connecting technician through ScreenConnect flaw CVE-2026-84869, but Huntress and Blackpoint saw that step fail on patched clients, and Huntress ties the break-ins to the RMM+ extension accepting a blank access key; update ScreenConnect clients and remove unneeded extensions. Fireworks AI's breach is wider than first said (billing data, some datasets and partial model weights, tied to an 'LLMJacking' gang that resells stolen AI access), and Notion revoked Notion API keys it found pasted in exposed Notion AI chats. BleepingComputer now covers the GitHub 'wfx-loot' secret-stealer wave, and Initia confirmed a stolen Google Cloud key led to $3.27M in forged crypto withdrawals. Unverified X alerts say VulnCheck sees exploitation of MLflow CVE-2026-116692, WordPress Core CVE-2026-87902 and Copeland XWEB. Still top priority: Railway and GitHub key rotation, the N-able Legacy API, Cairn and AntiFox hunting, and patching Outlook and Apache httpd 2.4.71.",
-  "ai_headline": "No new AI-run intrusion since this afternoon. New on the AI side: Neo says its autonomous research agents found that Zoom shipped a vulnerable pjproject library reachable during calls (remote code execution, fixed in Zoom 7.2.0), and Microsoft showed that poisoned fine-tuning data or a backdoored open-weight model can make coding agents run attacker commands 78-95% of the time. The week's AI-caused list still leads (Cairn, Railway, AntiFox, Silent Lynx Hermes, Operation Snowball, ARTEX), and Fireworks AI, the inference host behind the Notion AI chat leak, now links its breach to an LLMJacking group that sells stolen model access.",
+  "updated_at": "2026-11-13T05:45:00Z",
+  "next_update_note": "Next summary update around 4:30 AM EST (Friday Nov 13).",
+  "headline": "Quiet overnight: no new breach of a major platform and no new actively exploited flaw since the evening update. The GitHub 'wfx-loot' secret-stealer wave grew in OX Security's latest count (66,200+ probe pull requests, malicious commits on 8,093 public repos, at least 1,806 confirmed thefts, 28 WebdriverIO repos reached through a bot account), so repo owners should still check for it and rotate CI secrets. Notion says it reported third-party API keys found in the exposed Notion AI chats to the companies that issued them. Forescout's Claude-based tool found 66 new flaws in IoT network stacks in 90 hours, and GitHub flagged 23 more malicious npm/PyPI packages, including the aurum-pay remote-access trojan. Still top priority: Railway and GitHub key rotation, ScreenConnect clients and extensions, the N-able Legacy API, Cairn and AntiFox hunting, and patching Outlook and Apache httpd 2.4.71.",
+  "ai_headline": "No new AI-run intrusion overnight. New on the AI side: Forescout's AI harness (Claude models) found 99 bugs in 10 embedded TCP/IP stacks in 90 hours, 66 of them new, for $1,200-2,300 in tokens, and 24 are fixed so far. Notion passed exposed third-party API keys from the Fireworks AI leak to their issuers, and wfx-loot, which also steals AI provider and coding-tool keys, keeps growing. The week's AI-caused list still leads (Cairn, Railway, AntiFox, Silent Lynx Hermes, Operation Snowball, ARTEX/Storm-0940).",
   "focus": [
     {
       "title": "Railway full incident report (Nov 10): attacker used AI agents on safety-stripped models to break in, decrypt customer env vars and run up about $740,000 in stolen AI usage",
@@ -94,14 +94,14 @@
       "ai_note": "Discovered independently by Anthropic and Google Cloud's vulnerability research team."
     },
     {
-      "title": "GitHub Actions secret-stealer wave (Aikido, Nov 12): 4,837 hijacked GitHub accounts opened probe PRs in 61,764 repos; payload ran in at least 1,806 repos and stole CI, cloud and AI keys",
+      "title": "GitHub 'wfx-loot' secret-stealer wave keeps growing: 4,837 hijacked accounts, 66,200+ probe PRs, malicious commits on 8,093 public repos, payload ran in at least 1,806 and stole CI, cloud and AI keys",
       "severity": "critical",
       "exploited": true,
       "cves": [],
       "vendor": "GitHub (Actions) / any repo you can write to",
-      "why": "Since about 12:45 UTC Nov 10, an attacker has used stolen GitHub tokens to open a 'docs: dependency audit notes' probe pull request from a 'wfx-docs' branch, then push a payload (commits 'ci: refresh build cache', 'chore: add ci helper' with a postinstall hook, or 'chore: add dependency audit workflow' on a chore/xxxxxxxx branch), revert within a minute and delete the run and its logs. It grabs Actions secrets, GITHUB_TOKEN, OIDC tokens, cloud credential files, shell histories and keys for OpenAI, Anthropic, Gemini, Hugging Face, Cursor, Copilot, Codex and other AI tools. 10,431 probes hit repos the account doesn't own via collaborator or org access, 92% of the PRs are still open, and the payload reached at least one Packagist and one Go package. Socket, Wiz and GitGuardian have tracked related waves (GhostAction, Gheist) since September. BleepingComputer (Nov 12) now calls the campaign 'wfx-loot' and confirms the counts.",
+      "why": "Since about 12:45 UTC Nov 10, an attacker has used stolen GitHub tokens to open a 'docs: dependency audit notes' probe pull request from a 'wfx-docs' branch, then push a payload (commits 'ci: refresh build cache', 'chore: add ci helper' with a postinstall hook, or 'chore: add dependency audit workflow' on a chore/xxxxxxxx branch), revert within a minute and delete the run and its logs. It grabs Actions secrets, GITHUB_TOKEN, OIDC tokens, cloud credential files, shell histories and keys for OpenAI, Anthropic, Gemini, Hugging Face, Cursor, Copilot, Codex and other AI tools. 10,431 probes hit repos the account doesn't own via collaborator or org access, 92% of the PRs are still open, and the payload reached at least one Packagist and one Go package. Socket, Wiz and GitGuardian have tracked related waves (GhostAction, Gheist) since September. BleepingComputer (Nov 12) now calls the campaign 'wfx-loot' and confirms the counts. OX Security's latest count (Nov 12-13): over 66,200 probe pull requests (about 58,900 still open), 8,093 public repos with a malicious commit on the default branch (7,309 via workflow edits, 771 via npm postinstall hooks, 16 via new workflow files), at least 50 hijacked accounts that publish packages, and 28 WebdriverIO repos reached through the project's bot account. Private repos aren't visible, so the real numbers are higher.",
       "action": "Search every repo you can write to for a 'wfx-docs' branch, 'docs: dependency audit notes' PRs, those commit titles, chore/ branches with 8 random characters, and gaps in workflow run numbers since Nov 10. If any appear, rotate every secret, cloud role and AI key available to that repo's workflows, revoke the committing account's tokens and reset its password/2FA, close the PRs, and check npm/PyPI/Go/crates releases you publish.",
-      "url": "https://www.aikido.dev/blog/compromised-github-accounts-push-ci-secret-stealer-to-tens-of-thousands-of-repositories",
+      "url": "https://www.ox.security/blog/thousands-of-github-accounts-hijacked-with-wfx-loot-ci-secret-stealing-malware-via-github-actions-npm/",
       "ai_angle": [
         "impact"
       ],
@@ -113,7 +113,7 @@
       "exploited": true,
       "cves": [],
       "vendor": "Fireworks AI / Notion",
-      "why": "Fireworks' Nov 9 update says attackers who first took evaluation-job secrets in October also reached account and billing data and, for a limited set of accounts, secrets, datasets and incomplete model weights, and links them to a financially motivated 'LLMJacking' group that resells stolen AI model access. Notion says fewer than 1% of workspaces had Notion AI chat transcripts (Insights feature) in the stolen data; it revoked exposed Notion API keys found in those chats on Nov 11, disabled Insights and stopped serving open-weight models through Fireworks.",
+      "why": "Fireworks' Nov 9 update says attackers who first took evaluation-job secrets in October also reached account and billing data and, for a limited set of accounts, secrets, datasets and incomplete model weights, and links them to a financially motivated 'LLMJacking' group that resells stolen AI model access. Notion says fewer than 1% of workspaces had Notion AI chat transcripts (Insights feature) in the stolen data; it revoked exposed Notion API keys found in those chats on Nov 11, disabled Insights and stopped serving open-weight models through Fireworks. New (Notion advisory, Nov 13): on Nov 12 Notion reported exposed third-party API keys found in the affected chats to the vendors that issued them.",
       "action": "Fireworks customers: rotate every secret ever stored in Fireworks (evaluation-job env vars, API keys) and check usage and billing for unknown activity. Notion users who got a notice: review the affected chats in your workspace and rotate any password, API key or token pasted into Notion AI in the incident window; recreate integrations whose Notion API keys were revoked.",
       "url": "https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html",
       "ai_angle": [
@@ -182,10 +182,10 @@
       "blurb": "Billing data, some datasets and partial model weights taken; Notion AI chat transcripts exposed for under 1% of workspaces."
     },
     {
-      "title": "Hackers compromise 4,800 GitHub accounts to steal cloud credentials",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-4-800-github-accounts-to-steal-cloud-credentials/",
-      "blurb": "The 'wfx-loot' wave probed 61,764 repos and pushed CI secret-stealing payloads."
+      "title": "Thousands Of GitHub Accounts Hijacked With wfx-loot CI Secret Stealing Malware",
+      "source": "OX Security",
+      "url": "https://www.ox.security/blog/thousands-of-github-accounts-hijacked-with-wfx-loot-ci-secret-stealing-malware-via-github-actions-npm/",
+      "blurb": "Updated counts: 66,200+ probe PRs, malicious commits on 8,093 public repos, 1,806+ confirmed thefts including AI provider keys."
     },
     {
       "title": "New N-able \"4EverAble2Shell\" zero-day exploited hours after PoC released",
@@ -200,19 +200,22 @@
       "blurb": "Public CLFS exploit, no patch; can also bypass antivirus tamper protection."
     },
     {
-      "title": "Hundreds of Artex AI hacking tools found exposed online",
-      "source": "Searchlight Cyber",
-      "url": "https://www.slcyber.io/blog/beacon-hundreds-of-artex-ai-hacking-tools-found-exposed-online",
-      "blurb": "800+ password-less ARTEX deployments exposed, some with implants; Microsoft says ARTEX and similar agents scan GitHub for leaked keys."
-    },
-    {
       "title": "Trained to betray: How post-training supply chain attacks hijack coding agents",
       "source": "Microsoft Security Blog",
       "url": "https://www.microsoft.com/en-us/security/blog/2026/11/12/trained-to-betray-how-post-training-supply-chain-attacks-hijack-coding-agents/",
       "blurb": "Poisoned fine-tuning data or backdoored open-weight models made coding agents misuse command tools 78-95% of the time."
+    },
+    {
+      "title": "AI found widespread IoT vulnerabilities more quickly and cheaply than humans could",
+      "source": "Cybersecurity Dive",
+      "url": "https://www.cybersecuritydive.com/news/ai-vulnerabilities-critical-infrastructure-embedded-software/874499/",
+      "blurb": "Forescout's Claude-based harness found 99 bugs (66 new) in 10 embedded TCP/IP stacks in 90 hours; 24 fixed so far."
     }
   ],
   "watch": [
+    "Forescout (Nov 12): an AI harness using Claude models found 99 bugs in 10 embedded TCP/IP stacks (Contiki, Ethernut, lwIP, wolfIP and others) in 90 hours, 66 of them new; 54 were reported, 24 fixed, and one Ethernut bug has no maintainer response. Check firmware updates for IoT and OT gear built on these stacks, and isolate unsupported devices. https://www.cybersecuritydive.com/news/ai-vulnerabilities-critical-infrastructure-embedded-software/874499/",
+    "GitHub malware advisories (Nov 12): 23 malicious npm and PyPI packages, including PyPI aurum-pay 1.2.0 (installs a remote-access trojan on first import), tailwindcss-hook-forms (typosquat of @tailwindcss/forms) and Amazon Inspector-flagged droppers that scan for passwords, wallets and .env files. Search lockfiles for them and rotate secrets on any machine that installed one. https://dependencywatch.io/incident/multi-2026-11-12-ghsa-malware-sweep",
+    "FBI/DOJ (SecurityWeek, Nov 12): the US seized $1.2 billion in crypto stolen from Binance, and the FBI blamed North Korea for a separate social-engineering scheme (called 'FaceStealer' in X posts) that took about $400 million; staff at crypto firms should verify people on video calls through a second channel. https://www.securityweek.com/fbi-says-us-seized-1-2-billion-worth-of-cryptocurrency-stolen-from-binance/",
     "Moved from focus: Apify breach (Nov 9-10). API tokens and proxy passwords were rotated and GitHub/OAuth links revoked; update apps, CI jobs and actors with the new values and reset 2FA if told to. https://www.bleepingcomputer.com/news/security/apify-rotates-api-tokens-prompts-2fa-resets-after-breach/",
     "Initia (now confirmed by Initia, via Cointelegraph): a compromised Google Cloud key and command injection on Nov 9 exposed environment variables, giving the attacker GitHub, cloud and rollup-hosting access to forge withdrawals from five rollups; about $3.27M moved, $2.16M frozen on the halted chain. A reminder to keep cloud keys out of env vars on internet-facing services. https://cointelegraph.com/news/initia-second-crypto-exploit-three-weeks",
     "Zoom (Neo, Nov 12): AI research agents found an outdated pjproject (CVE-2026-25994) reachable during Zoom calls for remote code execution on all four platforms; update Zoom to 7.2.0 or later.",
@@ -325,9 +328,9 @@
     "Adobe Commerce / Magento PolyShell CVE-2026-48356 (CISA KEV, federal deadline passed Nov 10): apply Adobe's fix, block executable uploads in media folders and hunt for web shells and skimmers."
   ],
   "ai_activity": {
-    "overview": "In the last 7 days AI agents ran or drove real intrusions at Railway, Chainstack, WorkOS, and in the Cairn (10 of 19 targets breached), AntiFox (AWS key theft), Silent Lynx Hermes and Operation Snowball campaigns, and Searchlight Cyber counts 800+ exposed ARTEX attack-agent installs. AI-found bugs keep landing as patches (Outlook zero-day, Node.js, Apache httpd, NetScaler, and now a Zoom call RCE found by Neo's agents). On the impact side, stolen AI provider keys were abused after breaches at Railway, NEAR AI, Northflank, Botpress, ApiPass and through the GitHub Actions 'wfx-loot' secret-stealer wave, and Fireworks AI, now linked to an LLMJacking gang, exposed Notion AI chats and some customers' datasets and partial model weights. Counts: 42 AI-caused, 48 AI-product, 14 AI-impact items.",
+    "overview": "In the last 7 days AI agents ran or drove real intrusions at Railway, Chainstack, WorkOS, and in the Cairn (10 of 19 targets breached), AntiFox (AWS key theft), Silent Lynx Hermes and Operation Snowball campaigns, and Searchlight Cyber counts 800+ exposed ARTEX attack-agent installs. AI-found bugs keep landing as patches (Outlook zero-day, Node.js, Apache httpd, NetScaler, a Zoom call RCE found by Neo's agents, and 66 new IoT network-stack bugs found by Forescout's Claude-based harness). On the impact side, stolen AI provider keys were abused after breaches at Railway, NEAR AI, Northflank, Botpress, ApiPass and through the GitHub Actions 'wfx-loot' secret-stealer wave, and Fireworks AI, now linked to an LLMJacking gang, exposed Notion AI chats and some customers' datasets and partial model weights. Counts: 43 AI-caused, 48 AI-product, 14 AI-impact items.",
     "counts": {
-      "ai_cause": 42,
+      "ai_cause": 43,
       "ai_product_exploited": 48,
       "ai_impact": 14
     },
@@ -335,6 +338,15 @@
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Forescout's Claude-based AI harness finds 99 bugs (66 new) in 10 embedded TCP/IP stacks in 90 hours",
+            "date": "2026-11-12T20:00:00Z",
+            "summary": "Rediscovered 33 known bugs and found 66 new ones in stacks used in IoT and critical-infrastructure devices, about half memory corruption, for $1,200-2,300 in tokens. 54 reported, 24 fixed, 29 under investigation; unsupported devices remain exposed.",
+            "status": "patched",
+            "cves": [],
+            "url": "https://www.cybersecuritydive.com/news/ai-vulnerabilities-critical-infrastructure-embedded-software/874499/",
+            "source": "Cybersecurity Dive / Forescout"
+          },
           {
             "title": "800+ ARTEX AI attack-agent deployments found exposed online without a password, some holding implants",
             "date": "2026-11-12T18:00:00Z",
@@ -1226,7 +1238,7 @@
           {
             "title": "Fireworks AI breach widens: Notion confirms Notion AI chat transcripts (Insights feature) exposed for <1% of workspaces; Fireworks billing data, datasets and partial model weights also taken",
             "date": "2026-11-12T22:00:00Z",
-            "summary": "Notion's advisory: Fireworks warned on Nov 6 that customer data may have been accessed and confirmed the dataset Nov 8; it held Notion AI chat transcripts used for the Insights feature, mostly not labeled by author or workspace and without tool-call results. Notion contacted affected customers Nov 9, disabled Insights and stopped serving open-weight models through Fireworks; Render's CEO said Render was affected. Fireworks' Nov 9 bulletin: billing and account data for customers, plus stored secrets, datasets and partial model weights for a limited group; Unit 42 is investigating. Rotate anything pasted into Notion AI if notified, and rotate Fireworks API keys. SecurityWeek (Nov 12): Notion is now notifying affected customers and says to treat the chats as exposed and rotate any credentials pasted into Notion AI. Update (Nov 12): Fireworks' bulletin ties the intrusion to a financially motivated 'LLMJacking' group that resells stolen AI model access, and says attackers came in through a third-party cloud provider; Notion revoked Notion API keys it found pasted in the exposed chats on Nov 11. Rotate anything you pasted into Notion AI in the incident window.",
+            "summary": "Notion's advisory: Fireworks warned on Nov 6 that customer data may have been accessed and confirmed the dataset Nov 8; it held Notion AI chat transcripts used for the Insights feature, mostly not labeled by author or workspace and without tool-call results. Notion contacted affected customers Nov 9, disabled Insights and stopped serving open-weight models through Fireworks; Render's CEO said Render was affected. Fireworks' Nov 9 bulletin: billing and account data for customers, plus stored secrets, datasets and partial model weights for a limited group; Unit 42 is investigating. Rotate anything pasted into Notion AI if notified, and rotate Fireworks API keys. SecurityWeek (Nov 12): Notion is now notifying affected customers and says to treat the chats as exposed and rotate any credentials pasted into Notion AI. Update (Nov 12): Fireworks' bulletin ties the intrusion to a financially motivated 'LLMJacking' group that resells stolen AI model access, and says attackers came in through a third-party cloud provider; Notion revoked Notion API keys it found pasted in the exposed chats on Nov 11. Rotate anything you pasted into Notion AI in the incident window. Nov 12: Notion reported exposed third-party API keys found in the chats to their issuers.",
             "status": "exploited",
             "cves": [],
             "url": "https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html",
@@ -1246,7 +1258,7 @@
           {
             "title": "GitHub Actions secret-stealer wave hunts AI provider and AI coding-tool keys: 4,837 hijacked accounts, 61,764 repos probed, payload ran in 1,806+",
             "date": "2026-11-12T03:27:00Z",
-            "summary": "Aikido: since Nov 10, stolen GitHub tokens used to push a workflow payload that steals Actions secrets, OIDC tokens, cloud credentials and keys for OpenAI, Anthropic, Gemini, Hugging Face, Cursor, Copilot, Codex and others, then deletes the run logs.",
+            "summary": "Aikido: since Nov 10, stolen GitHub tokens used to push a workflow payload that steals Actions secrets, OIDC tokens, cloud credentials and keys for OpenAI, Anthropic, Gemini, Hugging Face, Cursor, Copilot, Codex and others, then deletes the run logs. OX Security update: 66,200+ probe PRs, malicious commits on 8,093 public repos, 1,806+ confirmed thefts.",
             "status": "exploited",
             "cves": [],
             "url": "https://www.aikido.dev/blog/compromised-github-accounts-push-ci-secret-stealer-to-tens-of-thousands-of-repositories",
@@ -1356,6 +1368,6 @@
         ]
       }
     ],
-    "trend_note": "Chinese and DeepSeek-family models now power at least three documented espionage operations (Cairn, Silent Lynx's Hermes, Operation Snowball), and the money side keeps moving toward stealing AI access itself: Fireworks' attackers and the Railway, ApiPass and wfx-loot thieves all went after keys or tokens to resell or burn. Agent attacks are fast but noisy, so request-rate alerts, canary inputs and short-lived least-privilege keys with spend alerts remain the best brakes; Microsoft's backdoored-model research adds that the models defenders run need provenance checks too."
+    "trend_note": "Chinese and DeepSeek-family models now power at least three documented espionage operations (Cairn, Silent Lynx's Hermes, Operation Snowball), and the money side keeps moving toward stealing AI access itself: Fireworks' attackers and the Railway, ApiPass and wfx-loot thieves all went after keys or tokens to resell or burn. Agent attacks are fast but noisy, so request-rate alerts, canary inputs and short-lived least-privilege keys with spend alerts remain the best brakes; Microsoft's backdoored-model research adds that the models defenders run need provenance checks too. Overnight was quiet for new AI-run intrusions, while AI bug-finding kept scaling (Forescout, Microsoft FORGE), so expect more patch batches in embedded and open-source code."
   }
 }
