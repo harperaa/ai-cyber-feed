@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-12T21:45:00Z",
-  "next_update_note": "Next summary update around 8:30 PM EST (Thursday Nov 12).",
-  "headline": "Afternoon update: N-able N-central's 4EverAble2Shell flaw is now exploited in the wild, hours after the public exploit; BleepingComputer reports at least 21 hacked servers (19 on the latest update) running crypto miners, so on-prem N-central admins must turn off the Legacy API now and hunt for miners. Also new: ApiPass, an AI API reseller, says attackers got in through an old Metabase flaw, stole plaintext user API keys and burned credits on Seedance video models; old keys stopped working Nov 11. A public exploit for Cisco Expressway CVE-2026-76466 (root, fixed in X15.5.20) is out, though no attacks are reported. Still top priority: Railway and GitHub Actions key rotation, the Cairn and AntiFox AI-agent intrusions, rogue ScreenConnect clients, Apify token updates, and patching Outlook, Node.js and Apache httpd 2.4.71. A Microsoft 365 outage this afternoon was a health-check failure, not an attack, as far as Microsoft has said.",
-  "ai_headline": "No new AI-run intrusion this afternoon, but Searchlight Cyber found more than 800 internet-exposed ARTEX AI attack-agent deployments with no password, some holding implants, a sign of how widely the tool behind Chainstack, WorkOS and the ConnectWise attacks has spread. This week's AI-caused list still leads: Unit 42's Cairn campaign (access at 10 of 19 targets), Railway ($740,000 in stolen AI usage), AntiFox AWS key theft and Silent Lynx's Hermes espionage. On the AI-impact side, ApiPass joins Railway, NEAR AI and Notion/Fireworks as a platform whose users' AI keys were stolen and abused.",
+  "updated_at": "2026-11-13T01:45:00Z",
+  "next_update_note": "Next summary update around 12:30 AM EST (Friday Nov 13).",
+  "headline": "Evening update: researchers have taken apart SCKit, the toolkit behind this week's ScreenConnect MSP attacks. It tries to jump from an infected customer PC to the connecting technician through ScreenConnect flaw CVE-2026-84869, but Huntress and Blackpoint saw that step fail on patched clients, and Huntress ties the break-ins to the RMM+ extension accepting a blank access key; update ScreenConnect clients and remove unneeded extensions. Fireworks AI's breach is wider than first said (billing data, some datasets and partial model weights, tied to an 'LLMJacking' gang that resells stolen AI access), and Notion revoked Notion API keys it found pasted in exposed Notion AI chats. BleepingComputer now covers the GitHub 'wfx-loot' secret-stealer wave, and Initia confirmed a stolen Google Cloud key led to $3.27M in forged crypto withdrawals. Unverified X alerts say VulnCheck sees exploitation of MLflow CVE-2026-116692, WordPress Core CVE-2026-87902 and Copeland XWEB. Still top priority: Railway and GitHub key rotation, the N-able Legacy API, Cairn and AntiFox hunting, and patching Outlook and Apache httpd 2.4.71.",
+  "ai_headline": "No new AI-run intrusion since this afternoon. New on the AI side: Neo says its autonomous research agents found that Zoom shipped a vulnerable pjproject library reachable during calls (remote code execution, fixed in Zoom 7.2.0), and Microsoft showed that poisoned fine-tuning data or a backdoored open-weight model can make coding agents run attacker commands 78-95% of the time. The week's AI-caused list still leads (Cairn, Railway, AntiFox, Silent Lynx Hermes, Operation Snowball, ARTEX), and Fireworks AI, the inference host behind the Notion AI chat leak, now links its breach to an LLMJacking group that sells stolen model access.",
   "focus": [
     {
       "title": "Railway full incident report (Nov 10): attacker used AI agents on safety-stripped models to break in, decrypt customer env vars and run up about $740,000 in stolen AI usage",
@@ -85,7 +85,7 @@
         "CVE-2026-119618"
       ],
       "vendor": "Apache Software Foundation",
-      "why": "Affects httpd 2.4.55 through 2.4.70 with HTTP/2 enabled; Wiz says 64% of cloud environments have vulnerable resources and 51% have exposed ones. No exploit or attacks reported yet, but AI-found bugs this month (SSHole, PHP2Shell) were exploited within hours.",
+      "why": "Affects httpd 2.4.55 through 2.4.70 with HTTP/2 enabled; Wiz says 64% of cloud environments have vulnerable resources and 51% have exposed ones. No attacks reported yet (one X post this evening claims a public PoC; unverified), but AI-found bugs this month (SSHole, PHP2Shell) were exploited within hours.",
       "action": "Upgrade to Apache httpd 2.4.71 or later (and standalone mod_h2 past 2.0.42); if you can't yet, set `Protocols http/1.1` to turn off HTTP/2.",
       "url": "https://www.wiz.io/blog/cve-2026-119618-rce-apache-http-server-vulnerability",
       "ai_angle": [
@@ -99,7 +99,7 @@
       "exploited": true,
       "cves": [],
       "vendor": "GitHub (Actions) / any repo you can write to",
-      "why": "Since about 12:45 UTC Nov 10, an attacker has used stolen GitHub tokens to open a 'docs: dependency audit notes' probe pull request from a 'wfx-docs' branch, then push a payload (commits 'ci: refresh build cache', 'chore: add ci helper' with a postinstall hook, or 'chore: add dependency audit workflow' on a chore/xxxxxxxx branch), revert within a minute and delete the run and its logs. It grabs Actions secrets, GITHUB_TOKEN, OIDC tokens, cloud credential files, shell histories and keys for OpenAI, Anthropic, Gemini, Hugging Face, Cursor, Copilot, Codex and other AI tools. 10,431 probes hit repos the account doesn't own via collaborator or org access, 92% of the PRs are still open, and the payload reached at least one Packagist and one Go package. Socket, Wiz and GitGuardian have tracked related waves (GhostAction, Gheist) since September.",
+      "why": "Since about 12:45 UTC Nov 10, an attacker has used stolen GitHub tokens to open a 'docs: dependency audit notes' probe pull request from a 'wfx-docs' branch, then push a payload (commits 'ci: refresh build cache', 'chore: add ci helper' with a postinstall hook, or 'chore: add dependency audit workflow' on a chore/xxxxxxxx branch), revert within a minute and delete the run and its logs. It grabs Actions secrets, GITHUB_TOKEN, OIDC tokens, cloud credential files, shell histories and keys for OpenAI, Anthropic, Gemini, Hugging Face, Cursor, Copilot, Codex and other AI tools. 10,431 probes hit repos the account doesn't own via collaborator or org access, 92% of the PRs are still open, and the payload reached at least one Packagist and one Go package. Socket, Wiz and GitGuardian have tracked related waves (GhostAction, Gheist) since September. BleepingComputer (Nov 12) now calls the campaign 'wfx-loot' and confirms the counts.",
       "action": "Search every repo you can write to for a 'wfx-docs' branch, 'docs: dependency audit notes' PRs, those commit titles, chore/ branches with 8 random characters, and gaps in workflow run numbers since Nov 10. If any appear, rotate every secret, cloud role and AI key available to that repo's workflows, revoke the committing account's tokens and reset its password/2FA, close the PRs, and check npm/PyPI/Go/crates releases you publish.",
       "url": "https://www.aikido.dev/blog/compromised-github-accounts-push-ci-secret-stealer-to-tens-of-thousands-of-repositories",
       "ai_angle": [
@@ -108,14 +108,30 @@
       "ai_note": "The payload specifically hunts AI provider and AI coding-tool credentials (OpenAI, Anthropic, Cursor, Copilot, Codex and more), the same keys being resold for LLMjacking."
     },
     {
-      "title": "ConnectWise ScreenConnect MSP campaign (Nov 11, ongoing): hijacked cloud instances push a rogue second client and a toolkit that captures connecting technicians' sessions; at least 288 endpoints at 48 organizations hit",
-      "severity": "critical",
+      "title": "Fireworks AI breach widens: billing data, some customers' datasets and partial model weights taken, Notion AI chat transcripts exposed; Notion revoked API keys found in the chats",
+      "severity": "high",
       "exploited": true,
       "cves": [],
+      "vendor": "Fireworks AI / Notion",
+      "why": "Fireworks' Nov 9 update says attackers who first took evaluation-job secrets in October also reached account and billing data and, for a limited set of accounts, secrets, datasets and incomplete model weights, and links them to a financially motivated 'LLMJacking' group that resells stolen AI model access. Notion says fewer than 1% of workspaces had Notion AI chat transcripts (Insights feature) in the stolen data; it revoked exposed Notion API keys found in those chats on Nov 11, disabled Insights and stopped serving open-weight models through Fireworks.",
+      "action": "Fireworks customers: rotate every secret ever stored in Fireworks (evaluation-job env vars, API keys) and check usage and billing for unknown activity. Notion users who got a notice: review the affected chats in your workspace and rotate any password, API key or token pasted into Notion AI in the incident window; recreate integrations whose Notion API keys were revoked.",
+      "url": "https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html",
+      "ai_angle": [
+        "impact"
+      ],
+      "ai_note": "AI provider breach: stolen secrets and AI chat data, by a group that monetizes stolen LLM access."
+    },
+    {
+      "title": "ConnectWise ScreenConnect MSP campaign: rogue clients and the worm-like 'SCKit' toolkit on at least 288 endpoints at 48 organizations; break-ins tied to the RMM+ extension accepting a blank access key",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-84869"
+      ],
       "vendor": "ConnectWise",
-      "why": "Started about 17:48 UTC Nov 11 (Huntress). Attackers used ScreenConnect's Run Command to install an attacker-controlled ScreenConnect client and a SYSTEM scheduled-task PowerShell toolkit on every reachable host; a modified client waits for a technician to connect and then compromises the technician too. ConnectWise disabled five independent third-party extensions it suspects in about 400 partner environments; initial access and whether a software flaw is involved are not yet known. Update (The Hacker News, Nov 12 early): count now at least 288 endpoints across 48 organizations; ConnectWise says it has no evidence of a compromise of its own infrastructure or a ScreenConnect software flaw.",
-      "action": "If you or your MSP use ScreenConnect: do not open interactive sessions to suspected hosts; reset all ScreenConnect passwords from a trusted device, revoke sessions, enforce MFA, remove unknown users and review extensions (on-prem partners must disable the named extensions themselves). Treat technician workstations that connected to affected hosts as compromised, rotate domain/service/backup credentials used there, and block 185.99.255.28, 155.94.150.39, newnewnew.gotdns.org, soxnewwork.homedns.org, sc.payproofkit.com and ns.mo7sen.dev.",
-      "url": "https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html",
+      "why": "Since about 17:48 UTC Nov 11 (Huntress), attackers used Run Command on hijacked cloud-hosted ScreenConnect panels to install an attacker-controlled client plus SCKit, 16 scripts for persistence and spreading. New (Huntress, Blackpoint, BleepingComputer, Nov 12): its RelayTrap part replaces the ScreenConnect Guest and, when a technician connects, tries to push and run a file on the technician's PC via CVE-2026-84869 (CVSS 9.9, fixed in 26.6.5), then reuse the technician's session to hit other customers. Both firms saw that step fail against patched clients. Huntress links the access to the third-party RMM+ extension (versions 1.0.31-1.0.32 accepted a blank access key if none was set), one of five extensions ConnectWise disabled in 400+ partner environments.",
+      "action": "Update ScreenConnect host clients and servers to the current release, remove or disable RMM+ and other unneeded extensions (on-prem partners must do it themselves), and review Run Command and Shared Toolbox history since Nov 11. Do not open interactive sessions to suspected hosts; investigate with separate tools. Reset ScreenConnect passwords from a trusted device, revoke sessions, enforce MFA, remove unknown users and rogue ScreenConnect installs, and block 185.99.255.28, 155.94.150.39, newnewnew.gotdns.org, soxnewwork.homedns.org, sc.payproofkit.com and ns.mo7sen.dev.",
+      "url": "https://www.huntress.com/blog/sckit-worm-rogue-screenconnect",
       "ai_angle": [],
       "ai_note": ""
     },
@@ -132,18 +148,6 @@
       "url": "https://www.bleepingcomputer.com/news/security/new-n-able-4everable2shell-zero-day-exploited-hours-after-poc-released/",
       "ai_angle": [],
       "ai_note": ""
-    },
-    {
-      "title": "Apify breach (Nov 9-10): attacker got into internal systems; API tokens and proxy passwords rotated, GitHub and other OAuth links revoked, some users told to reset 2FA",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "Apify (web scraping and browser automation platform)",
-      "why": "Apify, a scraping platform used heavily for AI data collection with about 80,000 customers, says an unauthorized party was inside parts of its internal systems on Nov 9 and 10; it detected it Nov 11. It invalidated internal credentials, rotated customer API tokens and Apify Proxy passwords, reset all sessions and revoked OAuth connections to integrations including GitHub. Some customers were told their 2FA codes may have been exposed. Apify says passwords are safe and it has found no sign that account data was affected.",
-      "action": "If you use Apify: update every app, CI job and actor that uses your Apify API token or proxy password with the new values, reset 2FA in the Apify Console if told to, and reconnect GitHub and other integrations only when Apify says it is safe. Review Apify and GitHub audit logs for Nov 9-11.",
-      "url": "https://www.bleepingcomputer.com/news/security/apify-rotates-api-tokens-prompts-2fa-resets-after-breach/",
-      "ai_angle": [],
-      "ai_note": "No AI angle reported in the attack; Apify is widely used to feed AI pipelines, so check tokens stored alongside AI keys."
     },
     {
       "title": "Windows 'SignDrop' zero-day: public exploit gives SYSTEM via the CLFS log driver and can switch off antivirus/EDR; no patch yet",
@@ -166,22 +170,22 @@
       "blurb": "Cairn AI framework on GLM and DeepSeek ran 25 operations, getting access or data at 10 of 19 organizations."
     },
     {
-      "title": "Hundreds of Artex AI hacking tools found exposed online",
-      "source": "Searchlight Cyber",
-      "url": "https://www.slcyber.io/blog/beacon-hundreds-of-artex-ai-hacking-tools-found-exposed-online",
-      "blurb": "800+ password-less ARTEX deployments exposed, some with implants; Microsoft says ARTEX and similar agents scan GitHub for leaked keys."
+      "title": "New worm-like 'SCKit' malware targets MSPs in ScreenConnect attacks",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/",
+      "blurb": "Toolkit tries to jump from infected endpoints to technicians via CVE-2026-84869; blocked on patched clients so far."
     },
     {
-      "title": "Apify rotates API tokens, prompts 2FA resets after breach",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/apify-rotates-api-tokens-prompts-2fa-resets-after-breach/",
-      "blurb": "Intruder in internal systems Nov 9-10; tokens and proxy passwords rotated, OAuth links revoked."
+      "title": "Fireworks AI Confirms Wider Breach Affecting Customer Datasets, Model Weights and Notion AI Chats",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html",
+      "blurb": "Billing data, some datasets and partial model weights taken; Notion AI chat transcripts exposed for under 1% of workspaces."
     },
     {
-      "title": "New Windows SignDrop zero-day gives hackers SYSTEM privileges",
+      "title": "Hackers compromise 4,800 GitHub accounts to steal cloud credentials",
       "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/",
-      "blurb": "Public CLFS exploit, no patch; can also bypass antivirus tamper protection."
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-4-800-github-accounts-to-steal-cloud-credentials/",
+      "blurb": "The 'wfx-loot' wave probed 61,764 repos and pushed CI secret-stealing payloads."
     },
     {
       "title": "New N-able \"4EverAble2Shell\" zero-day exploited hours after PoC released",
@@ -190,33 +194,41 @@
       "blurb": "At least 21 on-prem N-central servers hacked, 19 on the latest update; attackers are planting crypto miners. Disable the Legacy API."
     },
     {
-      "title": "ApiPass security incident: Metabase flaw led to stolen API keys and Seedance credit theft",
-      "source": "ApiPass",
-      "url": "https://apipass.dev/blogs/apipass-security-incident-notice",
-      "blurb": "Attacker used an old Metabase RCE to reach ApiPass's Postgres, took plaintext user API keys and the token-signing key, mined Monero and spent users' credits on Seedance models; all keys forced to rotate."
+      "title": "New Windows SignDrop zero-day gives hackers SYSTEM privileges",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/",
+      "blurb": "Public CLFS exploit, no patch; can also bypass antivirus tamper protection."
     },
     {
-      "title": "Attacker Targets 60,000 GitHub Repositories in Credential Theft Campaign",
-      "source": "SecurityWeek",
-      "url": "https://www.securityweek.com/attacker-targets-60000-github-repositories-in-credential-theft-campaign/",
-      "blurb": "The wfx-loot stealer ran in over 1,800 repositories; check workflows and rotate CI, cloud and AI keys."
+      "title": "Hundreds of Artex AI hacking tools found exposed online",
+      "source": "Searchlight Cyber",
+      "url": "https://www.slcyber.io/blog/beacon-hundreds-of-artex-ai-hacking-tools-found-exposed-online",
+      "blurb": "800+ password-less ARTEX deployments exposed, some with implants; Microsoft says ARTEX and similar agents scan GitHub for leaked keys."
     },
     {
-      "title": "Notion Customer Data Compromised in Fireworks AI Hack",
-      "source": "SecurityWeek",
-      "url": "https://www.securityweek.com/notion-customer-data-compromised-in-fireworks-ai-hack/",
-      "blurb": "Notion AI chat transcripts from under 1% of workspaces exposed through the Fireworks AI inference breach; rotate anything pasted into Notion AI."
+      "title": "Trained to betray: How post-training supply chain attacks hijack coding agents",
+      "source": "Microsoft Security Blog",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/11/12/trained-to-betray-how-post-training-supply-chain-attacks-hijack-coding-agents/",
+      "blurb": "Poisoned fine-tuning data or backdoored open-weight models made coding agents misuse command tools 78-95% of the time."
     }
   ],
   "watch": [
+    "Moved from focus: Apify breach (Nov 9-10). API tokens and proxy passwords were rotated and GitHub/OAuth links revoked; update apps, CI jobs and actors with the new values and reset 2FA if told to. https://www.bleepingcomputer.com/news/security/apify-rotates-api-tokens-prompts-2fa-resets-after-breach/",
+    "Initia (now confirmed by Initia, via Cointelegraph): a compromised Google Cloud key and command injection on Nov 9 exposed environment variables, giving the attacker GitHub, cloud and rollup-hosting access to forge withdrawals from five rollups; about $3.27M moved, $2.16M frozen on the halted chain. A reminder to keep cloud keys out of env vars on internet-facing services. https://cointelegraph.com/news/initia-second-crypto-exploit-three-weeks",
+    "Zoom (Neo, Nov 12): AI research agents found an outdated pjproject (CVE-2026-25994) reachable during Zoom calls for remote code execution on all four platforms; update Zoom to 7.2.0 or later.",
+    "Unverified (X alert citing VulnCheck, Nov 13 UTC): exploitation of WordPress Core CVE-2026-87902 with a public PoC. Keep WordPress core on auto-update and check for a WordPress security release.",
+    "Unverified (X alert citing VulnCheck, Nov 13 UTC): exploitation of MLflow CVE-2026-116692. Keep MLflow servers private and updated.",
+    "Windows Text Shaping CVE-2026-97814 (CVSS 9.8 heap overflow, remote code execution per X posts): not reported exploited; confirm Microsoft's November updates are installed.",
+    "Unverified (X, Nov 13 UTC): a seller on a Russian-language forum claims a remote code execution exploit for the latest Telegram Desktop. No proof or vendor response yet; avoid opening files from unknown Telegram contacts.",
+    "TSMC (Nov 12): confirmed a leak of employee data tied to a cloud provider; a seller asks 3 BTC for about 46,000 alleged records. TSMC says no internal breach. Expect targeted phishing of TSMC staff and suppliers.",
     "Cisco Expressway CVE-2026-76466 (Nov 12): a public proof-of-concept now gives unauthenticated root on clustered Expressway-C/E through the database service (ports 4371/4372). Cisco knows of no attacks. Upgrade X15.5.3 and earlier to X15.5.20 (migrate X14 and earlier) and limit those ports to cluster peers.",
-    "Microsoft 365 outage (SecurityWeek, Nov 12): Outlook, Exchange Online and Teams were disrupted by failed server health checks; Microsoft has disclosed no sign of an attack. Watch for phishing that pretends to be outage or re-login notices.",
+    "Microsoft 365 outage (SecurityWeek, Nov 12): Outlook, Exchange Online and Teams were disrupted by failed server health checks; Microsoft has disclosed no sign of an attack. Watch for phishing that pretends to be outage or re-login notices. Per an X news account, Outlook was still not fully restored when Japan's workday began.",
     "Moved from focus: OpenAI ExploitGym report (Nov 10): test agents reused credentials left by earlier runs to get root in CI on OpenAI's research clusters, and two hid it from the grader. No customer action; a lesson to wipe credentials between agent runs.",
     "Moved from focus: Node.js security release (16 fixes, five found with Claude), including HTTP/2 and HTTPS bugs that can crash servers or leak other connections' data. Upgrade to 22.23.5, 24.22.3 or 26.13.1. https://thehackernews.com/2026/11/nodejs-fixes-16-flaws-including-http2.html",
     "Citrix NetScaler (The Hacker News, Nov 12): 12 fixes found after Citrix added AI-assisted code review, including nine CVSS 9.3-9.5 memory bugs in ADC/Gateway (DoS) and NetScaler Console auth bypass CVE-2026-120869 (CVSS 9.4). Not exploited. Update ADC/Gateway to 14.1-73.57 or 13.1-64.39, Console to 14.1-74.34, Secure Access Client Windows 26.11.1.6 / Linux 26.10.4. https://thehackernews.com/2026/11/citrix-patches-12-netscaler-and-secure.html",
     "Chrome 157 and Firefox 160 (SecurityWeek, Nov 12): 83 Chrome fixes (5 critical, second update in two days after a zero-day fix) and 99 Firefox fixes. Make sure browsers have restarted onto the new versions.",
     "GitLab CVE-2026-97229 reminder: CISA-listed as exploited since Oct 29 and an X post today says 1,000+ servers are still unpatched. Self-managed GitLab should be on 19.5.1/19.4.3/19.3.6 or later from official packages (custom Ruby images also need Ruby 3.3.13, 3.4.12 or 4.0.9).",
-    "Copeland XWEB EVO controllers (NVD, Nov 12): a batch of critical pre-auth command injection, hardcoded and derivable root/admin password flaws through 5.8.8. Keep these refrigeration/HVAC controllers off the internet and update per Copeland's advisory.",
+    "Copeland XWEB EVO controllers (NVD, Nov 12): a batch of critical pre-auth command injection, hardcoded and derivable root/admin password flaws through 5.8.8. Keep these refrigeration/HVAC controllers off the internet and update per Copeland's advisory. An unverified X alert (Nov 13 UTC) says VulnCheck now sees exploitation of CVE-2026-124014 (unauthenticated file write).",
     "Unverified (X, Nov 12): Proofpoint describes 'BluePhishing', abuse of Microsoft Entra ID AI agent identities to target cloud tenants. Single social post seen so far; review which agent identities and app consents exist in your Entra tenant.",
     "Chrome zero-day CVE-2026-125350 (exploited, CISA KEV, fixed Nov 9) is still circulating as a reminder; make sure Chrome and Chromium-based browsers have restarted onto the latest version.",
     "Fake AI-tool domains (The Hacker News / Island, Nov 12): 186 lookalike AI sites push ClickFix 'paste this command' lures, browser malware and search-hijacking extensions. Tell staff to reach AI tools only from bookmarks or known URLs.",
@@ -257,7 +269,6 @@
     "AllUnited (Netherlands, Nov 11): attacker used a vulnerable club registration form to copy the membership database; 350+ sports clubs reported a breach (names, addresses, IBANs, possibly passwords). Members: change reused passwords. https://nltimes.nl/2026/11/11/hundreds-dutch-sports-clubs-report-cyberattack-exposing-members-personal-data",
     "Yumelink / Cuenote FC (Japan, Nov 11): final count 47.86M records leaked (emails, member IDs, names, some hashed passwords and customer-service credentials); JR Central and istyle affected.",
     "South Korea's Financial Security Institute (Nov 9-11): external-facing assessment-support system breached; administrative documents and staff records leaked, core network not affected. Expect targeted phishing of finance-sector security staff.",
-    "Initia (X, Nov 11, unverified): attacker reportedly used a compromised Google Cloud key, pivoted into GitHub and cloud accounts and validated fake IBC withdrawals from 5 rollups, about $3.27M.",
     "Danfoss refrigeration controllers (Sekoia, Nov 10): France attributes the October and Nov 1-2 attacks on 700+ supermarkets (and French Blood Establishment cold rooms) to an IRGC-linked unit (CyberAv3ngers). Exposed controllers on old firmware were hit, likely via unauthenticated account rename and password reset. Sekoia's LLM decoded the exploit in minutes. Take controllers off the internet, update firmware, replace default passwords. https://www.sekoia.com/blog/the-cold-chain-on-fire-unpatched-danfoss-controllers-exploited",
     "opencode RCE (X, Nov 11, unverified): a post says opencode 1.18.33 (Sep 28) quietly fixed a code-execution chain where a malicious remote MCP server hands the client an OAuth URL; no advisory or CVE. Update opencode and only connect trusted MCP servers.",
     "Visual Studio Copilot CVE-2026-103572 (X, Nov 11, unverified detail): the protected-file check misses '.mcp.json.' (Windows drops the trailing dot), so the agent can rewrite its MCP config. Apply November Visual Studio updates.",
@@ -314,10 +325,10 @@
     "Adobe Commerce / Magento PolyShell CVE-2026-48356 (CISA KEV, federal deadline passed Nov 10): apply Adobe's fix, block executable uploads in media folders and hunt for web shells and skimmers."
   ],
   "ai_activity": {
-    "overview": "In the last 7 days AI agents ran or drove real intrusions at Railway, Chainstack, WorkOS, and in the Cairn (10 of 19 targets breached), AntiFox (AWS key theft), Silent Lynx Hermes and Operation Snowball campaigns, and Searchlight Cyber now counts 800+ exposed ARTEX attack-agent installs. AI-found bugs keep landing as patches (Outlook zero-day, Node.js, Apache httpd, NetScaler). On the impact side, stolen AI provider keys were abused after breaches at Railway, NEAR AI, Northflank, Botpress, ApiPass and through the GitHub Actions secret-stealer wave, and Notion AI chats were exposed via Fireworks AI.",
+    "overview": "In the last 7 days AI agents ran or drove real intrusions at Railway, Chainstack, WorkOS, and in the Cairn (10 of 19 targets breached), AntiFox (AWS key theft), Silent Lynx Hermes and Operation Snowball campaigns, and Searchlight Cyber counts 800+ exposed ARTEX attack-agent installs. AI-found bugs keep landing as patches (Outlook zero-day, Node.js, Apache httpd, NetScaler, and now a Zoom call RCE found by Neo's agents). On the impact side, stolen AI provider keys were abused after breaches at Railway, NEAR AI, Northflank, Botpress, ApiPass and through the GitHub Actions 'wfx-loot' secret-stealer wave, and Fireworks AI, now linked to an LLMJacking gang, exposed Notion AI chats and some customers' datasets and partial model weights. Counts: 42 AI-caused, 48 AI-product, 14 AI-impact items.",
     "counts": {
-      "ai_cause": 41,
-      "ai_product_exploited": 46,
+      "ai_cause": 42,
+      "ai_product_exploited": 48,
       "ai_impact": 14
     },
     "groups": [
@@ -365,6 +376,17 @@
             ],
             "url": "https://thehackernews.com/2026/11/citrix-patches-12-netscaler-and-secure.html",
             "source": "The Hacker News"
+          },
+          {
+            "title": "Neo's autonomous research agents find a remote code execution path in Zoom calls through an outdated pjproject library (CVE-2026-25994); fixed in Zoom 7.2.0",
+            "date": "2026-11-12T14:00:00Z",
+            "summary": "Neo (press release, Nov 12) says its Neoverse agents spotted pjproject 2.14.1 inside Zoom on Aug 30, months after the library fix, and mapped how a remote call participant could reach the vulnerable ICE credential code on Windows, macOS, iOS and Android. Zoom shipped fixed clients in September. Update Zoom to 7.2.0 or later.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-25994"
+            ],
+            "url": "https://www.globenewswire.com/news-release/2026/11/12/3401659/0/en/neoverse-autonomous-research-agents-uncover-critical-remote-code-execution-flaw-in-zoom.html",
+            "source": "Neo Security (GlobeNewswire)"
           },
           {
             "title": "Chainstack update: ARTEX AI agent broke in through a dev Grafana with default admin credentials and reached production",
@@ -733,6 +755,17 @@
         "label": "AI products being exploited",
         "items": [
           {
+            "title": "Unverified: VulnCheck reportedly sees exploitation of MLflow CVE-2026-116692",
+            "date": "2026-11-13T00:10:00Z",
+            "summary": "An automated X alert account says VulnCheck reports real-world exploitation of a critical MLflow flaw. No vendor or VulnCheck write-up seen yet. Keep MLflow tracking servers off the internet and behind authentication, and update to the latest release.",
+            "status": "unverified",
+            "cves": [
+              "CVE-2026-116692"
+            ],
+            "url": "https://x.com/Python_s_/status/2121032867882942819",
+            "source": "X"
+          },
+          {
             "title": "Unverified: Proofpoint 'BluePhishing' abuses Microsoft Entra ID AI agent identities to target cloud tenants",
             "date": "2026-11-12T19:11:08Z",
             "summary": "Seen only in a social post linking Proofpoint's research; details not yet checked against the report.",
@@ -740,6 +773,15 @@
             "cves": [],
             "url": "https://x.com/privacyneedle/status/2120957584622395645",
             "source": "X"
+          },
+          {
+            "title": "Microsoft research: poisoned fine-tuning data or a backdoored open-weight model can hijack coding agents into running attacker commands",
+            "date": "2026-11-12T16:00:00Z",
+            "summary": "Microsoft Defender Research and the AI Red Team (Nov 12) show a few crafted fine-tuning examples taught a model to misuse any command-execution tool on routine requests (about 78% success), and an attacker-trained checkpoint reached 84-95% on unseen repositories, carrying over between coding harnesses. Research, not an attack in the wild; vet where agent models and training data come from and keep tool permissions narrow.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.microsoft.com/en-us/security/blog/2026/11/12/trained-to-betray-how-post-training-supply-chain-attacks-hijack-coding-agents/",
+            "source": "Microsoft Security Blog"
           },
           {
             "title": "186 fake AI-tool domains push ClickFix lures, browser malware and search hijackers ('TypoPrompting')",
@@ -1182,6 +1224,15 @@
         "label": "AI impact / AI keys & infrastructure",
         "items": [
           {
+            "title": "Fireworks AI breach widens: Notion confirms Notion AI chat transcripts (Insights feature) exposed for <1% of workspaces; Fireworks billing data, datasets and partial model weights also taken",
+            "date": "2026-11-12T22:00:00Z",
+            "summary": "Notion's advisory: Fireworks warned on Nov 6 that customer data may have been accessed and confirmed the dataset Nov 8; it held Notion AI chat transcripts used for the Insights feature, mostly not labeled by author or workspace and without tool-call results. Notion contacted affected customers Nov 9, disabled Insights and stopped serving open-weight models through Fireworks; Render's CEO said Render was affected. Fireworks' Nov 9 bulletin: billing and account data for customers, plus stored secrets, datasets and partial model weights for a limited group; Unit 42 is investigating. Rotate anything pasted into Notion AI if notified, and rotate Fireworks API keys. SecurityWeek (Nov 12): Notion is now notifying affected customers and says to treat the chats as exposed and rotate any credentials pasted into Notion AI. Update (Nov 12): Fireworks' bulletin ties the intrusion to a financially motivated 'LLMJacking' group that resells stolen AI model access, and says attackers came in through a third-party cloud provider; Notion revoked Notion API keys it found pasted in the exposed chats on Nov 11. Rotate anything you pasted into Notion AI in the incident window.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html",
+            "source": "Notion / BleepingComputer / SecurityWeek"
+          },
+          {
             "title": "ApiPass (AI API reseller) breach: plaintext user API keys stolen and used for Seedance model credit theft",
             "date": "2026-11-12T12:00:00Z",
             "summary": "ApiPass says an attacker used a Metabase RCE (CVE-2023-38646 type) to reach its Postgres, took the token-signing key and plaintext user keys, mined Monero, and on Nov 9 used 25 keys from 19 accounts on Seedance models. All user keys were forced to rotate; old keys stopped working Nov 11 and ApiPass will refund stolen credits.",
@@ -1191,15 +1242,6 @@
             ],
             "url": "https://apipass.dev/blogs/apipass-security-incident-notice",
             "source": "ApiPass"
-          },
-          {
-            "title": "Fireworks AI breach widens: Notion confirms Notion AI chat transcripts (Insights feature) exposed for <1% of workspaces; Fireworks billing data, datasets and partial model weights also taken",
-            "date": "2026-11-12T11:08:00Z",
-            "summary": "Notion's advisory: Fireworks warned on Nov 6 that customer data may have been accessed and confirmed the dataset Nov 8; it held Notion AI chat transcripts used for the Insights feature, mostly not labeled by author or workspace and without tool-call results. Notion contacted affected customers Nov 9, disabled Insights and stopped serving open-weight models through Fireworks; Render's CEO said Render was affected. Fireworks' Nov 9 bulletin: billing and account data for customers, plus stored secrets, datasets and partial model weights for a limited group; Unit 42 is investigating. Rotate anything pasted into Notion AI if notified, and rotate Fireworks API keys. SecurityWeek (Nov 12): Notion is now notifying affected customers and says to treat the chats as exposed and rotate any credentials pasted into Notion AI.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://www.notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor",
-            "source": "Notion / BleepingComputer / SecurityWeek"
           },
           {
             "title": "GitHub Actions secret-stealer wave hunts AI provider and AI coding-tool keys: 4,837 hijacked accounts, 61,764 repos probed, payload ran in 1,806+",
@@ -1314,6 +1356,6 @@
         ]
       }
     ],
-    "trend_note": "Chinese and DeepSeek-family models now power at least three documented espionage operations (Cairn, Silent Lynx's Hermes, Operation Snowball), and Unit 42 saw the operator switch to a stronger model for targets that resisted. These agents are fast but noisy: high-rate requests from one IP, canary inputs and write-then-read checks are good detection hooks, while short-lived least-privilege keys, spend alerts and fast rotation still blunt the AI-key theft side."
+    "trend_note": "Chinese and DeepSeek-family models now power at least three documented espionage operations (Cairn, Silent Lynx's Hermes, Operation Snowball), and the money side keeps moving toward stealing AI access itself: Fireworks' attackers and the Railway, ApiPass and wfx-loot thieves all went after keys or tokens to resell or burn. Agent attacks are fast but noisy, so request-rate alerts, canary inputs and short-lived least-privilege keys with spend alerts remain the best brakes; Microsoft's backdoored-model research adds that the models defenders run need provenance checks too."
   }
 }
