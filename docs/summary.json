@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-14T05:36:22Z",
-  "next_update_note": "Next summary update around 4:30 AM EST (Saturday Nov 14).",
-  "headline": "Overnight update (Sat Nov 14): no new exploited CVEs since the evening summary, and the focus list is unchanged. New since then: GitHub flagged the Zread AI CLI's npm packages (@zread/cli and six platform builds, all versions) as malware on Nov 13; if you installed them, treat the machine as compromised and rotate its secrets from a clean computer. Also new on the watch list: a ransomware attack on Belarusian cloud host ActiveCloud (services mostly restored Nov 13), 1.08 million email addresses leaked from the City of Osaka's mail-delivery vendor, UT Arlington confirming data theft (claimed by Qilin), and an unverified Dolibarr 24.0.2 zero-day offered for sale. Still top priority: rotate keys exposed by Railway, the GitHub 'wfx-loot' wave and the ARTEX AI-key theft against LLM gateways (LiteLLM, One API/New API, Langflow, RAGFlow, Dify, Open WebUI, Ollama); patch Check Point CVE-2026-123039, Outlook CVE-2026-124194, PostgreSQL and Apache httpd 2.4.71; revoke Coinigy-linked exchange keys; replace Barracuda XDR credentials; and clean up ScreenConnect clients. The FAA ground stop is still blamed on a telecom outage with no sign of a cyberattack.",
-  "ai_headline": "AI attack agents remain the story of the week: the FBI's ARTEX FLASH and Amazon's MadPot report show ARTEX agents running self-funding AI-key theft against LLM gateways and AI app builders, on top of Railway, Cairn, AntiFox, Silent Lynx, Chainstack, Operation Snowball and Storm-0940/ConnectWise. AI-assisted research keeps producing fixes (PostgreSQL CVE-2026-6460, Outlook zero-day, Apache httpd, MDASH kernel CVEs). New overnight on the AI-product side: the Zread AI CLI's npm packages were flagged as malware (no payload analysis public yet). AI impact: Uber confirmed driver licence data was stolen via the Fireworks AI breach, and Darktrace showed (lab only) that a stolen Claude API key can turn Claude Code into an implant.",
+  "updated_at": "2026-11-14T09:40:50Z",
+  "next_update_note": "Next summary update around 8:30 AM EST (Saturday Nov 14).",
+  "headline": "Early-morning update (Sat Nov 14): no new exploited CVEs since the overnight summary. New since then: Cursor published its full post-mortem (Nov 13). A key Cursor issued to Fireworks AI was exposed in the Fireworks breach; the attacker copied old non-Privacy-Mode coding-agent traces, used unredacted credentials in them to reach Cursor SaaS tools, and on Oct 29 planted a backdoored Claude Code extension (2.1.312/2.1.313) in Cursor's marketplace cache for about 11 hours (up to 5,000 users). If Cursor notified you, rotate the keys it listed, and run its check script if you installed those versions. Also new: a fake 'claudecode/cli' npm package flagged as malware (the real CLI is @anthropic-ai/claude-code), and on the watch list Monex Securities (1.13M emails), Yeny (1.33M users) and the Bookeasy booking-platform breach in Australia. The FAA ground stop now looks like a software update, not hacking. Still top priority: rotate keys exposed by Railway, the GitHub 'wfx-loot' wave and the ARTEX AI-key theft against LLM gateways (LiteLLM, One API/New API, Langflow, RAGFlow, Dify, Open WebUI, Ollama); patch Check Point CVE-2026-123039, Outlook CVE-2026-124194, PostgreSQL and Apache httpd 2.4.71; revoke Coinigy-linked exchange keys; and clean up ScreenConnect clients.",
+  "ai_headline": "AI attack agents remain the story of the week: the FBI's ARTEX FLASH and Amazon's MadPot report show ARTEX agents running self-funding AI-key theft against LLM gateways and AI app builders, on top of Railway, Cairn, AntiFox, Silent Lynx, Chainstack, Operation Snowball and Storm-0940/ConnectWise. AI-assisted research keeps producing fixes (PostgreSQL CVE-2026-6460, Outlook zero-day, Apache httpd, MDASH kernel CVEs). New this morning on the AI-impact side: Cursor's post-mortem shows the Fireworks AI breach chained into stolen AI coding-agent traces, leaked credentials and a backdoored Claude Code extension; Uber driver data was also exposed through Fireworks. AI-product supply chain: fake 'claudecode/cli' joins the Zread AI CLI as npm malware posing as AI coding tools.",
   "focus": [
     {
       "title": "Railway full incident report (Nov 10): attacker used AI agents on safety-stripped models to break in, decrypt customer env vars and run up about $740,000 in stolen AI usage",
@@ -110,6 +110,21 @@
       "ai_note": "The payload specifically hunts AI provider and AI coding-tool credentials (OpenAI, Anthropic, Cursor, Copilot, Codex and more), the same keys being resold for LLMjacking."
     },
     {
+      "title": "Cursor post-mortem (Nov 13): Fireworks AI breach exposed a Cursor key, leading to stolen coding-agent traces with credentials and a backdoored Claude Code extension in Cursor's marketplace",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Cursor / Fireworks AI",
+      "why": "An attacker got an access key Cursor had issued to Fireworks (exposed by Fireworks) and copied a storage bucket of coding-agent traces, mostly from 2025 and only from sessions not in Privacy Mode (fewer than 0.05% of users). Some traces held unredacted credentials (under 0.01% of customers had API credentials exposed). With them the attacker reached Cursor SaaS tools: archived non-production repos, some support emails and credentials users had sent to support, usage data and agent-conversation summaries. On Oct 29 a stolen credential was used to put malicious Anthropic.claude-code 2.1.312/2.1.313 (Windows/macOS) in the marketplace cache for about 11 hours; up to 5,000 users may have received it. It sends host details, adds an attacker SSH key and tries a persistent reverse SSH tunnel. Cursor says it is contained (last activity Nov 1), production systems, official app updates and signing keys were not affected, and inference was moved off Fireworks.",
+      "action": "If Cursor emailed your team admin a list of keys, rotate every one now. If you installed or updated Anthropic.claude-code 2.1.312 or 2.1.313 from Cursor's marketplace on Oct 29, follow Cursor's security notice: run its check script, remove the attacker SSH key from authorized_keys, delete LaunchAgent/scheduled-task persistence, kill tunnel processes, and rotate secrets on that machine (uninstalling alone is not enough). Never paste live API keys into AI agent chats or support tickets.",
+      "url": "https://cursor.com/blog/security-incident-update",
+      "ai_angle": [
+        "impact",
+        "product"
+      ],
+      "ai_note": "A breach at an AI inference vendor (Fireworks) cascaded into AI coding-agent data, leaked keys and a trojanized AI coding extension."
+    },
+    {
       "title": "Coinigy breach (Nov 12): crypto-trading platform says exchange API keys and secrets stored with it may be compromised; revoke them at every exchange",
       "severity": "high",
       "exploited": true,
@@ -118,18 +133,6 @@
       "why": "Coinigy says an unauthorized party got into its systems on the morning of Nov 12 and that exchange API keys and secrets stored on its platform may have been taken. It has not confirmed whether keys were copied or misused, and asks all users to treat every key ever connected (including read-only and previously removed ones) as exposed.",
       "action": "Revoke every API key you ever connected to Coinigy directly in each exchange's API settings (removing it in Coinigy is not enough), review recent trades, orders and withdrawals, and do not connect new keys until Coinigy says it is safe.",
       "url": "https://insights.coinigy.com/urgent-revoke-your-exchange-api-keys-connected-to-coinigy/",
-      "ai_angle": [],
-      "ai_note": ""
-    },
-    {
-      "title": "Barracuda Managed XDR breach: attacker reached the store of customer integration credentials (Nov 1-2); notified customers must replace them",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "Barracuda (security vendor / MDR)",
-      "why": "Barracuda says an attacker entered part of its internal cloud on Nov 1-2 through a third party that had been issued a cloud access key, reused credentials found there to move around, and reached the system that stores API integration credentials for Managed XDR Cloud and Monitored Endpoint. It found no direct evidence those customer credentials were viewed and has notified customers whose credentials may be affected. These connectors can reach Microsoft 365, Google Workspace and endpoint security tools.",
-      "action": "If Barracuda notified you: revoke and recreate each Managed XDR / Monitored Endpoint integration credential with minimum permissions, confirm the old ones are disabled, and review activity in the connected systems (M365, Google Workspace, EDR) from Nov 1 onward. Customers without a notice need no action, per Barracuda.",
-      "url": "https://www.twisa.org/en/news/2026-11-13-barracuda-managed-xdr-integration-credentials/",
       "ai_angle": [],
       "ai_note": ""
     },
@@ -178,6 +181,12 @@
       "blurb": "MadPot decoys posing as LLM APIs captured ARTEX agents' own campaign records (Oct 3-Nov 5): self-funding theft of AI model keys from LLM gateways and AI app builders, and deepfake KYC bypass at crypto exchanges."
     },
     {
+      "title": "An update on our recent security incident (Cursor post-mortem)",
+      "source": "Cursor",
+      "url": "https://cursor.com/blog/security-incident-update",
+      "blurb": "Fireworks-exposed key led to stolen coding-agent traces, leaked credentials and a backdoored Claude Code extension in Cursor's marketplace for ~11 hours on Oct 29; affected users notified."
+    },
+    {
       "title": "PostgreSQL Patches 52 Flaws, Including 22-Year-Old Bug Enabling Authenticated RCE",
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/11/postgresql-patches-52-flaws-including.html",
@@ -188,12 +197,6 @@
       "source": "Coinigy",
       "url": "https://insights.coinigy.com/urgent-revoke-your-exchange-api-keys-connected-to-coinigy/",
       "blurb": "Unauthorized access on Nov 12; exchange API keys and secrets may be compromised."
-    },
-    {
-      "title": "Trezor confirms crypto-stealing implants in three wallets, releases fix",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/cryptocurrency/trezor-confirms-crypto-stealing-implants-in-three-wallets-releases-fix/",
-      "blurb": "Safe 5 wallets from reseller CryptoBilis carried hidden boards that sent recovery phrases over cellular."
     },
     {
       "title": "Uber confirms hackers stole thousands of drivers' license information in data breach",
@@ -215,12 +218,18 @@
     }
   ],
   "watch": [
+    "Fake Claude Code npm package (GitHub malware advisory, Nov 13; seen on X Nov 14): 'claudecode/cli' is flagged as malware and any machine that installed it should be treated as fully compromised. The official CLI is @anthropic-ai/claude-code; check lockfiles and rotate secrets from a clean machine if found.",
+    "Monex Securities (TokyoReporter, Nov 14): the Japanese broker reports 1.13 million email addresses and 1,592 identity-document images exposed. Expect broker-themed phishing in Japan. https://www.tokyoreporter.com/japan-news/monex-securities-suffers-massive-data-breach-exposing-1-1-million-email-addresses/",
+    "Yeny (NHK, Nov 14): the Japanese payment service says phone numbers and member IDs of up to 1.33 million users may have leaked. https://news.web.nhk/newsweb/na/nd-20261114de75857",
+    "Bookeasy / ACT government (ABC, Nov 14): hack of the Bookeasy booking platform used for ACT national-park camping and VisitCanberra exposed personal and booking details (no card data so far); users report suspicious messages and the ACT has disabled the platform. https://www.abc.net.au/news/2026-11-14/campers-personal-data-compromised-via-bookeasy-platform-hack/107386186",
+    "Yellow Umbrella (Seoul Economic Daily, Nov 14): South Korea's small-business mutual-aid fund reports possible leak of members' names, partial ID numbers, phones, addresses and emails.",
+    "Moved from focus: Barracuda Managed XDR breach (Nov 1-2): attacker reached the store of customer integration credentials; notified customers must replace them. https://www.twisa.org/en/news/2026-11-13-barracuda-managed-xdr-integration-credentials/",
     "Zread CLI npm malware (GitHub advisories, Nov 13 23:46 UTC): @zread/cli and six platform packages (linux/darwin/win32, x64/arm64), all versions, flagged as malicious; AI-product supply-chain risk, no payload analysis public. If installed, remove, rebuild and rotate secrets from a clean machine. https://github.com/advisories/GHSA-rmrw-hx84-5hgq",
     "ActiveCloud (The Record, Nov 13): ransomware hit the Belarusian cloud and hosting provider on Nov 10, disrupting E-Cloud, SmartMail and virtual servers for days; main services restored, no evidence of customer-data theft reported so far. https://therecord.media/belarus-cloud-provider-activecloud-ransomware-attack",
     "City of Osaka (The Record / NHK, Nov 13): 1,078,713 email addresses that received mail from the city's online administrative system (Jul 1 to Oct 31) leaked through unauthorized access to vendor Arara's mail-delivery service; only addresses, per the city. Expect phishing posing as Osaka city mail. https://therecord.media/city-of-osaka-japan-email-data-breach",
     "UT Arlington (The Record, Nov 13): the university confirms personal information was stolen in an October attack; its MachForms portal is still offline and Qilin ransomware claims it (attribution unconfirmed). https://therecord.media/university-of-texas-arlington-warns-data-breach",
     "Dolibarr ERP/CRM 24.0.2 (Dark Web Informer on X, Nov 14, unverified): an actor is advertising an alleged unauthenticated RCE zero-day for sale. No advisory yet; keep Dolibarr admin interfaces off the internet and watch for a fix.",
-    "FAA nationwide ground stop (FAA/AP/Politico, Nov 13): flights halted Friday afternoon over a 'temporary telecommunications outage' at multiple air route traffic control centers. DHS says there is no indication of a malicious act so far but has not ruled out a cyberattack; treat cyber claims about it as unverified.",
+    "FAA nationwide ground stop (Nov 13): SecurityWeek (Nov 14) reports no signs of hacking; the FBI is reportedly looking at a software update. Treat cyberattack claims about it as unverified. https://www.securityweek.com/no-signs-of-hacking-in-faa-ground-stop-as-fbi-reportedly-probes-software-update/",
     "Caixa Vida e Previdência (Nov 12-13): the Brazilian insurer says attackers copied names and CPF numbers of all 7.6 million active customers, plus some addresses, phones, emails and birth dates; no financial or password data per the company. Expect targeted phishing in Brazil.",
     "Norwegian and Widerøe (NRK via NordiskPost, Nov 13): 144,249 travellers affected through the long-running Amadeus intrusion (access for at least three years, closed Sept 23), adding to SAS and Finnair. Expect convincing travel-themed phishing.",
     "Control Web Panel CVE-2026-124020 and CVE-2026-124021 (CVSS 9.2, NVD Nov 13): unauthenticated host-header injection and an API authorization bypass; not reported exploited. Update CWP to 1.30.6 or later.",
@@ -292,11 +301,11 @@
     "Moved from focus: Xen Orchestra VSA-2026-062: critical login bypass exploited to take over XCP-ng virtualization hosts (Vates, Nov 10). Update to Xen Orchestra 6.9.1 (stable, xo-server 5.211.2) or 6.10.0 (latest, xo-server 5.213.1). Keep Xen Orchestra off the internet on a management network, block 91.211.251.112 and Tor, and hunt for a VM named 'pivot2', VMs with 'hvm_serial: file', /etc/cron.d/zz-ustar*, /.ustar5, /.ustar6 and changes to /etc/ld.so.preload. If compromised, rotate all Vates VMS passwords and secrets (proxy, backup, S3, root, users). https://docs.vates.tech/security-advisories/advisories/2026/vates-sa-2026-062/"
   ],
   "ai_activity": {
-    "overview": "In the last 7 days AI agents ran or drove real intrusions at Railway, Chainstack, WorkOS, and in the Cairn (10 of 19 targets breached), AntiFox (AWS key theft), Silent Lynx Hermes, Operation Snowball and Storm-0940/ConnectWise campaigns; the FBI's Nov 13 FLASH says ARTEX is used by many actors with 1,600+ exposed consoles, and Amazon's MadPot decoys captured ARTEX agents running self-funding AI-key theft against LLM gateways and AI app builders, and North Korea's FaceStealer crews used deepfake video calls to steal $400M+ in crypto. AI-found bugs keep landing as patches (Outlook zero-day, PostgreSQL CVE-2026-6460, Node.js, Apache httpd, NetScaler, a Zoom call RCE, 66 IoT network-stack bugs from Forescout's Claude-based harness, and 33 Linux kernel CVEs from Microsoft's MDASH agents). On the impact side, stolen AI provider keys were abused after breaches at Railway, NEAR AI, ApiPass, Tensorlake and through the GitHub 'wfx-loot' wave, and the Fireworks AI breach exposed Notion AI chats, customer datasets, partial model weights and now Uber driver data. Darktrace also showed (lab only) that a stolen Claude API key can turn Claude Code into a remote-controlled implant. Overnight, GitHub flagged the Zread AI CLI's npm packages as malware. Counts: 41 AI-caused, 40 AI-product, 13 AI-impact items.",
+    "overview": "In the last 7 days AI agents ran or drove real intrusions at Railway, Chainstack, WorkOS, and in the Cairn (10 of 19 targets breached), AntiFox (AWS key theft), Silent Lynx Hermes, Operation Snowball and Storm-0940/ConnectWise campaigns; the FBI's Nov 13 FLASH says ARTEX is used by many actors with 1,600+ exposed consoles, and Amazon's MadPot decoys captured ARTEX agents running self-funding AI-key theft against LLM gateways and AI app builders, and North Korea's FaceStealer crews used deepfake video calls to steal $400M+ in crypto. AI-found bugs keep landing as patches (Outlook zero-day, PostgreSQL CVE-2026-6460, Node.js, Apache httpd, NetScaler, a Zoom call RCE, 66 IoT network-stack bugs from Forescout's Claude-based harness, and 33 Linux kernel CVEs from Microsoft's MDASH agents). On the impact side, stolen AI provider keys were abused after breaches at Railway, NEAR AI, ApiPass, Tensorlake and through the GitHub 'wfx-loot' wave, and the Fireworks AI breach exposed Notion AI chats, customer datasets, partial model weights and now Uber driver data. Darktrace also showed (lab only) that a stolen Claude API key can turn Claude Code into a remote-controlled implant. Overnight, GitHub flagged the Zread AI CLI and a fake 'claudecode/cli' package on npm as malware, and Cursor's Nov 13 post-mortem traced its breach to a key exposed in the Fireworks AI breach, which led to stolen coding-agent traces and a backdoored Claude Code extension. Counts: 41 AI-caused, 41 AI-product, 14 AI-impact items.",
     "counts": {
       "ai_cause": 41,
-      "ai_product_exploited": 40,
-      "ai_impact": 13
+      "ai_product_exploited": 41,
+      "ai_impact": 14
     },
     "groups": [
       {
@@ -719,6 +728,15 @@
         "label": "AI products being exploited",
         "items": [
           {
+            "title": "Fake 'claudecode/cli' npm package posing as Claude Code flagged as malware",
+            "date": "2026-11-13T22:00:00Z",
+            "summary": "GitHub says machines that installed it should be treated as fully compromised; official package is @anthropic-ai/claude-code. Reported via X; payload details not public.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://x.com/Khaled865412521/status/2121514108163907650",
+            "source": "X / GitHub advisory"
+          },
+          {
             "title": "Zread AI CLI npm packages (@zread/cli plus six platform builds) flagged as malware by GitHub",
             "date": "2026-11-13T23:46:00Z",
             "summary": "GitHub published seven malware advisories (e.g. GHSA-rmrw-hx84-5hgq) covering all versions of the Zread CLI and its platform packages; no payload analysis is public yet. If installed or run (including inside coding-agent workflows), remove it, treat the machine as compromised and rotate its secrets from a clean computer.",
@@ -1118,6 +1136,15 @@
         "label": "AI impact / AI keys & infrastructure",
         "items": [
           {
+            "title": "Cursor post-mortem: Fireworks-exposed key led to theft of coding-agent traces with credentials, SaaS access and a backdoored Claude Code extension (2.1.312/2.1.313) in Cursor's marketplace",
+            "date": "2026-11-13T20:00:00Z",
+            "summary": "Under 0.05% of users had agent traces exposed (non-Privacy-Mode only), under 0.01% had API credentials exposed; up to 5,000 users may have received the malicious extension on Oct 29. Contained, last activity Nov 1.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://cursor.com/blog/security-incident-update",
+            "source": "Cursor"
+          },
+          {
             "title": "Uber notifies thousands of drivers that licence numbers and personal data were exposed via the Fireworks AI breach",
             "date": "2026-11-13T17:40:00Z",
             "summary": "Downstream impact of the Fireworks AI inference-provider breach; seen in social posts, Uber notice not yet checked.",
@@ -1239,6 +1266,6 @@
         ]
       }
     ],
-    "trend_note": "AI-run attacks now have both an FBI warning and captured agent logs (Amazon MadPot) within a day; the agents mostly win on defaults, exposed keys and unpatched peripheral apps, and AI provider keys are both the target and the fuel. AI-assisted bug finding keeps producing big patch batches (PostgreSQL, Linux kernel, Outlook)."
+    "trend_note": "AI-run attacks now have both an FBI warning and captured agent logs (Amazon MadPot) within a day; the agents mostly win on defaults, exposed keys and unpatched peripheral apps, and AI provider keys are both the target and the fuel. AI-assisted bug finding keeps producing big patch batches (PostgreSQL, Linux kernel, Outlook). Supply-chain attacks now target AI tooling directly: breached AI vendors (Fireworks) cascade into customers (Cursor, Notion, Uber), and fake or trojanized AI coding tools (Zread, claudecode/cli, Claude Code extension) keep appearing."
   }
 }
