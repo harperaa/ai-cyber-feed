@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-14T01:45:00Z",
-  "next_update_note": "Next summary update around 12:30 AM EST (Saturday Nov 14).",
-  "headline": "Evening update: Amazon Threat Intelligence (Nov 13) published ARTEX attack agents' own campaign logs, captured by its MadPot decoys between Oct 3 and Nov 5: the biggest campaign steals AI model keys from exposed LLM gateways and AI app builders (LiteLLM default master key, One API/New API auth bypass, Langflow CVE-2025-3248, RAGFlow CVE-2026-28797, Dify, Open WebUI, Ollama) and uses the stolen keys to pay for more hunting. If you run any of these, lock down admin interfaces and rotate the provider keys they hold. CISA added Check Point CVE-2026-123039 (the root bug used after PHP2Shell) to its exploited list on Nov 13, so the Check Point patch stays top priority. The FAA's nationwide ground stop on Friday afternoon was blamed on a telecommunications outage; officials say there is no sign of a cyberattack so far but have not ruled one out. Still top priority: Railway and GitHub key rotation (wfx-loot), PostgreSQL 52-fix release, Coinigy exchange-key revocation, Barracuda XDR credentials, ScreenConnect clients, and patching Outlook CVE-2026-124194 and Apache httpd 2.4.71. New on the watch list: Caixa Vida e Previdência (7.6M customers), Norwegian/Widerøe via Amadeus, critical Control Web Panel flaws, IBM ContextForge MCP Gateway CVEs and Darktrace's Claude Code implant technique.",
-  "ai_headline": "Two fresh looks inside AI attack agents in one day: the FBI's ARTEX FLASH and Amazon's MadPot report, which shows ARTEX agents running self-funding AI-key theft against LLM gateways and AI app builders, plus deepfake KYC bypass at crypto exchanges. This backs up the week's Railway, Cairn, AntiFox, Silent Lynx, Chainstack, Operation Snowball and Storm-0940/ConnectWise findings. AI-assisted research keeps producing fixes (PostgreSQL CVE-2026-6460, Outlook zero-day, Apache httpd, MDASH kernel CVEs). AI impact: Darktrace showed a stolen Claude API key can turn Claude Code into a remote-controlled implant (lab only, not a Claude bug), Uber confirmed driver license data was stolen via the Fireworks AI breach, and IBM fixed AI-agent and MCP-gateway credential flaws.",
+  "updated_at": "2026-11-14T05:36:22Z",
+  "next_update_note": "Next summary update around 4:30 AM EST (Saturday Nov 14).",
+  "headline": "Overnight update (Sat Nov 14): no new exploited CVEs since the evening summary, and the focus list is unchanged. New since then: GitHub flagged the Zread AI CLI's npm packages (@zread/cli and six platform builds, all versions) as malware on Nov 13; if you installed them, treat the machine as compromised and rotate its secrets from a clean computer. Also new on the watch list: a ransomware attack on Belarusian cloud host ActiveCloud (services mostly restored Nov 13), 1.08 million email addresses leaked from the City of Osaka's mail-delivery vendor, UT Arlington confirming data theft (claimed by Qilin), and an unverified Dolibarr 24.0.2 zero-day offered for sale. Still top priority: rotate keys exposed by Railway, the GitHub 'wfx-loot' wave and the ARTEX AI-key theft against LLM gateways (LiteLLM, One API/New API, Langflow, RAGFlow, Dify, Open WebUI, Ollama); patch Check Point CVE-2026-123039, Outlook CVE-2026-124194, PostgreSQL and Apache httpd 2.4.71; revoke Coinigy-linked exchange keys; replace Barracuda XDR credentials; and clean up ScreenConnect clients. The FAA ground stop is still blamed on a telecom outage with no sign of a cyberattack.",
+  "ai_headline": "AI attack agents remain the story of the week: the FBI's ARTEX FLASH and Amazon's MadPot report show ARTEX agents running self-funding AI-key theft against LLM gateways and AI app builders, on top of Railway, Cairn, AntiFox, Silent Lynx, Chainstack, Operation Snowball and Storm-0940/ConnectWise. AI-assisted research keeps producing fixes (PostgreSQL CVE-2026-6460, Outlook zero-day, Apache httpd, MDASH kernel CVEs). New overnight on the AI-product side: the Zread AI CLI's npm packages were flagged as malware (no payload analysis public yet). AI impact: Uber confirmed driver licence data was stolen via the Fireworks AI breach, and Darktrace showed (lab only) that a stolen Claude API key can turn Claude Code into an implant.",
   "focus": [
     {
       "title": "Railway full incident report (Nov 10): attacker used AI agents on safety-stripped models to break in, decrypt customer env vars and run up about $740,000 in stolen AI usage",
@@ -196,10 +196,10 @@
       "blurb": "Safe 5 wallets from reseller CryptoBilis carried hidden boards that sent recovery phrases over cellular."
     },
     {
-      "title": "German military drone operations disrupted by cyberattack",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/german-military-drone-operations-disrupted-by-cyberattack/",
-      "blurb": "Quantum Systems confirms a late-October attack by 'hostile actors'."
+      "title": "Uber confirms hackers stole thousands of drivers' license information in data breach",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/11/13/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/",
+      "blurb": "Uber is notifying thousands of drivers that personal and licence data was stolen in the October breach at a tech provider (the Fireworks AI incident), a growing AI-supply-chain impact."
     },
     {
       "title": "Hackers Exploit PHP2Shell Flaws in Check Point Gateways to Deploy TSGA Backdoor and Wipe ESXi Files",
@@ -215,6 +215,10 @@
     }
   ],
   "watch": [
+    "Zread CLI npm malware (GitHub advisories, Nov 13 23:46 UTC): @zread/cli and six platform packages (linux/darwin/win32, x64/arm64), all versions, flagged as malicious; AI-product supply-chain risk, no payload analysis public. If installed, remove, rebuild and rotate secrets from a clean machine. https://github.com/advisories/GHSA-rmrw-hx84-5hgq",
+    "ActiveCloud (The Record, Nov 13): ransomware hit the Belarusian cloud and hosting provider on Nov 10, disrupting E-Cloud, SmartMail and virtual servers for days; main services restored, no evidence of customer-data theft reported so far. https://therecord.media/belarus-cloud-provider-activecloud-ransomware-attack",
+    "City of Osaka (The Record / NHK, Nov 13): 1,078,713 email addresses that received mail from the city's online administrative system (Jul 1 to Oct 31) leaked through unauthorized access to vendor Arara's mail-delivery service; only addresses, per the city. Expect phishing posing as Osaka city mail. https://therecord.media/city-of-osaka-japan-email-data-breach",
+    "Dolibarr ERP/CRM 24.0.2 (Dark Web Informer on X, Nov 14, unverified): an actor is advertising an alleged unauthenticated RCE zero-day for sale. No advisory yet; keep Dolibarr admin interfaces off the internet and watch for a fix.",
     "FAA nationwide ground stop (FAA/AP/Politico, Nov 13): flights halted Friday afternoon over a 'temporary telecommunications outage' at multiple air route traffic control centers. DHS says there is no indication of a malicious act so far but has not ruled out a cyberattack; treat cyber claims about it as unverified.",
     "Caixa Vida e Previdência (Nov 12-13): the Brazilian insurer says attackers copied names and CPF numbers of all 7.6 million active customers, plus some addresses, phones, emails and birth dates; no financial or password data per the company. Expect targeted phishing in Brazil.",
     "Norwegian and Widerøe (NRK via NordiskPost, Nov 13): 144,249 travellers affected through the long-running Amadeus intrusion (access for at least three years, closed Sept 23), adding to SAS and Finnair. Expect convincing travel-themed phishing.",
@@ -287,10 +291,10 @@
     "Moved from focus: Xen Orchestra VSA-2026-062: critical login bypass exploited to take over XCP-ng virtualization hosts (Vates, Nov 10). Update to Xen Orchestra 6.9.1 (stable, xo-server 5.211.2) or 6.10.0 (latest, xo-server 5.213.1). Keep Xen Orchestra off the internet on a management network, block 91.211.251.112 and Tor, and hunt for a VM named 'pivot2', VMs with 'hvm_serial: file', /etc/cron.d/zz-ustar*, /.ustar5, /.ustar6 and changes to /etc/ld.so.preload. If compromised, rotate all Vates VMS passwords and secrets (proxy, backup, S3, root, users). https://docs.vates.tech/security-advisories/advisories/2026/vates-sa-2026-062/"
   ],
   "ai_activity": {
-    "overview": "In the last 7 days AI agents ran or drove real intrusions at Railway, Chainstack, WorkOS, and in the Cairn (10 of 19 targets breached), AntiFox (AWS key theft), Silent Lynx Hermes, Operation Snowball and Storm-0940/ConnectWise campaigns; the FBI's Nov 13 FLASH says ARTEX is used by many actors with 1,600+ exposed consoles, and Amazon's MadPot decoys captured ARTEX agents running self-funding AI-key theft against LLM gateways and AI app builders, and North Korea's FaceStealer crews used deepfake video calls to steal $400M+ in crypto. AI-found bugs keep landing as patches (Outlook zero-day, PostgreSQL CVE-2026-6460, Node.js, Apache httpd, NetScaler, a Zoom call RCE, 66 IoT network-stack bugs from Forescout's Claude-based harness, and 33 Linux kernel CVEs from Microsoft's MDASH agents). On the impact side, stolen AI provider keys were abused after breaches at Railway, NEAR AI, ApiPass, Tensorlake and through the GitHub 'wfx-loot' wave, and the Fireworks AI breach exposed Notion AI chats, customer datasets, partial model weights and now Uber driver data. Darktrace also showed (lab only) that a stolen Claude API key can turn Claude Code into a remote-controlled implant. Counts: 41 AI-caused, 39 AI-product, 13 AI-impact items.",
+    "overview": "In the last 7 days AI agents ran or drove real intrusions at Railway, Chainstack, WorkOS, and in the Cairn (10 of 19 targets breached), AntiFox (AWS key theft), Silent Lynx Hermes, Operation Snowball and Storm-0940/ConnectWise campaigns; the FBI's Nov 13 FLASH says ARTEX is used by many actors with 1,600+ exposed consoles, and Amazon's MadPot decoys captured ARTEX agents running self-funding AI-key theft against LLM gateways and AI app builders, and North Korea's FaceStealer crews used deepfake video calls to steal $400M+ in crypto. AI-found bugs keep landing as patches (Outlook zero-day, PostgreSQL CVE-2026-6460, Node.js, Apache httpd, NetScaler, a Zoom call RCE, 66 IoT network-stack bugs from Forescout's Claude-based harness, and 33 Linux kernel CVEs from Microsoft's MDASH agents). On the impact side, stolen AI provider keys were abused after breaches at Railway, NEAR AI, ApiPass, Tensorlake and through the GitHub 'wfx-loot' wave, and the Fireworks AI breach exposed Notion AI chats, customer datasets, partial model weights and now Uber driver data. Darktrace also showed (lab only) that a stolen Claude API key can turn Claude Code into a remote-controlled implant. Overnight, GitHub flagged the Zread AI CLI's npm packages as malware. Counts: 41 AI-caused, 40 AI-product, 13 AI-impact items.",
     "counts": {
       "ai_cause": 41,
-      "ai_product_exploited": 39,
+      "ai_product_exploited": 40,
       "ai_impact": 13
     },
     "groups": [
@@ -713,6 +717,15 @@
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "Zread AI CLI npm packages (@zread/cli plus six platform builds) flagged as malware by GitHub",
+            "date": "2026-11-13T23:46:00Z",
+            "summary": "GitHub published seven malware advisories (e.g. GHSA-rmrw-hx84-5hgq) covering all versions of the Zread CLI and its platform packages; no payload analysis is public yet. If installed or run (including inside coding-agent workflows), remove it, treat the machine as compromised and rotate its secrets from a clean computer.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://github.com/advisories/GHSA-rmrw-hx84-5hgq",
+            "source": "GitHub Advisory Database"
+          },
           {
             "title": "Jet Admin cloud platform CVE-2026-123965: prompt injection lets a free-account attacker disclose data (CVSS 9.3-9.9)",
             "date": "2026-11-13T17:42:00Z",
