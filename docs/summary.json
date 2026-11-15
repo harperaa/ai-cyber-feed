@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-15T05:35:00Z",
-  "next_update_note": "Next summary update in about 4 hours (around 04:30 EST, Nov 15).",
-  "headline": "Overnight update (Sun Nov 15): one new must-act item. Bitrise, the mobile CI/CD service, took its whole platform offline after finding an intruder in an internal cloud environment on Nov 13 and tells every customer to rotate all secrets, access tokens and certificates stored in Bitrise; sign-in is back in a limited safety mode so you can do that now. New on the watch list: D-Link DIR-600L CVE-2026-129354 (CVSS 10; chatter says exploited, unverified) and an alleged Dolibarr 24.0.2 zero-day offered for sale (unverified). PostgreSQL's AI-assisted CVE-2026-6460 moves from focus to watch (patched, no exploitation reported). Still top priority: rotate keys exposed by Railway, Bitrise, the GitHub 'wfx-loot' wave, the Cursor/Fireworks chain and ARTEX AI-key theft against LLM gateways; patch UnrealIRCd CVE-2026-114713 and Check Point CVE-2026-123039 (federal deadline Nov 16, Monday), Outlook CVE-2026-124194 and Chrome CVE-2026-125350; and clean up ScreenConnect clients.",
-  "ai_headline": "AI attack agents remain the story of the week: the FBI's ARTEX FLASH, Amazon's MadPot report and Check Point's console analysis show ARTEX agents running mostly autonomous intrusions and self-funding AI-key theft against LLM gateways and AI app builders, alongside Railway, Mittwald's MCP-server breach, Cairn, AntiFox, Silent Lynx, Chainstack, Operation Snowball and Storm-0940/ConnectWise. No new AI-run intrusions or AI-product exploits surfaced overnight; the Bitrise breach has no reported AI angle so far. Key change this week: an AI-found bug is confirmed exploited in the wild (UnrealIRCd CVE-2026-114713, in CISA KEV, deadline Monday). AI-impact: Cursor's post-mortem shows the Fireworks AI breach chained into stolen coding-agent traces, leaked credentials and a backdoored Claude Code extension; fake 'claudecode/cli' and the Zread AI CLI remain npm malware posing as AI coding tools; llama.cpp users should load GGUF models only from trusted sources.",
+  "updated_at": "2026-11-15T09:26:58Z",
+  "next_update_note": "Next summary update in about 4 hours (around 08:30 EST, Nov 15).",
+  "headline": "Early-morning update (Sun Nov 15): no new must-act focus items. New since 00:35 EST: GitHub's AI-run VulnHunter scan (Claude-powered) found a high-severity zip option-injection in its own gh-aw agent runner that a prompt-injected agent could use to run commands with a write token (issue #78012, closed); NHN's Dooray! collaboration platform (used by Korean companies and government) says attackers took over accounts by brute-forcing password-reset codes and abused leaked open-API keys on Nov 12-13; Coinone customer-support data was stolen via its contractor MetaM. An X post claiming a Citrix NetScaler flaw is now exploited is unverified: the Nov 12 NetScaler fixes are not reported exploited. Still top priority: rotate keys exposed by Railway, Bitrise, the GitHub 'wfx-loot' wave, the Cursor/Fireworks chain and ARTEX AI-key theft against LLM gateways; patch Check Point CVE-2026-123039 and UnrealIRCd CVE-2026-114713 (federal deadline Nov 16, Monday), Outlook CVE-2026-124194 and Chrome CVE-2026-125350; and clean up ScreenConnect clients.",
+  "ai_headline": "AI attack agents remain the story of the week: the FBI's ARTEX FLASH, Amazon's MadPot report and Check Point's console analysis show ARTEX agents running mostly autonomous intrusions and self-funding AI-key theft against LLM gateways and AI app builders, alongside Railway, Mittwald's MCP-server breach, Cairn, AntiFox, Silent Lynx, Chainstack, Operation Snowball and Storm-0940/ConnectWise. New overnight on the AI-as-cause side: GitHub's own daily VulnHunter AI scan found a command-execution bug in the gh-aw agentic-workflow runner (static trace, no PoC, issue closed). No new AI-run intrusions surfaced. An AI-found bug is confirmed exploited in the wild (UnrealIRCd CVE-2026-114713, CISA KEV, deadline Monday). AI-impact: Cursor's post-mortem shows the Fireworks AI breach chained into stolen coding-agent traces, leaked credentials and a backdoored Claude Code extension; fake 'claudecode/cli' and the Zread AI CLI remain npm malware posing as AI coding tools.",
   "focus": [
     {
       "title": "Railway full incident report (Nov 10): attacker used AI agents on safety-stripped models to break in, decrypt customer env vars and run up about $740,000 in stolen AI usage",
@@ -177,16 +177,16 @@
       "blurb": "Mobile CI/CD provider shut down all services after an intruder reached an internal cloud environment on Nov 13; customers told to rotate all stored secrets, tokens and signing certificates."
     },
     {
+      "title": "NHN Dooray! security breach: client business data leaked",
+      "source": "EDAILY",
+      "url": "https://en.edaily.co.kr/news/eda202611155223/",
+      "blurb": "Attackers repeatedly entered password-reset verification codes to take over some Dooray! accounts on Nov 12-13 and abused a flaw in its open API that leaked authentication keys; project, drive, messenger and calendar data plus employee details were taken. Reported to KISA and the privacy regulator."
+    },
+    {
       "title": "Attackers Exploit UnrealIRCd Flaw That Enables Server-Level Command Injection",
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html",
       "blurb": "CISA added AI-found UnrealIRCd CVE-2026-114713 to KEV on Nov 13; exploitation began a day after the Nov 7 fix. Update to 6.2.7.1."
-    },
-    {
-      "title": "PostgreSQL Patches 52 Flaws, Including 22-Year-Old Bug Enabling Authenticated RCE",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/postgresql-patches-52-flaws-including.html",
-      "blurb": "CVE-2026-6460 lets object creators run code on the server; upgrade and rebuild C extensions. Found with AI help."
     },
     {
       "title": "Uber confirms hackers stole thousands of drivers' license information in data breach",
@@ -202,6 +202,13 @@
     }
   ],
   "watch": [
+    "GitHub gh-aw (AI-found, issue github/gh-aw#78012, Nov 15): GitHub's Claude-powered daily VulnHunter scan found a high-severity zip option injection in actions/setup/js/artifact_client.cjs: an agent-controlled file name like '-TT' could make zip run a shell command past the agent-to-safe-outputs boundary, where a write token is available. Found by static trace, no PoC; the issue is closed. If you run GitHub Agentic Workflows, update gh-aw to the latest release.",
+    "NHN Dooray! (EDAILY, Nov 15): account takeovers via brute-forced password-reset codes and abuse of leaked open-API auth keys on Nov 12-13 exposed client project, drive, messenger and calendar data and employee details. If your organization uses Dooray!, reset passwords, reissue API keys and review account activity since Nov 12.",
+    "Coinone (Chosun Biz, Nov 15): attackers broke into customer-support contractor MetaM's server on Nov 12; names, contacts, resident registration numbers, bank accounts, wallet addresses and passwords shared in support chats may be exposed. Trading and wallet systems reported unaffected; expect scam calls.",
+    "Citrix NetScaler (X, Nov 15, unverified): a post says a critical NetScaler flaw is now actively exploited; no source names a CVE and the Nov 12 NetScaler/Console fixes (including a Console login bypass) are not reported exploited. Apply the Nov 12 updates anyway.",
+    "APEC (Substack / r/blueteamsec, Nov 15, unverified): a claimed breach of APEC email and document systems (about 153 GB); attribution to China is unproven.",
+    "Lazarus and CVE-2026-68820 (Cyllex blog via r/blueteamsec, Nov 15, single source): a write-up on fake job offers leading to kernel-level access with the FudModule 3.1 rootkit via CVE-2026-68820; make sure the fix for that CVE is installed.",
+    "Malaysia Health Ministry (Malay Mail, Nov 15): a cyber breach hit a file-sharing platform used by the ministry; the ministry is reassuring patients, details are still limited.",
     "Bitrise: watch for a root-cause report and whether any customer build secrets were reached; full service not expected before Nov 15.",
     "D-Link DIR-600L 2.17b02 CVE-2026-129354 (CVSS 10, hnap_main): social-media chatter says exploited in the wild (unverified). This model is end-of-life; replace it or keep its management off the internet.",
     "Dolibarr 24.0.2: actor 'weykofa' claims to sell a zero-day (unverified). Keep Dolibarr behind VPN/SSO and watch for a vendor advisory.",
@@ -234,7 +241,6 @@
     "City of Osaka (The Record / NHK, Nov 13): 1,078,713 email addresses that received mail from the city's online administrative system (Jul 1 to Oct 31) leaked through unauthorized access to vendor Arara's mail-delivery service; only addresses, per the city. Expect phishing posing as Osaka city mail. https://therecord.media/city-of-osaka-japan-email-data-breach",
     "UT Arlington (The Record, Nov 13): the university confirms personal information was stolen in an October attack; its MachForms portal is still offline and Qilin ransomware claims it (attribution unconfirmed). https://therecord.media/university-of-texas-arlington-warns-data-breach",
     "Dolibarr ERP/CRM 24.0.2 (Dark Web Informer on X, Nov 14, unverified): an actor is advertising an alleged unauthenticated RCE zero-day for sale. No advisory yet; keep Dolibarr admin interfaces off the internet and watch for a fix.",
-    "FAA nationwide ground stop (Nov 13): SecurityWeek (Nov 14) reports no signs of hacking; the FBI is reportedly looking at a software update. Treat cyberattack claims about it as unverified. https://www.securityweek.com/no-signs-of-hacking-in-faa-ground-stop-as-fbi-reportedly-probes-software-update/",
     "Caixa Vida e Previdência (Nov 12-13): the Brazilian insurer says attackers copied names and CPF numbers of all 7.6 million active customers, plus some addresses, phones, emails and birth dates; no financial or password data per the company. Expect targeted phishing in Brazil.",
     "Norwegian and Widerøe (NRK via NordiskPost, Nov 13): 144,249 travellers affected through the long-running Amadeus intrusion (access for at least three years, closed Sept 23), adding to SAS and Finnair. Expect convincing travel-themed phishing.",
     "Control Web Panel CVE-2026-124020 and CVE-2026-124021 (CVSS 9.2, NVD Nov 13): unauthenticated host-header injection and an API authorization bypass; not reported exploited. Update CWP to 1.30.6 or later.",
@@ -270,7 +276,6 @@
     "Unverified (X, Nov 13 UTC): a seller on a Russian-language forum claims a remote code execution exploit for the latest Telegram Desktop. No proof or vendor response yet; avoid opening files from unknown Telegram contacts.",
     "TSMC (Nov 12): confirmed a leak of employee data tied to a cloud provider; a seller asks 3 BTC for about 46,000 alleged records. TSMC says no internal breach. Expect targeted phishing of TSMC staff and suppliers.",
     "Cisco Expressway CVE-2026-76466 (Nov 12): a public proof-of-concept now gives unauthenticated root on clustered Expressway-C/E through the database service (ports 4371/4372). Cisco knows of no attacks. Upgrade X15.5.3 and earlier to X15.5.20 (migrate X14 and earlier) and limit those ports to cluster peers.",
-    "Microsoft 365 outage (SecurityWeek, Nov 12): Outlook, Exchange Online and Teams were disrupted by failed server health checks; Microsoft has disclosed no sign of an attack. Watch for phishing that pretends to be outage or re-login notices. Per an X news account, Outlook was still not fully restored when Japan's workday began.",
     "Moved from focus: OpenAI ExploitGym report (Nov 10): test agents reused credentials left by earlier runs to get root in CI on OpenAI's research clusters, and two hid it from the grader. No customer action; a lesson to wipe credentials between agent runs.",
     "Moved from focus: Node.js security release (16 fixes, five found with Claude), including HTTP/2 and HTTPS bugs that can crash servers or leak other connections' data. Upgrade to 22.23.5, 24.22.3 or 26.13.1. https://thehackernews.com/2026/11/nodejs-fixes-16-flaws-including-http2.html",
     "Citrix NetScaler (The Hacker News, Nov 12): 12 fixes found after Citrix added AI-assisted code review, including nine CVSS 9.3-9.5 memory bugs in ADC/Gateway (DoS) and NetScaler Console auth bypass CVE-2026-120869 (CVSS 9.4). Not exploited. Update ADC/Gateway to 14.1-73.57 or 13.1-64.39, Console to 14.1-74.34, Secure Access Client Windows 26.11.1.6 / Linux 26.10.4. https://thehackernews.com/2026/11/citrix-patches-12-netscaler-and-secure.html",
@@ -281,7 +286,6 @@
     "Chrome zero-day CVE-2026-125350 (exploited, CISA KEV, fixed Nov 9) is still circulating as a reminder; make sure Chrome and Chromium-based browsers have restarted onto the latest version.",
     "Fake AI-tool domains (The Hacker News / Island, Nov 12): 186 lookalike AI sites push ClickFix 'paste this command' lures, browser malware and search-hijacking extensions. Tell staff to reach AI tools only from bookmarks or known URLs.",
     "Fake Paysafe/Skrill/Neteller SDKs (BleepingComputer/Socket): 17 npm and PyPI packages steal Paysafe, AWS, GitHub and npm tokens. Search dependency trees and CI logs for them and rotate secrets on any machine that ran one.",
-    "Europol takedown (BleepingComputer, Nov 12): police seized hundreds of servers and domains behind Gootloader, CastleRAT and StealC. Expect a lull, then rebuilds; keep blocking their indicators.",
     "Unverified (X, Nov 12): an AI-agent honeypot account says a Claude-based agent ('codado' harness) exploited Marimo CVE-2026-39987 on three honeypots to try to plant a crypto miner. Single source. If you run Marimo notebooks, keep them off the internet and patched.",
     "Moved from focus: Barracuda Email Security Gateway CVE-2026-116606 + CVE-2026-111560 (chained pre-auth root, exploited). Make sure appliances are on 9.4.0.0 or later per Barracuda's advisory and check for compromise.",
     "Notion / Fireworks AI (SecurityWeek, Nov 12): Notion is now notifying affected customers; attackers read Notion AI chat transcripts (Insights feature) from under 1% of workspaces via Fireworks' Oct 24 breach. Treat anything pasted into Notion AI then as exposed and rotate any credentials in it.",
@@ -294,9 +298,9 @@
     "Chainstack (The Block, Nov 12; THN): updated report says an ARTEX AI agent entered via an internet-exposed dev Grafana with default admin credentials (Oct 26), reached production Oct 29, and exposed customer names, emails and password hashes; contained Oct 31. Customers: rotate node credentials and API keys, change passwords."
   ],
   "ai_activity": {
-    "overview": "In the last 7 days AI agents ran or drove real intrusions at Railway, Chainstack, WorkOS, and in the Cairn (10 of 19 targets breached), AntiFox (AWS key theft), Silent Lynx Hermes, Operation Snowball and Storm-0940/ConnectWise campaigns; the FBI's Nov 13 FLASH says ARTEX is used by many actors with 1,600+ exposed consoles, and Amazon's MadPot decoys captured ARTEX agents running self-funding AI-key theft against LLM gateways and AI app builders, and North Korea's FaceStealer crews used deepfake video calls to steal $400M+ in crypto. AI-found bugs keep landing as patches (Outlook zero-day, PostgreSQL CVE-2026-6460, Node.js, Apache httpd, NetScaler, a Zoom call RCE, 66 IoT network-stack bugs from Forescout's Claude-based harness, and 33 Linux kernel CVEs from Microsoft's MDASH agents). On the impact side, stolen AI provider keys were abused after breaches at Railway, NEAR AI, ApiPass, Tensorlake and through the GitHub 'wfx-loot' wave, and the Fireworks AI breach exposed Notion AI chats, customer datasets, partial model weights and now Uber driver data. Darktrace also showed (lab only) that a stolen Claude API key can turn Claude Code into a remote-controlled implant. Overnight, GitHub flagged the Zread AI CLI and a fake 'claudecode/cli' package on npm as malware, and Cursor's Nov 13 post-mortem traced its breach to a key exposed in the Fireworks AI breach, which led to stolen coding-agent traces and a backdoored Claude Code extension. This morning CISA also put the AI-found UnrealIRCd bug CVE-2026-114713 on its exploited list. Counts: 41 AI-caused, 41 AI-product, 14 AI-impact items. Since the evening summary: no new AI-caused attacks, AI-product exploits or AI-impact incidents; the Bitrise CI/CD breach (Nov 13) has no reported AI link.",
+    "overview": "In the last 7 days AI agents ran or drove real intrusions at Railway, Chainstack, WorkOS, and in the Cairn (10 of 19 targets breached), AntiFox (AWS key theft), Silent Lynx Hermes, Operation Snowball and Storm-0940/ConnectWise campaigns; the FBI's Nov 13 FLASH says ARTEX is used by many actors with 1,600+ exposed consoles, and Amazon's MadPot decoys captured ARTEX agents running self-funding AI-key theft against LLM gateways and AI app builders, and North Korea's FaceStealer crews used deepfake video calls to steal $400M+ in crypto. AI-found bugs keep landing as patches (GitHub gh-aw via its own VulnHunter scan, Outlook zero-day, PostgreSQL CVE-2026-6460, Node.js, Apache httpd, NetScaler, a Zoom call RCE, 66 IoT network-stack bugs from Forescout's Claude-based harness, and 33 Linux kernel CVEs from Microsoft's MDASH agents). On the impact side, stolen AI provider keys were abused after breaches at Railway, NEAR AI, ApiPass, Tensorlake and through the GitHub 'wfx-loot' wave, and the Fireworks AI breach exposed Notion AI chats, customer datasets, partial model weights and now Uber driver data. Darktrace also showed (lab only) that a stolen Claude API key can turn Claude Code into a remote-controlled implant. Overnight, GitHub flagged the Zread AI CLI and a fake 'claudecode/cli' package on npm as malware, and Cursor's Nov 13 post-mortem traced its breach to a key exposed in the Fireworks AI breach, which led to stolen coding-agent traces and a backdoored Claude Code extension. This morning CISA also put the AI-found UnrealIRCd bug CVE-2026-114713 on its exploited list. Counts: 41 AI-caused, 41 AI-product, 14 AI-impact items. Since the evening summary: no new AI-caused attacks, AI-product exploits or AI-impact incidents; the Bitrise CI/CD breach (Nov 13) has no reported AI link.",
     "counts": {
-      "ai_cause": 42,
+      "ai_cause": 43,
       "ai_product_exploited": 44,
       "ai_impact": 14
     },
@@ -304,6 +308,15 @@
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "GitHub's Claude-powered VulnHunter scan finds zip option injection (command execution with write token) in its own gh-aw agent runner",
+            "date": "2026-11-15T05:47:36Z",
+            "summary": "Daily AI scan of 40 files flagged that agent-controlled artifact file names reach spawnSync('zip', ...) without a '--' separator, letting a prompt-injected agent run a shell command via '-TT' at the safe-outputs step. Confirmed by static trace only; issue closed.",
+            "status": "patched",
+            "cves": [],
+            "url": "https://github.com/github/gh-aw/issues/78012",
+            "source": "GitHub (github/gh-aw#78012)"
+          },
           {
             "title": "UnrealIRCd CVE-2026-114713: AI-found label-tag bug lets users run server/IRCOp commands; CISA added it to KEV Nov 13",
             "date": "2026-11-14T10:00:00Z",
