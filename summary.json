@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-15T21:40:00Z",
-  "next_update_note": "Next summary update in about 4 hours (around 20:40 EST, Nov 15).",
-  "headline": "Sunday afternoon update (Nov 15): no change to the must-act list and no new actively exploited flaw since the midday summary. New this window: airBaltic says about 618,000 bookings (names, booking numbers, flights; no payment or passport data) were exposed through a third-party IT provider, and South Korea's travel sector has now logged eight breaches at five firms in a month (MyRealTrip twice, passport numbers for some users). A public proof-of-concept is now circulating for the exploited Outlook zero-day CVE-2026-124194, so patch now if you haven't. Still top priority: rotate keys exposed by Railway, Bitrise, the GitHub 'wfx-loot' wave, the Cursor/Fireworks chain and ARTEX AI-key theft; patch UnrealIRCd CVE-2026-114713 and Check Point CVE-2026-123039 (federal deadline tomorrow, Nov 16), Outlook CVE-2026-124194, Chrome CVE-2026-125350 and SonicWall CVE-2026-19868; and clean up ScreenConnect clients.",
-  "ai_headline": "AI attack agents remain the story of the week, and a new data point landed: a JPCERT/CC-led international probe (Kyodo, Nov 15) found about 1,000 servers online since October that likely serve as bases for AI-driven attacks, most hosting platforms such as ARTEX, scanning for flaws and stealing config files; one held traces of Anthropic's coding tool. BleepingComputer's write-up of the FBI ARTEX FLASH (Nov 15) adds that ARTEX drove the October ConnectWise Cloud Backup (SkyKick) breach, with attempts against 2,250+ downstream Microsoft 365 tenants. On the AI-product side, Langflow's MCP command-injection CVE-2026-105740 (exploited since September per Previdian honeypots) is resurfacing; upgrade Langflow to 1.10.3+. An AI-found bug is confirmed exploited (UnrealIRCd CVE-2026-114713, deadline Monday); Cursor's post-mortem still anchors the AI-impact story.",
+  "updated_at": "2026-11-16T01:30:51Z",
+  "next_update_note": "Next summary update in about 4 hours (around 00:30 EST, Nov 16).",
+  "headline": "Sunday evening update (Nov 15): one new must-know item. Barracuda's post-mortem (via Risky Bulletin, Nov 16) says its Nov 1-2 cloud breach started with a cloud access key it had issued to a third-party AI service provider and never revoked; the intruder then ran the ARTEX AI attack framework across 10 cloud environments, including ones running its XDR platform, and hunted for crypto-wallet secrets. Barracuda found no sign customer XDR integration credentials were taken but told some customers to reissue them. Also new: Copeland XWEB EVO refrigeration controllers are now reported exploited (end-of-life, no patches), Kaspersky reports a Telegram widgets flaw exploited to drop WebRAT (fixed on Android, not Windows), and Korean stay platform LiveAnyWhere joins the travel-sector breach run. Still top priority: rotate keys exposed by Railway, Bitrise, the GitHub 'wfx-loot' wave, the Cursor/Fireworks chain and ARTEX AI-key theft; audit old vendor and AI-provider cloud keys; patch UnrealIRCd CVE-2026-114713 and Check Point CVE-2026-123039 (federal deadline today, Nov 16), Outlook CVE-2026-124194, Chrome CVE-2026-125350 and SonicWall CVE-2026-19868.",
+  "ai_headline": "ARTEX now has a named security-vendor victim: Barracuda says an attacker used a forgotten cloud key it had issued to a third-party AI service provider, then deployed ARTEX to move across 10 cloud environments (Risky Bulletin, Nov 16). That makes it both an AI-caused attack and an AI-impact case: keys handed to AI vendors are becoming the way in. This follows the FBI ARTEX FLASH, Amazon's MadPot agent logs and the JPCERT/CC count of ~1,000 AI-attack servers. On the AI-product side, Langflow CVE-2026-105740 (exploited since September) is still resurfacing; upgrade to 1.10.3+. The AI-found UnrealIRCd CVE-2026-114713 is exploited and its federal deadline is today.",
   "focus": [
     {
       "title": "Railway full incident report (Nov 10): attacker used AI agents on safety-stripped models to break in, decrypt customer env vars and run up about $740,000 in stolen AI usage",
@@ -32,6 +32,21 @@
         "cause"
       ],
       "ai_note": "AI as the attacker: US government warning plus Amazon's captured agent logs (new since the last summary) showing autonomous AI-key theft at scale."
+    },
+    {
+      "title": "Barracuda post-mortem (Risky Bulletin, Nov 16): attacker got in with a never-revoked cloud key Barracuda had issued to a third-party AI service provider, then used the ARTEX AI framework to spread across 10 cloud environments, including XDR systems",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Barracuda Networks (and any firm that issues cloud keys to AI vendors)",
+      "why": "Per Barracuda's post-mortem as reported by Risky Bulletin: the attacker first compromised the AI provider's development environment, took the cloud access key Barracuda had given it and forgot to revoke after the engagement ended, and used it on Nov 1-2. Inside, the intruder ran the ARTEX AI penetration-testing framework to collect more credentials and move laterally into 10 cloud environments, some managing its XDR platform, and searched for crypto-wallet seed phrases, private keys and wallet-named Kubernetes secrets. Barracuda learned of it on Nov 4 from the AI provider. It found no evidence XDR customer integration credentials were accessed but told some customers to reissue them. Barracuda believes a financially motivated group did it; its recently exploited email-gateway bugs were not used.",
+      "action": "Barracuda XDR customers who got a notice: reissue the integration credentials. Everyone: list every cloud key, service account and OAuth grant given to AI vendors, contractors and past integrations; revoke the unused ones and scope and rotate the rest. Alert on use of third-party keys from new IPs, and keep wallet keys and seed material out of Kubernetes secrets and environment variables.",
+      "url": "https://news.risky.biz/risky-bulletin-hackers-accessed-barracudas-cloud/",
+      "ai_angle": [
+        "cause",
+        "impact"
+      ],
+      "ai_note": "AI attack agent (ARTEX) plus an unrevoked key held by an AI service provider; the provider's own breach was the entry point."
     },
     {
       "title": "Unit 42 (Nov 12): Chinese-speaking attackers ran the open-source Cairn AI pentest framework on GLM and DeepSeek models in 25 autonomous operations, getting access or data at 10 of 19 organizations",
@@ -121,20 +136,6 @@
       "ai_note": "A breach at an AI inference vendor (Fireworks) cascaded into AI coding-agent data, leaked keys and a trojanized AI coding extension."
     },
     {
-      "title": "ConnectWise ScreenConnect MSP campaign: rogue clients and the worm-like 'SCKit' toolkit on at least 288 endpoints at 48 organizations; break-ins tied to the RMM+ extension accepting a blank access key",
-      "severity": "critical",
-      "exploited": true,
-      "cves": [
-        "CVE-2026-84869"
-      ],
-      "vendor": "ConnectWise",
-      "why": "Since about 17:48 UTC Nov 11 (Huntress), attackers used Run Command on hijacked cloud-hosted ScreenConnect panels to install an attacker-controlled client plus SCKit, 16 scripts for persistence and spreading. New (Huntress, Blackpoint, BleepingComputer, Nov 12): its RelayTrap part replaces the ScreenConnect Guest and, when a technician connects, tries to push and run a file on the technician's PC via CVE-2026-84869 (CVSS 9.9, fixed in 26.6.5), then reuse the technician's session to hit other customers. Both firms saw that step fail against patched clients. Huntress links the access to the third-party RMM+ extension (versions 1.0.31-1.0.32 accepted a blank access key if none was set), one of five extensions ConnectWise disabled in 400+ partner environments.",
-      "action": "Update ScreenConnect host clients and servers to the current release, remove or disable RMM+ and other unneeded extensions (on-prem partners must do it themselves), and review Run Command and Shared Toolbox history since Nov 11. Do not open interactive sessions to suspected hosts; investigate with separate tools. Reset ScreenConnect passwords from a trusted device, revoke sessions, enforce MFA, remove unknown users and rogue ScreenConnect installs, and block 185.99.255.28, 155.94.150.39, newnewnew.gotdns.org, soxnewwork.homedns.org, sc.payproofkit.com and ns.mo7sen.dev.",
-      "url": "https://www.huntress.com/blog/sckit-worm-rogue-screenconnect",
-      "ai_angle": [],
-      "ai_note": ""
-    },
-    {
       "title": "Check Point gateways hit through PHP2Shell plus a root bug (CVE-2026-123039, added to CISA's exploited list Nov 13): TSGA backdoor installed, ESXi hosts wiped at some Israeli victims",
       "severity": "critical",
       "exploited": true,
@@ -157,6 +158,12 @@
       "source": "FBI IC3",
       "url": "https://www.ic3.gov/CSA/2026/261113.pdf",
       "blurb": "FBI says many actors use the open-source ARTEX AI agent framework for end-to-end intrusions; 1,600+ exposed consoles, IOCs included."
+    },
+    {
+      "title": "Risky Bulletin: Hackers accessed Barracuda's cloud",
+      "source": "Risky Business News",
+      "url": "https://news.risky.biz/risky-bulletin-hackers-accessed-barracudas-cloud/",
+      "blurb": "Barracuda's post-mortem: a forgotten cloud key issued to a third-party AI service provider let an attacker in on Nov 1-2; ARTEX was then used to reach 10 cloud environments, including XDR systems. No sign customer XDR credentials were taken; some customers told to reissue them."
     },
     {
       "title": "Japan-led probe finds 1,000 servers likely used for AI-driven cyberattacks",
@@ -189,12 +196,6 @@
       "blurb": "Names, booking numbers and flight details of passengers who checked in online July 18-Nov 12; no payment or passport data. Expect airline-themed phishing."
     },
     {
-      "title": "Japanese furniture giant Nitori says hackers stole 37.6M customer records",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/japanese-furniture-giant-nitori-says-hackers-stole-376m-customer-records/",
-      "blurb": "Nitori detected unauthorized access on Nov 6 (possible access from mid-October); up to 37.62 million customer, member and order records with names, addresses, phones, emails and birth dates may be exposed. Passwords and card data were not. Expect Nitori-themed phishing in Japan."
-    },
-    {
       "title": "Attackers Exploit UnrealIRCd Flaw That Enables Server-Level Command Injection",
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html",
@@ -202,8 +203,14 @@
     }
   ],
   "watch": [
+    "Telegram widgets flaw (Kaspersky via Risky Bulletin, Nov 16): attackers abuse Telegram's widget feature to run PowerShell and install the WebRAT credential stealer. Telegram fixed Android but not Windows yet; on Windows, don't click Telegram widget/login prompts from unknown sites and watch for PowerShell launched by Telegram. https://news.risky.biz/risky-bulletin-hackers-accessed-barracudas-cloud/",
+    "GeoVision cameras (Huntress via Risky Bulletin, Nov 16): a wave of attacks last week against GeoVision security cameras. Keep camera/NVR web interfaces off the internet and replace end-of-life models.",
+    "City of Mobile, Alabama (Risky Bulletin, Nov 16): paid $14.7 million to scammers over five months after staff were talked into changing a contractor's bank details. Verify any payment-detail change by calling a known number.",
+    "Lithuania customs (LRV) breached and some platforms shut down; Caribbean Airlines confirms passenger data exposed via last month's Amadeus reservation-platform hack (Risky Bulletin, Nov 16).",
+    "Hong Kong Metropolitan University (SCMP, Nov 16): about 5,000 people linked to HKMU may have had personal data leaked in a cyber breach; details still limited.",
+    "Moved from focus: ConnectWise ScreenConnect MSP 'SCKit' campaign (288+ endpoints at 48 orgs, RMM+ blank-key extension, CVE-2026-84869 relay step). Update ScreenConnect to the current release, remove RMM+ and unneeded extensions, review Run Command history since Nov 11 and block the Huntress IOCs. https://www.huntress.com/blog/sckit-worm-rogue-screenconnect",
     "airBaltic (LETA/BB.LV, Nov 15): unauthorized access at a third-party IT provider exposed about 618,000 bookings (names, booking numbers, flight details for online check-ins Jul 18-Nov 12); no payment or passport data. Watch for booking-themed phishing. https://en.bb.lv/article/our-latvia/2026/11/15/data-leak-of-618000-airbaltic-bookings-passengers-warned-of-potential-danger-116065",
-    "South Korean travel sector (Seoul Economic Daily, Nov 15): eight breaches at five firms in a month; MyRealTrip hit Oct 25 and again Nov 9 (passport numbers for some users), plus Nol Universe/Interpark Tour, Travolution, Onda Hotel Plus and ZoomZoom Tour. Expect travel-themed smishing. https://en.sedaily.com/culture/2026/11/15/eight-data-breaches-hit-five-korean-travel-firms-in-a-month",
+    "South Korean travel sector (Seoul Economic Daily, Nov 15; Digital Daily, Nov 16): eight breaches at five firms in a month; MyRealTrip hit Oct 25 and again Nov 9 (passport numbers for some users), plus Nol Universe/Interpark Tour, Travolution, Onda Hotel Plus and ZoomZoom Tour. New: month-stay platform LiveAnyWhere says an outsider reached some APIs on Nov 11-12 and viewed or changed customer data; it blocked card payments and advises password changes and checking cards and refund accounts. Expect travel-themed smishing. https://www.ddaily.co.kr/page/view/2026111609061088850",
     "Langflow CVE-2026-105740 (AI product, CVSS 9.9, resurfacing on X Nov 15): any logged-in user gets RCE via an MCP stdio server entry; Previdian honeypots logged 1,400+ exploit attempts since Sep 19 that steal LANGFLOW_SECRET_KEY. Upgrade to 1.10.3+ (also fixes sibling CVE-2026-105697, unauthenticated with default auto-login), disable auto-login, rotate keys Langflow holds. https://thehackernews.com/2026/10/langflows-critical-authenticated-rce.html",
     "Outlook CVE-2026-124194 (exploited, focus item): X posts on Nov 15 share a public PoC (unverified link); finish the November Office updates and block outbound SMB.",
     "JPCERT/CC-led probe (Kyodo, Nov 15, AI cause): ~1,000 servers likely used for AI-driven attacks since October, mostly ARTEX-type platforms stealing config files. https://english.kyodonews.net/articles/-/91455",
@@ -229,7 +236,6 @@
     "PostgreSQL CVE-2026-6460 (22-year-old type-confusion bug turned into reliable code execution with an AI agent's help; AI cause): patched Nov 12 with 51 other flaws, no exploitation reported. Upgrade to the latest minor release.",
     "pfSense CE XMLRPC remote code execution (CVE-2026-92182, ZDI-26-960): update pfSense CE when a fixed release is available and keep the web/XMLRPC interface off the internet.",
     "llama.cpp: ZDI advisory on code execution via malicious GGUF model files (AI product). Load GGUF models only from trusted sources and update llama.cpp and apps that bundle it.",
-    "Copeland Dixell refrigeration controllers: researchers report 14 critical flaws allowing root access; social-media chatter says at least two are exploited (unverified). Keep these controllers off the internet.",
     "CVE-2026-21513 exploited to drop a JScript backdoor at Russian organizations (threat report, Nov 10); make sure the related Windows update is installed.",
     "Wazuh server CVE-2025-24016 (X, Nov 13-14; older flaw, Feb 2025): a public exploit is now out; anyone with API access (or in some setups a compromised agent) can run arbitrary Python on Wazuh servers 4.4.0 to before 4.9.1. Upgrade to 4.9.1 or later and keep the Wazuh API off the internet. https://nvd.nist.gov/vuln/detail/CVE-2025-24016",
     "Ethersphere / Swarm supply-chain hijack (Socket, Nov 9 compromise): attackers used the project's own GitHub automation to publish malicious @ethersphere/bee-js 13.3.0 to npm (live about 75 minutes) and a trojanized Swarm Desktop 0.56.2 (up about 8.5 hours), loading the SleepyDuck Ethereum-C2 backdoor. If installed, remove, rebuild and rotate wallet keys and secrets from a clean machine. https://socket.dev/blog/bee-js-compromise",
@@ -249,7 +255,6 @@
     "Yeny (NHK, Nov 14): the Japanese payment service says phone numbers and member IDs of up to 1.33 million users may have leaked. https://news.web.nhk/newsweb/na/nd-20261114de75857",
     "Bookeasy / ACT government (ABC, Nov 14): hack of the Bookeasy booking platform used for ACT national-park camping and VisitCanberra exposed personal and booking details (no card data so far); users report suspicious messages and the ACT has disabled the platform. https://www.abc.net.au/news/2026-11-14/campers-personal-data-compromised-via-bookeasy-platform-hack/107386186",
     "Yellow Umbrella (Seoul Economic Daily, Nov 14): South Korea's small-business mutual-aid fund reports possible leak of members' names, partial ID numbers, phones, addresses and emails.",
-    "Moved from focus: Barracuda Managed XDR breach (Nov 1-2): attacker reached the store of customer integration credentials; notified customers must replace them. https://www.twisa.org/en/news/2026-11-13-barracuda-managed-xdr-integration-credentials/",
     "Zread CLI npm malware (GitHub advisories, Nov 13 23:46 UTC): @zread/cli and six platform packages (linux/darwin/win32, x64/arm64), all versions, flagged as malicious; AI-product supply-chain risk, no payload analysis public. If installed, remove, rebuild and rotate secrets from a clean machine. https://github.com/advisories/GHSA-rmrw-hx84-5hgq",
     "ActiveCloud (The Record, Nov 13): ransomware hit the Belarusian cloud and hosting provider on Nov 10, disrupting E-Cloud, SmartMail and virtual servers for days; main services restored, no evidence of customer-data theft reported so far. https://therecord.media/belarus-cloud-provider-activecloud-ransomware-attack",
     "City of Osaka (The Record / NHK, Nov 13): 1,078,713 email addresses that received mail from the city's online administrative system (Jul 1 to Oct 31) leaked through unauthorized access to vendor Arara's mail-delivery service; only addresses, per the city. Expect phishing posing as Osaka city mail. https://therecord.media/city-of-osaka-japan-email-data-breach",
@@ -295,7 +300,7 @@
     "Citrix NetScaler (The Hacker News, Nov 12): 12 fixes found after Citrix added AI-assisted code review, including nine CVSS 9.3-9.5 memory bugs in ADC/Gateway (DoS) and NetScaler Console auth bypass CVE-2026-120869 (CVSS 9.4). Not exploited. Update ADC/Gateway to 14.1-73.57 or 13.1-64.39, Console to 14.1-74.34, Secure Access Client Windows 26.11.1.6 / Linux 26.10.4. https://thehackernews.com/2026/11/citrix-patches-12-netscaler-and-secure.html",
     "Chrome 157 and Firefox 160 (SecurityWeek, Nov 12): 83 Chrome fixes (5 critical, second update in two days after a zero-day fix) and 99 Firefox fixes. Make sure browsers have restarted onto the new versions.",
     "GitLab CVE-2026-97229 reminder: CISA-listed as exploited since Oct 29 and an X post today says 1,000+ servers are still unpatched. Self-managed GitLab should be on 19.5.1/19.4.3/19.3.6 or later from official packages (custom Ruby images also need Ruby 3.3.13, 3.4.12 or 4.0.9).",
-    "Copeland XWEB EVO controllers (NVD, Nov 12): a batch of critical pre-auth command injection, hardcoded and derivable root/admin password flaws through 5.8.8. Keep these refrigeration/HVAC controllers off the internet and update per Copeland's advisory. An unverified X alert (Nov 13 UTC) says VulnCheck now sees exploitation of CVE-2026-124014 (unauthenticated file write).",
+    "Copeland XWEB EVO controllers (Risky Bulletin, Nov 16, citing VulnCheck): two of the 14 VulnCheck-found flaws are now exploited in the wild, starting two hours after disclosure; the product line is end-of-life and gets no patches. Take these refrigeration/HVAC controllers off the internet or replace them. https://news.risky.biz/risky-bulletin-hackers-accessed-barracudas-cloud/",
     "Unverified (X, Nov 12): Proofpoint describes 'BluePhishing', abuse of Microsoft Entra ID AI agent identities to target cloud tenants. Single social post seen so far; review which agent identities and app consents exist in your Entra tenant.",
     "Chrome zero-day CVE-2026-125350 (exploited, CISA KEV, fixed Nov 9) is still circulating as a reminder; make sure Chrome and Chromium-based browsers have restarted onto the latest version.",
     "Fake AI-tool domains (The Hacker News / Island, Nov 12): 186 lookalike AI sites push ClickFix 'paste this command' lures, browser malware and search-hijacking extensions. Tell staff to reach AI tools only from bookmarks or known URLs.",
@@ -313,16 +318,25 @@
     "Bitrise: watch for a root-cause report and whether any customer build secrets were reached."
   ],
   "ai_activity": {
-    "overview": "In the last 7 days AI agents ran or drove real intrusions at Railway, Chainstack, and in the Cairn (10 of 19 targets breached), AntiFox (AWS key theft), Silent Lynx Hermes, Operation Snowball and Storm-0940/ConnectWise campaigns; the FBI's Nov 13 FLASH says ARTEX is used by many actors with 1,600+ exposed consoles, Amazon's MadPot decoys captured ARTEX agents running self-funding AI-key theft against LLM gateways and AI app builders, and a JPCERT/CC-led probe (Nov 15) now counts about 1,000 likely AI-attack servers online since October. North Korea's FaceStealer crews used deepfake video calls to steal $400M+ in crypto. AI-found bugs keep landing as patches (GitHub gh-aw via its own VulnHunter scan, Outlook zero-day, PostgreSQL CVE-2026-6460, Node.js, Apache httpd, NetScaler, a Zoom call RCE, 66 IoT network-stack bugs from Forescout's Claude-based harness, and 33 Linux kernel CVEs from Microsoft's MDASH agents), and the AI-found UnrealIRCd CVE-2026-114713 is on CISA's exploited list. On the impact side, stolen AI provider keys were abused after breaches at Railway, NEAR AI, ApiPass and through the GitHub 'wfx-loot' wave, and the Fireworks AI breach exposed Notion AI chats, customer datasets, partial model weights and Uber driver data, and led to Cursor's stolen coding-agent traces and a backdoored Claude Code extension. Counts (items dated Nov 8 evening onward): 39 AI-caused, 35 AI-product, 13 AI-impact. Since the midday summary: one new AI-cause report (JPCERT/CC server probe) and fuller FBI ARTEX coverage; no new exploited AI product or AI-impact incident; items older than 7 days were rolled off.",
+    "overview": "In the last 7 days AI agents ran or drove real intrusions at Railway, Chainstack, Barracuda (ARTEX, via a forgotten AI-vendor cloud key), and in the Cairn (10 of 19 targets breached), AntiFox (AWS key theft), Silent Lynx Hermes, Operation Snowball and Storm-0940/ConnectWise campaigns; the FBI's Nov 13 FLASH says ARTEX is used by many actors with 1,600+ exposed consoles, Amazon's MadPot decoys captured ARTEX agents running self-funding AI-key theft against LLM gateways and AI app builders, and a JPCERT/CC-led probe (Nov 15) now counts about 1,000 likely AI-attack servers online since October. North Korea's FaceStealer crews used deepfake video calls to steal $400M+ in crypto. AI-found bugs keep landing as patches (GitHub gh-aw via its own VulnHunter scan, Outlook zero-day, PostgreSQL CVE-2026-6460, Node.js, Apache httpd, NetScaler, a Zoom call RCE, 66 IoT network-stack bugs from Forescout's Claude-based harness, and 33 Linux kernel CVEs from Microsoft's MDASH agents), and the AI-found UnrealIRCd CVE-2026-114713 is on CISA's exploited list. On the impact side, stolen AI provider keys were abused after breaches at Railway, NEAR AI, ApiPass and through the GitHub 'wfx-loot' wave, and the Fireworks AI breach exposed Notion AI chats, customer datasets, partial model weights and Uber driver data, and led to Cursor's stolen coding-agent traces and a backdoored Claude Code extension. Counts (items dated Nov 9 onward): 40 AI-caused, 35 AI-product, 14 AI-impact. Since the afternoon summary: Barracuda's post-mortem adds a named ARTEX victim whose entry point was a key held by an AI service provider (counted under cause and impact); no new exploited AI product.",
     "counts": {
-      "ai_cause": 39,
+      "ai_cause": 40,
       "ai_product_exploited": 35,
-      "ai_impact": 13
+      "ai_impact": 14
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Barracuda post-mortem: unrevoked cloud key held by a third-party AI service provider let an attacker in; ARTEX AI framework then used across 10 cloud environments incl. XDR systems",
+            "date": "2026-11-16T00:00:00Z",
+            "summary": "Attack on Nov 1-2, found Nov 4 after the AI provider alerted Barracuda. Attacker hunted credentials and crypto-wallet secrets. No evidence XDR customer integration credentials were accessed; some customers told to reissue them. Revoke and rotate keys given to AI vendors and past integrations.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://news.risky.biz/risky-bulletin-hackers-accessed-barracudas-cloud/",
+            "source": "Risky Business News"
+          },
           {
             "title": "FBI ARTEX FLASH coverage (BleepingComputer, Nov 15): ARTEX tied to the October ConnectWise Cloud Backup (SkyKick) supply-chain breach; Storm-0940 tried 2,250+ downstream Microsoft 365 tenants",
             "date": "2026-11-15T18:29:53Z",
@@ -1069,6 +1083,15 @@
         "label": "AI impact / AI keys & infrastructure",
         "items": [
           {
+            "title": "Barracuda: cloud key issued to a third-party AI service provider (never revoked) was stolen from the provider's dev environment and used to breach Barracuda's cloud",
+            "date": "2026-11-16T00:00:00Z",
+            "summary": "Attack on Nov 1-2, found Nov 4 after the AI provider alerted Barracuda. Attacker hunted credentials and crypto-wallet secrets. No evidence XDR customer integration credentials were accessed; some customers told to reissue them. Revoke and rotate keys given to AI vendors and past integrations.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://news.risky.biz/risky-bulletin-hackers-accessed-barracudas-cloud/",
+            "source": "Risky Business News"
+          },
+          {
             "title": "Cursor post-mortem: Fireworks-exposed key led to theft of coding-agent traces with credentials, SaaS access and a backdoored Claude Code extension (2.1.312/2.1.313) in Cursor's marketplace",
             "date": "2026-11-13T20:00:00Z",
             "summary": "Under 0.05% of users had agent traces exposed (non-Privacy-Mode only), under 0.01% had API credentials exposed; up to 5,000 users may have received the malicious extension on Oct 29. Contained, last activity Nov 1.",
@@ -1190,6 +1213,6 @@
         ]
       }
     ],
-    "trend_note": "AI-run attacks now have an FBI warning, captured agent logs (Amazon MadPot) and a national CERT's infrastructure count (JPCERT/CC, ~1,000 servers) within three days; the agents mostly win on defaults, exposed keys and unpatched peripheral apps, and AI provider keys are both the target and the fuel. AI-assisted bug finding keeps producing big patch batches (PostgreSQL, Linux kernel, Outlook). Supply-chain attacks target AI tooling directly: breached AI vendors (Fireworks) cascade into customers (Cursor, Notion, Uber). Nov 15 afternoon: quiet weekend window; reporting is consolidating around ARTEX rather than new incidents."
+    "trend_note": "AI-run attacks now have an FBI warning, captured agent logs (Amazon MadPot) and a national CERT's infrastructure count (JPCERT/CC, ~1,000 servers) within three days; the agents mostly win on defaults, exposed keys and unpatched peripheral apps, and AI provider keys are both the target and the fuel. AI-assisted bug finding keeps producing big patch batches (PostgreSQL, Linux kernel, Outlook). Supply-chain attacks target AI tooling directly: breached AI vendors (Fireworks) cascade into customers (Cursor, Notion, Uber). Nov 15 evening: Barracuda shows the pattern end to end: breach an AI vendor, take the keys its customers gave it, then let an AI agent do the lateral movement."
   }
 }
