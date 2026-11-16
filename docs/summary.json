@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-16T09:31:51Z",
-  "next_update_note": "Next summary update in about 4 hours (around 08:30 EST, Nov 16).",
-  "headline": "Monday morning update (Nov 16): no new AI-caused attack since the last summary, but the Fireworks AI fallout widens: Uber now confirms (Nov 16) that the Fireworks breach exposed personal and driver's license data, with state notices so far covering 7,870 drivers. New platform breach: Japanese customer-experience SaaS PLAID shut down its whole KARTE platform on Nov 13 after unauthorized access, isolated the environment on Nov 15 and asks customers to revoke KARTE integration secret keys and access tokens; there is no restore date yet. Also new: South Korea says attackers used a single sign-on flaw to get into 300+ government work-email accounts, a public PoC is out for FreeSWITCH CVE-2026-116779 (CVSS 9.8, unverified exploitation), and phishing mails are reusing Microsoft's real Microsoft 365 outage (Microsoft says the outage was not a cyberattack). Still top priority: rotate keys exposed by Railway, Bitrise, KARTE, the GitHub 'wfx-loot' wave, the Cursor/Fireworks chain and ARTEX AI-key theft; revoke old vendor and AI-provider cloud keys (Barracuda); patch Check Point CVE-2026-123039 (federal deadline today, Nov 16), UnrealIRCd CVE-2026-114713, Outlook CVE-2026-124194, Chrome CVE-2026-125350, SonicWall CVE-2026-19868 and N-central CVE-2026-90436 (turn off the Legacy API).",
-  "ai_headline": "No new AI-caused incident in the last four hours. The latest remain Luxor's AI-enabled Commander hashrate hijack (Nov 14-15, patched, clients reimbursed) and Hudson Rock's AI-indexed infostealer marketplace, on top of Barracuda's ARTEX intrusion via a key held by an AI service provider, the FBI ARTEX FLASH and Amazon's MadPot logs of ARTEX agents stealing keys from exposed LiteLLM, Dify and One API servers (now widely reported, THN Nov 16). AI impact: Uber's confirmation (Nov 16) that Fireworks AI's breach exposed driver license data is the latest customer hit from that AI-vendor compromise, after Cursor and Notion. No new exploited AI product; Langflow CVE-2025-3248/CVE-2026-105740 and exposed LLM gateways remain the main targets.",
+  "updated_at": "2026-11-16T13:32:30Z",
+  "next_update_note": "Next summary update in about 4 hours (around 12:30 EST, Nov 16).",
+  "headline": "Monday mid-morning update (Nov 16): no new AI-caused attack since the 04:30 EST summary. The Fireworks AI fallout is now much bigger than first reported: Uber is notifying about 150,000 drivers (149,346 reported to Texas) that names, addresses, birth dates, driver's license images and numbers and government ID numbers were stolen; attackers used a Fireworks employee's valid credentials on Oct 7, so Uber's alerts never fired. New since last summary: Australian retailer Coles is investigating a cyber incident (no evidence of data theft so far, working with the ACSC), and Kaspersky warns Telegram's new widgets may have been exploited to drop WebRAT (update Telegram, don't launch widgets from unknown channels). Still top priority: rotate keys exposed by Railway, Bitrise, KARTE, the GitHub 'wfx-loot' wave, the Cursor/Fireworks chain and ARTEX AI-key theft; revoke old vendor and AI-provider cloud keys (Barracuda); patch Check Point CVE-2026-123039 (federal deadline today, Nov 16), UnrealIRCd CVE-2026-114713 (SecurityWeek now confirms attacks), Outlook CVE-2026-124194, Chrome CVE-2026-125350, SonicWall CVE-2026-19868 and N-central CVE-2026-90436 (turn off the Legacy API).",
+  "ai_headline": "No new AI-caused incident in the last four hours. The latest remain Luxor's AI-enabled Commander hashrate hijack (Nov 14-15, patched) and Hudson Rock's AI-indexed infostealer marketplace, on top of Barracuda's ARTEX intrusion via a key held by an AI service provider, the FBI ARTEX FLASH and Amazon's MadPot logs of ARTEX agents stealing keys from exposed LiteLLM, Dify and One API servers. AI impact grew: Uber's Fireworks AI-linked breach now covers about 150,000 drivers (SecurityWeek, Nov 16), up from 7,870 in the first state notices, making it the largest known downstream hit from that AI-vendor compromise after Cursor and Notion. No new exploited AI product; Langflow CVE-2025-3248/CVE-2026-105740 and exposed LLM gateways remain the main targets.",
   "focus": [
     {
       "title": "Railway full incident report (Nov 10): attacker used AI agents on safety-stripped models to break in, decrypt customer env vars and run up about $740,000 in stolen AI usage",
@@ -92,7 +92,7 @@
       "ai_angle": [
         "cause"
       ],
-      "ai_note": "Bug found in an AI-assisted code audit; now exploited in the wild."
+      "ai_note": "Bug found in an AI-assisted code audit; now exploited in the wild. SecurityWeek (Nov 16) also reports it exploited in attacks."
     },
     {
       "title": "Bitrise CI/CD breach (Nov 13): platform taken offline after an intruder got into an internal cloud environment; Bitrise tells all customers to rotate stored secrets, tokens and certificates",
@@ -133,7 +133,7 @@
         "impact",
         "product"
       ],
-      "ai_note": "A breach at an AI inference vendor (Fireworks) cascaded into AI coding-agent data, leaked keys and a trojanized AI coding extension."
+      "ai_note": "A breach at an AI inference vendor (Fireworks) cascaded into AI coding-agent data, leaked keys and a trojanized AI coding extension. Uber now says the same Fireworks compromise exposed license and ID data of about 150,000 drivers (SecurityWeek, Nov 16)."
     },
     {
       "title": "Check Point gateways hit through PHP2Shell plus a root bug (CVE-2026-123039, added to CISA's exploited list Nov 13): TSGA backdoor installed, ESXi hosts wiped at some Israeli victims",
@@ -184,16 +184,16 @@
       "blurb": "New criminal service adds AI-written profiles to infostealer logs so buyers can search victims by job, workplace and data in plain language."
     },
     {
+      "title": "Uber Data Breach Impacts 150,000 People",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/uber-data-breach-impacts-150000-people/",
+      "blurb": "Uber is notifying about 150,000 drivers that license images, ID numbers and personal data were stolen after attackers used compromised Fireworks AI credentials; valid logins meant no alerts fired."
+    },
+    {
       "title": "Bitrise takes its CI/CD service offline after internal system breach",
       "source": "CyberSIXT / Bitrise status page",
       "url": "https://cybersixt.com/originals/bitrise-takes-its-ci-cd-service-offline-after-internal-system-breach",
       "blurb": "Mobile CI/CD provider shut down all services after an intruder reached an internal cloud environment on Nov 13; customers told to rotate all stored secrets, tokens and signing certificates."
-    },
-    {
-      "title": "Uber confirms data breach exposing thousands of drivers' personal information",
-      "source": "Cybernews",
-      "url": "https://cybernews.com/security/uber-confirms-data-breach/",
-      "blurb": "Uber says the Fireworks AI breach (attackers used a Fireworks employee's credentials) exposed driver personal and license data; notices so far cover 7,870 drivers in three states."
     },
     {
       "title": "PLAID shuts down KARTE platform after unauthorised access",
@@ -203,6 +203,14 @@
     }
   ],
   "watch": [
+    "Coles (company statement / ABC, Nov 16): Australian supermarket group investigating a cyber incident with the ACSC; no evidence yet that customer, staff or supplier data was taken; some Liquorland click-and-collect issues.",
+    "Telegram widgets (SecurityWeek, Nov 16): Kaspersky says a flaw in the new widgets may have been exploited via certain channels to run PowerShell and install WebRAT (Salat Stealer); researchers showed RCE on Android and Windows. Update Telegram; don't launch widgets from unknown channels or bots.",
+    "Arista VeloCloud Orchestrator CVE-2026-114625 (CVSS 9.9, exploited zero-day patched Oct 22, resurfacing on X Nov 16): any logged-in user can become operator via SQL injection. On-prem VCO: update to 5.2.3.18 / 6.1.3.10 / 6.4.2.12 or later.",
+    "Danfoss and Copeland refrigeration controllers (The Hacker News / SecurityWeek, Nov 16): six unpatched Danfoss flaws allow remote takeover without login; hackers already probing newly disclosed Copeland flaws. Keep these controllers off the internet.",
+    "NoisyTCP (BleepingComputer, Nov 16): new Linux TCP flaw lets remote attackers crash servers; watch for distro kernel updates.",
+    "Retadup worm (The Hacker News, Nov 16) is back seven years after takedown, now spreading CoffeeLoader.",
+    "Tensei (@tensei/auth) through 0.11.5: CVE-2026-129552 auth bypass (CVSS 9.8) and CVE-2026-129550 privilege escalation (9.3) published Nov 16; no fix noted in the feed.",
+    "Windows Server 2016 reaches end of support in 60 days (Microsoft, Nov 16): plan upgrades.",
     "PLAID KARTE (Cybersixt/Nikkei, Nov 13-15): the Japanese customer-experience SaaS stopped all services after unauthorized access, isolated the environment on Nov 15 and is still investigating what leaked; revoke KARTE integration secret keys and access tokens. No restore date yet.",
     "South Korea government email (SBS/MOIS, Nov 16): attackers used a single sign-on flaw reached through local-government networks to access 300+ work-email accounts; a joint probe with NIS and KISA is under way. No vendor or CVE named yet.",
     "FreeSWITCH CVE-2026-116779 (X alert, Nov 16): public PoC for unauthenticated OS command execution via inbound SIP MESSAGE requests (CVSS 9.8). Exploitation not reported; update SignalWire FreeSWITCH and limit SIP exposure.",
@@ -327,7 +335,7 @@
     "Bitrise: watch for a root-cause report and whether any customer build secrets were reached."
   ],
   "ai_activity": {
-    "overview": "In the last 7 days AI agents ran or drove real intrusions at Railway, Chainstack, Luxor (Commander hashrate hijack, Nov 14-15), Barracuda (ARTEX, via a forgotten AI-vendor cloud key), and in the Cairn (10 of 19 targets breached), AntiFox (AWS key theft), Silent Lynx Hermes, Operation Snowball and Storm-0940/ConnectWise campaigns; the FBI's Nov 13 FLASH says ARTEX is used by many actors with 1,600+ exposed consoles, Amazon's MadPot decoys captured ARTEX agents running self-funding AI-key theft against LLM gateways and AI app builders, and a JPCERT/CC-led probe (Nov 15) now counts about 1,000 likely AI-attack servers online since October. North Korea's FaceStealer crews used deepfake video calls to steal $400M+ in crypto. AI-found bugs keep landing as patches (GitHub gh-aw via its own VulnHunter scan, Outlook zero-day, PostgreSQL CVE-2026-6460, Node.js, Apache httpd, NetScaler, a Zoom call RCE, 66 IoT network-stack bugs from Forescout's Claude-based harness, and 33 Linux kernel CVEs from Microsoft's MDASH agents), and the AI-found UnrealIRCd CVE-2026-114713 is on CISA's exploited list. On the impact side, stolen AI provider keys were abused after breaches at Railway, NEAR AI, ApiPass and through the GitHub 'wfx-loot' wave, and the Fireworks AI breach exposed Notion AI chats, customer datasets, partial model weights and Uber driver data, and led to Cursor's stolen coding-agent traces and a backdoored Claude Code extension. A Hudson Rock-reported crime marketplace now uses AI to profile and index infostealer victims. Uber now confirms the Fireworks breach also exposed driver license data. Counts (items in the last 7 days, newest first): 42 AI-caused, 33 AI-product, 15 AI-impact. Since the previous summary (05:34 UTC): Uber's Fireworks-related driver notices added under impact; no new AI-caused attack or exploited AI product.",
+    "overview": "In the last 7 days AI agents ran or drove real intrusions at Railway, Chainstack, Luxor (Commander hashrate hijack, Nov 14-15), Barracuda (ARTEX, via a forgotten AI-vendor cloud key), and in the Cairn (10 of 19 targets breached), AntiFox (AWS key theft), Silent Lynx Hermes, Operation Snowball and Storm-0940/ConnectWise campaigns; the FBI's Nov 13 FLASH says ARTEX is used by many actors with 1,600+ exposed consoles, Amazon's MadPot decoys captured ARTEX agents running self-funding AI-key theft against LLM gateways and AI app builders, and a JPCERT/CC-led probe (Nov 15) now counts about 1,000 likely AI-attack servers online since October. North Korea's FaceStealer crews used deepfake video calls to steal $400M+ in crypto. AI-found bugs keep landing as patches (GitHub gh-aw via its own VulnHunter scan, Outlook zero-day, PostgreSQL CVE-2026-6460, Node.js, Apache httpd, NetScaler, a Zoom call RCE, 66 IoT network-stack bugs from Forescout's Claude-based harness, and 33 Linux kernel CVEs from Microsoft's MDASH agents), and the AI-found UnrealIRCd CVE-2026-114713 is on CISA's exploited list. On the impact side, stolen AI provider keys were abused after breaches at Railway, NEAR AI, ApiPass and through the GitHub 'wfx-loot' wave, and the Fireworks AI breach exposed Notion AI chats, customer datasets, partial model weights and Uber driver data, and led to Cursor's stolen coding-agent traces and a backdoored Claude Code extension. A Hudson Rock-reported crime marketplace now uses AI to profile and index infostealer victims. Uber now says the Fireworks-linked breach exposed license and ID data of about 150,000 drivers. Counts (items in the last 7 days, newest first): 42 AI-caused, 33 AI-product, 15 AI-impact. Since the previous summary (09:31 UTC): Uber's Fireworks-related breach updated to about 150,000 drivers; no new AI-caused attack or exploited AI product.",
     "counts": {
       "ai_cause": 42,
       "ai_product_exploited": 33,
@@ -1090,13 +1098,13 @@
         "label": "AI impact / AI keys & infrastructure",
         "items": [
           {
-            "title": "Uber confirms Fireworks AI breach exposed drivers' personal and driver's license data",
-            "date": "2026-11-16T00:00:00Z",
-            "summary": "Attackers used a Fireworks AI employee's credentials to copy customer data; Uber cut data connections with Fireworks. State notices so far: 7,870 drivers (MA, SC, RI), Illinois pending.",
-            "status": "reported",
+            "title": "Uber: Fireworks AI-linked breach hit about 150,000 drivers (license images, ID numbers)",
+            "date": "2026-11-16T11:02:00Z",
+            "status": "exploited",
+            "summary": "Uber is notifying roughly 150,000 drivers (149,346 reported to Texas). Attackers used compromised Fireworks AI credentials on Oct 7 to reach driver data Uber had shared; valid credentials meant no alerts fired. Stolen: names, addresses, birth dates, driver's license images and numbers, government ID numbers. Uber cut the Fireworks connection on Oct 9.",
             "cves": [],
-            "url": "https://cybernews.com/security/uber-confirms-data-breach/",
-            "source": "Cybernews"
+            "url": "https://www.securityweek.com/uber-data-breach-impacts-150000-people/",
+            "source": "SecurityWeek"
           },
           {
             "title": "Barracuda: cloud key issued to a third-party AI service provider (never revoked) was stolen from the provider's dev environment and used to breach Barracuda's cloud",
@@ -1229,6 +1237,6 @@
         ]
       }
     ],
-    "trend_note": "AI-run attacks now have an FBI warning, captured agent logs (Amazon MadPot) and a national CERT's infrastructure count (JPCERT/CC, ~1,000 servers) within three days; the agents mostly win on defaults, exposed keys and unpatched peripheral apps, and AI provider keys are both the target and the fuel. AI-assisted bug finding keeps producing big patch batches (PostgreSQL, Linux kernel, Outlook). Supply-chain attacks target AI tooling directly: breached AI vendors (Fireworks) cascade into customers (Cursor, Notion, Uber). Nov 15-16: AI-enabled attacks are spreading beyond IT into financial infrastructure (Luxor mining-pool hijack) and into the criminal supply chain itself (AI-indexed infostealer logs), while Barracuda shows keys handed to AI vendors becoming the way in. Nov 16: the Fireworks AI vendor breach keeps producing downstream victims (Uber driver data after Cursor and Notion), so treat AI vendors that hold your data or keys as part of your own attack surface."
+    "trend_note": "AI-run attacks now have an FBI warning, captured agent logs (Amazon MadPot) and a national CERT's infrastructure count (JPCERT/CC, ~1,000 servers) within three days; the agents mostly win on defaults, exposed keys and unpatched peripheral apps, and AI provider keys are both the target and the fuel. AI-assisted bug finding keeps producing big patch batches (PostgreSQL, Linux kernel, Outlook). Supply-chain attacks target AI tooling directly: breached AI vendors (Fireworks) cascade into customers (Cursor, Notion, Uber). Nov 15-16: AI-enabled attacks are spreading beyond IT into financial infrastructure (Luxor mining-pool hijack) and into the criminal supply chain itself (AI-indexed infostealer logs), while Barracuda shows keys handed to AI vendors becoming the way in. Nov 16: the Fireworks AI vendor breach keeps producing downstream victims (Uber driver data after Cursor and Notion), so treat AI vendors that hold your data or keys as part of your own attack surface. Nov 16 (later): Uber's count jumping from 7,870 to ~150,000 shows downstream AI-vendor breach numbers can grow sharply as notices roll in."
   }
 }
