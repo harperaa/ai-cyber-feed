@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-16T17:31:48Z",
-  "next_update_note": "Next summary update in about 4 hours (around 16:30 EST, Nov 16).",
-  "headline": "Monday midday update (Nov 16): Google's threat team says attackers have crossed a line. Its Q4 AI Threat Tracker describes 'exploit_agent', a multi-agent framework found on a suspected Russian-speaking operator's exposed staging server. It compared web-app code before and after patches, wrote exploits and ran them with no human in the loop, then stole data from French media, entertainment and education sites. Google calls this the first fully automated AI exploitation it has seen. Xint.io also reports that GPT 6 Sol found a Chrome V8 RCE bug (CVE-2026-102321, now patched) in 13 minutes for $4.24, a search that cost $350 and failed in February. New non-AI incidents since 08:30 EST: TSMC confirms employee data (IDs, banking details) leaked from a third-party cloud provider, and Fandango says card-skimmer code on its checkout page stole card numbers and CVVs from Oct 8 to 11. Still top priority: rotate keys exposed by Railway, Bitrise, the GitHub 'wfx-loot' wave, the Cursor/Fireworks chain and ARTEX AI-key theft; revoke unused vendor and AI-provider cloud keys (Barracuda); patch Check Point CVE-2026-123039, Outlook CVE-2026-124194 and Chrome. Because attackers now turn patches into exploits automatically, patch internet-facing web apps within days.",
-  "ai_headline": "Two new AI-as-cause reports since the 08:30 EST summary. First, Google GTIG/Mandiant (Nov 16) found exploit_agent, the first fully automated patch-to-exploit pipeline seen in real attacks, with stolen victim data and webshell tooling on the same server. The same report covers CAIRN being used against the US aerospace sector, suspected North Korean actors using Claude Code to deliver malware, LLM-built PaperCut exploits, and zero-day exploits jumping to 22 in August against a 2025 average of 8 a month. Second, Xint.io's benchmark shows AI bug-finding costs collapsing ($4.24 and 13 minutes for a V8 RCE). SecurityWeek adds that Chinese actors are widely adopting ARTEX, alongside the Barracuda intrusion. Unverified: VicOne claims 28 robotics zero-day 'findings' in under two days using AI (sponsored IEEE Spectrum piece, not confirmed CVEs). On AI impact, SecurityWeek confirms the Cursor supply-chain attack started with an access key stolen from Fireworks AI, and Uber's Fireworks-linked breach covers about 150,000 drivers.",
+  "updated_at": "2026-11-16T21:28:25Z",
+  "next_update_note": "Next summary update in about 4 hours (around 20:30 EST, Nov 16).",
+  "headline": "Monday afternoon update (Nov 16): The main story is still Google's finding that attackers have fully automated exploitation. Its Q4 AI Threat Tracker describes 'exploit_agent', a multi-agent framework on a suspected Russian-speaking operator's server that turned security patches into working exploits with no human in the loop and stole data from French media, entertainment and education sites. Xint.io's $4.24 Chrome V8 zero-day (CVE-2026-102321, patched) shows how cheap AI bug-finding has become, and Anthropic says it will cut its disclosure deadline to 30 days for high and critical bugs from Jan 1, 2027 because AI finds flaws faster. New since 12:30 EST: two actively exploited bugs to patch now. Chrome zero-day CVE-2026-125350 (fixed in 157.0.8103.50, applied only after a browser relaunch) and Apache Axis RCE CVE-2026-90436, which Rapid7 saw used against Atlassian Confluence Data Center (Remote API enabled) and N-able N-central. Official WPPConnect npm releases (@wppconnect-team/wppconnect 2.4.1, @wppconnect/server 2.10.82) shipped a stealer for .env files, API keys and WhatsApp session tokens after its release pipeline was compromised. Still top priority: rotate keys exposed by Railway, Bitrise, the GitHub 'wfx-loot' wave, the Cursor/Fireworks chain and ARTEX AI-key theft; revoke unused vendor and AI-provider cloud keys (Barracuda); patch Check Point CVE-2026-123039 and Outlook CVE-2026-124194.",
+  "ai_headline": "No new AI-run attack since the 12:30 EST summary; the Google GTIG exploit_agent report (first fully automated patch-to-exploit attacks seen in the wild) remains the lead AI-cause item, alongside Xint.io's $4.24 V8 zero-day, ARTEX spreading among Chinese and other actors, and the Barracuda intrusion. Added to the roll-up: GPUStack CVE-2026-102895, an AI model-serving cluster manager auth bypass on CISA's exploited list since Nov 9 (fix: 2.2.0), and a now-patched prompt injection that made Meta's Muse agent send user passwords to a remote server (researcher report, Nov 16). Policy shift: Anthropic will publish high and critical bugs 30 days after reporting from Jan 1, 2027, following Google Project Zero, because AI is speeding up bug discovery. On AI impact, the Fireworks AI breach still drives the Cursor and Uber (~150,000 drivers) fallout.",
   "focus": [
     {
       "title": "Google GTIG (Nov 16): 'exploit_agent' AI framework turned security patches into working exploits and ran them with no human in the loop, stealing data from French media, entertainment and education sites",
@@ -123,6 +123,21 @@
       "ai_note": ""
     },
     {
+      "title": "Patch now, exploited this week: Chrome zero-day CVE-2026-125350 and Apache Axis RCE CVE-2026-90436 hitting Atlassian Confluence Data Center and N-able N-central",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-125350",
+        "CVE-2026-90436"
+      ],
+      "vendor": "Google Chrome; Apache Axis 1.x in Atlassian Confluence Data Center and N-able N-central",
+      "why": "Chrome CVE-2026-125350 (CVSS 8.8) is a use-after-free in XML handling that runs code from a crafted web page and is exploited in the wild. CVE-2026-90436 (CVSS 9.8) is an unauthenticated RCE in end-of-life Apache Axis 1.x; Rapid7 saw it used against Confluence Data Center on Nov 13, and N-able N-central ('4EverAble2Shell') was exploited hours after a PoC. Both products need a non-default setting to be vulnerable (Confluence: Remote API XML-RPC & SOAP enabled).",
+      "action": "Update Chrome to 157.0.8103.50 or later and relaunch (Edge, Brave and other Chromium browsers need their own updates). Upgrade Confluence Data Center to 9.2.28 or disable the Remote API (XML-RPC & SOAP) setting, patch N-central per N-able, and check exposed instances for compromise.",
+      "url": "https://www.rapid7.com/blog/post/etr-rapid7-detected-exploitation-of-cve-2026-90436-against-atlassian-confluence-data-center-n-able-n-central-also-exploited/",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
       "title": "GitHub 'wfx-loot' secret-stealer wave keeps growing: 4,837 hijacked accounts, 66,200+ probe PRs, malicious commits on 8,093 public repos, payload ran in at least 1,806 and stole CI, cloud and AI keys",
       "severity": "critical",
       "exploited": true,
@@ -154,12 +169,6 @@
   ],
   "news": [
     {
-      "title": "GTIG AI Threat Tracker: Agentic Threat Activity Crosses a Significant Threshold",
-      "source": "Google Cloud Blog (GTIG/Mandiant)",
-      "url": "https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold/",
-      "blurb": "Q4 tracker: first fully automated patch-to-exploit framework (exploit_agent), ARTEX/CAIRN/CyberStrikeAI/PentAGI in live intrusions, LLMjacking resale via 'LLM Mixers', and zero-days up to 22 in August."
-    },
-    {
       "title": "Google: AI agent turned a security patch into a working exploit with no human help",
       "source": "The Register",
       "url": "https://www.theregister.com/research/2026/11/16/google-ai-agent-turned-a-security-patch-into-a-working-exploit-with-no-human-help/5309926",
@@ -190,19 +199,30 @@
       "blurb": "Fireworks AI-linked breach exposed driver license images and ID data."
     },
     {
-      "title": "TSMC confirms cyberattack and data breach: employee data leaked online",
-      "source": "TechRadar",
-      "url": "https://www.techradar.com/pro/security/tsmc-confirms-cyberattack-and-data-breach-chip-giant-says-personal-employee-data-has-been-leaked-online",
-      "blurb": "Seller offered 46,000 employee records (IDs, addresses, banking) for sale; TSMC says the data came from a third-party cloud service provider, not its own systems."
+      "title": "Rapid7 detected exploitation of CVE-2026-90436 against Atlassian Confluence Data Center; N-able N-central also exploited",
+      "source": "Rapid7",
+      "url": "https://www.rapid7.com/blog/post/etr-rapid7-detected-exploitation-of-cve-2026-90436-against-atlassian-confluence-data-center-n-able-n-central-also-exploited/",
+      "blurb": "Apache Axis 1.x unauthenticated RCE (CVSS 9.8) used against Confluence with the Remote API enabled; upgrade to 9.2.28 or disable it."
     },
     {
-      "title": "Fandango says hackers stole payment card details from checkout pages",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/fandango-says-hackers-stole-payment-card-details-from-checkout-pages/",
-      "blurb": "Skimmer code on the checkout page captured card numbers, CVVs, expiry dates, billing ZIPs and emails from Oct 8 to 11."
+      "title": "Malicious npm package: WPPConnect steals .env and WhatsApp sessions",
+      "source": "HackerMe Security",
+      "url": "https://security.hackerme.ai/malicious-npm-package-wppconnect/",
+      "blurb": "Official @wppconnect-team/wppconnect 2.4.1 and @wppconnect/server 2.10.82 (also nightly and Docker builds) shipped a module that uploads env vars, .env/config files and WhatsApp tokens to a Telegram bot after the release pipeline was compromised."
+    },
+    {
+      "title": "Anthropic updates coordinated vulnerability disclosure timelines (30 days for high/critical)",
+      "source": "Anthropic",
+      "url": "https://www.anthropic.com/research/coordinated-vulnerability-disclosure-timelines",
+      "blurb": "From Jan 1, 2027, high and critical bugs are published 30 days after reporting (45 for others), citing AI-accelerated bug discovery."
     }
   ],
   "watch": [
+    "WPPConnect npm (Nov 16): official @wppconnect-team/wppconnect 2.4.1 and @wppconnect/server 2.10.82, plus GitHub nightly and Docker builds, carried a stealer for environment variables, .env/config files and WhatsApp session tokens (sent to Telegram) after the release pipeline was compromised. If installed, remove those versions, rotate every secret on the host and re-link WhatsApp sessions.",
+    "Anthropic (Nov 16): from Jan 1, 2027 it will disclose high and critical bugs 30 days after reporting (45 days for others), following Google Project Zero's move; expect faster public details after patches.",
+    "Unpatched and exploited: WP Duplicate WordPress plugin RCE (X reports, Nov 16); disable or remove the plugin until a fix ships.",
+    "Expedia (Nov 12, resurfacing Nov 16): confirmed attackers abused a compromised third-party data platform provider; affected data not disclosed. Extortion group n0n claims huge record counts (unverified).",
+    "Goodbody (Irish Times, Nov 16): reported a cyberattack to the Irish DPC; up to 20 client email addresses accessed. EGL Tours (Hong Kong, Nov 16): customer names and ID numbers leaked via a third-party provider.",
     "Unverified: VicOne (sponsored IEEE Spectrum piece, Nov 16) claims 28 zero-day 'findings' across robotics software and tooling in under two days using AI-assisted research; these are vendor-reported findings, not confirmed CVEs.",
     "NvRoot CVE-2026-47591 (Stealthium, Nov 12; discussed again Nov 16): NVIDIA open GPU driver flaw lets any unprivileged local user with a CUDA GPU get root, which matters most on shared or rented multi-tenant GPU hosts. Fixed in 610.57.04 / 595.91.07 / 580.178.04; there's no workaround.",
     "TSMC (Nov 16): employee records (national IDs, addresses, banking) leaked from a third-party cloud provider and offered for 3 BTC; TSMC says its own systems weren't breached.",
@@ -233,11 +253,10 @@
     "airBaltic (LETA/BB.LV, Nov 15): unauthorized access at a third-party IT provider exposed about 618,000 bookings (names, booking numbers, flight details for online check-ins Jul 18-Nov 12); no payment or passport data. Watch for booking-themed phishing. https://en.bb.lv/article/our-latvia/2026/11/15/data-leak-of-618000-airbaltic-bookings-passengers-warned-of-potential-danger-116065",
     "South Korean travel sector (Seoul Economic Daily, Nov 15; Digital Daily, Nov 16): eight breaches at five firms in a month; MyRealTrip hit Oct 25 and again Nov 9 (passport numbers for some users), plus Nol Universe/Interpark Tour, Travolution, Onda Hotel Plus and ZoomZoom Tour. New: month-stay platform LiveAnyWhere says an outsider reached some APIs on Nov 11-12 and viewed or changed customer data; it blocked card payments and advises password changes and checking cards and refund accounts. Expect travel-themed smishing. https://www.ddaily.co.kr/page/view/2026111609061088850",
     "Langflow CVE-2026-105740 (AI product, CVSS 9.9, resurfacing on X Nov 15): any logged-in user gets RCE via an MCP stdio server entry; Previdian honeypots logged 1,400+ exploit attempts since Sep 19 that steal LANGFLOW_SECRET_KEY. Upgrade to 1.10.3+ (also fixes sibling CVE-2026-105697, unauthenticated with default auto-login), disable auto-login, rotate keys Langflow holds. https://thehackernews.com/2026/10/langflows-critical-authenticated-rce.html",
-    "Outlook CVE-2026-124194 (exploited, focus item): X posts on Nov 15 share a public PoC (unverified link); finish the November Office updates and block outbound SMB.",
     "JPCERT/CC-led probe (Kyodo, Nov 15, AI cause): ~1,000 servers likely used for AI-driven attacks since October, mostly ARTEX-type platforms stealing config files. https://english.kyodonews.net/articles/-/91455"
   ],
   "ai_activity": {
-    "overview": "Nov 16: Google GTIG reports the first fully automated AI exploitation in real attacks. A suspected Russian-speaking operator's exploit_agent framework turned patches into exploits and ran them with no human in the loop, then stole data from French media, entertainment and education sites. Xint.io shows a frontier model finding a Chrome V8 RCE zero-day for $4.24. Over the last 7 days AI agents also ran or drove intrusions at Railway, Chainstack, Luxor and Barracuda (ARTEX, via a forgotten AI-vendor cloud key), and in the Cairn, AntiFox, Silent Lynx Hermes, Operation Snowball and Storm-0940/ConnectWise campaigns. The FBI's Nov 13 FLASH says ARTEX is used by many actors, Amazon's MadPot captured ARTEX agents stealing AI keys from LLM gateways, and JPCERT/CC counts about 1,000 likely AI-attack servers. AI-found bugs keep landing as patches (Outlook zero-day, PostgreSQL, Linux kernel, UnrealIRCd now exploited). On the impact side, stolen AI provider keys were abused after Railway, NEAR AI, ApiPass and the GitHub 'wfx-loot' wave, and the Fireworks AI breach cascaded into Notion, Cursor (backdoored Claude Code extension) and Uber (~150,000 drivers). Counts (items in the last 7 days, newest first): 43 AI-caused, 30 AI-product, 14 AI-impact. Since the previous summary (13:32 UTC): added GTIG exploit_agent, Xint V8, SecurityWeek ARTEX/Barracuda and Fireworks to Cursor confirmation, and VicOne (unverified); dropped items older than 7 days (Nov 9 morning).",
+    "overview": "Nov 16: Google GTIG reports the first fully automated AI exploitation in real attacks. A suspected Russian-speaking operator's exploit_agent framework turned patches into exploits and ran them with no human in the loop, then stole data from French media, entertainment and education sites. Xint.io shows a frontier model finding a Chrome V8 RCE zero-day for $4.24. Over the last 7 days AI agents also ran or drove intrusions at Railway, Chainstack, Luxor and Barracuda (ARTEX, via a forgotten AI-vendor cloud key), and in the Cairn, AntiFox, Silent Lynx Hermes, Operation Snowball and Storm-0940/ConnectWise campaigns. The FBI's Nov 13 FLASH says ARTEX is used by many actors, Amazon's MadPot captured ARTEX agents stealing AI keys from LLM gateways, and JPCERT/CC counts about 1,000 likely AI-attack servers. AI-found bugs keep landing as patches (Outlook zero-day, PostgreSQL, Linux kernel, UnrealIRCd now exploited). Exploited AI products include GPUStack (CISA KEV) and SGLang (NEAR AI breach). On the impact side, stolen AI provider keys were abused after Railway, NEAR AI, ApiPass and the GitHub 'wfx-loot' wave, and the Fireworks AI breach cascaded into Notion, Cursor (backdoored Claude Code extension) and Uber (~150,000 drivers). Counts (items in the last 7 days, newest first): 43 AI-caused, 30 AI-product, 14 AI-impact. Since the previous summary (17:31 UTC): added GPUStack CVE-2026-102895 (exploited) and the patched Meta Muse password-exfiltration prompt injection; no new AI-run attack reported; dropped items older than 7 days (Nov 9 afternoon).",
     "counts": {
       "ai_cause": 43,
       "ai_product_exploited": 30,
@@ -686,6 +705,15 @@
         "label": "AI products being exploited",
         "items": [
           {
+            "title": "Meta Muse agent: prompt injection made the AI agent send user passwords to a remote server (now patched)",
+            "date": "2026-11-16T17:36:00Z",
+            "summary": "A researcher says crafted content tricked Meta's Muse agent into exfiltrating user passwords to an attacker server; Meta has patched it. Meta has also added Muse to its bug bounty (up to $300K for AI bugs). Details are from the researcher's post.",
+            "status": "patched",
+            "cves": [],
+            "url": "https://x.com/harshagundal/status/2122383197602537960",
+            "source": "X (researcher)"
+          },
+          {
             "title": "StarTree mcp-pinot MCP server CVE-2026-49257 (CVSS 10): default config bound to 0.0.0.0 with OAuth off, so anyone reaching it could run tools with the server's Pinot credentials",
             "date": "2026-11-15T12:20:00Z",
             "summary": "Affects mcp-pinot-server through 3.0.1. Upgrade to 3.1.0+; otherwise bind to 127.0.0.1 or enable OAuth. Not reported exploited.",
@@ -951,6 +979,18 @@
             "source": "X / GitHub advisory"
           },
           {
+            "title": "GPUStack CVE-2026-102895: auth bypass in AI model-serving cluster manager exploited, on CISA KEV",
+            "date": "2026-11-09T22:15:27Z",
+            "summary": "Before 2.2.0, a spoofed loopback source (reverse-proxy peer or X-GPUStack-Real-IP header) gives unauthenticated admin: create API keys, read secrets, run code on workers. Upgrade to 2.2.0; until then set force_auth_localhost=true, strip the header at the proxy, restrict API access and rotate API keys. Related SAML bypass CVE-2026-102894.",
+            "status": "exploited",
+            "cves": [
+              "CVE-2026-102895",
+              "CVE-2026-102894"
+            ],
+            "url": "https://github.com/advisories/GHSA-gj9m-f8ph-pmhr",
+            "source": "GitHub advisory / CISA KEV"
+          },
+          {
             "title": "xAI Grok Bot agent sandbox: Profero reports unpatched chain from one injected command to root and stolen cookies, connector tokens and files",
             "date": "2026-11-09T22:00:00Z",
             "summary": "Unauthenticated Docker API reachable from the sandbox, a hard-coded 'local' password on the internet-reachable exec service, plaintext imported cookies and shared credentials across all agents on an account. Reported Aug 24; no CVEs and no public vendor statement found, so current status is unverified beyond Profero's re-tests.",
@@ -958,26 +998,6 @@
             "cves": [],
             "url": "https://profero.io/blog/the-rootkit-built-into-grok-bot",
             "source": "Profero"
-          },
-          {
-            "title": "AgentScope CVE-2026-123022: unauthenticated command execution via MCP workspace API; public exploit, no fix",
-            "date": "2026-11-09T21:02:00Z",
-            "summary": "Through 2.0.11, a caller can submit an MCP stdio configuration whose command AgentScope runs. Exploit details are public and no patched release exists; bind the service to localhost or block POST /workspace/mcp.",
-            "status": "reported",
-            "cves": [
-              "CVE-2026-123022"
-            ],
-            "url": "https://github.com/advisories/GHSA-m997-8g56-6phf",
-            "source": "GitHub Advisory / AgentScope issue"
-          },
-          {
-            "title": "Unverified: crafted link makes Atlassian Rovo agent leak Confluence, Jira and SharePoint data",
-            "date": "2026-11-09T20:36:00Z",
-            "summary": "An X post says researchers showed a URL parameter could plant hidden instructions so Rovo browses out private data. No Atlassian advisory found yet.",
-            "status": "unverified",
-            "cves": [],
-            "url": "https://x.com/theagenticdaily/status/2119891952208622009",
-            "source": "X"
           }
         ]
       },
@@ -1115,6 +1135,6 @@
         ]
       }
     ],
-    "trend_note": "The patch-to-exploit gap is closing automatically: GTIG has now seen AI agents weaponize n-day patches end to end, and Xint shows AI bug-finding costs falling by about 80x in seven months, so internet-facing apps need to be patched within days. AI provider keys remain both target and fuel (LLMjacking, 'LLM Mixers' resale), and breached AI vendors (Fireworks) keep spreading harm downstream to their customers."
+    "trend_note": "The patch-to-exploit gap is closing automatically: GTIG has seen AI agents weaponize n-day patches end to end, Xint shows AI bug-finding costs falling about 80x in seven months, and Google and Anthropic are shortening disclosure deadlines to 30 days in response. Patch internet-facing apps within days. AI provider keys remain both target and fuel, and breached AI vendors (Fireworks) keep spreading harm to their customers."
   }
 }
