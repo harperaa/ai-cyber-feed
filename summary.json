@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-16T01:30:51Z",
-  "next_update_note": "Next summary update in about 4 hours (around 00:30 EST, Nov 16).",
-  "headline": "Sunday evening update (Nov 15): one new must-know item. Barracuda's post-mortem (via Risky Bulletin, Nov 16) says its Nov 1-2 cloud breach started with a cloud access key it had issued to a third-party AI service provider and never revoked; the intruder then ran the ARTEX AI attack framework across 10 cloud environments, including ones running its XDR platform, and hunted for crypto-wallet secrets. Barracuda found no sign customer XDR integration credentials were taken but told some customers to reissue them. Also new: Copeland XWEB EVO refrigeration controllers are now reported exploited (end-of-life, no patches), Kaspersky reports a Telegram widgets flaw exploited to drop WebRAT (fixed on Android, not Windows), and Korean stay platform LiveAnyWhere joins the travel-sector breach run. Still top priority: rotate keys exposed by Railway, Bitrise, the GitHub 'wfx-loot' wave, the Cursor/Fireworks chain and ARTEX AI-key theft; audit old vendor and AI-provider cloud keys; patch UnrealIRCd CVE-2026-114713 and Check Point CVE-2026-123039 (federal deadline today, Nov 16), Outlook CVE-2026-124194, Chrome CVE-2026-125350 and SonicWall CVE-2026-19868.",
-  "ai_headline": "ARTEX now has a named security-vendor victim: Barracuda says an attacker used a forgotten cloud key it had issued to a third-party AI service provider, then deployed ARTEX to move across 10 cloud environments (Risky Bulletin, Nov 16). That makes it both an AI-caused attack and an AI-impact case: keys handed to AI vendors are becoming the way in. This follows the FBI ARTEX FLASH, Amazon's MadPot agent logs and the JPCERT/CC count of ~1,000 AI-attack servers. On the AI-product side, Langflow CVE-2026-105740 (exploited since September) is still resurfacing; upgrade to 1.10.3+. The AI-found UnrealIRCd CVE-2026-114713 is exploited and its federal deadline is today.",
+  "updated_at": "2026-11-16T05:34:22Z",
+  "next_update_note": "Next summary update in about 4 hours (around 04:30 EST, Nov 16).",
+  "headline": "Early Monday update (Nov 16): one new AI-caused incident. Bitcoin mining pool Luxor confirmed (Nov 15) that an attack it describes as AI-enabled abused its Commander mining-management tool on the night of Nov 14 to redirect hashrate from just over a dozen client accounts to the OCEAN pool; Luxor says it contained it within about two hours, patched the hole and will fully reimburse clients. Larger figures in early reports (about 13 EH/s, ~64,000 machines) are not confirmed by Luxor. Also new: Hudson Rock describes a criminal marketplace (advertised Nov 14) that uses AI to turn infostealer logs into searchable victim profiles, and N-able N-central's new 4EverAble2Shell chain (CVE-2026-90436) works against servers already on Hotfix 2, so turn off the Legacy API now. Still top priority: rotate keys exposed by Railway, Bitrise, the GitHub 'wfx-loot' wave, the Cursor/Fireworks chain and ARTEX AI-key theft; revoke old vendor and AI-provider cloud keys (Barracuda); patch Check Point CVE-2026-123039 (federal deadline today, Nov 16), UnrealIRCd CVE-2026-114713, Outlook CVE-2026-124194, Chrome CVE-2026-125350 and SonicWall CVE-2026-19868.",
+  "ai_headline": "New AI-caused case: Luxor says an AI-enabled attack hijacked its Commander tool and diverted client mining hashrate to the OCEAN pool (Nov 14-15, patched, clients reimbursed); Luxor has not published technical details of how AI was used. Hudson Rock also reports an infostealer marketplace using AI-written profiles so buyers can search stolen computers by who owns them. These add to Barracuda's ARTEX intrusion via a key held by an AI service provider, the FBI ARTEX FLASH, Amazon's MadPot agent logs and JPCERT/CC's count of ~1,000 AI-attack servers. On the AI-product side, no new exploited AI product since the last summary; Langflow CVE-2025-3248/CVE-2026-105740 and exposed LLM gateways remain the main targets.",
   "focus": [
     {
       "title": "Railway full incident report (Nov 10): attacker used AI agents on safety-stripped models to break in, decrypt customer env vars and run up about $740,000 in stolen AI usage",
@@ -49,18 +49,18 @@
       "ai_note": "AI attack agent (ARTEX) plus an unrevoked key held by an AI service provider; the provider's own breach was the entry point."
     },
     {
-      "title": "Unit 42 (Nov 12): Chinese-speaking attackers ran the open-source Cairn AI pentest framework on GLM and DeepSeek models in 25 autonomous operations, getting access or data at 10 of 19 organizations",
+      "title": "Luxor (Nov 15): an attack Luxor calls AI-enabled abused its Commander mining-management tool to redirect hashrate from 12+ client accounts to the OCEAN pool",
       "severity": "high",
       "exploited": true,
       "cves": [],
-      "vendor": "Multiple (semiconductor makers, U.S. defense policy groups, civil society)",
-      "why": "Palo Alto Networks Unit 42 says that in August and September 2026 an operator gave a customized Cairn fork a target and a one-line goal (webshell, SSH, source code, keys, credentials, internal network) and the AI planned and ran each intrusion itself, for 20 minutes to over 50 hours. Results included dozens of valid credentials, over a million personal records exposed at one organization, military and government identities, persistent admin accounts in a production system and an edited live industry standards-ballot document. Thirteen operations ran on Zhipu GLM 5.2, eight on DeepSeek V4 Flash and four on DeepSeek V4 Pro. Unit 42 tracks it as CL-STA-1238, a likely China-nexus intelligence operation (moderate confidence).",
-      "action": "Block and hunt the published infrastructure (controller 154.44.31[.]4 in Hong Kong, egress 82.29.129[.]54 in the U.S.) and the rest of Unit 42's indicators. Agent attacks are noisy: alert on bursts of high-frequency requests from one IP across VPN, ADC, NAS and web ports, canary inputs like test@example.com or evil.com, and a GET right after every write. Patch internet-facing apps and middleware, and rotate any keys or SSH credentials on exposed hosts.",
-      "url": "https://unit42.paloaltonetworks.com/cairn-framework-ai-autonomous-attacks/",
+      "vendor": "Luxor Technology (Commander)",
+      "why": "Luxor says its monitoring caught unauthorized changes to mining-pool settings through Commander on the night of Nov 14; it contained the redirect within about two hours, patched the flaw and promised full compensation. It confirms just over a dozen affected accounts; early reports of ~13 EH/s and ~64,000 machines are not confirmed. Luxor's CEO framed it as an AI-enabled attack but no technical write-up has been published yet.",
+      "action": "If you use Luxor Commander or similar fleet tools: check every miner's pool URL and worker settings against your expected config, rotate Commander/API credentials and enable 2FA, and limit who can push pool changes. Watch for Luxor's technical post-mortem.",
+      "url": "https://www.theblock.co/news/business/2026-11-15-luxor-attack-client-hashrate-440810",
       "ai_angle": [
         "cause"
       ],
-      "ai_note": "AI as the attacker: an autonomous AI framework planned and carried out the intrusions with little human input. New since the last summary."
+      "ai_note": "Vendor-stated AI-enabled attack; how AI was used is not yet disclosed."
     },
     {
       "title": "Microsoft Patch Tuesday: Outlook zero-day CVE-2026-124194 exploited to steal NTLM hashes; its discovery credits Anthropic's Claude",
@@ -160,10 +160,22 @@
       "blurb": "FBI says many actors use the open-source ARTEX AI agent framework for end-to-end intrusions; 1,600+ exposed consoles, IOCs included."
     },
     {
+      "title": "Luxor hit by AI-enabled attack that redirected client hashrate, says vulnerability patched",
+      "source": "The Block",
+      "url": "https://www.theblock.co/news/business/2026-11-15-luxor-attack-client-hashrate-440810",
+      "blurb": "Luxor confirms an attacker abused Commander to divert hashrate from 12+ client accounts to OCEAN; patched, full reimbursement promised."
+    },
+    {
       "title": "Risky Bulletin: Hackers accessed Barracuda's cloud",
       "source": "Risky Business News",
       "url": "https://news.risky.biz/risky-bulletin-hackers-accessed-barracudas-cloud/",
       "blurb": "Barracuda's post-mortem: a forgotten cloud key issued to a third-party AI service provider let an attacker in on Nov 1-2; ARTEX was then used to reach 10 cloud environments, including XDR systems. No sign customer XDR credentials were taken; some customers told to reissue them."
+    },
+    {
+      "title": "Inside the AI-Powered Marketplace Turning Infected Computers Into Searchable Profiles",
+      "source": "Hudson Rock / InfoStealers",
+      "url": "https://www.infostealers.com/article/inside-the-ai-powered-marketplace-turning-infected-computers-into-searchable-profiles/",
+      "blurb": "New criminal service adds AI-written profiles to infostealer logs so buyers can search victims by job, workplace and data in plain language."
     },
     {
       "title": "Japan-led probe finds 1,000 servers likely used for AI-driven cyberattacks",
@@ -188,21 +200,12 @@
       "source": "CyberSIXT / Bitrise status page",
       "url": "https://cybersixt.com/originals/bitrise-takes-its-ci-cd-service-offline-after-internal-system-breach",
       "blurb": "Mobile CI/CD provider shut down all services after an intruder reached an internal cloud environment on Nov 13; customers told to rotate all stored secrets, tokens and signing certificates."
-    },
-    {
-      "title": "Data leak of 618,000 airBaltic bookings via third-party IT provider",
-      "source": "BB.LV / LETA",
-      "url": "https://en.bb.lv/article/our-latvia/2026/11/15/data-leak-of-618000-airbaltic-bookings-passengers-warned-of-potential-danger-116065",
-      "blurb": "Names, booking numbers and flight details of passengers who checked in online July 18-Nov 12; no payment or passport data. Expect airline-themed phishing."
-    },
-    {
-      "title": "Attackers Exploit UnrealIRCd Flaw That Enables Server-Level Command Injection",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html",
-      "blurb": "CISA added AI-found UnrealIRCd CVE-2026-114713 to KEV on Nov 13; exploitation began a day after the Nov 7 fix. Update to 6.2.7.1."
     }
   ],
   "watch": [
+    "N-able N-central 4EverAble2Shell (CVE-2026-90436): the new chain gives unauthenticated root via the Legacy API and was exploited hours after a PoC, including on servers already on 2026.4 HF2. No dedicated fix yet: keep HF2, disable the Legacy API and keep on-prem servers off the internet until N-able ships the follow-up hotfix. https://www.bleepingcomputer.com/news/security/new-n-able-4everable2shell-zero-day-exploited-hours-after-poc-released/",
+    "Moved from focus: Unit 42 (Nov 12): Chinese-speaking attackers ran the open-source Cairn AI pentest framework on GLM and DeepSeek models in 25 autonomous operations, getting access or data at 10 of 19 organizations. Still block Unit 42's indicators (154.44.31[.]4, 82.29.129[.]54). https://unit42.paloaltonetworks.com/cairn-framework-ai-autonomous-attacks/",
+    "Hudson Rock (Nov 14 advert): AI-powered infostealer marketplace profiles each infected computer (owner, workplace, apps, valuable data) for natural-language search; treat any infostealer hit on a staff device as targeted-attack risk and reset all its saved credentials and sessions. https://www.infostealers.com/article/inside-the-ai-powered-marketplace-turning-infected-computers-into-searchable-profiles/",
     "Telegram widgets flaw (Kaspersky via Risky Bulletin, Nov 16): attackers abuse Telegram's widget feature to run PowerShell and install the WebRAT credential stealer. Telegram fixed Android but not Windows yet; on Windows, don't click Telegram widget/login prompts from unknown sites and watch for PowerShell launched by Telegram. https://news.risky.biz/risky-bulletin-hackers-accessed-barracudas-cloud/",
     "GeoVision cameras (Huntress via Risky Bulletin, Nov 16): a wave of attacks last week against GeoVision security cameras. Keep camera/NVR web interfaces off the internet and replace end-of-life models.",
     "City of Mobile, Alabama (Risky Bulletin, Nov 16): paid $14.7 million to scammers over five months after staff were talked into changing a contractor's bank details. Verify any payment-detail change by calling a known number.",
@@ -318,16 +321,25 @@
     "Bitrise: watch for a root-cause report and whether any customer build secrets were reached."
   ],
   "ai_activity": {
-    "overview": "In the last 7 days AI agents ran or drove real intrusions at Railway, Chainstack, Barracuda (ARTEX, via a forgotten AI-vendor cloud key), and in the Cairn (10 of 19 targets breached), AntiFox (AWS key theft), Silent Lynx Hermes, Operation Snowball and Storm-0940/ConnectWise campaigns; the FBI's Nov 13 FLASH says ARTEX is used by many actors with 1,600+ exposed consoles, Amazon's MadPot decoys captured ARTEX agents running self-funding AI-key theft against LLM gateways and AI app builders, and a JPCERT/CC-led probe (Nov 15) now counts about 1,000 likely AI-attack servers online since October. North Korea's FaceStealer crews used deepfake video calls to steal $400M+ in crypto. AI-found bugs keep landing as patches (GitHub gh-aw via its own VulnHunter scan, Outlook zero-day, PostgreSQL CVE-2026-6460, Node.js, Apache httpd, NetScaler, a Zoom call RCE, 66 IoT network-stack bugs from Forescout's Claude-based harness, and 33 Linux kernel CVEs from Microsoft's MDASH agents), and the AI-found UnrealIRCd CVE-2026-114713 is on CISA's exploited list. On the impact side, stolen AI provider keys were abused after breaches at Railway, NEAR AI, ApiPass and through the GitHub 'wfx-loot' wave, and the Fireworks AI breach exposed Notion AI chats, customer datasets, partial model weights and Uber driver data, and led to Cursor's stolen coding-agent traces and a backdoored Claude Code extension. Counts (items dated Nov 9 onward): 40 AI-caused, 35 AI-product, 14 AI-impact. Since the afternoon summary: Barracuda's post-mortem adds a named ARTEX victim whose entry point was a key held by an AI service provider (counted under cause and impact); no new exploited AI product.",
+    "overview": "In the last 7 days AI agents ran or drove real intrusions at Railway, Chainstack, Luxor (Commander hashrate hijack, Nov 14-15), Barracuda (ARTEX, via a forgotten AI-vendor cloud key), and in the Cairn (10 of 19 targets breached), AntiFox (AWS key theft), Silent Lynx Hermes, Operation Snowball and Storm-0940/ConnectWise campaigns; the FBI's Nov 13 FLASH says ARTEX is used by many actors with 1,600+ exposed consoles, Amazon's MadPot decoys captured ARTEX agents running self-funding AI-key theft against LLM gateways and AI app builders, and a JPCERT/CC-led probe (Nov 15) now counts about 1,000 likely AI-attack servers online since October. North Korea's FaceStealer crews used deepfake video calls to steal $400M+ in crypto. AI-found bugs keep landing as patches (GitHub gh-aw via its own VulnHunter scan, Outlook zero-day, PostgreSQL CVE-2026-6460, Node.js, Apache httpd, NetScaler, a Zoom call RCE, 66 IoT network-stack bugs from Forescout's Claude-based harness, and 33 Linux kernel CVEs from Microsoft's MDASH agents), and the AI-found UnrealIRCd CVE-2026-114713 is on CISA's exploited list. On the impact side, stolen AI provider keys were abused after breaches at Railway, NEAR AI, ApiPass and through the GitHub 'wfx-loot' wave, and the Fireworks AI breach exposed Notion AI chats, customer datasets, partial model weights and Uber driver data, and led to Cursor's stolen coding-agent traces and a backdoored Claude Code extension. A Hudson Rock-reported crime marketplace now uses AI to profile and index infostealer victims. Counts (items in the last 7 days, newest first): 42 AI-caused, 33 AI-product, 14 AI-impact. Since the previous summary: Luxor's AI-enabled Commander attack and the AI infostealer marketplace added under cause; no new exploited AI product or AI-key incident.",
     "counts": {
-      "ai_cause": 40,
-      "ai_product_exploited": 35,
+      "ai_cause": 42,
+      "ai_product_exploited": 33,
       "ai_impact": 14
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Hudson Rock: AI-powered infostealer marketplace turns infected computers into searchable victim profiles",
+            "date": "2026-11-16T05:07:00Z",
+            "summary": "Advertised on crime forums Nov 14; AI-written descriptions of each victim's owner, workplace and valuable data, searchable in natural language with country/OS/price filters. Hudson Rock matched sample logs to its own data.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.infostealers.com/article/inside-the-ai-powered-marketplace-turning-infected-computers-into-searchable-profiles/",
+            "source": "Hudson Rock / InfoStealers"
+          },
           {
             "title": "Barracuda post-mortem: unrevoked cloud key held by a third-party AI service provider let an attacker in; ARTEX AI framework then used across 10 cloud environments incl. XDR systems",
             "date": "2026-11-16T00:00:00Z",
@@ -345,6 +357,15 @@
             "cves": [],
             "url": "https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/",
             "source": "BleepingComputer"
+          },
+          {
+            "title": "Luxor: AI-enabled attack abused its Commander tool to redirect hashrate from 12+ client accounts to OCEAN pool",
+            "date": "2026-11-15T18:00:00Z",
+            "summary": "Detected night of Nov 14, contained in about two hours, patched; Luxor promises full reimbursement. Early ~13 EH/s / ~64,000-machine figures unconfirmed; no technical details on the AI use yet.",
+            "status": "patched",
+            "cves": [],
+            "url": "https://www.theblock.co/news/business/2026-11-15-luxor-attack-client-hashrate-440810",
+            "source": "The Block"
           },
           {
             "title": "GitHub's Claude-powered VulnHunter scan finds zip option injection (command execution with write token) in its own gh-aw agent runner",
@@ -1056,26 +1077,6 @@
             "cves": [],
             "url": "https://therecord.media/cyberattack-germany-ai-mittwald",
             "source": "The Record / Mittwald"
-          },
-          {
-            "title": "Hugging Face datasets CVE-2026-57845: public PoC for pickle RCE, no fixed release",
-            "date": "2026-11-09T03:41:25Z",
-            "summary": "Datasets through 5.1.0 runs attacker code when a malicious pickle is loaded through the deprecated pandas builder (load_dataset(\"pandas\", data_files=...)). Researcher published a working PoC; the library sees ~38M downloads a month and fix PR #8879 is unmerged. No in-the-wild exploitation reported.",
-            "status": "reported",
-            "cves": [
-              "CVE-2026-57845"
-            ],
-            "url": "https://securityonline.info/hugging-face-datasets-rce-cve-2026-57845-poc/",
-            "source": "SecurityOnline / GHSA"
-          },
-          {
-            "title": "Strutil-core Shai-Hulud payload with AI-agent injection instructions found in 14+ GitHub repos",
-            "date": "2026-11-09T02:47:32Z",
-            "summary": "An X researcher says the payload from the malicious RubyGems package surfaced in at least 14 GitHub repos over the weekend, inserted into backdated commits, and still carries the instructions meant to hijack AI coding agents that read the repo. Not yet confirmed by a vendor write-up.",
-            "status": "unverified",
-            "cves": [],
-            "url": "https://x.com/oliver_ojsec/status/2119622892602163233",
-            "source": "X (@oliver_ojsec)"
           }
         ]
       },
@@ -1213,6 +1214,6 @@
         ]
       }
     ],
-    "trend_note": "AI-run attacks now have an FBI warning, captured agent logs (Amazon MadPot) and a national CERT's infrastructure count (JPCERT/CC, ~1,000 servers) within three days; the agents mostly win on defaults, exposed keys and unpatched peripheral apps, and AI provider keys are both the target and the fuel. AI-assisted bug finding keeps producing big patch batches (PostgreSQL, Linux kernel, Outlook). Supply-chain attacks target AI tooling directly: breached AI vendors (Fireworks) cascade into customers (Cursor, Notion, Uber). Nov 15 evening: Barracuda shows the pattern end to end: breach an AI vendor, take the keys its customers gave it, then let an AI agent do the lateral movement."
+    "trend_note": "AI-run attacks now have an FBI warning, captured agent logs (Amazon MadPot) and a national CERT's infrastructure count (JPCERT/CC, ~1,000 servers) within three days; the agents mostly win on defaults, exposed keys and unpatched peripheral apps, and AI provider keys are both the target and the fuel. AI-assisted bug finding keeps producing big patch batches (PostgreSQL, Linux kernel, Outlook). Supply-chain attacks target AI tooling directly: breached AI vendors (Fireworks) cascade into customers (Cursor, Notion, Uber). Nov 15-16: AI-enabled attacks are spreading beyond IT into financial infrastructure (Luxor mining-pool hijack) and into the criminal supply chain itself (AI-indexed infostealer logs), while Barracuda shows keys handed to AI vendors becoming the way in."
   }
 }
