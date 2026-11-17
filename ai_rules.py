@@ -138,6 +138,7 @@ CPE_AI = re.compile(r"(?:ray-project:ray|mlflow:|pytorch:|tensorflow:|google:ten
 
 PRODUCT = [
     ("Pydantic AI agent framework", r"\bpydantic[- ]?ai\b"),
+    ("Microsoft Agent Framework (agent-framework PyPI) supply-chain compromise", r"\bagent[- ]framework\b" + GAP(40) + r"\b(?:1\.26\.1|pypi|compromised|infostealer|credential[- ]steal\w*|malicious)\b|\bmicrosoft\W?s? agent[- ]framework\b"),
     ("LLM-based agent platform", r"\blarge[- ]model[- ]based\b" + GAP(60) + r"\b(?:agents?|platforms?|knowledge bases?)\b"),
     ("LLM runtime/server", r"\bollama\b|\bvllm\b|\bgpustack\b|llama\.cpp|\bllama[- ]?cpp\b|\bllama[- ]?index\b|\bllamaindex\b|\blitellm\b|\blm studio\b|\bgpt4all\b|\blocalai\b|text[- ]generation[- ](?:webui|inference)|open[- ]?webui|\bsglang\b|\blmdeploy\b|\bgguf\b"),
     ("ML framework/platform", r"\bpytorch\b|\btensorflow\b|\bkeras\b|\bonnx\b|hugging ?face|\bhf hub\b|\btransformers (?:library|v?\d)|\blangchain\b|\blanggraph\b|\blangflow\b|\blangflow_oss\b|\bflowise\b|\bdify\b|\bmlflow\b|\bkubeflow\b|"
