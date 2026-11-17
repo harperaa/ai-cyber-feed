@@ -138,6 +138,7 @@ CPE_AI = re.compile(r"(?:ray-project:ray|mlflow:|pytorch:|tensorflow:|google:ten
                     r"onnx|paddlepaddle|keras|scikit-learn|lm-studio|open-webui)", re.I)
 
 PRODUCT = [
+    ("Arize Phoenix LLM observability platform", r"\barize\b|\bphoenix_secret\b|\barize[- ]phoenix\b"),
     ("Pydantic AI agent framework", r"\bpydantic[- ]?ai\b"),
     ("Microsoft Agent Framework (agent-framework PyPI) supply-chain compromise", r"\bagent[- ]framework\b" + GAP(40) + r"\b(?:1\.26\.1|pypi|compromised|infostealer|credential[- ]steal\w*|malicious)\b|\bmicrosoft\W?s? agent[- ]framework\b"),
     ("LLM-based agent platform", r"\blarge[- ]model[- ]based\b" + GAP(60) + r"\b(?:agents?|platforms?|knowledge bases?)\b"),
