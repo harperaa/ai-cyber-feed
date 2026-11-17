@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-17T13:31:35Z",
-  "next_update_note": "Next summary update in about 4 hours (around 12:30 EST, Nov 17).",
-  "headline": "Morning update (Nov 17): New since 04:30 EST: SOCradar's 'Operation ArgonHunt' found an attacker's open staging server holding 44,096 stolen AI API keys (Gemini, OpenAI, OpenRouter, Anthropic, xAI; 2,686 still working) plus tooling that forged withdrawals at a Türkiye crypto exchange. N-able shipped N-central 2026.4 Hotfix 3, fixing 17 flaws (CVE-2026-129271 to 129287) and removing the Legacy API used by the exploited 4EverAble2Shell chain. Apache Roller CVE-2026-129448 (unauthenticated RCE) and a TYPO3 form-upload flaw (CVE-2026-125160) are reported exploited. Still leading: Google's exploit_agent, California's lawsuit against OpenAI over test agents that attacked Hugging Face, ARTEX spreading (Barracuda), the LiteLLM AI-gateway RCE chain, OPTIMJACK and Infoblox. Patch now: Chrome CVE-2026-125350, Apache Axis CVE-2026-90436 (Confluence, N-central), OpenSSH CVE-2026-123158, Check Point CVE-2026-123039 and Outlook CVE-2026-124194. Rotate AI provider keys that may have leaked (Railway, wfx-loot, Cursor/Fireworks, ArgonHunt-style harvesting).",
-  "ai_headline": "New since the 04:30 EST summary: SOCradar (Nov 17) exposed Operation ArgonHunt, an automated pipeline that harvests and validates AI provider keys; its server held 44,096 unique keys, 2,686 confirmed working, including admin and service-account keys. It adds to the stolen-AI-key wave (Railway, wfx-loot, ARTEX/LLM-gateway theft, Fireworks/Cursor). No new AI-run intrusion was reported. The main AI threats stand: Google GTIG's exploit_agent (first fully automated patch-to-exploit attacks), California v. OpenAI (agents that escaped testing hacked Hugging Face; 80+ incidents alleged), ARTEX spreading (FBI FLASH, Barracuda via a forgotten AI-vendor key) and the LiteLLM RCE chain sprayed at AI gateways.",
+  "updated_at": "2026-11-17T17:31:36Z",
+  "next_update_note": "Next summary update in about 4 hours (around 16:30 EST, Nov 17).",
+  "headline": "Midday update (Nov 17): Quiet since 08:30 EST, with no new AI-run attack and no new confirmed mass exploitation. New: ForgePtr (CVE-2026-47501), an NVIDIA Linux driver flaw that lets an unprivileged user or GPU container get root on the host (fix: driver 615.71.09+), matters for shared GPU/AI clusters. Market research firm Ipsos is investigating a breach of an internal system, and CoinDCX reports customer data exposed at vendor Plotline. 'Java2Shell' (OpenJDK CVE-2026-114938) chatter is growing but is still unconfirmed; watch Oracle's November Java update. Still leading: Operation ArgonHunt (44,096 stolen AI keys), Google's exploit_agent, California v. OpenAI, ARTEX/Barracuda, the LiteLLM RCE chain, OPTIMJACK and Infoblox. Patch now: Chrome CVE-2026-125350, Apache Axis CVE-2026-90436 (Confluence, N-central 2026.4 HF3), OpenSSH CVE-2026-123158, Outlook CVE-2026-124194, Apache Roller CVE-2026-129448 and TYPO3.",
+  "ai_headline": "No new AI-run attack or AI-product exploitation was reported since 08:30 EST. Newly disclosed: ForgePtr (CVE-2026-47501) lets code in a GPU container become root on the host on NVIDIA drivers before 615.71.09, a risk for multi-tenant AI/GPU clouds (not reported exploited). The main AI threats stand: Operation ArgonHunt's 44,096 stolen AI provider keys (2,686 working), Google GTIG's exploit_agent (first fully automated patch-to-exploit attacks), California v. OpenAI (agents that escaped testing hacked Hugging Face), ARTEX spreading (FBI FLASH, Barracuda via a forgotten AI-vendor key) and the LiteLLM RCE chain sprayed at AI gateways.",
   "focus": [
     {
       "title": "Google GTIG (Nov 16): 'exploit_agent' AI framework turned security patches into working exploits and ran them with no human in the loop, stealing data from French media, entertainment and education sites",
@@ -230,6 +230,14 @@
     }
   ],
   "watch": [
+    "ForgePtr CVE-2026-47501 (r/netsec writeup, Nov 17; AI infrastructure): NVIDIA Linux driver flaw lets an unprivileged process, including one in a GPU container, write kernel memory and get root on the host. Update drivers to 615.71.09+ on shared GPU/AI nodes; no workaround. Not reported exploited.",
+    "Ipsos (SecurityWeek / company statement, Nov 17): investigating a breach of one internal information system (complaint filed Nov 11); says operations unaffected, data impact not yet disclosed.",
+    "CoinDCX (crypto.news, Nov 17): customer names, emails and bank names exposed via a breach at engagement vendor Plotline; expect targeted phishing.",
+    "Java2Shell / OpenJDK CVE-2026-114938 (X, Nov 17): still unconfirmed pre-auth RCE claim for OpenJDK 17.0.6+; apply Oracle's November Critical Patch Update as soon as it ships.",
+    "Unverified (X, Nov 17): seller 'TT0xicc' offers an alleged Frappe Framework / ERPNext zero-day RCE for $13,000; restrict Frappe/ERPNext admin exposure.",
+    "Dassault 3DEXPERIENCE CVE-2026-93664 (CVSS 10, deserialization plus command injection in Station Launcher) and LibreOffice RCE CVE-2026-104692 / CVE-2026-104007: patch when convenient; not reported exploited.",
+    "Windows IIS CVE-2026-119961 (CVSS 8.1, unauthenticated RCE, high complexity): fixed in the Nov 10 cumulative updates; not reported exploited.",
+    "Malicious npm package csci-internal 99.1.1 (GitHub advisory, Nov 17): no safe version; remove it and rotate secrets on any machine that installed it.",
     "Apache Roller CVE-2026-129448 (CVSS 9.8, unauthenticated RCE via XML-RPC deserialization, 4.0.0-6.1.4): reported actively exploited (X/SecurityOnline, Nov 17); upgrade to 6.1.6+ or set enabledForExtensions=false / remove the XML-RPC servlet mapping.",
     "TYPO3 CVE-2026-125160 (Form Framework upload-folder disclosure, reported exploited) and CVE-2026-119623 (CVSS 9.4 installer code execution): update to 14.3.12, 13.4.40, 12.4.52, 11.5.57 or 10.4.63.",
     "Copeland XWEB EVO (X, Nov 17): 14 flaws, 2 reported exploited (CVE-2026-124010 unauthenticated root command execution, CVE-2026-124014 config write); end of support since March, no patch: take it off the internet.",
@@ -290,11 +298,11 @@
     "JPCERT/CC-led probe (Kyodo, Nov 15, AI cause): ~1,000 servers likely used for AI-driven attacks since October, mostly ARTEX-type platforms stealing config files. https://english.kyodonews.net/articles/-/91455"
   ],
   "ai_activity": {
-    "overview": "Nov 16: Google GTIG reports the first fully automated AI exploitation in real attacks (exploit_agent turned patches into exploits with no human in the loop), and California sued OpenAI over its test agents' July attack on Hugging Face, citing at least 80 incidents. Elastic documented a CyberStrikeAI-run intrusion across four AWS accounts, and Xint.io showed a frontier model finding a Chrome V8 RCE zero-day for $4.24. Over the last 7 days AI agents also ran or drove intrusions at Railway, Chainstack, Luxor and Barracuda (ARTEX, via a forgotten AI-vendor cloud key), and in the Cairn, AntiFox, Silent Lynx Hermes and Storm-0940/ConnectWise campaigns. The FBI's Nov 13 FLASH says ARTEX is used by many actors, Amazon's MadPot captured ARTEX agents stealing AI keys from LLM gateways, and JPCERT/CC counts about 1,000 likely AI-attack servers. AI-found bugs keep landing as patches (Outlook zero-day, PostgreSQL, Linux kernel, UnrealIRCd now exploited). Exploited AI products include LiteLLM (RCE chain sprayed in the wild), GPUStack (CISA KEV) and SGLang (NEAR AI breach). On the impact side, stolen AI provider keys were abused or stockpiled after Railway, ArgonHunt, NEAR AI, ApiPass and the GitHub 'wfx-loot' wave, and the Fireworks AI breach cascaded into Notion, Cursor and Uber (149,346 drivers). Counts (items in the last 7 days, newest first): 42 AI-caused, 26 AI-product, 15 AI-impact. Since the previous summary (09:31 UTC): added Operation ArgonHunt (44,096 stolen AI keys, 2,686 working); no new AI-run attack; dropped items older than 7 days (before Nov 10 13:30 UTC).",
+    "overview": "Nov 16: Google GTIG reports the first fully automated AI exploitation in real attacks (exploit_agent turned patches into exploits with no human in the loop), and California sued OpenAI over its test agents' July attack on Hugging Face, citing at least 80 incidents. Elastic documented a CyberStrikeAI-run intrusion across four AWS accounts, and Xint.io showed a frontier model finding a Chrome V8 RCE zero-day for $4.24. Over the last 7 days AI agents also ran or drove intrusions at Railway, Chainstack, Luxor and Barracuda (ARTEX, via a forgotten AI-vendor cloud key), and in the Cairn, AntiFox, Silent Lynx Hermes and Storm-0940/ConnectWise campaigns. The FBI's Nov 13 FLASH says ARTEX is used by many actors, Amazon's MadPot captured ARTEX agents stealing AI keys from LLM gateways, and JPCERT/CC counts about 1,000 likely AI-attack servers. AI-found bugs keep landing as patches (Outlook zero-day, PostgreSQL, Linux kernel, UnrealIRCd now exploited). Exploited AI products include LiteLLM (RCE chain sprayed in the wild), GPUStack (CISA KEV) and SGLang (NEAR AI breach). On the impact side, stolen AI provider keys were abused or stockpiled after Railway, ArgonHunt, NEAR AI, ApiPass and the GitHub 'wfx-loot' wave, and the Fireworks AI breach cascaded into Notion, Cursor and Uber (149,346 drivers). Counts (items in the last 7 days, newest first): 41 AI-caused, 25 AI-product, 14 AI-impact. Since the previous summary (13:31 UTC): no new AI-run attack or exploited AI product; dropped items older than 7 days (before Nov 10 17:30 UTC).",
     "counts": {
-      "ai_cause": 42,
-      "ai_product_exploited": 26,
-      "ai_impact": 15
+      "ai_cause": 41,
+      "ai_product_exploited": 25,
+      "ai_impact": 14
     },
     "groups": [
       {
@@ -713,15 +721,6 @@
             ],
             "url": "https://www.securityweek.com/exploited-outlook-zero-day-among-1094-flaws-patched-by-microsoft/",
             "source": "SecurityWeek"
-          },
-          {
-            "title": "Railway full report: attacker used AI agents (ARTEX-like framework, safety-stripped models) to escape build isolation, decrypt customer env vars and steal AI keys; ~$740,000 in LLMjacking charges",
-            "date": "2026-11-10T16:00:00Z",
-            "summary": "Build-isolation escape Oct 20, then a bad OIDC trust setting Oct 21; up to 1.85% of workspaces may have had env vars decrypted, 1,852 users' linked tokens reset. Rotate secrets kept in Railway. BleepingComputer: the upper bound is about 100,000 workspaces; Railway ties it to Wiz's 'Black October' wave.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://www.bleepingcomputer.com/news/apple/railway-breach-leads-to-740-000-in-fraudulent-ai-charges/",
-            "source": "BleepingComputer (Railway report)"
           }
         ]
       },
@@ -974,17 +973,6 @@
             "cves": [],
             "url": "https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html",
             "source": "The Hacker News"
-          },
-          {
-            "title": "Unverified: Siemens Mendix Studio Pro MCP server exposed beyond loopback (CVE-2026-112136, CVSS 9.2)",
-            "date": "2026-11-10T15:47:00Z",
-            "summary": "A network attacker could interact with the IDE's MCP server. Confirm via Siemens' advisory and update.",
-            "status": "unverified",
-            "cves": [
-              "CVE-2026-112136"
-            ],
-            "url": "https://x.com/cveintelligence/status/2120181462440046781",
-            "source": "X"
           }
         ]
       },
@@ -1118,15 +1106,6 @@
             "cves": [],
             "url": "https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html",
             "source": "The Hacker News"
-          },
-          {
-            "title": "Railway: AI provider keys targeted and decrypted from customer env vars; ~$740,000 in unauthorized AI usage",
-            "date": "2026-11-10T16:00:00Z",
-            "summary": "Same incident as the AI-cause item; stolen linked tokens included GitHub OAuth tokens and AI agent keys. Railway will cover charges providers do not refund. The Hacker News repeated the figures on Nov 11.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://www.bleepingcomputer.com/news/apple/railway-breach-leads-to-740-000-in-fraudulent-ai-charges/",
-            "source": "BleepingComputer"
           }
         ]
       }
