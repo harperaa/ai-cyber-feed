@@ -27,6 +27,7 @@ MODEL = (r"(?:" + AI + r"|llms?|chatgpt|gpt[- ]?[\w.]*|claude|gemini[\w ]{0,12}|
 
 # ---- cause: AI found the bug / AI-written exploit or code / AI attack tooling --------------------
 CAUSE = [
+    ("Java4Shell found and weaponized with AI (Calif, GPT-6 Cyber)", r"\bjava4shell\b|\bCVE-2026-114938\b"),
     ("threat actors using agentic AI to hunt secrets/credentials", r"\b(?:threat actors?|attackers?|hackers?|operators?)\b" + GAP(25) + r"\b(?:using|used|leverag\w+|with)\b" + GAP(20) + r"\b(?:agentic|ai|llm)[- ]?(?:ai[- ])?(?:tools?|agents?|systems?|platforms?)\b" + GAP(80) + r"\b(?:search(?:ing)?|hunt(?:ing)?|scrape|steal(?:ing)?|exfiltrat\w*|find(?:ing)?|harvest(?:ing)?|look(?:ing)? for)\b" + GAP(60) + r"\b(?:secrets?|credentials?|api keys?|tokens?|passwords?)\b"),
     ("attackers using AI coding agents to target/exploit", r"\b(?:threat actors?|attackers?|hackers?|operators?|campaign)\b" + GAP(25) + r"\b(?:using|used|leverag\w+|built with|with)\b" + GAP(15) + r"\b(?:" + AI + r"|llm)[- ]?(?:coding )?agents?\b" + GAP(40) + r"\bto (?:target|exploit|attack|hack|breach|compromise)\b"),
     ("CRAFTY FALCON / named AI-powered attack group", r"\b(?:CRAFTY FALCON|Crafty Falcon)\b|\bAI[- ]powered (?:hacking |cyber ?)?group\b" + GAP(40) + r"\b(?:attack|exploit|target|automate)\w*\b"),
@@ -199,6 +200,7 @@ IMPACT = [
 
 # Hand-curated angles for specific CVE ids (use for things heuristics cannot know). type, why, optional source url
 MANUAL = {
+    "CVE-2026-114938": [("cause", "Java4Shell: OpenJDK AVX-512 Base64 decoder heap overflow (CVSS 9.2, pre-auth RCE in Jira/Confluence/Jenkins/Keycloak); Calif says it used OpenAI GPT-6 Cyber to find the bug in about an hour and build a working exploit in ~2 more hours (Calif write-up, Nov 17)")],
     "CVE-2026-124194": [("cause", "Actively exploited Outlook zero-day (NTLMv2 hash leak, KEV): Microsoft credits Benoit Sevens \"using Claude with Anthropic\" with finding it (MSRC advisory, Nov 10)")],
     "CVE-2026-39987": [("cause", "Marimo flaw exploited in the wild by an autonomous AI agent (self-reported Claude-based harness) to drop crypto miners on honeypots (AIHoneypotWatch, Nov 12)")],
     "CVE-2026-97693": [("product", "Critical (CVSS 9.9) flaw in Yuxi, a large-model-based knowledge-base and knowledge-graph AI agent development platform (from 0.6.0.beta1)")],
