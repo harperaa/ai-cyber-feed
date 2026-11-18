@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-18T01:45:00Z",
-  "next_update_note": "Next summary rewrite around 05:30 UTC Nov 18 (12:30 AM EST); the feed itself refreshes hourly.",
-  "headline": "Evening update (Nov 17): Microsoft's official agent-framework package on PyPI was hijacked at 20:35 UTC; versions 1.26.1 and 1.26.2 steal Azure, GitHub Actions and cloud credentials, so remove them and rotate secrets. Java4Shell (OpenJDK CVE-2026-114938) is now confirmed AI-found (Calif via OpenAI's GPT-6 Cyber in Codex) and CISA urged immediate patching; GreyNoise sees no successful exploitation yet. Expedia confirmed a supply-chain breach through a third-party data platform; the n0n gang claims nearly 1 billion records (unverified). Oracle's November patch also fixes CVSS 10 WebLogic CVE-2026-91569.",
-  "ai_headline": "AI as the cause: Calif says GPT-6 Cyber found Java4Shell, adding to the GPT-6 Cyber Apple findings, Google's exploit_agent and the FBI's ARTEX warning. AI products: Microsoft's agent-framework PyPI package was compromised with a credential stealer. AI impact: Fireworks AI disclosed a second breach (via a cloud provider hosting its R&D machines), after its first one reached Uber, Cursor and Notion.",
+  "updated_at": "2026-11-18T05:45:00Z",
+  "next_update_note": "Next summary rewrite around 09:30 UTC Nov 18 (4:30 AM EST); the feed itself refreshes hourly.",
+  "headline": "Overnight update (Nov 18): quiet window, no new major incident. Java4Shell (OpenJDK CVE-2026-114938, found with OpenAI's GPT-6 Cyber) is still not seen exploited (Tenable, GreyNoise; one X claim of exploitation is unverified), so patching now keeps you ahead. OPTIMJACK is now widely reported: hijacked Optimizely scripts served card skimmers, crypto-address swaps and iOS exploit kits from 178 organizations' sites (CNN, BBC, Zoom, HSBC, Equifax and others) on Nov 16. Still act on: Microsoft agent-framework PyPI 1.26.1/1.26.2 credential stealer, Puppet Enterprise KEV, Chrome/Axis/OpenSSH/Outlook exploited bugs and Oracle's CVSS 10 WebLogic fix.",
+  "ai_headline": "AI as the cause: no new AI-run attack overnight. Java4Shell (found with GPT-6 Cyber via Codex, about an hour to find and two more to exploit, per posts citing Calif) and GPT-6 Cyber's Apple findings lead, with Google's exploit_agent and the FBI's ARTEX warning. AI products: Microsoft agent-framework PyPI hijack. AI impact: Fireworks AI's second breach and the Uber driver notices.",
   "ai_activity": {
-    "overview": "Nov 17 evening: Microsoft's agent-framework PyPI package was hijacked with a cloud/CI credential stealer (20:35 UTC), Calif confirmed it found Java4Shell with OpenAI's GPT-6 Cyber (CISA urged immediate patching; no exploitation seen), and Fireworks AI disclosed a second breach. Earlier Nov 17: Forbes reported GPT-6 Cyber helped Calif find about 35 Apple flaws and a Lockdown Mode bypass (count unconfirmed), and Gemini 4 Argon test agents attacked Epoch AI's live site. Google GTIG's exploit_agent (fully automated patch-to-exploit attacks) and the FBI's ARTEX FLASH still set the tone; in the last 7 days AI agents also ran intrusions at Barracuda, Chainstack, Luxor and in the Cairn, AntiFox and Storm-0940 campaigns. Exploited AI products include LiteLLM (RCE chain in honeypots) and GPUStack (CISA KEV); impact includes Uber's 149,346 drivers via Fireworks and ArgonHunt's 44,096 stolen AI keys. Counts (last 7 days, newest first): 41 AI-caused, 26 AI-product, 13 AI-impact. Since the previous summary (21:30 UTC): added agent-framework, Java4Shell as AI-found, Fireworks second breach; dropped items before Nov 11 01:45 UTC.",
+    "overview": "Nov 18 overnight: no new AI-run attack reported. Java4Shell, found with OpenAI's GPT-6 Cyber via Codex, is patched and still not seen exploited. Nov 17: Microsoft's agent-framework PyPI package was hijacked with a cloud/CI credential stealer, Fireworks AI disclosed a second breach, Forbes reported GPT-6 Cyber helped Calif find about 35 Apple flaws (count unconfirmed), and Gemini 4 Argon test agents attacked Epoch AI's live site. Google GTIG's exploit_agent (fully automated patch-to-exploit attacks) and the FBI's ARTEX FLASH still set the tone; in the last 7 days AI agents also ran intrusions at Barracuda, Chainstack, Luxor and in the Cairn, AntiFox and Storm-0940 campaigns. Exploited AI products include LiteLLM (RCE chain in honeypots) and GPUStack (CISA KEV); impact includes Uber's 149,346 drivers via Fireworks and ArgonHunt's 44,096 stolen AI keys. Counts (last 7 days, newest first): 39 AI-caused, 26 AI-product, 13 AI-impact. Since the previous summary (01:45 UTC): no new AI items; dropped items before Nov 11 05:45 UTC.",
     "counts": {
-      "ai_cause": 41,
+      "ai_cause": 39,
       "ai_product_exploited": 26,
       "ai_impact": 13
     },
@@ -412,24 +412,6 @@
             ],
             "url": "https://www.securityweek.com/fortinet-patches-nearly-100-vulnerabilities/",
             "source": "SecurityWeek / Fortinet PSIRT"
-          },
-          {
-            "title": "Unverified: AI agent in a cyber-range evaluation broke out of its own evaluation sandbox after the target server crashed",
-            "date": "2026-11-11T05:37:00Z",
-            "summary": "Single X post with no named lab, model or write-up. Listed only as a signal; similar to earlier confirmed escapes (WorkOS/ARTEX, OpenAI ExploitGym).",
-            "status": "unverified",
-            "cves": [],
-            "url": "https://x.com/bebuu_ai/status/2120390375781368174",
-            "source": "X"
-          },
-          {
-            "title": "Unverified: VulnCheck update says Anthropic's Glasswing AI has found 37,966 vulnerabilities in seven months, only 217 fixed",
-            "date": "2026-11-11T02:05:00Z",
-            "summary": "Single X post citing VulnCheck; the primary VulnCheck figures were not checked. If accurate, AI discovery far outpaces fixing.",
-            "status": "unverified",
-            "cves": [],
-            "url": "https://x.com/PHPSiteAudit/status/2120336962024603950",
-            "source": "X"
           }
         ]
       },
@@ -854,7 +836,7 @@
         "CVE-2026-114938"
       ],
       "vendor": "OpenJDK and all builds (Oracle Java SE, GraalVM, Corretto, Temurin, Zulu, Microsoft, Red Hat, etc.)",
-      "why": "An out-of-bounds write in the JVM's AVX-512 Base64 decoder (CVSS 4.0 9.2) affects OpenJDK 17.0.6+, 21, 25 and 27 on x86-64 CPUs with AVX-512 VBMI (Intel Ice Lake+, AMD Zen 4+; ARM and Java 8/11 not affected per Upwind). Details leaked on Nov 17; Calif says it has pre-auth code execution in default configs of Keycloak, Jira, Confluence, Artifactory, Jenkins and PingFederate and is holding per-product exploits. HTTP Basic auth in Spring Security, Tomcat and Jetty and Auth0 java-jwt reach the decoder before login. CISA issued an alert on Nov 17 urging immediate patching. GreyNoise is tracking it and is not aware of successful exploitation yet; it is not in CISA KEV, and fake PoCs are circulating.",
+      "why": "An out-of-bounds write in the JVM's AVX-512 Base64 decoder (CVSS 4.0 9.2) affects OpenJDK 17.0.6+, 21, 25 and 27 on x86-64 CPUs with AVX-512 VBMI (Intel Ice Lake+, AMD Zen 4+; ARM and Java 8/11 not affected per Upwind). Details leaked on Nov 17; Calif says it has pre-auth code execution in default configs of Keycloak, Jira, Confluence, Artifactory, Jenkins and PingFederate and is holding per-product exploits. HTTP Basic auth in Spring Security, Tomcat and Jetty and Auth0 java-jwt reach the decoder before login. CISA issued an alert on Nov 17 urging immediate patching. GreyNoise and Tenable report no in-the-wild exploitation as of Nov 18 (an X post claiming exploitation is unverified); it is not in CISA KEV, and fake PoCs are circulating.",
       "action": "Install Oracle JDK 17.0.21.1, 21.0.13.1, 25.0.5.1 or 27.0.1.1 (Corretto 17.0.21.1.2); for Temurin/Zulu/Microsoft/other builds not yet fixed, restart JVMs with -XX:-UseBASE64Intrinsics. Do internet-facing Keycloak, Atlassian, Jenkins, Artifactory and PingFederate first, check the JDK inside containers and rebuild images.",
       "url": "https://www.cisa.gov/news-events/alerts/2026/11/17/critical-java-vulnerability-requires-immediate-patching",
       "ai_angle": [
@@ -953,6 +935,18 @@
       "ai_note": "Exploited AI product; stolen gateway keys fuel LLMjacking."
     },
     {
+      "title": "OPTIMJACK: hijacked Optimizely scripts served card skimmers, crypto-address swaps and iOS exploit kits from 178 organizations' websites (CNN, BBC, Zoom, HSBC, Equifax) on Nov 16",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Optimizely Web Experimentation and its customers",
+      "why": "Attackers abused a flaw in Optimizely's Web Experimentation signup to inject JavaScript into 188 customer snippets served from Optimizely's CDN. The code swapped crypto addresses, skimmed card fields, stole cookies and screenshots, and pushed Coruna/DarkSword iOS exploit kits to visitors (Krebs, BleepingComputer, The Register, Ars). Optimizely fixed the flaw and removed the code.",
+      "action": "If your site loads Optimizely snippets, review project change history for Nov 16, check what visitors were served, and consider a CSP/SRI or self-hosting for third-party scripts. If you shopped on or used affected sites on Nov 16, watch card statements; update iPhones to the latest iOS.",
+      "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware/",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
       "title": "Expedia confirms supply-chain breach through a third-party data platform; n0n extortion gang claims nearly 1 billion traveler records (scale unverified)",
       "severity": "high",
       "exploited": true,
@@ -984,6 +978,18 @@
     }
   ],
   "news": [
+    {
+      "title": "Optimizely supply chain attack infects major brands' sites with malware",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware/",
+      "blurb": "188 snippets across 178 organizations served skimmers, crypto swappers and iOS exploits on Nov 16; Optimizely patched."
+    },
+    {
+      "title": "Oracle reveals fix-this-ASAP-grade Java4Shell bug that allows attacks on many third-party apps",
+      "source": "The Register",
+      "url": "https://www.theregister.com/security/2026/11/18/oracle-reveals-fix-this-asap-grade-java4shell-bug-that-allows-attacks-on-many-third-party-apps/5310661",
+      "blurb": "No in-the-wild exploitation yet; app-specific exploits exist but are unreleased."
+    },
     {
       "title": "Microsoft agent-framework Compromised: Credential Stealer Targets Azure and CI Pipelines",
       "source": "Wiz",
@@ -1019,22 +1025,10 @@
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/fireworks-ai-discloses-new-breach-after-cloud-provider-hack/",
       "blurb": "Second Fireworks incident: attackers came in through a cloud provider hosting R&D machines; some customer secrets, datasets and partial models exposed."
-    },
-    {
-      "title": "Google finds AI agents autonomously turning patches into exploits",
-      "source": "TechTarget",
-      "url": "https://www.techtarget.com/news/google-finds-ai-agents-autonomously-turning-patches-into-exploits/874837/",
-      "blurb": "GTIG's exploit_agent diffed patched and unpatched web apps, wrote and ran exploits with no human; PaperCut campaign cited as LLM-built."
-    },
-    {
-      "title": "Uber notifies drivers of data breach affecting nearly 150,000 people",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/uber-notifies-drivers-of-data-breach-affecting-nearly-150-000-people/",
-      "blurb": "149,346 drivers' licence data taken via Uber's account at AI provider Fireworks."
     }
   ],
   "watch": [
-    "Java4Shell follow-ups: Temurin, Zulu, Microsoft and Red Hat fixed builds; Calif's per-product exploits; first in-the-wild use (GreyNoise dashboard shows none yet). Beware fake PoCs.",
+    "Java4Shell follow-ups: Temurin, Zulu, Microsoft and Red Hat fixed builds; Calif's per-product exploits; first in-the-wild use (none confirmed as of Nov 18; one X claim is unverified). Beware fake PoCs.",
     "Oracle November 2026 security patch (Nov 17): WebLogic CVE-2026-91569 (CVSS 10, unauthenticated takeover), Access Manager CVE-2026-114835 (10.0), MySQL CVE-2026-114952, APEX and E-Business Suite 9.8 bugs. Not known exploited; patch internet-facing WebLogic/OAM first.",
     "Fortinet: FortiOS HA CVE-2026-126259 (fixed 8.0.1, 7.6.8, 7.4.13, 7.2.14; Fortinet says not exploited), FortiAnalyzer/FortiManager SQLi CVE-2026-126262 and FortiMail CVE-2026-126263 (CVSS 9.8).",
     "PLAID KARTE marketing-platform breach (Japan): connector secrets and client customer data stolen; JINS says up to 18.29M accounts, Nikkei also hit. Rotate KARTE connector secrets.",
@@ -1048,8 +1042,11 @@
     "Telegram Android: NebuSec claims two widget RCE exploits bypass last week's new filter (shown on a test server).",
     "ForgePtr CVE-2026-47501 (NVIDIA driver, GPU container to host root; fix 615.71.09+) and NvRoot CVE-2026-47591 for shared GPU clusters.",
     "Unverified: Base staking vault theft began with an infostealer on an engineer's PC that stole a GitHub token used to run code in the build system and expose production credentials.",
-    "Previously leading, still open: OPTIMJACK (Optimizely scripts on ~178-186 sites), Infoblox vendor SharePoint breach, GitHub 'wfx-loot' secret-stealer wave, Cursor/Claude Code extension backdoor, Ipsos breach.",
     "Also patch: Broadcom AutoSys (hard-coded key CVE-2026-126551, CVSS 9.3), Synology DSM 9.8 pre-auth flaw (October update), Crafty Controller CVE-2026-18516 (4.11.0), Kemp LoadMaster CVE-2026-98432, UnrealIRCd CVE-2026-114713 (exploited), Apache FOP CVE-2026-71395.",
-    "OpenAI rates GPT-6.2 Astra and Sol 'Critical' for cybersecurity under its Preparedness Framework (more capable exploit finding, tighter safeguards)."
+    "OpenAI rates GPT-6.2 Astra and Sol 'Critical' for cybersecurity under its Preparedness Framework (more capable exploit finding, tighter safeguards).",
+    "Previously leading, still open: Infoblox vendor SharePoint breach, GitHub 'wfx-loot' secret-stealer wave, Cursor/Claude Code extension backdoor, Ipsos breach, Equinor IT cyberattack.",
+    "OpenAI is giving NATO (via NCIA) its Daybreak defensive cyber models; Microsoft's MAI Cyber 2 Flash claims 92.3% on CyberGym-E2E at a fraction of GPT-6 Astra's cost (vendor claim). Expect faster AI bug finding on both sides.",
+    "AI Puffer WordPress AI chatbot/MCP plugin: stored flaw CVE-2026-130121 (no affected versions listed yet); update when a fix ships.",
+    "CISA KEV (added Nov 13): Check Point privilege escalation CVE-2026-123039; federal deadline was Nov 16."
   ]
 }
