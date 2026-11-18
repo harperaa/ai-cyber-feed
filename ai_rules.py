@@ -28,6 +28,7 @@ MODEL = (r"(?:" + AI + r"|llms?|chatgpt|gpt[- ]?[\w.]*|claude|gemini[\w ]{0,12}|
 # ---- cause: AI found the bug / AI-written exploit or code / AI attack tooling --------------------
 CAUSE = [
     ("Java4Shell found and weaponized with AI (Calif, GPT-6 Cyber)", r"\bjava4shell\b|\bCVE-2026-114938\b"),
+    ("LNbits wallet-server attacks attributed to AI agents (suspected)", r"\blnbits\b" + GAP(120) + r"\b(?:" + AI + r") agents?\b"),
     ("threat actors using agentic AI to hunt secrets/credentials", r"\b(?:threat actors?|attackers?|hackers?|operators?)\b" + GAP(25) + r"\b(?:using|used|leverag\w+|with)\b" + GAP(20) + r"\b(?:agentic|ai|llm)[- ]?(?:ai[- ])?(?:tools?|agents?|systems?|platforms?)\b" + GAP(80) + r"\b(?:search(?:ing)?|hunt(?:ing)?|scrape|steal(?:ing)?|exfiltrat\w*|find(?:ing)?|harvest(?:ing)?|look(?:ing)? for)\b" + GAP(60) + r"\b(?:secrets?|credentials?|api keys?|tokens?|passwords?)\b"),
     ("attackers using AI coding agents to target/exploit", r"\b(?:threat actors?|attackers?|hackers?|operators?|campaign)\b" + GAP(25) + r"\b(?:using|used|leverag\w+|built with|with)\b" + GAP(15) + r"\b(?:" + AI + r"|llm)[- ]?(?:coding )?agents?\b" + GAP(40) + r"\bto (?:target|exploit|attack|hack|breach|compromise)\b"),
     ("CRAFTY FALCON / named AI-powered attack group", r"\b(?:CRAFTY FALCON|Crafty Falcon)\b|\bAI[- ]powered (?:hacking |cyber ?)?group\b" + GAP(40) + r"\b(?:attack|exploit|target|automate)\w*\b"),
