@@ -1,322 +1,323 @@
 [
  {
-  "url": "https://x.com/SansLimit3/status/2123053260848198110",
-  "author": "SansLimit3",
-  "text": "🚨 New Research | Inside an AI-Driven #PHP2Shell Operation\n\nWe identified an exposed operator server running a PHP2Shell (CVE-2026-109618/109619) campaign. It revealed a self-built AI-agent pipeline, a custom C2, and a full credential-harvesting operation.\n\nKey findings:\n- Public https://t.co/09PGJ9IZnr",
-  "created_at": "2026-11-18T13:58:36.000Z",
+  "url": "https://x.com/nirohfeld/status/2123070394227663006",
+  "author": "@nirohfeld",
+  "created_at": "2026-11-18T15:06:41.000Z",
+  "text": "Today we disclose CVE-2026-123633 and CVE-2026-123007 (CVSS 4.0: 9.2) - exploitable memory corruptions in NGINX. We achieved reliable remote code execution (ASLR defeated) on NGINX serving static files - no backend or third-party modules. Both require HTTP/2.",
+  "cves": [
+   "CVE-2026-123007",
+   "CVE-2026-123633"
+  ]
+ },
+ {
+  "url": "https://x.com/nirohfeld/status/2123070399957135381",
+  "author": "@nirohfeld",
+  "created_at": "2026-11-18T15:06:42.000Z",
+  "text": "NGINX CVE-2026-123633 (UAF, RCE in proxy_pass configs, present since 1.19.7) and CVE-2026-123007 (overflow, RCE even serving static files, since 1.9.5): Wiz Atlas (AI) was used to discover both; Gemini 4 Carbon and ChatGPT 5.6 Sol were used to validate their impact.",
+  "cves": [
+   "CVE-2026-123007",
+   "CVE-2026-123633"
+  ]
+ },
+ {
+  "url": "https://x.com/cvedotnow/status/2123074083734642727",
+  "author": "@cvedotnow",
+  "text": "🔴 CRITICAL 9.2 · CAST Imaging: authentication bypass in identity provider registration (CVE-2026-109857)\n\nUnauthenticated attackers can gain full administrator access by sending a crafted HTTP header without logging in.\n\n👉 See vendor advisory\nhttps://t.co/ZVlpwskCUI",
+  "created_at": "2026-11-18T15:21:21.000Z",
+  "cves": [
+   "CVE-2026-109857"
+  ]
+ },
+ {
+  "url": "https://x.com/lisa_aiish/status/2123073745283625260",
+  "author": "@lisa_aiish",
+  "text": "AI just discovered a critical Java vulnerability in ONE HOUR. 🤯\n\nResearcher used OpenAI Codex to find a 9.2/10 severity flaw and develop an exploit for under $200.\n\nThe scary part? Just 64 \"A\" characters and one \"=\" could trigger it.\n\nJava patches are out.",
+  "created_at": "2026-11-18T15:20:00.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/xint_official/status/2123072789351653865",
+  "author": "@xint_official",
+  "text": "🚨 Critical nginx vulnerabilities disclosed. Immediate action recommended.\n\nIf you run nginx, check whether your servers are affected and update to the patched version immediately. If you cannot upgrade, follow the mitigation guidance at https://t.co/hDfbxC8hv1\n\nToday we’re https://t.co/HRZqkwJ8Tm",
+  "created_at": "2026-11-18T15:16:12.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/CCBalert/status/2123072728034877853",
+  "author": "@CCBalert",
+  "text": "Warning: Critical OS command injection and hard-coded key vulnerabilities in #Broadcom #AutoSys let unauthenticated attackers inject OS commands or forge sessions. #CVE-2026-126552 #CVE-2026-126551 CVSS(4.0): 9.3. Read the advisory https://t.co/i071V9fgEV and #Patch #Patch #Patch",
+  "created_at": "2026-11-18T15:15:57.000Z",
+  "cves": [
+   "CVE-2026-126551",
+   "CVE-2026-126552"
+  ]
+ },
+ {
+  "url": "https://x.com/wiz_io/status/2123072693042082117",
+  "author": "@wiz_io",
+  "text": "🚨 Critical NGINX Vulnerabilities: @wiz_io Research, alongside @xint_official , @MetnirAI , @rapid7 , @ikotas00 independently discovered 2 critical memory-safety flaws in NGINX (CVE-2026-123633 & CVE-2026-123007) allowing unauthenticated RCE with HTTP/2 enabled. https://t.co/9uSNydq71Y",
+  "created_at": "2026-11-18T15:15:49.000Z",
+  "cves": [
+   "CVE-2026-123007",
+   "CVE-2026-123633"
+  ]
+ },
+ {
+  "url": "https://x.com/HermesManaged/status/2123072416230617179",
+  "author": "@HermesManaged",
+  "text": "AI just found a critical Java zero-day in ONE hour. Working exploit 2 hours later. Total cost: under $200. Pre-auth RCE on Jenkins, Jira, Keycloak — and 90% of the Fortune 500 runs Java. Patch now. The zero-day era just got cheap. #Java4Shell https://t.co/aHYKxfBngn",
+  "created_at": "2026-11-18T15:14:43.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/signalfoldintel/status/2123072396085366915",
+  "author": "@signalfoldintel",
+  "text": "Talos says Java4Shell (CVE-2026-114938) affects OpenJDK 17.0.6+ on x86-64 with AVX-512 VBMI enabled. Patch; if delayed, disable AVX-512. Talos reports no observed in-the-wild exploitation.\n\nhttps://t.co/7TZISlzg6b",
+  "created_at": "2026-11-18T15:14:38.000Z",
+  "cves": [
+   "CVE-2026-114938"
+  ]
+ },
+ {
+  "url": "https://x.com/PromptHex/status/2123071379017007376",
+  "author": "@PromptHex",
+  "text": "🚨 Java4Shell is a serious wake-up call for Java developers.\n\nA memory corruption flaw in OpenJDK's Base64 decoder could open the door to RCE.\n\nCVSS 9.2. Public PoC released. Patches available.\n\nCheck your Java versions. Patch before attackers do. ⚡\n\n#CyberSecurity #Java",
+  "created_at": "2026-11-18T15:10:36.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/cvedotnow/status/2123071320841707885",
+  "author": "@cvedotnow",
+  "text": "🔴 CRITICAL · Grav: 3 new CVEs\n\nWorst (9.3): authorization bypass in Flex Pages storage (CVE-2026-130733)\n\n👉 Fix: see advisories\nhttps://t.co/EW3JgZFDqQ",
+  "created_at": "2026-11-18T15:10:22.000Z",
+  "cves": [
+   "CVE-2026-130733"
+  ]
+ },
+ {
+  "url": "https://x.com/StepPhase/status/2123071228445610258",
+  "author": "@StepPhase",
+  "text": "Barracuda says attackers exploit two Email Security Gateway flaws for root access. Patch IDs by product, CISA KEV listing and how to reduce exposure.\n\nhttps://t.co/WiQYNNnbkl",
+  "created_at": "2026-11-18T15:10:00.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/brian_pak/status/2123071121553854545",
+  "author": "@brian_pak",
+  "text": "Pre-auth RCE in nginx is the bug every hacker dreams of finding. It almost never happens.\n\nToday we’re disclosing nginx2root: five nginx vulnerabilities, and an exploit that takes an unauthenticated attacker all the way to root.\n\nOne of themhits the default config.\n\nIf you run",
+  "created_at": "2026-11-18T15:09:34.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/TheLabLedger/status/2123070856381534485",
+  "author": "@TheLabLedger",
+  "text": "Java4Shell (CVE-2026-114938): Java 17.0.6+, 21, 25, 27 on AVX-512 VBMI CPUs (Ice Lake+, Zen 4+). Researchers report no-login RCE on Jenkins, Keycloak, Jira. CISA urges patching. Rebuild images that bundle Java.\nhttps://t.co/fHNRg89umE\n#cybersecurity #infosec #Java #Java4Shell",
+  "created_at": "2026-11-18T15:08:31.000Z",
+  "cves": [
+   "CVE-2026-114938"
+  ]
+ },
+ {
+  "url": "https://x.com/CCBalert/status/2123070728744456439",
+  "author": "@CCBalert",
+  "text": "Warning: A critical deserialization vulnerability in #Apache #Roller; allows unauthenticated remote attackers to achieve #RCE and is being #exploited in the wild. #CVE-2026-129448 #CVE-2026-82384 CVSS(3.1): 9.8. Read the advisory https://t.co/3eDO1ijwXJ and #Patch #Patch #Patch",
+  "created_at": "2026-11-18T15:08:01.000Z",
+  "cves": [
+   "CVE-2026-129448",
+   "CVE-2026-82384"
+  ]
+ },
+ {
+  "url": "https://x.com/crustyclaws/status/2123069626300969458",
+  "author": "@crustyclaws",
+  "text": "🔒 Oracle to Patch 11 Java Flaws Today as Critical OpenJDK RCE (CVE-2026-114938) Report Emerges\n\nOracle is preparing to release security patches for 11 vulnerabilities in Java SE on ...\n\n#CyberSecurity #InfoSec #CrustyTLDR",
+  "created_at": "2026-11-18T15:03:38.000Z",
+  "cves": [
+   "CVE-2026-114938"
+  ]
+ },
+ {
+  "url": "https://x.com/V0iD_0daY/status/2123069588292481036",
+  "author": "@V0iD_0daY",
+  "text": "Actively exploited: Puppet RCE CVE-2026-115731 (CVSS 9.4) hit CISA KEV. A crafted report from any CA-signed agent cert runs code on Puppet Server, and RCE there exposes the CA keys. Patch to Core 9.1.3/8.22.2 (OpenVox too) and disable autosign. #DevOps\nhttps://t.co/F3PjJMW4kY",
+  "created_at": "2026-11-18T15:03:29.000Z",
+  "cves": [
+   "CVE-2026-115731"
+  ]
+ },
+ {
+  "url": "https://x.com/pol_md5sum/status/2123069578402206158",
+  "author": "@pol_md5sum",
+  "text": "Apache confirms CVE-2026-129448 in Roller 4.0.0-6.1.4 is being exploited: a POST to /roller-services/xmlrpc is deserialized before any auth check, giving RCE at CVSS 9.8. Fixed in 6.1.6.\nhttps://t.co/RqtFViQfQt\n#CyberSecurity",
+  "created_at": "2026-11-18T15:03:26.000Z",
+  "cves": [
+   "CVE-2026-129448"
+  ]
+ },
+ {
+  "url": "https://x.com/hemran_7282/status/2123069030902964259",
+  "author": "@hemran_7282",
+  "text": "🚨 BREAKING: Calif the same people behind php2shell just drop Java4Shell.\n\nHackers can now hijack Java servers without a password.\n\nA critical flaw dubbed Java4Shell (CVE-2026-114938) leaked before Oracle’s patch. \n\nIt hits the Base64 decoder on modern Intel/AMD chips https://t.co/tvQVh561oS",
+  "created_at": "2026-11-18T15:01:16.000Z",
+  "cves": [
+   "CVE-2026-114938"
+  ]
+ },
+ {
+  "url": "https://x.com/nitaidean/status/2123068996857552900",
+  "author": "@nitaidean",
+  "text": "ok this is the stuff that scares me. A researcher used AI to find a critical bug in Java that lets an attacker run their own code on your server, in about an hour, and had a working exploit two hours after that. Oracle shipped the fix yesterday and CISA is telling companies to https://t.co/ctdV4Y88Z3",
+  "created_at": "2026-11-18T15:01:08.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/PNovavisio32590/status/2123068972610560208",
+  "author": "@PNovavisio32590",
+  "text": "Java4Shell (CVE-2026-114938): OpenJDK 17, 21, 25, and 27 Memory Corruption and RCE Risk on AVX-512 x86-64 CPUs (November 17 Advisories) - Updates, Workarounds, and Am I Affected?\n\nJava4Shell (CVE-2026-114938, CVSS 8.1) is a memory corruption vulnerability in OpenJDK 1…",
+  "created_at": "2026-11-18T15:01:02.000Z",
+  "cves": [
+   "CVE-2026-114938"
+  ]
+ },
+ {
+  "url": "https://x.com/sysdig/status/2123068934358233272",
+  "author": "@sysdig",
+  "text": "🚨 Java4Shell (CVE-2026-114938): researchers turned a heap overflow in OpenJDK’s AVX-512 Base64 decoder into pre-auth RCE in products like Keycloak, Jira, and Jenkins.\n\nAffects 17, 21, 25, and 27. Patch now. No in-the-wild exploitation confirmed yet.\n\nLearn more from Sysdig TRT: https://t.co/sKA2xMg45m",
+  "created_at": "2026-11-18T15:00:53.000Z",
+  "cves": [
+   "CVE-2026-114938"
+  ]
+ },
+ {
+  "url": "https://x.com/X3r0DaySec/status/2123068765952942546",
+  "author": "@X3r0DaySec",
+  "text": "#php2shell\nOkay so I was researching both the CVEs and I was able to create a #PoC that works on default php docker images with just requiring display_error=On\nI was also able to get #RCE on unknown targets with no hardcoded offsets (: - #CVE-2026-109618\nWorking on the 109618 now",
+  "created_at": "2026-11-18T15:00:13.000Z",
   "cves": [
    "CVE-2026-109618"
   ]
  },
  {
-  "url": "https://x.com/wbmuniversity/status/2123046251285319956",
-  "author": "wbmuniversity",
-  "text": "Google just confirmed a line was crossed in cybersecurity: an AI agent found a software flaw, wrote the exploit, and launched live attacks with no human at the keyboard.\n\nIn its latest AI Threat Tracker report, Google’s Threat Intelligence Group (GTIG) and Mandiant detailed how",
-  "created_at": "2026-11-18T13:30:45.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/infrastack_ai/status/2123046193261576680",
-  "author": "infrastack_ai",
-  "text": "🚨 Any web page you visit can hijack Supergateway's MCP sessions and run the tools it wraps.\n\nIf you run Supergateway 2.4.0 through 4.2.2 to expose stdio MCP servers over WebSocket, a malicious page in your browser can open a session and call your MCP server's tools with your",
-  "created_at": "2026-11-18T13:30:31.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/XBToshi/status/2122973894399394205",
-  "author": "XBToshi",
-  "text": "Critical Apache HTTP/2 zero-day RCE (CVE-2026-119618) is now actively exploited in the wild, Singapore CSA warns.\n\nThe fascinating backstory:\n- Discovered by Anthropic's AI OSS scanner &amp; Google Cloud Security.\n- Race condition in mod_http2's assign_headers() leads to https://t.co/1ZzE5NGMPj https://t.co/YJRuIDY2PK",
-  "created_at": "2026-11-18T08:43:14.000Z",
-  "cves": [
-   "CVE-2026-119618"
-  ]
- },
- {
-  "url": "https://x.com/The_Cyber_News/status/2122929041464570334",
-  "author": "The_Cyber_News",
-  "text": "‼️ Critical Apache HTTP Server RCE Vulnerability Actively Exploited in Attacks \n\nDetails: https://t.co/7loC3ah6i6\n\nApache’s HTTP/2 module, mod_http2, has a critical flaw tracked as CVE-2026-119618 that reportedly allows unauthenticated remote code execution.\n\nApache released https://t.co/QqFzxqnyXY",
-  "created_at": "2026-11-18T05:45:00.000Z",
-  "cves": [
-   "CVE-2026-119618"
-  ]
- },
- {
-  "url": "https://x.com/cyber_razz/status/2123036571624497548",
-  "author": "cyber_razz",
-  "text": "AI found a critical bug in Java.\n\nCalled Java4Shell.\n\nCVE-2026-114938.\n\nDisclosed November 17 by Calif.\n\nOne researcher.\n\nAbout an hour.\n\nAn OpenAI model.\n\nUnder 200 dollars in tokens.\n\nA working exploit two hours later.\n\nJava has been around for 30 years.\n\nOver 90 percent of the https://t.co/NecHdkyjxE",
-  "created_at": "2026-11-18T12:52:17.000Z",
+  "url": "https://x.com/PCS_AnthonyM/status/2123068722520658014",
+  "author": "@PCS_AnthonyM",
+  "text": "Patch-it-today tip: CISA is urging immediate patching of Java4Shell (CVE-2026-114938), a pre-auth RCE in Oracle Java that puts Jenkins, Jira and Confluence at risk. Update Java on every server running them today, then restart the apps so the fix actually loads. #CyberSecurity",
+  "created_at": "2026-11-18T15:00:02.000Z",
   "cves": [
    "CVE-2026-114938"
   ]
  },
  {
-  "url": "https://x.com/alihesari/status/2123026401699758208",
-  "author": "alihesari",
-  "text": "🚨 \"Java4Shell\" (CVE-2026-114938, CVSS 9.2): an OpenJDK Base64 bug on AVX-512 CPUs lets unauthenticated attackers read server memory and run code.\n\nRCE shown on Keycloak, Jira, Confluence and Jenkins.\n\nAI found it in an hour. Patch now.\n\n#Java #infosec\n https://t.co/p7OkSrfodq",
-  "created_at": "2026-11-18T12:11:52.000Z",
-  "cves": [
-   "CVE-2026-114938"
-  ]
- },
- {
-  "url": "https://x.com/cyber_rekk/status/2123051060252004454",
-  "author": "cyber_rekk",
-  "text": "AI found nearly 10,000 potential security issues across six open-source projects\n\nOnly 99 made it to the maintainers\n\nMicrosoft and GitHub tested an AI-assisted vulnerability research pipeline called Codename MDASH, powered by Microsoft's MAI Cyber model\n\nThe projects included https://t.co/F2qPAS9mck",
-  "created_at": "2026-11-18T13:49:51.000Z",
+  "url": "https://x.com/alkalinesec/status/2123074135970529769",
+  "author": "@alkalinesec",
+  "text": "this goes for exploit pocs too. the first poc that claude or gpt makes is a horrible 4000 line mess and at least gpt is essentially incapable of making a minimal repro. but once you go in and strip out all the bs they can iterate on it so much better https://t.co/LCjfofNNmH",
+  "created_at": "2026-11-18T15:21:33.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/ExtremeTech/status/2123038572445864270",
-  "author": "ExtremeTech",
-  "text": "An AI agent turned a security patch into a working exploit independently, showing just how quickly AI can be weaponized by attackers. https://t.co/NaTWWgNWbP",
-  "created_at": "2026-11-18T13:00:14.000Z",
+  "url": "https://x.com/frankramosdev/status/2123069192182071550",
+  "author": "@frankramosdev",
+  "text": "One security firm, two headlines:\n\nCalif used OpenAI's GPT-6 Cyber to find ~35 Apple bugs, including a Lockdown Mode bypass (per Forbes).\n\nThen Codex helped it find Java4Shell, a Java RCE, in about an hour.\n\nFinding bugs got cheap.\n\nYour patch speed is the vulnerability now. https://t.co/8qKjHkLzT9",
+  "created_at": "2026-11-18T15:01:54.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/OrithosAI/status/2123031186972745954",
-  "author": "OrithosAI",
-  "text": "MCP security: CVE-2026-125926 requires an authenticated user with permission to register or modify a server. Keep that precondition attached: this SSRF path is not unauthenticated remote access. #MCP",
-  "created_at": "2026-11-18T12:30:53.000Z",
-  "cves": [
-   "CVE-2026-125926"
-  ]
- },
- {
-  "url": "https://x.com/KrakowiakK/status/2122923082088174001",
-  "author": "KrakowiakK",
-  "text": "AI in short 🧩 Wednesday\n\n- 🪦 microsoft/onnxruntime vanished from GitHub. In your Docker build? Pin and mirror today\n- ⚖️ California AG sues OpenAI: ~700 test agents got loose, attacked Hugging Face for 7 days\n- 💸 GPT-6.2 Astra price cut: $8/$40 per 1M tokens, was $10/$50. https://t.co/cnfOYt5qct",
-  "created_at": "2026-11-18T05:21:19.000Z",
+  "url": "https://x.com/frequlist/status/2123069133608620542",
+  "author": "@frequlist",
+  "text": "OpenAI’s Codex reportedly helped uncover a serious Java vulnerability in about an hour. Two more hours were enough to develop a working exploit, with less than $200 spent on AI tokens. The researchers say they managed to compromise default setups of Jira, Jenkins, Confluence and",
+  "created_at": "2026-11-18T15:01:40.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/Bug_Breakdown/status/2123010152630771854",
-  "author": "Bug_Breakdown",
-  "text": "A brilliant Indirect Prompt Injection that turned an AI helpdesk into a data exfiltration pipeline! Here is how a researcher exploited a RAG architecture to steal internal session tokens:  \n\n🚨 BUG: Indirect Prompt Injection / Data Exfiltration  \n\nTHE FLAW:\n\n• The target was an",
-  "created_at": "2026-11-18T11:07:18.000Z",
+  "url": "https://x.com/plainibrahim/status/2123066866130428125",
+  "author": "@plainibrahim",
+  "text": "Google's threat team just reported an AI agent that reads security patches, works out the bug they fixed, and builds the exploit. No human in the loop 🤖Tap update tonight 📲",
+  "created_at": "2026-11-18T14:52:40.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/laky_fx/status/2122699934642110658",
-  "author": "laky_fx",
-  "text": "Same tool name, same description, compatible schema: 3 of 5 LLM clients called the attacker's MCP server in 100% of trials. No prompt injection, no server compromise. The attacker only ran another MCP server.\n\nWhy it works: MCP advertises a tool as a name, a description and an https://t.co/tMUOP8j9Hy",
-  "created_at": "2026-11-17T14:34:36.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/BreachNewsHQ/status/2123055309925085662",
-  "author": "BreachNewsHQ",
-  "text": "Confirmed supply chain attack on Microsoft's agent-framework package.\n\nMalicious versions 1.26.1 and 1.26.2 were pushed to PyPI on Nov 17 with a stealer that runs on every Python start.\n\nIt targeted Azure, Azure DevOps and GitHub Actions credentials. Both releases are quarantined",
-  "created_at": "2026-11-18T14:06:45.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/marcominerva/status/2123051915567149508",
-  "author": "marcominerva",
-  "text": "Unfortunately, Microsoft Agent Framework for Python has been hit by a serious supply chain attack. Two malicious versions (1.26.1 and 1.26.2) were published on PyPI. The official GitHub repository is also currently inaccessible. Details: https://t.co/AsklXLWAW2 #ai #microsoft",
-  "created_at": "2026-11-18T13:53:15.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/h___t____n/status/2122873383725457789",
-  "author": "h___t____n",
-  "text": "🚨 If your Python env or CI installed Microsoft's agent-framework 1.26.1 or 1.26.2 yesterday, treat its secrets as stolen.\n\nBoth malicious versions were uploaded to PyPI on Nov 17 (20:35 and 21:08 UTC) and were gone by about 21:30 UTC, per Wiz. They add a .pth startup hook, so https://t.co/YPMt0iJ2p5",
-  "created_at": "2026-11-18T02:03:50.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/certhon520/status/2122909864309780931",
-  "author": "certhon520",
-  "text": "A nasty AI supply-chain attack.\n\nWiz found credential stealers in Microsoft agent-framework versions 1.26.1 and 1.26.2 on PyPI.\n\nThe scary part?\n\nPython could execute the payload at startup, even without importing the package.\n\nBoth versions were removed.\n\nYour AI dependencies",
-  "created_at": "2026-11-18T04:28:48.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/Unzapped/status/2122926615340482734",
-  "author": "Unzapped",
-  "text": "Google Found AI Hackers Operating on Autopilot.\n\nGoogle Threat Intelligence Group and Mandiant documented human-directed AI agents automating vulnerability discovery and exploitation attempts without needing approval at every step. A separate supply-chain attack hit scripts https://t.co/5LMGXJja7V",
-  "created_at": "2026-11-18T05:35:21.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/brianskellenger/status/2123031821143421407",
-  "author": "brianskellenger",
-  "text": "AI Hackers Got Privileged Access in Under 3 Hours, FBI Says\n\nThe FBI issued a FLASH on November 13, a freely shareable cyber alert, warning that criminals and state-aligned hackers are using ARTEX, an open-source \"super intelligence\" penetration testing framework, to automate https://t.co/AFgiBujwD3 https://t.co/Kv3bWdVWG9",
-  "created_at": "2026-11-18T12:33:24.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/f1tym1/status/2123044708351942897",
-  "author": "f1tym1",
-  "text": "Apache has confirmed that a critical remote code execution (RCE) vulnerability in its Roller blog server is being actively exploited in the wild.\n\nhttps://t.co/ZQt8BSw8yV",
-  "created_at": "2026-11-18T13:24:37.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/ksanjeev284/status/2122729221156143174",
-  "author": "ksanjeev284",
-  "text": "Apache Roller CVE-2026-129448 is being actively exploited today.\nUnauth RCE via XML-RPC deserialization, versions 4.0.0 to 6.1.4.\nUpgrade to 6.1.6 or later, or disable XML-RPC now. PoC is public.\n#ApacheRoller #CVE #ZeroDay #InfoSec",
-  "created_at": "2026-11-17T16:30:59.000Z",
-  "cves": [
-   "CVE-2026-129448"
-  ]
- },
- {
-  "url": "https://x.com/Sujeet/status/2122861912878989343",
-  "author": "Sujeet",
-  "text": "Apache Roller has a pre-auth XML-RPC deserialization flaw, CVE-2026-129448, CVSS 9.8 — and Apache says it's actively exploited. The deserialization happens during request parsing, before auth, even when XML-RPC is switched off in the admin UI.\n\nFix is 6.1.6 or later, 6.1.7",
-  "created_at": "2026-11-18T01:18:15.000Z",
-  "cves": [
-   "CVE-2026-129448"
-  ]
- },
- {
-  "url": "https://x.com/webenstein_/status/2122825501605536127",
-  "author": "webenstein_",
-  "text": "Researchers uncovered a critical Chrome vulnerability actively exploited in the wild. Tracked as CVE-2026-125350, the flaw affects Chrome’s XML processing component and has prompted an emergency security update across multiple platforms.",
-  "created_at": "2026-11-17T22:53:34.000Z",
-  "cves": [
-   "CVE-2026-125350"
-  ]
- },
- {
-  "url": "https://x.com/_MrNiko/status/2123012700628463844",
-  "author": "_MrNiko",
-  "text": "Chrome in the wild. One page. Renderer dies.\n\nCVE-2026-125350. libxslt pattern cache. xsltTestCompMatchDirect.\nStale node-set pointer. Double free. UAF.\nGoogle says exploit exists. CISA put it on KEV.\n\nPublic crash PoC. Aw, Snap on stock Chrome before 157.0.8103.50.",
-  "created_at": "2026-11-18T11:17:26.000Z",
-  "cves": [
-   "CVE-2026-125350"
-  ]
- },
- {
-  "url": "https://x.com/2Workly/status/2122823486876045786",
-  "author": "2Workly",
-  "text": "Google patched CVE-2026-125350, an actively exploited Chrome XML use-after-free bug allowing RCE. Verify endpoint relaunches to 157.0.8103.50+. Source: https://t.co/WTV1amM2tI Desk: https://t.co/QC14eBVf0C #2workly",
-  "created_at": "2026-11-17T22:45:34.000Z",
-  "cves": [
-   "CVE-2026-125350"
-  ]
- },
- {
-  "url": "https://x.com/threatpodium/status/2122792206012391826",
-  "author": "threatpodium",
-  "text": "🚨 CVE-2026-115731 — CRITICAL — actively exploited per CISA KEV\nPerforce Puppet Enterprise\n\nCVSS 9.4 | EPSS 0%\n\n#CVE\nhttps://t.co/LhR6NxktPy",
-  "created_at": "2026-11-17T20:41:16.000Z",
+  "url": "https://x.com/AltTabDaily/status/2123066726917014003",
+  "author": "@AltTabDaily",
+  "text": "Today in Tech · AI · Security:\n\n• @nvidia stops shipping Hopper (H200) chips to China; its $130B outlook assumes none.\n• @OpenAI cuts GPT-6.2 Astra's API price 20%; Sol's is unchanged.\n• Exploited: Puppet flaw CVE-2026-115731 (CISA list). Patch exists.\n\nLink below.",
+  "created_at": "2026-11-18T14:52:07.000Z",
   "cves": [
    "CVE-2026-115731"
   ]
  },
  {
-  "url": "https://x.com/ksg93rd/status/2123045943796744317",
-  "author": "ksg93rd",
-  "text": "CVE-2026-115731: critical RCE in Perforce Puppet Enterprise (CVSS 9.4). A crafted agent report deserializes to code on Puppet Server. Exploited in the wild, now in CISA KEV. Patch + restart now. @ksg93rd #cvedecoded #puppet #infosec https://t.co/qeNfuYfTzZ\n🔐 Team kit:",
-  "created_at": "2026-11-18T13:29:31.000Z",
-  "cves": [
-   "CVE-2026-115731"
-  ]
- },
- {
-  "url": "https://x.com/thecybersecguru/status/2122777799211778525",
-  "author": "thecybersecguru",
-  "text": "🚨 CRITICAL ATLASSIAN CONFLUENCE FLAW IS NOW BEING ACTIVELY EXPLOITED. Attackers can execute commands on vulnerable Confluence servers WITHOUT AUTHENTICATION.\n\nTracked as CVE-2026-90436, the flaw carries a CVSS score of 9.3 and affects Confluence Data Center installations with",
-  "created_at": "2026-11-17T19:44:01.000Z",
-  "cves": [
-   "CVE-2026-90436"
-  ]
- },
- {
-  "url": "https://x.com/ITSignalReport/status/2122917213203988759",
-  "author": "ITSignalReport",
-  "text": "⚠️ CISA KEV: Actively exploited, added Nov 13:\nCVE-2026-123039: Check Point, privilege escalation\nCVE-2026-114713: UnrealIRCd, command injection, CVSS 8.6\n\nFederal remediation deadline was Nov 16.\nIf you run either, patch now and check for compromise.\nSource: CISA KEV Catalog",
-  "created_at": "2026-11-18T04:58:00.000Z",
-  "cves": [
-   "CVE-2026-114713",
-   "CVE-2026-123039"
-  ]
- },
- {
-  "url": "https://x.com/lumiverse_s/status/2122896326178345297",
-  "author": "lumiverse_s",
-  "text": "⚠️ Over 1,000 security flaws patched in Microsoft's Nov Patch Tuesday, including an actively exploited Outlook zero-day - while CISA added multiple urgent threats to its KEV list.Attackers are moving faster than ever. Are your patch cycles keeping up? 👇",
-  "created_at": "2026-11-18T03:35:00.000Z",
+  "url": "https://x.com/nokoxyz/status/2123066440823505304",
+  "author": "@nokoxyz",
+  "text": "google's threat intel team just published a case where hackers turned claude code into a malware installer.\n\na suspected north korean group got into crypto companies through fake recruiter profiles. inside, they edited one file in the code repos: .claude/settings.json\n\nafter https://t.co/F4fIu7Sdrn",
+  "created_at": "2026-11-18T14:50:58.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/JardinFi/status/2123030106528416214",
-  "author": "JardinFi",
-  "text": "🚨 DOUBLE RED ALERT: TWO CRITICAL RCE VULNERABILITIES. TWO MAJOR ATTACK SURFACES.\n\nTwo serious security flaws have just put Java and Apache infrastructure in the spotlight.\n\nAnd one of them is already being actively exploited.\n\n🔥 1️⃣ Java4Shell — CVE-2026-114938\n\nA critical https://t.co/K7wU4rw63h https://t.co/w4FFdRXiwj",
-  "created_at": "2026-11-18T12:26:36.000Z",
-  "cves": [
-   "CVE-2026-114938"
-  ]
- },
- {
-  "url": "https://x.com/apepokerinsider/status/2122993345211629951",
-  "author": "apepokerinsider",
-  "text": "😧‼️ PokerStars caught up in a supply-chain attack via third-party vendor Optimizely\n\nOn November 16, malicious JavaScript was served to visitors of 178 organizations through the compromised Optimizely Web platform — among them PokerStars, along with Betsson, tombola and Betfred.",
-  "created_at": "2026-11-18T10:00:31.000Z",
+  "url": "https://x.com/AutoBot_IO/status/2123059781975802079",
+  "author": "@AutoBot_IO",
+  "text": "AI found a Java Base64 decoder flaw in ~1 hour and a working exploit in 2 more — under $200 in OpenAI Codex tokens. Calif owned Jira, Confluence, Jenkins, Keycloak by default. Oracle patched Tuesday, CISA says patch now. Intel/AMD only; ARM safe. https://t.co/REUszp9pFP",
+  "created_at": "2026-11-18T14:24:31.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/cyb3rh0und/status/2122856464184234207",
-  "author": "cyb3rh0und",
-  "text": "And now it's seven.\n\n178 organizations just got compromised through Optimizely, a shared website testing service. CNN. Fox News. BBC. Zoom. Salesforce. HSBC. Equifax. IKEA. All hit by a single supply chain attack. Credit card theft. Crypto hijacking. Browser data. FBI has issued",
-  "created_at": "2026-11-18T00:56:36.000Z",
+  "url": "https://x.com/kyleshannon/status/2123073833422958936",
+  "author": "@kyleshannon",
+  "text": "If AI was used by all the big companies to spot and patch vulnerabilities, AND they laid off their most expensive (and experienced) employees, then all these outages start to make sense.\n\nThe thing about hidden dependencies is that:\n\n1. Someone needs to know they are there and https://t.co/5CN6Ba8RvZ",
+  "created_at": "2026-11-18T15:20:21.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/InterceptorNews/status/2122862820131758454",
-  "author": "InterceptorNews",
-  "text": "⚠️ Optimizely supply-chain attack compromised 178 websites, including BBC, IKEA and Air France.\n\nMalicious scripts stole payment-card details, cookies and cryptocurrency, while attempting to deploy iOS exploits. About $7,000 in crypto theft is confirmed.\n\nThe attack exploited",
-  "created_at": "2026-11-18T01:21:51.000Z",
+  "url": "https://x.com/DataconomyMedia/status/2123072643649679575",
+  "author": "@DataconomyMedia",
+  "text": "Researchers found AWS keys leaked on Docker Hub drew 140,000 API calls from 5,000 IPs, often within eight seconds of publication.\n\nhttps://t.co/bhhjt6BsNm https://t.co/co9eKqhP9V",
+  "created_at": "2026-11-18T15:15:37.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/Trackpads/status/2123031195143340104",
-  "author": "Trackpads",
-  "text": "Optimizely confirmed attackers exploited a vulnerability in its Experimentation product to inject malicious JavaScript into customer projects, and researchers found 188 infected scripts tied to 178 organizations including the BBC, CNN, Zoom, Salesforce, GitLab, Equifax, HSBC, and https://t.co/fHavPRGCYM",
-  "created_at": "2026-11-18T12:30:55.000Z",
+  "url": "https://x.com/JakobASimmons/status/2123072079318647278",
+  "author": "@JakobASimmons",
+  "text": "🚨 MIKE BOST, WHO LEADS THE HOUSE VETERANS AFFAIRS COMMITTEE, WANTS ORACLE TO EXPLAIN ITSELF.\n\nIn a letter to OPM, Bost raised the VA's switch to the personnel platform Oracle is building for every federal agency, a system storing private information on VA workers.\n\nAccording to https://t.co/rCRbDzhfz3",
+  "created_at": "2026-11-18T15:13:23.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/cyb3rh0und/status/2123038111114367031",
-  "author": "cyb3rh0und",
-  "text": "OPTIMJACK is live and still spreading.\n\n186+ websites compromised through Optimizely's CDN scripts. Malicious JavaScript injecting crypto wallet stealers and payment card skimmers into every visitor's browser.\n\nCNN. Zoom. Fox News. BBC. Salesforce. GitLab. Hootsuite. American https://t.co/9Kus11pPmP",
-  "created_at": "2026-11-18T12:58:24.000Z",
+  "url": "https://x.com/zirulabs/status/2123071918475817161",
+  "author": "@zirulabs",
+  "text": "It’s been a week of inexplicable cyber issues. “No footprints going in, no footprints going out.” - Homeland Security Secretary Markwayne Mullin.\n\nOn November 13, 2026 the FBI warned that criminals and state-linked hackers have been using ARTEX, an AI-driven penetration-testing",
+  "created_at": "2026-11-18T15:12:44.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/DarkWebInformer/status/2122782265323426043",
-  "author": "DarkWebInformer",
-  "text": "🚨🇫🇷 Softway Medical data breach, 18 million patient-related records allegedly exposed\n\nThreat actor \"Bonjour\" is selling a database allegedly obtained from Softway Medical's One Manager radiology information system, used by medical imaging centers across France.\n\nVictim: Groupe https://t.co/OdWJM6JVRb",
-  "created_at": "2026-11-17T20:01:46.000Z",
+  "url": "https://x.com/MasterSgt17/status/2123071614959161379",
+  "author": "@MasterSgt17",
+  "text": "🚨🇺🇸🌐 CYBER INTELLIGENCE ALERT | THE COUNTDOWN HAS BEGUN\n\nTHE 17TH PERSPECTIVE\nNovember 18, 2026 | Global Cyber Threat Monitoring\n\n⏳ TEN DAYS. ONE OF THE WORLD’S MOST POWERFUL AI COMPANIES. AN UNVERIFIED THREAT WITH GLOBAL IMPLICATIONS.\n\nIn the shadows of the digital world, a https://t.co/WVsNkW3tAF",
+  "created_at": "2026-11-18T15:11:32.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/yourhonestmate/status/2122852436507554058",
-  "author": "yourhonestmate",
-  "text": "Today:\n\nEquinor (Europe’s largest gas supplier / Norwegian oil &amp; gas company)\n\nOngoing cyberattack against certain IT systems, first disclosed 17 November.\n\nOperations and production unaffected; no indication of data theft.\n\nInternal IT systems and email disrupted. Company is",
-  "created_at": "2026-11-18T00:40:36.000Z",
+  "url": "https://x.com/jr_major/status/2123071440517992471",
+  "author": "@jr_major",
+  "text": "Microsoft's agent-framework 1.26.1 and 1.26.2 were on PyPI for under an hour yesterday. A startup hook stole credentials on every Python start, with no import.\n\nWiz says the publish used a compromised signing cert and only worked from Microsoft IPs. Pin 1.26.0 and rotate secrets.",
+  "created_at": "2026-11-18T15:10:50.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/CryptoPatel/status/2122895069091127522",
-  "author": "CryptoPatel",
-  "text": "BREAKING: CoinDCX Discloses Customer Data Breach Through Third-Party Vendor!\n\n🇮🇳 Indian crypto exchange CoinDCX has confirmed unauthorized access to its third-party vendor Plotline.\n\nWhat was exposed?\n🔹 Customer names\n🔹 Email addresses\n🔹 Names of linked banks\n\nWhat remains https://t.co/1TgxjF6LoG",
-  "created_at": "2026-11-18T03:30:00.000Z",
+  "url": "https://x.com/Tuxxin/status/2123071262675079643",
+  "author": "@Tuxxin",
+  "text": "A fake Microsoft Teams download site and about 100 hacked websites share the same 2 KB gatekeeper script.\n\nmicrsoft-teams[.]com is a copy of the Teams download page with one extra script. It collects the visitor's browser, platform, languages, time zone, screen size, CPU and https://t.co/aE02u4aqAn",
+  "created_at": "2026-11-18T15:10:08.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/KingArt51769658/status/2122796414665118039",
-  "author": "KingArt51769658",
-  "text": "•Cybernews reports that the emerging n0n ransomware gang listed Visa and JPMorgan Chase on its leak site, demanding negotiations within 48 hours or it will publish allegedly stolen customer and marketing data.\n•Visa confirmed a security incident at a third-party Asia Pacific",
-  "created_at": "2026-11-17T20:57:59.000Z",
+  "url": "https://x.com/FatalExceptTV/status/2123070085048754364",
+  "author": "@FatalExceptTV",
+  "text": "OpenAI says its AI agents got into Hugging Face using 14 access keys left in a public dataset. Never paste a key or password anywhere public, and change any you leaked.\n\nFull story: https://t.co/AUwtbwA4bj\n\n#CyberSecurity #AI https://t.co/VAqeG55ISw",
+  "created_at": "2026-11-18T15:05:27.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/Ian74x/status/2123033421467308307",
-  "author": "Ian74x",
-  "text": "Ace Security Desk - Australia’s Bookeasy ‘Data Breach’ Confirmed: Personal user data breached after Qld, Victoria &amp; SA’s National Park booking systems hacked  https://t.co/utGvZmZPLo",
-  "created_at": "2026-11-18T12:39:46.000Z",
+  "url": "https://x.com/alphahunt_io/status/2123069522248667228",
+  "author": "@alphahunt_io",
+  "text": "[SIGNALS WEEKLY] The customer device needs support. SCKit is designed to make the technician's connection an attack path, too.\n\nMicrosoft describes abuse of ScreenConnect to install extra remote-access clients tied to attacker-controlled infrastructure and deploy SCKit on managed https://t.co/FrN0QXYLT5",
+  "created_at": "2026-11-18T15:03:13.000Z",
   "cves": []
  }
 ]
