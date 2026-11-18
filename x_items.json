@@ -1,5 +1,150 @@
 [
  {
+  "url": "https://x.com/PrecursorUK/status/2123104144718279077",
+  "author": "@PrecursorUK",
+  "text": "Red Hat rates #NGINX2Root (CVE-2026-123007) Critical. nginx in RHEL 8, 9 and 10 is still \"under investigation\" with no updates, so dnf update won't fix it today. Disable HTTP/2 for now.\n\nhttps://t.co/atlNPBVWM5",
+  "created_at": "2026-11-18T17:20:48.000Z",
+  "cves": [
+   "CVE-2026-123007"
+  ]
+ },
+ {
+  "url": "https://x.com/BreachNewsHQ/status/2123103632321036315",
+  "author": "@BreachNewsHQ",
+  "text": "Critical NGINX flaws patched: nginx2root.\n\nF5 fixed 5 critical NGINX bugs, including CVE-2026-123007, an HTTP/2 flaw present since 2015 that can allow unauthenticated code execution.\n\nA public proof-of-concept is out. Upgrade to 1.31.9 or 1.30.7 and restart, since a reload keeps",
+  "created_at": "2026-11-18T17:18:45.000Z",
+  "cves": [
+   "CVE-2026-123007"
+  ]
+ },
+ {
+  "url": "https://x.com/jbish1572/status/2123102954744135741",
+  "author": "@jbish1572",
+  "text": "Useful context from Rapid7's writeup: their CVE-2026-123007 RCE needed about 128 GB of HTTP/2 traffic, and below roughly 300 Mbit/s nginx's one-hour connection limit kills it. Not a reason to wait, though. Can't patch yet? Turn http2 off. https://t.co/0a2VEaYMLa",
+  "created_at": "2026-11-18T17:16:04.000Z",
+  "cves": [
+   "CVE-2026-123007"
+  ]
+ },
+ {
+  "url": "https://x.com/blackorbird/status/2123101535509082289",
+  "author": "@blackorbird",
+  "text": "Unauthenticated Remote Code Execution in NGINX: CVE-2026-123633 and CVE-2026-123007\nTwo critical HTTP/2 flaws can allow attackers to compromise NGINX servers, putting the websites, APIs, and sensitive data they handle at risk.\nhttps://t.co/SPyFaLZcun https://t.co/oKKPW8qDRU",
+  "created_at": "2026-11-18T17:10:26.000Z",
+  "cves": [
+   "CVE-2026-123633",
+   "CVE-2026-123007"
+  ]
+ },
+ {
+  "url": "https://x.com/cvedotnow/status/2123104531932172293",
+  "author": "@cvedotnow",
+  "text": "\ud83d\udd34 CRITICAL 9.8 \u00b7 Devolutions Agent: command injection in package broker enables escalation (CVE-2026-131157)\n\nA local user with an account can run arbitrary commands with elevated privileges using crafted package parameters.\n\n\ud83d\udc49 Fix: 2026.3.1\nhttps://t.co/la4gC5PGLb",
+  "created_at": "2026-11-18T17:22:20.000Z",
+  "cves": [
+   "CVE-2026-131157"
+  ]
+ },
+ {
+  "url": "https://x.com/TheHackersNews/status/2123102102302109896",
+  "author": "@TheHackersNews",
+  "text": "\ud83d\uded1 WARNING - Hackers are actively exploiting a critical Apache Roller flaw to execute code remotely \u2014 no login required.\n\n\u2b9e CVE-2026-129448 | CVSS 9.8\n\u2b9e Disabling XML-RPC in the admin UI won't protect you.\n\u2b9e Upgrade to 6.1.6+.\n\nDetails: https://t.co/2JvQDpm1bC",
+  "created_at": "2026-11-18T17:12:41.000Z",
+  "cves": [
+   "CVE-2026-129448"
+  ]
+ },
+ {
+  "url": "https://x.com/infrastack_ai/status/2123102236012327037",
+  "author": "@infrastack_ai",
+  "text": "\ud83d\udea8 Weaver E-cology 9.0 accepts JSP uploads with no login, so attackers can plant a webshell and run code.\n\nIf your E-cology 9.0 web interface is reachable from the internet or an untrusted network, block /page/exportImport/uploadOperation.jsp at the proxy and install the latest",
+  "created_at": "2026-11-18T17:13:13.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/infrastack_ai/status/2123100967625494966",
+  "author": "@infrastack_ai",
+  "text": "\ud83d\udea8 MeterSphere is being exploited: its plugin endpoints need no login, so anyone who can reach it can run code.\n\nIf you self-host MeterSphere 1.13.0 to before 1.14.7 or 1.15.0 to before 1.16.4, anyone can POST a jar to /plugin/add and run it via /plugin/customMethod. Check access",
+  "created_at": "2026-11-18T17:08:10.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/cvedotnow/status/2123101770658222150",
+  "author": "@cvedotnow",
+  "text": "\ud83d\udd34 CRITICAL 9.1 \u00b7 zyrabit-SLM: remote file read and write in import_to_vault (CVE-2026-130154)\n\nAn unauthenticated remote attacker can write files outside the document vault and read files the service can access.\n\n\ud83d\udc49 Fix: 2.4.4\nhttps://t.co/J5nL473Ssx",
+  "created_at": "2026-11-18T17:11:22.000Z",
+  "cves": [
+   "CVE-2026-130154"
+  ]
+ },
+ {
+  "url": "https://x.com/infrastack_ai/status/2123103506173448307",
+  "author": "@infrastack_ai",
+  "text": "\ud83d\udea8 Malicious code was found in the npm package react-cache-hook, and every published version is affected.\n\nIf your project or any dependency pulls in react-cache-hook, treat that install as compromised. Remove it and search your lockfiles for the name.\n\nFirst public Nov 18 \u00b7 all",
+  "created_at": "2026-11-18T17:18:15.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/BleepinComputer/status/2123098655393566922",
+  "author": "@BleepinComputer",
+  "text": "Microsoft\u2019s Agent Framework PyPI package compromised to steal credentials\nhttps://t.co/Qvkxgk9CoQ\n\nhttps://t.co/Qvkxgk9CoQ",
+  "created_at": "2026-11-18T16:58:59.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/BugBountyBeyond/status/2123102693581557920",
+  "author": "@BugBountyBeyond",
+  "text": "Microsoft's agent-framework on PyPI shipped a credential stealer that ran on every Python start, even if you never imported it.\n\nHow the .pth trick works, a 3-step am-I-affected check, and what to rotate:\nhttps://t.co/XdG6PXFS1a",
+  "created_at": "2026-11-18T17:15:02.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/DFIR_Radar/status/2123099620469612892",
+  "author": "@DFIR_Radar",
+  "text": "ARTEX, an open-source AI-agent pen-testing framework, became an attacker staple in about three months. Storm-0940, assessed by Microsoft as China \ud83c\udde8\ud83c\uddf3 state aligned, used it to hit a vendor's Microsoft 365 apps, then tried sign-ins against more than 2,250 customer tenants.\n\n- https://t.co/Bp71ZdxmkS",
+  "created_at": "2026-11-18T17:02:49.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/neil_xbt/status/2123102434037727393",
+  "author": "@neil_xbt",
+  "text": "Google's threat team says attackers have found and exploited bugs with no human in the loop, for the first time.\n\nFrom GTIG's report of 16 Nov:\n\n- A framework called exploit_agent compares code before and after a patch, drafts the exploit and runs it\n\n- Zero-day exploits went https://t.co/BzVrMj0wxN",
+  "created_at": "2026-11-18T17:14:00.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/Akshayi3iw/status/2123092673871675629",
+  "author": "@Akshayi3iw",
+  "text": "A researcher using OpenAI's Codex found a critical bug in Java itself \u2014 in 1 hour, for under $200. 'Java4Shell' (CVE-2026-114938) lets attackers run code on Jira, Jenkins &amp; Keycloak with no login. Would you let AI audit your code?\nhttps://t.co/02oyN3RHgf",
+  "created_at": "2026-11-18T16:35:13.000Z",
+  "cves": [
+   "CVE-2026-114938"
+  ]
+ },
+ {
+  "url": "https://x.com/AiRiskBytes/status/2123104698983162152",
+  "author": "@AiRiskBytes",
+  "text": "The cheapest supply-chain attack of the year ran through the most expensive real estate on the web AND made $7,040.\n\nFor roughly 16 hours this week, the websites of BBC, CNN, Fox News, Zoom, Salesforce and HSBC served an attacker's JavaScript to their visitors...delivered by",
+  "created_at": "2026-11-18T17:23:00.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/kuchnewforyou/status/2123099511707029844",
+  "author": "@kuchnewforyou",
+  "text": "\ud83d\udea8TODAY: Two data security breaches incidents hit MUFG Bank and Japan\u2019s Ministry of Health, Labour and Welfare classified drug reporting system.\n\n1. MUFG Bank\nThe bank says a breach of PLAID\u2019s KARTE platform exposed about 6.5 million customer records, including age, gender and https://t.co/z2nfT0wECr",
+  "created_at": "2026-11-18T17:02:23.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/AGTPinsights/status/2123098737631531504",
+  "author": "@AGTPinsights",
+  "text": "NGINX just got hit with critical HTTP/2 vulnerabilities that allow remote code execution, disclosed today. Here's what you need to know.\n\nWiz Research, Xint, Metnir AI, Rapid7 and Ikotas Labs independently found two critical memory-safety flaws in NGINX, CVE-2026-123633 and https://t.co/zuoavLFB5u",
+  "created_at": "2026-11-18T16:59:18.000Z",
+  "cves": [
+   "CVE-2026-123633"
+  ]
+ },
+ {
   "url": "https://x.com/nirohfeld/status/2123070394227663006",
   "author": "@nirohfeld",
   "created_at": "2026-11-18T15:06:41.000Z",
@@ -22,14 +167,14 @@
  {
   "url": "https://x.com/xint_official/status/2123072789351653865",
   "author": "@xint_official",
-  "text": "🚨 Critical nginx vulnerabilities disclosed. Immediate action recommended.\n\nIf you run nginx, check whether your servers are affected and update to the patched version immediately. If you cannot upgrade, follow the mitigation guidance at https://t.co/hDfbxC8hv1\n\nToday we’re https://t.co/HRZqkwJ8Tm",
+  "text": "\ud83d\udea8 Critical nginx vulnerabilities disclosed. Immediate action recommended.\n\nIf you run nginx, check whether your servers are affected and update to the patched version immediately. If you cannot upgrade, follow the mitigation guidance at https://t.co/hDfbxC8hv1\n\nToday we\u2019re https://t.co/HRZqkwJ8Tm",
   "created_at": "2026-11-18T15:16:12.000Z",
   "cves": []
  },
  {
   "url": "https://x.com/wiz_io/status/2123072693042082117",
   "author": "@wiz_io",
-  "text": "🚨 Critical NGINX Vulnerabilities: @wiz_io Research, alongside @xint_official , @MetnirAI , @rapid7 , @ikotas00 independently discovered 2 critical memory-safety flaws in NGINX (CVE-2026-123633 & CVE-2026-123007) allowing unauthenticated RCE with HTTP/2 enabled. https://t.co/9uSNydq71Y",
+  "text": "\ud83d\udea8 Critical NGINX Vulnerabilities: @wiz_io Research, alongside @xint_official , @MetnirAI , @rapid7 , @ikotas00 independently discovered 2 critical memory-safety flaws in NGINX (CVE-2026-123633 & CVE-2026-123007) allowing unauthenticated RCE with HTTP/2 enabled. https://t.co/9uSNydq71Y",
   "created_at": "2026-11-18T15:15:49.000Z",
   "cves": [
    "CVE-2026-123007",
@@ -39,7 +184,7 @@
  {
   "url": "https://x.com/brian_pak/status/2123071121553854545",
   "author": "@brian_pak",
-  "text": "Pre-auth RCE in nginx is the bug every hacker dreams of finding. It almost never happens.\n\nToday we’re disclosing nginx2root: five nginx vulnerabilities, and an exploit that takes an unauthenticated attacker all the way to root.\n\nOne of themhits the default config.\n\nIf you run",
+  "text": "Pre-auth RCE in nginx is the bug every hacker dreams of finding. It almost never happens.\n\nToday we\u2019re disclosing nginx2root: five nginx vulnerabilities, and an exploit that takes an unauthenticated attacker all the way to root.\n\nOne of themhits the default config.\n\nIf you run",
   "created_at": "2026-11-18T15:09:34.000Z",
   "cves": []
  },
@@ -70,7 +215,7 @@
   "url": "https://x.com/webenstein_/status/2122825501605536127",
   "author": "@webenstein_",
   "created_at": "2026-11-17T22:53:34.000Z",
-  "text": "Researchers uncovered a critical Chrome vulnerability actively exploited in the wild. Tracked as CVE-2026-125350, the flaw affects Chrome’s XML processing component and has prompted an emergency security update across multiple platforms.",
+  "text": "Researchers uncovered a critical Chrome vulnerability actively exploited in the wild. Tracked as CVE-2026-125350, the flaw affects Chrome\u2019s XML processing component and has prompted an emergency security update across multiple platforms.",
   "cves": [
    "CVE-2026-125350"
   ]
@@ -114,7 +259,7 @@
   "url": "https://x.com/ksg93rd/status/2123045943796744317",
   "author": "@ksg93rd",
   "created_at": "2026-11-18T13:29:31.000Z",
-  "text": "CVE-2026-115731: critical RCE in Perforce Puppet Enterprise (CVSS 9.4). A crafted agent report deserializes to code on Puppet Server. Exploited in the wild, now in CISA KEV. Patch + restart now. @ksg93rd #cvedecoded #puppet #infosec https://t.co/qeNfuYfTzZ\n🔐 Team kit:",
+  "text": "CVE-2026-115731: critical RCE in Perforce Puppet Enterprise (CVSS 9.4). A crafted agent report deserializes to code on Puppet Server. Exploited in the wild, now in CISA KEV. Patch + restart now. @ksg93rd #cvedecoded #puppet #infosec https://t.co/qeNfuYfTzZ\n\ud83d\udd10 Team kit:",
   "cves": [
    "CVE-2026-115731"
   ]
@@ -123,7 +268,7 @@
   "url": "https://x.com/The_Cyber_News/status/2122929041464570334",
   "author": "@The_Cyber_News",
   "created_at": "2026-11-18T05:45:00.000Z",
-  "text": "‼️ Critical Apache HTTP Server RCE Vulnerability Actively Exploited in Attacks \n\nDetails: https://t.co/7loC3ah6i6\n\nApache’s HTTP/2 module, mod_http2, has a critical flaw tracked as CVE-2026-119618 that reportedly allows unauthenticated remote code execution.\n\nApache released https://t.co/QqFzxqnyXY",
+  "text": "\u203c\ufe0f Critical Apache HTTP Server RCE Vulnerability Actively Exploited in Attacks \n\nDetails: https://t.co/7loC3ah6i6\n\nApache\u2019s HTTP/2 module, mod_http2, has a critical flaw tracked as CVE-2026-119618 that reportedly allows unauthenticated remote code execution.\n\nApache released https://t.co/QqFzxqnyXY",
   "cves": [
    "CVE-2026-119618"
   ]
@@ -132,7 +277,7 @@
   "url": "https://x.com/infrastack_ai/status/2122796517027357063",
   "author": "@infrastack_ai",
   "created_at": "2026-11-17T20:58:23.000Z",
-  "text": "👀 Flawharbor found 66 fake CVE exploit repos on GitHub that target the security staff who download them.\n\nIf you test new CVEs with GitHub PoCs on a work machine, you are the target. One PoC pulls a dependency that runs code on every Python launch even after you delete it: use a",
+  "text": "\ud83d\udc40 Flawharbor found 66 fake CVE exploit repos on GitHub that target the security staff who download them.\n\nIf you test new CVEs with GitHub PoCs on a work machine, you are the target. One PoC pulls a dependency that runs code on every Python launch even after you delete it: use a",
   "cves": []
  },
  {
@@ -158,162 +303,28 @@
   "url": "https://x.com/pentestlabwiki/status/2122746426036043942",
   "author": "@pentestlabwiki",
   "created_at": "2026-11-17T17:39:21.000Z",
-  "text": "CISA Warns of Actively Exploited Check Point Zero-Day Vulnerability Allowing Attackers to Gain\n\nCISA has added a Check Point Gaia OS vulnerability to its Known Explo\n\nFull brief  https://t.co/uZ7Qa0lvuB‼",
+  "text": "CISA Warns of Actively Exploited Check Point Zero-Day Vulnerability Allowing Attackers to Gain\n\nCISA has added a Check Point Gaia OS vulnerability to its Known Explo\n\nFull brief  https://t.co/uZ7Qa0lvuB\u203c",
   "cves": []
  },
  {
   "url": "https://x.com/lumiverse_s/status/2122896326178345297",
   "author": "@lumiverse_s",
   "created_at": "2026-11-18T03:35:00.000Z",
-  "text": "⚠️ Over 1,000 security flaws patched in Microsoft's Nov Patch Tuesday, including an actively exploited Outlook zero-day - while CISA added multiple urgent threats to its KEV list.Attackers are moving faster than ever. Are your patch cycles keeping up? 👇",
+  "text": "\u26a0\ufe0f Over 1,000 security flaws patched in Microsoft's Nov Patch Tuesday, including an actively exploited Outlook zero-day - while CISA added multiple urgent threats to its KEV list.Attackers are moving faster than ever. Are your patch cycles keeping up? \ud83d\udc47",
   "cves": []
  },
  {
   "url": "https://x.com/TMLwire/status/2122989362619003116",
   "author": "@TMLwire",
   "created_at": "2026-11-18T09:44:41.000Z",
-  "text": "🚨BREAKING: AI JUST FOUND A CRITICAL \"JAVA4SHELL\" BUG IN JAVA, THE CODE BEHIND ABOUT 90% OF FORTUNE 500 COMPANIES.\n\nThe US cyber agency CISA, Oracle, and the startup that found it are racing to contain the fallout from this week's AI-found flaw.\n\nHere's what's happening:\n\n→ https://t.co/6gDXS2F2tj",
+  "text": "\ud83d\udea8BREAKING: AI JUST FOUND A CRITICAL \"JAVA4SHELL\" BUG IN JAVA, THE CODE BEHIND ABOUT 90% OF FORTUNE 500 COMPANIES.\n\nThe US cyber agency CISA, Oracle, and the startup that found it are racing to contain the fallout from this week's AI-found flaw.\n\nHere's what's happening:\n\n\u2192 https://t.co/6gDXS2F2tj",
   "cves": []
  },
  {
   "url": "https://x.com/Bug_Breakdown/status/2123010152630771854",
   "author": "@Bug_Breakdown",
   "created_at": "2026-11-18T11:07:18.000Z",
-  "text": "A brilliant Indirect Prompt Injection that turned an AI helpdesk into a data exfiltration pipeline! Here is how a researcher exploited a RAG architecture to steal internal session tokens:  \n\n🚨 BUG: Indirect Prompt Injection / Data Exfiltration  \n\nTHE FLAW:\n\n• The target was an",
-  "cves": []
- },
- {
-  "url": "https://x.com/CaktusJxck/status/2122795119573144051",
-  "author": "@CaktusJxck",
-  "created_at": "2026-11-17T20:52:50.000Z",
-  "text": "Google ( $GOOGL ) warns hackers are now using autonomous AI agents to turn software patches into potential exploits without human involvement, dramatically shrinking the time companies have to secure vulnerable systems.\n\n-  Autonomous Attacks\nGoogle Threat Intelligence Group https://t.co/c7JkUsCLLl",
-  "cves": []
- },
- {
-  "url": "https://x.com/NitinGu67644653/status/2123034777649566034",
-  "author": "@NitinGu67644653",
-  "created_at": "2026-11-18T12:45:09.000Z",
-  "text": "🚨 DROP EVERYTHING &amp; PATCH JAVA.\nA 4-year-old OpenJDK bug just broke Java’s memory-safety promise: CVE-2026-114938 (\"Java4Shell\").\nFound by AI in ~1 hr, it exposes Jira, Keycloak &amp; Jenkins to pre-auth RCE. How to stop it 👇\nhttps://t.co/DM6S0ZC1fn\n#Cybersecurity #Java #InfoSec",
-  "cves": [
-   "CVE-2026-114938"
-  ]
- },
- {
-  "url": "https://x.com/cyber_rekk/status/2123051060252004454",
-  "author": "@cyber_rekk",
-  "created_at": "2026-11-18T13:49:51.000Z",
-  "text": "AI found nearly 10,000 potential security issues across six open-source projects\n\nOnly 99 made it to the maintainers\n\nMicrosoft and GitHub tested an AI-assisted vulnerability research pipeline called Codename MDASH, powered by Microsoft's MAI Cyber model\n\nThe projects included https://t.co/F2qPAS9mck",
-  "cves": []
- },
- {
-  "url": "https://x.com/_pksharma/status/2122967474551324802",
-  "author": "@_pksharma",
-  "created_at": "2026-11-18T08:17:43.000Z",
-  "text": "🔢 One Java flaw, two scores. Oracle scores CVE-2026-114938 8.1 under CVSS 3.1. Cisco Talos and the researchers who found it, Calif[.]io, score it 9.2 under CVSS 4.0. Not comparable, same bug.\n\nThe bug sits in OpenJDK's hand-written AVX-512 VBMI Base64 routine on x86-64. A",
-  "cves": [
-   "CVE-2026-114938"
-  ]
- },
- {
-  "url": "https://x.com/aidevbird/status/2122897252268290179",
-  "author": "@aidevbird",
-  "created_at": "2026-11-18T03:38:41.000Z",
-  "text": "Java4Shell (CVE-2026-114938, CVSS 9.2) breaches Java memory safety via OpenJDK AVX-512 VBMI Base64 intrinsics. Hand-rolled assembly mishandles trailing padding, writing 62 bytes past buffer bounds. Enables pre-auth RCE on Keycloak and Jenkins. Discovered via AI agent fuzzing.",
-  "cves": [
-   "CVE-2026-114938"
-  ]
- },
- {
-  "url": "https://x.com/cyber_razz/status/2123036571624497548",
-  "author": "@cyber_razz",
-  "created_at": "2026-11-18T12:52:17.000Z",
-  "text": "AI found a critical bug in Java.\n\nCalled Java4Shell.\n\nCVE-2026-114938.\n\nDisclosed November 17 by Calif.\n\nOne researcher.\n\nAbout an hour.\n\nAn OpenAI model.\n\nUnder 200 dollars in tokens.\n\nA working exploit two hours later.\n\nJava has been around for 30 years.\n\nOver 90 percent of the https://t.co/NecHdkyjxE",
-  "cves": [
-   "CVE-2026-114938"
-  ]
- },
- {
-  "url": "https://x.com/webtkdev/status/2123038526874755404",
-  "author": "@webtkdev",
-  "created_at": "2026-11-18T13:00:03.000Z",
-  "text": "21 of the 50 most-starred MCP and AI agent repos have private vulnerability reporting off.\n- 14 have no security policy either\n- All 6 MDASH pilot projects have it on\nAI makes bugs cheap to find. A private report channel is the cheapest fix.\nhttps://t.co/FJDiWnjEu4",
-  "cves": []
- },
- {
-  "url": "https://x.com/themohakagarwal/status/2123086999217393772",
-  "author": "@themohakagarwal",
-  "created_at": "2026-11-18T16:12:40.000Z",
-  "text": "A supply-chain attack hit Microsoft’s Agent Framework Python packages.\n\nMalicious PyPI versions 1.26.1 and 1.26.2 reportedly targeted Azure, Azure DevOps and GitHub Actions credentials.\n\nCheck dependencies. Audit CI/CD pipelines. Rotate potentially exposed secrets.",
-  "cves": []
- },
- {
-  "url": "https://x.com/ageofprophet/status/2123083229003444722",
-  "author": "@ageofprophet",
-  "created_at": "2026-11-18T15:57:41.000Z",
-  "text": "Surprise Python feature nobody asked for: stealing your cloud keys on startup. 🐍\n\nMicrosoft's agent-framework package on PyPI, used to build AI agents, was hijacked in a supply chain attack. Two poisoned releases went out on November 17:\n\n📦 Bad versions: 1.26.1 and 1.26.2\n📈",
-  "cves": []
- },
- {
-  "url": "https://x.com/UpwindMDR/status/2122794204825010205",
-  "author": "@UpwindMDR",
-  "created_at": "2026-11-17T20:49:12.000Z",
-  "text": "🚨 Potential Supply Chain Attack: agent-framework 1.26.1 (PyPI)\n\nOur team at Upwind Security detected suspicious code in agent-framework version 1.26.1.\n\nThe package appears to contain a credential-stealing payload that:\nExecutes automatically at Python startup via a .pth file",
-  "cves": []
- },
- {
-  "url": "https://x.com/BreachNewsHQ/status/2123055309925085662",
-  "author": "@BreachNewsHQ",
-  "created_at": "2026-11-18T14:06:45.000Z",
-  "text": "Confirmed supply chain attack on Microsoft's agent-framework package.\n\nMalicious versions 1.26.1 and 1.26.2 were pushed to PyPI on Nov 17 with a stealer that runs on every Python start.\n\nIt targeted Azure, Azure DevOps and GitHub Actions credentials. Both releases are quarantined",
-  "cves": []
- },
- {
-  "url": "https://x.com/marcominerva/status/2123051915567149508",
-  "author": "@marcominerva",
-  "created_at": "2026-11-18T13:53:15.000Z",
-  "text": "Unfortunately, Microsoft Agent Framework for Python has been hit by a serious supply chain attack. Two malicious versions (1.26.1 and 1.26.2) were published on PyPI. The official GitHub repository is also currently inaccessible. Details: https://t.co/AsklXLWAW2 #ai #microsoft",
-  "cves": []
- },
- {
-  "url": "https://x.com/TwitzerlandNet/status/2122835053839351851",
-  "author": "@TwitzerlandNet",
-  "created_at": "2026-11-17T23:31:31.000Z",
-  "text": "A massive supply-chain cyberattack discovered this week hit at least 178 major organizations after hackers compromised Optimizely, a website-testing and experimentation platform.\n\nThe Optimizely Supply-Chain Attack (Nov 16–17, 2026)\nRather than hacking individual corporate",
-  "cves": []
- },
- {
-  "url": "https://x.com/h___t____n/status/2122873383725457789",
-  "author": "@h___t____n",
-  "created_at": "2026-11-18T02:03:50.000Z",
-  "text": "🚨 If your Python env or CI installed Microsoft's agent-framework 1.26.1 or 1.26.2 yesterday, treat its secrets as stolen.\n\nBoth malicious versions were uploaded to PyPI on Nov 17 (20:35 and 21:08 UTC) and were gone by about 21:30 UTC, per Wiz. They add a .pth startup hook, so https://t.co/YPMt0iJ2p5",
-  "cves": []
- },
- {
-  "url": "https://x.com/seoscottsdale/status/2123060225838285187",
-  "author": "@seoscottsdale",
-  "created_at": "2026-11-18T14:26:17.000Z",
-  "text": "Microsoft’s agent-framework PyPI package was compromised for ~45–55 minutes on Nov 17.\nVersions 1.26.1 and 1.26.2 shipped a credential stealer that runs on every Python start via a .pth file. No import needed. Both quarantined. Safe version is 1.26.0.\nUnpinned installs during the",
-  "cves": []
- },
- {
-  "url": "https://x.com/InterceptorNews/status/2122862820131758454",
-  "author": "@InterceptorNews",
-  "created_at": "2026-11-18T01:21:51.000Z",
-  "text": "⚠️ Optimizely supply-chain attack compromised 178 websites, including BBC, IKEA and Air France.\n\nMalicious scripts stole payment-card details, cookies and cryptocurrency, while attempting to deploy iOS exploits. About $7,000 in crypto theft is confirmed.\n\nThe attack exploited",
-  "cves": []
- },
- {
-  "url": "https://x.com/opfascism/status/2122914801810591918",
-  "author": "@opfascism",
-  "created_at": "2026-11-18T04:48:25.000Z",
-  "text": "Hackers exploited a vulnerability in Optimizely’s Experimentation platform, which is used by websites to test different page versions. They inserted malicious JavaScript into Optimizely-hosted projects, causing the code to be delivered through websites associated with https://t.co/aRmHTN4dPc",
-  "cves": []
- },
- {
-  "url": "https://x.com/yourhonestmate/status/2122852436507554058",
-  "author": "@yourhonestmate",
-  "created_at": "2026-11-18T00:40:36.000Z",
-  "text": "Today:\n\nEquinor (Europe’s largest gas supplier / Norwegian oil &amp; gas company)\n\nOngoing cyberattack against certain IT systems, first disclosed 17 November.\n\nOperations and production unaffected; no indication of data theft.\n\nInternal IT systems and email disrupted. Company is",
+  "text": "A brilliant Indirect Prompt Injection that turned an AI helpdesk into a data exfiltration pipeline! Here is how a researcher exploited a RAG architecture to steal internal session tokens:  \n\n\ud83d\udea8 BUG: Indirect Prompt Injection / Data Exfiltration  \n\nTHE FLAW:\n\n\u2022 The target was an",
   "cves": []
  }
 ]
