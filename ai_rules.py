@@ -142,6 +142,7 @@ CPE_AI = re.compile(r"(?:ray-project:ray|mlflow:|pytorch:|tensorflow:|google:ten
 PRODUCT = [
     ("Arize Phoenix LLM observability platform", r"\barize\b|\bphoenix_secret\b|\barize[- ]phoenix\b"),
     ("Pydantic AI agent framework", r"\bpydantic[- ]?ai\b"),
+    ("Meta AI customer-support agent abused to reassign Instagram accounts", r"\bmeta\W?s? AI (?:customer[- ])?support (?:agent|assistant|bot)\b|\b(?:AI|chatbot) (?:customer[- ])?support (?:agent|assistant|bot)\b.{0,80}\breassign\w*\b.{0,40}\binstagram\b"),
     ("Microsoft Agent Framework (agent-framework PyPI) supply-chain compromise", r"\bagent[- ]framework\b" + GAP(40) + r"\b(?:1\.26\.1|pypi|compromised|infostealer|credential[- ]steal\w*|malicious)\b|\bmicrosoft\W?s? agent[- ]framework\b"),
     ("LLM-based agent platform", r"\blarge[- ]model[- ]based\b" + GAP(60) + r"\b(?:agents?|platforms?|knowledge bases?)\b"),
     ("LLM runtime/server", r"\bollama\b|\bvllm\b|\bgpustack\b|llama\.cpp|\bllama[- ]?cpp\b|\bllama[- ]?index\b|\bllamaindex\b|\blitellm\b|\blm studio\b|\bgpt4all\b|\blocalai\b|text[- ]generation[- ](?:webui|inference)|open[- ]?webui|\bsglang\b|\blmdeploy\b|\bgguf\b"),
