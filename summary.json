@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-19T01:48:00Z",
-  "next_update_note": "Next summary rewrite around 05:48 UTC Nov 19 (12:48 AM EST Nov 19); the feed itself refreshes hourly. PHP's critical release is due 14:00-14:30 UTC Nov 19.",
-  "headline": "Still leading (no change in the last hour): the new mass-exploitation campaign, React2STEAL, uses hijacked GitHub accounts' Actions runners to break into unpatched React/Next.js servers (React2Shell CVE-2025-55182, CVE-2025-29927) and publish their .env files, AWS and AI provider keys; at least 1,281 victim hosts. Also new: Ruby 4.0.10/3.4.13/3.3.14 fix seven memory bugs with RCE proof-of-concepts, and Drupal fixes a critical installer RCE (CVE-2026-132165). No change on the AI-found NGINX, Java4Shell and Apache bugs: patch them first; only Apache mod_http2 is reportedly exploited.",
-  "ai_headline": "AI as the cause: no new AI-run attack tonight, but Darktrace published three real ARTEX intrusions (espionage, finance, Azure key sweep) and Axios notes free AI attack frameworks now reach privileged access in hours; the AI-found NGINX, Java4Shell and Apache bugs are unchanged. AI impact: React2STEAL tests every AI provider key it steals from hacked Next.js servers. AI products: LiteLLM (now in KEV) and the Microsoft agent-framework PyPI stealer remain the top fixes.",
+  "updated_at": "2026-11-19T05:33:49Z",
+  "next_update_note": "Next summary rewrite around 09:30 UTC Nov 19 (4:30 AM EST Nov 19); the feed itself refreshes hourly. PHP's critical release for all supported versions is due 14:00-14:30 UTC Nov 19.",
+  "headline": "Quiet overnight (Nov 19, 05:30 UTC): nothing new outranks the leaders. Still at the top: React2STEAL, the GitHub Actions-driven campaign breaking into unpatched React/Next.js servers (React2Shell CVE-2025-55182, CVE-2025-29927) and stealing .env files, AWS and AI provider keys from 1,281+ hosts; and the AI-found NGINX, Java4Shell and Apache bugs, where only Apache mod_http2 is reportedly exploited. Corrections and additions: Flowise will not get a fix for the MCP token leak (the project reached end of life Aug 31), and Expedia breach data (up to about 2.4M records, per a forum post) is now being shared. PHP's critical fixes land later today.",
+  "ai_headline": "AI as the cause: no new AI-run attack overnight; Darktrace's ARTEX intrusions and the AI-found NGINX, Java4Shell (still probes only) and Apache bugs are unchanged. AI products: LiteLLM (in KEV; X posts say financially motivated actors are exploiting it) and the Microsoft agent-framework PyPI stealer remain the top fixes; Flowise's MCP token leak will never be patched, so move off Flowise 3.1.3-3.1.4. AI impact: React2STEAL tests every AI key it steals.",
   "ai_activity": {
-    "overview": "Nov 19 early (UTC): no brand-new AI-run attack. New: React2STEAL, an automated GitHub Actions-based campaign exploiting old React/Next.js bugs, steals and live-tests AI provider keys along with AWS and database secrets (1,281+ victim hosts); Darktrace published three real ARTEX intrusions. Unchanged: the AI-found bugs. Apache mod_http2 CVE-2026-119618 (Anthropic's AI scanner and Google) is the only one reportedly exploited; Java4Shell (OpenJDK CVE-2026-114938, found with GPT-6 Cyber) draws probes but no confirmed break-in (Cisco now lists affected products); nginx2root (Wiz AI scanner) is patched and not seen exploited. AI products: LiteLLM CVE-2026-40217 in KEV, Microsoft agent-framework PyPI stealer. AI impact: Fireworks AI's second breach, Fugaku/RIKYU key theft, ArgonHunt's 44,096 stolen AI keys. Counts (last 7 days, newest first): 38 AI-caused, 22 AI-product, 17 AI-impact. Since the 21:45 UTC summary: added React2STEAL and Darktrace ARTEX cases; updated Java4Shell. Re-checked at 01:48 UTC: no new AI-caused attack, AI-product exploitation or AI-key breach since the 01:45 UTC summary (latest posts only repeat React2STEAL, Java4Shell, nginx2root and the agent-framework stealer). Older-than-7-day items (Mittwald MCP breach, teai key theft, Nov 7-9) stay out. Checked and not new: the 'AI-assisted AWS compromise in 72 hours' is Sygnia's July 2026 report resurfacing; the Meta AI support-agent Instagram hijack is the April-May 2026 incident (fixed).",
+    "overview": "Nov 19, 05:30 UTC: no brand-new AI-run attack, AI-product exploitation or AI-key breach since the 01:48 UTC summary. Overnight changes: Flowise's MCP bearer-token leak (CVE-2026-130796) will not be fixed because Flowise is end of life, and X posts say financially motivated actors are exploiting LiteLLM. Still leading: React2STEAL, an automated GitHub Actions-based campaign exploiting old React/Next.js bugs, steals and live-tests AI provider keys with AWS and database secrets (1,281+ victim hosts); Darktrace's three real ARTEX intrusions. AI-found bugs: Apache mod_http2 CVE-2026-119618 (Anthropic's AI scanner and Google) is the only one reportedly exploited; Java4Shell (OpenJDK CVE-2026-114938, found with GPT-6 Cyber) draws probes but no confirmed break-in; nginx2root (Wiz AI scanner) is patched and not seen exploited. AI products: LiteLLM CVE-2026-40217 in KEV, Microsoft agent-framework PyPI stealer. AI impact: Fireworks AI's second breach, Fugaku/RIKYU key theft, ArgonHunt's 44,096 stolen AI keys. Counts (last 7 days, newest first): 38 AI-caused, 22 AI-product, 17 AI-impact. Checked and not new: the Sygnia 'AI-assisted AWS compromise in 72 hours' (July 2026) and the Meta AI support-agent Instagram hijack (April-May 2026) are resurfacing; Northflank's Oct 30 breach (attacker used AI code generation, AI keys misused) and NEAR AI's SGLang breach were covered earlier.",
     "counts": {
       "ai_cause": 38,
       "ai_product_exploited": 22,
@@ -448,14 +448,14 @@
           {
             "title": "Flowise CVE-2026-130796: unauthenticated attackers can read MCP server bearer tokens (Flowise 3.1.3-3.1.4)",
             "date": "2026-11-17T20:05:00Z",
-            "summary": "Newly published; no exploitation reported. Sibling SSRF CVE-2026-130615 (authenticated) in Flowise through 3.1.4.",
+            "summary": "No patch is coming: Flowise reached end of life Aug 31, 2026 and its repository is archived. No exploitation reported. Sibling SSRF CVE-2026-130615 (authenticated) in Flowise through 3.1.4. Mitigate by making MCP-enabled chatflows private or turning MCP off, rotating MCP tokens, and migrating to a maintained fork or another tool.",
             "status": "reported",
             "cves": [
               "CVE-2026-130796",
               "CVE-2026-130615"
             ],
-            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-130796",
-            "source": "NVD / CVEnew"
+            "url": "https://github.com/FlowiseAI/Flowise/discussions/6727",
+            "source": "NVD / Flowise EOL notice"
           },
           {
             "title": "Arize Phoenix LLM observability CVE-2026-53998 (CVSS 10): format-string injection in the applyChatTemplate GraphQL endpoint leaks environment variables and secrets; fixed in 15.7.0",
@@ -927,7 +927,7 @@
         "CVE-2026-48710"
       ],
       "vendor": "LiteLLM (BerriAI); Starlette",
-      "why": "New since the previous summary: CISA put CVE-2026-40217 in KEV (federal deadline Dec 2). In LiteLLM 1.81.8-1.83.9 the custom-code guardrail test endpoint (POST /guardrails/test_custom_code) escapes its sandbox, so anyone with an admin/master key, including a leaked or default one like sk-1234, gets root in the default Docker image; a public exploit has existed since April. Separately, LiteLLM 1.74.2-1.83.6 plus Starlette before 1.0.1 allows an unauthenticated RCE chain through the MCP test endpoint, which SANS honeypots saw being sprayed from Nov 16. Gateways hold OpenAI, Anthropic and cloud keys, which ARTEX-style agents hunt.",
+      "why": "New since the previous summary: CISA put CVE-2026-40217 in KEV (federal deadline Dec 2). In LiteLLM 1.81.8-1.83.9 the custom-code guardrail test endpoint (POST /guardrails/test_custom_code) escapes its sandbox, so anyone with an admin/master key, including a leaked or default one like sk-1234, gets root in the default Docker image; a public exploit has existed since April. Separately, LiteLLM 1.74.2-1.83.6 plus Starlette before 1.0.1 allows an unauthenticated RCE chain through the MCP test endpoint, which SANS honeypots saw being sprayed from Nov 16. Gateways hold OpenAI, Anthropic and cloud keys, which ARTEX-style agents hunt. Overnight X posts say financially motivated actors are exploiting LiteLLM RCE (unverified detail on which CVE).",
       "action": "Upgrade LiteLLM to 1.84.0 or later (covers both; at minimum 1.83.11 for CVE-2026-40217) and Starlette to 1.0.1+. Block /guardrails/test_custom_code and /mcp-rest/ at the reverse proxy, never use a default master key, and keep admin routes off the internet. If requests to those endpoints appear in logs, rebuild the proxy and rotate the master key and every provider key it stored (follow LiteLLM's steps if LITELLM_SALT_KEY was unset).",
       "url": "https://www.cisa.gov/news-events/alerts/2026/11/18/cisa-adds-four-known-exploited-vulnerabilities-catalog",
       "ai_angle": [
@@ -1025,6 +1025,13 @@
     }
   ],
   "watch": [
+    "Flowise CVE-2026-130796 (unauthenticated MCP bearer-token read, 3.1.3-3.1.4) and SSRF CVE-2026-130615: no fix will ship (Flowise end of life Aug 31, repo archived). Make MCP chatflows private or disable MCP, rotate MCP tokens, and migrate. https://github.com/FlowiseAI/Flowise/discussions/6727",
+    "Expedia: a forum actor is now sharing what they call confirmed Expedia breach data, up to about 2.4M records (per X, unverified count). Change reused passwords and expect travel-booking phishing.",
+    "New criticals overnight (no exploitation reported): Ubiquiti UniFi Access, five CVEs, worst 9.9 root code execution; Idunno.AntiCsrf CVE-2026-131914 (CVSS v4 9.3, unauthenticated RCE on IIS via an exposed .aspx page); Oracle E-Business Suite CVE-2026-114924 (9.8).",
+    "Japan cloud incidents (Nov 18-19): Open Co.'s BizRobo!mini cloud breached (about 1,000 accounts at 560 companies; authentication server data in scope); security vendor Cyber Security Cloud says personal data kept in GitHub from a breached development environment may have leaked.",
+    "2RedBeans (dating platform) data-breach notice: about 1.3M member accounts exposed (company notice, Nov 2026).",
+    "Google AI Ultra/Antigravity: a leaked $0 checkout trick is being mass-abused; Google is revoking subscriptions and suspending accounts that used it. Not a breach of users, but do not use such links.",
+    "Malicious npm package prettier-plugin-solidity-import-order (typosquat flagged by GitHub as malware): check Solidity project lockfiles.",
     "Re-checked 01:48 UTC Nov 19: the X posts about '178 sites incl. CNN and BBC' are the Nov 16-17 OPTIMJACK Optimizely script hijack (already listed), not a new breach; the Uber vendor breach (149,346 people) is also already covered.",
     "Fugaku supercomputer (RIKEN) breach took users' stored SSH private keys and access keys (also the RIKYU AI-for-Science system), and Assembled lost its integration-credential database: affected users should replace every stored key and rotate remaining integrations (moved from focus, no change).",
     "Mitsubishi UFJ Bank (Nov 18): about 6.5M customer records (gender, age, region; no names) exposed via vendor PLAID's KARTE platform on Nov 13, part of the KARTE breach (Sankei: ~8M across five MUFG companies). Rotate KARTE connector secrets.",
@@ -1055,7 +1062,6 @@
     "PLAID KARTE marketing-platform breach (Japan): connector secrets and client customer data stolen; JINS says up to 18.29M accounts, Nikkei also hit. Rotate KARTE connector secrets.",
     "Cloud keys leaked in public Docker Hub images are being used within seconds of publication (BleepingComputer, Nov 17): scan images before pushing.",
     "Claude Dispatch (Forever Security, Nov 6, resurfacing): a browser extension on claude.ai can make Claude Desktop run code; Anthropic has not fixed it and says Dispatch will be retired. Turn off cross-device Dispatch. https://thehackernews.com/2026/11/malicious-browser-extensions-could-use.html",
-    "Flowise CVE-2026-130796 (unauthenticated MCP bearer-token read, 3.1.3-3.1.4) and SSRF CVE-2026-130615: upgrade past 3.1.4 when available and rotate MCP tokens.",
     "OpenHands Agent SDK CVE-2026-112346 (unauthenticated network RCE before 1.52.0); SSMS LLM-assistant privesc CVE-2026-65669 (details unverified).",
     "ToolHive CVE-2026-58197 (MCP servers without network isolation, CVSS 8.8, unverified single report): restrict exposure until a fix ships.",
     "ForgePtr CVE-2026-47501 (NVIDIA driver, GPU container to host root; fix 615.71.09+) and NvRoot CVE-2026-47591 for shared GPU clusters.",
