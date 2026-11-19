@@ -1,19 +1,30 @@
 {
-  "updated_at": "2026-11-19T17:31:10Z",
-  "next_update_note": "Next summary rewrite around 21:30 UTC Nov 19 (4:30 PM EST); the feed itself refreshes hourly.",
-  "headline": "New since 13:30 UTC (Nov 19): PHP shipped fixes for 18 flaws on every supported branch (8.5.13, 8.4.28, 8.3.37, 8.2.36), including phpAfterShell CVE-2026-126714, which depthfirst found with its own AI models, and Drupal's installer RCE CVE-2026-132165, found by Anthropic's OSS Scanner. Neither is exploited yet. VMware vCenter CVE-2026-123890 (CVSS 9.8 auth bypass) was patched today, and Google/Mandiant say China-linked ARMORY CASTLE used it as a zero-day in September to take over vCenter and reach ESXi as root. JPMorgan, Visa and Mastercard confirmed that third-party vendors leaked marketing and benefit-program data (names, emails; no card numbers); n0n claims the breach. NVIDIA says it has found no sign its own systems were breached. Unchanged at the top: the European Commission and Symantec AI-assisted attacks, React2STEAL key theft, and the AI-found NGINX, Java4Shell and Apache bugs.",
-  "ai_headline": "AI as the cause: two more AI-found critical bugs were fixed today, phpAfterShell (depthfirst AI) and Drupal CVE-2026-132165 (Anthropic OSS Scanner). They join nginx2root, Java4Shell and Apache CVE-2026-119618, the only one of these reported as exploited. Confirmed AI-assisted intrusions (European Commission, Symantec's stock-exchange case, Barracuda, Darktrace's ARTEX cases, GTIG exploit_agent) are unchanged since 13:30 UTC. AI products: the LiteLLM KEV flaw and the Microsoft agent-framework PyPI stealer are still the top fixes. AI impact: React2STEAL and ARTEX keep hunting AI and cloud keys. NVIDIA says it has no sign of a compromise of its own systems, and the Gentlemen listing remains unverified.",
+  "updated_at": "2026-11-19T21:35:00Z",
+  "next_update_note": "Next summary rewrite around 01:30 UTC Nov 20 (8:30 PM EST Nov 19); the feed itself refreshes hourly.",
+  "headline": "New since 17:30 UTC (Nov 19): Ruby fixed ruby2shell CVE-2026-132825, a one-byte heap overflow that Veria Labs says gives unauthenticated code execution in default Rails and classic Sinatra apps. GitLab, GitHub Enterprise Server and Chatwoot ship an affected Ruby and have no fix yet; a public PoC is due in about a week. NGINX2Root now has public proof-of-concept code from Rapid7 and Censys, and Censys counts about 9 million exposed NGINX servers on affected versions with HTTP/2 on. Still no exploitation reported. Cybernews says n0n leaked the emails of about 16,000 Chase customers taken from vendors; Visa ties its exposure to a provider in Asia Pacific. No card data was taken. Unchanged at the top: the AI-found PHP (phpAfterShell) and Drupal fixes, vCenter zero-day CVE-2026-123890, the European Commission and Symantec AI-assisted attacks, and React2STEAL key theft.",
+  "ai_headline": "AI as the cause: no new AI-run intrusion since 17:30 UTC. The AI-found NGINX bugs now have public PoCs, raising the risk for unpatched servers. phpAfterShell (depthfirst AI) and Drupal CVE-2026-132165 (Anthropic OSS Scanner) are patched and not exploited. Apache CVE-2026-119618 is still the only AI-found bug reported exploited. Ruby2shell was reported by Veria Labs, which sells an autonomous AI pentester, but its write-up does not say AI found the bug (unverified AI angle). AI products: LiteLLM (KEV) and the Microsoft agent-framework PyPI stealer are still the top fixes. The UK AISI found a universal jailbreak in pre-release GPT-6.2 Astra, which OpenAI says it has fixed. AI impact: React2STEAL and ARTEX keep hunting AI and cloud keys.",
   "ai_activity": {
-    "overview": "Nov 19, 17:30 UTC: no new AI-run intrusion since 13:30 UTC, but two more AI-found critical bugs were fixed: phpAfterShell CVE-2026-126714 (found with depthfirst's AI; PHP fixed 18 CVEs today) and Drupal CVE-2026-132165 (Anthropic OSS Scanner). Neither is exploited yet. Confirmed AI-assisted attacks in the last 7 days: the European Commission (detected Oct 22, reportedly ARTEX, HR/payroll down 10+ days), Symantec's likely AI-written toolkit at an African stock exchange, Barracuda (ARTEX with a key stolen from an AI vendor), Darktrace's three ARTEX intrusions, Google GTIG's exploit_agent, and Elastic's CyberStrikeAI AWS intrusion. AI-found bugs: Apache mod_http2 CVE-2026-119618 is the only one reported exploited; Java4Shell still shows probes only; nginx2root, PHP and Drupal are patched with public write-ups. AI products: LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer (1.26.1 and 1.26.2), and the Flowise MCP token leak with no fix coming. AI impact: React2STEAL steals and live-tests AI provider keys; Fireworks AI's second breach, Fugaku/RIKYU key theft, ArgonHunt's 44,096 stolen AI keys. NVIDIA's Gentlemen listing is unverified, and NVIDIA says its own systems show no compromise.",
+    "overview": "Nov 19, 21:30 UTC: no new AI-run intrusion since 17:30 UTC. The AI-found NGINX2Root HTTP/2 bugs now have public PoCs (Rapid7, Censys; about 9M exposed servers, per Censys) but no reported exploitation. phpAfterShell CVE-2026-126714 (depthfirst AI) and Drupal CVE-2026-132165 (Anthropic OSS Scanner) are patched and not exploited. Confirmed AI-assisted attacks in the last 7 days: the European Commission (detected Oct 22, reportedly ARTEX, HR/payroll down 10+ days), Symantec's likely AI-written toolkit at an African stock exchange, Barracuda (ARTEX with a key stolen from an AI vendor), Darktrace's three ARTEX intrusions, Google GTIG's exploit_agent and Elastic's CyberStrikeAI AWS intrusion. AI-found bugs: Apache mod_http2 CVE-2026-119618 is the only one reported exploited; Java4Shell still shows probes only. Ruby2shell CVE-2026-132825 comes from Veria Labs, an AI pentest firm, but AI involvement is not stated (unverified). AI products: LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer (1.26.1 and 1.26.2), the Flowise MCP token leak with no fix coming, and a fixed GPT-6.2 Astra jailbreak regression found by UK AISI. AI impact: React2STEAL steals and live-tests AI provider keys; also Fireworks AI's second breach, Fugaku/RIKYU key theft and ArgonHunt's 44,096 stolen AI keys. NVIDIA's Gentlemen listing is unverified, and NVIDIA says its own systems show no compromise.",
     "counts": {
-      "ai_cause": 41,
-      "ai_product_exploited": 23,
+      "ai_cause": 42,
+      "ai_product_exploited": 24,
       "ai_impact": 16
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Unverified AI angle: ruby2shell CVE-2026-132825, a one-byte Ruby heap overflow with unauthenticated RCE in default Rails/Sinatra, reported by Veria Labs (sells an autonomous AI pentester); fixed in Ruby 3.3.14/3.4.13/4.0.10",
+            "date": "2026-11-19T10:56:00Z",
+            "summary": "Ruby's advisory says it knows of PoCs that reach RCE in some scenarios; Veria plans to publish a PoC in about a week. GitLab, GitHub Enterprise Server and Chatwoot have no fixed release yet. Veria's write-up does not say whether its AI found the bug, so the AI angle is unverified. No exploitation reported.",
+            "status": "unverified",
+            "cves": [
+              "CVE-2026-132825"
+            ],
+            "url": "https://verialabs.com/ruby2shell/",
+            "source": "Veria Labs / Ruby / Orca"
+          },
           {
             "title": "phpAfterShell: critical PHP session RCE CVE-2026-126714 (CVSS 9.2) found with depthfirst's own AI models; fixed in PHP 8.5.13/8.4.28/8.3.37/8.2.36 on Nov 19",
             "date": "2026-11-19T15:00:00Z",
@@ -33,6 +44,21 @@
             "cves": [],
             "url": "https://apnews.com/article/cyberattack-european-union-artificial-intelligence-ai-79705095e8141cd650196dbff1cf3c70",
             "source": "AP / Politico / CERT-EU"
+          },
+          {
+            "title": "nginx2root: NGINX pre-auth RCE CVE-2026-123007 and CVE-2026-123633 (HTTP/2) found with Wiz Atlas (AI code scanning) and by Xint, Metnir, Rapid7 and Ikotas; five flaws in total fixed Nov 18",
+            "date": "2026-11-19T10:26:00Z",
+            "summary": "Wiz says its AI harness found both HTTP/2 bugs and Gemini 4 Carbon and ChatGPT 5.6 Sol validated RCE. Xint disclosed five configuration-dependent flaws in all: the two HTTP/2 bugs plus HTTP/3 use-after-free CVE-2026-121810, resolver use-after-free CVE-2026-123634 (mirror setups) and mail-proxy CVE-2026-113425. All fixed in 1.30.7/1.31.9 (Plus 37.0.8.1/37.3.0.1). Exploit write-ups are public; F5 and others report no exploitation as of Nov 18; not in CISA KEV. Nov 19 (SecurityWeek): Rapid7 published a PoC for CVE-2026-123007 (needs about 128 GB of HTTP/2 traffic). Censys reproduced the bug without that traffic volume, published its own PoC and counts about 9M NGINX services on affected versions with HTTP/2 on. F5 reports no exploitation.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-123007",
+              "CVE-2026-123633",
+              "CVE-2026-121810",
+              "CVE-2026-123634",
+              "CVE-2026-113425"
+            ],
+            "url": "https://www.infosecurity-magazine.com/news/five-critical-vulnerabilities/",
+            "source": "Wiz / Xint / Infosecurity Magazine"
           },
           {
             "title": "Java4Shell update: probing continues, CISA urges immediate patching; Cloudflare saw one IP pairing ARTEX with Java4Shell",
@@ -73,21 +99,6 @@
             ],
             "url": "https://thehackernews.com/2026/11/drupal-patches-critical-installer-flaw.html",
             "source": "Drupal / The Hacker News"
-          },
-          {
-            "title": "nginx2root: NGINX pre-auth RCE CVE-2026-123007 and CVE-2026-123633 (HTTP/2) found with Wiz Atlas (AI code scanning) and by Xint, Metnir, Rapid7 and Ikotas; five flaws in total fixed Nov 18",
-            "date": "2026-11-18T15:06:00Z",
-            "summary": "Wiz says its AI harness found both HTTP/2 bugs and Gemini 4 Carbon and ChatGPT 5.6 Sol validated RCE. Xint disclosed five configuration-dependent flaws in all: the two HTTP/2 bugs plus HTTP/3 use-after-free CVE-2026-121810, resolver use-after-free CVE-2026-123634 (mirror setups) and mail-proxy CVE-2026-113425. All fixed in 1.30.7/1.31.9 (Plus 37.0.8.1/37.3.0.1). Exploit write-ups are public; F5 and others report no exploitation as of Nov 18; not in CISA KEV.",
-            "status": "patched",
-            "cves": [
-              "CVE-2026-123007",
-              "CVE-2026-123633",
-              "CVE-2026-121810",
-              "CVE-2026-123634",
-              "CVE-2026-113425"
-            ],
-            "url": "https://www.infosecurity-magazine.com/news/five-critical-vulnerabilities/",
-            "source": "Wiz / Xint / Infosecurity Magazine"
           },
           {
             "title": "Java4Shell (OpenJDK CVE-2026-114938) found with AI: Calif researcher used OpenAI's GPT-6 Cyber via Codex; Oracle fixed it Nov 17 and CISA urged immediate patching",
@@ -435,6 +446,15 @@
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "UK AI Security Institute built a universal jailbreak against pre-release GPT-6.2 Astra in half the queries it needed for GPT-6 Astra; OpenAI says the regression is fixed",
+            "date": "2026-11-19T18:47:00Z",
+            "summary": "AISI reported a 'substantial regression in jailbreak robustness' in two pre-release versions. OpenAI says GPT-6.2 Astra and Sol meet its Critical cybersecurity threshold and that it fixed the regression before release. No misuse reported.",
+            "status": "patched",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/11/threatsday-gpt-62-jailbreak-flaws.html",
+            "source": "The Hacker News / UK AISI"
+          },
           {
             "title": "CreditNirvana AI debt-collection platform (Perfios): two flaws exposed 6.6M borrower accounts and 315,000 agent call recordings, and could let outsiders steer its AI agents",
             "date": "2026-11-18T19:00:00Z",
@@ -826,7 +846,7 @@
         ]
       }
     ],
-    "trend_note": "AI is now finding critical bugs in core web software (NGINX, Apache, Java, PHP, Drupal) every few days. Exploits follow fast, and Google has shown an agent that turns patches into exploits. Treat patches for internet-facing web stacks as same-week work, rotate long-lived keys (including AI provider keys), and alert on bursts of credential testing."
+    "trend_note": "AI is now finding critical bugs in core web software (NGINX, Apache, Java, PHP, Drupal) every few days, and public PoCs follow within a day or two (NGINX2Root on Nov 19). Google has shown an agent that turns patches into exploits. Treat patches for internet-facing web stacks as same-week work, rotate long-lived keys (including AI provider keys) and alert on bursts of credential testing."
   },
   "focus": [
     {
@@ -837,7 +857,7 @@
         "CVE-2026-119618"
       ],
       "vendor": "Apache HTTP Server 2.4.55-2.4.70 with mod_http2 (incl. Ubuntu 22.04/20.04 and RHEL 9/10 backports)",
-      "why": "A race condition in mod_http2's assign_headers() lets a remote attacker with no login corrupt heap memory and run commands as the web server. Apache fixed it in 2.4.71 on Nov 11; Apache credits Anthropic's AI-based OSS scanner and Google Cloud Security as independent finders. Singapore's CSA (AL-2026-164) says it is reportedly being actively exploited and a PoC is public, but names no victims or source; it is not in CISA KEV. Red Hat scores it 9.8 and says public research shows a reliable exploit against a default server with HTTP/2 on; Wiz says 64% of cloud environments had vulnerable resources. No change since the previous summary: still not in CISA KEV and no victims or details named.",
+      "why": "A race condition in mod_http2's assign_headers() lets a remote attacker with no login corrupt heap memory and run commands as the web server. Apache fixed it in 2.4.71 on Nov 11; Apache credits Anthropic's AI-based OSS scanner and Google Cloud Security as independent finders. Singapore's CSA (AL-2026-164) says it is reportedly being actively exploited and a PoC is public, but names no victims or source; it is not in CISA KEV. Red Hat scores it 9.8 and says public research shows a reliable exploit against a default server with HTTP/2 on; Wiz says 64% of cloud environments had vulnerable resources. Unchanged: still not in CISA KEV and no victims or details named.",
       "action": "Upgrade to Apache 2.4.71 or your distro's fixed package, restart httpd and rebuild container images. If you cannot patch today, remove h2/h2c from the Protocols directive (Protocols http/1.1). Check web servers for new processes, webshells and unexpected outbound connections, and rotate secrets stored in site config.",
       "url": "https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2026-164/",
       "ai_angle": [
@@ -853,7 +873,7 @@
         "CVE-2026-114938"
       ],
       "vendor": "OpenJDK and all builds (Oracle Java SE, GraalVM, Corretto, Temurin, Zulu, Microsoft, Red Hat, etc.)",
-      "why": "An out-of-bounds write in the JVM's AVX-512 Base64 decoder (Oracle CVSS 8.1, Calif 9.2) affects OpenJDK 17.0.6+, 21, 25 and 27 on x86-64 CPUs with AVX-512 VBMI (Intel Ice Lake+, AMD Zen 4+); ARM64 and Java 8/11 are not known affected. Calif has pre-auth code execution in default Keycloak, Jira, Confluence, Artifactory, Jenkins and PingFederate and is holding its exploits; a client-side exploit via a malicious TLS server also exists. New since the previous summary: GreyNoise logged 53 trigger-shaped malicious requests from 3 IPs and watchTowr sees 'java4shell-recon' scanning and blind attempts, but no successful exploitation is confirmed and it is not in CISA KEV. VulnCheck (customers only) and Immersive have working app-specific exploits; unverified exploit code is appearing on GitHub. Java 18-20, 22-24 and 26 will get no fix. Nov 19: CISA urges immediate patching; SecurityWeek reports probes continue (Cisco, Elastic, Red Hat, Siemens advisories out) and Cloudflare saw one IP pairing ARTEX with Java4Shell; still no confirmed break-in.",
+      "why": "An out-of-bounds write in the JVM's AVX-512 Base64 decoder (Oracle CVSS 8.1, Calif 9.2) affects OpenJDK 17.0.6+, 21, 25 and 27 on x86-64 CPUs with AVX-512 VBMI (Intel Ice Lake+, AMD Zen 4+); ARM64 and Java 8/11 are not known affected. Calif has pre-auth code execution in default Keycloak, Jira, Confluence, Artifactory, Jenkins and PingFederate and is holding its exploits; a client-side exploit via a malicious TLS server also exists. GreyNoise logged 53 trigger-shaped malicious requests from 3 IPs and watchTowr sees 'java4shell-recon' scanning and blind attempts, but no successful exploitation is confirmed and it is not in CISA KEV. VulnCheck (customers only) and Immersive have working app-specific exploits; unverified exploit code is appearing on GitHub. Java 18-20, 22-24 and 26 will get no fix. Nov 19: CISA urges immediate patching; SecurityWeek reports probes continue (Cisco, Elastic, Red Hat, Siemens advisories out) and Cloudflare saw one IP pairing ARTEX with Java4Shell; still no confirmed break-in.",
       "action": "Install Oracle JDK 17.0.21.1, 21.0.13.1, 25.0.5.1 or 27.0.1.1 (Corretto fixed); move off unsupported Java versions. Until your vendor ships a build, start JVMs with -XX:-UseBASE64Intrinsics (test first). Do internet-facing Keycloak, Atlassian, Jenkins, Artifactory and PingFederate first, check JDKs bundled in containers and products (Cisco, Sophos advisories) and rebuild images. Don't run GitHub 'PoCs' blindly.",
       "url": "https://www.tenable.com/blog/java4shell-cve-2026-114938-frequently-asked-questions-about-openjdk-rce-vulnerability",
       "ai_angle": [
@@ -862,7 +882,7 @@
       "ai_note": "Calif says researcher Quang Luong found it with OpenAI's GPT-6 Cyber through Codex (BankInfoSecurity, Straits Times)."
     },
     {
-      "title": "nginx2root: pre-auth RCE in NGINX with HTTP/2 on (CVE-2026-123007, CVE-2026-123633), found with Wiz's AI code scanner; five NGINX flaws fixed Nov 18 in total",
+      "title": "nginx2root: pre-auth RCE in NGINX with HTTP/2 on (CVE-2026-123007, CVE-2026-123633), found with Wiz's AI code scanner; public PoCs from Rapid7 and Censys are now out (Nov 19)",
       "severity": "critical",
       "exploited": false,
       "cves": [
@@ -873,7 +893,7 @@
         "CVE-2026-113425"
       ],
       "vendor": "NGINX Open Source and NGINX Plus (F5); HTTP/2 bugs 1.9.5-1.31.8, HTTP/3 bug 1.25.0-1.31.8",
-      "why": "The two HTTP/2 memory-corruption bugs (CVSS 4.0 9.2) give code execution without login; CVE-2026-123007 (since 2015) worked on NGINX serving plain static files. Wiz found both with Wiz Atlas, its AI code-scanning harness, and confirmed impact with Gemini and ChatGPT models; Xint, Metnir, Rapid7 and Ikotas found them too. New since the previous summary: Xint's disclosure covers five configuration-dependent flaws, adding HTTP/3/QUIC use-after-free CVE-2026-121810 (proxied HTTP/3), resolver use-after-free CVE-2026-123634 (mirror setups) and mail-proxy CVE-2026-113425; an X tracker lists a public exploit for CVE-2026-121810 (unverified). Exploit write-ups are public; no exploitation reported and not in CISA KEV; RHEL packages still pending. No change since the previous summary.",
+      "why": "The two HTTP/2 memory-corruption bugs (CVSS 4.0 9.2) give code execution without login; CVE-2026-123007 (present since 2015) worked on NGINX serving plain static files. Wiz found both with Wiz Atlas, its AI code-scanning harness, and confirmed impact with Gemini and ChatGPT models; Xint, Metnir, Rapid7 and Ikotas found them too. Five flaws were fixed in total, adding HTTP/3 use-after-free CVE-2026-121810, resolver use-after-free CVE-2026-123634 (proxy/mirror setups) and mail-proxy CVE-2026-113425. New since the previous summary: Rapid7 published a PoC for CVE-2026-123007 that defeats ASLR by leaking addresses but needs about 128 GB of HTTP/2 traffic (2 minutes to 1 hour). Censys reproduced the bug without that traffic volume, posted a PoC on GitHub and counts about 9 million NGINX services on affected versions with HTTP/2 on (103M more hide their version). F5 reports no exploitation and the bugs are not in CISA KEV.",
       "action": "Upgrade NGINX to 1.30.7 (stable) or 1.31.9 (mainline), or Plus 37.0.8.1 / 37.3.0.1, then fully restart (a reload keeps old workers). Rebuild containers and check ingress controllers and appliances that bundle NGINX. If you cannot patch yet: turn off HTTP/2 (http2 off), and on HTTP/3 servers remove quic listeners or block UDP 443.",
       "url": "https://www.infosecurity-magazine.com/news/five-critical-vulnerabilities/",
       "ai_angle": [
@@ -887,7 +907,7 @@
       "exploited": true,
       "cves": [],
       "vendor": "Popular web apps, supplier portals and cloud tenants (Google GTIG/Mandiant, FBI reports)",
-      "why": "New Nov 19: the European Commission confirmed an AI-assisted campaign detected Oct 22 that took HR, payroll, leave, medical-reimbursement and translation systems offline for over 10 days (Politico reports ARTEX; possible individual data exposure still under investigation). Symantec reported a likely AI-written 41-module PowerShell toolkit that ran in three minutes on an African stock exchange's IIS server, harvesting cloud/database secrets and testing them against the investment API and a securities-depository gateway, exfiltrating via DNS lookups to an out-of-band testing service. Earlier: Google GTIG found a multi-agent 'exploit_agent' framework that diffs web-app patches, drafts exploits and runs them with no human in the loop; the FBI FLASH-20261113-001 says criminal and state groups use open-source ARTEX (incl. the ConnectWise Cloud Backup compromise); Barracuda's intruder ran ARTEX across 10 cloud accounts with a key stolen from an AI vendor; Darktrace described three more ARTEX intrusions, including an Azure sweep of keys and secrets. North Korea's MIDNIGHT NEPTUNE poisoned a repo setting that pulls a backdoor when developers open Claude Code.",
+      "why": "Nov 19: the European Commission confirmed an AI-assisted campaign detected Oct 22 that took HR, payroll, leave, medical-reimbursement and translation systems offline for over 10 days (Politico reports ARTEX; possible individual data exposure still under investigation). Symantec reported a likely AI-written 41-module PowerShell toolkit that ran in three minutes on an African stock exchange's IIS server, harvesting cloud/database secrets and testing them against the investment API and a securities-depository gateway, exfiltrating via DNS lookups to an out-of-band testing service. Earlier: Google GTIG found a multi-agent 'exploit_agent' framework that diffs web-app patches, drafts exploits and runs them with no human in the loop; the FBI FLASH-20261113-001 says criminal and state groups use open-source ARTEX (incl. the ConnectWise Cloud Backup compromise); Barracuda's intruder ran ARTEX across 10 cloud accounts with a key stolen from an AI vendor; Darktrace described three more ARTEX intrusions, including an Azure sweep of keys and secrets. North Korea's MIDNIGHT NEPTUNE poisoned a repo setting that pulls a backdoor when developers open Claude Code.",
       "action": "Shorten your patch window for internet-facing web apps to days. Hunt for new webshells (especially on IIS), unexpected admin accounts and bursts of credential/API-key testing from one host. Alert on many DNS lookups to out-of-band testing domains (interactsh/oast-style). Pull the FBI FLASH and CERT-EU ARTEX IOCs, rotate long-lived cloud and vendor-held keys, and put a WAF or virtual patching in front of anything you can't patch quickly. Developers: review repo-level Claude Code / agent settings files for unexpected download or hook commands.",
       "url": "https://www.security.com/threat-intelligence/african-stock-exchange-ai-assisted-attack",
       "ai_angle": [
@@ -910,7 +930,7 @@
         "CVE-2026-132165"
       ],
       "vendor": "PHP; Drupal core",
-      "why": "New since 13:30 UTC: PHP released 8.5.13, 8.4.28, 8.3.37 and 8.2.36 on Nov 19, fixing 18 CVEs (Aikido, BleepingComputer). Among them: phpAfterShell CVE-2026-126714 (CVSS 9.2, partly overwritten file-session data leads to deserialization RCE; depthfirst says it found it with its own AI models, per Forbes), PHP-FPM request smuggling CVE-2026-129289 (CVSS 9.2, only where the web server reuses backend connections to PHP-FPM), session serializer RCE CVE-2026-115560, two use-after-free RCEs (CVE-2026-129474, CVE-2026-129496), and CVE-2026-129481, which closes a gap left by October's PHP2Shell fix. PHP says the critical issues need non-default or uncommon setups. Drupal SA-CORE-2026-017 (CVE-2026-132165, discovered by Anthropic's OSS Scanner): a reachable installer can let an attacker reinstall the site, then take it over or run code. No exploitation reported for any of these yet, but public write-ups are already out.",
+      "why": "PHP released 8.5.13, 8.4.28, 8.3.37 and 8.2.36 on Nov 19, fixing 18 CVEs (Aikido, BleepingComputer). Among them: phpAfterShell CVE-2026-126714 (CVSS 9.2, partly overwritten file-session data leads to deserialization RCE; depthfirst says it found it with its own AI models, per Forbes), PHP-FPM request smuggling CVE-2026-129289 (CVSS 9.2, only where the web server reuses backend connections to PHP-FPM), session serializer RCE CVE-2026-115560, two use-after-free RCEs (CVE-2026-129474, CVE-2026-129496), and CVE-2026-129481, which closes a gap left by October's PHP2Shell fix. PHP says the critical issues need non-default or uncommon setups. Drupal SA-CORE-2026-017 (CVE-2026-132165, discovered by Anthropic's OSS Scanner): a reachable installer can let an attacker reinstall the site, then take it over or run code. No exploitation reported for any of these yet, but public write-ups are already out. No exploitation reported as of Nov 19 evening; X claims that PHP bugs are 'being exploited' are unverified.",
       "action": "Upgrade PHP to 8.5.13, 8.4.28, 8.3.37 or 8.2.36 (or your distro's backport) and restart PHP-FPM. Until then, set session.upload_progress.enabled=0 and turn off FastCGI connection reuse to PHP-FPM. Upgrade Drupal to 10.6.22, 11.3.22 or 11.4.13; if you cannot, block /core/install.php and make settings.php read-only.",
       "url": "https://www.bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs/",
       "ai_angle": [
@@ -960,18 +980,6 @@
       "ai_note": ""
     },
     {
-      "title": "N-able confirms attackers breached a Mail Assure / SpamExperts hosted-cloud server (Nov 18); management portals, APIs, quarantine and logging switched off in the Americas, APAC and Europe",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "N-able Mail Assure / SpamExperts (hosted email filtering)",
-      "why": "Unknown attackers accessed one server in the hosted email-security cloud used by MSPs. Mail delivery and inbound/outbound filtering keep working, but admins lost portals, APIs, quarantine and logs while N-able validates and hardens before restoring. As of Nov 19 N-able reports no evidence that customer data or tenant mailboxes were compromised; the entry point has not been disclosed.",
-      "action": "If you or your MSP use Mail Assure/SpamExperts: rotate API keys and admin/portal credentials once access returns, review filtering rules, allow/deny lists and delivery routes for unauthorized changes, and watch for phishing that slips through while quarantine is down. Follow N-able's status page.",
-      "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
-      "ai_angle": [],
-      "ai_note": ""
-    },
-    {
       "title": "Microsoft agent-framework on PyPI hijacked (Nov 17): versions 1.26.1 and 1.26.2 install a credential stealer for Azure, GitHub Actions and cloud secrets",
       "severity": "critical",
       "exploited": true,
@@ -996,7 +1004,7 @@
         "CVE-2026-48710"
       ],
       "vendor": "LiteLLM (BerriAI); Starlette",
-      "why": "New since the previous summary: CISA put CVE-2026-40217 in KEV (federal deadline Dec 2). In LiteLLM 1.81.8-1.83.9 the custom-code guardrail test endpoint (POST /guardrails/test_custom_code) escapes its sandbox, so anyone with an admin/master key, including a leaked or default one like sk-1234, gets root in the default Docker image; a public exploit has existed since April. Separately, LiteLLM 1.74.2-1.83.6 plus Starlette before 1.0.1 allows an unauthenticated RCE chain through the MCP test endpoint, which SANS honeypots saw being sprayed from Nov 16. Gateways hold OpenAI, Anthropic and cloud keys, which ARTEX-style agents hunt. Overnight X posts say financially motivated actors are exploiting LiteLLM RCE (unverified detail on which CVE).",
+      "why": "CISA put CVE-2026-40217 in KEV (federal deadline Dec 2). In LiteLLM 1.81.8-1.83.9 the custom-code guardrail test endpoint (POST /guardrails/test_custom_code) escapes its sandbox, so anyone with an admin/master key, including a leaked or default one like sk-1234, gets root in the default Docker image; a public exploit has existed since April. Separately, LiteLLM 1.74.2-1.83.6 plus Starlette before 1.0.1 allows an unauthenticated RCE chain through the MCP test endpoint, which SANS honeypots saw being sprayed from Nov 16. Gateways hold OpenAI, Anthropic and cloud keys, which ARTEX-style agents hunt. Overnight X posts say financially motivated actors are exploiting LiteLLM RCE (unverified detail on which CVE).",
       "action": "Upgrade LiteLLM to 1.84.0 or later (covers both; at minimum 1.83.11 for CVE-2026-40217) and Starlette to 1.0.1+. Block /guardrails/test_custom_code and /mcp-rest/ at the reverse proxy, never use a default master key, and keep admin routes off the internet. If requests to those endpoints appear in logs, rebuild the proxy and rotate the master key and every provider key it stored (follow LiteLLM's steps if LITELLM_SALT_KEY was unset).",
       "url": "https://www.cisa.gov/news-events/alerts/2026/11/18/cisa-adds-four-known-exploited-vulnerabilities-catalog",
       "ai_angle": [
@@ -1004,14 +1012,40 @@
         "impact"
       ],
       "ai_note": "AI product: LLM gateway that stores AI provider keys; two bugs exploited this week."
+    },
+    {
+      "title": "ruby2shell (CVE-2026-132825): one-byte Ruby heap overflow gives unauthenticated RCE in default Rails and classic Sinatra apps; GitLab and GitHub Enterprise Server not patched yet",
+      "severity": "critical",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-132825"
+      ],
+      "vendor": "Ruby (all versions since 2.4.0); bundled in GitLab, GitHub Enterprise Server, Chatwoot, Mastodon, OpenProject, Discourse",
+      "why": "Upcasing or case-folding a crafted string in single-byte encodings such as ISO-8859-1 or Windows-1252 writes one byte past a heap buffer (UTF-8 strings are not affected). Ruby rates it critical and says it knows of PoCs that reach RCE in some scenarios; Veria Labs says it is reachable without login in default Rails and classic Sinatra. The same release fixes six more Regexp and case-conversion memory bugs. As of 21:29 UTC Nov 19, Veria lists GitLab 19.6.0, GitHub Enterprise Server 3.22.5 and Chatwoot 4.20.0 as not patched; Mastodon, OpenProject and Discourse have fixes. A public PoC is planned in about a week. MITRE's CVSS 7.4 (local) score conflicts with Ruby's network rating. No exploitation reported.",
+      "action": "Upgrade Ruby to 3.3.14, 3.4.13 or 4.0.10, rebuild container images and restart app processes. Ruby 3.2 and older get no fix, so plan a move. Install Mastodon 4.7.6/4.6.12/4.5.22/4.4.29, OpenProject 17.9.8/17.8.3 and Discourse base image 2.0.20261119-0203. For GitLab, GHES and Chatwoot, put them behind VPN or an IP allowlist until fixes ship (upgrading the host Ruby does not fix their bundled Ruby).",
+      "url": "https://verialabs.com/ruby2shell/",
+      "ai_angle": [],
+      "ai_note": "Reported by Veria Labs, which sells an autonomous AI pentester; the write-up does not say AI found this bug (unverified AI angle)."
     }
   ],
   "news": [
+    {
+      "title": "ruby2ßhell: CVE-2026-132825 Ruby Heap Overflow RCE",
+      "source": "Orca Security / Veria Labs",
+      "url": "https://orca.security/resources/blog/ruby2shell-ruby-heap-overflow-rce/",
+      "blurb": "One-byte heap overflow reachable without login in default Rails and Sinatra; fixed in Ruby 3.3.14/3.4.13/4.0.10. GitLab and GHES fixes are still pending."
+    },
     {
       "title": "PHP security updates fix 18 flaws, including critical RCE bugs",
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs/",
       "blurb": "PHP 8.5.13, 8.4.28, 8.3.37 and 8.2.36 fix 18 CVEs, including AI-found phpAfterShell CVE-2026-126714 and PHP-FPM request smuggling CVE-2026-129289. The critical bugs need non-default setups."
+    },
+    {
+      "title": "F5 Patches Critical NGINX2Root Flaws as PoC Exploits Go Public",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public/",
+      "blurb": "Rapid7 and Censys published PoCs for CVE-2026-123007; Censys counts about 9M exposed NGINX servers with HTTP/2 on. Upgrade to 1.30.7/1.31.9."
     },
     {
       "title": "VMware vCenter zero-day CVE-2026-123890 exploited in September",
@@ -1020,10 +1054,10 @@
       "blurb": "ARMORY CASTLE used the vCenter auth bypass two months before Broadcom's Nov 19 fix to take over SSO, forge Golden SAML tokens and get root on ESXi."
     },
     {
-      "title": "JPMorgan, Visa, Mastercard say third-party vendors targeted in cyberattack",
-      "source": "Reuters",
-      "url": "https://www.investing.com/news/stock-market-news/jpmorgan-says-thirdparty-vendors-targeted-in-cyberattack-5039129",
-      "blurb": "Vendor-held marketing and benefit-program data (names, emails) was exposed, with no card data; n0n claims the breach."
+      "title": "Chase, Visa, Mastercard confirm third-party cyberattacks that may have exposed customers' info",
+      "source": "The Register / AP",
+      "url": "https://www.theregister.com/security/2026/11/19/chase-visa-mastercard-confirm-third-party-cyberattacks-that-may-have-exposed-customers-info/5311175",
+      "blurb": "n0n leaked emails of about 16,000 Chase customers (AP/Cybernews). Visa blames a provider in Asia Pacific; Mastercard says a benefit-program vendor exposed some emails. No card data; unrelated to this week's outages."
     },
     {
       "title": "A cyberattack using artificial intelligence targeted the EU in October, official says",
@@ -1042,21 +1076,15 @@
       "source": "OpenSourceMalware",
       "url": "https://opensourcemalware.com/blog/react2steal-github-actions",
       "blurb": "Hijacked Actions runners mass-exploit unpatched React/Next.js servers and steal .env files, AWS and AI provider keys."
-    },
-    {
-      "title": "Hackers Breach N-able Cloud Server, Disrupting Email Security Management Across 3 Regions",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html",
-      "blurb": "Mail Assure/SpamExperts portals, APIs and quarantine are off while N-able restores; no evidence of customer data loss so far."
-    },
-    {
-      "title": "Hackers Exploit Cisco Expressway Vulnerability Soon After PoC Release",
-      "source": "SecurityWeek",
-      "url": "https://www.securityweek.com/hackers-exploit-cisco-expressway-vulnerability-soon-after-poc",
-      "blurb": "F6 saw CVE-2026-76466 used to get root on Expressway X15.5.3 and move to cluster nodes; upgrade to X15.5.20."
     }
   ],
   "watch": [
+    "Splunk November advisories (Nov 18): SOAR App Wizard RCE CVE-2026-131253 (CVSS 9.9, authenticated; fix SOAR 8.8.0), Enterprise Security path-traversal RCE CVE-2026-131202 (ess_admin; fix 8.7.0), Enterprise RapidDiag CVE-2026-76535 (9.1; fixed 10.6.1/10.4.5/10.2.9/10.0.12/9.4.17). About 139 flaws in total; none reported exploited.",
+    "N-able Mail Assure / SpamExperts cloud breach (moved from focus, no new facts): portals, APIs and quarantine still restoring; no evidence of customer data loss. Rotate API keys and admin credentials once access returns.",
+    "SBC Medical Group (Japan, Nov 16): attacker extracted data on about 1.62M clinic customers (names, contacts, passwords, birth dates), plus a separate breach of the Tribeau booking platform used by 56 clinics. Change reused passwords.",
+    "Oracle E-Business Suite CVE-2026-114924 + CVE-2026-114925: per X, chainable for unauthenticated OS command execution (from Oracle's Nov 17 patch). Apply the November patch to internet-facing EBS.",
+    "WordPress 7.1.5 security release (backported to 4.7+): update sites now.",
+    "Unverified: 'NoSafe AI' says an abliterated Kimi model found a vulnerability in an open-source project (no details).",
     "JPMorgan Chase, Visa and Mastercard (Nov 19, Reuters/Politico): third-party vendors' marketing, loyalty and benefit-program data leaked (names and emails; no card or payment data, per the companies). The n0n extortion group claims a shared Asia-Pacific provider. JPMorgan says it is unrelated to this week's outage. Expect bank-themed phishing.",
     "Ruby (Nov 18): seven regex and string-case flaws, several with RCE proof-of-concepts (mostly in apps that compile attacker-controlled patterns). Upgrade to 4.0.10, 3.4.13 or 3.3.14; 3.2 and older get no fix.",
     "Pliny the Elder open-sourced T3MP3ST (Nov 19, per X), which turns an existing AI coding agent into an autonomous security-testing system. Expect attackers to reuse it the way ARTEX was reused; no misuse reported yet.",
@@ -1079,7 +1107,6 @@
     "Mitsubishi UFJ Bank (Nov 18): about 6.5M customer records (gender, age, region; no names) exposed via vendor PLAID's KARTE platform on Nov 13, part of the KARTE breach (Sankei: ~8M across five MUFG companies). Rotate KARTE connector secrets.",
     "KPMG Canada (Nov 18): attackers accessed some clients' tax documents; scale and entry point not disclosed. Expect targeted tax-themed phishing.",
     "NEAR AI (context, Nov 8-9): an attacker used an SGLang inference-engine RCE to reach ~100 users' details, 18 agents' chat histories and two cloud API keys, and could see confidential-mode requests; no CVE or upstream SGLang fix named yet. Keep SGLang servers off the internet.",
-    "Splunk Enterprise November release reportedly fixes 38 CVEs incl. unauthenticated CVE-2026-76536 (9.4) and CVE-2026-76535 (9.1); Google reportedly published a PoC for AMD PSP CVE-2026-74127 (Zen 1/Zen+) (per X; check vendor advisories).",
     "Unverified: Paystand (US B2B payments) customer database offered for sale on a forum; no confirmation.",
     "Resurfacing, not new: Sygnia's 'lone attacker used AI to breach an AWS environment in 72 hours' is from July 2026.",
     "Eclipse Mosquitto 2.1.0-2.1.2 CVE-2026-110486 (CVSS 9.8, websockets listener RCE).",
