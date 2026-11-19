@@ -1,8 +1,18 @@
 [
  {
+  "url": "https://x.com/DarkWebInformer/status/2123491722927784023",
+  "author": "DarkWebInformer",
+  "text": "🚨 Apache Roller is being actively exploited through a critical unauthenticated deserialization flaw; CVE-2026-129448 PoC: https://t.co/njSwpgIBGR The vulnerability affects Roller’s XML-RPC endpoint, which accepts and deserializes vendor extension types before authenticating the requester. An unauthenticated remote attacker can abuse this behavior to execute arbitrary code. Apache Roller | Unauthenticated RCE: • CVSS: 9.8 Critical • Attack: Remote, unauthenticated • Affected: Apache Roller 4.0.0 through 6.1.4 • Fixed: Upgrade to Apache Roller 6.1.6 or later • Impact: Arbitrary code execution • Status: Actively exploited in the wild The issue is the same underlying vulnerability as CVE-2026-82384, which previously listed a much narrower affected-version range. Apache recommends upgrading immediately or disabling extension types and removing the vulnerable XML-RPC servlet mapping if an upgrade cannot be performed yet.",
+  "created_at": "2026-11-19T19:00:53.000Z",
+  "cves": [
+   "CVE-2026-129448",
+   "CVE-2026-82384"
+  ]
+ },
+ {
   "url": "https://x.com/WorldCyberNewsX/status/2123385807234867277",
   "author": "WorldCyberNewsX",
-  "text": "CISA adds four actively exploited flaws to the KEV catalog.\n\nCVE-2026-90436 in Apache Axis permits unauthenticated RCE via crafted SOAP fault messages. CVE-2026-90817 in REDCap allows the same outcome through malicious HTTP requests against survey and import functions when a",
+  "text": "CISA adds four actively exploited flaws to the KEV catalog. CVE-2026-90436 in Apache Axis permits unauthenticated RCE via crafted SOAP fault messages. CVE-2026-90817 in REDCap allows the same outcome through malicious HTTP requests against survey and import functions when a valid hash is known. Synology DSM and LiteLLM flaws also confirmed in the wild. #ThreatIntel #CVE #CISA",
   "created_at": "2026-11-19T12:00:01.000Z",
   "cves": [
    "CVE-2026-90436",
@@ -12,17 +22,24 @@
  {
   "url": "https://x.com/TheExploitHQ/status/2123433607599436034",
   "author": "TheExploitHQ",
-  "text": "[!] Apache Roller: active exploitation confirmed.\n\nUpgrade to Apache Roller 6.1.6 or set enabledForExtensions to false in WEB-INF/web.xml.\n\n[!] ACTIVELY EXPLOITED\n- Apache Roller - CVE-2026-129448, CVE-2026-82384 (remote code execution)\n- Perforce Puppet Enterprise - https://t.co/ozCKNZxLVy",
+  "text": "[!] Apache Roller: active exploitation confirmed. Upgrade to Apache Roller 6.1.6 or set enabledForExtensions to false in WEB-INF/web.xml. [!] ACTIVELY EXPLOITED - Apache Roller - CVE-2026-129448, CVE-2026-82384 (remote code execution) - Perforce Puppet Enterprise - CVE-2026-115731 (CISA KEV) - Synology DSM, BerriAI LiteLLM, Apache Axis, and Vanderbilt University REDCap - CVE-2024-10441, CVE-2026-40217, CVE-2026-90436, CVE-2026-90817 (CISA KEV) [!] PATCH NOW - CISA issued an urgent advisory warning of a critical memory-corruption flaw in Oracle Java known as Java4Shell (CVE-2026-114938) that allows unauthenticated remote code execution, while in-the-wild exploit attempts were reported by third-party telemetry [!] DEVELOPING - Optimizely confirmed that an unauthorized party exploited a vulnerability in the account signup flow to inject malicious JavaScript into customer Web Experimentation projects - Google and Mandiant reported that Russian cyber espionage group COLD RELIC weaponized corporate data and identities stolen from a late-2025 compromise to breach another US organization in 2026 - NGINX version 1.31.9 resolved an HTTP/2 flow control window overflow flaw that could cause worker segmentation faults or other security impacts (CVE-2026-123007) [>] Full 9-min brief with sources in the first reply. #CyberSecurity #ThreatIntel #NGINX #Google #Mandiant #Optimizely #Java4Shell #Apache #Synology",
   "created_at": "2026-11-19T15:09:58.000Z",
   "cves": [
    "CVE-2026-129448",
-   "CVE-2026-82384"
+   "CVE-2026-82384",
+   "CVE-2026-115731",
+   "CVE-2024-10441",
+   "CVE-2026-40217",
+   "CVE-2026-90436",
+   "CVE-2026-90817",
+   "CVE-2026-114938",
+   "CVE-2026-123007"
   ]
  },
  {
   "url": "https://x.com/ICHI_Global/status/2123438235867025915",
   "author": "ICHI_Global",
-  "text": "🚨 Actively exploited: Apache Roller CVE-2026-129448 (CVSS 9.8). Unauthenticated remote code execution via XML-RPC deserialization in versions 4.0.0–6.1.4. Apache confirms attacks in the wild. Fix: upgrade to 6.1.6+ now. Disabling XML-RPC in the admin UI is NOT enough.\nTrack live",
+  "text": "🚨 Actively exploited: Apache Roller CVE-2026-129448 (CVSS 9.8). Unauthenticated remote code execution via XML-RPC deserialization in versions 4.0.0–6.1.4. Apache confirms attacks in the wild. Fix: upgrade to 6.1.6+ now. Disabling XML-RPC in the admin UI is NOT enough. Track live exploits and zero-days at https://t.co/CH1SkRiFjG Source: https://t.co/ZARImowSPu (Posted by an automated assistant on behalf of ICHI's creator.)",
   "created_at": "2026-11-19T15:28:21.000Z",
   "cves": [
    "CVE-2026-129448"
@@ -31,28 +48,26 @@
  {
   "url": "https://x.com/aviatrixtrc/status/2123204197420093783",
   "author": "aviatrixtrc",
-  "text": "Six CVSS 9.8 flaws in F5 BIG-IP allow unauthenticated attackers to crash TMM or achieve RCE — no authentication, no standard patch, no workaround.\n\nCompromised BIG-IP Next and CNF components become pivot points into Kubernetes environments. Restricting which external sources can",
+  "text": "Six CVSS 9.8 flaws in F5 BIG-IP allow unauthenticated attackers to crash TMM or achieve RCE — no authentication, no standard patch, no workaround. Compromised BIG-IP Next and CNF components become pivot points into Kubernetes environments. Restricting which external sources can reach vulnerable virtual servers limits the initial attack surface. This follows an actively exploited F5 APM zero-day added to the KEV catalog just weeks ago. #Vulnerability #CloudSecurity 🔗 Full TRC analysis: https://t.co/dNQur4wVJe",
   "created_at": "2026-11-18T23:58:22.000Z",
   "cves": []
  },
  {
   "url": "https://x.com/ZeroDayFacts/status/2123382638413238316",
   "author": "ZeroDayFacts",
-  "text": "🚨 CISA Warns of 4 Actively Exploited Vulnerabilities Linked to Ransomware, Cryptomining &amp; LLMjacking\n\nCISA has added four vulnerabilities affecting Apache Axis, REDCap, BerriAI LiteLLM, and Synology DSM to its Known Exploited Vulnerabilities (KEV) catalog, citing confirmed",
+  "text": "🚨 CISA Warns of 4 Actively Exploited Vulnerabilities Linked to Ransomware, Cryptomining & LLMjacking CISA has added four vulnerabilities affecting Apache Axis, REDCap, BerriAI LiteLLM, and Synology DSM to its Known Exploited Vulnerabilities (KEV) catalog, citing confirmed exploitation in the wild. Key Highlights: 🔹 CVE-2026-90436 (CVSS 9.8): Apache Axis – Unauthenticated remote code execution, exploited to deploy cryptominers and compromise Confluence environments. 🔹 CVE-2026-90817 (CVSS 9.8): REDCap – Unauthenticated code injection used to deploy web shells and XMRig cryptominers. 🔹 CVE-2026-40217 (CVSS 8.8): LiteLLM – Remote code execution exploited to escalate inference keys into administrative credentials for LLMjacking attacks. 🔹 CVE-2024-10441 (CVSS 9.8): Synology DSM – Remote code execution exploited in ransomware attacks involving C3RB3R ransomware. #CyberSecurity #CISA #KEV #ZeroDay #Ransomware #LLMjacking #ApacheAxis #LiteLLM #Synology #REDCap #VulnerabilityManagement",
   "created_at": "2026-11-19T11:47:26.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/Npj8448/status/2123447830752956763",
-  "author": "Npj8448",
-  "text": "Apache Roller’s critical RCE flaw (CVE‑2026‑129448) is being actively exploited via unauthenticated XML‑RPC deserialization. Upgrade to 6.1.6+ or disable XML‑RPC now. #ThreatIntel #CyberSecurity https://t.co/0Rfr8lhlqS",
-  "created_at": "2026-11-19T16:06:29.000Z",
-  "cves": []
+  "cves": [
+   "CVE-2026-90436",
+   "CVE-2026-90817",
+   "CVE-2026-40217",
+   "CVE-2024-10441"
+  ]
  },
  {
   "url": "https://x.com/BytesNora/status/2123282499753119838",
   "author": "BytesNora",
-  "text": "SecBoard Daily · 18 November 2026\n\nTop story: Critical Perforce Puppet RCE Exploited in Attacks (CVE-2026-115731, actively exploited)\n\n4 newly listed as exploited\n\nFull daily briefing on SecBoard – address in the image.\n\n#ThreatIntel https://t.co/CClmOqFL9h",
+  "text": "SecBoard Daily · 18 November 2026 Top story: Critical Perforce Puppet RCE Exploited in Attacks (CVE-2026-115731, actively exploited) 4 newly listed as exploited Full daily briefing on SecBoard – address in the image. #ThreatIntel https://t.co/CClmOqFL9h",
   "created_at": "2026-11-19T05:09:31.000Z",
   "cves": [
    "CVE-2026-115731"
@@ -61,14 +76,14 @@
  {
   "url": "https://x.com/CveTodo/status/2123276639840682213",
   "author": "CveTodo",
-  "text": "A critical unauthenticated remote code execution vulnerability in Vanderbilt University's REDCap research data platform has been confirmed as actively exploited, with the U.  https://t.co/wb7okOm9WZ\n#VanderbiltUniversity #RCE #KEV #CVE #InfoSec https://t.co/9nQjukeIac",
+  "text": "A critical unauthenticated remote code execution vulnerability in Vanderbilt University's REDCap research data platform has been confirmed as actively exploited, with the U. https://t.co/wb7okOm9WZ #VanderbiltUniversity #RCE #KEV #CVE #InfoSec https://t.co/9nQjukeIac",
   "created_at": "2026-11-19T04:46:14.000Z",
   "cves": []
  },
  {
   "url": "https://x.com/Python_s_/status/2123274411268567218",
   "author": "Python_s_",
-  "text": "🚨 Critical Puppet Server RCE\nCVE-2026-115731 | CVSS v4 9.4\n\nAny CA-signed agent cert lets a client run code on Puppet Server; no login needed if autosigning is weak.\n\nAffected: Puppet 8 &lt;8.22.2, 9 &lt;9.1.3; PE: see reply\nActively exploited (CISA KEV)\n\n#CyberSecurity #Puppet",
+  "text": "🚨 Critical Puppet Server RCE CVE-2026-115731 | CVSS v4 9.4 Any CA-signed agent cert lets a client run code on Puppet Server; no login needed if autosigning is weak. Affected: Puppet 8 &lt;8.22.2, 9 &lt;9.1.3; PE: see reply Actively exploited (CISA KEV) #CyberSecurity #Puppet",
   "created_at": "2026-11-19T04:37:22.000Z",
   "cves": [
    "CVE-2026-115731"
@@ -77,10 +92,19 @@
  {
   "url": "https://x.com/DailyDarkWeb/status/2123179443719942590",
   "author": "DailyDarkWeb",
-  "text": "🚨 NEW ANALYSIS OF EXPLOITED CITRIX NETSCALER ZERO-DAY CVE-2026-88771\n\nA new public root-cause analysis (published Nov 18) breaks down CVE-2026-88771, the critical NetScaler ADC and Gateway flaw Citrix disclosed on Sep 27, 2026.\n\nHow the attack works, per the analysis:\n• A https://t.co/N3hyW0Ed4F",
+  "text": "🚨 NEW ANALYSIS OF EXPLOITED CITRIX NETSCALER ZERO-DAY CVE-2026-88771 A new public root-cause analysis (published Nov 18) breaks down CVE-2026-88771, the critical NetScaler ADC and Gateway flaw Citrix disclosed on Sep 27, 2026. How the attack works, per the analysis: • A failed, unauthenticated management login writes attacker-controlled text to the appliance log • A root-owned maintenance script later reads that log text and passes it to a shell command • Result: unauthenticated remote code execution as root Key facts (Citrix bulletin CTX697096): • CVSS v4.0: 9.5 (critical) • Affected: all customer-managed NetScaler ADC and Gateway deployments, default config, no extra feature needed • Versions: 14.1 before 14.1-73.37, 13.1 before 13.1-64.23, 14.1-FIPS before 14.1-73.37 FIPS, 13.1-FIPS/NDcPP before 13.1-37.279 • Fixed: 14.1-73.37+, 13.1-64.23+, 14.1-73.37 FIPS+, 13.1-37.279+ (FIPS/NDcPP) • Exploitation: confirmed in the wild; CISA added it to the KEV catalog on Sep 27, 2026. The analysis says attackers reportedly used it as a zero-day for at least two weeks before disclosure ⚠️ Analyst Note: This is not a new flaw, and patches have been out since late September. The new write-up helps defenders understand the bug, and it also helps attackers. Patching does not remove web shells or rogue accounts already planted, so exposed appliances that ran a vulnerable build should be treated as potential incident-response cases: preserve logs, rotate credentials and hunt for compromise. https://t.co/7OBKGiWcOh #DDW #Citrix #NetScaler #CVE202688771 #ZeroDay #RCE #ThreatIntelligence #CyberSecurity",
   "created_at": "2026-11-18T22:20:00.000Z",
   "cves": [
    "CVE-2026-88771"
+  ]
+ },
+ {
+  "url": "https://x.com/Ghost_Jacker/status/2123438973045387531",
+  "author": "Ghost_Jacker",
+  "text": "Over the past roughly 24 hours, major cybersecurity incidents have primarily centered on supply chain attacks, phishing campaigns exploiting service outages, and actively exploited vulnerabilities despite available patches. Microsoft-related incidents remain in focus, though no new large-scale system intrusions or massive data breaches have been confirmed. 1. Microsoft Agent Framework PyPI Package Compromised with Credential-Stealing Malware On November 17, attackers published malicious versions (1.26.1 and 1.26.2) of Microsoft’s official agent-framework package to PyPI, which remained live for approximately 45 minutes before being quarantined. Using a .pth startup hook, the malware executed automatically upon Python startup (even without importing the package), stealing cloud and developer credentials—including Azure, GitHub Actions, CI/CD secrets, environment variables, and credential files—and exfiltrating them to a webhook. The package sees roughly 190,000 monthly downloads; Microsoft has confirmed the incident and is investigating. * Scope of Impact: Developer workstations, CI/CD pipelines, and containers that installed the two malicious versions (recommended to be treated as compromised, with immediate credential rotation). * Sources: SecurityWeek, BleepingComputer, CSO Online, GitHub Advisory, etc. (reported November 18, 2026). 2. Attackers Exploit Microsoft 365 Outage to Launch High-Volume Credential Phishing Following the November 12–13 global outage affecting Microsoft 365, Outlook, and Exchange Online (officially attributed to a latent software bug combined with network capacity issues, rather than a cyberattack), threat actors sent spoofed Microsoft service health notification emails. Citing the real incident ID EX1550543, the emails falsely claimed that quarantined messages would be deleted within 24 hours, luring victims to click a \"Restore Messages\" link. Microsoft Threat Intelligence assesses the campaign as credential phishing, with no confirmed credential theft or malware payloads observed yet. * Scope of Impact: Multiple U.S. sectors (with some reports extending to Europe and Asia), involving high email volumes. * Sources: Computerworld, Cybernews, Microsoft Threat Intelligence, GBHackers (November 16–18). 3. Outlook Zero-Day CVE-2026-124194 Remains Actively Exploited as Patch Deadline Nears Microsoft patched this moderate-severity (CVSS 6.5) Outlook spoofing vulnerability during its November 10 Patch Tuesday release. When an attacker tricks a user into opening a specially crafted message file, Outlook connects to an attacker-controlled server without displaying an external content warning, leaking NTLMv2 hashes (which can be used for impersonation or relay attacks). CISA has added the flaw to its Known Exploited Vulnerabilities (KEV) catalog, mandating federal agencies to patch by November 24. It is the only confirmed actively exploited flaw among the more than 1,000 vulnerabilities patched this month. * Scope of Impact: Microsoft 365 Apps for Enterprise, Office LTSC 2021 / 2024. * Sources: SecurityWeek, The Hacker News, Malwarebytes, CISA KEV (ongoing coverage through mid-November). 4. Optimizely Supply Chain Attack Injects Malware into 178 Major Websites On November 16, attackers exploited a vulnerability in the Optimizely Experimentation platform to inject malicious JavaScript into customer projects, affecting at least 178 organizational websites (including Zoom, HSBC, CNN, BBC, Salesforce, and IKEA). The malware is capable of payment card skimming, cryptocurrency wallet address swapping, cookie and screenshot theft, and delivering an exploit kit targeting iOS devices. Optimizely has patched the vulnerability and removed the malicious code. * Scope of Impact: Visitors to the affected websites across finance, media, technology, and other sectors. * Sources: SecurityWeek, TechTarget, Krebs on Security, CSO Online (November 17–18).",
+  "created_at": "2026-11-19T15:31:17.000Z",
+  "cves": [
+   "CVE-2026-124194"
   ]
  },
  {
@@ -95,7 +119,7 @@
  {
   "url": "https://x.com/Lumideezy/status/2123424606249791655",
   "author": "Lumideezy",
-  "text": "Perforce Puppet CVE-2026-115731 (RCE via any CA-signed agent cert) is actively exploited and in CISA KEV. \n\nAudit certificate issuance and apply the patch before the Dec 1 deadline. #CyberThreats",
+  "text": "Perforce Puppet CVE-2026-115731 (RCE via any CA-signed agent cert) is actively exploited and in CISA KEV. Audit certificate issuance and apply the patch before the Dec 1 deadline. #CyberThreats",
   "created_at": "2026-11-19T14:34:12.000Z",
   "cves": [
    "CVE-2026-115731"
@@ -104,35 +128,36 @@
  {
   "url": "https://x.com/ptdbugs/status/2123345131935854696",
   "author": "ptdbugs",
-  "text": "A PoC/exploit has been discovered for vulnerability CVE-2026-129448\nPT ID: PT-2026-148853\nRead on dbugs: https://t.co/tsPA9MXh6s\n\nVendor: Apache Software Foundation\nProduct: Apache Roller\nDescription: Deserialization of Untrusted Data in Apache Roller versions 4.0.0 through 6.1.4",
+  "text": "A PoC/exploit has been discovered for vulnerability CVE-2026-129448 PT ID: PT-2026-148853 Read on dbugs: https://t.co/OTPzegjeBt Vendor: Apache Software Foundation Product: Apache Roller Description: Deserialization of Untrusted Data in Apache Roller versions 4.0.0 through 6.1.4 allows an unauthenticated remote attacker to execute arbitrary code. The XML-RPC endpoint accepts vendor extension types and deserializes them before authenticating the requester. This is the same vulnerability as CVE-2026-82384, which listed only Apache Roller 6.1.5 as affected. This issue is being actively exploited. Users are recommended to upgrade to Apache Roller 6.1.6 or later, which disables the extension types and rejects XML-RPC requests when the XML-RPC feature is disabled. Users who cannot upgrade right away should set \"enabledForExtensions\" to \"false\" in WEB-INF/web.xml, or remove the \"/roller-services/xmlrpc\" servlet mapping, and restart Roller. Disabling XML-RPC in the administration UI is not enough, because older versions deserialize the request before checking that setting. Link: https://t.co/p3THcwk1Bv",
   "created_at": "2026-11-19T09:18:23.000Z",
   "cves": [
-   "CVE-2026-129448"
+   "CVE-2026-129448",
+   "CVE-2026-82384"
   ]
+ },
+ {
+  "url": "https://x.com/CveTodo/status/2123277255304421391",
+  "author": "CveTodo",
+  "text": "A high-severity remote code execution vulnerability in BerriAI's LiteLLM gateway software is being actively exploited by financially motivated threat actors to hijack enterprise AI infrastructure, with some victim... https://t.co/92Fg7vUDHX #BerriAI #RCE #KEV #CVE #InfoSec https://t.co/VaVvlevJ7y",
+  "created_at": "2026-11-19T04:48:40.000Z",
+  "cves": []
  },
  {
   "url": "https://x.com/sh3ll_c0d3/status/2123301501359567259",
   "author": "sh3ll_c0d3",
-  "text": "🚨 CISA KEV Alert: Perforce Puppet RCE (CVE-2026-115731, CVSS 9.4) is actively exploited!\n\n▸ Flaw hits HTTP PUT report deserialization (autosign = unauth RCE)\n▸ Patch PE 2023.8.13/2025.12.1/2026.0.1 &amp; restart\n\nRead: https://t.co/k6G43JH7jk\n\n#sh3llc0d3 #shellcode #CISAKEV",
+  "text": "🚨 CISA KEV Alert: Perforce Puppet RCE (CVE-2026-115731, CVSS 9.4) is actively exploited! ▸ Flaw hits HTTP PUT report deserialization (autosign = unauth RCE) ▸ Patch PE 2023.8.13/2025.12.1/2026.0.1 &amp; restart Read: https://t.co/k6G43JH7jk #sh3llc0d3 #shellcode #CISAKEV",
   "created_at": "2026-11-19T06:25:01.000Z",
   "cves": [
    "CVE-2026-115731"
   ]
  },
  {
-  "url": "https://x.com/CveTodo/status/2123277255304421391",
-  "author": "CveTodo",
-  "text": "A high-severity remote code execution vulnerability in BerriAI's LiteLLM gateway software is being actively exploited by financially motivated threat actors to hijack enterprise AI infrastructure, with some victim... https://t.co/92Fg7vUDHX\n#BerriAI #RCE #KEV #CVE #InfoSec https://t.co/VaVvlevJ7y",
-  "created_at": "2026-11-19T04:48:40.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/HACKTIFY_/status/2123476843160350939",
-  "author": "HACKTIFY_",
-  "text": "Apache Roller CVE-2026-129448 (CVSS 9.8) is an actively exploited unauthenticated RCE in versions 4.0.0-6.1.4. Upgrade to 6.1.6+. If you can't patch yet, remove /roller-services/xmlrpc from web.xml and restart; the UI toggle alone isn't enough.",
-  "created_at": "2026-11-19T18:01:46.000Z",
+  "url": "https://x.com/ethiack/status/2123161111113695301",
+  "author": "ethiack",
+  "text": "🚨 CVE-2026-123007 (Nginx2Root): pre-auth RCE in nginx with HTTP/2 on. Patch now: fixed in 1.30.7 and 1.31.9. No login needed. Not trivial to exploit, but a public PoC exists. No exploitation in the wild reported as of 18 Nov. https://t.co/anpPMJsQyV https://t.co/3eNQBGa58R",
+  "created_at": "2026-11-18T21:07:09.000Z",
   "cves": [
-   "CVE-2026-129448"
+   "CVE-2026-123007"
   ]
  },
  {
@@ -145,27 +170,9 @@
   ]
  },
  {
-  "url": "https://x.com/ethiack/status/2123161111113695301",
-  "author": "ethiack",
-  "text": "🚨 CVE-2026-123007 (Nginx2Root): pre-auth RCE in nginx with HTTP/2 on. Patch now: fixed in 1.30.7 and 1.31.9.\n\nNo login needed. Not trivial to exploit, but a public PoC exists. No exploitation in the wild reported as of 18 Nov.\n\nhttps://t.co/anpPMJsQyV https://t.co/3eNQBGa58R",
-  "created_at": "2026-11-18T21:07:09.000Z",
-  "cves": [
-   "CVE-2026-123007"
-  ]
- },
- {
-  "url": "https://x.com/threatpodium/status/2123220843018809485",
-  "author": "threatpodium",
-  "text": "🚨 CVE-2026-90436 — CRITICAL — actively exploited per CISA KEV\nApache Axis\n\nCVSS 9.8 | EPSS 1%\n\n#Apache #CVE\nhttps://t.co/mmJdjBkoZP",
-  "created_at": "2026-11-19T01:04:31.000Z",
-  "cves": [
-   "CVE-2026-90436"
-  ]
- },
- {
   "url": "https://x.com/CyberRevealed/status/2123423295034806590",
   "author": "CyberRevealed",
-  "text": "CISA has confirmed active exploitation of a vulnerability in LiteLLM, an AI gateway used to manage access to language models.\n\nCVE-2026-40217 can allow remote code execution through a vulnerable guardrail testing endpoint.\n\nThis is why AI security needs to go beyond prompt",
+  "text": "CISA has confirmed active exploitation of a vulnerability in LiteLLM, an AI gateway used to manage access to language models. CVE-2026-40217 can allow remote code execution through a vulnerable guardrail testing endpoint. This is why AI security needs to go beyond prompt injection and model behavior. An AI gateway is still an application with APIs, permissions, dependencies, and infrastructure that attackers can target. If compromised, the impact depends on what the gateway can access, including model credentials, internal services, and connected systems. I would prioritize identifying affected LiteLLM deployments, restricting management and testing endpoints, applying vendor remediation, and reviewing logs for suspicious activity. AI infrastructure needs the same security engineering discipline we apply to any other critical application. #AISecurity #CyberSecurity #CloudSecurity #CyberRevealed",
   "created_at": "2026-11-19T14:28:59.000Z",
   "cves": [
    "CVE-2026-40217"
@@ -174,11 +181,19 @@
  {
   "url": "https://x.com/atikbytes/status/2123260526189015443",
   "author": "atikbytes",
-  "text": "1/ Running Flowise? Two new CVEs dropped Nov 17, and there's no patch coming. Flowise hit end of life on Aug 31 and the repo is archived.\n\n2/ CVE-2026-130796 (CVSS 8.2): on 3.1.3–3.1.4, GET /api/v1/public-chatflows/:id hands the chatflow's MCP server bearer token to anyone. With",
+  "text": "1/ Running Flowise? Two new CVEs dropped Nov 17, and there's no patch coming. Flowise hit end of life on Aug 31 and the repo is archived. 2/ CVE-2026-130796 (CVSS 8.2): on 3.1.3–3.1.4, GET /api/v1/public-chatflows/:id hands the chatflow's MCP server bearer token to anyone. With it they can run your chatflow over /api/v1/mcp/ without the API key, on your model bill. 3/ CVE-2026-130615 (7.1): the SSRF deny list doesn't pin DNS, so the Playwright/Puppeteer loaders can be pointed at 169.254.169.254 or internal hosts with a rebinding domain. 4/ What to do now: turn off MCP server access on public chatflows (or make them private), rotate those MCP tokens, block egress to cloud metadata, and plan a move off Flowise. Check + fix steps: https://t.co/gU6xFkiDqp 5/ Also this week: Kubeshark's MCP download_file tool wrote to any path the agent picked (think ~/.ssh/authorized_keys via prompt injection). Fixed in 53.4.0. https://t.co/ltzmrx3Icc",
   "created_at": "2026-11-19T03:42:12.000Z",
   "cves": [
-   "CVE-2026-130796"
+   "CVE-2026-130796",
+   "CVE-2026-130615"
   ]
+ },
+ {
+  "url": "https://x.com/wealthcompoun/status/2123310809111523663",
+  "author": "wealthcompoun",
+  "text": "AI-driven cyberattacks evolve as autonomous systems begin exploiting vulnerabilities Google has identified what it described as the first observed cyberattack in which an AI-powered system independently discovered and exploited software vulnerabilities without human intervention, highlighting the growing threat of autonomous cyber operations. A report by Google Threat Intelligence Group (GTIG) and Mandiant warns that threat actors are moving beyond using AI as an assistant towards deploying multi-agent systems capable of planning and executing multiple stages of cyber intrusions. AI-enabled autonomous attacks: Systems can automate reconnaissance, identify software weaknesses, generate malicious code and modify tactics based on execution feedback. Google discovered an exposed staging server hosting a multi-agent framework called exploit_agent, connected to advanced locally hosted LLMs. The framework examined software updates, compared code before and after security patches, identified vulnerabilities and developed exploits. Scripts on the server supported post-intrusion activities such as network reconnaissance, brute-force attempts and webshell installation. The operator appeared to target French websites associated with media, entertainment and education. Growing ecosystem of offensive AI frameworks: Google identified increasing adoption of open-source multi-agent platforms, including ARTEX, CAIRN, CyberStrikeAI, PentAGI and HexStrike AI. CAIRN uses an Observe, Orient, Decide, Act (OODA) approach to coordinate autonomous actions. Google observed CAIRN-related intrusion activity targeting organisations, including those in the US aerospace sector. A threat actor using a customised PentAGI-based framework conducted reconnaissance and vulnerability scanning across Asian organisations between late August and early October 2026. Tools such as ZeroHollow and Agent Zero are also being used for exploit development, LLM routing, code execution and dynamic tool generation. Exploitation timelines are shrinking: AI is accelerating differential patch analysis, in which attackers compare software versions before and after security patches to identify vulnerabilities before organisations patch their systems. Vulnerability disclosures and exploitation nearly doubled between January and August 2026, according to the report. Average monthly zero-day exploits rose from eight in 2025 to 11 in 2026, reaching 22 in August. In the August PaperCut vulnerability incidents, researchers developed working exploits within a day of disclosure. A subsequent campaign involved AI-assisted exploit development and attacks against hundreds of organisations, with one attacker reportedly reaching domain administrator privileges within minutes. Other emerging threats: Espionage and influence operations: Groups linked to Russia, China and Iran are using LLMs for research, social engineering, data analysis and synthetic content generation. LLMJacking: Criminals steal cloud credentials to access AI models and computing resources, generating fraudulent charges exceeding $100,000 in a single day and losses of up to $1 million in some investigations. Supply-chain attacks: Attempts to manipulate autonomous coding assistant configurations could introduce backdoors during local execution. AI-generated exploits are not always successful, but the lower barrier to developing malicious code is increasing the burden on security teams to verify and respond to attacks. Takeaway: AI is compressing cyberattack timelines, automating complex intrusion stages and lowering the technical barrier to sophisticated cybercrime. Faster patching, stronger credential security, monitoring of AI-agent activity and tighter controls over autonomous coding tools are becoming increasingly critical for organisations.",
+  "created_at": "2026-11-19T07:02:00.000Z",
+  "cves": []
  },
  {
   "url": "https://x.com/ivasi/status/2123425813613965399",
@@ -192,7 +207,7 @@
  {
   "url": "https://x.com/NedPeterson99/status/2123463362172403764",
   "author": "NedPeterson99",
-  "text": "A ten-year-old NGINX bug, found by AI, with a working chain to root on your cloud host.\n\nF5 shipped emergency patches for 10 open-source NGINX CVEs on Wednesday. Two are critical 9.2 unauthenticated RCEs in the HTTP/2 code path, CVE-2026-123633 and CVE-2026-123007, the latter",
+  "text": "A ten-year-old NGINX bug, found by AI, with a working chain to root on your cloud host. F5 shipped emergency patches for 10 open-source NGINX CVEs on Wednesday. Two are critical 9.2 unauthenticated RCEs in the HTTP/2 code path, CVE-2026-123633 and CVE-2026-123007, the latter present since 1.9.5 in 2015. Wiz, Rapid7, Xint and others found them independently, most with an AI assist; Xint's fully automated scan then found four more with no human guidance, including a Linux kernel flaw it chained with the NGINX bugs to escape the container and take root on AWS, Azure and GCP hosts. Rapid7 has published a proof of concept. F5 says it has seen no exploitation in the wild so far. The lesson for CISOs: NGINX fronts roughly a third of the web, and the gap between a vendor patch and a weaponized exploit is now days, not weeks. Inventory every NGINX instance, including the ones buried in ingress controllers and vendor appliances, upgrade to 1.31.9, and disable HTTP/2 where you cannot patch today. https://t.co/F7zQ51IRig #CloudSecurity #CNAPP #CyberSecurity",
   "created_at": "2026-11-19T17:08:12.000Z",
   "cves": [
    "CVE-2026-123633",
@@ -202,14 +217,21 @@
  {
   "url": "https://x.com/neil_xbt/status/2123373469966757935",
   "author": "neil_xbt",
-  "text": "Google's threat team found an AI agent that turns a software patch into an exploit and runs it, with no human involved.\n\nIf I get hacked, it won't be a hole I left in my own sites. It'll be something like the PHP vulnerability, that hits many products, not just mine. https://t.co/LMsQ2cyLCe",
+  "text": "Google's threat team found an AI agent that turns a software patch into an exploit and runs it, with no human involved. If I get hacked, it won't be a hole I left in my own sites. It'll be something like the PHP vulnerability, that hits many products, not just mine. https://t.co/LMsQ2cyLCe",
   "created_at": "2026-11-19T11:11:00.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/HackingDave/status/2123279158205722909",
+  "author": "HackingDave",
+  "text": "Honestly I’m tired of this AI discovered RCE bullshit. It creates so much chaos inside of companies that have no idea how to deal with this. Anyone that publishes an exploit that can’t be widely exploited and doesn’t disclose this - I’m down for total public shaming of the individuals and companies that push this narrative. I’m not dismissing the criticality of latching on these - however it doesn’t require IR, all hands on deck, must patch tomorrow - which is probably why we see the mass outages we are experiencing. It’s damaging our industry. We need to fight back on this and go after those that hype this up for ego and marketing. POC || GTFO Join me.",
+  "created_at": "2026-11-19T04:56:14.000Z",
   "cves": []
  },
  {
   "url": "https://x.com/0xShekhar/status/2123461531258196344",
   "author": "0xShekhar",
-  "text": "Ruby was the warm-up. PHP was the sequel.\n\nnginx2root is the main event.\n\nCVE-2026-123007 — unauthenticated RCE in nginx.\nSitting there since 2015. 10 years.\nFound by AI. PoC already public.\n\n225M websites run nginx.\n\nIf you have HTTP/2 on, you're exposed.\n\nHere's the breakdown:",
+  "text": "Ruby was the warm-up. PHP was the sequel. nginx2root is the main event. CVE-2026-123007 — unauthenticated RCE in nginx. Sitting there since 2015. 10 years. Found by AI. PoC already public. 225M websites run nginx. If you have HTTP/2 on, you're exposed. Here's the breakdown:",
   "created_at": "2026-11-19T17:00:55.000Z",
   "cves": [
    "CVE-2026-123007"
@@ -218,86 +240,49 @@
  {
   "url": "https://x.com/nisyron/status/2123431685282738584",
   "author": "nisyron",
-  "text": "PromptArmor released FrontierBreach yesterday. 34.9% of hidden-instruction attacks against enterprise AI agents succeeded across 21 models. Grok 4.5 hit 91.4%.\n\nThe predictable take: \"we need safer models.\"\n\nThe real take: model safety was never the bottleneck. Hidden",
+  "text": "PromptArmor released FrontierBreach yesterday. 34.9% of hidden-instruction attacks against enterprise AI agents succeeded across 21 models. Grok 4.5 hit 91.4%. The predictable take: \"we need safer models.\" The real take: model safety was never the bottleneck. Hidden instructions embedded in third-party agent skills succeeded 45.5% of the time. Email connectors 33.9%. Document systems 31.5%. Even the \"safest\" model on the benchmark (Gemini 4 Argon at 4.3%) gets compromised the moment it reads a poisoned file or calls an untrusted skill. The attack surface is the tool chain, not the model. And the industry keeps treating prompt injection as a model-level vulnerability when it is fundamentally an architectural one. You cannot prompt-engineer your way out of an agent that reads emails, executes skills, and accesses files. The model is not the perimeter. The tool chain is. And right now, most organizations have no visibility into what their agents are actually doing across that chain. The FrontierBreach numbers are scary. But the real story is that we are deploying agents into enterprise environments without runtime controls, without tool-level audit trails, and without the ability to intervene mid-execution. That is not a model problem. That is a deployment problem.",
   "created_at": "2026-11-19T15:02:19.000Z",
   "cves": []
  },
  {
   "url": "https://x.com/pdf_si/status/2123134993203654878",
   "author": "pdf_si",
-  "text": "🚨 AI reportedly found a CRITICAL vulnerability in Java in about ONE HOUR. 🧵\n\nSecurity startup Calif says researcher Quang Luong used OpenAI Codex to discover a flaw in OpenJDK.\n\nThe reported numbers are insane:\n\n• ~1 hour to find the bug\n• ~2 more hours to develop a working",
+  "text": "🚨 AI reportedly found a CRITICAL vulnerability in Java in about ONE HOUR. 🧵 Security startup Calif says researcher Quang Luong used OpenAI Codex to discover a flaw in OpenJDK. The reported numbers are insane: • ~1 hour to find the bug • ~2 more hours to develop a working exploit • Less than $200 in compute • 9.2/10 severity, according to Calif A decades-old software ecosystem. A potentially devastating memory-safety flaw. And an AI agent helped uncover it for less than the cost of a nice dinner. #CyberSecurity #OpenAI #Java4Shell",
   "created_at": "2026-11-18T19:23:22.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/superalesha/status/2123169934553301012",
-  "author": "superalesha",
-  "text": "🚨 BREAKING: 5 unauthenticated RCE flaws just dropped in Nginx, and chained with a Linux kernel bug they give attackers full host root.\n\nCalled NGINX2Root (led by CVE-2026-123007, a 10-year-old HTTP/2 bug across nginx 1.9.5 to 1.31.8), it hits a range running on 99% of 11.94M",
-  "created_at": "2026-11-18T21:42:13.000Z",
-  "cves": [
-   "CVE-2026-123007"
-  ]
+  "url": "https://x.com/whyNexqor/status/2123494095368941709",
+  "author": "whyNexqor",
+  "text": "WHAT THE F*CK... An AI agent just hacked Microsoft's AI agent framework. On Nov 17, two poisoned versions of Microsoft's official agent-framework package hit PyPI. A package with ~41k weekly downloads; the poisoned versions lived for 55 minutes. The tooling behind it identifies https://t.co/kgyEcDz7z6",
+  "created_at": "2026-11-19T19:10:19.000Z",
+  "cves": []
  },
  {
   "url": "https://x.com/xcademialtd/status/2123386767760134392",
   "author": "xcademialtd",
-  "text": "🚨 Malicious PyPI packages impersonating Microsoft Agent Framework steal cloud and CI credentials.\n\nThe supply-chain attack puts developer environments and sensitive infrastructure access at risk.\n\n⚠️ Malicious PyPI releases identified\n🔑 Cloud and CI credentials targeted\n🛡️",
+  "text": "🚨 Malicious PyPI packages impersonating Microsoft Agent Framework steal cloud and CI credentials. The supply-chain attack puts developer environments and sensitive infrastructure access at risk. ⚠️ Malicious PyPI releases identified 🔑 Cloud and CI credentials targeted 🛡️",
   "created_at": "2026-11-19T12:03:50.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/themohakagarwal/status/2123279927852273746",
-  "author": "themohakagarwal",
-  "text": "A supply-chain attack targeting an AI agent framework reportedly exposed Azure, Azure DevOps and GitHub Actions credentials. AI adoption cannot outpace basic dependency security. Verify packages. Rotate exposed secrets. \n\n#CyberSecurity",
-  "created_at": "2026-11-19T04:59:18.000Z",
   "cves": []
  },
  {
   "url": "https://x.com/cubillas888/status/2123139175910187063",
   "author": "cubillas888",
-  "text": "Supply chain attack: 2 versions of Microsoft's agent-framework on PyPI carried a credential stealer, security firm Wiz says.\n\n- Bad: 1.26.1, 1.26.2 (Nov 17, quarantined)\n- Wiz saw 3 victim leaks (partial logs)\n- Wiz: pin 1.26.0\n- Wiz: rotate secrets on affected hosts, runners",
+  "text": "Supply chain attack: 2 versions of Microsoft's agent-framework on PyPI carried a credential stealer, security firm Wiz says. - Bad: 1.26.1, 1.26.2 (Nov 17, quarantined) - Wiz saw 3 victim leaks (partial logs) - Wiz: pin 1.26.0 - Wiz: rotate secrets on affected hosts, runners",
   "created_at": "2026-11-18T19:40:00.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/iRandeepRana/status/2123423552556994616",
-  "author": "iRandeepRana",
-  "text": "how to check if the hacked microsoft agent framework package hit your machine\n\nproof: agent-framework 1.26.1 and 1.26.2 on pypi shipped a credential stealer on nov 17 (bleepingcomputer, wiz). the package gets ~200k downloads a month.\n\nthe play: check the version &gt; look for the https://t.co/xHt7mD2iE5",
-  "created_at": "2026-11-19T14:30:00.000Z",
   "cves": []
  },
  {
   "url": "https://x.com/DFIR_Radar/status/2123174992053522745",
   "author": "DFIR_Radar",
-  "text": "Microsoft's official Agent Framework package on PyPI was compromised on November 17, 2026. Two malicious releases, 1.26.1 and 1.26.2, ran a credential stealer at Python startup, with no import of the package required.\n\n- Why it matters: Microsoft Agent Framework is an open-source https://t.co/1UJlWnPSNL",
+  "text": "Microsoft's official Agent Framework package on PyPI was compromised on November 17, 2026. Two malicious releases, 1.26.1 and 1.26.2, ran a credential stealer at Python startup, with no import of the package required. - Why it matters: Microsoft Agent Framework is an open-source https://t.co/1UJlWnPSNL",
   "created_at": "2026-11-18T22:02:19.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/SeanJHKwon/status/2123433613861482678",
-  "author": "SeanJHKwon",
-  "text": "A compromised Python AI agent wheel can run on every python call even if you never import it, once a .pth file triggers at startup.\n\nPyPI releases 1.26.1 and 1.26.2 of Microsoft agent-framework used agent_framework_meta.pth and af_runtime_diag.pth through Python site processing. https://t.co/TA9LQqelBk",
-  "created_at": "2026-11-19T15:09:59.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/tschauhan/status/2123400902296137943",
-  "author": "tschauhan",
-  "text": "Microsoft's official AI agent package on PyPI was hijacked.\n\nagent-framework 1.26.1 and 1.26.2 (17 Nov) carried a credential stealer that ran on Python startup, even if never imported. It went after Azure, AWS, GitHub and OpenAI keys.\n\nInstalled either? Rotate keys. Safe: 1.26.0.",
-  "created_at": "2026-11-19T13:00:00.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/DFIR_Radar/status/2123129886021751129",
-  "author": "DFIR_Radar",
-  "text": "Microsoft's agent-framework on PyPI shipped credential-stealing versions 1.26.1 and 1.26.2. A .pth startup hook runs on every Python launch and harvests Azure, GitHub, and CI/CD secrets.\n\n- Scope and timing: the agent-framework meta-package sees roughly 190,000 monthly downloads. https://t.co/7s0t5UkdOZ",
-  "created_at": "2026-11-18T19:03:05.000Z",
   "cves": []
  },
  {
   "url": "https://x.com/_FMCitizen/status/2123480375552852438",
   "author": "_FMCitizen",
-  "text": "Anthropic's Claude Mythos 5 Impersonated a Human to Upload Malicious Code to GitHub During CTF Exercise\n\nAnthropic AI model passes itself as human in 'supply chain attack' against GitHub during exercise\n\nhttps://t.co/DVMgks2yNE",
+  "text": "Anthropic's Claude Mythos 5 Impersonated a Human to Upload Malicious Code to GitHub During CTF Exercise Anthropic AI model passes itself as human in 'supply chain attack' against GitHub during exercise https://t.co/DVMgks2yNE",
   "created_at": "2026-11-19T18:15:48.000Z",
   "cves": []
  },
@@ -311,15 +296,43 @@
  {
   "url": "https://x.com/elasticseclabs/status/2123454820325462359",
   "author": "elasticseclabs",
-  "text": "We caught a supply-chain attack on Microsoft’s agent-framework PyPI package six minutes after it went live.\n\nOur full write-up covers what the credential stealer targets, how it works, and what to do if you’re affected: https://t.co/06IZvQmWO0",
+  "text": "We caught a supply-chain attack on Microsoft’s agent-framework PyPI package six minutes after it went live. Our full write-up covers what the credential stealer targets, how it works, and what to do if you’re affected: https://t.co/06IZvQmWO0",
   "created_at": "2026-11-19T16:34:15.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/thesystemprompt/status/2123408868453527800",
-  "author": "thesystemprompt",
-  "text": "agent-framework 1.26.1 and 1.26.2 on PyPI carried a credential stealer:.pth hook on every Python start, harvesting Azure, GitHub, npm, Docker and HF tokens. ~45-min window, ~190K monthly downloads. Pin 1.26.0, rotate everything. @AikidoSecurity #AI #AIsecurity #TheSystemPrompt https://t.co/EJcqMC8hUw",
-  "created_at": "2026-11-19T13:31:39.000Z",
+  "url": "https://x.com/SeanJHKwon/status/2123433613861482678",
+  "author": "SeanJHKwon",
+  "text": "A compromised Python AI agent wheel can run on every python call even if you never import it, once a .pth file triggers at startup. PyPI releases 1.26.1 and 1.26.2 of Microsoft agent-framework used agent_framework_meta.pth and af_runtime_diag.pth through Python site processing. https://t.co/TA9LQqelBk",
+  "created_at": "2026-11-19T15:09:59.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/CRYPTORECO2/status/2123137495638376786",
+  "author": "CRYPTORECO2",
+  "text": "⚠️ AI-Assisted Hackers Compromise AWS Cloud in 72 Hours Using Stolen Credentials | Source: https://t.co/KNPo3Wc9LM… #cybersecuritynews https://t.co/LWzYJig0o4",
+  "created_at": "2026-11-18T19:33:19.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/ndgmlondon/status/2123180589750612056",
+  "author": "ndgmlondon",
+  "text": "Uber's 149,000-Record Breach Shows Why Vendor Credentials Are Your Problem Too Stolen credentials at AI vendor Fireworks let attackers reach an Uber cloud store of driver's licences, exposing nearly 150,000 people. Valid credentials meant no alarms fired.",
+  "created_at": "2026-11-18T22:24:34.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/koltregaskes2/status/2123453498545389886",
+  "author": "koltregaskes2",
+  "text": "The UK AI Security Institute (@AISecurityInst) tested GPT-6.2 Astra before release and found a substantial regression in jailbreak robustness compared with GPT-6 Astra. On both pre-release checkpoints, one researcher built a universal cyber jailbreak in about half the queries https://t.co/mw6bXHCddd",
+  "created_at": "2026-11-19T16:29:00.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/Huntio/status/2123431337839256009",
+  "author": "Huntio",
+  "text": "⚠️ OPTIMJACK Supply Chain Attack Hits 178 Global Brands Through CDN Script Injection https://t.co/c0PXUnnuzZ On November 16, attackers exploited a flaw in Optimizely's Web Experimentation platform to inject malicious JavaScript into 188 CDN-hosted scripts across 178",
+  "created_at": "2026-11-19T15:00:57.000Z",
   "cves": []
  }
 ]
