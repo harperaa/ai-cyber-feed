@@ -1,33 +1,71 @@
 [
  {
-  "url": "https://x.com/SecurityAr58409/status/2123238092140069373",
-  "author": "SecurityAr58409",
-  "text": "🔒 #CyberSecurity\n\nZDI-26-1031: LiteLLM MCP Command Injection Vulnerability — Detection and Harden…\n\n\"LiteLLM has emerged as the backbone for enterprise AI orchestration, sitting between your…\"\n\n🔗 https://t.co/nezYgygU7w\n\n#CyberSecurity #ThreatIntel #critical #zeroday #cve",
-  "created_at": "2026-11-19T02:13:03.000Z",
-  "cves": []
+  "url": "https://x.com/Rachidmarcil/status/2123242254215352653",
+  "author": "Rachidmarcil",
+  "text": "🚨 Mandiant discloses actively exploited unauthenticated RCE — CVE-2026-131914 (CVSS 9.3) in the legacy https://t.co/H8Ae4YIIOT AntiCSRF library. A single crafted POST executes code on the IIS server. No patch exists. https://t.co/doDjsgYbvu https://t.co/RAdnbxCPZn",
+  "created_at": "2026-11-19T02:29:35.000Z",
+  "cves": [
+   "CVE-2026-131914"
+  ]
  },
  {
-  "url": "https://x.com/ThreatAft/status/2123237842352832588",
-  "author": "ThreatAft",
-  "text": "🔐nginx has had a pre-auth RCE in its HTTP/2 engine since 2015.\n\nCVE-2026-123007: flow-control underflow → worker RCE. Only condition: HTTP/2 enabled.\n\nFive CVEs. `http2 off` closes two.\n\nFix: 1.30.7 / 1.31.9. Restart, not reload.\n\nhttps://t.co/f9SRTrKhSp \n#CyberSecurity",
-  "created_at": "2026-11-19T02:12:04.000Z",
+  "url": "https://x.com/notCVE/status/2123229952120156408",
+  "author": "notCVE",
+  "text": "⚠️ ACTIVELY EXPLOITED — added to CISA KEV 2026-11-17\n\nCVE-2026-115731: Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability\n\nCVSS 9.9 · EPSS 0.7% · 1 public exploit\n\nDetails, versions &amp; intel → https://t.co/630ZnhPr2V https://t.co/cGNNPyBgAu",
+  "created_at": "2026-11-19T01:40:42.000Z",
+  "cves": [
+   "CVE-2026-115731"
+  ]
+ },
+ {
+  "url": "https://x.com/SecurityAr58409/status/2123235829053083932",
+  "author": "SecurityAr58409",
+  "text": "🔒 #CyberSecurity\n\nCVE-2026-90817: REDCap Code Injection Actively Exploited — CISA KEV Detection a…\n\n\"On November 18, 2026, CISA added CVE-2026-90817 to the Known Exploited…\"\n\n🔗 https://t.co/ssPk2W63k1\n\n#CyberSecurity #ThreatIntel #cve202690817 #critical #cisakev",
+  "created_at": "2026-11-19T02:04:04.000Z",
+  "cves": [
+   "CVE-2026-90817"
+  ]
+ },
+ {
+  "url": "https://x.com/zoomeyebot/status/2123230590455718293",
+  "author": "zoomeyebot",
+  "text": "🚨 NGINX2Root: HTTP/2 heap overflow can enable RCE (CVSS 8.1)\n\nPatch to NGINX 1.30.7/1.31.9 or Plus 37.0.8.1/37.3.0.1. RCE depends on exploitable ASLR conditions; no in-the-wild exploitation reported. Exposure counts NGINX assets, not confirmed vulnerable or HTTP/2-enabled.\n\nCritical Vulnerability Alert!\nNGINX Open Source and NGINX Plus configurations using HTTP/2 is affected by CVE-2026-123007.\n\n🔍 Identify Targets via ZoomEye:\n\nFilter: vul.cve=\"CVE-2026-123007\"\nExposure: 316.1m instances identified globally.\n\nZoomEye Search Link:\n👉 https://t.co/hzZZ9ORoOj\n\nRead https://t.co/NPvWomlG1d and configure ZoomEye for this agent.\n#Infosec #CyberSecurity #ZoomEye",
+  "created_at": "2026-11-19T01:43:15.000Z",
   "cves": [
    "CVE-2026-123007"
   ]
  },
  {
-  "url": "https://x.com/secprimate/status/2123237822123409824",
-  "author": "secprimate",
-  "text": "One malformed Base64 string can take over your Java server.\n\nJava4Shell (CVE-2026-114938): pre-auth RCE on Jira, Jenkins, Keycloak. Here's the 60 second exposure check. Part 2 is the fix.\n#Java4Shell #InfoSecMonkey https://t.co/b1rdfPOWXX",
-  "created_at": "2026-11-19T02:11:59.000Z",
+  "url": "https://x.com/DFIR_Radar/status/2123251434472997059",
+  "author": "DFIR_Radar",
+  "text": "Java4Shell (CVE-2026-114938) is a heap overflow in HotSpot's AVX-512 Base64 decoder that gives unauthenticated RCE, but only on x86-64 hosts whose CPUs report four specific features. Patch every Java runtime, and let the processor set the order.\n\n- Scope and status: Calif disclosed it on November 17, 2026. Oracle scores it CVSS 3.1 8.1 (High), and Calif scores it CVSS 4.0 9.2 (Critical). Calif demonstrated unauthenticated RCE against default installs of Keycloak, Jira, Confluence, Artifactory, Jenkins and PingFederate. A self-contained PoC that triggers the bug is public, and the per-product exploit chains are held back. As of November 18, Calif reports no in-the-wild exploitation and it is not in CISA KEV. CISA issued an alert urging immediate patching.\n\n- Why the CPU matters: HotSpot swaps in a hand-written Base64 intrinsic chosen at startup from CPUID. The 512-bit AVX-512 VBMI path \"miscalculated the padded tail's store mask, causing an out-of-bounds write.\" All four flags must be present: bmi2, avx512f, avx512bw, avx512vbmi. Calif lists Intel Xeon Ice Lake, Sapphire Rapids, Emerald Rapids and Granite Rapids, plus AMD EPYC and Ryzen from Zen 4 onward. ARM64 is not affected. \"Has AVX-512\" is not the test: Eclypsium's Skylake Xeon Platinum 8168 lacks avx512vbmi.\n\n- Affected builds and the inventory gap: OpenJDK 17.0.6 and later, plus downstream distributions (Corretto, Temurin, Microsoft Build of OpenJDK, Red Hat OpenJDK, Oracle OpenJDK, Oracle Java SE). Oracle's list also covers the Java 8 Enterprise Performance Pack build 8u511b33-perf. Version numbers differ per distributor, so check the vendor advisory. CISA notes runtimes bundled in third-party apps, container images and appliances may not appear as separate inventory entries, and a package-manager query misses runtimes in app directories or containers.\n\n- Verification traps: the grep of the flags line in /proc/cpuinfo can falsely say \"not affected\" on older kernels, because they print only flag names they know. In Eclypsium's lab, Ice Lake guests omitted avx512vbmi there while CPUID inside the same VMs showed it. The JVM reads CPUID, so use the cpuid tool on older guests. Then run java -XX:+PrintFlagsFinal -version with the application's own binary and options, and check UseAVX (3 means AVX-512). UseBASE64Intrinsics = true alone does not mean exposed. VMs migrating to newer hosts, or using host CPU passthrough, can flip a system into scope.\n\n- Mitigation: where patching cannot land, -XX:-UseBASE64Intrinsics or -XX:UseAVX=2 removes the vulnerable path. Set it in the app's JVM options or JAVA_TOOL_OPTIONS, and confirm with PrintFlagsFinal. UseAVX=2 is x86-64 only, since a JVM on ARM will not start with it. Eclypsium has not measured the performance cost. CISA also suggests validating Base64 input, enforcing size limits and restricting unauthenticated access.\n\nDFIR takeaway: CISA says crafted Base64 can crash the JVM. When HotSpot crashes it writes hs_err_pid<pid>.log, by default in the process's working directory. Collect these files or service-manager crash events from internet-facing Java services, and alert on new ones. An unexpected crash since November 17 on an internet-facing service running an affected build on a CPU with all four features is a reason to open an incident and review the host, not just restart the service. Preserve the hs_err file and any core dump before restarting. Prioritize Jira, Confluence, Keycloak, Artifactory, Jenkins and PingFederate.\n\n#DFIR_Radar",
+  "created_at": "2026-11-19T03:06:04.000Z",
   "cves": [
    "CVE-2026-114938"
   ]
  },
  {
+  "url": "https://x.com/threadlinqs/status/2123240950868938773",
+  "author": "threadlinqs",
+  "text": "Synology DSM flaw CVE-2024-10441 now exploited in the wild: unauthenticated RCE on NAS. Patch now. https://t.co/VzSUFVIFKg #ThreatIntel #CVE_2024_10441 #CVE_2024_10445 #SynologySA2420 https://t.co/TYAaUcGddg",
+  "created_at": "2026-11-19T02:24:25.000Z",
+  "cves": [
+   "CVE-2024-10441"
+  ]
+ },
+ {
+  "url": "https://x.com/me_deepu/status/2123243829017063434",
+  "author": "me_deepu",
+  "text": "Updated nginx for the new HTTP/2 bugs and only did a reload? Check again. A reload keeps the old binary running, and Xint says you need a full restart.\n\nF5 shipped fixes on Nov 18 for 10 NGINX bugs. The worst, CVE-2026-123007, is an integer overflow in HTTP/2 flow control that writes past a heap buffer, and it has been in the code since 1.9.5 in 2015. The only precondition is HTTP/2 on a listener. Rapid7 has a public PoC for unauthenticated code execution as the worker, though it is noisy (roughly 128 GB of HTTP/2 traffic). F5 says no exploitation in the wild so far.\n\nWhat to fix today:\n1. Move to 1.30.7 or 1.31.9 (Plus: 37.0.8.1 or 37.3.0.1)\n2. Restart the service, then confirm the running version\n3. Can't patch yet? Set http2 off on exposed listeners, knowing it covers only 2 of the 5 RCEs\n4. Alert on \"worker process exited on signal\" in error logs\n\nDon't forget the nginx copies inside your container images. How many of those have you counted?\n\nhttps://t.co/sWEJ8AocVI",
+  "created_at": "2026-11-19T02:35:51.000Z",
+  "cves": [
+   "CVE-2026-123007"
+  ]
+ },
+ {
   "url": "https://x.com/secure_blink/status/2123237589767631110",
   "author": "secure_blink",
-  "text": "Four orgs scored the same Java flaw: 8.1, 8.8, 9.2, 9.8.\n\nCVE-2026-114938 (#Java4Shell) is a confirmed #Base64 decoder bug. Patched Nov 17.\n\nThe claimed RCE chain in 6 products? Unreproduced outside the discoverer's own lab. 🔍\n\nThe CVSS breakdown, what the independent https://t.co/9Oy41WP3rD",
+  "text": "Four orgs scored the same Java flaw: 8.1, 8.8, 9.2, 9.8.\n\nCVE-2026-114938 (#Java4Shell) is a confirmed #Base64 decoder bug. Patched Nov 17.\n\nThe claimed RCE chain in 6 products? Unreproduced outside the discoverer's own lab. 🔍\n\nThe CVSS breakdown, what the independent reproduction attempts actually found, and the six named products \n\n#RedHat has not patched RHEL 8, 9, or 10 #OpenJDK yet. RHSB-2026-018, five days after Oracle's fix.\n\nOne bug, confirmed. The exploit chain in six products: still just a claim.\n\nDetails: https://t.co/5xCDajY9My\n\n#CVE #Exploit #Java #Vulnerability #Appsec #Threatfeed #SecureBlink #RCE #Threatfeed #SecureBlink",
   "created_at": "2026-11-19T02:11:03.000Z",
   "cves": [
    "CVE-2026-114938"
@@ -43,13 +81,197 @@
   ]
  },
  {
+  "url": "https://x.com/GoPlusSecurity/status/2123231614729887747",
+  "author": "GoPlusSecurity",
+  "text": "🚨 OpenJDK “Java4Shell” Vulnerability Alert\n\nOn November 17, 2026, Oracle and the OpenJDK project released security updates addressing CVE-2026-114938, a memory corruption vulnerability dubbed Java4Shell. The flaw affects HotSpot’s AVX-512 VBMI-accelerated Base64 decoding intrinsic and can lead to heap data disclosure, JVM crashes, and potentially remote code execution (RCE).\n\nOracle assigned the vulnerability a CVSS 3.1 score of 8.1 (High). A proof of concept and technical details are publicly available, although application-specific exploit chains remain withheld. Developers should assess their exposure and patch as soon as possible.\n\n📌 Affected Versions and Exploitation Conditions\n\nAffected releases include OpenJDK 17.0.6 and later unpatched builds in the Java 17, 21, 25, and 27 release lines. Distributions incorporating the affected code are also impacted, including Amazon Corretto, Eclipse Temurin, Azul Zulu, Microsoft Build of OpenJDK, and Red Hat OpenJDK.\n\nExploitation typically requires all of the following:\n\n- An affected, unpatched Java runtime.\n- An x86-64 processor supporting AVX-512 VBMI and the associated required CPU features.\n- The vulnerable Base64 decoding intrinsic active in the JVM.\n- Attacker-controlled data reaching the affected Java Base64 decoder.\n\nARM64 systems and x86-64 systems without AVX-512 VBMI support are unaffected. Standard OpenJDK 8 and 11 are also unaffected. However, certain Oracle Java SE 8 Enterprise Performance Pack releases are affected.\n\nResearchers at Calif demonstrated pre-authentication RCE in controlled environments against Jira, Confluence, Jenkins, Keycloak, Artifactory, and PingFederate, as well as post-authentication RCE against Kafka, Solr, Elasticsearch, Gerrit, and Spinnaker. Exploitability depends on the application and deployment; there is no universal exploit.\n\n🛡️ Security Recommendations\n\nFor Oracle JDK, upgrade to the following patched releases or later vendor-supported security updates:\n\n- Java 17: 17.0.21.1\n- Java 21: 21.0.13.1\n- Java 25: 25.0.5.1\n- Java 27: 27.0.1.1\n- Oracle Java SE 8 Enterprise Performance Pack: 8u513-perf\n\nFor other OpenJDK distributions, follow the respective vendor’s security advisories and install the appropriate patched builds.\n\nRestart affected JVMs after upgrading. For containerized applications, rebuild and redeploy images containing the patched runtime. Update bundled or embedded JREs using the method supported by the product vendor.",
+  "created_at": "2026-11-19T01:47:19.000Z",
+  "cves": [
+   "CVE-2026-114938"
+  ]
+ },
+ {
+  "url": "https://x.com/dailytechonx/status/2123233809105645976",
+  "author": "dailytechonx",
+  "text": "Heads-up: PHP will roll out critical security updates on Nov 19 addressing a remote code execution flaw in session upload progress (CVE-2026-115560) plus related high-severity patches. If your setup has custom upload handlers or non-default configurations, disable the affected feature now and be ready to update to patched versions once they go live.\n\n#Security #PHP #Vulnerabilities #RCE #PatchUpdate #CyberRisk\n\nhttps://t.co/sSNZs5XfGt",
+  "created_at": "2026-11-19T01:56:02.000Z",
+  "cves": [
+   "CVE-2026-115560"
+  ]
+ },
+ {
   "url": "https://x.com/TonyNguyen_1909/status/2123237165803229516",
   "author": "TonyNguyen_1909",
-  "text": "Researchers using AI just found critical bugs in software that runs a huge chunk of the internet.\n\nPatches are out. Check your servers today:\n\n→ NGINX (CVE-2026-123633, CVE-2026-123007)\nCVSS 9.2. Unauthenticated RCE when HTTP/2 is on. Update to 1.30.7 or 1.31.9. Can't yet? Turn https://t.co/yQRo4pAiht",
+  "text": "Researchers using AI just found critical bugs in software that runs a huge chunk of the internet.\n\nPatches are out. Check your servers today:\n\n→ NGINX (CVE-2026-123633, CVE-2026-123007)\nCVSS 9.2. Unauthenticated RCE when HTTP/2 is on. Update to 1.30.7 or 1.31.9. Can't yet? Turn HTTP/2 off for now.\n\n→ Java4Shell (CVE-2026-114938)\nBase64 decoder bug in OpenJDK 17/21/25/27 on x86-64. Found by Calif with AI. Update your JDK.\n\n→ Bonus: Nginx UI (CVE-2026-27944)\nNot new (March), but CVSS 9.8 with public exploits. The backup endpoint leaks your credentials and SSL keys with zero login. Fix: 2.3.3+.\n\nNo confirmed successful attacks on the 2 new ones yet. That window won't stay open long.\n\nSave this 🔖 and send it to whoever runs your servers.",
   "created_at": "2026-11-19T02:09:22.000Z",
   "cves": [
    "CVE-2026-123633",
+   "CVE-2026-123007",
+   "CVE-2026-114938",
+   "CVE-2026-27944"
+  ]
+ },
+ {
+  "url": "https://x.com/LearnInvest2026/status/2123229950916317632",
+  "author": "LearnInvest2026",
+  "text": "A bug that sat in nginx for 11 years lets an attacker run code on a server without logging in, as long as HTTP/2 is on.\n\nnginx is the most widely used web server, powering more than 225 million sites per Wiz. Yesterday it fixed 10 vulnerabilities, five of them critical. The worst, CVE-2026-123007, dates back to version 1.9.5 in 2015, and every open-source release through 1.31.8 is affected. In Wiz's tests it worked even on a server serving only static files.\n\nFive teams including Wiz, Rapid7 and Xint found the bugs independently. Xint chained one with a separate Linux kernel bug to get root on the host, even with nginx inside a Docker container. Wiz says it found them with its AI code scanner. It is the third old bug of this class in a month: PHP last month, Java on Tuesday, now nginx.\n\nF5 and the researchers have not seen attacks yet, but exploit code is public on GitHub. Fixed versions are 1.31.9 and 1.30.7. Ubuntu and Debian packages were not updated as of yesterday. Restart fully after upgrading, since a reload leaves the old binary running. If you cannot upgrade yet, turn off HTTP/2.\n\nhttps://t.co/OQmqbkHrHo\nhttps://t.co/YAYDjbGF05",
+  "created_at": "2026-11-19T01:40:42.000Z",
+  "cves": [
    "CVE-2026-123007"
+  ]
+ },
+ {
+  "url": "https://x.com/hackerlogs/status/2123244878943473682",
+  "author": "hackerlogs",
+  "text": "‼️ URGENT: Ruby just patched 7 memory bugs in its Regexp engine and String case conversion, and the official advisory says PoCs already turn some of them into remote code execution. If your app changes the case of untrusted text or compiles patterns from user input, upgrade today.\n\nThe bugs, per @rubylangorg: a one-byte heap overflow and an integer overflow when changing the case of strings in single-byte encodings like ISO-8859-1 and Windows-1252, a double free and a heap overflow in Regexp compilation, a heap overflow in Regexp#to_s, and two out-of-bounds reads in case-insensitive matching. GitHub rates the case-conversion overflow Critical. CVE IDs are still pending, so track the GHSA IDs.\n\nThe AI angle: 4 of the 7 were reported by Stephan Lipp of @ADALogics together with @AnthropicAI. That is a second language runtime this week with AI-assisted memory bugs, after Java4Shell. @tqbf is already calling a race to the first public PoC for the 'ß' case-conversion bug.\n\nBlast radius: Ruby 3.3.13 and earlier, 3.4.0 to 3.4.12, and 4.0.0 to 4.0.9. That is most @rails apps, background workers and Ruby CLIs in production. Ruby 3.2 and older are end of life and get no fix.\n\nTonight:\n1. Upgrade to Ruby 4.0.10, 3.4.13 or 3.3.14, then rebuild Docker base images and CI runners, not just .ruby-version.\n2. Until patched, find https://t.co/fvfkUmoefq and Regexp.union fed by user input and escape or allowlist it.\n3. Still on 3.2 or older? Treat it as unpatched and plan the jump.\n\nAdvisory: https://t.co/DMQlsvhq3I\n\n#Ruby #RubyOnRails #infosec",
+  "created_at": "2026-11-19T02:40:01.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/secprimate/status/2123252883994956157",
+  "author": "secprimate",
+  "text": "Your Roller admin toggle won't stop this 9.8 RCE.\n\nCVE-2026-129448: pre-auth XML-RPC deserialization in Apache Roller 4.0.0 to 6.1.5, exploited now. One web.xml line buys you time. Part 2 is the FortiGate virtual patch.\n#CVE #InfoSecMonkey https://t.co/7KSIz8CpSx",
+  "created_at": "2026-11-19T03:11:50.000Z",
+  "cves": [
+   "CVE-2026-129448"
+  ]
+ },
+ {
+  "url": "https://x.com/ThreatAft/status/2123237842352832588",
+  "author": "ThreatAft",
+  "text": "🔐nginx has had a pre-auth RCE in its HTTP/2 engine since 2015.\n\nCVE-2026-123007: flow-control underflow → worker RCE. Only condition: HTTP/2 enabled.\n\nFive CVEs. `http2 off` closes two.\n\nFix: 1.30.7 / 1.31.9. Restart, not reload.\n\nhttps://t.co/f9SRTrKhSp \n#CyberSecurity",
+  "created_at": "2026-11-19T02:12:04.000Z",
+  "cves": [
+   "CVE-2026-123007"
+  ]
+ },
+ {
+  "url": "https://x.com/SCMagazine/status/2123239087087759724",
+  "author": "SCMagazine",
+  "text": "Uber's breach exposed data on 150,000 drivers through an #AI vendor's stolen credentials. In this op-ed, @super__protocol's Nukri Basharuli says the lesson is that valid logins aren't enough. Monitor behavior and limit access to sensitive data. #infosec https://t.co/HX50w9GBV2",
+  "created_at": "2026-11-19T02:17:00.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/mashnu_AI/status/2123244274451874072",
+  "author": "mashnu_AI",
+  "text": "AI Security — Nov 19, 2026\n\nMicrosoft's agent-framework PyPI package (1.26.1/1.26.2) was compromised with a credential stealer targeting Azure, GitHub &amp; CI secrets. Quarantined; last clean is 1.26.0. Rotate secrets if installed.\n\nhttps://t.co/s1nF8RlcuX\n\n#AISecurity #SupplyChain",
+  "created_at": "2026-11-19T02:37:37.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/Thomaslxes/status/2123229510518624741",
+  "author": "Thomaslxes",
+  "text": "Microsoft's agent-framework package on PyPI shipped two poisoned versions yesterday. You didn't even have to import it.\n\nEach one dropped a .pth file. Python runs those every time the interpreter starts. So every Python process in that environment ran the stealer. Tests, scripts, https://t.co/OxSmqzqAsY",
+  "created_at": "2026-11-19T01:38:57.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/oniubility/status/2123229330377674916",
+  "author": "oniubility",
+  "text": "3 malicious packages hit AI/crypto devs this week:\n\n1. agent-framework (PyPI) 1.26.1/.2: stole CI secrets\n2. ethers-wallet-latest (npm): keys to Telegram\n3. mcp-aevo-server (PyPI): leaked wallet keys\n\nPin versions, check exact names. Hit one? Rotate keys.\n\nWhich do you skip?\n\nNot",
+  "created_at": "2026-11-19T01:38:14.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/michaelnemtsev/status/2123239405863236086",
+  "author": "michaelnemtsev",
+  "text": "AI Field Notes #138\n\nCodex found Java4Shell, a critical Java flaw, in one hour for under $200 in tokens. Your patch window is now measured against that.\n\n- Two poisoned releases of Microsoft's agent-framework stole Azure and GitHub keys from Nov 17 installs\n- OpenAI's own system https://t.co/z1dfXXpDvz",
+  "created_at": "2026-11-19T02:18:16.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/arnavsharma/status/2123249041895039093",
+  "author": "arnavsharma",
+  "text": "Security questions are the bit of the TfL breach that bothers me. About 265,000 Oyster photocard customers had names, addresses, dates of birth and security Q&amp;As accessed, TfL says, though no passwords or payment data. You can't really rotate where you grew up.",
+  "created_at": "2026-11-19T02:56:34.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/HisashiSpace/status/2123232462067441680",
+  "author": "HisashiSpace",
+  "text": "Have you ever pasted a password or an API key into an AI chat?\nNotion just said some Notion AI chat transcripts may have been exposed.\n\nAccording to Notion, the cause was a breach at Fireworks AI, an AI vendor Notion used.\nFewer than 1% of workspaces were affected. The exposed",
+  "created_at": "2026-11-19T01:50:41.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/DFIR_Radar/status/2123236550293021159",
+  "author": "DFIR_Radar",
+  "text": "OPTIMJACK: attackers abused an Optimizely Experimentation flaw to inject JavaScript into 188 snippets across 178 organizations, skimming cards, swapping crypto wallets and pushing iOS exploit kits.\n\nOn 16 November 2026, an unauthorized party used an Optimizely Experimentation https://t.co/6pVIy7cMJC",
+  "created_at": "2026-11-19T02:06:56.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/Techmeme/status/2123247663193935927",
+  "author": "Techmeme",
+  "text": "Hackers compromised Microsoft's Agent Framework Python package on PyPI, publishing two versions designed to steal cloud credentials and other information (@billtoulas / BleepingComputer)\n\n(Visit Techmeme dot com for the link and full context!)",
+  "created_at": "2026-11-19T02:51:05.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/tarifalhasanjs/status/2123253918729728025",
+  "author": "tarifalhasanjs",
+  "text": "⚠️ Cyber alert: Recent major tech outages (Microsoft, JPMorgan) blamed on rushed AI-assisted bug fixes creating instability.\n\nAlso: Compromised Microsoft Agent Framework PyPI package stealing cloud credentials. AI cuts both ways.\n\n#CyberSecurity #AI #InfoSec #ThreatAlert",
+  "created_at": "2026-11-19T03:15:57.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/CIDC_Ops/status/2123244905543909655",
+  "author": "CIDC_Ops",
+  "text": "KPMG Canada client files compromised in data breach, accounting giant confirms https://t.co/MIgf53i3hv #CyberSecurity #Attacks #CSCIS",
+  "created_at": "2026-11-19T02:40:08.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/tensordaily/status/2123253482350137406",
+  "author": "tensordaily",
+  "text": "REPORT: Russian hacker group Cold Relic used stolen cloud data to pose as a trusted contact and breach a second U.S. organization, The Record reports.",
+  "created_at": "2026-11-19T03:14:12.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/dangsoun/status/2123248258944471085",
+  "author": "dangsoun",
+  "text": "Frontier Hack Exposes 25,058 Files; Crypto Investors Urged to Stay Vigilant\nFrontier Communications — now a fully owned subsidiary of Verizon — is facing a new data breach allegation.\nAccording to Dark Web Informer, a hacking group called the Handsome Boy Hacking Club (HBHC) https://t.co/13guwelbuB",
+  "created_at": "2026-11-19T02:53:27.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/TekonBurns/status/2123253597295222889",
+  "author": "TekonBurns",
+  "text": "🚨 Python AI builders: Microsoft's official agent-framework package on PyPI was compromised.\n\n→ Malicious versions: 1.26.1 and 1.26.2, uploaded Nov 17 via maintainer vibiret\n→ Last clean release: 1.26.0 from Nov 12\n→ Drops .pth startup hooks into site-packages that fire on ANY",
+  "created_at": "2026-11-19T03:14:40.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/heartypanes/status/2123237709993087457",
+  "author": "heartypanes",
+  "text": "Audit build security before choosing hosting: Railway's breach exposed AI keys and cloud credentials, fueling about $740,000 in unauthorized AI use.\n\nhttps://t.co/C9UAcOBYMk",
+  "created_at": "2026-11-19T02:11:32.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/zoomeye_team/status/2123234709346148542",
+  "author": "zoomeye_team",
+  "text": "🚨 CVE-2026-123007: NGINX ngx_http_v2_module vulnerability\n\nCritical Vulnerability Alert!\nNginx is affected by CVE-2026-123007.\n\nFull Vulnerability Details &amp; Analysis at DarkEye:\n🔗 https://t.co/KOgEtnmP7Z\n\n🔍 Identify Targets via ZoomEye:\n\nFilter: vul.cve=\"CVE-2026-123007\" https://t.co/FeMiP20f2D",
+  "created_at": "2026-11-19T01:59:37.000Z",
+  "cves": [
+   "CVE-2026-123007"
+  ]
+ },
+ {
+  "url": "https://x.com/SecurityAr58409/status/2123238092140069373",
+  "author": "SecurityAr58409",
+  "text": "🔒 #CyberSecurity\n\nZDI-26-1031: LiteLLM MCP Command Injection Vulnerability — Detection and Harden…\n\n\"LiteLLM has emerged as the backbone for enterprise AI orchestration, sitting between your…\"\n\n🔗 https://t.co/nezYgygU7w\n\n#CyberSecurity #ThreatIntel #critical #zeroday #cve",
+  "created_at": "2026-11-19T02:13:03.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/secprimate/status/2123237822123409824",
+  "author": "secprimate",
+  "text": "One malformed Base64 string can take over your Java server.\n\nJava4Shell (CVE-2026-114938): pre-auth RCE on Jira, Jenkins, Keycloak. Here's the 60 second exposure check. Part 2 is the fix.\n#Java4Shell #InfoSecMonkey https://t.co/b1rdfPOWXX",
+  "created_at": "2026-11-19T02:11:59.000Z",
+  "cves": [
+   "CVE-2026-114938"
   ]
  },
  {
@@ -62,15 +284,6 @@
   ]
  },
  {
-  "url": "https://x.com/SecurityAr58409/status/2123235829053083932",
-  "author": "SecurityAr58409",
-  "text": "🔒 #CyberSecurity\n\nCVE-2026-90817: REDCap Code Injection Actively Exploited — CISA KEV Detection a…\n\n\"On November 18, 2026, CISA added CVE-2026-90817 to the Known Exploited…\"\n\n🔗 https://t.co/ssPk2W63k1\n\n#CyberSecurity #ThreatIntel #cve202690817 #critical #cisakev",
-  "created_at": "2026-11-19T02:04:04.000Z",
-  "cves": [
-   "CVE-2026-90817"
-  ]
- },
- {
   "url": "https://x.com/SecurityAr58409/status/2123235417122074650",
   "author": "SecurityAr58409",
   "text": "🔒 #CyberSecurity\n\nCVE-2024-10441: Synology DSM/BeeStation RCE Now on CISA KEV — Detection, Huntin…\n\n\"On November 18, 2026, CISA added CVE-2024-10441 to the Known Exploited…\"\n\n🔗 https://t.co/blbpP7XxzZ\n\n#CyberSecurity #ThreatIntel #cve202410441 #critical #cisakev",
@@ -80,13 +293,11 @@
   ]
  },
  {
-  "url": "https://x.com/dailytechonx/status/2123233809105645976",
-  "author": "dailytechonx",
-  "text": "Heads-up: PHP will roll out critical security updates on Nov 19 addressing a remote code execution flaw in session upload progress (CVE-2026-115560) plus related high-severity patches. If your setup has custom upload handlers or non-default configurations, disable the affected https://t.co/2KKY6D0t0t",
-  "created_at": "2026-11-19T01:56:02.000Z",
-  "cves": [
-   "CVE-2026-115560"
-  ]
+  "url": "https://x.com/JustinMiddler/status/2123234847531421768",
+  "author": "JustinMiddler",
+  "text": "Microsoft's Agent Framework on PyPI shipped two bad builds. A .pth file stole creds at Python startup, no import needed.\n\nOn 1.26.1 or 1.26.2? Rebuild, rotate.\nhttps://t.co/FxXYn58l0l",
+  "created_at": "2026-11-19T02:00:10.000Z",
+  "cves": []
  },
  {
   "url": "https://x.com/wellagore/status/2123232664589074643",
@@ -114,225 +325,5 @@
   "cves": [
    "CVE-2026-131914"
   ]
- },
- {
-  "url": "https://x.com/GoPlusSecurity/status/2123231614729887747",
-  "author": "GoPlusSecurity",
-  "text": "🚨 OpenJDK “Java4Shell” Vulnerability Alert\n\nOn November 17, 2026, Oracle and the OpenJDK project released security updates addressing CVE-2026-114938, a memory corruption vulnerability dubbed Java4Shell. The flaw affects HotSpot’s AVX-512 VBMI-accelerated Base64 decoding https://t.co/z3sjIG6CQq",
-  "created_at": "2026-11-19T01:47:19.000Z",
-  "cves": [
-   "CVE-2026-114938"
-  ]
- },
- {
-  "url": "https://x.com/giuseppe_1337/status/2123231105012716022",
-  "author": "giuseppe_1337",
-  "text": "🚨 CRITICAL: CVE-2026-62440 (CVSS 9.1)\nApache CloudStack Kubernetes Service plugin allows cross-tenant cluster manipulation. Affects v4.21.0.0-4[.]22[.]1[.]0.\n\nUpgrade to 4[.]22[.]1[.]1+ immediately.\n\n#CVE #Vulnerability #PatchNow https://t.co/nI29RrXhxJ",
-  "created_at": "2026-11-19T01:45:17.000Z",
-  "cves": [
-   "CVE-2026-62440"
-  ]
- },
- {
-  "url": "https://x.com/BytesNora/status/2123231037387833777",
-  "author": "BytesNora",
-  "text": "CVE-2026-40217 (BerriAI LiteLLM) has a CVSS of 8.8 and an EPSS of 17%, yet it's in CISA KEV. This confirms active exploitation. Prioritize patching this RCE vulnerability over higher-scored issues without confirmed exploitation.\n\n#LiteLLM #VulnManagement #CyberSecurity",
-  "created_at": "2026-11-19T01:45:01.000Z",
-  "cves": [
-   "CVE-2026-40217"
-  ]
- },
- {
-  "url": "https://x.com/zemnmez/status/2123229620845863218",
-  "author": "zemnmez",
-  "text": "OpenAI models are very strong at finding vulnerabilities. In GPT 6.2, we use those vulnerability discovery tools at training time. Defenders get those benefits as soon as the code is written. https://t.co/Xmjkiu3KQN",
-  "created_at": "2026-11-19T01:39:23.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/one_blues_fan/status/2123218232064831746",
-  "author": "one_blues_fan",
-  "text": "An unexpected dimension of Java4Shell: AI-assisted vulnerability research.  (Continue)\n\nAI is changing the economics of vulnerability research.\n\n#AI #Codex #Cybersecurity",
-  "created_at": "2026-11-19T00:54:08.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/ALIN96033/status/2123209194702856411",
-  "author": "ALIN96033",
-  "text": "OpenAI's unreleased GPT-6 Cyber model just helped security researchers uncover a critical vulnerability across Java infrastructure, triggered by the simplest string imaginable. Cybersecurity firm Calif found that feeding Java's base64 decoder a string of 64 'A' characters",
-  "created_at": "2026-11-19T00:18:13.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/hwiwonl/status/2123198517049253899",
-  "author": "hwiwonl",
-  "text": "We're happy to see @OpenAI use DeepBinary to evaluate GPT-6.2 Astra and Sol! We built it to evaluate AI agents on open-ended vulnerability discovery in Windows kernel systems.\n\nhttps://t.co/exRXTaGb2Q",
-  "created_at": "2026-11-18T23:35:48.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/michaelnemtsev/status/2123239405863236086",
-  "author": "michaelnemtsev",
-  "text": "AI Field Notes #138\n\nCodex found Java4Shell, a critical Java flaw, in one hour for under $200 in tokens. Your patch window is now measured against that.\n\n- Two poisoned releases of Microsoft's agent-framework stole Azure and GitHub keys from Nov 17 installs\n- OpenAI's own system https://t.co/z1dfXXpDvz",
-  "created_at": "2026-11-19T02:18:16.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/heartypanes/status/2123237709993087457",
-  "author": "heartypanes",
-  "text": "Audit build security before choosing hosting: Railway's breach exposed AI keys and cloud credentials, fueling about $740,000 in unauthorized AI use.\n\nhttps://t.co/C9UAcOBYMk",
-  "created_at": "2026-11-19T02:11:32.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/DFIR_Radar/status/2123236550293021159",
-  "author": "DFIR_Radar",
-  "text": "OPTIMJACK: attackers abused an Optimizely Experimentation flaw to inject JavaScript into 188 snippets across 178 organizations, skimming cards, swapping crypto wallets and pushing iOS exploit kits.\n\nOn 16 November 2026, an unauthorized party used an Optimizely Experimentation https://t.co/6pVIy7cMJC",
-  "created_at": "2026-11-19T02:06:56.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/JustinMiddler/status/2123234847531421768",
-  "author": "JustinMiddler",
-  "text": "Microsoft's Agent Framework on PyPI shipped two bad builds. A .pth file stole creds at Python startup, no import needed.\n\nOn 1.26.1 or 1.26.2? Rebuild, rotate.\nhttps://t.co/FxXYn58l0l",
-  "created_at": "2026-11-19T02:00:10.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/oniubility/status/2123229330377674916",
-  "author": "oniubility",
-  "text": "3 malicious packages hit AI/crypto devs this week:\n\n1. agent-framework (PyPI) 1.26.1/.2: stole CI secrets\n2. ethers-wallet-latest (npm): keys to Telegram\n3. mcp-aevo-server (PyPI): leaked wallet keys\n\nPin versions, check exact names. Hit one? Rotate keys.\n\nWhich do you skip?\n\nNot",
-  "created_at": "2026-11-19T01:38:14.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/threatpodium/status/2123220843018809485",
-  "author": "threatpodium",
-  "text": "🚨 CVE-2026-90436 — CRITICAL — actively exploited per CISA KEV\nApache Axis\n\nCVSS 9.8 | EPSS 1%\n\n#Apache #CVE\nhttps://t.co/mmJdjBkoZP",
-  "created_at": "2026-11-19T01:04:31.000Z",
-  "cves": [
-   "CVE-2026-90436"
-  ]
- },
- {
-  "url": "https://x.com/threatpodium/status/2123220789793005696",
-  "author": "threatpodium",
-  "text": "🚨 CVE-2024-10441 — CRITICAL — actively exploited per CISA KEV\nSynology DiskStation Manager (DSM)\n\nCVSS 9.8 | EPSS 1%\n\n#Synology #CVE\nhttps://t.co/aXjcljiGwy",
-  "created_at": "2026-11-19T01:04:18.000Z",
-  "cves": [
-   "CVE-2024-10441"
-  ]
- },
- {
-  "url": "https://x.com/Daily_CyberSec/status/2123217342272352262",
-  "author": "Daily_CyberSec",
-  "text": "Google published a PoC exploit for CVE-2026-74127, a critical CVSS 9.4 AMD PSP Code Execution flaw and Masterkey CVE-2018-8930 variant on Zen 1 and Zen+.\n\n#AMD #AMDZen #PSP #CVE202674127 #CVE20188930 #Bootrom #PoC #HardwareSecurity #Cybersecurity\nhttps://t.co/VcJVrYtrO5",
-  "created_at": "2026-11-19T00:50:36.000Z",
-  "cves": [
-   "CVE-2026-74127",
-   "CVE-2018-8930"
-  ]
- },
- {
-  "url": "https://x.com/Xiba_AI/status/2123211982127943696",
-  "author": "Xiba_AI",
-  "text": "Puppet Enterprise RCE (CVE-2026-115731) is on CISA KEV and exploited now. Any one managed machine's cert lets an attacker run code on the server that controls your whole fleet. Patch, kill autosign, lock port 8140. https://t.co/5n6pbRVa6g #CVE https://t.co/KSWdPmBp8V",
-  "created_at": "2026-11-19T00:29:18.000Z",
-  "cves": [
-   "CVE-2026-115731"
-  ]
- },
- {
-  "url": "https://x.com/aviatrixtrc/status/2123211630951440491",
-  "author": "aviatrixtrc",
-  "text": "Attackers exploited CVE-2026-129448 in Apache Roller's XML-RPC endpoint—deserializing malicious payloads before authentication checks fired, granting unauthenticated RCE on exposed servers. Post-compromise activity included privilege escalation, lateral movement to adjacent",
-  "created_at": "2026-11-19T00:27:54.000Z",
-  "cves": [
-   "CVE-2026-129448"
-  ]
- },
- {
-  "url": "https://x.com/2Workly/status/2123208498813243754",
-  "author": "2Workly",
-  "text": "Five critical CVSS 9.2 RCE flaws disclosed in NGINX (CVE-2026-123007, CVE-2026-123633). Patch to 1.30.7/1.31.9 or disable HTTP/2 immediately. Report: https://t.co/V8QzfffQ1M Intel: https://t.co/QC14eBVf0C #2workly",
-  "created_at": "2026-11-19T00:15:28.000Z",
-  "cves": [
-   "CVE-2026-123007",
-   "CVE-2026-123633"
-  ]
- },
- {
-  "url": "https://x.com/Python_s_/status/2123208423860846669",
-  "author": "Python_s_",
-  "text": "🚨 Critical Drupal installer RCE\nCVE-2026-132165 | Nov 18, 2026\n\nUnder specific conditions, a reachable install.php may let attackers reinstall Drupal: site takeover or RCE.\n\nAffected: &lt;10.6.22; 11.0–11.3.21; 11.4–11.4.12.\nExploitation: unconfirmed.\n\n#CyberSecurity #Drupal",
-  "created_at": "2026-11-19T00:15:10.000Z",
-  "cves": [
-   "CVE-2026-132165"
-  ]
- },
- {
-  "url": "https://x.com/Cayden_Liao/status/2123223510923587643",
-  "author": "Cayden_Liao",
-  "text": "Very disappointed with the coordination of this disclosure.\n\nThis was reported to the Ruby over a month ago with PoC instructions on how to RCE every Ruby app. Surely that warrants some credit? https://t.co/l2N5GWYQNu",
-  "created_at": "2026-11-19T01:15:07.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/HctCan/status/2123217887997640971",
-  "author": "HctCan",
-  "text": "11.8M nginx servers run a version affected by CVE-2026-123007 (NGINX2Root).\n\nHTTP/2 on → unauthenticated RCE on the worker. Chain it with an unpatched Linux SCTP bug → root on the host, out of the container.\n\nFixed: 1.31.9 / 1.30.7\n\n#nginx2root #nginx #CVE #CVE2026123007 https://t.co/cYEZskxDve",
-  "created_at": "2026-11-19T00:52:46.000Z",
-  "cves": [
-   "CVE-2026-123007"
-  ]
- },
- {
-  "url": "https://x.com/siDandott/status/2123221834757783964",
-  "author": "siDandott",
-  "text": "65 characters. That's all it takes to corrupt Java's heap before auth even happens. Java4Shell (CVE-2026-114938) hits Keycloak, Jira, Jenkins and more — pre-auth RCE on default configs. Fixed builds are out. What's your Java version?",
-  "created_at": "2026-11-19T01:08:27.000Z",
-  "cves": [
-   "CVE-2026-114938"
-  ]
- },
- {
-  "url": "https://x.com/pol_md5sum/status/2123214771768156438",
-  "author": "pol_md5sum",
-  "text": "Splunk's November Enterprise release fixes 38 CVEs, two 9.x critical: CVE-2026-76536 (9.4) rewrites clustering config on standalone hosts, CVE-2026-76535 (9.1) runs SPL via RapidDiag - both unauthenticated off an empty pass4SymmKey.\nhttps://t.co/CINCUCs7F2\n#CyberSecurity",
-  "created_at": "2026-11-19T00:40:23.000Z",
-  "cves": [
-   "CVE-2026-76536",
-   "CVE-2026-76535"
-  ]
- },
- {
-  "url": "https://x.com/dailycve/status/2123209346415030507",
-  "author": "dailycve",
-  "text": "🔴 OliveTin, #OS Command Injection, #CVE-2026-27626 (Critical) -DC-Nov2026-4721\n\nhttps://t.co/bOkTvAZzRl",
-  "created_at": "2026-11-19T00:18:50.000Z",
-  "cves": [
-   "CVE-2026-27626"
-  ]
- },
- {
-  "url": "https://x.com/arnaudmercier/status/2123221746371231756",
-  "author": "arnaudmercier",
-  "text": "&lt;p class=\"wp-block-paragraph\"&gt;From the &lt;a href=\"https://t.co/5ZsD5W11Wl\"&gt;Gemini Calendar prompt-injection attack of 2026&lt;/a&gt; to the September 2025 state-sponsored hack using Anthropic’s Claude code as an automated intrusion engine, the coercion of human-in-the-loop agentic",
-  "created_at": "2026-11-19T01:08:06.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/aidevnewss/status/2123207742731256006",
-  "author": "aidevnewss",
-  "text": "Before you install that random skill into Claude Code or Codex, scan it. NVIDIA just open-sourced a tool for exactly that.\n\nIt's called SkillSpector. Point it at a repo, a zip or a single SKILL.md and it tells you whether the skill is safe to install.\n\nHow does it work? ⬇️\n\nSay https://t.co/D9gy93mu21",
-  "created_at": "2026-11-19T00:12:27.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/one_blues_fan/status/2123218068730155026",
-  "author": "one_blues_fan",
-  "text": "An unexpected dimension of Java4Shell: AI-assisted vulnerability research.\n\nCalif says researcher Quang Luong used OpenAI Codex to help audit OpenJDK and identify the Base64 decoder flaw.\n\nReported discovery time: ~1 hour. First working exploit: another ~2 hours.",
-  "created_at": "2026-11-19T00:53:29.000Z",
-  "cves": []
  }
 ]
