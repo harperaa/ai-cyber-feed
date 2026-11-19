@@ -204,6 +204,8 @@ IMPACT = [
 
 # Hand-curated angles for specific CVE ids (use for things heuristics cannot know). type, why, optional source url
 MANUAL = {
+    "CVE-2026-126714": [("cause", "phpAfterShell: critical PHP file-session/upload-progress deserialization RCE (CVSS 9.2, fixed 8.5.13/8.4.28/8.3.37/8.2.36) found with depthfirst's own cyber-focused AI models (depthfirst; Forbes, Nov 19)")],
+    "CVE-2026-132165": [("cause", "Drupal core SA-CORE-2026-017 installer reinstall to site takeover/RCE was discovered by Anthropic's OSS Scanner (ANT-2026-GMRPK0BU, Drupal advisory Nov 18)")],
     "CVE-2026-114938": [("cause", "Java4Shell: OpenJDK AVX-512 Base64 decoder heap overflow (CVSS 9.2, pre-auth RCE in Jira/Confluence/Jenkins/Keycloak); Calif says it used OpenAI GPT-6 Cyber to find the bug in about an hour and build a working exploit in ~2 more hours (Calif write-up, Nov 17)")],
     "CVE-2026-124194": [("cause", "Actively exploited Outlook zero-day (NTLMv2 hash leak, KEV): Microsoft credits Benoit Sevens \"using Claude with Anthropic\" with finding it (MSRC advisory, Nov 10)")],
     "CVE-2026-39987": [("cause", "Marimo flaw exploited in the wild by an autonomous AI agent (self-reported Claude-based harness) to drop crypto miners on honeypots (AIHoneypotWatch, Nov 12)")],
