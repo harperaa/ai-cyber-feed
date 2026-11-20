@@ -27,6 +27,8 @@ MODEL = (r"(?:" + AI + r"|llms?|chatgpt|gpt[- ]?[\w.]*|claude|gemini[\w ]{0,12}|
 
 # ---- cause: AI found the bug / AI-written exploit or code / AI attack tooling --------------------
 CAUSE = [
+    ("AI agent swarm breached a company and deployed ransomware in 14 minutes (TrustedSec/David Kennedy)", r"\b(?:" + AI + r") agent swarm\b|\b(?:30\+|thirty|more than 30)\b" + GAP(30) + r"\b(?:" + AI + r") agents\b" + GAP(80) + r"\b(?:breach\w*|hit|encrypt\w*|ransomware|2FA|two-factor)\b|\bTrustedSec\b" + GAP(100) + r"\b(?:" + AI + r") agents?\b"),
+    ("BabidiGhost operator let a jailbroken AI agent run attacks (SOCRadar)", r"\bbabidi ?ghost\b|\bjailbroken (?:" + AI + r"|llm) agent\b" + GAP(40) + r"\b(?:do the hacking|hack\w*|attack\w*|against)\b"),
     ("phpAfterShell PHP RCE found with depthfirst AI (CVE-2026-126714)", r"\bphp ?after ?shell\b|\bCVE-2026-126714\b|\bdepthfirst"),
     ("Drupal installer RCE found by Anthropic OSS Scanner (CVE-2026-132165)", r"\bCVE-2026-132165\b|\bSA-CORE-2026-017\b"),
     ("open-weight model autonomously exploited the browser patch gap (Epoch AI GLM 5.3 vs Firefox)", r"\bglm[- ]?5\.3\b" + GAP(80) + r"\b(?:compromis\w+|comprometeu|exploit\w*|patch gap|firefox)\b|\bpatch[- ]gap\b" + GAP(80) + r"\b(?:open-weight|glm|model|IA)\b"),
