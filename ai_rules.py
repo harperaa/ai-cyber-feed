@@ -144,6 +144,7 @@ CPE_AI = re.compile(r"(?:ray-project:ray|mlflow:|pytorch:|tensorflow:|google:ten
                     r"onnx|paddlepaddle|keras|scikit-learn|lm-studio|open-webui)", re.I)
 
 PRODUCT = [
+    ("Grok Build vibe-coding apps exposed by default (enumerable grok.me links leaked user and SpaceXSI data)", r"\bgrok build\b|\bgrok\.me\b|\bvibe[- ]coding (?:tool|agent|app)\b" + GAP(40) + r"\bgrok\b|\bgrok\b" + GAP(40) + r"\bvibe[- ]coding\b"),
     ("Arize Phoenix LLM observability platform", r"\barize\b|\bphoenix_secret\b|\barize[- ]phoenix\b"),
     ("Pydantic AI agent framework", r"\bpydantic[- ]?ai\b"),
     ("Meta AI customer-support agent abused to reassign Instagram accounts", r"\bmeta\W?s? AI (?:customer[- ])?support (?:agent|assistant|bot)\b|\b(?:AI|chatbot) (?:customer[- ])?support (?:agent|assistant|bot)\b.{0,80}\breassign\w*\b.{0,40}\binstagram\b"),
