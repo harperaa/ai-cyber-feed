@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-11-20T05:35:00Z",
-  "next_update_note": "Next summary rewrite around 09:35 UTC Nov 20 (4:35 AM EST Nov 20); the feed itself refreshes hourly.",
-  "headline": "Quiet overnight since 01:30 UTC (Nov 20): no new exploited zero-day, major-platform breach or AI-run attack. New: Japanese fintech Infcurion says attackers broke into its Wallet Station white-label payment-app platform (found Nov 19); the Pay-don app in Kagoshima lost 251,172 users' records, including passwords and bank details, and was shut down. flyto-core, an execution engine for AI-agent workflows, has a CVSS 10 unauthenticated file-write flaw (CVE-2026-77312, fix 2.26.8), and an exploit was reportedly posted. Unchanged at the top: Apache mod_http2 CVE-2026-119618 exploited, vCenter zero-day CVE-2026-123890, NGINX2Root and ruby2shell PoCs, Java4Shell, the AI-found PHP and Drupal fixes, and the European Commission and Symantec AI-assisted attacks.",
-  "ai_headline": "AI as the cause: no new AI-run intrusion since 01:30 UTC. Apache CVE-2026-119618 is still the only AI-found bug reported exploited; NGINX2Root has public PoCs but no reported exploitation, and Java4Shell still shows probing only. AI products: flyto-core CVE-2026-77312 (AI-agent workflow engine, CVSS 10, exploit reportedly public) joins the malicious MCP packages, the Microsoft agent-framework PyPI stealer and LiteLLM (KEV) as the top AI-tooling risks. AI impact: React2STEAL and ARTEX are still hunting AI and cloud keys.",
+  "updated_at": "2026-11-20T09:40:00Z",
+  "next_update_note": "Next summary rewrite around 13:40 UTC Nov 20 (8:40 AM EST Nov 20); the feed itself refreshes hourly.",
+  "headline": "Quiet since 05:35 UTC (Nov 20): no new exploited zero-day, major-platform breach or AI-run attack. New: Korean retailer Kurly says an attacker stole credentials on Nov 17 and reached internal systems, leaking data on 10,699 curator-program members (some with bank-account and ID numbers). An unpatched Windows technique called FastUnlock lets someone with physical access to a locked PC start programs without signing in (limited account only). Reuters now counts over 16,000 Chase customer emails in n0n's leak; JPMorgan, Visa and Mastercard blame outside vendors and say no card data was taken. Correction: Apache CVE-2026-119618 is the only AI-found bug newly reported exploited this week, but OpenAI-found Brotli CVE-2026-111497 has been on CISA's exploited list since Oct 27. Unchanged at the top: Apache mod_http2, the vCenter zero-day CVE-2026-123890, NGINX2Root and ruby2shell PoCs, Java4Shell probing, and the European Commission and Symantec AI-assisted attacks.",
+  "ai_headline": "AI as the cause: no new AI-run intrusion since 05:35 UTC. Apache CVE-2026-119618 is the only AI-found bug newly reported exploited this week (Brotli CVE-2026-111497, found by OpenAI, stays on KEV since Oct 27). NGINX2Root has public PoCs but no reported exploitation; Java4Shell still shows probing only. AI products: LiteLLM (KEV) remains the top exploited AI tool; note that Google's evidence describes a separate /key/regenerate admin-rebind bug fixed in 1.84.0, so upgrade past both fixes. flyto-core CVE-2026-77312, the malicious MCP packages and the Microsoft agent-framework PyPI stealer round out the list. AI impact: React2STEAL and ARTEX are still hunting AI and cloud keys.",
   "ai_activity": {
-    "overview": "Nov 20, 05:35 UTC: no new AI-run intrusion since 01:30 UTC. New in the roll-up: flyto-core CVE-2026-77312 (GHSA, CVSS 10), an unauthenticated arbitrary file write in an engine for AI-agent workflows, left by an incomplete fix for CVE-2026-67429. A public exploit was reported on X (unverified). Items older than 7 days (Nov 12) have been dropped. Confirmed AI-assisted attacks in the last 7 days: the European Commission (detected Oct 22, reportedly ARTEX), Symantec's likely AI-written toolkit at an African stock exchange, Barracuda (ARTEX with a key stolen from an AI vendor), Darktrace's three ARTEX intrusions, Google GTIG's exploit_agent (patch-to-exploit with no human in the loop) and Elastic's CyberStrikeAI AWS intrusion. AI-found bugs: Apache mod_http2 CVE-2026-119618 is the only one reported exploited. NGINX2Root has public PoCs and Java4Shell shows probes only. phpAfterShell and Drupal CVE-2026-132165 are patched. AI products: LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer (1.26.1/1.26.2), malicious MCP packages karma365-mcp and my-mcp-server-driving-license-ocr, and the Flowise MCP token leak with no fix coming. AI impact: React2STEAL steals and live-tests AI provider keys; also Fireworks AI's second breach, Fugaku key theft and ArgonHunt's 44,096 stolen AI keys. NVIDIA's Gentlemen listing is still unverified.",
+    "overview": "Nov 20, 09:40 UTC: no new AI-run intrusion since 05:35 UTC, and no new AI-found bug reported exploited. Changes in the roll-up: the LiteLLM entry now notes that Google's evidence describes a separate /key/regenerate admin-rebind bug (fixed 1.84.0) alongside the KEV sandbox escape; older AI-found bugs still on CISA's exploited list (Brotli CVE-2026-111497, PHP2Shell) are listed for context; items older than 7 days (before Nov 13, e.g. Amicus Lex) were dropped. Confirmed AI-assisted attacks in the last 7 days: the European Commission (detected Oct 22, reportedly ARTEX), Symantec's likely AI-written toolkit at an African stock exchange, Barracuda (ARTEX with a key stolen from an AI vendor), Darktrace's three ARTEX intrusions, Google GTIG's exploit_agent (patch-to-exploit with no human in the loop), Elastic's CyberStrikeAI AWS intrusion and the FBI ARTEX FLASH. AI-found bugs: Apache mod_http2 CVE-2026-119618 is the only one newly reported exploited; NGINX2Root has public PoCs and Java4Shell shows probes only; phpAfterShell and Drupal CVE-2026-132165 are patched. AI products: LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer (1.26.1/1.26.2), malicious MCP packages karma365-mcp and my-mcp-server-driving-license-ocr, flyto-core CVE-2026-77312 (exploit claim unverified) and the Flowise MCP token leak with no fix coming. AI impact: React2STEAL steals and live-tests AI provider keys; also Fireworks AI's second breach, Fugaku key theft and ArgonHunt's 44,096 stolen AI keys. NVIDIA's Gentlemen listing is still unverified.",
     "counts": {
-      "ai_cause": 34,
+      "ai_cause": 35,
       "ai_product_exploited": 22,
-      "ai_impact": 13
+      "ai_impact": 12
     },
     "groups": [
       {
@@ -358,6 +358,19 @@
             "cves": [],
             "url": "https://thehackernews.com/2026/11/fbi-says-north-korean-hackers-stole.html",
             "source": "The Hacker News / FBI / DOJ"
+          },
+          {
+            "title": "Still exploited (older, carried for context): Google Brotli decoder RCE CVE-2026-111497, found by OpenAI during AI red-teaming, on CISA KEV since Oct 27; PHP2Shell CVE-2026-109618/109619, found by Calif with AI, on KEV since Oct 26",
+            "date": "2026-10-27T00:00:00Z",
+            "summary": "Both remain on CISA's exploited list (federal deadlines have passed). Brotli 1.0.3-1.2.0 is bundled in many runtimes (Node.js, Python brotlicffi, Bun); update the library and any app that vendors it. PHP2Shell is fixed in the Oct 21 PHP releases.",
+            "status": "exploited",
+            "cves": [
+              "CVE-2026-111497",
+              "CVE-2026-109618",
+              "CVE-2026-109619"
+            ],
+            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2026-111497",
+            "source": "CISA KEV / NVD"
           }
         ]
       },
@@ -414,13 +427,13 @@
           {
             "title": "LiteLLM AI gateway CVE-2026-40217 (custom-code guardrail sandbox escape, 1.81.8-1.83.9) added to CISA KEV Nov 18",
             "date": "2026-11-18T17:00:00Z",
-            "summary": "Someone holding a LiteLLM admin/master key (e.g. leaked or default sk-1234) can run code as root in the default Docker image via POST /guardrails/test_custom_code, then take every stored AI provider key. Fixed since April (1.83.10; advisory says 1.83.11). Public exploit since April 8. Federal deadline Dec 2.",
+            "summary": "Someone holding a LiteLLM admin/master key (e.g. leaked or default sk-1234) can run code as root in the default Docker image via POST /guardrails/test_custom_code, then take every stored AI provider key. Fixed since April (1.83.10; advisory says 1.83.11). Public exploit since April 8. Federal deadline Dec 2. Corgea (Nov 19) notes the Google GTIG LLMjacking evidence behind the listing describes a different bug, a /key/regenerate user_id rebind that turns ordinary virtual keys into PROXY_ADMIN (no CVE, fixed in 1.84.0); chained with the sandbox escape it goes from a leaked inference key to root. Upgrade to 1.84.0 or later.",
             "status": "exploited",
             "cves": [
               "CVE-2026-40217"
             ],
             "url": "https://www.cisa.gov/news-events/alerts/2026/11/18/cisa-adds-four-known-exploited-vulnerabilities-catalog",
-            "source": "CISA / GitHub advisory"
+            "source": "CISA / GitHub advisory / Corgea / Google GTIG"
           },
           {
             "title": "Unverified: ToolHive MCP servers run without network isolation, exposing host services and unauthenticated APIs (CVE-2026-58197, CVSS 8.8); patch under review",
@@ -704,20 +717,11 @@
             "cves": [],
             "url": "https://x.com/thecybersecguru/status/2121297255370252588",
             "source": "X"
-          },
-          {
-            "title": "Amicus Lex, an AI solution vendor in South Korea's startup program, hacked: data on 20,028 people leaked",
-            "date": "2026-11-13T06:00:00Z",
-            "summary": "Attack detected Nov 11; names, phone numbers and emails leaked, including 818 'Everyone's Startup' participants who used the vendor's AI tools. The ministry asked the other 49 AI vendors to review their security.",
-            "status": "reported",
-            "cves": [],
-            "url": "https://biz.chosun.com/en/en-industry/2026/11/13/3DVK5DMBZREMJCB7RPYHZVHD3I/",
-            "source": "Chosun Biz"
           }
         ]
       }
     ],
-    "trend_note": "AI is now finding critical bugs in core web software (NGINX, Apache, Java, PHP, Drupal) every few days, and public PoCs follow within a day or two (NGINX2Root on Nov 19). Google has shown an agent that turns patches into exploits. Treat patches for internet-facing web stacks as same-week work, rotate long-lived keys (including AI provider keys) and alert on bursts of credential testing. Malicious MCP server packages keep appearing in npm and PyPI: pin and review every MCP server you add to an agent."
+    "trend_note": "AI is now finding critical bugs in core web software (NGINX, Apache, Java, PHP, Drupal, Ruby) every few days, and public PoCs follow within a day or two. Google has shown an agent that turns patches into exploits. The last four hours were quiet, but nothing has slowed: treat patches for internet-facing web stacks as same-week work, rotate long-lived keys (including AI provider keys), set spending caps on AI accounts and alert on bursts of tiny credential-test requests. Pin and review every MCP server and agent package you add."
   },
   "focus": [
     {
@@ -875,7 +879,7 @@
         "CVE-2026-48710"
       ],
       "vendor": "LiteLLM (BerriAI); Starlette",
-      "why": "CISA put CVE-2026-40217 in KEV (federal deadline Dec 2). In LiteLLM 1.81.8-1.83.9 the custom-code guardrail test endpoint (POST /guardrails/test_custom_code) escapes its sandbox, so anyone with an admin/master key, including a leaked or default one like sk-1234, gets root in the default Docker image; a public exploit has existed since April. Separately, LiteLLM 1.74.2-1.83.6 plus Starlette before 1.0.1 allows an unauthenticated RCE chain through the MCP test endpoint, which SANS honeypots saw being sprayed from Nov 16. Gateways hold OpenAI, Anthropic and cloud keys, which ARTEX-style agents hunt. Overnight X posts say financially motivated actors are exploiting LiteLLM RCE (unverified detail on which CVE).",
+      "why": "CISA put CVE-2026-40217 in KEV (federal deadline Dec 2). In LiteLLM 1.81.8-1.83.9 the custom-code guardrail test endpoint (POST /guardrails/test_custom_code) escapes its sandbox, so anyone with an admin/master key, including a leaked or default one like sk-1234, gets root in the default Docker image; a public exploit has existed since April. Separately, LiteLLM 1.74.2-1.83.6 plus Starlette before 1.0.1 allows an unauthenticated RCE chain through the MCP test endpoint, which SANS honeypots saw being sprayed from Nov 16. Gateways hold OpenAI, Anthropic and cloud keys, which ARTEX-style agents hunt. Overnight X posts say financially motivated actors are exploiting LiteLLM RCE (unverified detail on which CVE). Corgea (Nov 19): the Google LLMjacking evidence behind the KEV listing actually describes a /key/regenerate rebind (no CVE, fixed in 1.84.0) that turns a leaked inference key into admin; chained with the sandbox escape it gives root.",
       "action": "Upgrade LiteLLM to 1.84.0 or later (covers both; at minimum 1.83.11 for CVE-2026-40217) and Starlette to 1.0.1+. Block /guardrails/test_custom_code and /mcp-rest/ at the reverse proxy, never use a default master key, and keep admin routes off the internet. If requests to those endpoints appear in logs, rebuild the proxy and rotate the master key and every provider key it stored (follow LiteLLM's steps if LITELLM_SALT_KEY was unset).",
       "url": "https://www.cisa.gov/news-events/alerts/2026/11/18/cisa-adds-four-known-exploited-vulnerabilities-catalog",
       "ai_angle": [
@@ -928,7 +932,7 @@
       "title": "Chase, Visa, Mastercard confirm third-party cyberattacks that may have exposed customers' info",
       "source": "The Register / AP",
       "url": "https://www.theregister.com/security/2026/11/19/chase-visa-mastercard-confirm-third-party-cyberattacks-that-may-have-exposed-customers-info/5311175",
-      "blurb": "n0n leaked emails of about 16,000 Chase customers (AP/Cybernews). Visa blames a provider in Asia Pacific; Mastercard says a benefit-program vendor exposed some emails. No card data; unrelated to this week's outages."
+      "blurb": "n0n leaked marketing data after a 48-hour ransom countdown; Reuters counted over 16,000 Chase customer emails (some with phone numbers and postal codes) and 124 bank-employee addresses. Visa blames a provider in Asia Pacific; Mastercard a benefit-program vendor. No card or payment data, the companies say."
     },
     {
       "title": "Transport for London breach exposes 265,000 Oyster card users' data",
@@ -950,16 +954,20 @@
     }
   ],
   "watch": [
+    "Kurly (Korea, Nov 20): an attacker stole authentication credentials on Nov 17 and reached internal business systems; 10,699 curator-program members' names, IDs, phone numbers, emails and social handles leaked, some with bank-account and resident or business registration numbers (MoneyToday). https://www.mt.co.kr/en/living/2026/11/20/2026112017320311063",
+    "FastUnlock (The Hacker News, Nov 20): unpatched Windows technique lets someone with physical access start programs on a locked PC without signing in (limited account, not admin). No patch yet; keep laptops encrypted and in sight, and watch for Microsoft guidance. https://thehackernews.com/2026/11/new-unpatched-windows-0-day-fastunlock.html",
+    "ROMULUS ClickFix delivery service (Blackpoint, Nov 20): fake-fix prompts plus signed-binary sideloading drop a new RAT similar to CNCMachineRMS and Legion Loader. Block users from pasting commands into Run/PowerShell where possible.",
+    "Coinone (Korea crypto exchange): support contractor MetaM was breached Nov 12; data customers gave in support chats or calls (incl. passwords, resident numbers, wallet addresses) may be exposed. If you ever told support a password, change it and any reuse.",
     "Infcurion (Japan, new Nov 20): attackers broke into its Wallet Station white-label payment-app platform (found Nov 19). The Pay-don app run by four Kagoshima banks lost 251,172 records (names, birth dates, emails, passwords, bank account details, transaction history) and stopped all services. The flaw is patched but not named. Expect phishing; reset reused passwords. https://cybersixt.com/originals/infcurion-wallet-station-data-breach",
     "flyto-core CVE-2026-77312 (AI-agent workflow engine, CVSS 10, unauthenticated file write): upgrade to 2.26.8. The public exploit claim comes from X and is unverified. https://github.com/advisories/GHSA-p34x-fmph-9fjx",
     "ASUS Control Center Express (Nov 19): hard-coded key flaws incl. CVE-2026-114202 (CVSS 10) let a remote unauthenticated attacker forge tokens and take over the console and managed PCs. Update to 1.7.29 and update client agents.",
     "Unverified (X): Qilin claims ransomware at Osaki Electric (Japan) that halted smart-meter production and shipments.",
     "Splunk November advisories (Nov 18): SOAR App Wizard RCE CVE-2026-131253 (CVSS 9.9, authenticated; fix SOAR 8.8.0), Enterprise Security path-traversal RCE CVE-2026-131202 (ess_admin; fix 8.7.0), Enterprise RapidDiag CVE-2026-76535 (9.1; fixed 10.6.1/10.4.5/10.2.9/10.0.12/9.4.17). About 139 flaws in total; none reported exploited.",
-    "N-able Mail Assure / SpamExperts cloud breach (moved from focus, no new facts): portals, APIs and quarantine still restoring; no evidence of customer data loss. Rotate API keys and admin credentials once access returns.",
+    "N-able Mail Assure / SpamExperts cloud breach (SecurityWeek, Nov 20): N-able now blames the outage on a cyberattack and says it could have led to credential theft; portals and APIs still being restored. Rotate Mail Assure/SpamExperts API keys and admin passwords and review mail-flow rules.",
     "Oracle E-Business Suite CVE-2026-114924 + CVE-2026-114925: per X, chainable for unauthenticated OS command execution (from Oracle's Nov 17 patch). Apply the November patch to internet-facing EBS.",
     "WordPress 7.1.5 security release (backported to 4.7+): update sites now.",
     "Unverified: 'NoSafe AI' says an abliterated Kimi model found a vulnerability in an open-source project (no details).",
-    "JPMorgan Chase, Visa and Mastercard (Nov 19, Reuters/Politico): third-party vendors' marketing, loyalty and benefit-program data leaked (names and emails; no card or payment data, per the companies). The n0n extortion group claims a shared Asia-Pacific provider. JPMorgan says it is unrelated to this week's outage. Expect bank-themed phishing.",
+    "JPMorgan Chase, Visa and Mastercard (Nov 19-20, Reuters/SecurityWeek): n0n leaked third-party vendors' marketing data, including 16,000+ Chase customer emails; no card or payment data, per the companies. Expect bank-themed phishing.",
     "Ruby (Nov 18): seven regex and string-case flaws, several with RCE proof-of-concepts (mostly in apps that compile attacker-controlled patterns). Upgrade to 4.0.10, 3.4.13 or 3.3.14; 3.2 and older get no fix.",
     "Pliny the Elder open-sourced T3MP3ST (Nov 19, per X), which turns an existing AI coding agent into an autonomous security-testing system. Expect attackers to reuse it the way ARTEX was reused; no misuse reported yet.",
     "Rakuten Securities (Japan): now says up to 15.72M accounts may be affected, about 4.47M with personal data (names, birth dates, addresses, income and asset levels), after real customer data was put in a test environment that was breached; detected Nov 16 (Japan Times, Nov 19). Watch for phishing.",
@@ -969,7 +977,7 @@
     "Skill2Exploit (Pluto Security, Nov 18): AI agent skills can pull attacker files into parsers; patch Nextcloud (Nov 6 fix) or disable HEIC previews, and review third-party agent skills.",
     "Research (The Hacker News, Nov 19): low-privilege database accounts can reach code execution on PostgreSQL, MySQL and Oracle servers; limit DB account privileges and extensions.",
     "Flowise CVE-2026-130796 (unauthenticated MCP bearer-token read, 3.1.3-3.1.4) and SSRF CVE-2026-130615: no fix will ship (Flowise end of life Aug 31, repo archived). Make MCP chatflows private or disable MCP, rotate MCP tokens, and migrate. https://github.com/FlowiseAI/Flowise/discussions/6727",
-    "Expedia: a forum actor is now sharing what they call confirmed Expedia breach data, up to about 2.4M records (per X, unverified count). Change reused passwords and expect travel-booking phishing.",
+    "Expedia: a forum actor is now sharing what they call confirmed Expedia breach data, up to about 2.4M records (per X, unverified count). Change reused passwords and expect travel-booking phishing. Earlier n0n claim of ~1B records via a third-party data platform is also unverified.",
     "New criticals overnight (no exploitation reported): Ubiquiti UniFi Access, five CVEs, worst 9.9 root code execution; Idunno.AntiCsrf CVE-2026-131914 (CVSS v4 9.3, unauthenticated RCE on IIS via an exposed .aspx page); Oracle E-Business Suite CVE-2026-114924 (9.8).",
     "Japan cloud incidents (Nov 18-19): Open Co.'s BizRobo!mini cloud breached (about 1,000 accounts at 560 companies; authentication server data in scope); security vendor Cyber Security Cloud says personal data kept in GitHub from a breached development environment may have leaked.",
     "2RedBeans (dating platform) data-breach notice: about 1.3M member accounts exposed (company notice, Nov 2026).",
@@ -977,7 +985,6 @@
     "Fugaku supercomputer (RIKEN) breach took users' stored SSH private keys and access keys (also the RIKYU AI-for-Science system), and Assembled lost its integration-credential database: affected users should replace every stored key and rotate remaining integrations (moved from focus, no change).",
     "Mitsubishi UFJ Bank (Nov 18): about 6.5M customer records (gender, age, region; no names) exposed via vendor PLAID's KARTE platform on Nov 13, part of the KARTE breach (Sankei: ~8M across five MUFG companies). Rotate KARTE connector secrets.",
     "KPMG Canada (Nov 18): attackers accessed some clients' tax documents; scale and entry point not disclosed. Expect targeted tax-themed phishing.",
-    "NEAR AI (context, Nov 8-9): an attacker used an SGLang inference-engine RCE to reach ~100 users' details, 18 agents' chat histories and two cloud API keys, and could see confidential-mode requests; no CVE or upstream SGLang fix named yet. Keep SGLang servers off the internet.",
     "Unverified: Paystand (US B2B payments) customer database offered for sale on a forum; no confirmation.",
     "Eclipse Mosquitto 2.1.0-2.1.2 CVE-2026-110486 (CVSS 9.8, websockets listener RCE).",
     "NGINX follow-ups: RHEL/distro packages, CISA KEV listing, first in-the-wild use, the claimed public exploit for HTTP/3 CVE-2026-121810 (unverified), and appliances/ingress controllers that bundle NGINX.",
@@ -991,7 +998,6 @@
     "Also exploited per X/vendor posts (Nov 18): MeterSphere unauthenticated plugin RCE (fixed 1.14.7 / 1.16.4) and Weaver E-cology 9.0 JSP upload; malicious npm package react-cache-hook (all versions). Remove and check lockfiles.",
     "Previously leading, still open: OPTIMJACK hijacked Optimizely scripts (Nov 16; attacker reportedly netted only about $7,040, cleanup done), Infoblox vendor SharePoint breach, GitHub 'wfx-loot' secret-stealer wave, Cursor/Claude Code extension backdoor, Ipsos breach, Equinor IT cyberattack.",
     "N-able N-central: an X post claims new zero-days (e.g. CVE-2026-125883) before 2026.4.1.26 (unverified); The Hacker News says HF3 fixes 17 flaws while earlier bugs were exploited to drop crypto miners. Apply the latest hotfix and keep the Legacy API off.",
-    "Operation Snowball (Malbear Labs, resurfacing): a jailbroken DeepSeek Flash agent reportedly used Cisco BroadWorks XXE CVE-2026-20320 (KEV Nov 10, federal deadline Nov 24) against a European telco; Cisco says it has no direct evidence. Upgrade BroadWorks to RI.2026.07+.",
     "Unverified: bank executives and the NSA reportedly told Congress rushed patches for AI-found flaws contributed to recent outages; WaPo/NBC/Axios say no sign of a cyberattack.",
     "Oracle November 2026 security patch (Nov 17): WebLogic CVE-2026-91569 (CVSS 10, unauthenticated takeover), Access Manager CVE-2026-114835 (10.0), MySQL CVE-2026-114952, APEX and E-Business Suite 9.8 bugs. Not known exploited; patch internet-facing WebLogic/OAM first.",
     "Fortinet: FortiOS HA CVE-2026-126259 (fixed 8.0.1, 7.6.8, 7.4.13, 7.2.14; Fortinet says not exploited), FortiAnalyzer/FortiManager SQLi CVE-2026-126262 and FortiMail CVE-2026-126263 (CVSS 9.8).",
@@ -999,11 +1005,8 @@
     "Proxy-Cheap reset proxy credentials issued before Nov 17 after a hosting-portal compromise; update them in your tools.",
     "PLAID KARTE marketing-platform breach (Japan): connector secrets and client customer data stolen; JINS says up to 18.29M accounts, Nikkei also hit. Rotate KARTE connector secrets.",
     "Cloud keys leaked in public Docker Hub images are being used within seconds of publication (BleepingComputer, Nov 17): scan images before pushing.",
-    "Claude Dispatch (Forever Security, Nov 6, resurfacing): a browser extension on claude.ai can make Claude Desktop run code; Anthropic has not fixed it and says Dispatch will be retired. Turn off cross-device Dispatch. https://thehackernews.com/2026/11/malicious-browser-extensions-could-use.html",
     "OpenHands Agent SDK CVE-2026-112346 (unauthenticated network RCE before 1.52.0); SSMS LLM-assistant privesc CVE-2026-65669 (details unverified).",
     "ToolHive CVE-2026-58197 (MCP servers without network isolation, CVSS 8.8, unverified single report): restrict exposure until a fix ships.",
-    "ForgePtr CVE-2026-47501 (NVIDIA driver, GPU container to host root; fix 615.71.09+) and NvRoot CVE-2026-47591 for shared GPU clusters.",
-    "Expedia supply-chain breach via a third-party data platform; n0n's ~1B-record claim unverified. Change reused passwords.",
-    "OpenAI is giving NATO (via NCIA) its Daybreak defensive cyber models; Microsoft's MAI Cyber 2 Flash claims 92.3% on CyberGym-E2E at a fraction of GPT-6 Astra's cost (vendor claim). Expect faster AI bug finding on both sides."
+    "ForgePtr CVE-2026-47501 (NVIDIA driver, GPU container to host root; fix 615.71.09+) and NvRoot CVE-2026-47591 for shared GPU clusters."
   ]
 }
