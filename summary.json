@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-20T13:45:00Z",
-  "next_update_note": "Next summary rewrite around 17:30 UTC Nov 20 (12:30 PM EST Nov 20); the feed itself refreshes hourly.",
-  "headline": "Quiet for AI since 09:40 UTC (Nov 20): no new AI-run attack and no newly exploited AI-found bug. New: The Hacker News details the first in-the-wild use of Cisco Expressway CVE-2026-76466 (root RCE, per F6): attackers took two internet-facing devices, then two internal cluster nodes, after a public PoC; upgrade to X15.5.20. F5 is pushing out-of-band hotfixes for five critical BIG-IP APM/iRules overflows (CVE-2026-121805, -120292, -120285, -116953, -123637) with no mitigation; not exploited yet, but Shadowserver sees 177,000+ BIG-IP instances online. SonicWall says Gen 6 firewalls will get no more patches, even for critical flaws, and expects exposed ones to be attacked. Linux KVM CVE-2026-99312 let a guest VM read about 127 GB of host memory on AMD hosts with nested virtualization (fixed upstream). SBC Medical's breach is now over 2 million people; New Zealand's Defence Force confirmed a discount-scheme database breach. Unchanged at the top: Apache mod_http2, the vCenter zero-day CVE-2026-123890, NGINX2Root and ruby2shell PoCs, Java4Shell probing (still no confirmed break-in), and the European Commission and Symantec AI-assisted attacks.",
-  "ai_headline": "AI as the cause: no new AI-run intrusion since 09:40 UTC. Apache CVE-2026-119618 remains the only AI-found bug newly reported exploited this week (Brotli CVE-2026-111497, found by OpenAI, stays on KEV since Oct 27). NGINX2Root has public PoCs but no reported exploitation; Java4Shell still shows probing only. SonicWall now cites AI-assisted attacks as the reason to pull Gen 6 firewalls off the internet. AI products: LiteLLM (KEV) remains the top exploited AI tool; upgrade past both the sandbox-escape and /key/regenerate fixes (1.84.0+). flyto-core CVE-2026-77312, malicious MCP packages and the Microsoft agent-framework PyPI stealer round out the list. AI impact: React2STEAL and ARTEX are still hunting AI and cloud keys.",
+  "updated_at": "2026-11-20T17:30:00Z",
+  "next_update_note": "Next summary rewrite around 21:30 UTC Nov 20 (4:30 PM EST Nov 20); the feed itself refreshes hourly.",
+  "headline": "New since 13:45 UTC (Nov 20): TrustedSec's David Kennedy told CNN a client was hit by a 'swarm' of 30+ AI agents that logged in with stolen passwords, found a flaw in the app's two-factor login, stole data and encrypted the file system in 14 minutes; the victim is unnamed and the details are not independently verified. ThreatFabric disclosed Bazuka, an Android banking-fraud kit whose control panel uses LLMs to pick high-value victims. JPMorgan Chase, Visa and Mastercard confirmed vendor breaches (customer names and emails; no card numbers) that BleepingComputer ties to n0n's Qubole cloud intrusion, in which stolen Qubole credentials opened customers' AWS roles. WhatsApp fixed CVE-2026-23871 (Android, IP leak), which a scammer likely abused. No new CISA KEV entries since Nov 18. Unchanged at the top: Apache mod_http2 (AI-found, reportedly exploited), the vCenter zero-day and Cisco Expressway break-ins, NGINX2Root and Java4Shell (PoCs and probing, no confirmed break-in), F5 BIG-IP emergency hotfixes, React2STEAL and the LiteLLM KEV entry.",
+  "ai_headline": "AI as the cause: a reported AI-agent-swarm ransomware attack (14 minutes from login to encryption, per David Kennedy; unverified) and Bazuka, an LLM-assisted Android fraud framework, are new. Ukraine and the FBI arrested four members of a ransomware gang that used an AI voice platform for fake IT-support calls ($40.5M in ransoms). Apache CVE-2026-119618 is still the only AI-found bug newly reported exploited this week. AI impact: the 'rushed AI-era patching caused outages' story is no longer just rumor: the US DNI said NSA's internal network failed after emergency patching for PHP2Shell, the AI-found PHP flaws (no cyberattack). AI products: LiteLLM (KEV) and the Microsoft agent-framework PyPI stealer remain the top items; rotate secrets if you installed agent-framework 1.26.1/1.26.2.",
   "ai_activity": {
-    "overview": "Nov 20, 13:45 UTC: no new AI-run intrusion since 09:40 UTC and no new AI-found bug reported exploited. Changes in the roll-up: added SonicWall's Gen 6 end-of-patches warning, which cites AI-assisted attacks on unsupported edge devices; items older than 7 days (before Nov 13, 13:30 UTC) were dropped. Confirmed AI-assisted attacks in the last 7 days: the European Commission (detected Oct 22, reportedly ARTEX), Symantec's likely AI-written toolkit at an African stock exchange, Barracuda (ARTEX with a key stolen from an AI vendor), Darktrace's three ARTEX intrusions, Google GTIG's exploit_agent (patch-to-exploit with no human in the loop), Elastic's CyberStrikeAI AWS intrusion and the FBI ARTEX FLASH. AI-found bugs: Apache mod_http2 CVE-2026-119618 is the only one newly reported exploited; NGINX2Root has public PoCs and Java4Shell shows probes only; phpAfterShell and Drupal CVE-2026-132165 are patched. AI products: LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer (1.26.1/1.26.2), malicious MCP packages karma365-mcp and my-mcp-server-driving-license-ocr, flyto-core CVE-2026-77312 (exploit claim unverified) and the Flowise MCP token leak with no fix coming. AI impact: React2STEAL steals and live-tests AI provider keys; also Fireworks AI's second breach, Fugaku key theft and ArgonHunt's 44,096 stolen AI keys. NVIDIA's Gentlemen listing is still unverified.",
+    "overview": "Nov 20, 17:30 UTC. New since 13:45 UTC: TrustedSec's David Kennedy described (on CNN) an AI-agent-swarm intrusion that went from stolen passwords through a 2FA flaw to data theft and ransomware in 14 minutes (unnamed victim, unverified details); ThreatFabric's Bazuka Android fraud kit uses LLMs to triage victims; Ukraine and the FBI arrested an AI-voice IT-support ransomware crew ($40.5M). Upgraded: the claim that rushed patching for AI-found bugs caused outages now has an on-record source: the US DNI tied NSA's Nov 17 network outage to PHP2Shell patching. Items older than 7 days (before Nov 13, 17:25 UTC) were dropped, including the Nov 13 FBI ARTEX FLASH entry (still referenced in focus) and FaceStealer. Confirmed AI-assisted attacks in the last 7 days: the European Commission (reportedly ARTEX), Symantec's AI-written toolkit at an African stock exchange, Barracuda, Darktrace's three ARTEX intrusions, Google GTIG's exploit_agent and Elastic's CyberStrikeAI AWS intrusion. AI-found bugs: Apache mod_http2 CVE-2026-119618 is the only one newly reported exploited; NGINX2Root has public PoCs, Java4Shell shows probes only; phpAfterShell and Drupal CVE-2026-132165 are patched. AI products: LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer, malicious MCP packages, flyto-core CVE-2026-77312 (exploit claim unverified) and Flowise's unfixable MCP token leak. AI impact: React2STEAL and ArgonHunt AI-key theft, Fireworks AI's breaches (Cursor, Uber), Barracuda's AI-vendor key, Fugaku; NVIDIA's Gentlemen listing is still unverified.",
     "counts": {
-      "ai_cause": 35,
+      "ai_cause": 36,
       "ai_product_exploited": 22,
       "ai_impact": 13
     },
@@ -14,6 +14,24 @@
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Bazuka: new Android banking-fraud framework (23 modules: overlays, keylogging, SMS/2FA interception, remote control, crypto-address swapping) whose control panel uses LLMs to score and pick high-value victims",
+            "date": "2026-11-20T00:00:00Z",
+            "summary": "ThreatFabric found it in late October while investigating an NFC-relay banking trojan. The panel can use a local or API-hosted LLM to rank victims and suggest how to get past permission prompts; a new overlay trick shows a screenshot of the home or lock screen to hide fraud in progress.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.threatfabric.com/blogs/bazuka-the-fraud-framework-that-can-do-it-all",
+            "source": "ThreatFabric / The Hacker News"
+          },
+          {
+            "title": "Reported (not independently verified): a 'swarm' of 30+ AI agents breached a company, bypassed its two-factor login, stole data and deployed ransomware in 14 minutes, per TrustedSec's David Kennedy on CNN",
+            "date": "2026-11-20T00:00:00Z",
+            "summary": "Kennedy said the attackers started with valid usernames and passwords, the agents probed the infrastructure at once and found a flaw in how the application handled 2FA; the victim noticed only about 4.5 hours later when systems crashed. The company is unnamed and no technical details are public.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.ibtimes.co.uk/ai-attack-bypassed-two-factor-authentication-14-minutes-1833605",
+            "source": "CNN (Erin Burnett OutFront) / IBTimes / India Today"
+          },
           {
             "title": "phpAfterShell: critical PHP session RCE CVE-2026-126714 (CVSS 9.2) found with depthfirst's own AI models; fixed in PHP 8.5.13/8.4.28/8.3.37/8.2.36 on Nov 19",
             "date": "2026-11-19T15:00:00Z",
@@ -70,6 +88,15 @@
             ],
             "url": "https://www.securityweek.com/java4shell-exploitation-attempts-begin-as-vendors-rush-out-advisories/",
             "source": "SecurityWeek"
+          },
+          {
+            "title": "Ukraine and the FBI arrest four alleged key members of a ransomware gang that used an AI voice platform to pose as IT support; at least 28 companies, $40.5M+ in ransoms",
+            "date": "2026-11-19T00:00:00Z",
+            "summary": "Per Ukraine's cyber police, AI-generated voice calls tricked employees into giving credentials or installing remote-access tools while a second member broke into the network; victims included US oil and healthcare firms.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.bleepingcomputer.com/news/security/ukraine-fbi-arrest-ransomware-gang-members-tied-to-40m-in-ransoms/",
+            "source": "BleepingComputer / Ukraine Cyber Police / Help Net Security"
           },
           {
             "title": "Symantec: major African stock exchange hit with a likely AI-written 41-module PowerShell toolkit that hunted secrets and tested them against the exchange's investment API and securities-depository gateway",
@@ -340,24 +367,6 @@
             ],
             "url": "https://aws.amazon.com/blogs/security/amazon-threat-intelligence-observes-threat-actors-running-cybercrime-campaigns-with-artex-ai-agents/",
             "source": "AWS Security Blog"
-          },
-          {
-            "title": "FBI FLASH: ARTEX autonomous AI attack framework weaponized by many actors since August; 1,600+ exposed consoles",
-            "date": "2026-11-13T17:00:00Z",
-            "summary": "FBI FLASH-20261113-001 gives TTPs and IOCs; cites the South Korean financial thefts (about 67,000 people) and the ConnectWise Cloud Backup compromise (2,250+ downstream tenants). Google/Mandiant also see ARTEX, Hexstrike, PentAGI and Cairn in incident-response cases.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://www.ic3.gov/CSA/2026/261113.pdf",
-            "source": "FBI"
-          },
-          {
-            "title": "US FBI/DOJ: North Korea's 'FaceStealer' scheme used deepfake video of crypto figures in fake Zoom/Teams calls to steal $400M+",
-            "date": "2026-11-13T14:28:58Z",
-            "summary": "Targets were invited from stolen accounts of earlier victims, shown recorded or deepfaked video of people they know, then given a ClickFix-style 'audio fix' link that installs malware and steals crypto. Linked to BlueNoroff; infrastructure seized. DOJ separately restrained $1.2B stolen from Binance by TraderTraitor.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://thehackernews.com/2026/11/fbi-says-north-korean-hackers-stole.html",
-            "source": "The Hacker News / FBI / DOJ"
           },
           {
             "title": "Still exploited (older, carried for context): Google Brotli decoder RCE CVE-2026-111497, found by OpenAI during AI red-teaming, on CISA KEV since Oct 27; PHP2Shell CVE-2026-109618/109619, found by Calif with AI, on KEV since Oct 26",
@@ -638,13 +647,16 @@
             "source": "OpenSourceMalware / Chainguard"
           },
           {
-            "title": "Unverified: bank executives and the NSA reportedly told Congress that rushed patches for AI-discovered flaws contributed to this week's outages",
-            "date": "2026-11-18T06:26:00Z",
-            "summary": "Reported by small outlets citing closed briefings; Washington Post, NBC and Axios say officials found no sign of a cyberattack behind the outages.",
-            "status": "unverified",
-            "cves": [],
-            "url": "https://www.washingtonsun.com/technology/bank-ceos-nsa-tell-congress-ai-driven-patches-behind-outages",
-            "source": "Washington Sun / X"
+            "title": "US DNI Jay Clayton: NSA's internal network outage (Nov 17) was caused by emergency patching for PHP2Shell, the PHP flaws found with AI help; no cyberattack",
+            "date": "2026-11-17T21:00:00Z",
+            "summary": "Clayton told Fox Business some systems did not come back up after patching (The Record). On Nov 20 SecurityWeek's industry round-up quoted Sen. Mark Warner that AI-driven bug discovery is forcing organizations to patch many systems at once; officials blame the Microsoft 365 and FAA outages on a months-old software defect and a router, not on attacks. Reports that bank executives told Congress the same remain unverified.",
+            "status": "reported",
+            "cves": [
+              "CVE-2026-109618",
+              "CVE-2026-109619"
+            ],
+            "url": "https://therecord.media/nsa-net-disruptions",
+            "source": "The Record / Fox Business / SecurityWeek"
           },
           {
             "title": "Fireworks AI discloses a second breach: attackers came through a third-party cloud provider hosting its R&D machines; some customer secrets, datasets and partial model weights exposed",
@@ -730,7 +742,7 @@
         ]
       }
     ],
-    "trend_note": "AI is now finding critical bugs in core web software (NGINX, Apache, Java, PHP, Drupal, Ruby) every few days, and public PoCs follow within a day or two. Google has shown an agent that turns patches into exploits. The last four hours were quiet, but nothing has slowed: treat patches for internet-facing web stacks as same-week work, rotate long-lived keys (including AI provider keys), set spending caps on AI accounts and alert on bursts of tiny credential-test requests. Pin and review every MCP server and agent package you add."
+    "trend_note": "Attack speed is the story: a reported 14-minute AI-agent intrusion, Google's patch-to-exploit agent and PoCs within a day of AI-found bug disclosures all shrink defenders' time to hours. At the same time the DNI's NSA admission shows rushed patching has its own cost. Practical steps: patch internet-facing web stacks within days but stage rollouts with tested rollback; require phishing-resistant MFA and test your app's 2FA logic, since stolen passwords plus a 2FA bug was enough in Kennedy's case; alert on bursts of logins or credential tests from many sessions at once; rotate long-lived and vendor-held keys (including AI provider keys) and pin every MCP server and agent package you add."
   },
   "focus": [
     {
@@ -786,19 +798,19 @@
       "ai_note": "AI-found: Wiz Atlas (AI code scanning) discovered both; LLMs used to validate exploitability."
     },
     {
-      "title": "Autonomous AI attack tools in real intrusions: the European Commission confirms an AI-assisted attack (reportedly ARTEX) that disrupted HR and payroll systems for 10+ days; Symantec finds an AI-written toolkit at an African stock exchange; GTIG's 'exploit_agent' and the FBI's ARTEX FLASH",
+      "title": "Autonomous AI attack tools in real intrusions: a reported 14-minute AI-agent-swarm ransomware attack (TrustedSec, unverified details); the European Commission's confirmed AI-assisted attack (reportedly ARTEX); Symantec's AI-written toolkit at an African stock exchange; GTIG's 'exploit_agent'",
       "severity": "critical",
       "exploited": true,
       "cves": [],
       "vendor": "Popular web apps, supplier portals and cloud tenants (Google GTIG/Mandiant, FBI reports)",
-      "why": "Nov 19: the European Commission confirmed an AI-assisted campaign detected Oct 22 that took HR, payroll, leave, medical-reimbursement and translation systems offline for over 10 days (Politico reports ARTEX; possible individual data exposure still under investigation). Symantec reported a likely AI-written 41-module PowerShell toolkit that ran in three minutes on an African stock exchange's IIS server, harvesting cloud/database secrets and testing them against the investment API and a securities-depository gateway, exfiltrating via DNS lookups to an out-of-band testing service. Earlier: Google GTIG found a multi-agent 'exploit_agent' framework that diffs web-app patches, drafts exploits and runs them with no human in the loop; the FBI FLASH-20261113-001 says criminal and state groups use open-source ARTEX (incl. the ConnectWise Cloud Backup compromise); Barracuda's intruder ran ARTEX across 10 cloud accounts with a key stolen from an AI vendor; Darktrace described three more ARTEX intrusions, including an Azure sweep of keys and secrets. North Korea's MIDNIGHT NEPTUNE poisoned a repo setting that pulls a backdoor when developers open Claude Code.",
-      "action": "Shorten your patch window for internet-facing web apps to days. Hunt for new webshells (especially on IIS), unexpected admin accounts and bursts of credential/API-key testing from one host. Alert on many DNS lookups to out-of-band testing domains (interactsh/oast-style). Pull the FBI FLASH and CERT-EU ARTEX IOCs, rotate long-lived cloud and vendor-held keys, and put a WAF or virtual patching in front of anything you can't patch quickly. Developers: review repo-level Claude Code / agent settings files for unexpected download or hook commands.",
-      "url": "https://www.security.com/threat-intelligence/african-stock-exchange-ai-assisted-attack",
+      "why": "New Nov 19-20: David Kennedy (TrustedSec) told CNN a client was breached by 30+ AI agents working at once: they logged in with stolen credentials, found a flaw in the app's 2FA handling, stole data and encrypted the file system in 14 minutes; the company noticed about 4.5 hours later. The victim is unnamed and the account is not independently verified. ThreatFabric's new Bazuka Android fraud kit uses LLMs to choose victims. Earlier this week: the European Commission confirmed an AI-assisted campaign (detected Oct 22) that took HR, payroll and other systems offline for 10+ days (Politico reports ARTEX). Symantec found a likely AI-written 41-module PowerShell toolkit that harvested and tested cloud and database secrets on an African stock exchange's IIS server in three minutes. Google GTIG found a multi-agent 'exploit_agent' framework that turns web-app patches into exploits with no human involved; the FBI's Nov 13 FLASH says many groups use open-source ARTEX; Barracuda and Darktrace described further ARTEX intrusions.",
+      "action": "Assume stolen passwords will be tried by automated agents: enforce phishing-resistant MFA (passkeys/FIDO2), test your own 2FA and session logic, and alert on many simultaneous logins or probes from one account. Shorten the patch window for internet-facing web apps to days. Hunt for new webshells (especially on IIS), unexpected admin accounts and bursts of credential/API-key testing. Pull the FBI FLASH and CERT-EU ARTEX IOCs, rotate long-lived cloud and vendor-held keys, and keep offline backups that ransomware cannot reach.",
+      "url": "https://www.ibtimes.co.uk/ai-attack-bypassed-two-factor-authentication-14-minutes-1833605",
       "ai_angle": [
         "cause",
         "impact"
       ],
-      "ai_note": "AI-run attacks now confirmed by victims (European Commission, Barracuda) as well as by Google, Symantec, Darktrace and the FBI."
+      "ai_note": "AI-run attacks are now reported by victims (European Commission, Barracuda), vendors (Google, Symantec, Darktrace) and incident responders; the 14-minute case is a single responder's account."
     },
     {
       "title": "React2STEAL (new, Nov 18): hijacked GitHub accounts' Actions runners mass-exploit unpatched React/Next.js servers and steal .env files, AWS credentials and AI keys; plus Fireworks AI's second breach and ArgonHunt's 44,096 stolen AI keys",
@@ -842,6 +854,18 @@
       "ai_note": ""
     },
     {
+      "title": "Qubole vendor breach reaches JPMorgan Chase, Visa and Mastercard: banks confirm customer names and emails taken from third-party vendors; n0n says it stole data via Qubole's access to customers' AWS accounts",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Qubole (Idera) cloud data platform and the companies that granted it AWS IAM roles",
+      "why": "Chase (Nov 19) says attackers reached marketing data held by vendors, possibly customer names and emails (leaked sample: about 16,000 Reserve-card customer emails); Visa says an Asia-Pacific provider was hit and no card numbers or Visa systems were involved; Mastercard says some benefit-program cardholder emails were exposed. BleepingComputer links this to n0n's claimed Qubole attack: per Wiz, Sentra and Mandiant, an attacker used Qubole AWS credentials between Oct 14 and 26 to assume IAM roles customers had granted Qubole (some dormant), read secrets and download S3 data. n0n's 'nearly a petabyte' claim is unverified.",
+      "action": "If you ever granted Qubole (or any data vendor) a cross-account AWS role, review CloudTrail for AssumeRole by that vendor since Oct 1, remove dormant vendor trust roles, add external-ID/condition limits, and rotate any secrets stored where those roles could read. Chase, Visa and Mastercard customers: expect targeted phishing to the exposed email addresses.",
+      "url": "https://www.bleepingcomputer.com/news/security/vendor-data-breach-exposes-chase-visa-mastercard-customer-info/",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
       "title": "Malicious AI-agent packages: Microsoft agent-framework on PyPI hijacked (Nov 17; 1.26.1 and 1.26.2 steal Azure, GitHub Actions and cloud secrets); plus malicious MCP servers karma365-mcp (npm) and my-mcp-server-driving-license-ocr (PyPI) flagged by GitHub",
       "severity": "critical",
       "exploited": true,
@@ -876,20 +900,6 @@
       "ai_note": "AI product: LLM gateway that stores AI provider keys; two bugs exploited this week."
     },
     {
-      "title": "ruby2shell (CVE-2026-132825): one-byte Ruby heap overflow gives unauthenticated RCE in default Rails and classic Sinatra apps; GitLab and GitHub Enterprise Server not patched yet",
-      "severity": "critical",
-      "exploited": false,
-      "cves": [
-        "CVE-2026-132825"
-      ],
-      "vendor": "Ruby (all versions since 2.4.0); bundled in GitLab, GitHub Enterprise Server, Chatwoot, Mastodon, OpenProject, Discourse",
-      "why": "Upcasing or case-folding a crafted string in single-byte encodings such as ISO-8859-1 or Windows-1252 writes one byte past a heap buffer (UTF-8 strings are not affected). Ruby rates it critical and says it knows of PoCs that reach RCE in some scenarios; Veria Labs says it is reachable without login in default Rails and classic Sinatra. The same release fixes six more Regexp and case-conversion memory bugs. As of 21:29 UTC Nov 19, Veria lists GitLab 19.6.0, GitHub Enterprise Server 3.22.5 and Chatwoot 4.20.0 as not patched; Mastodon, OpenProject and Discourse have fixes. A public PoC is planned in about a week. MITRE's CVSS 7.4 (local) score conflicts with Ruby's network rating. No exploitation reported.",
-      "action": "Upgrade Ruby to 3.3.14, 3.4.13 or 4.0.10, rebuild container images and restart app processes. Ruby 3.2 and older get no fix, so plan a move. Install Mastodon 4.7.6/4.6.12/4.5.22/4.4.29, OpenProject 17.9.8/17.8.3 and Discourse base image 2.0.20261119-0203. For GitLab, GHES and Chatwoot, put them behind VPN or an IP allowlist until fixes ship (upgrading the host Ruby does not fix their bundled Ruby).",
-      "url": "https://verialabs.com/ruby2shell/",
-      "ai_angle": [],
-      "ai_note": "Reported by Veria Labs, which sells an autonomous AI pentester; the write-up does not say AI found this bug (unverified AI angle)."
-    },
-    {
       "title": "F5 BIG-IP: emergency hotfixes for five critical APM and iRules stack overflows (unauthenticated RCE or TMM crash on vulnerable configurations); no mitigation available",
       "severity": "critical",
       "exploited": false,
@@ -910,6 +920,24 @@
     }
   ],
   "news": [
+    {
+      "title": "Never seen anything that fast: Ex-NSA hacker says swarm of AI agents breached company systems in 14 minutes",
+      "source": "India Today (CNN interview)",
+      "url": "https://www.indiatoday.in/technology/news/story/never-seen-anything-that-fast-ex-nsa-hacker-says-swarm-of-ai-agents-breached-company-systems-in-14-minutes-3042969-2026-11-20",
+      "blurb": "David Kennedy describes 30+ AI agents using stolen credentials and a 2FA flaw to steal data and deploy ransomware in 14 minutes; victim unnamed, details unverified."
+    },
+    {
+      "title": "Vendor data breach exposes Chase, Visa, Mastercard customer info",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/vendor-data-breach-exposes-chase-visa-mastercard-customer-info/",
+      "blurb": "Banks confirm vendor incidents (names, emails; no card data); linked to n0n's Qubole intrusion that abused customers' AWS roles."
+    },
+    {
+      "title": "Bazuka Android Malware Uses Fake Screen Overlays to Hide Credential Theft and Device Control",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/bazuka-android-malware-uses-fake-screen.html",
+      "blurb": "ThreatFabric's new Android fraud framework has 23 modules and an LLM-assisted panel that picks high-value victims."
+    },
     {
       "title": "Hackers Exploit Critical Cisco Expressway Flaw, Breach Four Devices and Reach Internal Network",
       "source": "The Hacker News",
@@ -939,27 +967,15 @@
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/",
       "blurb": "ARMORY CASTLE used the vCenter auth bypass two months before Broadcom's Nov 19 fix to take over SSO, forge Golden SAML tokens and get root on ESXi."
-    },
-    {
-      "title": "Chase, Visa, Mastercard confirm third-party cyberattacks that may have exposed customers' info",
-      "source": "The Register / AP",
-      "url": "https://www.theregister.com/security/2026/11/19/chase-visa-mastercard-confirm-third-party-cyberattacks-that-may-have-exposed-customers-info/5311175",
-      "blurb": "n0n leaked marketing data after a 48-hour ransom countdown; Reuters counted over 16,000 Chase customer emails (some with phone numbers and postal codes) and 124 bank-employee addresses. Visa blames a provider in Asia Pacific; Mastercard a benefit-program vendor. No card or payment data, the companies say."
-    },
-    {
-      "title": "A cyberattack using artificial intelligence targeted the EU in October, official says",
-      "source": "AP",
-      "url": "https://apnews.com/article/cyberattack-european-union-artificial-intelligence-ai-79705095e8141cd650196dbff1cf3c70",
-      "blurb": "European Commission confirms an AI-assisted campaign (detected Oct 22, reportedly ARTEX) that kept HR, payroll and reimbursement systems offline 10+ days."
-    },
-    {
-      "title": "React2STEAL Uses GitHub Actions to Exploit React2Shell",
-      "source": "OpenSourceMalware",
-      "url": "https://opensourcemalware.com/blog/react2steal-github-actions",
-      "blurb": "Hijacked Actions runners mass-exploit unpatched React/Next.js servers and steal .env files, AWS and AI provider keys."
     }
   ],
   "watch": [
+    "WhatsApp (Nov 20): CVE-2026-23871 in WhatsApp and WhatsApp Business for Android before 2.26.17.4 could leak a target's IP address via crafted Click-to-WhatsApp ad replies; WhatsApp believes a scammer used it. Update the Android apps.",
+    "ruby2shell CVE-2026-132825 (moved from focus; no exploitation reported): Ruby 3.3.14/3.4.13/4.0.10 fix it; as of Nov 19 Veria listed GitLab, GitHub Enterprise Server and Chatwoot as not yet patched; public PoC expected in about a week.",
+    "Gemini 4 Neon (Google, Nov 20): a cyber-focused version for vetted defenders (Fairwind Program) is coming; Google claims frontier-level bug finding and patching. Expect more AI-found CVEs.",
+    "NSA (via SecurityWeek, Nov 20): malware on DoW employees' personal PCs records CAC PINs and uses the card while it stays in the reader to sign into federal sites; remove CACs when not in use.",
+    "Skagerak Energi (Norway, per SecurityWeek Nov 20): possible attempted intrusion on some IT systems, reported a day after Equinor's disclosure; no operational impact reported.",
+    "teahy-znrpz-util (npm, Nov 20): GitHub-flagged malware that runs a hidden payload on require and avoids CI; remove, rebuild and rotate secrets.",
     "SonicWall Gen 6 firewalls (Nov 20): end of security patches, even for critical flaws; SonicWall urges replacement and removal from the internet edge and expects exposed units to be attacked (it cites AI-assisted attacks). Inventory and replace.",
     "Linux KVM CVE-2026-99312 (Terra Security, Nov 20): from root inside a guest VM, researchers read about 127 GB of host memory on DigitalOcean and wrote host kernel memory on AMD hosts with nested virtualization. Intel hosts unaffected; DigitalOcean live-patched. If you run your own AMD KVM hosts, update the kernel (fix merged Nov 2) or disable nested virtualization.",
     "SBC Medical Group (SEC filing, Nov 20): breach of a clinic platform in Japan now affects over 2 million people (1.62M basic records incl. patient card numbers, 255,416 reservation requests, 4,513 treatment descriptions, 14 credit cards); a separate Tribeau reservation-service admin breach hit about 19,000. MOSH (928,617 email addresses) also disclosed Nov 19.",
@@ -999,24 +1015,6 @@
     "Unverified: Paystand (US B2B payments) customer database offered for sale on a forum; no confirmation.",
     "Eclipse Mosquitto 2.1.0-2.1.2 CVE-2026-110486 (CVSS 9.8, websockets listener RCE).",
     "NGINX follow-ups: RHEL/distro packages, CISA KEV listing, first in-the-wild use, the claimed public exploit for HTTP/3 CVE-2026-121810 (unverified), and appliances/ingress controllers that bundle NGINX.",
-    "Java4Shell follow-ups: first confirmed break-in or KEV listing, Calif's per-product exploits, Red Hat/Debian/Ubuntu/SUSE/Temurin/Azul/Microsoft builds. Beware fake PoCs on GitHub.",
-    "Apache CVE-2026-119618: still not in CISA KEV as of Nov 18; watch for exploitation details (CSA named no victims).",
-    "Irish credit unions (Nov 17-18): about 40 notified the regulator after hackers reached saved-payee data at IT provider Wellington IT; balances not affected. Expect convincing payment-scam messages.",
-    "TfL (London) Oyster photocard site breach: about 265,000 customers' details and security Q&A taken; change reused security answers.",
-    "Arize Phoenix LLM observability CVE-2026-53998 (CVSS 10, unauthenticated format-string leak of env vars and keys): upgrade and rotate keys in its environment.",
-    "PayU (India): two arrested over a breach of its cloud servers (per X, unverified details).",
-    "Also exploited per X/vendor posts (Nov 18): MeterSphere unauthenticated plugin RCE (fixed 1.14.7 / 1.16.4) and Weaver E-cology 9.0 JSP upload; malicious npm package react-cache-hook (all versions). Remove and check lockfiles.",
-    "Previously leading, still open: OPTIMJACK hijacked Optimizely scripts (Nov 16; attacker reportedly netted only about $7,040, cleanup done), Infoblox vendor SharePoint breach, GitHub 'wfx-loot' secret-stealer wave, Cursor/Claude Code extension backdoor, Ipsos breach, Equinor IT cyberattack.",
-    "N-able N-central: an X post claims new zero-days (e.g. CVE-2026-125883) before 2026.4.1.26 (unverified); The Hacker News says HF3 fixes 17 flaws while earlier bugs were exploited to drop crypto miners. Apply the latest hotfix and keep the Legacy API off.",
-    "Unverified: bank executives and the NSA reportedly told Congress rushed patches for AI-found flaws contributed to recent outages; WaPo/NBC/Axios say no sign of a cyberattack.",
-    "Oracle November 2026 security patch (Nov 17): WebLogic CVE-2026-91569 (CVSS 10, unauthenticated takeover), Access Manager CVE-2026-114835 (10.0), MySQL CVE-2026-114952, APEX and E-Business Suite 9.8 bugs. Not known exploited; patch internet-facing WebLogic/OAM first.",
-    "Fortinet: FortiOS HA CVE-2026-126259 (fixed 8.0.1, 7.6.8, 7.4.13, 7.2.14; Fortinet says not exploited), FortiAnalyzer/FortiManager SQLi CVE-2026-126262 and FortiMail CVE-2026-126263 (CVSS 9.8).",
-    "COLD RELIC (Russia): Google Workspace Super Admin takeover via MFA fatigue, rogue passkeys and backup codes; audit Workspace admins' MFA devices and backup codes.",
-    "Proxy-Cheap reset proxy credentials issued before Nov 17 after a hosting-portal compromise; update them in your tools.",
-    "PLAID KARTE marketing-platform breach (Japan): connector secrets and client customer data stolen; JINS says up to 18.29M accounts, Nikkei also hit. Rotate KARTE connector secrets.",
-    "Cloud keys leaked in public Docker Hub images are being used within seconds of publication (BleepingComputer, Nov 17): scan images before pushing.",
-    "OpenHands Agent SDK CVE-2026-112346 (unauthenticated network RCE before 1.52.0); SSMS LLM-assistant privesc CVE-2026-65669 (details unverified).",
-    "ToolHive CVE-2026-58197 (MCP servers without network isolation, CVSS 8.8, unverified single report): restrict exposure until a fix ships.",
-    "ForgePtr CVE-2026-47501 (NVIDIA driver, GPU container to host root; fix 615.71.09+) and NvRoot CVE-2026-47591 for shared GPU clusters."
+    "Java4Shell follow-ups: first confirmed break-in or KEV listing, Calif's per-product exploits, Red Hat/Debian/Ubuntu/SUSE/Temurin/Azul/Microsoft builds. Beware fake PoCs on GitHub."
   ]
 }
