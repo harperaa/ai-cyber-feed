@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-11-20T09:40:00Z",
-  "next_update_note": "Next summary rewrite around 13:40 UTC Nov 20 (8:40 AM EST Nov 20); the feed itself refreshes hourly.",
-  "headline": "Quiet since 05:35 UTC (Nov 20): no new exploited zero-day, major-platform breach or AI-run attack. New: Korean retailer Kurly says an attacker stole credentials on Nov 17 and reached internal systems, leaking data on 10,699 curator-program members (some with bank-account and ID numbers). An unpatched Windows technique called FastUnlock lets someone with physical access to a locked PC start programs without signing in (limited account only). Reuters now counts over 16,000 Chase customer emails in n0n's leak; JPMorgan, Visa and Mastercard blame outside vendors and say no card data was taken. Correction: Apache CVE-2026-119618 is the only AI-found bug newly reported exploited this week, but OpenAI-found Brotli CVE-2026-111497 has been on CISA's exploited list since Oct 27. Unchanged at the top: Apache mod_http2, the vCenter zero-day CVE-2026-123890, NGINX2Root and ruby2shell PoCs, Java4Shell probing, and the European Commission and Symantec AI-assisted attacks.",
-  "ai_headline": "AI as the cause: no new AI-run intrusion since 05:35 UTC. Apache CVE-2026-119618 is the only AI-found bug newly reported exploited this week (Brotli CVE-2026-111497, found by OpenAI, stays on KEV since Oct 27). NGINX2Root has public PoCs but no reported exploitation; Java4Shell still shows probing only. AI products: LiteLLM (KEV) remains the top exploited AI tool; note that Google's evidence describes a separate /key/regenerate admin-rebind bug fixed in 1.84.0, so upgrade past both fixes. flyto-core CVE-2026-77312, the malicious MCP packages and the Microsoft agent-framework PyPI stealer round out the list. AI impact: React2STEAL and ARTEX are still hunting AI and cloud keys.",
+  "updated_at": "2026-11-20T13:45:00Z",
+  "next_update_note": "Next summary rewrite around 17:30 UTC Nov 20 (12:30 PM EST Nov 20); the feed itself refreshes hourly.",
+  "headline": "Quiet for AI since 09:40 UTC (Nov 20): no new AI-run attack and no newly exploited AI-found bug. New: The Hacker News details the first in-the-wild use of Cisco Expressway CVE-2026-76466 (root RCE, per F6): attackers took two internet-facing devices, then two internal cluster nodes, after a public PoC; upgrade to X15.5.20. F5 is pushing out-of-band hotfixes for five critical BIG-IP APM/iRules overflows (CVE-2026-121805, -120292, -120285, -116953, -123637) with no mitigation; not exploited yet, but Shadowserver sees 177,000+ BIG-IP instances online. SonicWall says Gen 6 firewalls will get no more patches, even for critical flaws, and expects exposed ones to be attacked. Linux KVM CVE-2026-99312 let a guest VM read about 127 GB of host memory on AMD hosts with nested virtualization (fixed upstream). SBC Medical's breach is now over 2 million people; New Zealand's Defence Force confirmed a discount-scheme database breach. Unchanged at the top: Apache mod_http2, the vCenter zero-day CVE-2026-123890, NGINX2Root and ruby2shell PoCs, Java4Shell probing (still no confirmed break-in), and the European Commission and Symantec AI-assisted attacks.",
+  "ai_headline": "AI as the cause: no new AI-run intrusion since 09:40 UTC. Apache CVE-2026-119618 remains the only AI-found bug newly reported exploited this week (Brotli CVE-2026-111497, found by OpenAI, stays on KEV since Oct 27). NGINX2Root has public PoCs but no reported exploitation; Java4Shell still shows probing only. SonicWall now cites AI-assisted attacks as the reason to pull Gen 6 firewalls off the internet. AI products: LiteLLM (KEV) remains the top exploited AI tool; upgrade past both the sandbox-escape and /key/regenerate fixes (1.84.0+). flyto-core CVE-2026-77312, malicious MCP packages and the Microsoft agent-framework PyPI stealer round out the list. AI impact: React2STEAL and ARTEX are still hunting AI and cloud keys.",
   "ai_activity": {
-    "overview": "Nov 20, 09:40 UTC: no new AI-run intrusion since 05:35 UTC, and no new AI-found bug reported exploited. Changes in the roll-up: the LiteLLM entry now notes that Google's evidence describes a separate /key/regenerate admin-rebind bug (fixed 1.84.0) alongside the KEV sandbox escape; older AI-found bugs still on CISA's exploited list (Brotli CVE-2026-111497, PHP2Shell) are listed for context; items older than 7 days (before Nov 13, e.g. Amicus Lex) were dropped. Confirmed AI-assisted attacks in the last 7 days: the European Commission (detected Oct 22, reportedly ARTEX), Symantec's likely AI-written toolkit at an African stock exchange, Barracuda (ARTEX with a key stolen from an AI vendor), Darktrace's three ARTEX intrusions, Google GTIG's exploit_agent (patch-to-exploit with no human in the loop), Elastic's CyberStrikeAI AWS intrusion and the FBI ARTEX FLASH. AI-found bugs: Apache mod_http2 CVE-2026-119618 is the only one newly reported exploited; NGINX2Root has public PoCs and Java4Shell shows probes only; phpAfterShell and Drupal CVE-2026-132165 are patched. AI products: LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer (1.26.1/1.26.2), malicious MCP packages karma365-mcp and my-mcp-server-driving-license-ocr, flyto-core CVE-2026-77312 (exploit claim unverified) and the Flowise MCP token leak with no fix coming. AI impact: React2STEAL steals and live-tests AI provider keys; also Fireworks AI's second breach, Fugaku key theft and ArgonHunt's 44,096 stolen AI keys. NVIDIA's Gentlemen listing is still unverified.",
+    "overview": "Nov 20, 13:45 UTC: no new AI-run intrusion since 09:40 UTC and no new AI-found bug reported exploited. Changes in the roll-up: added SonicWall's Gen 6 end-of-patches warning, which cites AI-assisted attacks on unsupported edge devices; items older than 7 days (before Nov 13, 13:30 UTC) were dropped. Confirmed AI-assisted attacks in the last 7 days: the European Commission (detected Oct 22, reportedly ARTEX), Symantec's likely AI-written toolkit at an African stock exchange, Barracuda (ARTEX with a key stolen from an AI vendor), Darktrace's three ARTEX intrusions, Google GTIG's exploit_agent (patch-to-exploit with no human in the loop), Elastic's CyberStrikeAI AWS intrusion and the FBI ARTEX FLASH. AI-found bugs: Apache mod_http2 CVE-2026-119618 is the only one newly reported exploited; NGINX2Root has public PoCs and Java4Shell shows probes only; phpAfterShell and Drupal CVE-2026-132165 are patched. AI products: LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer (1.26.1/1.26.2), malicious MCP packages karma365-mcp and my-mcp-server-driving-license-ocr, flyto-core CVE-2026-77312 (exploit claim unverified) and the Flowise MCP token leak with no fix coming. AI impact: React2STEAL steals and live-tests AI provider keys; also Fireworks AI's second breach, Fugaku key theft and ArgonHunt's 44,096 stolen AI keys. NVIDIA's Gentlemen listing is still unverified.",
     "counts": {
       "ai_cause": 35,
       "ai_product_exploited": 22,
-      "ai_impact": 12
+      "ai_impact": 13
     },
     "groups": [
       {
@@ -608,6 +608,15 @@
         "label": "AI impact / AI keys & infrastructure",
         "items": [
           {
+            "title": "SonicWall: Gen 6 firewalls get no more security patches, even for critical flaws; SonicWall tells customers to replace them and pull them off the internet edge, citing faster AI-assisted attacks on unsupported devices",
+            "date": "2026-11-20T10:38:00Z",
+            "summary": "Vendor warning (The Hacker News, Nov 20): 'Attackers now use automation and AI to find and exploit unsupported edge devices faster than ever.' SonicWall expects internet-facing Gen 6 units to be actively attacked. No specific AI-run campaign named.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/11/sonicwall-warns-gen-6-firewalls-wont.html",
+            "source": "The Hacker News"
+          },
+          {
             "title": "Unverified: The Gentlemen ransomware gang lists NVIDIA; NVIDIA says it is investigating an incident that may involve a third-party partner",
             "date": "2026-11-19T09:23:21Z",
             "summary": "No data samples posted; leak countdown ends around Nov 28. NVIDIA says it found no sign its own systems or networks were affected (Cybernews, PCMag, BleepingComputer). Update Nov 19: NVIDIA told SecurityWeek and BleepingComputer it has found no indication its own systems were compromised. The leak site offers no proof and runs a countdown to Nov 28.",
@@ -792,28 +801,6 @@
       "ai_note": "AI-run attacks now confirmed by victims (European Commission, Barracuda) as well as by Google, Symantec, Darktrace and the FBI."
     },
     {
-      "title": "AI-found critical bugs fixed today: phpAfterShell (PHP CVE-2026-126714, found with depthfirst AI) and Drupal installer RCE CVE-2026-132165 (found by Anthropic's OSS Scanner)",
-      "severity": "critical",
-      "exploited": false,
-      "cves": [
-        "CVE-2026-126714",
-        "CVE-2026-129289",
-        "CVE-2026-115560",
-        "CVE-2026-129474",
-        "CVE-2026-129496",
-        "CVE-2026-129481",
-        "CVE-2026-132165"
-      ],
-      "vendor": "PHP; Drupal core",
-      "why": "PHP released 8.5.13, 8.4.28, 8.3.37 and 8.2.36 on Nov 19, fixing 18 CVEs (Aikido, BleepingComputer). Among them: phpAfterShell CVE-2026-126714 (CVSS 9.2, partly overwritten file-session data leads to deserialization RCE; depthfirst says it found it with its own AI models, per Forbes), PHP-FPM request smuggling CVE-2026-129289 (CVSS 9.2, only where the web server reuses backend connections to PHP-FPM), session serializer RCE CVE-2026-115560, two use-after-free RCEs (CVE-2026-129474, CVE-2026-129496), and CVE-2026-129481, which closes a gap left by October's PHP2Shell fix. PHP says the critical issues need non-default or uncommon setups. Drupal SA-CORE-2026-017 (CVE-2026-132165, discovered by Anthropic's OSS Scanner): a reachable installer can let an attacker reinstall the site, then take it over or run code. No exploitation reported for any of these yet, but public write-ups are already out. No exploitation reported as of Nov 19 evening; X claims that PHP bugs are 'being exploited' are unverified.",
-      "action": "Upgrade PHP to 8.5.13, 8.4.28, 8.3.37 or 8.2.36 (or your distro's backport) and restart PHP-FPM. Until then, set session.upload_progress.enabled=0 and turn off FastCGI connection reuse to PHP-FPM. Upgrade Drupal to 10.6.22, 11.3.22 or 11.4.13; if you cannot, block /core/install.php and make settings.php read-only.",
-      "url": "https://www.bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs/",
-      "ai_angle": [
-        "cause"
-      ],
-      "ai_note": "Both bugs were found by AI tools (depthfirst's models; Anthropic OSS Scanner). Another sign that AI vulnerability research is filling the patch queue for core web software."
-    },
-    {
       "title": "React2STEAL (new, Nov 18): hijacked GitHub accounts' Actions runners mass-exploit unpatched React/Next.js servers and steal .env files, AWS credentials and AI keys; plus Fireworks AI's second breach and ArgonHunt's 44,096 stolen AI keys",
       "severity": "critical",
       "exploited": true,
@@ -831,7 +818,7 @@
       "ai_note": "Not an AI-built attack as far as reported, but it steals and live-tests AI provider keys; AI keys are now a standard target of secret-stealing pipelines."
     },
     {
-      "title": "Patch now, exploited: VMware vCenter CVE-2026-123890 (zero-day since September, ARMORY CASTLE, patched Nov 19); Cisco Expressway CVE-2026-76466 (root, F6); new in CISA KEV Nov 18: Apache Axis, REDCap, Synology DSM; also Apache Roller, Puppet Enterprise, Chrome, OpenSSH 'SSHole', Outlook",
+      "title": "Patch now, exploited: VMware vCenter CVE-2026-123890 (zero-day since September, Armory Castle, patched Nov 19); Cisco Expressway CVE-2026-76466 (root RCE; F6 saw two edge devices and two internal cluster nodes taken after a public PoC); new in CISA KEV Nov 18: Apache Axis, REDCap, Synology DSM; also Apache Roller, Puppet Enterprise, Chrome, OpenSSH 'SSHole', Outlook",
       "severity": "critical",
       "exploited": true,
       "cves": [
@@ -848,7 +835,7 @@
         "CVE-2026-123218"
       ],
       "vendor": "Broadcom VMware vCenter; Cisco Expressway; Apache Roller; Perforce Puppet Enterprise; Google Chrome; Apache Axis 1.x in Atlassian Confluence and N-able N-central; OpenSSH on musl-based Linux (Alpine); Microsoft Outlook; IBM Aspera Faspex",
-      "why": "New: Broadcom's VMSA-2026-0009 (Nov 19) fixes vCenter CVE-2026-123890 (CVSS 9.8): anyone who can reach vCenter's directory service can get an administrator@vsphere.local session. It affects 8.0, 9.0 and 9.1 and the builds inside VCF and vSphere Foundation; 6.5, 6.7 and 7.0 should be presumed affected, and there is no workaround. Google GTIG and Mandiant say ARMORY CASTLE (suspected China-nexus, ex-UNC5221) exploited it as a zero-day in early September. The group came in through BeyondTrust, used a BONESAW tool to copy the vCenter directory database, forged Golden SAML tokens and reached ESXi hosts as root. New: Russian firm F6 reports the first exploitation of Cisco Expressway CVE-2026-76466 (Cisco advisory: static-credential RCE) shortly after a PoC: attackers took root on internet-exposed Expressway X15.5.3 and moved to internal cluster nodes. CISA added (Nov 18) Apache Axis CVE-2026-90436 (CVSS 9.8, unauthenticated RCE in end-of-life Axis 1.x, used against Confluence Data Center and N-able N-central), REDCap CVE-2026-90817 (CVSS 9.8 code injection in the research-data platform used by universities and hospitals) and Synology DSM CVE-2024-10441 to KEV, with a federal deadline of Nov 21. Still exploited: Apache Roller CVE-2026-129448 (CVSS 9.8 unauthenticated deserialization RCE; disabling XML-RPC does not protect), Puppet Enterprise CVE-2026-115731 (CVSS 9.9, any signed agent can run code on Puppet Server), Chrome CVE-2026-125350, OpenSSH CVE-2026-123158 (password login on musl/Alpine without PAM), Outlook CVE-2026-124194 (NTLM leak; found with Claude) and IBM Aspera Faspex CVE-2026-123218.",
+      "why": "New: Broadcom's VMSA-2026-0009 (Nov 19) fixes vCenter CVE-2026-123890 (CVSS 9.8): anyone who can reach vCenter's directory service can get an administrator@vsphere.local session. It affects 8.0, 9.0 and 9.1 and the builds inside VCF and vSphere Foundation; 6.5, 6.7 and 7.0 should be presumed affected, and there is no workaround. Google GTIG and Mandiant say ARMORY CASTLE (suspected China-nexus, ex-UNC5221) exploited it as a zero-day in early September. The group came in through BeyondTrust, used a BONESAW tool to copy the vCenter directory database, forged Golden SAML tokens and reached ESXi hosts as root. New: Russian firm F6 reports the first exploitation of Cisco Expressway CVE-2026-76466 (Cisco advisory: static-credential RCE) shortly after a PoC: attackers took root on internet-exposed Expressway X15.5.3 and moved to internal cluster nodes. CISA added (Nov 18) Apache Axis CVE-2026-90436 (CVSS 9.8, unauthenticated RCE in end-of-life Axis 1.x, used against Confluence Data Center and N-able N-central), REDCap CVE-2026-90817 (CVSS 9.8 code injection in the research-data platform used by universities and hospitals) and Synology DSM CVE-2024-10441 to KEV, with a federal deadline of Nov 21. Still exploited: Apache Roller CVE-2026-129448 (CVSS 9.8 unauthenticated deserialization RCE; disabling XML-RPC does not protect), Puppet Enterprise CVE-2026-115731 (CVSS 9.9, any signed agent can run code on Puppet Server), Chrome CVE-2026-125350, OpenSSH CVE-2026-123158 (password login on musl/Alpine without PAM), Outlook CVE-2026-124194 (NTLM leak; found with Claude) and IBM Aspera Faspex CVE-2026-123218. Update Nov 20 (The Hacker News, F6): Expressway attackers moved from two internet-facing X15.5.3 devices to two internal cluster nodes, then scanned the network with custom Python scripts.",
       "action": "vCenter: install the VMSA-2026-0009 fixed build now. Quick Patch is not supported, so do a full update. Watch the 8.0 U3m / 9.0.2.0200 vs VCF 9.1.1 upgrade conflict. Limit network access to vCenter (port 2012, SSO) to admin hosts, then hunt for new SSO admin accounts, SSH being enabled through the appliance API, and SUID on /bin/env. Cisco Expressway: upgrade to X15.5.20 (X14 and earlier must migrate); check erlang.log for nodeup 'wombat@127.0.0.1', Python files under /mnt/harddisk/i* and connections from 66.179.31.32 or 18.130.47.116. Confluence Data Center: upgrade to 9.2.28 or turn off Remote API (XML-RPC & SOAP); patch N-central to 2026.4 HF3. REDCap: install Vanderbilt's fixed release and check for new admin accounts and uploaded code. Synology DSM: update to the current DSM release. Roller: 6.1.6+. Puppet: 2023.8.13, 2025.12.1 or 2026.0.1 and restrict autosigning. Chrome 157.0.8103.50+. OpenSSH 10.6p2 or distro fix (or PasswordAuthentication no). Outlook: November updates, block outbound SMB. Faspex 5.0.19 PL1.",
       "url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
       "ai_angle": [],
@@ -901,20 +888,45 @@
       "url": "https://verialabs.com/ruby2shell/",
       "ai_angle": [],
       "ai_note": "Reported by Veria Labs, which sells an autonomous AI pentester; the write-up does not say AI found this bug (unverified AI angle)."
+    },
+    {
+      "title": "F5 BIG-IP: emergency hotfixes for five critical APM and iRules stack overflows (unauthenticated RCE or TMM crash on vulnerable configurations); no mitigation available",
+      "severity": "critical",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-121805",
+        "CVE-2026-120292",
+        "CVE-2026-120285",
+        "CVE-2026-116953",
+        "CVE-2026-123637",
+        "CVE-2026-126822"
+      ],
+      "vendor": "F5",
+      "why": "F5 says unauthenticated attackers can crash the Traffic Management Microkernel and run code on systems with certain APM or iRule setups. Not reported exploited yet, but Shadowserver tracks 177,000+ BIG-IP instances and 14,600+ APM fingerprints online, and CISA lists seven F5 bugs as exploited since 2021. Also a high-severity APM SAML DoS (CVE-2026-126822).",
+      "action": "Install F5's out-of-band engineering hotfixes (released Nov 18) on BIG-IP APM and any box using iRules now; there is no workaround. Restrict management and APM exposure while patching.",
+      "url": "https://www.bleepingcomputer.com/news/security/f5-releases-emergency-patches-for-critical-big-ip-rce-flaws/",
+      "ai_angle": [],
+      "ai_note": ""
     }
   ],
   "news": [
+    {
+      "title": "Hackers Exploit Critical Cisco Expressway Flaw, Breach Four Devices and Reach Internal Network",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html",
+      "blurb": "F6 reports first in-the-wild use of CVE-2026-76466 after a public PoC: root on two edge devices, then two internal cluster nodes. Fixed in X15.5.20."
+    },
+    {
+      "title": "F5 releases emergency patches for critical BIG-IP RCE flaws",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/f5-releases-emergency-patches-for-critical-big-ip-rce-flaws/",
+      "blurb": "Five critical APM/iRules overflows with no mitigation; hotfixes out, not yet exploited."
+    },
     {
       "title": "ruby2ßhell: CVE-2026-132825 Ruby Heap Overflow RCE",
       "source": "Orca Security / Veria Labs",
       "url": "https://orca.security/resources/blog/ruby2shell-ruby-heap-overflow-rce/",
       "blurb": "One-byte heap overflow reachable without login in default Rails and Sinatra; fixed in Ruby 3.3.14/3.4.13/4.0.10. GitLab and GHES fixes are still pending."
-    },
-    {
-      "title": "PHP security updates fix 18 flaws, including critical RCE bugs",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs/",
-      "blurb": "PHP 8.5.13, 8.4.28, 8.3.37 and 8.2.36 fix 18 CVEs, including AI-found phpAfterShell CVE-2026-126714 and PHP-FPM request smuggling CVE-2026-129289. The critical bugs need non-default setups."
     },
     {
       "title": "F5 Patches Critical NGINX2Root Flaws as PoC Exploits Go Public",
@@ -935,12 +947,6 @@
       "blurb": "n0n leaked marketing data after a 48-hour ransom countdown; Reuters counted over 16,000 Chase customer emails (some with phone numbers and postal codes) and 124 bank-employee addresses. Visa blames a provider in Asia Pacific; Mastercard a benefit-program vendor. No card or payment data, the companies say."
     },
     {
-      "title": "Transport for London breach exposes 265,000 Oyster card users' data",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/transport-for-london-breach-exposes-265-000-oyster-card-users-data/",
-      "blurb": "Found Nov 16 after phishing-like account emails came from TfL's own mail systems. Names, addresses, phone numbers, emails, birth dates and security questions and answers exposed; no passwords or payment data, per TfL. Change any reused security answers."
-    },
-    {
       "title": "A cyberattack using artificial intelligence targeted the EU in October, official says",
       "source": "AP",
       "url": "https://apnews.com/article/cyberattack-european-union-artificial-intelligence-ai-79705095e8141cd650196dbff1cf3c70",
@@ -954,6 +960,12 @@
     }
   ],
   "watch": [
+    "SonicWall Gen 6 firewalls (Nov 20): end of security patches, even for critical flaws; SonicWall urges replacement and removal from the internet edge and expects exposed units to be attacked (it cites AI-assisted attacks). Inventory and replace.",
+    "Linux KVM CVE-2026-99312 (Terra Security, Nov 20): from root inside a guest VM, researchers read about 127 GB of host memory on DigitalOcean and wrote host kernel memory on AMD hosts with nested virtualization. Intel hosts unaffected; DigitalOcean live-patched. If you run your own AMD KVM hosts, update the kernel (fix merged Nov 2) or disable nested virtualization.",
+    "SBC Medical Group (SEC filing, Nov 20): breach of a clinic platform in Japan now affects over 2 million people (1.62M basic records incl. patient card numbers, 255,416 reservation requests, 4,513 treatment descriptions, 14 credit cards); a separate Tribeau reservation-service admin breach hit about 19,000. MOSH (928,617 email addresses) also disclosed Nov 19.",
+    "New Zealand Defence Force (RNZ, Nov 20): its website provider reported unauthorised access; the Force4Families Defence Discounts database (names, emails) was accessed and websites were taken offline. Expect phishing.",
+    "Frappe (per X, Netlas, Nov 20): an email-endpoint authorization flaw (no CVE yet) lets any authenticated user, even a Website User, send email through the site; reported as actively exploited. Update Frappe/ERPNext and disable self sign-up if not needed.",
+    "AI-found bugs patched Nov 18-19 (moved from focus): phpAfterShell PHP CVE-2026-126714 (found with depthfirst AI; fixed PHP 8.5.13/8.4.28/8.3.37/8.2.36) and Drupal installer RCE CVE-2026-132165 (found by Anthropic's OSS Scanner). Update if not done.",
     "Kurly (Korea, Nov 20): an attacker stole authentication credentials on Nov 17 and reached internal business systems; 10,699 curator-program members' names, IDs, phone numbers, emails and social handles leaked, some with bank-account and resident or business registration numbers (MoneyToday). https://www.mt.co.kr/en/living/2026/11/20/2026112017320311063",
     "FastUnlock (The Hacker News, Nov 20): unpatched Windows technique lets someone with physical access start programs on a locked PC without signing in (limited account, not admin). No patch yet; keep laptops encrypted and in sight, and watch for Microsoft guidance. https://thehackernews.com/2026/11/new-unpatched-windows-0-day-fastunlock.html",
     "ROMULUS ClickFix delivery service (Blackpoint, Nov 20): fake-fix prompts plus signed-binary sideloading drop a new RAT similar to CNCMachineRMS and Legion Loader. Block users from pasting commands into Run/PowerShell where possible.",
@@ -972,7 +984,6 @@
     "Pliny the Elder open-sourced T3MP3ST (Nov 19, per X), which turns an existing AI coding agent into an autonomous security-testing system. Expect attackers to reuse it the way ARTEX was reused; no misuse reported yet.",
     "Rakuten Securities (Japan): now says up to 15.72M accounts may be affected, about 4.47M with personal data (names, birth dates, addresses, income and asset levels), after real customer data was put in a test environment that was breached; detected Nov 16 (Japan Times, Nov 19). Watch for phishing.",
     "Equinor (update Nov 19): the cyberattack on some IT systems is still ongoing; production normal, no sign of data theft or alteration; Equinor says it does not appear to be specifically targeted.",
-    "Japan breaches disclosed Nov 19: SBC Medical Group (about 1.62M customers' personal and reservation data, company notice) and MOSH (928,617 email addresses and user IDs via the PLAID KARTE breach). Expect targeted phishing.",
     "Jenkins: ngCERT (Nov 19) says CVE-2024-23897, CVE-2026-53435 and CVE-2026-84645 are exploited in the wild; update and keep Jenkins off the internet.",
     "Skill2Exploit (Pluto Security, Nov 18): AI agent skills can pull attacker files into parsers; patch Nextcloud (Nov 6 fix) or disable HEIC previews, and review third-party agent skills.",
     "Research (The Hacker News, Nov 19): low-privilege database accounts can reach code execution on PostgreSQL, MySQL and Oracle servers; limit DB account privileges and extensions.",
@@ -990,7 +1001,6 @@
     "NGINX follow-ups: RHEL/distro packages, CISA KEV listing, first in-the-wild use, the claimed public exploit for HTTP/3 CVE-2026-121810 (unverified), and appliances/ingress controllers that bundle NGINX.",
     "Java4Shell follow-ups: first confirmed break-in or KEV listing, Calif's per-product exploits, Red Hat/Debian/Ubuntu/SUSE/Temurin/Azul/Microsoft builds. Beware fake PoCs on GitHub.",
     "Apache CVE-2026-119618: still not in CISA KEV as of Nov 18; watch for exploitation details (CSA named no victims).",
-    "F5 BIG-IP (Nov 18): six critical TMM stack overflows (e.g. CVE-2026-121805) can crash traffic and may allow RCE with certain iRule or APM setups; install F5's engineering hotfixes, no workaround.",
     "Irish credit unions (Nov 17-18): about 40 notified the regulator after hackers reached saved-payee data at IT provider Wellington IT; balances not affected. Expect convincing payment-scam messages.",
     "TfL (London) Oyster photocard site breach: about 265,000 customers' details and security Q&A taken; change reused security answers.",
     "Arize Phoenix LLM observability CVE-2026-53998 (CVSS 10, unauthenticated format-string leak of env vars and keys): upgrade and rotate keys in its environment.",
