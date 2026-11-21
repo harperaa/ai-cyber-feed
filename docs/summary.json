@@ -1,19 +1,28 @@
 {
-  "updated_at": "2026-11-20T21:35:00Z",
-  "next_update_note": "Next summary rewrite around 01:30 UTC Nov 21 (8:30 PM EST Nov 20); the feed itself refreshes hourly.",
-  "headline": "New since 17:30 UTC (Nov 20): Amazon Threat Intelligence says a suspected China-nexus operator let Cairn, an open-source autonomous AI pentest framework, loose with the goal 'obtain shell access'; in September the agents found a zero-day in MONAI Label (medical-imaging AI app, CVE-2026-133968) on their own and went from API mapping to file write in about 11 minutes, then root. The fix is merged but no release ships it yet. Bell Canada confirmed an 'agentic threat actor' broke in on Nov 17 and stole enterprise customer data from its Maximo circuit-ordering system. CISA added four exploited bugs to KEV (federal due date Nov 23): VMware vCenter CVE-2026-123890, Cisco Expressway CVE-2026-76466, Apache Roller CVE-2026-129448 and SAP NetWeaver CVE-2025-42884. This replaces the earlier 'no new KEV since Nov 18' line. Unchanged at the top: Apache mod_http2 (AI-found, reportedly exploited), NGINX2Root and Java4Shell (PoCs and probing, no confirmed break-in; Cisco published its Java4Shell product advisory), the reported 14-minute AI-agent swarm (unverified), F5 BIG-IP hotfixes, React2STEAL and LiteLLM.",
-  "ai_headline": "AI as the cause: a vendor now documents AI agents finding and using a zero-day without a human. Amazon caught a China-nexus Cairn deployment that found and exploited MONAI Label CVE-2026-133968 for root, and Bell Canada blames an 'agentic' attacker for its Nov 17 data theft (Bell gave no detail on the AI use). These add to the reported 14-minute AI-agent swarm (unverified), Bazuka's LLM victim triage and the European Commission's ARTEX-linked attack. AI products: MONAI Label is itself an AI app, and it runs with auth off by default. LiteLLM (KEV) and the hijacked Microsoft agent-framework PyPI package are still the top AI-product risks. AI impact: rushed patching for AI-found bugs took down NSA's internal network (DNI), and AI-key theft goes on through React2STEAL and ArgonHunt.",
+  "updated_at": "2026-11-21T01:35:00Z",
+  "next_update_note": "Next summary rewrite in about 4 hours (around 06:30 UTC Nov 21); the feed itself refreshes hourly.",
+  "headline": "New since 21:35 UTC (Nov 20): Norway's NSM says an unknown actor actively exploited a vulnerability in Microsoft Azure API Management (APIM) to go after access tokens, secrets and named values; Equinor and Skagerak Energi were hit, and other firms in Norway and abroad. Microsoft has closed it (no CVE yet), but NSM says every APIM customer should assume secrets are exposed and rotate them. Also new: TeamCity RCE CVE-2026-132891 (9.8), Spring Security CVE-2026-59273 (9.8), SMBC confirms up to 14M records in the PLAID KARTE breach, and Roll20 lost some password hashes. Unchanged at the top: Amazon's Cairn case (AI agents found and exploited MONAI Label CVE-2026-133968 for root), Bell Canada's 'agentic' breach, CISA's Nov 20 KEV four (vCenter, Expressway, Roller, SAP; due Nov 23), Apache mod_http2 (AI-found, reportedly exploited), NGINX2Root and Java4Shell (PoCs and probing), React2STEAL and LiteLLM. F5 BIG-IP and the Qubole/Chase vendor breach moved to the watch list.",
+  "ai_headline": "AI as the cause: no new AI-run attack confirmed since the last summary. Amazon's Cairn/MONAI Label zero-day and Bell Canada's 'agentic' break-in remain the newest cases; LNbits' Nov 16 incident report (added) says the Nov 8 wave against its Lightning wallet servers looked like multiple AI agents probing and exploiting in parallel, though it cannot prove it. AI products: MONAI Label (auth off by default), LiteLLM (KEV) and the hijacked Microsoft agent-framework PyPI package stay the top risks. AI impact: React2STEAL and ArgonHunt AI-key theft continue; NSM warns fast AI escalation raises the risk around the Azure APIM flaw, but no AI use in that attack is reported.",
   "ai_activity": {
-    "overview": "Nov 20, 21:35 UTC. New since 17:30 UTC: Amazon Threat Intelligence published the clearest case yet of AI agents finding and using a zero-day on their own. A China-nexus operator's Cairn agents found MONAI Label CVE-2026-133968 (medical-imaging AI app, auth off by default) and got root on a university server, then pivoted to a second university. The fix is merged but not yet released. Bell Canada says an 'agentic threat actor' stole enterprise customer data on Nov 17 (no detail on the AI use). CISA's Nov 20 KEV additions (vCenter, Expressway, Roller, SAP) have no AI angle. Items older than 7 days (before Nov 13, 21:35 UTC) were dropped, including the Cursor and Uber Fireworks-related Nov 13 entries (the later Fireworks, Uber and Cursor entries remain). Confirmed AI-assisted attacks in the last 7 days: Amazon's Cairn case, the European Commission (reportedly ARTEX), Symantec's AI-written toolkit at an African stock exchange, Barracuda, Darktrace's three ARTEX intrusions, Google GTIG's exploit_agent and Elastic's CyberStrikeAI AWS intrusion. Reported but not detailed: Bell Canada and the TrustedSec 14-minute swarm (unverified). AI-found bugs: Apache mod_http2 CVE-2026-119618 is reportedly exploited; NGINX2Root has public PoCs; Java4Shell shows probes only (Cisco and Palo Alto advisories out); phpAfterShell and Drupal CVE-2026-132165 are patched. AI products: MONAI Label (new, exploited), LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer, malicious MCP packages, flyto-core CVE-2026-77312 (exploit claim unverified) and Flowise's unfixable MCP token leak. AI impact: React2STEAL and ArgonHunt AI-key theft, Fireworks AI's second breach, Barracuda's AI-vendor key, Fugaku and the DNI-confirmed NSA patch outage; NVIDIA's Gentlemen listing is still unverified.",
+    "overview": "Nov 21, 01:35 UTC. New since 21:35 UTC: no new confirmed AI-run attack. Added LNbits' Nov 16 report that the Nov 8 attacks on its wallet servers looked like parallel AI agents (its own assessment, not proven). The Azure API Management exploitation (Equinor, Skagerak) has no reported AI use, though Norway's NSM cites fast AI escalation as a risk factor. Earlier this week: Amazon Threat Intelligence published the clearest case yet of AI agents finding and using a zero-day on their own. A China-nexus operator's Cairn agents found MONAI Label CVE-2026-133968 (medical-imaging AI app, auth off by default) and got root on a university server, then pivoted to a second university. The fix is merged but not yet released. Bell Canada says an 'agentic threat actor' stole enterprise customer data on Nov 17 (no detail on the AI use). CISA's Nov 20 KEV additions (vCenter, Expressway, Roller, SAP) have no AI angle. Items older than 7 days (before Nov 13, 21:35 UTC) were dropped, including the Cursor and Uber Fireworks-related Nov 13 entries (the later Fireworks, Uber and Cursor entries remain). Confirmed AI-assisted attacks in the last 7 days: Amazon's Cairn case, the European Commission (reportedly ARTEX), Symantec's AI-written toolkit at an African stock exchange, Barracuda, Darktrace's three ARTEX intrusions, Google GTIG's exploit_agent and Elastic's CyberStrikeAI AWS intrusion. Reported but not detailed: Bell Canada and the TrustedSec 14-minute swarm (unverified). AI-found bugs: Apache mod_http2 CVE-2026-119618 is reportedly exploited; NGINX2Root has public PoCs; Java4Shell shows probes only (Cisco and Palo Alto advisories out); phpAfterShell and Drupal CVE-2026-132165 are patched. AI products: MONAI Label (new, exploited), LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer, malicious MCP packages, flyto-core CVE-2026-77312 (exploit claim unverified) and Flowise's unfixable MCP token leak. AI impact: React2STEAL and ArgonHunt AI-key theft, Fireworks AI's second breach, Barracuda's AI-vendor key, Fugaku and the DNI-confirmed NSA patch outage; NVIDIA's Gentlemen listing is still unverified.",
     "counts": {
-      "ai_cause": 37,
-      "ai_product_exploited": 22,
+      "ai_cause": 38,
+      "ai_product_exploited": 20,
       "ai_impact": 11
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Bell Canada: an 'agentic threat actor' broke in on Nov 17 and stole enterprise customer data from a pre-production Maximo circuit-ordering system",
+            "date": "2026-11-20T18:51:00Z",
+            "summary": "Bell confirmed to BleepingComputer that the attacker reached several systems. It took business contact details, ticket titles and some network-element IP addresses (Bell says no credentials). Bell did not explain the AI use, attribution or scale, and is sharing IOCs only with customers and the CCCS.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data/",
+            "source": "BleepingComputer"
+          },
           {
             "title": "Amazon: China-nexus actor's Cairn autonomous AI agents found and exploited a MONAI Label zero-day (CVE-2026-133968) for root on a university server",
             "date": "2026-11-20T17:30:00Z",
@@ -24,15 +33,6 @@
             ],
             "url": "https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/",
             "source": "AWS Security Blog / BleepingComputer / The Register"
-          },
-          {
-            "title": "Bell Canada: an 'agentic threat actor' broke in on Nov 17 and stole enterprise customer data from a pre-production Maximo circuit-ordering system",
-            "date": "2026-11-20T18:51:00Z",
-            "summary": "Bell confirmed to BleepingComputer that the attacker reached several systems. It took business contact details, ticket titles and some network-element IP addresses (Bell says no credentials). Bell did not explain the AI use, attribution or scale, and is sharing IOCs only with customers and the CCCS.",
-            "status": "reported",
-            "cves": [],
-            "url": "https://www.bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data/",
-            "source": "BleepingComputer"
           },
           {
             "title": "Bazuka: new Android banking-fraud framework (23 modules: overlays, keylogging, SMS/2FA interception, remote control, crypto-address swapping) whose control panel uses LLMs to score and pick high-value victims",
@@ -318,6 +318,15 @@
             "source": "Risky Business News"
           },
           {
+            "title": "LNbits incident report: the Nov 8 wave against LNbits Lightning wallet servers (SSRF in legacy extensions, funds stolen) looked like multiple AI agents probing and exploiting in parallel, generating malicious extensions per target",
+            "date": "2026-11-16T00:00:00Z",
+            "summary": "LNbits says attacks ran in parallel across many instances with techniques varying per environment, which it reads as autonomous AI-driven activity, but it cannot establish what tools were used. Operators should update all extensions and remove unused legacy ones.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://news.lnbits.com/news/november-8th-incident-report",
+            "source": "LNbits"
+          },
+          {
             "title": "FBI ARTEX FLASH coverage (BleepingComputer, Nov 15): ARTEX tied to the October ConnectWise Cloud Backup (SkyKick) supply-chain breach; Storm-0940 tried 2,250+ downstream Microsoft 365 tenants",
             "date": "2026-11-15T18:29:53Z",
             "summary": "Multiple actors have used ARTEX since at least August against finance, government, tech, defense and health; some intrusions went from targeting to privileged access in under three hours; 1,600+ exposed consoles as of early November. Huntress counted at least 162 compromised tenants in the ConnectWise case.",
@@ -600,24 +609,6 @@
               "CVE-2026-120779"
             ],
             "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120779"
-          },
-          {
-            "title": "Zread AI CLI npm packages (@zread/cli plus six platform builds) flagged as malware by GitHub",
-            "date": "2026-11-13T23:46:00Z",
-            "summary": "GitHub published seven malware advisories (e.g. GHSA-rmrw-hx84-5hgq) covering all versions of the Zread CLI and its platform packages; no payload analysis is public yet. If installed or run (including inside coding-agent workflows), remove it, treat the machine as compromised and rotate its secrets from a clean computer.",
-            "status": "reported",
-            "cves": [],
-            "url": "https://github.com/advisories/GHSA-rmrw-hx84-5hgq",
-            "source": "GitHub Advisory Database"
-          },
-          {
-            "title": "Fake 'claudecode/cli' npm package posing as Claude Code flagged as malware",
-            "date": "2026-11-13T22:00:00Z",
-            "summary": "GitHub says machines that installed it should be treated as fully compromised; official package is @anthropic-ai/claude-code. Reported via X; payload details not public.",
-            "status": "reported",
-            "cves": [],
-            "url": "https://x.com/Khaled865412521/status/2121514108163907650",
-            "source": "X / GitHub advisory"
           }
         ]
       },
@@ -784,6 +775,18 @@
       "ai_note": "AI-found flaw (Anthropic OSS scanner, independently Google) now reportedly exploited in the wild."
     },
     {
+      "title": "Microsoft Azure API Management (APIM) flaw actively exploited to steal access tokens, secrets and named values; Equinor and Skagerak Energi hit, other firms in Norway and abroad",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Microsoft Azure",
+      "why": "Norway's NSM (Nov 20) says an unknown actor actively targeted access tokens, secrets and named values in APIM; the flaw is now closed by Microsoft, but how widely it was used is still unclear. No CVE or Microsoft advisory in our sources yet. Equinor says its attack was stopped with no sign of data theft or alteration.",
+      "action": "Assume all APIM secrets, tokens and named values are exposed: rotate them and the backend credentials they hold. Check the instance's RuntimeVersion via /internal-status-0123456789abcdef: 0.52.x is patched at build 31936+, 0.53.x at 31938+ (v2 and Consumption tiers are not affected); if lower, contact Microsoft. Review what sits behind APIM and its logs for misuse.",
+      "url": "https://nsm.no/aktuelt/nsm-deler-tiltak-mot-sarbarhet-i-azure-api-management",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
       "title": "CISA KEV Nov 20 (due Nov 23): VMware vCenter CVE-2026-123890 (zero-day since September, Armory Castle), Cisco Expressway CVE-2026-76466 (root RCE, break-ins reported), Apache Roller CVE-2026-129448 (unauthenticated RCE), SAP NetWeaver Portal CVE-2025-42884; earlier: Apache Axis, REDCap, Synology DSM, Puppet, Chrome, OpenSSH 'SSHole', Outlook",
       "severity": "critical",
       "exploited": true,
@@ -862,18 +865,6 @@
       "ai_note": "Not an AI-built attack as far as reported, but it steals and live-tests AI provider keys; AI keys are now a standard target of secret-stealing pipelines."
     },
     {
-      "title": "Qubole vendor breach reaches JPMorgan Chase, Visa and Mastercard: banks confirm customer names and emails taken from third-party vendors; n0n says it stole data via Qubole's access to customers' AWS accounts",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "Qubole (Idera) cloud data platform and the companies that granted it AWS IAM roles",
-      "why": "Chase (Nov 19) says attackers reached marketing data held by vendors, possibly customer names and emails (leaked sample: about 16,000 Reserve-card customer emails); Visa says an Asia-Pacific provider was hit and no card numbers or Visa systems were involved; Mastercard says some benefit-program cardholder emails were exposed. BleepingComputer links this to n0n's claimed Qubole attack: per Wiz, Sentra and Mandiant, an attacker used Qubole AWS credentials between Oct 14 and 26 to assume IAM roles customers had granted Qubole (some dormant), read secrets and download S3 data. n0n's 'nearly a petabyte' claim is unverified.",
-      "action": "If you ever granted Qubole (or any data vendor) a cross-account AWS role, review CloudTrail for AssumeRole by that vendor since Oct 1, remove dormant vendor trust roles, add external-ID/condition limits, and rotate any secrets stored where those roles could read. Chase, Visa and Mastercard customers: expect targeted phishing to the exposed email addresses.",
-      "url": "https://www.bleepingcomputer.com/news/security/vendor-data-breach-exposes-chase-visa-mastercard-customer-info/",
-      "ai_angle": [],
-      "ai_note": ""
-    },
-    {
       "title": "Malicious AI-agent packages: Microsoft agent-framework on PyPI hijacked (Nov 17; 1.26.1 and 1.26.2 steal Azure, GitHub Actions and cloud secrets); plus malicious MCP servers karma365-mcp (npm) and my-mcp-server-driving-license-ocr (PyPI) flagged by GitHub",
       "severity": "critical",
       "exploited": true,
@@ -906,25 +897,6 @@
         "impact"
       ],
       "ai_note": "AI product: LLM gateway that stores AI provider keys; two bugs exploited this week."
-    },
-    {
-      "title": "F5 BIG-IP: emergency hotfixes for five critical APM and iRules stack overflows (unauthenticated RCE or TMM crash on vulnerable configurations); no mitigation available",
-      "severity": "critical",
-      "exploited": false,
-      "cves": [
-        "CVE-2026-121805",
-        "CVE-2026-120292",
-        "CVE-2026-120285",
-        "CVE-2026-116953",
-        "CVE-2026-123637",
-        "CVE-2026-126822"
-      ],
-      "vendor": "F5",
-      "why": "F5 says unauthenticated attackers can crash the Traffic Management Microkernel and run code on systems with certain APM or iRule setups. Not reported exploited yet, but Shadowserver tracks 177,000+ BIG-IP instances and 14,600+ APM fingerprints online, and CISA lists seven F5 bugs as exploited since 2021. Also a high-severity APM SAML DoS (CVE-2026-126822).",
-      "action": "Install F5's out-of-band engineering hotfixes (released Nov 18) on BIG-IP APM and any box using iRules now; there is no workaround. Restrict management and APM exposure while patching.",
-      "url": "https://www.bleepingcomputer.com/news/security/f5-releases-emergency-patches-for-critical-big-ip-rce-flaws/",
-      "ai_angle": [],
-      "ai_note": ""
     }
   ],
   "news": [
@@ -939,6 +911,12 @@
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data/",
       "blurb": "Nov 17 intrusion into a pre-production Maximo circuit-provisioning system. Business contacts, ticket titles and some network IPs were taken. Attribution is unknown and IOCs are shared only with customers."
+    },
+    {
+      "title": "NSM shares measures against vulnerability in Azure API Management",
+      "source": "NSM (Norway)",
+      "url": "https://nsm.no/aktuelt/nsm-deler-tiltak-mot-sarbarhet-i-azure-api-management",
+      "blurb": "Exploited APIM flaw hit Equinor, Skagerak Energi and others; patched, but rotate all APIM secrets and check RuntimeVersion."
     },
     {
       "title": "CISA Adds Four Known Exploited Vulnerabilities to Catalog",
@@ -969,15 +947,16 @@
       "source": "SecurityWeek",
       "url": "https://www.securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public/",
       "blurb": "Rapid7 and Censys published PoCs for CVE-2026-123007; Censys counts about 9M exposed NGINX servers with HTTP/2 on. Upgrade to 1.30.7/1.31.9."
-    },
-    {
-      "title": "F5 releases emergency patches for critical BIG-IP RCE flaws",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/f5-releases-emergency-patches-for-critical-big-ip-rce-flaws/",
-      "blurb": "Five critical APM/iRules overflows with no mitigation; hotfixes out, not yet exploited."
     }
   ],
   "watch": [
+    "Qubole / JPMorgan Chase, Visa, Mastercard (moved from focus): n0n used Qubole's AWS credentials (Oct 14-26) to assume IAM roles customers granted Qubole; banks confirm vendor-held marketing data (names, emails; no card data) taken. Remove dormant vendor AWS trust roles, check CloudTrail AssumeRole since Oct 1, expect bank-themed phishing.",
+    "F5 BIG-IP (moved from focus; not reported exploited): five critical APM/iRules overflows (CVE-2026-121805 and others) with no workaround; install F5's Nov 18 hotfixes.",
+    "JetBrains TeamCity CVE-2026-132891 (CVSS 9.8, per X Nov 21): RCE through external pull requests; update to the fixed releases (2025.11.8 or the 2026.1 fix) and don't build untrusted PRs on privileged agents.",
+    "Spring Security CVE-2026-59273 (CVSS 9.8, per X Nov 21): critical flaw when an app binds raw user input, part of Spring's 50-fix November update; update Spring Security.",
+    "SMBC (Nov 20): up to 14M records (birth date, age band, gender, notification flags; no names, contacts or account numbers) leaked in the PLAID KARTE breach, on top of MUFG and EPOS Card. KARTE users: rotate connector secrets.",
+    "Roll20 (Nov 2026 notice): an image-upload flaw let an attacker reach an account database on Nov 16; under 1% of users had names, emails and bcrypt password hashes (some card last-four) exposed. Change reused passwords.",
+    "Palo Alto Networks (Nov 20) published its product-impact advisory for NGINX2Root (CVE-2026-123007, CVE-2026-123633).",
     "Tigerfish (San Francisco transcription firm used by police, prosecutors and tech companies; TechCrunch Nov 20): a public cloud bucket exposed transcripts, police interview and body-cam media, and invoices. Now secured; customers should ask what was exposed.",
     "Peach Aviation (Japan, per Kyodo Nov 20, not yet confirmed by the airline in our sources): email-delivery contractor Yumil Link was breached in October, and about 9M records (names, emails, addresses, itineraries; no card or passport data) leaked.",
     "EPOS Card (Japan, Nov 20): another victim of the PLAID KARTE marketing-tool breach. Customer IDs and gender for up to about 8.5M records exposed; names, ages, incomes and cash-advance limits for about 60,000. No card numbers. KARTE users: rotate connector secrets.",
@@ -986,7 +965,6 @@
     "ruby2shell CVE-2026-132825 (moved from focus; no exploitation reported): Ruby 3.3.14/3.4.13/4.0.10 fix it; as of Nov 19 Veria listed GitLab, GitHub Enterprise Server and Chatwoot as not yet patched; public PoC expected in about a week.",
     "Gemini 4 Neon (Google, Nov 20): a cyber-focused version for vetted defenders (Fairwind Program) is coming; Google claims frontier-level bug finding and patching. Expect more AI-found CVEs.",
     "NSA (via SecurityWeek, Nov 20): malware on DoW employees' personal PCs records CAC PINs and uses the card while it stays in the reader to sign into federal sites; remove CACs when not in use.",
-    "Skagerak Energi (Norway, per SecurityWeek Nov 20): possible attempted intrusion on some IT systems, reported a day after Equinor's disclosure; no operational impact reported.",
     "teahy-znrpz-util (npm, Nov 20): GitHub-flagged malware that runs a hidden payload on require and avoids CI; remove, rebuild and rotate secrets.",
     "SonicWall Gen 6 firewalls (Nov 20): end of security patches, even for critical flaws; SonicWall urges replacement and removal from the internet edge and expects exposed units to be attacked (it cites AI-assisted attacks). Inventory and replace.",
     "Linux KVM CVE-2026-99312 (Terra Security, Nov 20): from root inside a guest VM, researchers read about 127 GB of host memory on DigitalOcean and wrote host kernel memory on AMD hosts with nested virtualization. Intel hosts unaffected; DigitalOcean live-patched. If you run your own AMD KVM hosts, update the kernel (fix merged Nov 2) or disable nested virtualization.",
@@ -1006,7 +984,6 @@
     "Oracle E-Business Suite CVE-2026-114924 + CVE-2026-114925: per X, chainable for unauthenticated OS command execution (from Oracle's Nov 17 patch). Apply the November patch to internet-facing EBS.",
     "WordPress 7.1.5 security release (backported to 4.7+): update sites now.",
     "Unverified: 'NoSafe AI' says an abliterated Kimi model found a vulnerability in an open-source project (no details).",
-    "JPMorgan Chase, Visa and Mastercard (Nov 19-20, Reuters/SecurityWeek): n0n leaked third-party vendors' marketing data, including 16,000+ Chase customer emails; no card or payment data, per the companies. Expect bank-themed phishing.",
     "Ruby (Nov 18): seven regex and string-case flaws, several with RCE proof-of-concepts (mostly in apps that compile attacker-controlled patterns). Upgrade to 4.0.10, 3.4.13 or 3.3.14; 3.2 and older get no fix.",
     "Pliny the Elder open-sourced T3MP3ST (Nov 19, per X), which turns an existing AI coding agent into an autonomous security-testing system. Expect attackers to reuse it the way ARTEX was reused; no misuse reported yet.",
     "Rakuten Securities (Japan): now says up to 15.72M accounts may be affected, about 4.47M with personal data (names, birth dates, addresses, income and asset levels), after real customer data was put in a test environment that was breached; detected Nov 16 (Japan Times, Nov 19). Watch for phishing.",
