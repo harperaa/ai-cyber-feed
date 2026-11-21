@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-21T17:35:00Z",
-  "next_update_note": "Next summary rewrite in about 4 hours (around 21:30 UTC Nov 21); the feed itself refreshes hourly.",
-  "headline": "Quiet since 13:35 UTC (Nov 21): no new AI-run attack, no new actively exploited flaw and no new major platform breach. New but lower priority: ServiceNow fixed an indirect prompt injection in its Now Assist for CSM email-reply AI agent (CVE-2026-18883; fixed centrally, no exploitation reported); SurrealDB 4.0.0 fixes a batch of flaws including a 9.8 scripting-engine capability bypass (CVE-2026-134292) and SQL injection in its MCP server (CVE-2026-134293); Rclone 'serve sftp --auth-proxy' auth bypass CVE-2026-134352 (fixed in 1.76.0); two more malicious PyPI packages (instantscrape infostealer, signed-manifest-guard 0.1.7); and the FBI NCIC breach is now reported by CNN and Reuters. Reminders: Chrome CVE-2026-125350 is on CISA KEV with a Nov 24 deadline, and CISA's Nov 20 KEV four are due Nov 23. Unchanged at the top: BabidiGhost's jailbroken AI agent, Amazon's Cairn agents and the MONAI Label exploit (still no fixed release), Drupal CVE-2026-132165 (AI-found, exploited), Bell Canada's 'agentic' breach, the exploited Azure API Management flaw, Apache mod_http2, MoEngage and Triple Whale key rotation, React2STEAL, the hijacked agent-framework PyPI package and LiteLLM.",
-  "ai_headline": "No new AI-caused attack in the last four hours. Still leading: SOCRadar's BabidiGhost (a jailbroken AI agent doing the hacking for an unskilled operator against 50+ European targets, some breached through ordinary exposures) and Amazon's Cairn case, where AI agents found and exploited MONAI Label CVE-2026-133968 on their own; a public exploit is reported and there is still no patched release. AI-found bugs exploited: Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 (reported). AI products: new ServiceNow email-agent prompt injection (CVE-2026-18883, fixed, not exploited) and SurrealDB MCP SQL injection (fixed in 4.0.0); MONAI Label, LiteLLM (KEV), the hijacked Microsoft agent-framework PyPI package; Meta Muse agent hijack research (patched). AI impact: React2STEAL and ArgonHunt AI-key theft, Triple Whale breach.",
+  "updated_at": "2026-11-21T21:27:48Z",
+  "next_update_note": "Next summary rewrite in about 4 hours (around 01:30 UTC Nov 22); the feed itself refreshes hourly.",
+  "headline": "New since 17:35 UTC (Nov 21): Microsoft says attackers exploited a flaw in its Entra Connect Health API (introduced Jul 23, found Nov 9, fixed server-side Nov 19) to read tenant metadata, including administrator and technical-contact email addresses, tenant IDs, domains, license tiers and sync status; Microsoft is notifying affected tenants. No passwords, tokens or valid keys were exposed and no customer patch is needed, but expect targeted phishing of your admins. No new AI-run attack and no new exploited AI product in the last four hours. Reminders: CISA's Nov 20 KEV four (vCenter, Cisco Expressway, SAP NetWeaver, Apache Roller) are due Nov 23 and Chrome CVE-2026-125350 is due Nov 24. Unchanged at the top: BabidiGhost's jailbroken AI agent, Amazon's Cairn agents and the MONAI Label exploit (still no fixed release), Drupal CVE-2026-132165 (AI-found, exploited), Bell Canada's 'agentic' breach, the exploited Azure API Management flaw, Apache mod_http2, MoEngage and Triple Whale key rotation, React2STEAL, the hijacked agent-framework PyPI package and LiteLLM.",
+  "ai_headline": "No new AI-caused attack and no new exploited AI product since 17:35 UTC. Still leading: SOCRadar's BabidiGhost (a jailbroken AI agent doing the hacking for an unskilled operator against 50+ European targets, some breached through ordinary exposures) and Amazon's Cairn case, where AI agents found and exploited MONAI Label CVE-2026-133968 on their own; a public exploit is reported and there is still no patched release. AI-found bugs exploited: Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 (reported). AI products: new ServiceNow email-agent prompt injection (CVE-2026-18883, fixed, not exploited) and SurrealDB MCP SQL injection (fixed in 4.0.0); MONAI Label, LiteLLM (KEV), the hijacked Microsoft agent-framework PyPI package; Meta Muse agent hijack research (patched). AI impact: React2STEAL and ArgonHunt AI-key theft, Triple Whale breach.",
   "ai_activity": {
-    "overview": "Nov 21, 17:35 UTC. Nothing new AI-caused since 13:35 UTC; new AI-product fixes: ServiceNow's email-reply AI agent prompt injection CVE-2026-18883 (fixed centrally, not exploited) and SurrealDB's MCP server SQL injection CVE-2026-134293 (fixed in 4.0.0). Earlier today: SOCRadar's BabidiGhost report documents a jailbroken AI agent doing the hacking for a low-skill operator against 50+ European banks, insurers, payment firms and towns (2 breached, 3 partly; ended Nov 14 when its API key was revoked). A public exploit for the Cairn-found MONAI Label CVE-2026-133968 is now reported on X, with no patched release yet. NebuSec's Meta Muse agent hijack (malicious page to private chats and VM root) was patched before publication. Earlier this week: Drupal CVE-2026-132165 (AI-found) exploited since Nov 19, Apache mod_http2 CVE-2026-119618 (AI-found) reportedly exploited, Amazon's Cairn agents finding and exploiting MONAI Label on their own, Bell Canada's 'agentic' breach, the European Commission (reportedly ARTEX), Symantec's AI-written toolkit, Barracuda, Darktrace's ARTEX intrusions, GTIG's exploit_agent and Elastic's CyberStrikeAI AWS intrusion; the TrustedSec 14-minute swarm is unverified. AI-found bugs: NGINX2Root (public PoCs), Java4Shell (probing only), phpAfterShell and Bitcoin Core (patched). AI products: MONAI Label, LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer, malicious MCP packages, flyto-core (exploit claim unverified), Flowise's unfixable MCP token leak. AI impact: React2STEAL and ArgonHunt AI-key theft, Triple Whale, Fireworks AI's second breach, Barracuda's AI-vendor key and Fugaku.",
+    "overview": "Nov 21, 21:27 UTC. Nothing new AI-caused and no new exploited AI product since 17:35 UTC (the main non-AI news is Microsoft's exploited Entra Connect Health flaw). Earlier today, AI-product fixes: ServiceNow's email-reply AI agent prompt injection CVE-2026-18883 (fixed centrally, not exploited) and SurrealDB's MCP server SQL injection CVE-2026-134293 (fixed in 4.0.0). Earlier today: SOCRadar's BabidiGhost report documents a jailbroken AI agent doing the hacking for a low-skill operator against 50+ European banks, insurers, payment firms and towns (2 breached, 3 partly; ended Nov 14 when its API key was revoked). A public exploit for the Cairn-found MONAI Label CVE-2026-133968 is now reported on X, with no patched release yet. NebuSec's Meta Muse agent hijack (malicious page to private chats and VM root) was patched before publication. Earlier this week: Drupal CVE-2026-132165 (AI-found) exploited since Nov 19, Apache mod_http2 CVE-2026-119618 (AI-found) reportedly exploited, Amazon's Cairn agents finding and exploiting MONAI Label on their own, Bell Canada's 'agentic' breach, the European Commission (reportedly ARTEX), Symantec's AI-written toolkit, Barracuda, Darktrace's ARTEX intrusions, GTIG's exploit_agent and Elastic's CyberStrikeAI AWS intrusion; the TrustedSec 14-minute swarm is unverified. AI-found bugs: NGINX2Root (public PoCs), Java4Shell (probing only), phpAfterShell and Bitcoin Core (patched). AI products: MONAI Label, LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer, malicious MCP packages, flyto-core (exploit claim unverified), Flowise's unfixable MCP token leak. AI impact: React2STEAL and ArgonHunt AI-key theft, Triple Whale, Fireworks AI's second breach, Barracuda's AI-vendor key and Fugaku.",
     "counts": {
       "ai_cause": 39,
       "ai_product_exploited": 21,
@@ -851,6 +851,18 @@
       "ai_note": ""
     },
     {
+      "title": "Microsoft Entra Connect Health API flaw exploited: attackers read tenant metadata and admin email addresses (new, Nov 21)",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Microsoft",
+      "why": "Microsoft told affected tenants that a flaw in the Entra Connect Health API (introduced Jul 23, found Nov 9) was exploited for read-only access to administrator and technical-contact email addresses, tenant IDs and names, domains, country/region, Entra license tiers, directory-sync status and an expired, unused certificate. Microsoft says no passwords, hashes, tokens, valid keys, AD topology or Azure subscription data were exposed and no configuration changes were found. It has not said who did it or how many tenants were hit; MSPs report notices for several customer tenants.",
+      "action": "No patch to install (fixed server-side Nov 19). Check for Microsoft's notification, warn admins named as contacts about targeted phishing, make sure privileged accounts use phishing-resistant MFA, review Connect Health settings and Entra audit/sign-in logs; Microsoft's script at aka.ms/ConnectHealth/scripts shows which metadata types apply to your tenant.",
+      "url": "https://www.bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data/",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
       "title": "SaaS breaches that need key rotation: MoEngage cloud breach via leaked third-party credentials (ZebPay data taken) and Triple Whale (Shopify app) breach with claimed Shopify token theft",
       "severity": "high",
       "exploited": true,
@@ -977,6 +989,12 @@
       "blurb": "Nov 17 intrusion into a pre-production Maximo circuit-provisioning system. Business contacts, ticket titles and some network IPs were taken. Attribution is unknown and IOCs are shared only with customers."
     },
     {
+      "title": "Microsoft Entra Connect Health flaw exploited to steal tenant data",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data/",
+      "blurb": "Microsoft is notifying tenants that a Connect Health API flaw (Jul 23 to Nov 19) exposed admin emails and tenant configuration metadata; no credentials exposed, phishing risk."
+    },
+    {
       "title": "Drupal core - Highly critical - Remote code execution - SA-CORE-2026-017 (updated: exploited on live sites)",
       "source": "Drupal.org",
       "url": "https://www.drupal.org/sa-core-2026-017",
@@ -987,12 +1005,6 @@
       "source": "NSM (Norway)",
       "url": "https://nsm.no/aktuelt/nsm-deler-tiltak-mot-sarbarhet-i-azure-api-management",
       "blurb": "Exploited APIM flaw hit Equinor, Skagerak Energi and others; patched, but rotate all APIM secrets and check RuntimeVersion."
-    },
-    {
-      "title": "MoEngage faces cyberattack; access disrupted for some customers",
-      "source": "The Economic Times",
-      "url": "https://economictimes.indiatimes.com/tech/technology/moengage-faces-cyberattack-access-disrupted-for-some-customers/articleshow/136034444.cms",
-      "blurb": "Leaked third-party credentials let attackers into parts of MoEngage's cloud; customers told to rotate API keys. ZebPay says its users' data was taken."
     },
     {
       "title": "FBI investigating potential breach of its crime database",
@@ -1008,6 +1020,9 @@
     }
   ],
   "watch": [
+    "Rakuten Securities (Japan) says a test environment may have leaked details for up to 4.47M accounts and login IDs for up to 11.25M; passwords and PINs not affected (its Nov 17 notice).",
+    "Cisco published an advisory (Nov 21) on which Cisco products are affected by the Nov 18 nginx fixes (nginx2root); check Cisco appliances that embed nginx.",
+    "Unverified (single X post): CVE-2024-28545 reportedly exploited on Tenda routers; no vendor or CISA confirmation seen.",
     "ServiceNow CVE-2026-18883 (Nov 21): indirect prompt injection in the Now Assist for CSM email-reply AI agent; fixed centrally by ServiceNow, no action needed, not exploited.",
     "SurrealDB before 4.0.0: capability bypass in the embedded JavaScript engine CVE-2026-134292 (CVSS 9.8), MCP server SQL injection CVE-2026-134293 and several authorization/path-traversal flaws. Upgrade to 4.0.0.",
     "Rclone 1.51.0-1.75.x CVE-2026-134352 (CVSS 9.2): auth bypass in 'serve sftp --auth-proxy'. Upgrade to 1.76.0.",
@@ -1054,9 +1069,6 @@
     "flyto-core CVE-2026-77312 (AI-agent workflow engine, CVSS 10, unauthenticated file write): upgrade to 2.26.8. The public exploit claim comes from X and is unverified. https://github.com/advisories/GHSA-p34x-fmph-9fjx",
     "ASUS Control Center Express (Nov 19): hard-coded key flaws incl. CVE-2026-114202 (CVSS 10) let a remote unauthenticated attacker forge tokens and take over the console and managed PCs. Update to 1.7.29 and update client agents.",
     "Unverified (X): Qilin claims ransomware at Osaki Electric (Japan) that halted smart-meter production and shipments.",
-    "Splunk November advisories (Nov 18): SOAR App Wizard RCE CVE-2026-131253 (CVSS 9.9, authenticated; fix SOAR 8.8.0), Enterprise Security path-traversal RCE CVE-2026-131202 (ess_admin; fix 8.7.0), Enterprise RapidDiag CVE-2026-76535 (9.1; fixed 10.6.1/10.4.5/10.2.9/10.0.12/9.4.17). About 139 flaws in total; none reported exploited.",
-    "N-able Mail Assure / SpamExperts cloud breach (SecurityWeek, Nov 20): N-able now blames the outage on a cyberattack and says it could have led to credential theft; portals and APIs still being restored. Rotate Mail Assure/SpamExperts API keys and admin passwords and review mail-flow rules.",
-    "Oracle E-Business Suite CVE-2026-114924 + CVE-2026-114925: per X, chainable for unauthenticated OS command execution (from Oracle's Nov 17 patch). Apply the November patch to internet-facing EBS.",
-    "WordPress 7.1.5 security release (backported to 4.7+): update sites now."
+    "Splunk November advisories (Nov 18): SOAR App Wizard RCE CVE-2026-131253 (CVSS 9.9, authenticated; fix SOAR 8.8.0), Enterprise Security path-traversal RCE CVE-2026-131202 (ess_admin; fix 8.7.0), Enterprise RapidDiag CVE-2026-76535 (9.1; fixed 10.6.1/10.4.5/10.2.9/10.0.12/9.4.17). About 139 flaws in total; none reported exploited."
   ]
 }
