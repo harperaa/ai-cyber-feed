@@ -1,19 +1,41 @@
 {
-  "updated_at": "2026-11-21T05:35:00Z",
-  "next_update_note": "Next summary rewrite in about 4 hours (around 09:30 UTC Nov 21); the feed itself refreshes hourly.",
-  "headline": "New since 01:35 UTC (Nov 21): a quiet overnight. The FBI is investigating an apparent breach of its National Crime Information Center (NCIC), the database that links federal, state and local police (NBC/CNN, Nov 20; no details on who or how), and USDA staff were told on Nov 19 that a system used to pay farmers was hit. No new KEV entries or newly exploited CVEs since the last summary. Unchanged at the top: Amazon's Cairn case (AI agents found and exploited MONAI Label CVE-2026-133968 for root), Bell Canada's 'agentic' breach, the actively exploited Azure API Management flaw (rotate APIM secrets), CISA's Nov 20 KEV four (vCenter, Expressway, Roller, SAP; due Nov 23), Apache mod_http2 (AI-found, reportedly exploited), NGINX2Root and Java4Shell (PoCs and probing), React2STEAL, the hijacked Microsoft agent-framework PyPI package and LiteLLM.",
-  "ai_headline": "AI as the cause: no new AI-run attack confirmed since the last summary; Amazon's Cairn/MONAI Label zero-day and Bell Canada's 'agentic' break-in remain the newest cases, and overnight X chatter is mostly people re-sharing the Cairn story. AI products: MONAI Label (auth off by default, fix merged but not released), LiteLLM (KEV) and the hijacked Microsoft agent-framework PyPI package stay the top risks. AI impact: React2STEAL and ArgonHunt AI-key theft continue. Sen. Mark Warner said this week's US tech outages were not cyberattacks but warned AI could have played a role in the systems' weaknesses (a comment, not a finding); no AI use is reported in the FBI NCIC or USDA incidents.",
+  "updated_at": "2026-11-21T09:35:00Z",
+  "next_update_note": "Next summary rewrite in about 4 hours (around 13:30 UTC Nov 21); the feed itself refreshes hourly.",
+  "headline": "New since 05:35 UTC (Nov 21): Drupal's security team now says the AI-found installer RCE CVE-2026-132165 (found by Anthropic's OSS Scanner, fixed Nov 18) has been exploited on live sites since at least Nov 19, 19:00 UTC, so patch Drupal and block install.php now. Bitcoin Core fixed CVE-2026-117348, a medium node-stall bug found by Spiral's AI tool Project Loupe (upgrade to 30.5, 31.3 or 32.1). New SaaS breaches with key-rotation work: MoEngage (attackers used a third party's leaked credentials to reach parts of its cloud; it tells customers to rotate API keys; ZebPay says its customer data was taken) and Triple Whale (Shopify analytics app; intrusion Oct 31, disclosed Nov 20; a forum claims Shopify tokens for about 20,500 stores, unverified). Staples Canada says its print site was breached Nov 1-5. Unchanged at the top: Amazon's Cairn case (AI agents found and exploited MONAI Label CVE-2026-133968), Bell Canada's 'agentic' breach, the exploited Azure API Management flaw, CISA's Nov 20 KEV four (due Nov 23), Apache mod_http2, NGINX2Root, Java4Shell, React2STEAL, the hijacked agent-framework PyPI package and LiteLLM.",
+  "ai_headline": "AI as the cause: a second AI-found bug is now exploited in the wild: Drupal CVE-2026-132165 (Anthropic OSS Scanner), joining Apache mod_http2 CVE-2026-119618 (reported exploited). Bitcoin Core patched an AI-found node-stall bug (Project Loupe). No new AI-run attack confirmed since the last summary; Cairn/MONAI Label and Bell Canada remain the newest cases. AI products: MONAI Label (no fixed release yet), LiteLLM (KEV) and the hijacked Microsoft agent-framework PyPI package stay the top risks. AI impact: React2STEAL and ArgonHunt AI-key theft continue; Triple Whale, which sells itself as an AI platform for commerce, confirmed a breach (Shopify token theft claimed, unverified).",
   "ai_activity": {
-    "overview": "Nov 21, 05:35 UTC. New since 01:35 UTC: nothing new confirmed; no AI angle reported in the FBI NCIC or USDA incidents. Earlier this week: Amazon Threat Intelligence published the clearest case yet of AI agents finding and using a zero-day on their own. A China-nexus operator's Cairn agents found MONAI Label CVE-2026-133968 (medical-imaging AI app, auth off by default) and got root on a university server, then pivoted to a second university. The fix is merged but not yet released. Bell Canada says an 'agentic threat actor' stole enterprise customer data on Nov 17 (no detail on the AI use). CISA's Nov 20 KEV additions (vCenter, Expressway, Roller, SAP) have no AI angle. Confirmed AI-assisted attacks in the last 7 days: Amazon's Cairn case, the European Commission (reportedly ARTEX), Symantec's AI-written toolkit at an African stock exchange, Barracuda, Darktrace's three ARTEX intrusions, Google GTIG's exploit_agent and Elastic's CyberStrikeAI AWS intrusion. Reported but not detailed: Bell Canada and the TrustedSec 14-minute swarm (unverified). AI-found bugs: Apache mod_http2 CVE-2026-119618 is reportedly exploited; NGINX2Root has public PoCs; Java4Shell shows probes only (Cisco and Palo Alto advisories out); phpAfterShell and Drupal CVE-2026-132165 are patched. AI products: MONAI Label (new, exploited), LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer, malicious MCP packages, flyto-core CVE-2026-77312 (exploit claim unverified) and Flowise's unfixable MCP token leak. AI impact: React2STEAL and ArgonHunt AI-key theft, Fireworks AI's second breach, Barracuda's AI-vendor key, Fugaku and the DNI-confirmed NSA patch outage; NVIDIA's Gentlemen listing is still unverified.",
+    "overview": "Nov 21, 09:35 UTC. New since 05:35 UTC: Drupal now confirms exploitation of the AI-found installer RCE CVE-2026-132165 (since at least Nov 19, 19:00 UTC), making it the second AI-found web-server bug reported exploited this week after Apache mod_http2 CVE-2026-119618. Bitcoin Core patched CVE-2026-117348, a medium node-stall bug found by Spiral's AI tool Project Loupe. Triple Whale, an AI commerce-analytics app, confirmed a breach (Shopify token theft claimed, unverified). No new AI-run attack confirmed. Earlier this week: Amazon showed a China-nexus operator's Cairn agents finding MONAI Label CVE-2026-133968 on their own and getting root on a university server (fix merged, no release yet), and Bell Canada blamed an 'agentic threat actor' for its Nov 17 breach. Confirmed AI-assisted attacks in the last 7 days also include the European Commission (reportedly ARTEX), Symantec's AI-written toolkit at an African stock exchange, Barracuda, Darktrace's three ARTEX intrusions, Google GTIG's exploit_agent and Elastic's CyberStrikeAI AWS intrusion; the TrustedSec 14-minute swarm is unverified. AI-found bugs: Drupal (exploited), Apache mod_http2 (reportedly exploited), NGINX2Root (public PoCs), Java4Shell (probing only), phpAfterShell and Bitcoin Core (patched). AI products: MONAI Label, LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer, malicious MCP packages, flyto-core CVE-2026-77312 (exploit claim unverified) and Flowise's unfixable MCP token leak. AI impact: React2STEAL and ArgonHunt AI-key theft, Triple Whale, Fireworks AI's second breach, Barracuda's AI-vendor key and Fugaku.",
     "counts": {
       "ai_cause": 38,
       "ai_product_exploited": 20,
-      "ai_impact": 11
+      "ai_impact": 12
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Drupal core installer RCE CVE-2026-132165 (SA-CORE-2026-017), found by Anthropic's OSS Scanner, now exploited on live sites",
+            "date": "2026-11-21T08:00:00Z",
+            "summary": "A reachable install.php can let an attacker reinstall the site, take it over or run code. Drupal fixed it Nov 18 (10.6.22, 11.3.22, 11.4.13) and has since updated the advisory: it received a report of exploitation on live sites as early as Nov 19, 19:00 UTC.",
+            "status": "exploited",
+            "cves": [
+              "CVE-2026-132165"
+            ],
+            "url": "https://www.drupal.org/sa-core-2026-017",
+            "source": "Drupal.org"
+          },
+          {
+            "title": "Bitcoin Core CVE-2026-117348: node-stall bug found by Spiral's AI tool Project Loupe; fixed in 30.5, 31.3 and 32.1",
+            "date": "2026-11-20T20:00:00Z",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-117348"
+            ],
+            "summary": "A peer could repeat one orphan transaction id up to 50,000 times in an inv message and stall a node for over 12 seconds. Medium severity; 29.x is end of life and gets no fix.",
+            "url": "https://bitcoincore.org/en/2026/11/20/disclose-orphan-inv-stall/",
+            "source": "Bitcoin Core / CoinDesk"
+          },
           {
             "title": "Bell Canada: an 'agentic threat actor' broke in on Nov 17 and stole enterprise customer data from a pre-production Maximo circuit-ordering system",
             "date": "2026-11-20T18:51:00Z",
@@ -135,17 +157,6 @@
             "cves": [],
             "url": "https://www.darktrace.com/blog/agentic-attacks-in-the-wild-inside-three-artex-investigations",
             "source": "Darktrace / Axios"
-          },
-          {
-            "title": "Drupal core installer RCE CVE-2026-132165 (SA-CORE-2026-017) discovered by Anthropic's OSS Scanner; fixed Nov 18",
-            "date": "2026-11-18T18:00:00Z",
-            "summary": "Under some conditions a reachable install.php lets an attacker reinstall the site, take it over or run code. Drupal warns exploits may surface quickly; none reported yet.",
-            "status": "patched",
-            "cves": [
-              "CVE-2026-132165"
-            ],
-            "url": "https://thehackernews.com/2026/11/drupal-patches-critical-installer-flaw.html",
-            "source": "Drupal / The Hacker News"
           },
           {
             "title": "Java4Shell (OpenJDK CVE-2026-114938) found with AI: Calif researcher used OpenAI's GPT-6 Cyber via Codex; Oracle fixed it Nov 17 and CISA urged immediate patching",
@@ -384,19 +395,6 @@
             ],
             "url": "https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html",
             "source": "The Hacker News / CISA KEV"
-          },
-          {
-            "title": "Still exploited (older, carried for context): Google Brotli decoder RCE CVE-2026-111497, found by OpenAI during AI red-teaming, on CISA KEV since Oct 27; PHP2Shell CVE-2026-109618/109619, found by Calif with AI, on KEV since Oct 26",
-            "date": "2026-10-27T00:00:00Z",
-            "summary": "Both remain on CISA's exploited list (federal deadlines have passed). Brotli 1.0.3-1.2.0 is bundled in many runtimes (Node.js, Python brotlicffi, Bun); update the library and any app that vendors it. PHP2Shell is fixed in the Oct 21 PHP releases.",
-            "status": "exploited",
-            "cves": [
-              "CVE-2026-111497",
-              "CVE-2026-109618",
-              "CVE-2026-109619"
-            ],
-            "url": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog?search_api_fulltext=CVE-2026-111497",
-            "source": "CISA KEV / NVD"
           }
         ]
       },
@@ -616,6 +614,15 @@
         "label": "AI impact / AI keys & infrastructure",
         "items": [
           {
+            "title": "Triple Whale (AI commerce analytics app for Shopify) confirms internal systems breach; Shopify token theft claimed",
+            "date": "2026-11-20T12:00:00Z",
+            "status": "reported",
+            "cves": [],
+            "summary": "Triple Whale says an attacker got into internal systems Oct 31, contained Nov 1, and notified affected parties (disclosed Nov 20). A forum post claims 91,310 Shopify tokens across 20,510 stores plus 12.6M Tarte Cosmetics customer records; those figures are unverified.",
+            "url": "https://theweatherreport.ai/incidents/2026-11-20-triple-whale/",
+            "source": "The Weather Report / forum claim"
+          },
+          {
             "title": "SonicWall: Gen 6 firewalls get no more security patches, even for critical flaws; SonicWall tells customers to replace them and pull them off the internet edge, citing faster AI-assisted attacks on unsupported devices",
             "date": "2026-11-20T10:38:00Z",
             "summary": "Vendor warning (The Hacker News, Nov 20): 'Attackers now use automation and AI to find and exploit unsupported edge devices faster than ever.' SonicWall expects internet-facing Gen 6 units to be actively attacked. No specific AI-run campaign named.",
@@ -723,7 +730,7 @@
         ]
       }
     ],
-    "trend_note": "The shift this week is autonomy. Amazon's Cairn case shows agents finding an unknown bug and exploiting it with only a goal prompt, and Bell Canada is the first big telecom to blame an 'agentic' attacker publicly. Agents also fail a lot (16 hours on Redis, 30,000 password tries), but they keep going without getting tired, so noisy, persistent probing is the signal to catch. Practical steps: keep AI/ML research tools (MONAI, Jupyter, Ray, model servers) off the internet and turn on their auth; patch internet-facing web stacks within days but stage rollouts with tested rollback (NSA outage); require phishing-resistant MFA and test 2FA logic; auto-block bursts of probing or login attempts instead of relying on manual triage; rotate long-lived and vendor-held keys, including AI provider keys; and pin every MCP server and agent package."
+    "trend_note": "AI-found bugs are now being exploited within days of the fix: Drupal's installer flaw was hit about a day after the Nov 18 patch, and mod_http2 within a week. Treat any patch credited to an AI scanner as likely to be weaponized fast. The shift this week is autonomy. Amazon's Cairn case shows agents finding an unknown bug and exploiting it with only a goal prompt, and Bell Canada is the first big telecom to blame an 'agentic' attacker publicly. Agents also fail a lot (16 hours on Redis, 30,000 password tries), but they keep going without getting tired, so noisy, persistent probing is the signal to catch. Practical steps: keep AI/ML research tools (MONAI, Jupyter, Ray, model servers) off the internet and turn on their auth; patch internet-facing web stacks within days but stage rollouts with tested rollback (NSA outage); require phishing-resistant MFA and test 2FA logic; auto-block bursts of probing or login attempts instead of relying on manual triage; rotate long-lived and vendor-held keys, including AI provider keys; and pin every MCP server and agent package."
   },
   "focus": [
     {
@@ -775,6 +782,22 @@
       "ai_note": "AI-found flaw (Anthropic OSS scanner, independently Google) now reportedly exploited in the wild."
     },
     {
+      "title": "Drupal installer RCE CVE-2026-132165, found by Anthropic's AI scanner, is now exploited on live sites (Drupal, updated SA-CORE-2026-017)",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-132165"
+      ],
+      "vendor": "Drupal core before 10.6.22, 11.0-11.3.21 and 11.4.0-11.4.12",
+      "why": "Under some conditions an attacker can use a reachable install.php to reinstall Drupal, take over the site or run code. Drupal fixed it Nov 18 and now says it received a report of exploitation on live sites as early as Nov 19, 19:00 UTC. New since the last summary: it moved from 'patched, no exploitation' to exploited.",
+      "action": "Upgrade to Drupal 10.6.22, 11.3.22 or 11.4.13 now. Block or delete core/install.php in production, and make settings.php read-only to the web server. Check for unexpected reinstalls, new admin accounts or changed settings.php since Nov 19.",
+      "url": "https://www.drupal.org/sa-core-2026-017",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "AI-found flaw (Anthropic OSS Scanner) now exploited in the wild."
+    },
+    {
       "title": "Microsoft Azure API Management (APIM) flaw actively exploited to steal access tokens, secrets and named values; Equinor and Skagerak Energi hit, other firms in Norway and abroad",
       "severity": "critical",
       "exploited": true,
@@ -785,6 +808,20 @@
       "url": "https://nsm.no/aktuelt/nsm-deler-tiltak-mot-sarbarhet-i-azure-api-management",
       "ai_angle": [],
       "ai_note": ""
+    },
+    {
+      "title": "SaaS breaches that need key rotation: MoEngage cloud breach via leaked third-party credentials (ZebPay data taken) and Triple Whale (Shopify app) breach with claimed Shopify token theft",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "MoEngage (customer-engagement platform); Triple Whale (Shopify analytics app)",
+      "why": "MoEngage says an attacker used compromised credentials from a third-party provider to reach parts of its cloud, disrupting customer access for nearly a week (some restored Nov 19). It says no customer data was accessed, but ZebPay told its users their contact, device and recent activity data was taken through MoEngage. Triple Whale says an attacker was in its internal systems Oct 31-Nov 1 (disclosed Nov 20); a forum seller claims 91,310 Shopify tokens across 20,510 stores and 12.6M Tarte Cosmetics customer records (unverified).",
+      "action": "MoEngage customers: rotate MoEngage API keys and restrict API access to trusted IPs as MoEngage advises. Shopify merchants that installed Triple Whale: rotate the app's access, check for a Triple Whale notice, and review store admin activity and new apps or staff accounts.",
+      "url": "https://economictimes.indiatimes.com/tech/technology/moengage-faces-cyberattack-access-disrupted-for-some-customers/articleshow/136034444.cms",
+      "ai_angle": [
+        "impact"
+      ],
+      "ai_note": "Triple Whale markets itself as an AI platform; no AI use in the attacks reported."
     },
     {
       "title": "CISA KEV Nov 20 (due Nov 23): VMware vCenter CVE-2026-123890 (zero-day since September, Armory Castle), Cisco Expressway CVE-2026-76466 (root RCE, break-ins reported), Apache Roller CVE-2026-129448 (unauthenticated RCE), SAP NetWeaver Portal CVE-2025-42884; earlier: Apache Axis, REDCap, Synology DSM, Puppet, Chrome, OpenSSH 'SSHole', Outlook",
@@ -826,26 +863,6 @@
         "cause"
       ],
       "ai_note": "Calif says researcher Quang Luong found it with OpenAI's GPT-6 Cyber through Codex (BankInfoSecurity, Straits Times)."
-    },
-    {
-      "title": "nginx2root: pre-auth RCE in NGINX with HTTP/2 on (CVE-2026-123007, CVE-2026-123633), found with Wiz's AI code scanner; public PoCs from Rapid7 and Censys are now out (Nov 19)",
-      "severity": "critical",
-      "exploited": false,
-      "cves": [
-        "CVE-2026-123007",
-        "CVE-2026-123633",
-        "CVE-2026-121810",
-        "CVE-2026-123634",
-        "CVE-2026-113425"
-      ],
-      "vendor": "NGINX Open Source and NGINX Plus (F5); HTTP/2 bugs 1.9.5-1.31.8, HTTP/3 bug 1.25.0-1.31.8",
-      "why": "The two HTTP/2 memory-corruption bugs (CVSS 4.0 9.2) give code execution without login; CVE-2026-123007 (present since 2015) worked on NGINX serving plain static files. Wiz found both with Wiz Atlas, its AI code-scanning harness, and confirmed impact with Gemini and ChatGPT models; Xint, Metnir, Rapid7 and Ikotas found them too. Five flaws were fixed in total, adding HTTP/3 use-after-free CVE-2026-121810, resolver use-after-free CVE-2026-123634 (proxy/mirror setups) and mail-proxy CVE-2026-113425. New since the previous summary: Rapid7 published a PoC for CVE-2026-123007 that defeats ASLR by leaking addresses but needs about 128 GB of HTTP/2 traffic (2 minutes to 1 hour). Censys reproduced the bug without that traffic volume, posted a PoC on GitHub and counts about 9 million NGINX services on affected versions with HTTP/2 on (103M more hide their version). F5 reports no exploitation and the bugs are not in CISA KEV.",
-      "action": "Upgrade NGINX to 1.30.7 (stable) or 1.31.9 (mainline), or Plus 37.0.8.1 / 37.3.0.1, then fully restart (a reload keeps old workers). Rebuild containers and check ingress controllers and appliances that bundle NGINX. If you cannot patch yet: turn off HTTP/2 (http2 off), and on HTTP/3 servers remove quic listeners or block UDP 443.",
-      "url": "https://www.infosecurity-magazine.com/news/five-critical-vulnerabilities/",
-      "ai_angle": [
-        "cause"
-      ],
-      "ai_note": "AI-found: Wiz Atlas (AI code scanning) discovered both; LLMs used to validate exploitability."
     },
     {
       "title": "React2STEAL (new, Nov 18): hijacked GitHub accounts' Actions runners mass-exploit unpatched React/Next.js servers and steal .env files, AWS credentials and AI keys; plus Fireworks AI's second breach and ArgonHunt's 44,096 stolen AI keys",
@@ -913,10 +930,22 @@
       "blurb": "Nov 17 intrusion into a pre-production Maximo circuit-provisioning system. Business contacts, ticket titles and some network IPs were taken. Attribution is unknown and IOCs are shared only with customers."
     },
     {
+      "title": "Drupal core - Highly critical - Remote code execution - SA-CORE-2026-017 (updated: exploited on live sites)",
+      "source": "Drupal.org",
+      "url": "https://www.drupal.org/sa-core-2026-017",
+      "blurb": "The AI-found installer flaw CVE-2026-132165 has been exploited since at least Nov 19, 19:00 UTC; upgrade and block install.php."
+    },
+    {
       "title": "NSM shares measures against vulnerability in Azure API Management",
       "source": "NSM (Norway)",
       "url": "https://nsm.no/aktuelt/nsm-deler-tiltak-mot-sarbarhet-i-azure-api-management",
       "blurb": "Exploited APIM flaw hit Equinor, Skagerak Energi and others; patched, but rotate all APIM secrets and check RuntimeVersion."
+    },
+    {
+      "title": "MoEngage faces cyberattack; access disrupted for some customers",
+      "source": "The Economic Times",
+      "url": "https://economictimes.indiatimes.com/tech/technology/moengage-faces-cyberattack-access-disrupted-for-some-customers/articleshow/136034444.cms",
+      "blurb": "Leaked third-party credentials let attackers into parts of MoEngage's cloud; customers told to rotate API keys. ZebPay says its users' data was taken."
     },
     {
       "title": "FBI investigating potential breach of its crime database",
@@ -931,25 +960,17 @@
       "blurb": "vCenter CVE-2026-123890, Cisco Expressway CVE-2026-76466, Apache Roller CVE-2026-129448 and SAP NetWeaver CVE-2025-42884. Federal due date Nov 23."
     },
     {
-      "title": "Never seen anything that fast: Ex-NSA hacker says swarm of AI agents breached company systems in 14 minutes",
-      "source": "India Today (CNN interview)",
-      "url": "https://www.indiatoday.in/technology/news/story/never-seen-anything-that-fast-ex-nsa-hacker-says-swarm-of-ai-agents-breached-company-systems-in-14-minutes-3042969-2026-11-20",
-      "blurb": "David Kennedy describes 30+ AI agents using stolen credentials and a 2FA flaw to steal data and deploy ransomware in 14 minutes; victim unnamed, details unverified."
-    },
-    {
       "title": "VMware patches vCenter zero-day exploited in attacks since September",
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/",
       "blurb": "ARMORY CASTLE used the vCenter auth bypass two months before Broadcom's Nov 19 fix to take over SSO, forge Golden SAML tokens and get root on ESXi."
-    },
-    {
-      "title": "F5 Patches Critical NGINX2Root Flaws as PoC Exploits Go Public",
-      "source": "SecurityWeek",
-      "url": "https://www.securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public/",
-      "blurb": "Rapid7 and Censys published PoCs for CVE-2026-123007; Censys counts about 9M exposed NGINX servers with HTTP/2 on. Upgrade to 1.30.7/1.31.9."
     }
   ],
   "watch": [
+    "Bitcoin Core CVE-2026-117348 (Nov 20; found by Spiral's AI tool Project Loupe): a peer can stall a node by repeating one orphan txid; upgrade to 30.5, 31.3 or 32.1 (29.x is end of life).",
+    "Staples Canada (CBC, Nov 20): a third party reached customer data on the staplesprint.ca print site between Nov 1 and Nov 5; Staples says no financial data and no other sites affected. Expect Staples-themed phishing.",
+    "phpAfterShell PHP CVE-2026-126714 (found with depthfirst AI): fixed in PHP 8.5.13/8.4.28/8.3.37/8.2.36; no exploitation reported. (Drupal CVE-2026-132165 moved to focus: now exploited.)",
+    "NGINX2Root (moved from focus; PoCs public, no confirmed exploitation): pre-auth RCE in NGINX with HTTP/2 (CVE-2026-123007, CVE-2026-123633), found with Wiz's AI scanner. Install F5's fixed NGINX/NGINX Plus builds or disable HTTP/2 until patched.",
     "FBI (NBC/CNN, Nov 20): investigating an apparent breach of the National Crime Information Center (NCIC), the system that shares crime records between federal, state and local police. No details yet on the attacker, entry point or data taken; watch for FBI confirmation and CJIS guidance to agencies.",
     "USDA (NBC, Nov 20): employees were told Nov 19 that a system used to pay farmers was breached; officials say no other systems were hit as of Nov 20. Expect payment-themed phishing aimed at farmers.",
     "Qubole / JPMorgan Chase, Visa, Mastercard (moved from focus): n0n used Qubole's AWS credentials (Oct 14-26) to assume IAM roles customers granted Qubole; banks confirm vendor-held marketing data (names, emails; no card data) taken. Remove dormant vendor AWS trust roles, check CloudTrail AssumeRole since Oct 1, expect bank-themed phishing.",
@@ -973,7 +994,6 @@
     "SBC Medical Group (SEC filing, Nov 20): breach of a clinic platform in Japan now affects over 2 million people (1.62M basic records incl. patient card numbers, 255,416 reservation requests, 4,513 treatment descriptions, 14 credit cards); a separate Tribeau reservation-service admin breach hit about 19,000. MOSH (928,617 email addresses) also disclosed Nov 19.",
     "New Zealand Defence Force (RNZ, Nov 20): its website provider reported unauthorised access; the Force4Families Defence Discounts database (names, emails) was accessed and websites were taken offline. Expect phishing.",
     "Frappe (per X, Netlas, Nov 20): an email-endpoint authorization flaw (no CVE yet) lets any authenticated user, even a Website User, send email through the site; reported as actively exploited. Update Frappe/ERPNext and disable self sign-up if not needed.",
-    "AI-found bugs patched Nov 18-19 (moved from focus): phpAfterShell PHP CVE-2026-126714 (found with depthfirst AI; fixed PHP 8.5.13/8.4.28/8.3.37/8.2.36) and Drupal installer RCE CVE-2026-132165 (found by Anthropic's OSS Scanner). Update if not done.",
     "Kurly (Korea, Nov 20): an attacker stole authentication credentials on Nov 17 and reached internal business systems; 10,699 curator-program members' names, IDs, phone numbers, emails and social handles leaked, some with bank-account and resident or business registration numbers (MoneyToday). https://www.mt.co.kr/en/living/2026/11/20/2026112017320311063",
     "FastUnlock (The Hacker News, Nov 20): unpatched Windows technique lets someone with physical access start programs on a locked PC without signing in (limited account, not admin). No patch yet; keep laptops encrypted and in sight, and watch for Microsoft guidance. https://thehackernews.com/2026/11/new-unpatched-windows-0-day-fastunlock.html",
     "ROMULUS ClickFix delivery service (Blackpoint, Nov 20): fake-fix prompts plus signed-binary sideloading drop a new RAT similar to CNCMachineRMS and Legion Loader. Block users from pasting commands into Run/PowerShell where possible.",
