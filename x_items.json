@@ -1,11 +1,11 @@
 [
  {
-  "url": "https://x.com/agentprime_io/status/2123847099565424711",
-  "author": "agentprime_io",
-  "text": "🔴 Cisco TelePresence Video Communication Server (VCS)…: Cisco Expressway Series Remote Code Execution Vulnerability (CVE-2026-76466)\nActively exploited.\nNo fix listed yet\nhttps://t.co/cLtZO4sdZf",
-  "created_at": "2026-11-20T18:33:02.000Z",
+  "url": "https://x.com/0xManan/status/2124047311575871607",
+  "author": "0xManan",
+  "text": "Pre-auth XML-RPC deserialization → RCE on default Apache Roller.\n\nCVE-2026-129448 (CVSS 9.8). Roller 4.0.0–6.1.5.\n\n• POST /roller-services/xmlrpc\n• &lt;ex:serializable&gt; base64 Java object deserialized before auth/feature check\n• CommonsBeanutils1 gadget works\n• Admin UI",
+  "created_at": "2026-11-21T07:48:36.000Z",
   "cves": [
-   "CVE-2026-76466"
+   "CVE-2026-129448"
   ]
  },
  {
@@ -18,85 +18,21 @@
   ]
  },
  {
-  "url": "https://x.com/citadelo/status/2123814091546317061",
-  "author": "citadelo",
-  "text": "A flaw in Apache’s mod_http2 module can corrupt server memory over HTTP/2 and potentially enable remote code execution. It affects 2.4.55–2.4.70, and Singapore’s cybersecurity agency warned that it was being actively exploited. Fixed in 2.4.71.\n\nAlso in 𝐓𝐄𝐂𝐇𝐁𝐎𝐀𝐑𝐃 #𝟕:\n→ https://t.co/t9nAaH1wO6",
-  "created_at": "2026-11-20T16:21:52.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/UpwindMDR/status/2124145309819314394",
-  "author": "UpwindMDR",
-  "text": "🚨Critical - F5 BIG-IP iRule TMM Stack Buffer Overflow to RCE (CVE-2026-116953, CVE-2026-120285, CVE-2026-120722, CVE-2026-121805)\n\nFour stack-based buffer overflows in the Traffic Management Microkernel of F5 BIG-IP. An unauthenticated remote attacker can send crafted requests https://t.co/7PMpelVT1n",
-  "created_at": "2026-11-21T14:18:01.000Z",
+  "url": "https://x.com/OstorlabSec/status/2124148510471635045",
+  "author": "OstorlabSec",
+  "text": "An unauthenticated attacker can open an administrator session on VMware vCenter; Mandiant reports exploitation as a zero-day in September 2026.\nCVE-2026-123890 · CVSS v3.1 9.8 Critical\nExploited in the wild · not in KEV\nFixed: 9.1.1.0200, 9.0.2.0200, 8.0 U3m\n#VMware #CVE https://t.co/tLTCy4uwqT",
+  "created_at": "2026-11-21T14:30:44.000Z",
   "cves": [
-   "CVE-2026-116953",
-   "CVE-2026-120285",
-   "CVE-2026-120722",
-   "CVE-2026-121805"
+   "CVE-2026-123890"
   ]
  },
  {
-  "url": "https://x.com/ipdbcom/status/2123994836583813178",
-  "author": "ipdbcom",
-  "text": "🚨 EXPLOITED IN THE WILD\n🔴 CVE-2026-76466 · CVSS 9.8 CRITICAL · CISA KEV\nCisco Expressway Series Remote Code Execution\nHardcoded credentials — a fixed password ships with the product\n🛠 Patch now · US federal deadline 23 Nov\n#KEV #Cisco #ThreatIntel\nhttps://t.co/cvXSBjaCj2",
-  "created_at": "2026-11-21T04:20:05.000Z",
+  "url": "https://x.com/BadgerSignalHQ/status/2124043553102065793",
+  "author": "BadgerSignalHQ",
+  "text": "🚨🔥 Patch vCenter Now: CVE-2026-123890 Auth Bypass Exploited in the Wild, CISA Deadline 23 Nov\n\n📌 What happened: CVE-2026-123890 is a critical authentication bypass in VMware vCenter (CVSS 3.1: 9.8). An unauthenticated remote attacker can trigger disclosure of the Secure Remote https://t.co/tU2phH0F80",
+  "created_at": "2026-11-21T07:33:40.000Z",
   "cves": [
-   "CVE-2026-76466"
-  ]
- },
- {
-  "url": "https://x.com/UpwindMDR/status/2124135298002989533",
-  "author": "UpwindMDR",
-  "text": "🚨Critical - MONAI Label Directory Traversal to RCE via /datastore/image (CVE-2026-133968)\n\nMONAI Label (monailabel) &lt;= 0.8.5 is vulnerable to path traversal via the image parameter on PUT /datastore/image, allowing write/read outside the datastore. Attackers can drop/overwrite https://t.co/z5WOFJSby7",
-  "created_at": "2026-11-21T13:38:14.000Z",
-  "cves": [
-   "CVE-2026-133968"
-  ]
- },
- {
-  "url": "https://x.com/0xManan/status/2124047311575871607",
-  "author": "0xManan",
-  "text": "Pre-auth XML-RPC deserialization → RCE on default Apache Roller.\n\nCVE-2026-129448 (CVSS 9.8). Roller 4.0.0–6.1.5.\n\n• POST /roller-services/xmlrpc\n• &lt;ex:serializable&gt; base64 Java object deserialized before auth/feature check\n• CommonsBeanutils1 gadget works\n• Admin UI",
-  "created_at": "2026-11-21T07:48:36.000Z",
-  "cves": [
-   "CVE-2026-129448"
-  ]
- },
- {
-  "url": "https://x.com/Sujeet/status/2123944502092296230",
-  "author": "Sujeet",
-  "text": "JetBrains fixed a critical remote code execution flaw in TeamCity, CVE-2026-132891, scored 9.8 — RCE through external pull requests. Fixed in 2025.11.8, 2026.1.4, and 2026.2. The same release fixed sibling RCEs, including one through Mercurial repository contents. No exploitation",
-  "created_at": "2026-11-21T01:00:04.000Z",
-  "cves": [
-   "CVE-2026-132891"
-  ]
- },
- {
-  "url": "https://x.com/EnclaveRadar/status/2123828917844771054",
-  "author": "EnclaveRadar",
-  "text": "💥 Public exploit released: CVE-2026-129474 (CVSS 9.2)\nPHP · Remote code execution\nRemote, no login needed.\n\nUse-after-free in magic method backtraces can lead to remote code execution.\n\nhttps://t.co/zQihUyLos6",
-  "created_at": "2026-11-20T17:20:47.000Z",
-  "cves": [
-   "CVE-2026-129474"
-  ]
- },
- {
-  "url": "https://x.com/xelA31B/status/2123855929196359945",
-  "author": "xelA31B",
-  "text": "An AI agent found a hole in Java. Your server might have it.\n\nJava4Shell (CVE-2026-114938), rated 9.2 critical:\n\n1. Bug sits in OpenJDK's Base64 decoder, Java 17+\n2. Remote code execution on AVX-512 CPUs, no login needed\n3. Cloudflare already caught exploit attempts\n\nRun anything https://t.co/pRLfvRysWx",
-  "created_at": "2026-11-20T19:08:07.000Z",
-  "cves": [
-   "CVE-2026-114938"
-  ]
- },
- {
-  "url": "https://x.com/Sujeet/status/2123944397867983192",
-  "author": "Sujeet",
-  "text": "Spring patched 50 flaws in its November update, including a critical one in Spring Security, CVE-2026-59273, scored 9.8 — when an application binds raw user input to the ELRequestMatcher, the SpEL expression runs with full class access and no login needed. Fixed in Spring",
-  "created_at": "2026-11-21T00:59:40.000Z",
-  "cves": [
-   "CVE-2026-59273"
+   "CVE-2026-123890"
   ]
  },
  {
@@ -109,51 +45,6 @@
   ]
  },
  {
-  "url": "https://x.com/spinidg/status/2124159593236594929",
-  "author": "spinidg",
-  "text": "National CERT warns of critical Java4Shell vulnerability (CVE-2026-114938), urging organisations to patch affected OpenJDK runtimes against remote code execution.\n\nRead More on CSO Pakistan",
-  "created_at": "2026-11-21T15:14:46.000Z",
-  "cves": [
-   "CVE-2026-114938"
-  ]
- },
- {
-  "url": "https://x.com/vulneraibility/status/2124144823070314591",
-  "author": "vulneraibility",
-  "text": "ACT THIS WEEK: Java4Shell (CVE-2026-114938)\n\nOpenJDK's Base64 decoder has a memory-corruption flaw that allows an unauthenticated attacker to achieve remote code execution.\n\nPoC repos on GitHub. CVSS 8.1. Covered by 10 sources.\n\nhttps://t.co/9LpMCoxOcC\n#CVE #Java",
-  "created_at": "2026-11-21T14:16:05.000Z",
-  "cves": [
-   "CVE-2026-114938"
-  ]
- },
- {
-  "url": "https://x.com/ndayland/status/2123842373377810704",
-  "author": "ndayland",
-  "text": "CVE-2026-76466 +KEV T+30d\nCisco / TelePresence Video Communication Server (VCS)…\nCisco Expressway Series Remote Code Execution Vulnerability\nAdded to the CISA KEV catalog (known exploited).\nhttps://t.co/DSrt4x2h76",
-  "created_at": "2026-11-20T18:14:15.000Z",
-  "cves": [
-   "CVE-2026-76466"
-  ]
- },
- {
-  "url": "https://x.com/exploitgrid/status/2124113023560229176",
-  "author": "exploitgrid",
-  "text": "Windows admins, heads up.\n\nA public PoC has surfaced for CVE-2026-70229, an Active Directory flaw that could allow remote code execution.\n\nIf you're managing Windows domains, this deserves a patch check today.\n\n🔍 https://t.co/K6eaHmNIK0\n\n#CVE #Windows",
-  "created_at": "2026-11-21T12:09:43.000Z",
-  "cves": [
-   "CVE-2026-70229"
-  ]
- },
- {
-  "url": "https://x.com/EnclaveRadar/status/2124089378104344619",
-  "author": "EnclaveRadar",
-  "text": "💥 Public exploit released: CVE-2026-120539 (CVSS 9.8, Enclave score 5/10)\nseventhqueen Restrictions for BuddyPress · Remote code execution\nRemote, no login needed.\n\nThe Restrictions for BuddyPress plugin for WordPress is vulnerable to Remote Code…\n\nhttps://t.co/UtmElcPsLK",
-  "created_at": "2026-11-21T10:35:46.000Z",
-  "cves": [
-   "CVE-2026-120539"
-  ]
- },
- {
   "url": "https://x.com/V0iD_0daY/status/2124158065775907137",
   "author": "V0iD_0daY",
   "text": "Actively exploited: Apache Roller CVE-2026-129448 (CVSS 9.8) hit CISA KEV Friday. The XML-RPC endpoint deserializes data before auth, so it's unauth RCE on 4.0.0–6.1.4. Upgrade to 6.1.6+; turning XML-RPC off in the admin UI isn't enough. #PatchNow\nhttps://t.co/kIS7nUzpRI",
@@ -163,49 +54,106 @@
   ]
  },
  {
-  "url": "https://x.com/itsMikeKipruto/status/2123821073145725125",
-  "author": "itsMikeKipruto",
-  "text": "OpenSSL vulnerability CVE-2026-121481 has received a critical CVSS score of 9.8, but exploiting it is not straightforward.\n\nThe flaw affects the EVP_EncodeBlock() Base64 encoding function. Inputs exceeding approximately 1.61 GB can cause an integer overflow and out-of-bounds",
-  "created_at": "2026-11-20T16:49:37.000Z",
-  "cves": [
-   "CVE-2026-121481"
-  ]
- },
- {
-  "url": "https://x.com/ndayland/status/2123825500992979371",
-  "author": "ndayland",
-  "text": "CVE-2026-126714 +POC T+0d\nPHP Group / PHP\nPartially overwritten session files can lead to remote code execution\nPublic PoC available: GitHub repository. https://t.co/hMPNPZz7WZ",
-  "created_at": "2026-11-20T17:07:12.000Z",
-  "cves": [
-   "CVE-2026-126714"
-  ]
- },
- {
-  "url": "https://x.com/EnclaveRadar/status/2124089380713201848",
-  "author": "EnclaveRadar",
-  "text": "💥 Public exploit released: CVE-2026-133968 (CVSS 9.8, Enclave score 9/10)\nProject-MONIA MONAI Label · Path traversal\nRemote, no login needed.\n\nmonailabel (aka MONAI Label) through 0.8.5 allows directory traversal, with resultant remote code execution…\n\nhttps://t.co/APegvaTlt3",
-  "created_at": "2026-11-21T10:35:46.000Z",
+  "url": "https://x.com/zerohuntai/status/2124114139152793881",
+  "author": "zerohuntai",
+  "text": "Attackers' AI agents found a zero-day in medical-imaging software and had root in ~11 min — no human driving.\n\nMONAI Label &lt;=0.8.5 (CVE-2026-133968): unauthenticated file-write RCE, exploited in the wild, no patch yet. Take it off untrusted networks.\n\nhttps://t.co/41MQWi6LE2",
+  "created_at": "2026-11-21T12:14:09.000Z",
   "cves": [
    "CVE-2026-133968"
   ]
  },
  {
-  "url": "https://x.com/ndayland/status/2123842265730920827",
-  "author": "ndayland",
-  "text": "CVE-2026-70229 +POC T+38d\nMicrosoft / Windows 10 Version 1607, Windows 10 Version 1809…\nWindows Active Directory Domain Services Remote Code Execution Vulnerability\nPublic PoC available: GitHub repository.\nhttps://t.co/hjERm4250p",
-  "created_at": "2026-11-20T18:13:49.000Z",
+  "url": "https://x.com/ICHI_Global/status/2124164661876502915",
+  "author": "ICHI_Global",
+  "text": "🚨 CVE-2026-88771 | Citrix NetScaler ZERO-DAYRoot RCE via unauthenticated failed login — actively exploited, critical infra https://t.co/NMprXpRJjT patch yet. Restrict access &amp; watch for indicators now.https://t.co/OgNvP96vFT#Citrix #ZeroDay #CriticalVuln",
+  "created_at": "2026-11-21T15:34:55.000Z",
   "cves": [
-   "CVE-2026-70229"
+   "CVE-2026-88771"
   ]
  },
  {
-  "url": "https://x.com/dailycve/status/2123916814858223884",
-  "author": "dailycve",
-  "text": "🔴 PHP, Remote Code Execution, #CVE-2026-109618 / #CVE-2026-109619 (Critical) - Just Updated -DC-Nov2026-4816\n\nhttps://t.co/I4CR83qDmS",
-  "created_at": "2026-11-20T23:10:03.000Z",
+  "url": "https://x.com/threatpodium/status/2123904693063594495",
+  "author": "threatpodium",
+  "text": "🚨 CVE-2026-76466 — CRITICAL — actively exploited per CISA KEV\nCisco Expressway Series\n\nCVSS 9.8 | EPSS 0%\n\n#Cisco #CVE\nhttps://t.co/lrLfwfB5OG",
+  "created_at": "2026-11-20T22:21:53.000Z",
   "cves": [
-   "CVE-2026-109618",
-   "CVE-2026-109619"
+   "CVE-2026-76466"
+  ]
+ },
+ {
+  "url": "https://x.com/DailyDarkWeb/status/2123852649451663860",
+  "author": "DailyDarkWeb",
+  "text": "🚨 CISA ADDS FOUR ACTIVELY EXPLOITED FLAWS TO KEV: CISCO EXPRESSWAY, VMWARE vCENTER, SAP NETWEAVER, APACHE ROLLER\n\nCISA added four vulnerabilities to its Known Exploited Vulnerabilities catalog on Nov 20, 2026, based on evidence of active exploitation.\n\nWhat was added:\n• https://t.co/ABtwFtiqcw",
+  "created_at": "2026-11-20T18:55:05.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/SecurityAr58409/status/2123839645049913347",
+  "author": "SecurityAr58409",
+  "text": "🔒 #CyberSecurity\n\nCVE-2026-76466: Cisco Expressway Hard-Coded Credentials Actively Exploited — Ro…\n\n\"CISA's Known Exploited Vulnerabilities (KEV) catalog just gained a new entry that…\"\n\n🔗 https://t.co/q6hObzuYQV\n\n#CyberSecurity #ThreatIntel #cve202676466 #critical #cisakev",
+  "created_at": "2026-11-20T18:03:25.000Z",
+  "cves": [
+   "CVE-2026-76466"
+  ]
+ },
+ {
+  "url": "https://x.com/CliffS58597/status/2123827596270121223",
+  "author": "CliffS58597",
+  "text": "CYBERSECURITY  DIGEST\n\nThe past week (roughly 13–20 November 2026) was dominated by supply-chain/third-party breaches, actively exploited critical vulnerabilities, and clear evidence that AI is lowering the skill and time barriers for intrusions.\n\nWhatGotPwned tracked ~70",
+  "created_at": "2026-11-20T17:15:32.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/checkleaked/status/2124140988448825777",
+  "author": "checkleaked",
+  "text": "🔒 Cybersecurity Daily — 2026-11-21\n\nYour AI assistant's private chats could be yours for the taking via a malicious webpage.\n\nToday: Meta Muse chats exposed, GPGME key flaw, AI agents exploit medical software, Signal limits AI…\n\n📖 Full briefing: https://t.co/yVI4wUATHM https://t.co/eP689KHU0j",
+  "created_at": "2026-11-21T14:00:50.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/citadelo/status/2123814091546317061",
+  "author": "citadelo",
+  "text": "A flaw in Apache’s mod_http2 module can corrupt server memory over HTTP/2 and potentially enable remote code execution. It affects 2.4.55–2.4.70, and Singapore’s cybersecurity agency warned that it was being actively exploited. Fixed in 2.4.71.\n\nAlso in 𝐓𝐄𝐂𝐇𝐁𝐎𝐀𝐑𝐃 #𝟕:\n→ https://t.co/t9nAaH1wO6",
+  "created_at": "2026-11-20T16:21:52.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/TechReview_SI/status/2124071813290545427",
+  "author": "TechReview_SI",
+  "text": "VMware vCenter Zero-Day CVE-2026-123890 Exploited in the Wild by China-Linked APT https://t.co/uayEie4XM5",
+  "created_at": "2026-11-21T09:25:58.000Z",
+  "cves": [
+   "CVE-2026-123890"
+  ]
+ },
+ {
+  "url": "https://x.com/getipatch/status/2123968665309577507",
+  "author": "getipatch",
+  "text": "CISA added 4 actively exploited vulnerabilities to its KEV list.\n• CVE-2026-76466: Cisco Expressway Series\n• CVE-2026-129448: Apache Roller\n• CVE-2026-123890: Broadcom VMware vCenter\n• CVE-2025-42884: SAP NetWeaver\n\nhttps://t.co/H4ijvGqJa1\n#cybersecurity #patching",
+  "created_at": "2026-11-21T02:36:05.000Z",
+  "cves": [
+   "CVE-2026-76466",
+   "CVE-2026-129448",
+   "CVE-2026-123890",
+   "CVE-2025-42884"
+  ]
+ },
+ {
+  "url": "https://x.com/notCVE/status/2123950349337694281",
+  "author": "notCVE",
+  "text": "⚠️ ACTIVELY EXPLOITED — added to CISA KEV 2026-11-20\n\nCVE-2026-129448: Apache Roller Deserialization of Untrusted Data Vulnerability\n\nCVSS 9.8 · EPSS 1.2% · 3 public exploits\n\nDetails, versions &amp; intel → https://t.co/d3gTn2uuPs https://t.co/4uftXcjT51",
+  "created_at": "2026-11-21T01:23:19.000Z",
+  "cves": [
+   "CVE-2026-129448"
+  ]
+ },
+ {
+  "url": "https://x.com/NoctisIntel/status/2123837489354022938",
+  "author": "NoctisIntel",
+  "text": "Apache Roller CVE-2026-129448 actively exploited: unauthenticated XML-RPC deserialization before auth checks leads to RCE.\n\nHunt POSTs to /roller-services/xmlrpc with serialized payloads and Java child processes.\n\n#ThreatIntel #CVE #RCE #CVE2026129448",
+  "created_at": "2026-11-20T17:54:51.000Z",
+  "cves": [
+   "CVE-2026-129448"
   ]
  },
  {
@@ -227,6 +175,22 @@
   ]
  },
  {
+  "url": "https://x.com/ndayland/status/2124101252527329591",
+  "author": "ndayland",
+  "text": "CVE-2026-77359 +POC T+2d\ndatalayer / jupyter-mcp-server\nJupyter MCP Server: Browser DNS rebinding can hijack the Jupyter backend through management routes\nPublic PoC available: GitHub repository.\nhttps://t.co/f5wQrffzd8",
+  "created_at": "2026-11-21T11:22:57.000Z",
+  "cves": [
+   "CVE-2026-77359"
+  ]
+ },
+ {
+  "url": "https://x.com/xcademialtd/status/2124113712160412113",
+  "author": "xcademialtd",
+  "text": "🚨 AWS patches a critical file access vulnerability in its Document Loader MCP Server.\n\nThe flaw highlights security risks in AI-connected tools that process documents and interact with local file systems.\n\n⚠️ Critical file access flaw identified\n📂 Document Loader MCP Server",
+  "created_at": "2026-11-21T12:12:27.000Z",
+  "cves": []
+ },
+ {
   "url": "https://x.com/Rush1Balapure/status/2124149221469360442",
   "author": "Rush1Balapure",
   "text": "Anthropic paid $100. Google paid $1,337. GitHub called it a known architectural limitation.\n\nThe bug: text in a PR or issue made their AI agents leak API keys.\n\nSo the fix is mostly on you. How to run an AI code reviewer without leaking your keys: https://t.co/7pSQT3x1WZ",
@@ -241,24 +205,37 @@
   "cves": []
  },
  {
-  "url": "https://x.com/faithdefender/status/2123966833959096360",
-  "author": "faithdefender",
-  "text": "Hackers used an autonomous AI agent platform called \"Cairn\" to discover a zero-day vulnerability in a medical imaging application and exploit it to take complete control of a server.\n\nhttps://t.co/6VKfOSce6f https://t.co/B2zS2t3DUW",
-  "created_at": "2026-11-21T02:28:49.000Z",
-  "cves": []
+  "url": "https://x.com/m7jazin/status/2124115297078534651",
+  "author": "m7jazin",
+  "text": "The AWS document loader MCP server had a path traversal published on 20 November as CVE-2026-130901. Medium at 5.3, fixed in a release that shipped 11 weeks earlier. Versions 1.0.10 through 1.0.20 could read files outside DOCUMENT_BASE_DIR, and 1.0.12 through 1.0.20 could write",
+  "created_at": "2026-11-21T12:18:45.000Z",
+  "cves": [
+   "CVE-2026-130901"
+  ]
  },
  {
-  "url": "https://x.com/AlexNguyen65/status/2124126715597205970",
-  "author": "AlexNguyen65",
-  "text": "Hackers used an autonomous AI agent platform called \"Cairn\" to discover a zero-day vulnerability in a medical imaging application and exploit it to take complete control of a server. https://t.co/j5RkN8feu3",
-  "created_at": "2026-11-21T13:04:08.000Z",
-  "cves": []
+  "url": "https://x.com/xelA31B/status/2123855929196359945",
+  "author": "xelA31B",
+  "text": "An AI agent found a hole in Java. Your server might have it.\n\nJava4Shell (CVE-2026-114938), rated 9.2 critical:\n\n1. Bug sits in OpenJDK's Base64 decoder, Java 17+\n2. Remote code execution on AVX-512 CPUs, no login needed\n3. Cloudflare already caught exploit attempts\n\nRun anything https://t.co/pRLfvRysWx",
+  "created_at": "2026-11-20T19:08:07.000Z",
+  "cves": [
+   "CVE-2026-114938"
+  ]
  },
  {
-  "url": "https://x.com/LFGfund/status/2124110503047987464",
-  "author": "LFGfund",
-  "text": "Bitcoin Core has patched an AI-discovered availability flaw.\n\nOn November 20, developers disclosed a medium-severity vulnerability and released fixes in versions 30.5 and 31.3. Version 32.1 already contained the fix.\n\nSpiral’s Project Loupe identified the issue through an https://t.co/1mVL6GvzcZ",
-  "created_at": "2026-11-21T11:59:42.000Z",
+  "url": "https://x.com/Pipflare/status/2124019986188673131",
+  "author": "Pipflare",
+  "text": "AI found the critical Java4Shell flaw in 1 hour.\n\nResearchers reported building a working CVE-2026-114938 exploit 2 hours later for under $200 in tokens. One malformed Base64 string triggers it, and details leaked pre-patch.\n\nOffense now costs less than one Pro seat. https://t.co/BPhCeuDnfH",
+  "created_at": "2026-11-21T06:00:01.000Z",
+  "cves": [
+   "CVE-2026-114938"
+  ]
+ },
+ {
+  "url": "https://x.com/TotallyLogit/status/2124166637171691639",
+  "author": "TotallyLogit",
+  "text": "A high-severity flaw in Supergateway, a popular tool that exposes a local MCP server (the plug-in standard AI agents use to call tools) over the network, lets any web page you visit connect to it and use its tools, according to a CVE published on November 18.\n\nThe issue is in the",
+  "created_at": "2026-11-21T15:42:46.000Z",
   "cves": []
  },
  {
@@ -269,50 +246,13 @@
   "cves": []
  },
  {
-  "url": "https://x.com/MacroPointBreak/status/2124024283093725574",
-  "author": "MacroPointBreak",
-  "text": "📰 REPORT: Bitcoin nodes could be stalled by repeating one ID 50,000 times — AI discovered the vulnerability.",
-  "created_at": "2026-11-21T06:17:06.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/RWABDUS/status/2124050217485967455",
-  "author": "RWABDUS",
-  "text": "Bitcoin Core patches AI-discovered node vulnerability\n\nAn artificial intelligence (AI) tool built by Block, Jack Dorsey's company, discovered a vulnerability in Bitcoin Core, according to PANews' November 21 report citing CoinDesk.\n\nThe reported trigger involves feeding a Bitcoin https://t.co/U9qJ82RkTO",
-  "created_at": "2026-11-21T08:00:09.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/LLMERDOTCOM/status/2123854531402612937",
-  "author": "LLMERDOTCOM",
-  "text": "agent infra · week of November 16\n\nbroke\n→ Google's threat intel group says a suspected Russian-speaking operator used an AI agent to diff security patches, write working exploits and run them with no human in the loop, then steal data from victims. Google calls it a first\n→",
-  "created_at": "2026-11-20T19:02:34.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/aviatrixtrc/status/2123930034746327267",
-  "author": "aviatrixtrc",
-  "text": "An autonomous AI agent discovered and exploited a zero-day in MONAI Label — writing a Python reverse shell to gain root access — in 11 minutes flat.\n\nCairn's agents mapped the API, identified CVE-2025-49595, deployed the payload, then pivoted via attacker-supplied proxy into a",
-  "created_at": "2026-11-21T00:02:35.000Z",
+  "url": "https://x.com/_morkie/status/2124163676953575853",
+  "author": "_morkie",
+  "text": "BITCOIN CORE PATCHES AI-DISCOVERED NODE-FREEZE FLAW (CVE-2026-117348): \n\nBitcoin Core released versions 30.5, 31.3, and 32.1 to fix a bug found by Block/Spiral's Project Loupe AI scanner that let a single peer stall a node for over 10 seconds by repeating a transaction ID 50,000",
+  "created_at": "2026-11-21T15:31:00.000Z",
   "cves": [
-   "CVE-2025-49595"
+   "CVE-2026-117348"
   ]
- },
- {
-  "url": "https://x.com/Pipflare/status/2124075728715260188",
-  "author": "Pipflare",
-  "text": "Hackers gave an AI agent one goal: \"obtain shell access.\"\n\nIn 11 minutes, it found and exploited a zero-day (CVE-2026-133968) in MONAI Label, wrote a reverse shell, and pivoted to a second university.\n\nPR #1915 patched main, yet release 0.8.5 is still latest. https://t.co/RKh6a7LXc2",
-  "created_at": "2026-11-21T09:41:31.000Z",
-  "cves": [
-   "CVE-2026-133968"
-  ]
- },
- {
-  "url": "https://x.com/VectorWireAI/status/2124123304462352596",
-  "author": "VectorWireAI",
-  "text": "6 outlets — AI agents autonomously found and exploited a zero-day to root a university server\n\nSuspected Chinese-linked attackers used an autonomous AI agent platform called Cairn to independently discover a zero-day vulnerability in MONAI Label, an…\n\nhttps://t.co/3HRqjDxfx0 https://t.co/J6GChnEICs",
-  "created_at": "2026-11-21T12:50:34.000Z",
-  "cves": []
  },
  {
   "url": "https://x.com/SAMHE2/status/2124022477445820814",
@@ -329,13 +269,6 @@
   "cves": []
  },
  {
-  "url": "https://x.com/elasticseclabs/status/2123808595892429195",
-  "author": "elasticseclabs",
-  "text": "56 AWS calls in 141 milliseconds, then 14 quiet days.\n\nElastic Security Labs traced a CyberStrikeAI server through stolen credentials across four AWS accounts and eight identities.\n\nSix detection rules each caught only part of it. All 78 alerts were medium or low severity until https://t.co/fsIbq4GzKK",
-  "created_at": "2026-11-20T16:00:02.000Z",
-  "cves": []
- },
- {
   "url": "https://x.com/razzor_tweet/status/2123982275398246904",
   "author": "razzor_tweet",
   "text": "optimizely supply chain attack just hit 178 major sites\n\nso if i got it right, attackers injected malicious code right into the digital experience platform optimizely to target visitors on 178 sites. (1/3)",
@@ -343,10 +276,66 @@
   "cves": []
  },
  {
-  "url": "https://x.com/DFIR_Radar/status/2123809297779867922",
-  "author": "DFIR_Radar",
-  "text": "Attackers hijacked Microsoft's official agent-framework PyPI project and published trojanized versions 1.26.1 and 1.26.2 on November 17, 2026. They were live for about 55 minutes, and each drops a .pth hook that runs a credential stealer on every Python launch.\n\n- Timeline: https://t.co/mRNpZ8g2Jb",
-  "created_at": "2026-11-20T16:02:49.000Z",
+  "url": "https://x.com/qualys/status/2123866989223403638",
+  "author": "qualys",
+  "text": "Most of the organizations hit in a recent supply chain attack never deployed bad code. Their visitors got it anyway.\n \nAttackers didn't breach a single customer site. They took over accounts on a widely used third-party vendor's platform, modified the JavaScript those customers https://t.co/Vo5xj8F27I",
+  "created_at": "2026-11-20T19:52:04.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/PaloAltoNtwks/status/2124171236968210641",
+  "author": "PaloAltoNtwks",
+  "text": "Borrowed code, real consequences.\n\nIn the OPTIMJACK supply chain attack, attackers injected malicious JavaScript into Optimizely’s Web Experimentation platform—delivering tainted scripts straight from legitimate CDNs to visitors across 178+ organizations.\n\nRead @Unit42_Intel Head https://t.co/RIFQVI6lrS",
+  "created_at": "2026-11-21T16:01:02.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/0nlookr_/status/2123915277469413496",
+  "author": "0nlookr_",
+  "text": "ARTEX was published publicly on GitHub, copied and redistributed before the takedown. Removing the original repository doesn't remove access to the software. Anyone can still obtain copies. https://t.co/FHpWM8eda4",
+  "created_at": "2026-11-20T23:03:57.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/sunilmehta_si/status/2124104285646725146",
+  "author": "sunilmehta_si",
+  "text": "🚨🚨Microsoft’s own AI agent toolkit shipped malware.\n\nPushed through Microsoft’s own release pipeline.\nUsing a Microsoft cert and key that appear to have been stolen.\nLive on PyPI for under an hour.\nThe first attempt from AWS got blocked. The retry from a Microsoft network went https://t.co/jegetzC4tm https://t.co/ZaLOTlVgYw",
+  "created_at": "2026-11-21T11:35:00.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/modularciso/status/2124145054361297180",
+  "author": "modularciso",
+  "text": "Microsoft Agent Framework on PyPI\n\nA poisoned package that runs when Python starts, even if you never import it.\n\nOn Nov 17, agent-framework 1.26.1 and 1.26.2 appeared on PyPI 33 minutes apart, carrying the real framework code plus a credential stealer (SecurityWeek, Eduard https://t.co/Z3KcLPMlcM",
+  "created_at": "2026-11-21T14:17:00.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/DailyDarkWeb/status/2124072661407932681",
+  "author": "DailyDarkWeb",
+  "text": "Japan’s RIKEN confirmed that intruders stole 430 credentials from Fugaku user directories, including SSH keys used to access other supercomputers and cloud services.\n\nRIKEN found evidence that some of the stolen credentials were used to connect to external systems. It has not https://t.co/ABJsXwGJI8",
+  "created_at": "2026-11-21T09:29:20.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/FrontieraTechIT/status/2124145293998412193",
+  "author": "FrontieraTechIT",
+  "text": "🛡️ CYBER BULLETIN | 2026/11/21 🚨\n\n1️⃣ Microsoft Agent Framework PyPI package hijacked with credential stealer\nMalicious versions 1.26.1 and 1.26.2 of the official agent-framework package were published on November 17 and ran a stealer on every Python start, targeting Azure, Azure https://t.co/0nZU9Cj6uT",
+  "created_at": "2026-11-21T14:17:57.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/Codezero_io/status/2123899865033822337",
+  "author": "Codezero_io",
+  "text": "Starting on 10 November, an attacker used stolen GitHub credentials to plant a CI secret stealer in public repositories. The Hacker News, citing Aikido, reported 4,837 compromised accounts, with the stealer running in at least 1,806 repositories.\n\nGitGuardian's 13 November",
+  "created_at": "2026-11-20T22:02:42.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/Inc42/status/2124087813180203234",
+  "author": "Inc42",
+  "text": "SaaS Startup MoEngage Suffers Cyberattack Via Third-Party Vendor. 👇\n\nThe breach involved unauthorised access to part of its cloud infrastructure through a compromised vendor account, leaving some customers unable to access the platform for nearly seven days.\n\nMoEngage said fewer https://t.co/YV69IEjYh5",
+  "created_at": "2026-11-21T10:29:32.000Z",
   "cves": []
  }
 ]
