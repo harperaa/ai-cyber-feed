@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-21T13:35:00Z",
-  "next_update_note": "Next summary rewrite in about 4 hours (around 17:30 UTC Nov 21); the feed itself refreshes hourly.",
-  "headline": "New since 09:35 UTC (Nov 21): SOCRadar published BabidiGhost, a low-skill French-speaking operator whose jailbroken AI agent wrote the scanners, exploits and exfiltration scripts and went after 50+ European banks, insurers, payment firms and towns over nine days in November (2 organizations breached, 3 partly; no zero-days, only exposed tools, leaked secrets, weak passwords and open endpoints; it stopped when the model API key was revoked Nov 14). A public exploit for the AI-found MONAI Label flaw CVE-2026-133968 is now reported (per X), and there is still no patched release, so take MONAI Label servers off the network. Also new: GnuPG's critical GPGME double free CVE-2026-129975 (update to GPGME 2.3.1 / Gpg4win 5.1.2; not exploited), a public PoC for Windows AD DS RCE CVE-2026-70229, a public exploit for the Restrictions for BuddyPress WordPress plugin CVE-2026-120539 (CVSS 9.8), researchers' now-patched Meta Muse agent hijack, and a YMCA Singapore portal breach. Unchanged at the top: Drupal CVE-2026-132165 (AI-found, exploited), Bell Canada's 'agentic' breach, the exploited Azure API Management flaw, CISA's Nov 20 KEV four (due Nov 23), Apache mod_http2, MoEngage and Triple Whale key rotation, React2STEAL, the hijacked agent-framework PyPI package and LiteLLM.",
-  "ai_headline": "AI as the cause: a new documented AI-run campaign: SOCRadar's BabidiGhost report shows a jailbroken AI agent doing almost all the hacking for an unskilled operator (1,801 orders, 5,779 model requests, 41 refusals) against 50+ European targets, breaching some through ordinary exposures; MFA, IP allowlists and server-side checks stopped it elsewhere. Amazon's Cairn case now has a reported public exploit for MONAI Label CVE-2026-133968. AI-found bugs exploited: Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 (reported). AI products: MONAI Label (no fixed release), LiteLLM (KEV), the hijacked Microsoft agent-framework PyPI package; Meta Muse browser-agent hijack research (patched before publication). AI impact: React2STEAL and ArgonHunt AI-key theft, Triple Whale breach.",
+  "updated_at": "2026-11-21T17:35:00Z",
+  "next_update_note": "Next summary rewrite in about 4 hours (around 21:30 UTC Nov 21); the feed itself refreshes hourly.",
+  "headline": "Quiet since 13:35 UTC (Nov 21): no new AI-run attack, no new actively exploited flaw and no new major platform breach. New but lower priority: ServiceNow fixed an indirect prompt injection in its Now Assist for CSM email-reply AI agent (CVE-2026-18883; fixed centrally, no exploitation reported); SurrealDB 4.0.0 fixes a batch of flaws including a 9.8 scripting-engine capability bypass (CVE-2026-134292) and SQL injection in its MCP server (CVE-2026-134293); Rclone 'serve sftp --auth-proxy' auth bypass CVE-2026-134352 (fixed in 1.76.0); two more malicious PyPI packages (instantscrape infostealer, signed-manifest-guard 0.1.7); and the FBI NCIC breach is now reported by CNN and Reuters. Reminders: Chrome CVE-2026-125350 is on CISA KEV with a Nov 24 deadline, and CISA's Nov 20 KEV four are due Nov 23. Unchanged at the top: BabidiGhost's jailbroken AI agent, Amazon's Cairn agents and the MONAI Label exploit (still no fixed release), Drupal CVE-2026-132165 (AI-found, exploited), Bell Canada's 'agentic' breach, the exploited Azure API Management flaw, Apache mod_http2, MoEngage and Triple Whale key rotation, React2STEAL, the hijacked agent-framework PyPI package and LiteLLM.",
+  "ai_headline": "No new AI-caused attack in the last four hours. Still leading: SOCRadar's BabidiGhost (a jailbroken AI agent doing the hacking for an unskilled operator against 50+ European targets, some breached through ordinary exposures) and Amazon's Cairn case, where AI agents found and exploited MONAI Label CVE-2026-133968 on their own; a public exploit is reported and there is still no patched release. AI-found bugs exploited: Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 (reported). AI products: new ServiceNow email-agent prompt injection (CVE-2026-18883, fixed, not exploited) and SurrealDB MCP SQL injection (fixed in 4.0.0); MONAI Label, LiteLLM (KEV), the hijacked Microsoft agent-framework PyPI package; Meta Muse agent hijack research (patched). AI impact: React2STEAL and ArgonHunt AI-key theft, Triple Whale breach.",
   "ai_activity": {
-    "overview": "Nov 21, 13:35 UTC. New since 09:35 UTC: SOCRadar's BabidiGhost report documents a jailbroken AI agent doing the hacking for a low-skill operator against 50+ European banks, insurers, payment firms and towns (2 breached, 3 partly; ended Nov 14 when its API key was revoked). A public exploit for the Cairn-found MONAI Label CVE-2026-133968 is now reported on X, with no patched release yet. NebuSec's Meta Muse agent hijack (malicious page to private chats and VM root) was patched before publication. Earlier this week: Drupal CVE-2026-132165 (AI-found) exploited since Nov 19, Apache mod_http2 CVE-2026-119618 (AI-found) reportedly exploited, Amazon's Cairn agents finding and exploiting MONAI Label on their own, Bell Canada's 'agentic' breach, the European Commission (reportedly ARTEX), Symantec's AI-written toolkit, Barracuda, Darktrace's ARTEX intrusions, GTIG's exploit_agent and Elastic's CyberStrikeAI AWS intrusion; the TrustedSec 14-minute swarm is unverified. AI-found bugs: NGINX2Root (public PoCs), Java4Shell (probing only), phpAfterShell and Bitcoin Core (patched). AI products: MONAI Label, LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer, malicious MCP packages, flyto-core (exploit claim unverified), Flowise's unfixable MCP token leak. AI impact: React2STEAL and ArgonHunt AI-key theft, Triple Whale, Fireworks AI's second breach, Barracuda's AI-vendor key and Fugaku.",
+    "overview": "Nov 21, 17:35 UTC. Nothing new AI-caused since 13:35 UTC; new AI-product fixes: ServiceNow's email-reply AI agent prompt injection CVE-2026-18883 (fixed centrally, not exploited) and SurrealDB's MCP server SQL injection CVE-2026-134293 (fixed in 4.0.0). Earlier today: SOCRadar's BabidiGhost report documents a jailbroken AI agent doing the hacking for a low-skill operator against 50+ European banks, insurers, payment firms and towns (2 breached, 3 partly; ended Nov 14 when its API key was revoked). A public exploit for the Cairn-found MONAI Label CVE-2026-133968 is now reported on X, with no patched release yet. NebuSec's Meta Muse agent hijack (malicious page to private chats and VM root) was patched before publication. Earlier this week: Drupal CVE-2026-132165 (AI-found) exploited since Nov 19, Apache mod_http2 CVE-2026-119618 (AI-found) reportedly exploited, Amazon's Cairn agents finding and exploiting MONAI Label on their own, Bell Canada's 'agentic' breach, the European Commission (reportedly ARTEX), Symantec's AI-written toolkit, Barracuda, Darktrace's ARTEX intrusions, GTIG's exploit_agent and Elastic's CyberStrikeAI AWS intrusion; the TrustedSec 14-minute swarm is unverified. AI-found bugs: NGINX2Root (public PoCs), Java4Shell (probing only), phpAfterShell and Bitcoin Core (patched). AI products: MONAI Label, LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer, malicious MCP packages, flyto-core (exploit claim unverified), Flowise's unfixable MCP token leak. AI impact: React2STEAL and ArgonHunt AI-key theft, Triple Whale, Fireworks AI's second breach, Barracuda's AI-vendor key and Fugaku.",
     "counts": {
       "ai_cause": 39,
       "ai_product_exploited": 21,
@@ -410,6 +410,29 @@
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "ServiceNow Now Assist for CSM email-reply AI agent: indirect prompt injection CVE-2026-18883",
+            "date": "2026-11-21T14:36:00Z",
+            "summary": "Instructions hidden in an inbound customer email could steer the agent. ServiceNow fixed it centrally (agent collection v6.1); no customer action or platform upgrade is required. No exploitation reported.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-18883"
+            ],
+            "url": "https://www.tenable.com/cve/CVE-2026-18883",
+            "source": "ServiceNow via Tenable"
+          },
+          {
+            "title": "SurrealDB MCP server SQL injection CVE-2026-134293 (plus 9.8 scripting capability bypass CVE-2026-134292)",
+            "date": "2026-11-21T10:00:00Z",
+            "summary": "SurrealDB 3.1.0 before 4.0.0 has SQL injection in its Model Context Protocol server; the same release fixes a critical capability bypass in the embedded JavaScript engine and several authorization and path traversal flaws. Upgrade to 4.0.0. No exploitation reported.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-134293",
+              "CVE-2026-134292"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134293",
+            "source": "NVD"
+          },
           {
             "title": "Meta Muse AI agent: one malicious webpage let researchers read and change private chats and memories, then escape to root on the user's VM (patched)",
             "date": "2026-11-21T11:53:00Z",
@@ -985,6 +1008,12 @@
     }
   ],
   "watch": [
+    "ServiceNow CVE-2026-18883 (Nov 21): indirect prompt injection in the Now Assist for CSM email-reply AI agent; fixed centrally by ServiceNow, no action needed, not exploited.",
+    "SurrealDB before 4.0.0: capability bypass in the embedded JavaScript engine CVE-2026-134292 (CVSS 9.8), MCP server SQL injection CVE-2026-134293 and several authorization/path-traversal flaws. Upgrade to 4.0.0.",
+    "Rclone 1.51.0-1.75.x CVE-2026-134352 (CVSS 9.2): auth bypass in 'serve sftp --auth-proxy'. Upgrade to 1.76.0.",
+    "New malicious PyPI packages (OpenSSF, Nov 21): instantscrape 0.1.0/0.1.5/0.1.8 (infostealer on install or import) and signed-manifest-guard 0.1.7 (downloads and runs a remote RAT). Remove and rotate secrets from a clean machine if installed.",
+    "Chrome CVE-2026-125350 (XML/libxslt use-after-free, exploited, fixed in 157.0.8103.50): on CISA KEV, due Nov 24; Edge needs the same fix.",
+    "BADBOX botnet on cheap Android TV boxes is back (BleepingComputer, Nov 21) with record ad-fraud volume; remove uncertified Android TV boxes from networks.",
     "GnuPG GPGME CVE-2026-129975 (critical double free, Nov 20; The Hacker News Nov 21): a malicious OpenPGP key with a long user ID can corrupt memory in apps that use GPGME before 2.3.1 (most mail clients, many XMPP clients, Samba, Gpg4win); data theft possible, RCE not ruled out; not exploited. Update to GPGME 2.3.1 (legacy 1.24.4), Gpg4win 5.1.2, and rebuild apps that bundle it statically.",
     "Windows AD Domain Services RCE CVE-2026-70229: a public PoC is now on GitHub (per X, Nov 20-21). Confirm domain controllers have the patch.",
     "Restrictions for BuddyPress (WordPress plugin) CVE-2026-120539 (CVSS 9.8, unauthenticated RCE): public exploit released (per X, Nov 21). Update or remove the plugin.",
@@ -1028,27 +1057,6 @@
     "Splunk November advisories (Nov 18): SOAR App Wizard RCE CVE-2026-131253 (CVSS 9.9, authenticated; fix SOAR 8.8.0), Enterprise Security path-traversal RCE CVE-2026-131202 (ess_admin; fix 8.7.0), Enterprise RapidDiag CVE-2026-76535 (9.1; fixed 10.6.1/10.4.5/10.2.9/10.0.12/9.4.17). About 139 flaws in total; none reported exploited.",
     "N-able Mail Assure / SpamExperts cloud breach (SecurityWeek, Nov 20): N-able now blames the outage on a cyberattack and says it could have led to credential theft; portals and APIs still being restored. Rotate Mail Assure/SpamExperts API keys and admin passwords and review mail-flow rules.",
     "Oracle E-Business Suite CVE-2026-114924 + CVE-2026-114925: per X, chainable for unauthenticated OS command execution (from Oracle's Nov 17 patch). Apply the November patch to internet-facing EBS.",
-    "WordPress 7.1.5 security release (backported to 4.7+): update sites now.",
-    "Unverified: 'NoSafe AI' says an abliterated Kimi model found a vulnerability in an open-source project (no details).",
-    "Ruby (Nov 18): seven regex and string-case flaws, several with RCE proof-of-concepts (mostly in apps that compile attacker-controlled patterns). Upgrade to 4.0.10, 3.4.13 or 3.3.14; 3.2 and older get no fix.",
-    "Pliny the Elder open-sourced T3MP3ST (Nov 19, per X), which turns an existing AI coding agent into an autonomous security-testing system. Expect attackers to reuse it the way ARTEX was reused; no misuse reported yet.",
-    "Rakuten Securities (Japan): now says up to 15.72M accounts may be affected, about 4.47M with personal data (names, birth dates, addresses, income and asset levels), after real customer data was put in a test environment that was breached; detected Nov 16 (Japan Times, Nov 19). Watch for phishing.",
-    "Equinor (update Nov 19): the cyberattack on some IT systems is still ongoing; production normal, no sign of data theft or alteration; Equinor says it does not appear to be specifically targeted.",
-    "Jenkins: ngCERT (Nov 19) says CVE-2024-23897, CVE-2026-53435 and CVE-2026-84645 are exploited in the wild; update and keep Jenkins off the internet.",
-    "Skill2Exploit (Pluto Security, Nov 18): AI agent skills can pull attacker files into parsers; patch Nextcloud (Nov 6 fix) or disable HEIC previews, and review third-party agent skills.",
-    "Research (The Hacker News, Nov 19): low-privilege database accounts can reach code execution on PostgreSQL, MySQL and Oracle servers; limit DB account privileges and extensions.",
-    "Flowise CVE-2026-130796 (unauthenticated MCP bearer-token read, 3.1.3-3.1.4) and SSRF CVE-2026-130615: no fix will ship (Flowise end of life Aug 31, repo archived). Make MCP chatflows private or disable MCP, rotate MCP tokens, and migrate. https://github.com/FlowiseAI/Flowise/discussions/6727",
-    "Expedia: a forum actor is now sharing what they call confirmed Expedia breach data, up to about 2.4M records (per X, unverified count). Change reused passwords and expect travel-booking phishing. Earlier n0n claim of ~1B records via a third-party data platform is also unverified.",
-    "New criticals overnight (no exploitation reported): Ubiquiti UniFi Access, five CVEs, worst 9.9 root code execution; Idunno.AntiCsrf CVE-2026-131914 (CVSS v4 9.3, unauthenticated RCE on IIS via an exposed .aspx page); Oracle E-Business Suite CVE-2026-114924 (9.8).",
-    "Japan cloud incidents (Nov 18-19): Open Co.'s BizRobo!mini cloud breached (about 1,000 accounts at 560 companies; authentication server data in scope); security vendor Cyber Security Cloud says personal data kept in GitHub from a breached development environment may have leaked.",
-    "2RedBeans (dating platform) data-breach notice: about 1.3M member accounts exposed (company notice, Nov 2026).",
-    "Malicious npm package prettier-plugin-solidity-import-order (typosquat flagged by GitHub as malware): check Solidity project lockfiles.",
-    "Fugaku supercomputer (RIKEN) breach took users' stored SSH private keys and access keys (also the RIKYU AI-for-Science system), and Assembled lost its integration-credential database: affected users should replace every stored key and rotate remaining integrations (moved from focus, no change).",
-    "Mitsubishi UFJ Bank (Nov 18): about 6.5M customer records (gender, age, region; no names) exposed via vendor PLAID's KARTE platform on Nov 13, part of the KARTE breach (Sankei: ~8M across five MUFG companies). Rotate KARTE connector secrets.",
-    "KPMG Canada (Nov 18): attackers accessed some clients' tax documents; scale and entry point not disclosed. Expect targeted tax-themed phishing.",
-    "Unverified: Paystand (US B2B payments) customer database offered for sale on a forum; no confirmation.",
-    "Eclipse Mosquitto 2.1.0-2.1.2 CVE-2026-110486 (CVSS 9.8, websockets listener RCE).",
-    "NGINX follow-ups: RHEL/distro packages, CISA KEV listing, first in-the-wild use, the claimed public exploit for HTTP/3 CVE-2026-121810 (unverified), and appliances/ingress controllers that bundle NGINX.",
-    "Java4Shell follow-ups: first confirmed break-in or KEV listing, Calif's per-product exploits, Red Hat/Debian/Ubuntu/SUSE/Temurin/Azul/Microsoft builds. Beware fake PoCs on GitHub."
+    "WordPress 7.1.5 security release (backported to 4.7+): update sites now."
   ]
 }
