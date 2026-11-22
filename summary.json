@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-11-21T21:27:48Z",
-  "next_update_note": "Next summary rewrite in about 4 hours (around 01:30 UTC Nov 22); the feed itself refreshes hourly.",
-  "headline": "New since 17:35 UTC (Nov 21): Microsoft says attackers exploited a flaw in its Entra Connect Health API (introduced Jul 23, found Nov 9, fixed server-side Nov 19) to read tenant metadata, including administrator and technical-contact email addresses, tenant IDs, domains, license tiers and sync status; Microsoft is notifying affected tenants. No passwords, tokens or valid keys were exposed and no customer patch is needed, but expect targeted phishing of your admins. No new AI-run attack and no new exploited AI product in the last four hours. Reminders: CISA's Nov 20 KEV four (vCenter, Cisco Expressway, SAP NetWeaver, Apache Roller) are due Nov 23 and Chrome CVE-2026-125350 is due Nov 24. Unchanged at the top: BabidiGhost's jailbroken AI agent, Amazon's Cairn agents and the MONAI Label exploit (still no fixed release), Drupal CVE-2026-132165 (AI-found, exploited), Bell Canada's 'agentic' breach, the exploited Azure API Management flaw, Apache mod_http2, MoEngage and Triple Whale key rotation, React2STEAL, the hijacked agent-framework PyPI package and LiteLLM.",
-  "ai_headline": "No new AI-caused attack and no new exploited AI product since 17:35 UTC. Still leading: SOCRadar's BabidiGhost (a jailbroken AI agent doing the hacking for an unskilled operator against 50+ European targets, some breached through ordinary exposures) and Amazon's Cairn case, where AI agents found and exploited MONAI Label CVE-2026-133968 on their own; a public exploit is reported and there is still no patched release. AI-found bugs exploited: Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 (reported). AI products: new ServiceNow email-agent prompt injection (CVE-2026-18883, fixed, not exploited) and SurrealDB MCP SQL injection (fixed in 4.0.0); MONAI Label, LiteLLM (KEV), the hijacked Microsoft agent-framework PyPI package; Meta Muse agent hijack research (patched). AI impact: React2STEAL and ArgonHunt AI-key theft, Triple Whale breach.",
+  "updated_at": "2026-11-22T01:31:40Z",
+  "next_update_note": "Next summary rewrite in about 4 hours (around 05:30 UTC Nov 22); the feed itself refreshes hourly.",
+  "headline": "New since 21:27 UTC (Nov 21): AI inference providers were breached and customers' prompts read. Dragos (HD Moore) seeded about 2 million prompts with canary secrets and found at least three AI hosting providers compromised, with planted AWS keys later tried by attackers. Follow-ups so far: OpenRouter told users that prompts to MiniMax models (Jul-Oct, including via AtlasCloud, Novita and StreamLake) were read 40-130 hours later and pulled their Zero Data Retention labels; Together AI says an AI coding agent committed a credential that let someone download June-July prompt samples and test credentials found in them; Phala says DeepSeek V4 Flash 0731 requests Oct 21-Nov 8 should be treated as exposed; OpenRouter cut off GMI Cloud. If you sent secrets in prompts through these routes, rotate them. Also new: Rackspace Spot (managed Kubernetes) was breached Nov 17 with stolen credentials; attackers ran pods and read Kubernetes Secrets in some customer clusters, so affected customers must reissue Spot tokens and rotate all cluster secrets. Unchanged at the top: Amazon's Cairn agents and the MONAI Label exploit (still no fixed release), BabidiGhost, Drupal CVE-2026-132165 and Apache mod_http2 (AI-found, exploited), the exploited Azure API Management and Entra Connect Health flaws, CISA's Nov 20 KEV four (due Nov 23), React2STEAL, the hijacked agent-framework PyPI package and LiteLLM. Java4Shell moved to the watch list (probing only).",
+  "ai_headline": "New AI-impact incident: prompts sent through AI routers and inference resellers leaked. Dragos's canary study found at least three AI hosting providers breached and resellers ignoring Zero Data Retention; OpenRouter (MiniMax routes), Together AI (prompt samples stolen after an AI coding agent committed a credential), Phala (DeepSeek V4 Flash 0731, Oct 21-Nov 8) and GMI Cloud are confirmed or reported, and Prime Intellect says an intruder swapped in a refusal-stripped DeepSeek model for 53 hours. Rotate any secret you put in prompts sent through these routes. No new AI-run attack since 21:27 UTC. Still leading: Amazon's Cairn agents finding and exploiting MONAI Label CVE-2026-133968 on their own (public exploit reported, no patched release) and SOCRadar's BabidiGhost jailbroken agent. AI-found bugs exploited: Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 (reported). AI products: LiteLLM (KEV), the hijacked Microsoft agent-framework PyPI package, MONAI Label, ServiceNow and SurrealDB fixes. AI impact also: React2STEAL and ArgonHunt AI-key theft, Triple Whale.",
   "ai_activity": {
-    "overview": "Nov 21, 21:27 UTC. Nothing new AI-caused and no new exploited AI product since 17:35 UTC (the main non-AI news is Microsoft's exploited Entra Connect Health flaw). Earlier today, AI-product fixes: ServiceNow's email-reply AI agent prompt injection CVE-2026-18883 (fixed centrally, not exploited) and SurrealDB's MCP server SQL injection CVE-2026-134293 (fixed in 4.0.0). Earlier today: SOCRadar's BabidiGhost report documents a jailbroken AI agent doing the hacking for a low-skill operator against 50+ European banks, insurers, payment firms and towns (2 breached, 3 partly; ended Nov 14 when its API key was revoked). A public exploit for the Cairn-found MONAI Label CVE-2026-133968 is now reported on X, with no patched release yet. NebuSec's Meta Muse agent hijack (malicious page to private chats and VM root) was patched before publication. Earlier this week: Drupal CVE-2026-132165 (AI-found) exploited since Nov 19, Apache mod_http2 CVE-2026-119618 (AI-found) reportedly exploited, Amazon's Cairn agents finding and exploiting MONAI Label on their own, Bell Canada's 'agentic' breach, the European Commission (reportedly ARTEX), Symantec's AI-written toolkit, Barracuda, Darktrace's ARTEX intrusions, GTIG's exploit_agent and Elastic's CyberStrikeAI AWS intrusion; the TrustedSec 14-minute swarm is unverified. AI-found bugs: NGINX2Root (public PoCs), Java4Shell (probing only), phpAfterShell and Bitcoin Core (patched). AI products: MONAI Label, LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer, malicious MCP packages, flyto-core (exploit claim unverified), Flowise's unfixable MCP token leak. AI impact: React2STEAL and ArgonHunt AI-key theft, Triple Whale, Fireworks AI's second breach, Barracuda's AI-vendor key and Fugaku.",
+    "overview": "Nov 22, 01:30 UTC. New AI-impact incident: the AI inference supply chain leaked prompts. Dragos's canary study (Nov 19-20) found at least three AI hosting providers breached; on Nov 21 OpenRouter warned that MiniMax-routed prompts (Jul-Oct) were read, Together AI disclosed stolen prompt samples after an AI coding agent committed a credential, Phala named DeepSeek V4 Flash 0731 traffic (Oct 21-Nov 8) as exposed, GMI Cloud was cut off by OpenRouter, and Prime Intellect reported a 53-hour malicious model swap. No new AI-run attack since 21:27 UTC. Earlier Nov 21, AI-product fixes: ServiceNow's email-reply AI agent prompt injection CVE-2026-18883 (fixed centrally, not exploited) and SurrealDB's MCP server SQL injection CVE-2026-134293 (fixed in 4.0.0). Also Nov 20-21: SOCRadar's BabidiGhost report documents a jailbroken AI agent doing the hacking for a low-skill operator against 50+ European banks, insurers, payment firms and towns (2 breached, 3 partly; ended Nov 14 when its API key was revoked). A public exploit for the Cairn-found MONAI Label CVE-2026-133968 is now reported on X, with no patched release yet. NebuSec's Meta Muse agent hijack (malicious page to private chats and VM root) was patched before publication. Earlier this week: Drupal CVE-2026-132165 (AI-found) exploited since Nov 19, Apache mod_http2 CVE-2026-119618 (AI-found) reportedly exploited, Amazon's Cairn agents finding and exploiting MONAI Label on their own, Bell Canada's 'agentic' breach, the European Commission (reportedly ARTEX), Symantec's AI-written toolkit, Barracuda, Darktrace's ARTEX intrusions, GTIG's exploit_agent and Elastic's CyberStrikeAI AWS intrusion; the TrustedSec 14-minute swarm is unverified. AI-found bugs: NGINX2Root (public PoCs), Java4Shell (probing only), phpAfterShell and Bitcoin Core (patched). AI products: MONAI Label, LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer, malicious MCP packages, flyto-core (exploit claim unverified), Flowise's unfixable MCP token leak. AI impact: React2STEAL and ArgonHunt AI-key theft, Triple Whale, Fireworks AI's second breach, Barracuda's AI-vendor key and Fugaku.",
     "counts": {
       "ai_cause": 39,
       "ai_product_exploited": 21,
-      "ai_impact": 12
+      "ai_impact": 13
     },
     "groups": [
       {
@@ -655,6 +655,15 @@
         "label": "AI impact / AI keys & infrastructure",
         "items": [
           {
+            "title": "AI inference supply chain leaks: Dragos canaries show at least three AI hosting providers breached; OpenRouter (MiniMax routes), Together AI, Phala and GMI Cloud confirm or are reported",
+            "date": "2026-11-21T23:00:00Z",
+            "status": "exploited",
+            "cves": [],
+            "summary": "Dragos seeded ~2M prompts with canary secrets; planted AWS keys were later tried. OpenRouter says MiniMax-routed prompts Jul-Oct were read 40-130 h later; Together AI says an AI coding agent committed a credential used to steal June-July prompt samples; Phala says DeepSeek V4 Flash 0731 requests Oct 21-Nov 8 are exposed; OpenRouter cut off GMI Cloud. Rotate secrets sent in prompts.",
+            "url": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/",
+            "source": "Ars Technica / Dragos / OpenRouter / Together AI / Phala"
+          },
+          {
             "title": "Triple Whale (AI commerce analytics app for Shopify) confirms internal systems breach; Shopify token theft claimed",
             "date": "2026-11-20T12:00:00Z",
             "status": "reported",
@@ -771,7 +780,7 @@
         ]
       }
     ],
-    "trend_note": "Trend: AI-run intrusions are now documented from both ends, skilled state-linked operators (Cairn finding a zero-day) and unskilled criminals (BabidiGhost relying on a jailbroken agent), and in both cases the agents mostly win on exposed, unauthenticated or unpatched services. AI-found bugs are moving from disclosure to exploitation within days (Drupal, mod_http2). Revoking the model API key ended BabidiGhost's campaign, so AI providers' abuse detection is now a real defensive lever. AI-found bugs are now being exploited within days of the fix: Drupal's installer flaw was hit about a day after the Nov 18 patch, and mod_http2 within a week. Treat any patch credited to an AI scanner as likely to be weaponized fast. The shift this week is autonomy. Amazon's Cairn case shows agents finding an unknown bug and exploiting it with only a goal prompt, and Bell Canada is the first big telecom to blame an 'agentic' attacker publicly. Agents also fail a lot (16 hours on Redis, 30,000 password tries), but they keep going without getting tired, so noisy, persistent probing is the signal to catch. Practical steps: keep AI/ML research tools (MONAI, Jupyter, Ray, model servers) off the internet and turn on their auth; patch internet-facing web stacks within days but stage rollouts with tested rollback (NSA outage); require phishing-resistant MFA and test 2FA logic; auto-block bursts of probing or login attempts instead of relying on manual triage; rotate long-lived and vendor-held keys, inclu"
+    "trend_note": "New this cycle: the AI inference supply chain itself is a target. Attackers breached hosting providers and resellers to harvest prompts and test the secrets in them, and Zero Data Retention labels did not hold, so never put live credentials in prompts and pin trusted providers. Trend: AI-run intrusions are now documented from both ends, skilled state-linked operators (Cairn finding a zero-day) and unskilled criminals (BabidiGhost relying on a jailbroken agent), and in both cases the agents mostly win on exposed, unauthenticated or unpatched services. AI-found bugs are moving from disclosure to exploitation within days (Drupal, mod_http2). Revoking the model API key ended BabidiGhost's campaign, so AI providers' abuse detection is now a real defensive lever. AI-found bugs are now being exploited within days of the fix: Drupal's installer flaw was hit about a day after the Nov 18 patch, and mod_http2 within a week. Treat any patch credited to an AI scanner as likely to be weaponized fast. The shift this week is autonomy. Amazon's Cairn case shows agents finding an unknown bug and exploiting it with only a goal prompt, and Bell Canada is the first big telecom to blame an 'agentic' attacker publicly. Agents also fail a lot (16 hours on Redis, 30,000 password tries), but they keep going without getting tired, so noisy, persistent probing is the signal to catch. Practical steps: keep AI/ML research tools (MONAI, Jupyter, Ray, model servers) off the internet and turn on their auth; patch internet-facing web stacks within days but stage rollouts with tested rollback (NSA outage); require phishing-resistant MFA and test 2FA logic; auto-block bursts of probing or login attempts instead of relying on manual triage; rotate long-lived and vendor-held keys, inclu"
   },
   "focus": [
     {
@@ -839,6 +848,33 @@
       "ai_note": "AI-found flaw (Anthropic OSS Scanner) now exploited in the wild."
     },
     {
+      "title": "AI inference providers breached and prompts read: Dragos canary study; OpenRouter warns MiniMax-routed prompts were read; Together AI, Phala and GMI Cloud confirm or are reported (new)",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "OpenRouter routes to MiniMax (direct, AtlasCloud, Novita, StreamLake); Together AI; Phala; GMI Cloud; Prime Intellect",
+      "why": "Dragos's HD Moore sent nearly 2 million prompts carrying unique canary secrets (AWS keys, URLs, passwords) Jul-Nov and found at least three AI hosting providers compromised, resellers logging prompts, and providers ignoring Zero Data Retention flags; planted AWS keys were later tried. OpenRouter emailed users Nov 21 that prompts sent to MiniMax models Jul-Oct were read 40-130 hours later and removed ZDR labels from those endpoints. Together AI (Nov 21) says someone downloaded stored June-July prompt samples (MiniMax M3, GLM-5.2, Kimi K2.6) using a credential an AI coding agent had committed to a public repo, then tested credentials found in them. Phala says DeepSeek V4 Flash 0731 requests routed to it Oct 21-Nov 8 05:35 UTC should be treated as exposed. RuntimeWire reports OpenRouter cut off GMI Cloud after an attacker searched its ~3 days of stored prompts for credentials. Prime Intellect says an intruder served a refusal-stripped DeepSeek model for 53 hours (Nov 8-10), with no prompt exposure reported.",
+      "action": "If your apps or agents sent API keys, tokens or passwords in prompts through OpenRouter to MiniMax, Phala-hosted DeepSeek V4 Flash 0731, GMI Cloud or Together AI's serverless models in the stated windows, rotate those secrets now. Going forward: keep secrets out of prompts, pin providers you trust (or disable fallbacks to resellers) in your router, and enable ZDR where offered, but don't rely on it alone.",
+      "url": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/",
+      "ai_angle": [
+        "impact",
+        "cause"
+      ],
+      "ai_note": "AI impact: AI providers' prompt streams were the target. AI cause in part: Together AI says the leaked credential was committed by an AI coding agent."
+    },
+    {
+      "title": "Rackspace Spot (managed Kubernetes) breached with stolen credentials: attackers ran pods and read Kubernetes Secrets in some customer clusters (new, Nov 21)",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Rackspace (Rackspace Spot)",
+      "why": "Rackspace told customers that on Nov 17 (about 00:20-22:00 UTC) attackers using compromised credentials acted as legitimate users, created unauthorized pods, read Kubernetes Secrets and listed nodes and volumes in some customer clusters. It learned of it Nov 18 from a customer report, revoked sessions and tokens, removed the pods and rotated keys (BleepingComputer, Nov 21).",
+      "action": "Rackspace Spot customers: reissue Spot API and refresh tokens, regenerate kubeconfigs, rotate every credential stored in Kubernetes Secrets (cloud keys, database passwords, AI API keys), and review cluster audit logs for unknown pods since Nov 17.",
+      "url": "https://www.bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets/",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
       "title": "Microsoft Azure API Management (APIM) flaw actively exploited to steal access tokens, secrets and named values; Equinor and Skagerak Energi hit, other firms in Norway and abroad",
       "severity": "critical",
       "exploited": true,
@@ -900,22 +936,6 @@
       "url": "https://www.cisa.gov/news-events/alerts/2026/11/20/cisa-adds-four-known-exploited-vulnerabilities-catalog",
       "ai_angle": [],
       "ai_note": ""
-    },
-    {
-      "title": "Java4Shell (CVE-2026-114938), found by AI: OpenJDK pre-auth RCE (Keycloak, Jira, Confluence, Jenkins, Artifactory, PingFederate); attackers now probing, no confirmed break-in",
-      "severity": "critical",
-      "exploited": false,
-      "cves": [
-        "CVE-2026-114938"
-      ],
-      "vendor": "OpenJDK and all builds (Oracle Java SE, GraalVM, Corretto, Temurin, Zulu, Microsoft, Red Hat, etc.)",
-      "why": "An out-of-bounds write in the JVM's AVX-512 Base64 decoder (Oracle CVSS 8.1, Calif 9.2) affects OpenJDK 17.0.6+, 21, 25 and 27 on x86-64 CPUs with AVX-512 VBMI (Intel Ice Lake+, AMD Zen 4+); ARM64 and Java 8/11 are not known affected. Calif has pre-auth code execution in default Keycloak, Jira, Confluence, Artifactory, Jenkins and PingFederate and is holding its exploits; a client-side exploit via a malicious TLS server also exists. GreyNoise logged 53 trigger-shaped malicious requests from 3 IPs and watchTowr sees 'java4shell-recon' scanning and blind attempts, but no successful exploitation is confirmed and it is not in CISA KEV. VulnCheck (customers only) and Immersive have working app-specific exploits; unverified exploit code is appearing on GitHub. Java 18-20, 22-24 and 26 will get no fix. Nov 19: CISA urges immediate patching; SecurityWeek reports probes continue (Cisco, Elastic, Red Hat, Siemens advisories out) and Cloudflare saw one IP pairing ARTEX with Java4Shell; still no confirmed break-in. Palo Alto Networks published a product-impact status page for it on Nov 19. Nov 20: Cisco published a Java4Shell product advisory (cisco-sa-nov2026-java-rce); still no confirmed break-in and no KEV listing.",
-      "action": "Install Oracle JDK 17.0.21.1, 21.0.13.1, 25.0.5.1 or 27.0.1.1 (Corretto fixed); move off unsupported Java versions. Until your vendor ships a build, start JVMs with -XX:-UseBASE64Intrinsics (test first). Do internet-facing Keycloak, Atlassian, Jenkins, Artifactory and PingFederate first, check JDKs bundled in containers and products (Cisco, Sophos advisories) and rebuild images. Don't run GitHub 'PoCs' blindly.",
-      "url": "https://www.tenable.com/blog/java4shell-cve-2026-114938-frequently-asked-questions-about-openjdk-rce-vulnerability",
-      "ai_angle": [
-        "cause"
-      ],
-      "ai_note": "Calif says researcher Quang Luong found it with OpenAI's GPT-6 Cyber through Codex (BankInfoSecurity, Straits Times)."
     },
     {
       "title": "React2STEAL (new, Nov 18): hijacked GitHub accounts' Actions runners mass-exploit unpatched React/Next.js servers and steal .env files, AWS credentials and AI keys; plus Fireworks AI's second breach and ArgonHunt's 44,096 stolen AI keys",
@@ -983,6 +1003,24 @@
       "blurb": "A jailbroken AI agent did the technical work for an unskilled operator against 50+ European banks, insurers and towns; breaches came from ordinary exposures, and MFA and allowlists stopped it."
     },
     {
+      "title": "Researcher plants 2m canaries into the AI supply chain. A privacy disaster surfaced.",
+      "source": "Ars Technica (Dan Goodin)",
+      "url": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/",
+      "blurb": "Dragos seeded ~2M prompts with canary secrets: at least three AI providers breached, resellers logging prompts, ZDR flags ignored. Updated Nov 21 with OpenRouter's MiniMax warning."
+    },
+    {
+      "title": "Security event: Prompt leakage for requests in June and July of 2026",
+      "source": "Together AI",
+      "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026",
+      "blurb": "An AI coding agent committed a Hugging Face credential to a public repo; an outsider downloaded stored prompt samples and tested credentials found in them."
+    },
+    {
+      "title": "Rackspace Spot breach let hackers access customer Kubernetes secrets",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets/",
+      "blurb": "Stolen credentials let attackers create pods and read Kubernetes Secrets in customer clusters on Nov 17; rotate tokens and cluster secrets."
+    },
+    {
       "title": "Bell Canada says 'agentic' hacker stole enterprise customer data",
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data/",
@@ -999,27 +1037,12 @@
       "source": "Drupal.org",
       "url": "https://www.drupal.org/sa-core-2026-017",
       "blurb": "The AI-found installer flaw CVE-2026-132165 has been exploited since at least Nov 19, 19:00 UTC; upgrade and block install.php."
-    },
-    {
-      "title": "NSM shares measures against vulnerability in Azure API Management",
-      "source": "NSM (Norway)",
-      "url": "https://nsm.no/aktuelt/nsm-deler-tiltak-mot-sarbarhet-i-azure-api-management",
-      "blurb": "Exploited APIM flaw hit Equinor, Skagerak Energi and others; patched, but rotate all APIM secrets and check RuntimeVersion."
-    },
-    {
-      "title": "FBI investigating potential breach of its crime database",
-      "source": "NBC News",
-      "url": "https://www.nbcnews.com/politics/justice-department/fbi-investigating-potential-breach-crime-database-rcna610536",
-      "blurb": "The FBI is looking into an apparent breach of NCIC, the database linking federal, state and local law enforcement; a USDA farmer-payment system was also hit this week. Few details so far."
-    },
-    {
-      "title": "VMware patches vCenter zero-day exploited in attacks since September",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/",
-      "blurb": "ARMORY CASTLE used the vCenter auth bypass two months before Broadcom's Nov 19 fix to take over SSO, forge Golden SAML tokens and get root on ESXi."
     }
   ],
   "watch": [
+    "Java4Shell CVE-2026-114938 (moved from focus; found by AI): OpenJDK pre-auth RCE on x86-64 with AVX-512 VBMI (OpenJDK 17.0.6+, 21, 25, 27); attackers probing, no confirmed break-in. Apply the October/November Java updates.",
+    "Prime Intellect (advisory, Nov 2026): an intruder replaced its DeepSeek V4.1 Flash endpoint with a refusal-stripped ('abliterated') model for about 53 hours (Nov 8-10); it reports no prompt or credential exposure.",
+    "Ghostscript 'Upload2Shell' CVE-2026-125396 (CVSS 8.5): real bug with a fix, but not on CISA KEV and no exploitation reported; update Ghostscript where uploads are converted.",
     "Rakuten Securities (Japan) says a test environment may have leaked details for up to 4.47M accounts and login IDs for up to 11.25M; passwords and PINs not affected (its Nov 17 notice).",
     "Cisco published an advisory (Nov 21) on which Cisco products are affected by the Nov 18 nginx fixes (nginx2root); check Cisco appliances that embed nginx.",
     "Unverified (single X post): CVE-2024-28545 reportedly exploited on Tenda routers; no vendor or CISA confirmation seen.",
