@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-22T17:40:00Z",
-  "next_update_note": "Next summary rewrite in about 4 hours (around 21:30 UTC Nov 22); the feed itself refreshes hourly.",
-  "headline": "Since 13:30 UTC Nov 22: no new exploited vulnerability or AI-run attack. New: Cleverbridge, the e-commerce/payment platform used by software vendors such as Red Hat, SUSE, Tenable, Veeam, Jamf and Parallels, says attackers copied stored payment card data (card number, expiry and CVV) after a Nov 4 intrusion; it began notifying buyers Nov 20 (BleepingComputer, Nov 22). Also new: a PoC was published for Jupyter MCP Server CVE-2026-77359 (DNS rebinding, CVSS 9.3; update to 1.0.3), and exploit code for phpAfterShell CVE-2026-126714 is reported on GitHub (unverified; no attacks seen per Cloudflare and CERT Sante). Still most important: the Cairn AI-agent zero-day in MONAI Label (upgrade to 0.8.6), the AI inference provider prompt leaks (rotate secrets sent in prompts), the Rackspace Spot Kubernetes Secrets breach, Drupal CVE-2026-132165 and Apache mod_http2 (AI-found, exploited), the exploited Azure API Management and Entra Connect Health flaws, CISA's Nov 20 KEV four (federal deadline tomorrow, Nov 23), React2STEAL, the hijacked agent-framework PyPI package and LiteLLM.",
-  "ai_headline": "No new AI-run attack or newly exploited AI product since 13:30 UTC Nov 22. Small updates: a public PoC for Jupyter MCP Server CVE-2026-77359 (a website can hijack a local Jupyter backend through DNS rebinding; fixed in 1.0.3), and X posts claim exploit code for AI-found phpAfterShell (CVE-2026-126714) is on GitHub (unverified; no in-the-wild use reported). Still leading: Amazon's report that a China-nexus actor's Cairn AI agents found and exploited MONAI Label CVE-2026-133968 on their own (fix: 0.8.6), CERT-In's warning on agentic offensive frameworks, SOCRadar's BabidiGhost and Bell Canada's 'agentic' breach; AI-found bugs exploited: Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 (reported). AI impact: OpenRouter off-boarded three inference providers after Dragos found prompts read; rotate secrets put in prompts. AI products: LiteLLM (KEV), the hijacked Microsoft agent-framework PyPI package.",
+  "updated_at": "2026-11-22T21:35:00Z",
+  "next_update_note": "Next summary rewrite in about 4 hours (around 01:30 UTC Nov 23); the feed itself refreshes hourly.",
+  "headline": "Since 17:30 UTC Nov 22: no new AI-run attack. New: GL.iNet confirms attackers exploited a flaw in its GoodCloud remote-management cloud to push malware to customers' routers and KVM devices (root reverse shells reported; cloud hole fixed, security firmware due Nov 22; BleepingComputer). Also new: France's Maileva (La Poste subsidiary) breach exposed names and addresses of about 22 million people. Still most important: the Cairn AI-agent zero-day in MONAI Label (upgrade to 0.8.6), the AI inference provider prompt leaks (rotate secrets sent in prompts), the Cleverbridge card theft, the Rackspace Spot Kubernetes Secrets breach, Drupal CVE-2026-132165 and Apache mod_http2 (AI-found, exploited), the exploited Azure API Management flaw, CISA's Nov 20 KEV four (federal deadline Nov 23), React2STEAL, the hijacked agent-framework PyPI package and LiteLLM.",
+  "ai_headline": "No new AI-run attack or newly exploited AI product since 17:30 UTC Nov 22. Still leading: Amazon's report that a China-nexus actor's Cairn AI agents found and exploited MONAI Label CVE-2026-133968 on their own (fix: 0.8.6), CERT-In's warning on agentic offensive frameworks, SOCRadar's BabidiGhost and Bell Canada's 'agentic' breach; AI-found bugs exploited: Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 (reported). AI impact: OpenRouter off-boarded three inference providers after Dragos found prompts read; rotate secrets put in prompts. AI products: LiteLLM (KEV), the hijacked Microsoft agent-framework PyPI package, Jupyter MCP Server PoC (fix 1.0.3).",
   "ai_activity": {
-    "overview": "Nov 22, 17:30 UTC. Another quiet four hours for new AI-run attacks: nothing newly exploited since 13:30 UTC. Updates: a public PoC for Jupyter MCP Server CVE-2026-77359 (fix 1.0.3), and unverified X claims of exploit code on GitHub for AI-found phpAfterShell CVE-2026-126714 (no attacks seen). The week's picture is unchanged: Amazon says a China-nexus actor's Cairn AI agents found and exploited MONAI Label CVE-2026-133968 on their own (fixed in MONAI Label 0.8.6, Nov 22); CERT-In (CIAD-2026-0062, Nov 20), the FBI and CERT-EU report agentic attack frameworks in live intrusions; SOCRadar documents BabidiGhost on a jailbroken agent; Bell Canada calls its Nov 17 breach 'agentic'. AI-found bugs Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 are exploited (the latter reported). AI impact: OpenRouter (Nov 22) off-boarded three inference providers and pulled 125 endpoints from Zero Data Retention after Dragos's canary study found prompts read at breached AI hosting providers; rotate any secrets sent in prompts. AI products: LiteLLM sandbox escape on CISA KEV, the hijacked Microsoft agent-framework PyPI package, malicious MCP packages. The StarTree mcp-pinot item aged out of the 7-day window.",
+    "overview": "Nov 22, 21:30 UTC. Quiet four hours for AI-run attacks: nothing new or newly exploited since 17:30 UTC (the main non-AI news is the GL.iNet GoodCloud cloud flaw used to infect routers and KVMs). The week's picture is unchanged: Amazon says a China-nexus actor's Cairn AI agents found and exploited MONAI Label CVE-2026-133968 on their own (fixed in MONAI Label 0.8.6); CERT-In (CIAD-2026-0062, Nov 20), the FBI and CERT-EU report agentic attack frameworks in live intrusions; SOCRadar documents BabidiGhost on a jailbroken agent; Bell Canada calls its Nov 17 breach 'agentic'. AI-found bugs Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 are exploited (the latter reported). AI impact: OpenRouter off-boarded three inference providers and pulled 125 endpoints from Zero Data Retention after Dragos's canary study found prompts read at breached AI hosting providers; rotate any secrets sent in prompts. AI products: LiteLLM sandbox escape on CISA KEV, the hijacked Microsoft agent-framework PyPI package, malicious MCP packages, a public PoC for Jupyter MCP Server CVE-2026-77359. Aged out of the 7-day window: the Nov 15 FBI ARTEX FLASH coverage and the Luxor hashrate-redirect attack. Counts: 36 AI-cause, 20 AI-product, 13 AI-impact items.",
     "counts": {
-      "ai_cause": 38,
+      "ai_cause": 36,
       "ai_product_exploited": 20,
       "ai_impact": 13
     },
@@ -376,24 +376,6 @@
             "cves": [],
             "url": "https://news.lnbits.com/news/november-8th-incident-report",
             "source": "LNbits"
-          },
-          {
-            "title": "FBI ARTEX FLASH coverage (BleepingComputer, Nov 15): ARTEX tied to the October ConnectWise Cloud Backup (SkyKick) supply-chain breach; Storm-0940 tried 2,250+ downstream Microsoft 365 tenants",
-            "date": "2026-11-15T18:29:53Z",
-            "summary": "Multiple actors have used ARTEX since at least August against finance, government, tech, defense and health; some intrusions went from targeting to privileged access in under three hours; 1,600+ exposed consoles as of early November. Huntress counted at least 162 compromised tenants in the ConnectWise case.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/",
-            "source": "BleepingComputer"
-          },
-          {
-            "title": "Luxor: AI-enabled attack abused its Commander tool to redirect hashrate from 12+ client accounts to OCEAN pool",
-            "date": "2026-11-15T18:00:00Z",
-            "summary": "Detected night of Nov 14, contained in about two hours, patched; Luxor promises full reimbursement. Early ~13 EH/s / ~64,000-machine figures unconfirmed; no technical details on the AI use yet.",
-            "status": "patched",
-            "cves": [],
-            "url": "https://www.theblock.co/news/business/2026-11-15-luxor-attack-client-hashrate-440810",
-            "source": "The Block"
           }
         ]
       },
@@ -741,7 +723,7 @@
         ]
       }
     ],
-    "trend_note": "Since the last rewrite: no new AI-run incidents; the newest items are PoCs and exploit claims for already-patched AI-tool and AI-found bugs, which tends to precede exploitation by days. Trend: AI-run intrusions are now documented from both ends, skilled state-linked operators (Cairn finding a zero-day) and unskilled criminals (BabidiGhost on a jailbroken agent), and agents mostly win on exposed, unauthenticated or unpatched services. AI-found bugs are being exploited within days of the fix (Drupal about a day after the Nov 18 patch), so patch AI-found CVEs as if exploited."
+    "trend_note": "Since the last rewrite: no new AI-run incidents; newest AI items are PoCs for already-patched MCP and agent tools (Jupyter MCP Server, k8s-mcp-server, MCP Python SDK OAuth), which tends to precede exploitation by days. Trend: AI-run intrusions are documented from both skilled state-linked operators (Cairn finding a zero-day) and unskilled criminals (BabidiGhost), and agents mostly win on exposed, unauthenticated or unpatched services. AI-found bugs are exploited within days of the fix (Drupal about a day after the Nov 18 patch), so patch AI-found CVEs as if exploited."
   },
   "focus": [
     {
@@ -836,6 +818,18 @@
       "ai_note": ""
     },
     {
+      "title": "GL.iNet GoodCloud cloud flaw exploited to plant malware on routers and KVM devices (new, advisory Nov 20, BleepingComputer Nov 22)",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [],
+      "vendor": "GL.iNet",
+      "why": "GL.iNet confirms an attacker abused a vulnerability in its GoodCloud remote-management service to install malware on customer routers and KVMs; users report root reverse shells (nc to 170.39.226[.]219) and a 'crond -i /tmp/.log' process. One consultancy reports suspicious activity on 152 of 183 managed routers (X, unverified). KVM infections may reach the computers they control. No CVE yet; GL.iNet has not said how many devices were hit.",
+      "action": "Check GL.iNet devices for 'crond -i /tmp/.log' and unknown files, run the community scanner GL.iNet links, install the latest security firmware (KVM: 1.10.3+ for RM10/RM1/RM1V2/RM1PE/RM4PE, 1.8.7+ for RMQ1). If infected, reflash without restoring settings, check attached computers, and rotate credentials and keys used on or through the device. Consider disabling GoodCloud if unused.",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-glinet-cloud-flaw-to-infect-routers-kvm-devices/",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
       "title": "Microsoft Azure API Management (APIM) flaw actively exploited to steal access tokens, secrets and named values; Equinor and Skagerak Energi hit, other firms in Norway and abroad",
       "severity": "critical",
       "exploited": true,
@@ -844,18 +838,6 @@
       "why": "Norway's NSM (Nov 20) says an unknown actor actively targeted access tokens, secrets and named values in APIM; the flaw is now closed by Microsoft, but how widely it was used is still unclear. No CVE or Microsoft advisory in our sources yet. Equinor says its attack was stopped with no sign of data theft or alteration.",
       "action": "Assume all APIM secrets, tokens and named values are exposed: rotate them and the backend credentials they hold. Check the instance's RuntimeVersion via /internal-status-0123456789abcdef: 0.52.x is patched at build 31936+, 0.53.x at 31938+ (v2 and Consumption tiers are not affected); if lower, contact Microsoft. Review what sits behind APIM and its logs for misuse.",
       "url": "https://nsm.no/aktuelt/nsm-deler-tiltak-mot-sarbarhet-i-azure-api-management",
-      "ai_angle": [],
-      "ai_note": ""
-    },
-    {
-      "title": "Microsoft Entra Connect Health API flaw exploited: attackers read tenant metadata and admin email addresses (new, Nov 21)",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "Microsoft",
-      "why": "Microsoft told affected tenants that a flaw in the Entra Connect Health API (introduced Jul 23, found Nov 9) was exploited for read-only access to administrator and technical-contact email addresses, tenant IDs and names, domains, country/region, Entra license tiers, directory-sync status and an expired, unused certificate. Microsoft says no passwords, hashes, tokens, valid keys, AD topology or Azure subscription data were exposed and no configuration changes were found. It has not said who did it or how many tenants were hit; MSPs report notices for several customer tenants.",
-      "action": "No patch to install (fixed server-side Nov 19). Check for Microsoft's notification, warn admins named as contacts about targeted phishing, make sure privileged accounts use phishing-resistant MFA, review Connect Health settings and Entra audit/sign-in logs; Microsoft's script at aka.ms/ConnectHealth/scripts shows which metadata types apply to your tenant.",
-      "url": "https://www.bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data/",
       "ai_angle": [],
       "ai_note": ""
     },
@@ -970,6 +952,12 @@
       "blurb": "OpenRouter off-boarded three inference providers and removed 125 endpoints from Zero Data Retention after Dragos's canary study showed prompts stolen from inside AI hosting firms for months. Rotate any secret ever sent in a prompt."
     },
     {
+      "title": "Hackers exploit GL.iNet cloud flaw to infect routers, KVM devices",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-glinet-cloud-flaw-to-infect-routers-kvm-devices/",
+      "blurb": "GL.iNet confirms its GoodCloud remote-management service was abused to install malware and reverse shells on customer routers and KVMs; cloud hole fixed, firmware updates due Nov 22, infected devices need reflashing."
+    },
+    {
       "title": "Cleverbridge warns hackers stole credit card numbers, CVVs in data breach",
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/cleverbridge-warns-hackers-stole-credit-card-numbers-cvvs-in-data-breach/",
@@ -980,12 +968,6 @@
       "source": "ThePrint (Reuters)",
       "url": "https://theprint.in/india/cert-in-flags-unauthorised-transactions-at-financial-service-providers-amid-cyberattacks/3105138/",
       "blurb": "CERT-In advisory CIAD-2026-0062 (Nov 20): attackers alter payment records and approvals at service providers, and agentic AI frameworks automate recon and exploits across sectors."
-    },
-    {
-      "title": "MONAI Label 0.8.6 security release (fixes CVE-2026-133968)",
-      "source": "GitHub (Project-MONAI)",
-      "url": "https://github.com/Project-MONAI/MONAILabel/releases/tag/0.8.6",
-      "blurb": "Fixes the datastore upload path traversal Cairn AI agents exploited, plus a session-upload path traversal; all deployments should upgrade."
     },
     {
       "title": "Security event: Prompt leakage for requests in June and July of 2026",
@@ -1001,6 +983,8 @@
     }
   ],
   "watch": [
+    "Maileva (La Poste subsidiary, France, reported this week): breach exposed names and addresses of about 22 million people, called one of France's largest. Expect postal/parcel-themed phishing. Source: this.weekinsecurity.com Nov 22 edition (citing DataBreaches.net, Actu.fr, Infosecurity Magazine).",
+    "Microsoft Entra Connect Health API flaw (moved from focus; exploited, Nov 21): Microsoft told affected tenants that a flaw in the Entra Connect Health API (introduced Jul 23, found Nov 9) was exploited for read-only access to administrator and technical-contact email addresses, tenant IDs and names, domains, country/region, Entra license tiers, directory-sync status and an expired, unused certificate. Microsoft says no passwords, hashes, tokens, valid keys, AD topology or Az Action: No patch to install (fixed server-side Nov 19). Check for Microsoft's notification, warn admins named as contacts about targeted phishing, make sure privileged accounts use phishing-resistant MFA, review Connect Health settings and Entra audit/sign-in logs; Microsoft's script at aka.ms/ConnectHealth https://www.bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data/",
     "Jupyter MCP Server CVE-2026-77359 (CVSS 9.3, advisory Nov 20): DNS rebinding lets a malicious website hijack a local Jupyter MCP server; a public PoC was reported Nov 22, no exploitation. Update to 1.0.3. https://github.com/advisories/GHSA-9x8x-crjq-g64h",
     "Tower Records Japan (notice Nov 21, updated Nov 22): intrusion into Tower Records Online found Nov 19; about 11M records leaked: 10,214,652 login records (email, member ID, password hash), 2.78M member profiles, 776,953 delivery addresses; no card data, store still offline. Change any reused password and expect Tower Records-themed phishing.",
     "KEPCO (Korea Electric Power, Nov 22, Yonhap): attacker stole data from its KEPCO ON customer platform (650,487 users: names, resident registration numbers, bank account and card details, billing) and SRM procurement system (869,761 users); found Nov 20, its second breach in a month.",
