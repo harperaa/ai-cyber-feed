@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-22T13:50:00Z",
-  "next_update_note": "Next summary rewrite in about 4 hours (around 17:30 UTC Nov 22); the feed itself refreshes hourly.",
-  "headline": "Since 09:30 UTC Nov 22: no new exploited vulnerability or AI-run attack, but two fixes and new breach notices. MONAI Label 0.8.6 is out (security release, published 01:29 UTC Nov 22) and fixes CVE-2026-133968, the zero-day Amazon says Cairn AI agents found and exploited; upgrade now. India's CERT-In (advisory CIAD-2026-0062, Nov 20, rated critical) says AI-driven 'agentic offensive frameworks' are being used against companies, service providers, government bodies and research institutions, alongside payment-workflow fraud. New breach notices: Tower Records Japan (about 11M records, incl. 10.2M login records with password hashes), KEPCO (Korea's state power utility, 1.52M people incl. resident numbers and bank and card details) and Zozo (15.2M customers via the PLAID KARTE breach). Still most important: the AI inference provider prompt leaks (rotate secrets sent in prompts), the Rackspace Spot Kubernetes Secrets breach, Drupal CVE-2026-132165 and Apache mod_http2 (AI-found, exploited), the exploited Azure API Management and Entra Connect Health flaws, CISA's Nov 20 KEV four (federal deadline tomorrow, Nov 23), React2STEAL, the hijacked agent-framework PyPI package and LiteLLM.",
-  "ai_headline": "No new AI-run attack or newly exploited AI product since 09:30 UTC Nov 22. Two updates: MONAI Label 0.8.6 now fixes CVE-2026-133968 (the bug Amazon says Cairn AI agents found and exploited on their own; a public exploit is reported), so upgrade instead of building from source; and India's CERT-In (CIAD-2026-0062, Nov 20) reports AI-driven agentic offensive frameworks automating recon, exploit prep and parallel intrusion in real attacks across sectors (no victims named). Still leading: SOCRadar's BabidiGhost jailbroken agent and Bell Canada's 'agentic' breach; AI-found bugs exploited: Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 (reported). AI impact: OpenRouter off-boarded three inference providers after Dragos found prompts read; rotate secrets put in prompts. AI products: LiteLLM (KEV), the hijacked Microsoft agent-framework PyPI package.",
+  "updated_at": "2026-11-22T17:40:00Z",
+  "next_update_note": "Next summary rewrite in about 4 hours (around 21:30 UTC Nov 22); the feed itself refreshes hourly.",
+  "headline": "Since 13:30 UTC Nov 22: no new exploited vulnerability or AI-run attack. New: Cleverbridge, the e-commerce/payment platform used by software vendors such as Red Hat, SUSE, Tenable, Veeam, Jamf and Parallels, says attackers copied stored payment card data (card number, expiry and CVV) after a Nov 4 intrusion; it began notifying buyers Nov 20 (BleepingComputer, Nov 22). Also new: a PoC was published for Jupyter MCP Server CVE-2026-77359 (DNS rebinding, CVSS 9.3; update to 1.0.3), and exploit code for phpAfterShell CVE-2026-126714 is reported on GitHub (unverified; no attacks seen per Cloudflare and CERT Sante). Still most important: the Cairn AI-agent zero-day in MONAI Label (upgrade to 0.8.6), the AI inference provider prompt leaks (rotate secrets sent in prompts), the Rackspace Spot Kubernetes Secrets breach, Drupal CVE-2026-132165 and Apache mod_http2 (AI-found, exploited), the exploited Azure API Management and Entra Connect Health flaws, CISA's Nov 20 KEV four (federal deadline tomorrow, Nov 23), React2STEAL, the hijacked agent-framework PyPI package and LiteLLM.",
+  "ai_headline": "No new AI-run attack or newly exploited AI product since 13:30 UTC Nov 22. Small updates: a public PoC for Jupyter MCP Server CVE-2026-77359 (a website can hijack a local Jupyter backend through DNS rebinding; fixed in 1.0.3), and X posts claim exploit code for AI-found phpAfterShell (CVE-2026-126714) is on GitHub (unverified; no in-the-wild use reported). Still leading: Amazon's report that a China-nexus actor's Cairn AI agents found and exploited MONAI Label CVE-2026-133968 on their own (fix: 0.8.6), CERT-In's warning on agentic offensive frameworks, SOCRadar's BabidiGhost and Bell Canada's 'agentic' breach; AI-found bugs exploited: Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 (reported). AI impact: OpenRouter off-boarded three inference providers after Dragos found prompts read; rotate secrets put in prompts. AI products: LiteLLM (KEV), the hijacked Microsoft agent-framework PyPI package.",
   "ai_activity": {
-    "overview": "Nov 22, 13:30 UTC. Quiet four hours for new AI-run attacks: nothing newly exploited since 09:30 UTC. Updates: MONAI Label 0.8.6 (Nov 22) fixes CVE-2026-133968, the zero-day Amazon says Cairn AI agents found and exploited; and India's CERT-In (CIAD-2026-0062, Nov 20) reports agentic offensive frameworks in live attacks across sectors. Update: OpenRouter (Nov 22) off-boarded three inference providers, removed 125 endpoints from Zero Data Retention eligibility and notified affected customers after Dragos's canary study (Nov 19-20) found at least three AI hosting providers breached and prompts read; Novita, Phala and Together AI have posted notices, GMI Cloud was cut off, and Prime Intellect reported a 53-hour malicious model swap. New unverified chatter: one X post calls the exploited Puppet Enterprise CVE-2026-115731 'AI-discovered'. Nov 21: Ghostscript 'Upload2Shell' CVE-2026-125396 reportedly AI-found (fixed, not exploited); ServiceNow's email-reply AI agent prompt injection CVE-2026-18883 and SurrealDB's MCP server SQL injection CVE-2026-134293 fixed; Drupal CVE-2026-132165 (AI-found) exploited since Nov 19. Nov 20-21: SOCRadar's BabidiGhost jailbroken agent against 50+ European targets: a public exploit for the Cairn-found MONAI Label CVE-2026-133968 reported (now fixed in 0.8.6). Earlier this week: Apache mod_http2 CVE-2026-119618 (AI-found) reportedly exploited, Bell Canada's 'agentic' breach, the European Commission (reportedly ARTEX), Symantec's AI-written toolkit, Darktrace's ARTEX intrusions, GTIG's exploit_agent, Elastic's CyberStrikeAI AWS intrusion, Barracuda; the TrustedSec 14-minute swarm is unverified. AI-found bugs: NGINX2Root (public PoCs), Java4Shell (probing only), phpAfterShell and Bitcoin Core (patched). AI products: MONAI Label, LiteLLM CVE-2026-40217 (KEV), the Microsoft agent-framework PyPI stealer, malicious MCP packages, flyto-core (exploit claim unverified), Flowise's unfixable MCP token leak. AI impact: React2STEAL and ArgonHunt AI-key theft, Triple Whale, Fireworks AI's second breach, Barracuda's AI-vendor key and Fugaku.",
+    "overview": "Nov 22, 17:30 UTC. Another quiet four hours for new AI-run attacks: nothing newly exploited since 13:30 UTC. Updates: a public PoC for Jupyter MCP Server CVE-2026-77359 (fix 1.0.3), and unverified X claims of exploit code on GitHub for AI-found phpAfterShell CVE-2026-126714 (no attacks seen). The week's picture is unchanged: Amazon says a China-nexus actor's Cairn AI agents found and exploited MONAI Label CVE-2026-133968 on their own (fixed in MONAI Label 0.8.6, Nov 22); CERT-In (CIAD-2026-0062, Nov 20), the FBI and CERT-EU report agentic attack frameworks in live intrusions; SOCRadar documents BabidiGhost on a jailbroken agent; Bell Canada calls its Nov 17 breach 'agentic'. AI-found bugs Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 are exploited (the latter reported). AI impact: OpenRouter (Nov 22) off-boarded three inference providers and pulled 125 endpoints from Zero Data Retention after Dragos's canary study found prompts read at breached AI hosting providers; rotate any secrets sent in prompts. AI products: LiteLLM sandbox escape on CISA KEV, the hijacked Microsoft agent-framework PyPI package, malicious MCP packages. The StarTree mcp-pinot item aged out of the 7-day window.",
     "counts": {
       "ai_cause": 38,
       "ai_product_exploited": 20,
@@ -117,7 +117,7 @@
           {
             "title": "phpAfterShell: critical PHP session RCE CVE-2026-126714 (CVSS 9.2) found with depthfirst's own AI models; fixed in PHP 8.5.13/8.4.28/8.3.37/8.2.36 on Nov 19",
             "date": "2026-11-19T15:00:00Z",
-            "summary": "depthfirst says its cyber-focused AI models found the partly overwritten session-file deserialization bug (Forbes). PHP fixed it with 17 other CVEs on Nov 19. Critical issues need non-default setups; no exploitation reported.",
+            "summary": "depthfirst says its cyber-focused AI models found the partly overwritten session-file deserialization bug (Forbes). PHP fixed it with 17 other CVEs on Nov 19. Critical issues need non-default setups; no exploitation reported. Update (Nov 22): X posts say exploit code is on GitHub (unverified); Cloudflare and CERT Sante report no attacks seen and it is not on CISA KEV.",
             "status": "patched",
             "cves": [
               "CVE-2026-126714"
@@ -401,6 +401,17 @@
         "label": "AI products being exploited",
         "items": [
           {
+            "title": "Jupyter MCP Server CVE-2026-77359 (CVSS 9.3): DNS rebinding lets a malicious website hijack the Jupyter backend; PoC published",
+            "date": "2026-11-22T01:38:00Z",
+            "summary": "Advisory published Nov 20: browser DNS rebinding bypasses Host/Origin checks on the server's management routes, so a web page can reach a local Jupyter MCP server and point it at attacker infrastructure. A public PoC was reported Nov 22 (SecAlerts on X); no exploitation reported. Update to 1.0.3.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-77359"
+            ],
+            "url": "https://github.com/advisories/GHSA-9x8x-crjq-g64h",
+            "source": "GitHub Advisory / X"
+          },
+          {
             "title": "ServiceNow Now Assist for CSM email-reply AI agent: indirect prompt injection CVE-2026-18883",
             "date": "2026-11-21T14:36:00Z",
             "summary": "Instructions hidden in an inbound customer email could steer the agent. ServiceNow fixed it centrally (agent collection v6.1); no customer action or platform upgrade is required. No exploitation reported.",
@@ -598,17 +609,6 @@
             ],
             "url": "https://github.com/advisories/GHSA-gj9m-f8ph-pmhr",
             "source": "GitHub advisory / CISA KEV"
-          },
-          {
-            "title": "StarTree mcp-pinot MCP server CVE-2026-49257 (CVSS 10): default config bound to 0.0.0.0 with OAuth off, so anyone reaching it could run tools with the server's Pinot credentials",
-            "date": "2026-11-15T12:20:00Z",
-            "summary": "Affects mcp-pinot-server through 3.0.1. Upgrade to 3.1.0+; otherwise bind to 127.0.0.1 or enable OAuth. Not reported exploited.",
-            "status": "patched",
-            "cves": [
-              "CVE-2026-49257"
-            ],
-            "url": "https://github.com/advisories/GHSA-73cv-556c-w3g6",
-            "source": "GitHub Advisory"
           }
         ]
       },
@@ -741,7 +741,7 @@
         ]
       }
     ],
-    "trend_note": "Since the last rewrite: the MONAI Label fix shipped (about four days after the advisory, two months after the in-the-wild exploitation), and CERT-In joins the FBI and CERT-EU in reporting agentic attack frameworks in real intrusions. Trend: AI-run intrusions are now documented from both ends, skilled state-linked operators (Cairn finding a zero-day) and unskilled criminals (BabidiGhost on a jailbroken agent), and in both cases agents mostly win on exposed, unauthenticated or unpatched services. AI-found bugs are being exploited within days of the fix (Drupal about a day after the Nov 18 patch, mod_http2 within a week), so treat any AI-credited patch as urgent. The AI inference supply chain is itself a target: hosting providers were breached to read prompts and Zero Data Retention labels did not hold, so never put live credentials in prompts. Revoking BabidiGhost's model API key ended its campaign, so provider abuse detection is a real lever. Practical steps: keep AI/ML research tools (MONAI, Jupyter, Ray, model servers) off the internet with auth on; patch internet-facing web stacks within days; require phishing-resistant MFA; auto-block bursts of probing or logins; rotate long-lived and vendor-held keys, including AI provider keys."
+    "trend_note": "Since the last rewrite: no new AI-run incidents; the newest items are PoCs and exploit claims for already-patched AI-tool and AI-found bugs, which tends to precede exploitation by days. Trend: AI-run intrusions are now documented from both ends, skilled state-linked operators (Cairn finding a zero-day) and unskilled criminals (BabidiGhost on a jailbroken agent), and agents mostly win on exposed, unauthenticated or unpatched services. AI-found bugs are being exploited within days of the fix (Drupal about a day after the Nov 18 patch), so patch AI-found CVEs as if exploited."
   },
   "focus": [
     {
@@ -860,14 +860,14 @@
       "ai_note": ""
     },
     {
-      "title": "SaaS breaches that need key rotation: MoEngage cloud breach via leaked third-party credentials (ZebPay data taken) and Triple Whale (Shopify app) breach with claimed Shopify token theft",
+      "title": "SaaS breaches that need action: Cleverbridge payment platform card theft incl. CVVs (new, Nov 22), MoEngage cloud breach via leaked third-party credentials (ZebPay data taken) and Triple Whale (Shopify app) breach with claimed Shopify token theft",
       "severity": "high",
       "exploited": true,
       "cves": [],
-      "vendor": "MoEngage (customer-engagement platform); Triple Whale (Shopify analytics app)",
-      "why": "MoEngage says an attacker used compromised credentials from a third-party provider to reach parts of its cloud, disrupting customer access for nearly a week (some restored Nov 19). It says no customer data was accessed, but ZebPay told its users their contact, device and recent activity data was taken through MoEngage. Triple Whale says an attacker was in its internal systems Oct 31-Nov 1 (disclosed Nov 20); a forum seller claims 91,310 Shopify tokens across 20,510 stores and 12.6M Tarte Cosmetics customer records (unverified).",
-      "action": "MoEngage customers: rotate MoEngage API keys and restrict API access to trusted IPs as MoEngage advises. Shopify merchants that installed Triple Whale: rotate the app's access, check for a Triple Whale notice, and review store admin activity and new apps or staff accounts.",
-      "url": "https://economictimes.indiatimes.com/tech/technology/moengage-faces-cyberattack-access-disrupted-for-some-customers/articleshow/136034444.cms",
+      "vendor": "Cleverbridge (e-commerce/payments for software vendors); MoEngage (customer-engagement platform); Triple Whale (Shopify analytics app)",
+      "why": "Cleverbridge, which sells software and subscriptions for vendors such as Red Hat, SUSE, Tenable, Veeam, Jamf, Sony and Parallels, detected an intrusion on Nov 4 and later found a third party copied payment card data stored on its platform; notices sent from Nov 20 list card number, expiry date and CVV/CVC (BleepingComputer, Nov 22). It has not said how many buyers or which vendors are affected. MoEngage says an attacker used compromised credentials from a third-party provider to reach parts of its cloud, disrupting customer access for nearly a week (some restored Nov 19). It says no customer data was accessed, but ZebPay told its users their contact, device and recent activity data was taken through MoEngage. Triple Whale says an attacker was in its internal systems Oct 31-Nov 1 (disclosed Nov 20); a forum seller claims 91,310 Shopify tokens across 20,510 stores and 12.6M Tarte Cosmetics customer records (unverified).",
+      "action": "If you bought software through a Cleverbridge checkout, watch for its notice and ask your bank to replace the named card (stolen CVVs allow online fraud); check statements now. MoEngage customers: rotate MoEngage API keys and restrict API access to trusted IPs as MoEngage advises. Shopify merchants that installed Triple Whale: rotate the app's access, check for a Triple Whale notice, and review store admin activity and new apps or staff accounts.",
+      "url": "https://www.bleepingcomputer.com/news/security/cleverbridge-warns-hackers-stole-credit-card-numbers-cvvs-in-data-breach/",
       "ai_angle": [
         "impact"
       ],
@@ -970,6 +970,12 @@
       "blurb": "OpenRouter off-boarded three inference providers and removed 125 endpoints from Zero Data Retention after Dragos's canary study showed prompts stolen from inside AI hosting firms for months. Rotate any secret ever sent in a prompt."
     },
     {
+      "title": "Cleverbridge warns hackers stole credit card numbers, CVVs in data breach",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/cleverbridge-warns-hackers-stole-credit-card-numbers-cvvs-in-data-breach/",
+      "blurb": "The payment platform behind many software vendors' web stores found an intrusion Nov 4; attackers copied stored card numbers, expiry dates and CVVs. Notices began Nov 20; scale and affected vendors not disclosed."
+    },
+    {
       "title": "CERT-In flags unauthorised transactions at financial service providers and AI-driven agentic attack frameworks",
       "source": "ThePrint (Reuters)",
       "url": "https://theprint.in/india/cert-in-flags-unauthorised-transactions-at-financial-service-providers-amid-cyberattacks/3105138/",
@@ -988,12 +994,6 @@
       "blurb": "An AI coding agent committed a Hugging Face credential to a public repo; an outsider downloaded stored prompt samples and tested credentials found in them."
     },
     {
-      "title": "Tower Records Japan reports data breach affecting 10.2 million accounts",
-      "source": "Investing.com / NHK",
-      "url": "https://www.investing.com/news/company-news/tower-records-japan-reports-data-breach-affecting-102-million-accounts-5043878",
-      "blurb": "Intrusion found Nov 19 at Tower Records Online: about 11M records, incl. emails, member IDs and password hashes; no card data. Change reused passwords."
-    },
-    {
       "title": "Rackspace Spot breach let hackers access customer Kubernetes secrets",
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets/",
@@ -1001,6 +1001,7 @@
     }
   ],
   "watch": [
+    "Jupyter MCP Server CVE-2026-77359 (CVSS 9.3, advisory Nov 20): DNS rebinding lets a malicious website hijack a local Jupyter MCP server; a public PoC was reported Nov 22, no exploitation. Update to 1.0.3. https://github.com/advisories/GHSA-9x8x-crjq-g64h",
     "Tower Records Japan (notice Nov 21, updated Nov 22): intrusion into Tower Records Online found Nov 19; about 11M records leaked: 10,214,652 login records (email, member ID, password hash), 2.78M member profiles, 776,953 delivery addresses; no card data, store still offline. Change any reused password and expect Tower Records-themed phishing.",
     "KEPCO (Korea Electric Power, Nov 22, Yonhap): attacker stole data from its KEPCO ON customer platform (650,487 users: names, resident registration numbers, bank account and card details, billing) and SRM procurement system (869,761 users); found Nov 20, its second breach in a month.",
     "Zozo (Japan, Nov 20-21): about 15.2M customers' data exposed via the PLAID KARTE marketing-platform breach (also Marui, SMBC, EPOS, MUFG). KARTE customers should check their exposure.",
@@ -1030,7 +1031,7 @@
     "New malicious packages (OpenSSF, Nov 20-21): npm @pkgship/frps-windows-amd64 0.71.1, aia-b-locator-fe 1.0.3, orion-overlord; PyPI signed-manifest-updater 0.1.5 (runs a remote script on install). Remove and rotate secrets if installed.",
     "Bitcoin Core CVE-2026-117348 (Nov 20; found by Spiral's AI tool Project Loupe): a peer can stall a node by repeating one orphan txid; upgrade to 30.5, 31.3 or 32.1 (29.x is end of life).",
     "Staples Canada (CBC, Nov 20): a third party reached customer data on the staplesprint.ca print site between Nov 1 and Nov 5; Staples says no financial data and no other sites affected. Expect Staples-themed phishing.",
-    "phpAfterShell PHP CVE-2026-126714 (found with depthfirst AI): fixed in PHP 8.5.13/8.4.28/8.3.37/8.2.36; no exploitation reported. (Drupal CVE-2026-132165 moved to focus: now exploited.)",
+    "phpAfterShell PHP CVE-2026-126714 (found with depthfirst AI): fixed in PHP 8.5.13/8.4.28/8.3.37/8.2.36. Update (Nov 22): X posts claim exploit code is on GitHub (unverified); Cloudflare and CERT Sante report no attacks and it is not on CISA KEV. Patch now.",
     "NGINX2Root (moved from focus; PoCs public, no confirmed exploitation): pre-auth RCE in NGINX with HTTP/2 (CVE-2026-123007, CVE-2026-123633), found with Wiz's AI scanner. Install F5's fixed NGINX/NGINX Plus builds or disable HTTP/2 until patched.",
     "FBI (NBC/CNN, Nov 20): investigating an apparent breach of the National Crime Information Center (NCIC), the system that shares crime records between federal, state and local police. No details yet on the attacker, entry point or data taken; watch for FBI confirmation and CJIS guidance to agencies.",
     "USDA (NBC, Nov 20): employees were told Nov 19 that a system used to pay farmers was breached; officials say no other systems were hit as of Nov 20. Expect payment-themed phishing aimed at farmers.",
