@@ -1,62 +1,25 @@
 [
  {
-  "url": "https://x.com/tribalalerts/status/2124953622102306861",
-  "author": "tribalalerts",
-  "text": "Patching a cloud bug doesn't un-steal a secret.\n\nPer SecurityWeek and Norway's NSM: attackers abused a flaw in Azure API Management Classic to reach stored secrets: identity-provider client secrets, subscription keys, management API tokens. $MSFT closed the path Nov 19. Equinor",
-  "created_at": "2026-11-23T19:49:57.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/iamericpereira/status/2124942709710553544",
-  "author": "iamericpereira",
-  "text": "Rackspace warned that attackers used compromised credentials to breach its Spot platform, deploy unauthorized workloads, and reach Kubernetes secrets in customer clusters.\n\nYour cloud bill is an intrusion detector you already pay for. An unexplained workload is not a billing",
-  "created_at": "2026-11-23T19:06:36.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/HumanGlitcee/status/2124941782362603611",
-  "author": "HumanGlitcee",
-  "text": "An AI agent discovered and exploited a zero-day vulnerability in just 11 minutes.\nAmazon documented it.\nAI isn't just writing code anymore. It's finding ways into systems nobody knew were vulnerable.\nCybersecurity just got a lot more complicated.\n#AI #Cybersecurity",
-  "created_at": "2026-11-23T19:02:55.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/0xShekhar/status/2124939523234877859",
-  "author": "0xShekhar",
-  "text": "BREAKING: Cisco Expressway is being EXPLOITED in the wild.\n\nCVE-2026-76466 — CVSS 9.8 — Root access.\n\nPublic PoC dropped. Attackers used it to break into an internal network.\n\nCISA just added it to KEV. Patch NOW.\n\nHere's why this matters:",
-  "created_at": "2026-11-23T18:53:56.000Z",
+  "url": "https://x.com/ksg93rd/status/2124881305217257854",
+  "author": "ksg93rd",
+  "text": "#exploit\n#AppSec\nCVE-2026-123890:\nVMware vCenter vmdir SRP-6a Session-Key Disclosure\nhttps://t.co/blw1uAlJ04\n// Unauthenticated authentication bypass in VMware Directory Service (vmdird) DCE/RPC rpc_srp_verifier interface on TCP 2012 (CVSS 9.8, actively exploited in the wild).",
+  "created_at": "2026-11-23T15:02:36.000Z",
   "cves": [
-   "CVE-2026-76466"
+   "CVE-2026-123890"
   ]
  },
  {
-  "url": "https://x.com/stretchcloud/status/2124935261226258885",
-  "author": "stretchcloud",
-  "text": "Eight search APIs, 4,719 completely ordinary queries, nothing malicious in a single one of them. Every API still returned known-malicious content to at least some of those queries.\n\nThat's the finding behind AIR Research Lab's new WebSec Benchmark 2026, the first benchmark measuring the security of the web search APIs that AI agents actually rely on. Firecrawl, Tavily and Perplexity came out on top, which still means seven providers below them did worse, and none of the eight tested risk-free. Most \"agent security\" conversation is about models, permissions and guardrails, the stuff that matters after the agent already has bad content sitting in its context. Web search is one of the most common ways untrusted material gets into that context in the first place, and almost nobody benchmarks it.\n\nThis isn't a hypothetical academics invented to get a paper accepted. There's a real body of research on this exact attack surface right now: BrowseSafe documented prompt injection through abandoned websites agents still crawl, WAInjectBench built a benchmark specifically for detecting injection in web agent traffic, SafeSearch runs automated red-teaming against search-based agents, and a separate \"Harness Matters\" paper found the agent's own tool harness, not just the model, determines how resilient it is to this kind of attack. The open web has always had malware and lookalike sites. What changed is that a page written with hidden instructions aimed at an AI agent, not a human, is now something you can run into on a completely routine search. Once an agent acts on what it reads, it acts with your credentials and your environment attached.\n\nMy take: search API providers are going to start competing on this the way cloud providers compete on compliance certifications, not as a footnote but as a primary purchase criterion for anyone deploying agents against real data. Firecrawl's benchmark position here plus the audited knowledge library it just launched both point the same direction: the bet is that trust becomes the moat once every provider's raw scraping capability starts looking the same.\n\nhttps://t.co/fEMIyy7A6P",
-  "created_at": "2026-11-23T18:37:00.000Z",
+  "url": "https://x.com/SecurityAr58409/status/2124820840491462797",
+  "author": "SecurityAr58409",
+  "text": "🔒 #CyberSecurity\n\nCisco Expressway RCE Actively Exploited: CISA KEV Alert — Detection and Remedia…\n\n\"The Cybersecurity and Infrastructure Security Agency (CISA) has added a critical Cisco…\"\n\n🔗 https://t.co/MsIotfPfEr\n\n#CyberSecurity #ThreatIntel #critical #zeroday #cve",
+  "created_at": "2026-11-23T11:02:20.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/lwytch/status/2124927470965002320",
-  "author": "lwytch",
-  "text": "10 cyber security signals you missed today 👇\nYour daily security rundown, in one scroll.\n\n1. Attackers abused a flaw in GL.iNet's GoodCloud remote management to plant malware on some of its routers and KVM devices. The cloud fix doesn't clean infected kit, so flash the security",
-  "created_at": "2026-11-23T18:06:02.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/HACKTIFY_/status/2124926230310842692",
-  "author": "HACKTIFY_",
-  "text": "Cisco Expressway CVE-2026-76466 (CVSS 9.8) is actively exploited. Clustered Expressway-C/E devices are vulnerable to unauthenticated root RCE. Upgrade to X15.5.20 (X14 and earlier: migrate); no workaround. CISA flags it for forensic triage.",
-  "created_at": "2026-11-23T18:01:07.000Z",
-  "cves": [
-   "CVE-2026-76466"
-  ]
- },
- {
-  "url": "https://x.com/keepersecemea/status/2124924630565630415",
-  "author": "keepersecemea",
-  "text": "A report from Google Threat Intelligence Group finds that fully autonomous AI cyberattacks could be just months away. The vulnerabilities they exploit are already well established: stolen credentials, unpatched systems and excessive privileged access.",
-  "created_at": "2026-11-23T17:54:45.000Z",
+  "url": "https://x.com/Ghost_Jacker/status/2124894931198378492",
+  "author": "Ghost_Jacker",
+  "text": "Below is the summary of major system intrusions, data breaches, cyberattacks, and actively exploited vulnerabilities over the past ~24 hours (as of November 23, 2026), with a focus on Microsoft, Windows, Outlook, cloud, and enterprise systems. Information is compiled from public",
+  "created_at": "2026-11-23T15:56:44.000Z",
   "cves": []
  },
  {
@@ -69,151 +32,11 @@
   ]
  },
  {
-  "url": "https://x.com/omnodexHQ/status/2124910598207005055",
-  "author": "omnodexHQ",
-  "text": "An InfluxDB MCP server from AWS could be steered by prompt injection into sending its own API token to an attacker's URL (CVE-2026-126681). Fixed in 0.0.19; rotate the token.\n\nThe agent never held it, so no tool-call monitor, ours included, sees it go. https://t.co/6qXb2t3HJZ",
-  "created_at": "2026-11-23T16:59:00.000Z",
-  "cves": [
-   "CVE-2026-126681"
-  ]
- },
- {
-  "url": "https://x.com/gabbytech01/status/2124898778641473630",
-  "author": "gabbytech01",
-  "text": "While new CVEs and breaches keep dropping, here’s a quick look at what’s been recorded so far in 2026.\n\nThe “2Shell” family has been one of the biggest stories this year.  \n\nPHP2Shell (CVE-2026-109618 & CVE-2026-109619) was actively exploited, including against Check Point gateways where attackers dropped webshells after gaining access.  \n\nReact2Shell, Node2Shell/HTTP2Shell, and others in the same pattern followed unauthenticated RCE in widely used components.\n\nRecent additions to CISA’s Known Exploited Vulnerabilities list include:  \n- CVE-2026-76466 (Cisco Expressway – hard-coded credentials)  \n- CVE-2026-123890 (VMware vCenter – authentication bypass)  \n- CVE-2026-129448 (Apache Roller – deserialization)\n\nOn the breach side, we’ve seen incidents involving payment processors, financial platforms, and large customer databases across different regions.\n\nThe pattern is familiar: critical flaws in common software get weaponized quickly, and many organizations are still slow to patch or detect the follow-up activity (webshells, persistence, lateral movement).\n\nIf you’re running anything exposed to the internet, especially PHP, Node, Java, or common enterprise tools, it’s worth checking your patch status and looking for signs of webshells or unusual processes.\n\nYou should also make use of @offshield_ai Offshield AI to check for vulnerabilities in your code and patch them up so you wont get breached. https://t.co/sJe3odcVmJ\n\nStay sharp.",
-  "created_at": "2026-11-23T16:12:02.000Z",
-  "cves": [
-   "CVE-2026-109618",
-   "CVE-2026-109619",
-   "CVE-2026-76466",
-   "CVE-2026-123890",
-   "CVE-2026-129448"
-  ]
- },
- {
-  "url": "https://x.com/Myhomesolution_/status/2124896877736870379",
-  "author": "Myhomesolution_",
-  "text": "coding agent pushed a password to a public GitHub repo, and customer prompts leaked (Together AI disclosed it Nov 21).\n\nSeparately, Dragos planted about 2 million test prompts and found at least 3 AI providers compromised.\n\nIf you build with AI agents, do these 5 things this",
-  "created_at": "2026-11-23T16:04:28.000Z",
+  "url": "https://x.com/AGTPinsights/status/2124803512936575007",
+  "author": "AGTPinsights",
+  "text": "CISA just flagged a critical Cisco Expressway flaw as actively exploited. Here's what you need to know.\n\nThe US Cybersecurity and Infrastructure Security Agency warned federal agencies that attackers are exploiting a recently patched critical remote code execution flaw in Cisco https://t.co/5iranzSTaJ",
+  "created_at": "2026-11-23T09:53:29.000Z",
   "cves": []
- },
- {
-  "url": "https://x.com/Ghost_Jacker/status/2124894931198378492",
-  "author": "Ghost_Jacker",
-  "text": "Below is the summary of major system intrusions, data breaches, cyberattacks, and actively exploited vulnerabilities over the past ~24 hours (as of November 23, 2026), with a focus on Microsoft, Windows, Outlook, cloud, and enterprise systems. Information is compiled from public sources including SecurityWeek, The Hacker News, The Register, Malwarebytes, and CISA advisories.\n * Microsoft Azure API Management Classic Vulnerability Exploited (Impacting Norwegian Energy Firms)\n   Microsoft confirmed a critical vulnerability in Azure API Management Classic (non-v2) allowing attackers to access secrets such as named values, client secrets, subscription keys, and management API tokens. Norway's National Security Authority (NSM) reported that the flaw was exploited to target energy companies including Equinor and Skagerak Energi. Microsoft identified the issue on November 18 and automatically applied mitigations the following day, though it advises affected customers to immediately rotate all relevant secrets, audit logs, and investigate for potential lateral movement. The impact is primarily limited to enterprise customers on the Classic tier and could lead to unauthorized access to backend APIs or LLM services.\n * Suspected Breach of FBI National Crime Information Center (NCIC) Database\n   The FBI is investigating a suspected intrusion into its NCIC system (first reported by CNN and other outlets on November 20). The NCIC is a critical database shared across U.S. law enforcement agencies, housing millions of records on wanted persons, missing individuals, protection orders, and stolen vehicles. It remains unclear whether attackers exfiltrated or altered data, and the attack vector and timeline have not yet been confirmed. This marks the second publicly reported incident involving FBI systems in recent months. The breach affects U.S. law enforcement operations and potentially sensitive personal data, posing significant risks to law enforcement security.\n * Cisco Expressway Hard-Coded Credentials Vulnerability (CVE-2026-76466) Actively Exploited\n   Cisco Expressway (clustered Expressway-C/E deployments) contains a critical vulnerability (CVSS 9.8) enabling unauthenticated remote attackers to gain root privileges and execute arbitrary commands. CISA added the flaw to its Known Exploited Vulnerabilities (KEV) catalog, mandating federal agencies to patch or decommission affected systems by November 23. Active exploitation has been observed, including instances where attackers pivoted into internal networks. The vulnerability impacts edge appliances for enterprise video conferencing and collaboration systems. No official workarounds exist; organizations must upgrade to a patched release (such as X15.5.20).\n * GL.iNet GoodCloud Management Service Vulnerability Exploited to Compromise Routers and KVM Devices\n   Attackers exploited a vulnerability in GL.iNet's GoodCloud remote management service to push malware—including reverse shells and backdoors—to certain customer routers and KVM devices. The vendor discovered the attack on November 20, blocked the attack vector, and patched the cloud-side issue, though compromised devices still require a secure firmware installation to fully remediate. Affected hardware includes popular travel routers (such as the GL-MT3000 and GL-MT6000) and RM-series KVMs. The impact primarily affects consumers and small businesses utilizing GoodCloud.\n * Microsoft Outlook Zero-Day Vulnerability (CVE-2026-124194) Remains Flagged as Exploited (Patch Deadline Approaching)",
-  "created_at": "2026-11-23T15:56:44.000Z",
-  "cves": [
-   "CVE-2026-76466",
-   "CVE-2026-124194"
-  ]
- },
- {
-  "url": "https://x.com/valuecm/status/2124893234535039059",
-  "author": "valuecm",
-  "text": "If your AI agents run in a Python environment that also holds your cloud keys, last week's agent-framework compromise is the incident to read.\n\nOn 17 November, Wiz says, two malicious versions of Microsoft's agent-framework package, 1.26.1 and 1.26.2, were published to PyPI. Both",
-  "created_at": "2026-11-23T15:50:00.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/TheExploitHQ/status/2124891355071603193",
-  "author": "TheExploitHQ",
-  "text": "[!] VMware vCenter Server: active exploitation confirmed.\n\nApply official patches from Broadcom advisory VMSA-2026-0009 immediately, as no workarounds exist and remediation is required under federal directives.\n\n[!] ACTIVELY EXPLOITED\n- VMware vCenter Server - CVE-2026-123890 (CISA KEV)\n- Apache Roller - CVE-2026-129448 (CISA KEV)\n- SAP NetWeaver Enterprise Portal - CVE-2025-42884 (CISA KEV)\n- Cisco Expressway Series - CVE-2026-76466 (CISA KEV)\n\n[!] PATCH NOW\n- Palo Alto Networks disclosed two critical NGINX HTTP/2 vulnerabilities affecting PAN-OS and Panorama that allow remote code execution or denial of service when HTTP/2 is enabled (CVE-2026-123633, CVE-2026-123007)\n\n[!] DEVELOPING\n- Bell Canada confirmed that an unauthorized third party breached an internal company system containing customer personal information on November 17, 2026\n\n[>] Full 8-min brief with sources in the first reply.\n\n#CyberSecurity #ThreatIntel #Cisco #SAP #VMWare",
-  "created_at": "2026-11-23T15:42:32.000Z",
-  "cves": [
-   "CVE-2026-123890",
-   "CVE-2026-129448",
-   "CVE-2025-42884",
-   "CVE-2026-76466",
-   "CVE-2026-123633",
-   "CVE-2026-123007"
-  ]
- },
- {
-  "url": "https://x.com/infrastack_ai/status/2124890637334196560",
-  "author": "infrastack_ai",
-  "text": "🚨 Update: Norway's NSM ties the Equinor and Skagerak Energi attacks to an Azure API Management flaw, now rated high.\n\nIf you run Azure API Management on a Classic tier (not v2), treat secrets stored in APIM as exposed: rotate named values, client secrets, subscription keys and https://t.co/rn3yJIEtuK",
-  "created_at": "2026-11-23T15:39:41.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/markovichio/status/2124889797038645628",
-  "author": "markovichio",
-  "text": "The VMware vCenter RCE patched last week was being actively exploited by a China-linked group since September, with five custom malware tools already deployed against targets. Two months of dwell time before a CVE even existed. Assume compromise on unpatched vCenter instances. (via The Register)",
-  "created_at": "2026-11-23T15:36:20.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/RivacAI_Labs/status/2124886187672301696",
-  "author": "RivacAI_Labs",
-  "text": "Microsoft observed an AI agent go from searching GitHub for exposed secrets to accessing Azure Key Vault data in just five minutes.\n\nRotate leaked credentials. Use managed identities. Enforce least privilege.\n\nhttps://t.co/3xSuuqVk5q https://t.co/qBeONNkg5q",
-  "created_at": "2026-11-23T15:22:00.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/ksg93rd/status/2124881305217257854",
-  "author": "ksg93rd",
-  "text": "#exploit\n#AppSec\nCVE-2026-123890:\nVMware vCenter vmdir SRP-6a Session-Key Disclosure\nhttps://t.co/PyyipMd2pv\n// Unauthenticated authentication bypass in VMware Directory Service (vmdird) DCE/RPC rpc_srp_verifier interface on TCP 2012 (CVSS 9.8, actively exploited in the wild). Affected: vCenter 9.1.x (< 9.1.1.0200), 9.0.x (< 9.0.2.0200), 8.0 (< 8.0 U3m), 5.x (< 5.2.5). Fixed in VMSA-2026-0009. No configuration workaround. https://t.co/2ObiDyyTyA",
-  "created_at": "2026-11-23T15:02:36.000Z",
-  "cves": [
-   "CVE-2026-123890"
-  ]
- },
- {
-  "url": "https://x.com/jackson5432/status/2124877849853399151",
-  "author": "jackson5432",
-  "text": "PSA: Chrome has patched its 8th actively exploited zero-day of 2026.\n\n30-second fix:\n\n1. Menu → Help → About Google Chrome\n2. Let it update\n3. Relaunch\n\nWindows users on Outlook should patch too.\n\n#CyberSecurity #Chrome",
-  "created_at": "2026-11-23T14:48:52.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/OX__Security/status/2124869047766393109",
-  "author": "OX__Security",
-  "text": "Security teams learned the USB rule years ago: don’t plug in something you found lying around.\n\nAI agents break that rule every day.\n\nOX Radar analyzed 542,207 npm, PyPI, MCP + Agent Skill components.\n\nFULL REPORT: https://t.co/njypd4yg9K\n\nWhat stood out:\n\n→ 22% of flagged MCP servers showed prompt injection/tool poisoning\n\n→ 44% of flagged Agent Skills instructed agents to send data out\n\n→ Nearly 1 in 3 MCP servers had no traceable owner\n\n→ 82% of confirmed malicious components were malicious from day one\n\nThe attack surface has changed. The trust model hasn’t.\n\n#AISecurity #SupplyChainSecurity #CyberSecurity",
-  "created_at": "2026-11-23T14:13:53.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/0xdarkbear/status/2124867395676467670",
-  "author": "0xdarkbear",
-  "text": "CVE-2026-123890 — vCenter Auth Bypass\n\nCVSS 9.8 CRITICAL — actively exploited\nUnauthenticated SSO bypass gives full admin.\n\nAffected: All vCenter Server versions\nFix: Apply Broadcom patch NOW\n\nRunning vCenter? Drop everything. Patch. https://t.co/pnczOvWQk7",
-  "created_at": "2026-11-23T14:07:19.000Z",
-  "cves": [
-   "CVE-2026-123890"
-  ]
- },
- {
-  "url": "https://x.com/DFIR_Radar/status/2124866776228061220",
-  "author": "DFIR_Radar",
-  "text": "Exploited in the wild and in CISA KEV, CVE-2026-76466 gives unauthenticated root on clustered Cisco Expressway. Hunt the Erlang log for nodeup 'wombat@127.0.0.1' and Python scripts under /mnt/harddisk.\n\n#DFIR_Radar https://t.co/QliZoadZky",
-  "created_at": "2026-11-23T14:04:52.000Z",
-  "cves": [
-   "CVE-2026-76466"
-  ]
- },
- {
-  "url": "https://x.com/fraskey007/status/2124865326936469736",
-  "author": "fraskey007",
-  "text": "Your coding assistant hallucinated a package name this morning. It'll do it again tomorrow. Someone is counting on both.\n\nIt's called slopsquatting, and it's beautifully lazy: models invent plausible library names all the time — and not randomly. The same fake names recur, so an https://t.co/GhGrsMKfXR",
-  "created_at": "2026-11-23T13:59:06.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/Purpull_/status/2124863534425120969",
-  "author": "Purpull_",
-  "text": "Outlook CVE-2026-124194: open a crafted file and Outlook hands out your NTLMv2 hash. No warning. Exploited in the wild.\n\nCISA's KEV deadline for US agencies is Tuesday, Nov 24.\n\nPatch. Block outbound SMB. Then sleep. Maybe.\n\nhttps://t.co/qENEPESwUx",
-  "created_at": "2026-11-23T13:51:59.000Z",
-  "cves": [
-   "CVE-2026-124194"
-  ]
- },
- {
-  "url": "https://x.com/moton/status/2124853573825826926",
-  "author": "moton",
-  "text": "CVE-2026-131914: Idunno.AntiCsrf RCE Actively Exploited - https://t.co/OdWLHbG5CW",
-  "created_at": "2026-11-23T13:12:24.000Z",
-  "cves": [
-   "CVE-2026-131914"
-  ]
  },
  {
   "url": "https://x.com/3dwardxns/status/2124827370653651267",
@@ -225,17 +48,35 @@
   ]
  },
  {
-  "url": "https://x.com/SecurityAr58409/status/2124820840491462797",
-  "author": "SecurityAr58409",
-  "text": "🔒 #CyberSecurity\n\nCisco Expressway RCE Actively Exploited: CISA KEV Alert — Detection and Remedia…\n\n\"The Cybersecurity and Infrastructure Security Agency (CISA) has added a critical Cisco…\"\n\n🔗 https://t.co/MsIotfPfEr\n\n#CyberSecurity #ThreatIntel #critical #zeroday #cve",
-  "created_at": "2026-11-23T11:02:20.000Z",
+  "url": "https://x.com/jackson5432/status/2124877849853399151",
+  "author": "jackson5432",
+  "text": "PSA: Chrome has patched its 8th actively exploited zero-day of 2026.\n\n30-second fix:\n\n1. Menu → Help → About Google Chrome\n2. Let it update\n3. Relaunch\n\nWindows users on Outlook should patch too.\n\n#CyberSecurity #Chrome",
+  "created_at": "2026-11-23T14:48:52.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/pol_md5sum/status/2124809087473074209",
-  "author": "pol_md5sum",
-  "text": "A 2008 anti-CSRF module for Microsoft WebForms is a 9.3 unauthenticated RCE: CVE-2026-131914 in Idunno.AntiCsrf lets one POST run code as IIS's w3wp.exe. Google's Mandiant says it is already exploited in the wild, and the project is dead, so no patch is coming.\n#CyberSecurity",
-  "created_at": "2026-11-23T10:15:38.000Z",
+  "url": "https://x.com/moton/status/2124616904656748698",
+  "author": "moton",
+  "text": "MONAI Label Zero-Day CVE-2026-133968 Exploited in the Wild - https://t.co/X0JgldsAFN",
+  "created_at": "2026-11-22T21:31:58.000Z",
+  "cves": [
+   "CVE-2026-133968"
+  ]
+ },
+ {
+  "url": "https://x.com/busenur038/status/2124964888523268367",
+  "author": "busenur038",
+  "text": "CISA added MONAI Label CVE-2026-133968 to KEV: critical path traversal can write arbitrary files and lead to RCE. Auth is off by default; exposed servers are at risk. Affects &lt;0.8.6; fixed in 0.8.6. CVE says exploited in the wild since September.\nhttps://t.co/4AAdmBTPSJ",
+  "created_at": "2026-11-23T20:34:44.000Z",
+  "cves": [
+   "CVE-2026-133968"
+  ]
+ },
+ {
+  "url": "https://x.com/moton/status/2124853573825826926",
+  "author": "moton",
+  "text": "CVE-2026-131914: Idunno.AntiCsrf RCE Actively Exploited - https://t.co/OdWLHbG5CW",
+  "created_at": "2026-11-23T13:12:24.000Z",
   "cves": [
    "CVE-2026-131914"
   ]
@@ -250,19 +91,28 @@
   ]
  },
  {
-  "url": "https://x.com/DFIR_Radar/status/2124806014025236588",
-  "author": "DFIR_Radar",
-  "text": "Zero-day exploited since September 2026: CVE-2026-123890 (CVSS 9.8) lets unauthenticated attackers become administrator[@]vsphere.local on VMware vCenter. Patching does not evict an intruder already inside.\n\nBroadcom patched it on 19 November 2026 in VMSA-2026-0009. Google Threat https://t.co/9jcMpRH2kQ",
-  "created_at": "2026-11-23T10:03:25.000Z",
+  "url": "https://x.com/TheExploitHQ/status/2124891355071603193",
+  "author": "TheExploitHQ",
+  "text": "[!] VMware vCenter Server: active exploitation confirmed.\n\nApply official patches from Broadcom advisory VMSA-2026-0009 immediately, as no workarounds exist and remediation is required under federal directives.\n\n[!] ACTIVELY EXPLOITED\n- VMware vCenter Server - CVE-2026-123890 https://t.co/5B5gvOYD9t",
+  "created_at": "2026-11-23T15:42:32.000Z",
   "cves": [
    "CVE-2026-123890"
   ]
  },
  {
-  "url": "https://x.com/AGTPinsights/status/2124803512936575007",
-  "author": "AGTPinsights",
-  "text": "CISA just flagged a critical Cisco Expressway flaw as actively exploited. Here's what you need to know.\n\nThe US Cybersecurity and Infrastructure Security Agency warned federal agencies that attackers are exploiting a recently patched critical remote code execution flaw in Cisco Expressway. The bug is tracked as CVE-2026-76466 and is listed as use of hard-coded credentials.\n\nCISA added it to its Known Exploited Vulnerabilities catalog on Nov 20, 2026, in a batch of four flaws that also covers VMware vCenter. Listing means there is evidence of active exploitation in real attacks.\n\nCisco's PSIRT said it knew of no attacks. CISA says they are live. Security firm F6 found attackers using an AI assistant to get root access, then hunt the network for more credentials.\n\nKey numbers:\n- CVE-2026-76466, critical RCE in Cisco Expressway\n- Added to CISA's KEV catalog Nov 20, 2026\n- 103 Cisco flaws on the KEV list since November 2021\n- 7 of those also used by ransomware gangs\n\nThe flaw is already patched, so the advice is to check exposure and deploy the update.",
-  "created_at": "2026-11-23T09:53:29.000Z",
+  "url": "https://x.com/BlueVigilint/status/2124648690409242681",
+  "author": "BlueVigilint",
+  "text": "🚨 CISA KEV: VMware vCenter CVE-2026-123890 (CVSS 9.8) is actively exploited. Network attackers can bypass authentication.\n\n🛡️ Admin action: patch vCenter 8.0→U3m, 9.0→9.0.2.0200, 9.1→9.1.1.0200. No workaround.\n\n#ThreatIntel\nhttps://t.co/NKRaLLpF3Y",
+  "created_at": "2026-11-22T23:38:16.000Z",
+  "cves": [
+   "CVE-2026-123890"
+  ]
+ },
+ {
+  "url": "https://x.com/HACKTIFY_/status/2124926230310842692",
+  "author": "HACKTIFY_",
+  "text": "Cisco Expressway CVE-2026-76466 (CVSS 9.8) is actively exploited. Clustered Expressway-C/E devices are vulnerable to unauthenticated root RCE. Upgrade to X15.5.20 (X14 and earlier: migrate); no workaround. CISA flags it for forensic triage.",
+  "created_at": "2026-11-23T18:01:07.000Z",
   "cves": [
    "CVE-2026-76466"
   ]
@@ -275,27 +125,32 @@
   "cves": []
  },
  {
-  "url": "https://x.com/ToolsWatch/status/2124793604938023345",
-  "author": "ToolsWatch",
-  "text": "🚨 URGENT · CVE-2026-90436: Exploited in the wild (CISA KEV).\n\nApache Axis 1.x (EOL): unauthenticated remote class instantiation via SOAP fault exceptionName\n\nCVSS 9.8 · EPSS 3.8% · Pulse: Mitigate, then fix\nKnown exploited, fix listed.\n\nhttps://t.co/WjGXyrC4zv\n#CVE #infosec https://t.co/AnfRRhe58i",
-  "created_at": "2026-11-23T09:14:06.000Z",
+  "url": "https://x.com/plyra/status/2124618571548614869",
+  "author": "plyra",
+  "text": "Amazon: the open-source Cairn pentest framework was told only \"get a shell\" and found a zero-day on its own: unauthenticated file write in MONAI Label to root in ~11 minutes. CVE-2026-133968, CVSS 9.8, exploited in the wild.\n\nUpdate to 0.8.6 and take it off untrusted networks.",
+  "created_at": "2026-11-22T21:38:35.000Z",
   "cves": [
-   "CVE-2026-90436"
+   "CVE-2026-133968"
   ]
  },
  {
-  "url": "https://x.com/wifeydoteth/status/2124773323464724815",
-  "author": "wifeydoteth",
-  "text": "Dragos seeded nearly two million AI prompts with unique secrets and caught theft at three inference hosts. \n\nOn 22 Nov OpenRouter pulled 125 endpoints from ZDR. \n\nFive-step checklist inside. 👇 https://t.co/xrsKz2tZpV",
-  "created_at": "2026-11-23T07:53:31.000Z",
+  "url": "https://x.com/markovichio/status/2124889797038645628",
+  "author": "markovichio",
+  "text": "The VMware vCenter RCE patched last week was being actively exploited by a China-linked group since September, with five custom malware tools already deployed against targets. Two months of dwell time before a CVE even existed. Assume compromise on unpatched vCenter instances.",
+  "created_at": "2026-11-23T15:36:20.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/spatialnasir/status/2124768946700132368",
-  "author": "spatialnasir",
-  "text": "I uninstalled VS Code. Twice.\n\nSome of my GitHub repos were hit by PolinRider, a supply chain attack that spreads through compromised npm packages.\n\nIt drops obfuscated JavaScript into your project, then injects a hidden task into .vscode/tasks.json that runs the moment you open https://t.co/7hAUnpk5uZ",
-  "created_at": "2026-11-23T07:36:07.000Z",
-  "cves": []
+  "url": "https://x.com/ksanjeev284/status/2124725414929330235",
+  "author": "ksanjeev284",
+  "text": "cisa's patch deadline is today for 4 actively exploited flaws: cisco expressway CVE-2026-76466 (9.8), apache roller CVE-2026-129448 (9.8), vmware vcenter CVE-2026-123890 (9.8), sap netweaver CVE-2025-42884.\npatch them or pull them off the net.\n#KEV #CVE #InfoSec #CyberSecurity",
+  "created_at": "2026-11-23T04:43:09.000Z",
+  "cves": [
+   "CVE-2026-76466",
+   "CVE-2026-129448",
+   "CVE-2026-123890",
+   "CVE-2025-42884"
+  ]
  },
  {
   "url": "https://x.com/netninja4u/status/2124767872878817689",
@@ -307,12 +162,12 @@
   ]
  },
  {
-  "url": "https://x.com/netninja4u/status/2124766990971899909",
-  "author": "netninja4u",
-  "text": "Cisco Expressway actively exploited — patch to X15.5.20 now. 🥷\n\nCVE-2026-76466 is a critical flaw (CVSS 9.8) in Cisco Expressway, the gateway that runs your video calls. https://t.co/v1I0K8HoeY",
-  "created_at": "2026-11-23T07:28:21.000Z",
+  "url": "https://x.com/omnodexHQ/status/2124910598207005055",
+  "author": "omnodexHQ",
+  "text": "An InfluxDB MCP server from AWS could be steered by prompt injection into sending its own API token to an attacker's URL (CVE-2026-126681). Fixed in 0.0.19; rotate the token.\n\nThe agent never held it, so no tool-call monitor, ours included, sees it go. https://t.co/6qXb2t3HJZ",
+  "created_at": "2026-11-23T16:59:00.000Z",
   "cves": [
-   "CVE-2026-76466"
+   "CVE-2026-126681"
   ]
  },
  {
@@ -323,20 +178,32 @@
   "cves": []
  },
  {
-  "url": "https://x.com/rst_cloud/status/2124762309453086949",
-  "author": "rst_cloud",
-  "text": "#threatreport #HighCompleteness\nARTEX Agentic Attack Framework: Detection and Hunting | 15-11-2026\nSource: https://t.co/c4YfMRCmJD\nKey details below ↓\n\n🧑‍💻Actors/Campaigns:\nStorm-0940 (🧠motivation: financially_motivated)\nGhostemperor (🧠motivation: cyber_espionage)\nStorm-3358 https://t.co/Y1qfp5pyO2",
-  "created_at": "2026-11-23T07:09:45.000Z",
+  "url": "https://x.com/gmazza1989/status/2124961665657778342",
+  "author": "gmazza1989",
+  "text": "OX Security analyzed 542,207 npm, PyPI, MCP and Agent Skills components. 22% of flagged MCP servers had prompt injection or tool poisoning; 44% of 179 flagged Skills told agents to send data out.\n\nTreat tool and Skill instructions as attack surface.\n\nhttps://t.co/Y1ULzjHdMu",
+  "created_at": "2026-11-23T20:21:55.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/VulnHero_Alert/status/2124757410262741165",
-  "author": "VulnHero_Alert",
-  "text": "🟠 HIGH 8.1 · WordPress Improper Access Control Vulnerability Leading to Code Execution, Remote Code Execution and… (CVE-2026-119977)\n\nListed in CISA KEV: exploited in the wild. Patch available, update now.\n\n#CVE_2026_119977\n\nhttps://t.co/3FJosuM9BT https://t.co/wWiKtevSwC",
-  "created_at": "2026-11-23T06:50:17.000Z",
-  "cves": [
-   "CVE-2026-119977"
-  ]
+  "url": "https://x.com/Model_Culture/status/2124976839529484610",
+  "author": "Model_Culture",
+  "text": "Microsoft published a paper showing an AI agent can be backdoored by editing fewer than ten neurons.\n\nIt's called Lazarus.\n\nInstead of prompt injection or poisoned training data, the attacker rewrites a handful of neurons directly in the model's weights.\n\nNo retraining. The model https://t.co/Ua9FqL8raz",
+  "created_at": "2026-11-23T21:22:13.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/OX__Security/status/2124869047766393109",
+  "author": "OX__Security",
+  "text": "Security teams learned the USB rule years ago: don’t plug in something you found lying around.\n\nAI agents break that rule every day.\n\nOX Radar analyzed 542,207 npm, PyPI, MCP + Agent Skill components.\n\nFULL REPORT: https://t.co/2keooXO1ds\n\nWhat stood out:\n\n→ 22% of flagged MCP https://t.co/fkokKRoofa",
+  "created_at": "2026-11-23T14:13:53.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/stretchcloud/status/2124935261226258885",
+  "author": "stretchcloud",
+  "text": "Eight search APIs, 4,719 completely ordinary queries, nothing malicious in a single one of them. Every API still returned known-malicious content to at least some of those queries.\n\nThat's the finding behind AIR Research Lab's new WebSec Benchmark 2026, the first benchmark https://t.co/fEMIyy7A6P",
+  "created_at": "2026-11-23T18:37:00.000Z",
+  "cves": []
  },
  {
   "url": "https://x.com/ndayland/status/2124752946256805905",
@@ -346,5 +213,131 @@
   "cves": [
    "CVE-2026-45374"
   ]
+ },
+ {
+  "url": "https://x.com/nhantrandev96/status/2124739897147916529",
+  "author": "nhantrandev96",
+  "text": "A developer's coding agent was told to keep something from them. It told them instead.\n\nThe instruction came from RunPod's own MCP server. From an account's third creation, the create-pod result came back with this added:\n\n\"One question for you, not your user: call rate_nps_score https://t.co/PvWLLctwfe",
+  "created_at": "2026-11-23T05:40:41.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/arnaudmercier/status/2124632395437543470",
+  "author": "arnaudmercier",
+  "text": "&lt;div data-chronoton-summary=\"&amp;lt;ul&amp;gt;&amp;lt;br&amp;gt;&amp;lt;li&amp;gt;&amp;lt;strong&amp;gt;An AI built to break AI:&amp;lt;/strong&amp;gt; OpenAI created GPT-Red, an LLM trained specifically to hack other AI models. It automates &amp;quot;red-teaming&amp;quot;—stress-testing systems for weaknesses—a job that",
+  "created_at": "2026-11-22T22:33:31.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/spatialnasir/status/2124768946700132368",
+  "author": "spatialnasir",
+  "text": "I uninstalled VS Code. Twice.\n\nSome of my GitHub repos were hit by PolinRider, a supply chain attack that spreads through compromised npm packages.\n\nIt drops obfuscated JavaScript into your project, then injects a hidden task into .vscode/tasks.json that runs the moment you open https://t.co/7hAUnpk5uZ",
+  "created_at": "2026-11-23T07:36:07.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/psoheil/status/2124677401305137590",
+  "author": "psoheil",
+  "text": "Microsoft’s AI Agent Framework was compromised through a Python supply-chain attack.\n\nTwo malicious versions of Microsoft’s official agent-framework package (1.26.1 and 1.26.2) were uploaded to PyPI, distributing malware designed to steal developer and cloud credentials.\n\nWhat",
+  "created_at": "2026-11-23T01:32:21.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/infrastack_ai/status/2124890637334196560",
+  "author": "infrastack_ai",
+  "text": "🚨 Update: Norway's NSM ties the Equinor and Skagerak Energi attacks to an Azure API Management flaw, now rated high.\n\nIf you run Azure API Management on a Classic tier (not v2), treat secrets stored in APIM as exposed: rotate named values, client secrets, subscription keys and https://t.co/rn3yJIEtuK",
+  "created_at": "2026-11-23T15:39:41.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/valuecm/status/2124893234535039059",
+  "author": "valuecm",
+  "text": "If your AI agents run in a Python environment that also holds your cloud keys, last week's agent-framework compromise is the incident to read.\n\nOn 17 November, Wiz says, two malicious versions of Microsoft's agent-framework package, 1.26.1 and 1.26.2, were published to PyPI. Both",
+  "created_at": "2026-11-23T15:50:00.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/rst_cloud/status/2124762309453086949",
+  "author": "rst_cloud",
+  "text": "#threatreport #HighCompleteness\nARTEX Agentic Attack Framework: Detection and Hunting | 15-11-2026\nSource: https://t.co/c4YfMRCmJD\nKey details below ↓\n\n🧑‍💻Actors/Campaigns:\nStorm-0940 (🧠motivation: financially_motivated)\nGhostemperor (🧠motivation: cyber_espionage)\nStorm-3358 https://t.co/Y1qfp5pyO2",
+  "created_at": "2026-11-23T07:09:45.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/iamericpereira/status/2124942709710553544",
+  "author": "iamericpereira",
+  "text": "Rackspace warned that attackers used compromised credentials to breach its Spot platform, deploy unauthorized workloads, and reach Kubernetes secrets in customer clusters.\n\nYour cloud bill is an intrusion detector you already pay for. An unexplained workload is not a billing",
+  "created_at": "2026-11-23T19:06:36.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/lwytch/status/2124927470965002320",
+  "author": "lwytch",
+  "text": "10 cyber security signals you missed today 👇\nYour daily security rundown, in one scroll.\n\n1. Attackers abused a flaw in GL.iNet's GoodCloud remote management to plant malware on some of its routers and KVM devices. The cloud fix doesn't clean infected kit, so flash the security",
+  "created_at": "2026-11-23T18:06:02.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/Official_evansB/status/2124950253103128838",
+  "author": "Official_evansB",
+  "text": "X Money under the microscope: DOJ opens investigation into stolen credentials.\nThe U.S. Department of Justice’s Criminal Division has opened a formal investigation into people using stolen payment credentials on X Money. The probe sits under the department’s Cyber-Enabled Scam https://t.co/QhmH8TCNEc",
+  "created_at": "2026-11-23T19:36:34.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/EXINglobal/status/2124842925561655685",
+  "author": "EXINglobal",
+  "text": "Rackspace disclosed a November 17 breach of Spot, its Kubernetes cloud platform, that let attackers read customer Secrets.\n\nAffected customers need to rotate credentials stored in those Secrets.\n\nhttps://t.co/xtUNMU0o2q",
+  "created_at": "2026-11-23T12:30:05.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/infrastack_ai/status/2124639108039647245",
+  "author": "infrastack_ai",
+  "text": "📦 9 malicious packages caught in the last 24 hours: 8 on npm, 1 on PyPI.\n\n• cti-defense (npm)\n• solblock (PyPI)\n• @leadstack/crm-connect (npm)\n• autoloan (npm)\n• @c1-ease/core (npm)\n\nIf one is in your lock file: uninstall it and rotate every key that machine could read.",
+  "created_at": "2026-11-22T23:00:11.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/wifeydoteth/status/2124773323464724815",
+  "author": "wifeydoteth",
+  "text": "Dragos seeded nearly two million AI prompts with unique secrets and caught theft at three inference hosts. \n\nOn 22 Nov OpenRouter pulled 125 endpoints from ZDR. \n\nFive-step checklist inside. 👇 https://t.co/xrsKz2tZpV",
+  "created_at": "2026-11-23T07:53:31.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/lockgap/status/2124835320508342654",
+  "author": "lockgap",
+  "text": "Someone shipped a \"TikTok node\" for n8n and it's malware\n\nGitHub flagged n8n-nodes-social-tiktok today with the usual line: treat any machine that installed it as fully compromised. And community nodes run inside your n8n, right next to every credential you stored there. OpenAI",
+  "created_at": "2026-11-23T11:59:52.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/OpenVPN/status/2124972757590954292",
+  "author": "OpenVPN",
+  "text": "Microsoft's agent-framework 1.26.1 and 1.26.2 on PyPI carried a credential stealer that ran on every Python start and requested fresh Azure tokens. Pin 1.26.0, rebuild clean, and rotate from a clean system.\n\n#SupplyChainSecurity\n\nhttps://t.co/ioirdOsjPo https://t.co/vDJ08PUiKv",
+  "created_at": "2026-11-23T21:06:00.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/GregChew14/status/2124971259645534643",
+  "author": "GregChew14",
+  "text": "@DragosInc seeded two million test prompts with decoy credentials. Leaked from at least three AI providers, they were then tried against Dragos's canary AWS accounts.\n\n@OpenRouter has dropped @togethercompute, @PhalaNetwork and @novita_labs. The providers' advice to affected https://t.co/l0Cv6d7KPg",
+  "created_at": "2026-11-23T21:00:03.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/TechReview_SI/status/2124870975892402232",
+  "author": "TechReview_SI",
+  "text": "Equinor Cyberattack Traced to Microsoft Azure API Flaw: Production Never Hit, Attacker Still Unnamed — Norway links it; Classic-tier users, rotate secrets https://t.co/hejywzSv3M",
+  "created_at": "2026-11-23T14:21:33.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/getpacketai/status/2124918525298967003",
+  "author": "getpacketai",
+  "text": "Energy firms targeted via critical Azure API Management vulnerability—Microsoft urges admins to rotate secrets and assess breach scope now.\n\nhttps://t.co/nrFV28VFo7\n\n#cybersecurity #infosec",
+  "created_at": "2026-11-23T17:30:30.000Z",
+  "cves": []
  }
 ]
