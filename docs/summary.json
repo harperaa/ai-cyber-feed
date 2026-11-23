@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-23T17:30:00Z",
-  "next_update_note": "Next summary rewrite in about 4 hours (around 21:30 UTC Nov 23); the feed itself refreshes hourly.",
-  "headline": "Since 13:30 UTC Nov 23: no new CISA KEV additions and no new exploited AI product, but two new first-hand reports on AI-run attacks. Wiz Research (Nov 23) says about 20 more agentic-attack incidents were disclosed by vendors in the three weeks after its 'Black October' post, describes an ARTEX-Harvester campaign at more than a dozen organizations and a CyberStrikeAI intrusion across two AWS accounts and seven EKS clusters, and says Censys counted over 1,400 exposed ARTEX consoles. Bitrise's incident report (published Nov 19) says ARTEX, an open-source AI pentest platform, probed it for 25 days and got in through a dormant 2022 test-bot account without 2FA; if you use Bitrise, finish rotating stored secrets. Also new: Microsoft confirms (via SecurityWeek) that the Azure API Management flaw exposed secrets in Classic-tier instances; GlobeTopper lost about $2.5M in a cyberattack; binary-parser CVE-2026-134814 (fix 2.3.1). Still most important: Cairn AI agents' MONAI Label zero-day (upgrade to 0.8.6), ScreenConnect CVE-2026-84869 exploited against MSPs, N-able Mail Assure token resets, AI inference provider prompt leaks, Rackspace Spot, GL.iNet, AI-found Drupal and Apache mod_http2 bugs exploited, React2STEAL, the hijacked agent-framework PyPI package and LiteLLM.",
-  "ai_headline": "New since 13:30 UTC: Wiz Research reports roughly 20 more agentic-attack incidents in three weeks and a 3x jump in its incident-response requests, with ARTEX, Cairn, CyberStrikeAI and HexStrike all seen in the wild; Bitrise's report confirms ARTEX ran its Nov 13 breach. Still leading: Amazon's report that a China-nexus actor's Cairn AI agents found and exploited MONAI Label CVE-2026-133968 on their own (fix: 0.8.6); CERT-In's AI-assisted payment fraud warning; AI-found Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 exploited. AI impact: rotate secrets sent to breached inference providers. AI products: LiteLLM (KEV), hijacked agent-framework PyPI package.",
+  "updated_at": "2026-11-23T21:30:00Z",
+  "next_update_note": "Next summary rewrite in about 4 hours (around 01:30 UTC Nov 24); the feed itself refreshes hourly.",
+  "headline": "Since 17:30 UTC Nov 23: CISA added two flaws to its exploited list (KEV) today: MONAI Label CVE-2026-133968, the zero-day Cairn AI agents found and exploited on their own (upgrade to 0.8.6), and N-able Mail Assure SSRF CVE-2026-134624, the bug behind N-able's Hosted Cloud breach (fixed build 20261121.1943; tokens and passwords were reset). No new AI-run attack was reported this window. New breaches without CVEs: the European Commission confirms its EU Academy platform leaked users' names and emails in the ongoing campaign against it; LaLiga (Spain) says fan-service user data was stolen Nov 14-16; MSIG Hong Kong suspended its MediGo medical portals after unauthorised access to group medical customers' data. New AI-product bug: Pomerium MCP token endpoint auth bypass CVE-2026-135300 (fix 0.34.0). Still most important: Cairn's MONAI Label attack, Wiz and Bitrise reports on ARTEX-driven intrusions, AI-found Drupal and Apache mod_http2 bugs exploited, AI inference provider prompt leaks (rotate secrets sent in prompts), Azure API Management secret theft, Rackspace Spot, ScreenConnect against MSPs, GL.iNet, React2STEAL, the hijacked agent-framework PyPI package and LiteLLM.",
+  "ai_headline": "New since 17:30 UTC: CISA added MONAI Label CVE-2026-133968 to KEV on Nov 23, making the first zero-day found and exploited by autonomous AI agents (Amazon's Cairn report) a federal must-patch; upgrade to 0.8.6. No new AI-run attack disclosed this window. Still leading: Wiz's count of about 20 more agentic-attack incidents and Bitrise's ARTEX breach report; CERT-In's AI-assisted payment fraud warning; AI-found Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 exploited. AI impact: rotate secrets sent to breached inference providers (Dragos canaries, OpenRouter off-boarding). AI products: LiteLLM (KEV), hijacked agent-framework PyPI package, new Pomerium MCP auth bypass.",
   "ai_activity": {
-    "overview": "Nov 23, 17:30 UTC. New since 13:30 UTC: Wiz Research reports about 20 more vendor-disclosed agentic-attack incidents in three weeks, an ARTEX-Harvester campaign at more than a dozen organizations and a CyberStrikeAI intrusion across AWS and EKS; Bitrise's Nov 19 report (added now) confirms ARTEX ran its Nov 13 breach after 25 days of probing, getting in via a dormant bot account without 2FA. The week's picture: Amazon says a China-nexus actor's Cairn AI agents found and exploited MONAI Label CVE-2026-133968 on their own (fixed in 0.8.6); CERT-In, the FBI and CERT-EU report agentic attack frameworks in live intrusions, including AI-assisted payment fraud in India; SOCRadar documents BabidiGhost; Bell Canada calls its breach 'agentic'. AI-found bugs Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 are exploited (the latter reported). AI impact: OpenRouter off-boarded three inference providers after prompts were read; rotate secrets sent in prompts. AI products: LiteLLM on CISA KEV, the hijacked Microsoft agent-framework PyPI package, malicious MCP packages, Jupyter MCP Server PoC. Counts: 30 AI-cause, 18 AI-product, 10 AI-impact items (older than 7 days dropped).",
+    "overview": "Nov 23, 21:30 UTC. New since 17:30 UTC: CISA added MONAI Label CVE-2026-133968 to KEV (Nov 23), the zero-day Amazon says a China-nexus actor's Cairn AI agents found and exploited on their own (fixed in 0.8.6); new AI-product bug Pomerium MCP token bypass CVE-2026-135300 (fix 0.34.0, not exploited). No new AI-run attack was disclosed in this window. The week's picture: Wiz counts about 20 more vendor-disclosed agentic-attack incidents in three weeks; Bitrise's report confirms ARTEX ran its Nov 13 breach via a dormant account without 2FA; CERT-In, the FBI and CERT-EU report agentic attack frameworks in live intrusions, including AI-assisted payment fraud in India; SOCRadar documents BabidiGhost; Bell Canada calls its breach 'agentic'. AI-found bugs Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 are exploited (the latter reported). AI impact: Dragos canaries show at least three AI inference providers breached and OpenRouter off-boarded them; rotate secrets sent in prompts. AI products: LiteLLM on CISA KEV, the hijacked Microsoft agent-framework PyPI package, malicious MCP packages, Jupyter MCP Server. Counts: 30 AI-cause, 18 AI-product, 10 AI-impact items (older than 7 days dropped).",
     "counts": {
       "ai_cause": 30,
       "ai_product_exploited": 18,
@@ -97,7 +97,7 @@
           {
             "title": "Amazon: China-nexus actor's Cairn autonomous AI agents found and exploited a MONAI Label zero-day (CVE-2026-133968) for root on a university server",
             "date": "2026-11-20T17:30:00Z",
-            "summary": "Nov 22: fixed in MONAI Label 0.8.6 (security release, 01:29 UTC); upgrade. Nov 21: a public exploit is reported on X (not independently checked); Amazon found the attacker's exposed Cairn instance and saw the Sep 8-10 campaign against East Asian universities. Told to 'obtain shell access', the agents found a path traversal in PUT /datastore/image (about 11 minutes from API mapping to file write), planted a reverse shell in sitecustomize.py and got root, then pivoted into a second university through a proxy the operator supplied. Auth is off by default.",
+            "summary": "Nov 23: CISA added it to the Known Exploited Vulnerabilities list. Nov 22: fixed in MONAI Label 0.8.6 (security release, 01:29 UTC); upgrade. Nov 21: a public exploit is reported on X (not independently checked); Amazon found the attacker's exposed Cairn instance and saw the Sep 8-10 campaign against East Asian universities. Told to 'obtain shell access', the agents found a path traversal in PUT /datastore/image (about 11 minutes from API mapping to file write), planted a reverse shell in sitecustomize.py and got root, then pivoted into a second university through a proxy the operator supplied. Auth is off by default.",
             "status": "exploited",
             "cves": [
               "CVE-2026-133968"
@@ -324,6 +324,16 @@
         "label": "AI products being exploited",
         "items": [
           {
+            "title": "Pomerium MCP token endpoint authentication bypass CVE-2026-135300 (CVSS 9.1): 0.30.0 up to 0.34.0 skips client-secret checks for client_secret_basic MCP clients",
+            "date": "2026-11-23T19:00:00Z",
+            "summary": "Anyone holding an intercepted authorization code or refresh token can redeem it at /.pomerium/mcp/token with any secret and get the victim's access tokens. No exploitation reported. Upgrade to Pomerium 0.34.0.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-135300"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135300"
+          },
+          {
             "title": "Jupyter MCP Server CVE-2026-77359 (CVSS 9.3): DNS rebinding lets a malicious website hijack the Jupyter backend; PoC published",
             "date": "2026-11-22T01:38:00Z",
             "summary": "Advisory published Nov 20: browser DNS rebinding bypasses Host/Origin checks on the server's management routes, so a web page can reach a local Jupyter MCP server and point it at attacker infrastructure. A public PoC was reported Nov 22 (SecAlerts on X); no exploitation reported. Update to 1.0.3.",
@@ -369,7 +379,7 @@
           {
             "title": "MONAI Label (medical-imaging AI server) <= 0.8.5 (fixed in 0.8.6) CVE-2026-133968: unauthenticated path traversal and file write leading to RCE, exploited in the wild since September (by Cairn AI agents)",
             "date": "2026-11-20T17:30:00Z",
-            "summary": "Nov 22: fixed in MONAI Label 0.8.6 (security release, 01:29 UTC); upgrade. Nov 21: a public exploit is reported on X (not independently checked); GHSA-qc22-rmgc-vg94 (Nov 18): auth is disabled by default, so anyone who can reach the server can write files. Also turn on auth and limit network access.",
+            "summary": "Nov 23: CISA added it to the Known Exploited Vulnerabilities list. Nov 22: fixed in MONAI Label 0.8.6 (security release, 01:29 UTC); upgrade. Nov 21: a public exploit is reported on X (not independently checked); GHSA-qc22-rmgc-vg94 (Nov 18): auth is disabled by default, so anyone who can reach the server can write files. Also turn on auth and limit network access.",
             "status": "exploited",
             "cves": [
               "CVE-2026-133968"
@@ -499,15 +509,6 @@
             ],
             "url": "https://x.com/fenzlabs/status/2122752440252653628",
             "source": "X"
-          },
-          {
-            "title": "Meta Muse agent: prompt injection made the AI agent send user passwords to a remote server (now patched)",
-            "date": "2026-11-16T17:36:00Z",
-            "summary": "A researcher says crafted content tricked Meta's Muse agent into exfiltrating user passwords to an attacker server; Meta has patched it. Meta has also added Muse to its bug bounty (up to $300K for AI bugs). Details are from the researcher's post.",
-            "status": "patched",
-            "cves": [],
-            "url": "https://x.com/harshagundal/status/2122383197602537960",
-            "source": "X (researcher)"
           }
         ]
       },
@@ -613,18 +614,18 @@
         ]
       }
     ],
-    "trend_note": "Since the last rewrite: two first-hand accounts (Wiz, Bitrise) add volume and detail rather than a new technique. Trend: agentic frameworks are now commodity (ARTEX forks, Cairn, CyberStrikeAI, HexStrike), noisy and fast; they win on stolen or dormant credentials without MFA, CI trust paths and unpatched exposed services, and AI-found bugs are exploited within days of the fix."
+    "trend_note": "Since the last rewrite: quiet for new AI-run attacks; the change is official recognition, with CISA listing the AI-agent-found MONAI Label zero-day as exploited. Trend: agentic frameworks are commodity (ARTEX forks, Cairn, CyberStrikeAI, HexStrike), noisy and fast; they win on stolen or dormant credentials without MFA, CI trust paths and unpatched exposed services, and AI-found bugs are exploited within days of the fix."
   },
   "focus": [
     {
-      "title": "Amazon: China-nexus actor's Cairn AI agents found and exploited a MONAI Label zero-day (CVE-2026-133968) on their own, getting root on a university server; fix now released in MONAI Label 0.8.6 (new, Nov 22)",
+      "title": "Amazon: China-nexus actor's Cairn AI agents found and exploited a MONAI Label zero-day (CVE-2026-133968) on their own, getting root on a university server; CISA added it to KEV Nov 23 (new); fix in MONAI Label 0.8.6",
       "severity": "critical",
       "exploited": true,
       "cves": [
         "CVE-2026-133968"
       ],
       "vendor": "Project MONAI: MONAI Label (open-source medical-imaging AI labeling server) <= 0.8.5; Cairn (open-source autonomous AI pentest framework)",
-      "why": "New Nov 22: MONAI published 0.8.6 on PyPI and GitHub (01:29 UTC), labelled a security release for all deployments; it fixes CVE-2026-133968 (GHSA-qc22-rmgc-vg94, all versions up to 0.8.5) and a second path traversal in session upload (PUT /session/?uncompress=true). Nov 21: an exploit-tracking account on X reports a public exploit (not independently checked). Nov 20 (AWS Security Blog, CJ Moses; BleepingComputer, The Register): Amazon found the attacker's Cairn instance running on the internet with no login, which exposed its prompts (Simplified Chinese), configs and AI output. From Sep 8-10 the agents went after mostly East Asian universities. Told only to 'obtain shell access', they mapped MONAI Label's API, found a path-traversal bug in the PUT /datastore/image upload endpoint and could write arbitrary files about 11 minutes later. A later session wrote a Python reverse shell into sitecustomize.py and triggered a training job, which gave a root shell. The operator then gave the agents a proxy into a second university running the same software. Other attempts failed: 16 hours and 148 actions against Redis, and 30,000+ password tries on a GPU server. Amazon rates the attribution moderate confidence. MONAI's advisory (GHSA-qc22-rmgc-vg94, Nov 18) says auth is off by default, so anyone who can reach the server can exploit it.",
+      "why": "New Nov 23: CISA added CVE-2026-133968 to its Known Exploited Vulnerabilities list. New Nov 22: MONAI published 0.8.6 on PyPI and GitHub (01:29 UTC), labelled a security release for all deployments; it fixes CVE-2026-133968 (GHSA-qc22-rmgc-vg94, all versions up to 0.8.5) and a second path traversal in session upload (PUT /session/?uncompress=true). Nov 21: an exploit-tracking account on X reports a public exploit (not independently checked). Nov 20 (AWS Security Blog, CJ Moses; BleepingComputer, The Register): Amazon found the attacker's Cairn instance running on the internet with no login, which exposed its prompts (Simplified Chinese), configs and AI output. From Sep 8-10 the agents went after mostly East Asian universities. Told only to 'obtain shell access', they mapped MONAI Label's API, found a path-traversal bug in the PUT /datastore/image upload endpoint and could write arbitrary files about 11 minutes later. A later session wrote a Python reverse shell into sitecustomize.py and triggered a training job, which gave a root shell. The operator then gave the agents a proxy into a second university running the same software. Other attempts failed: 16 hours and 148 actions against Redis, and 30,000+ password tries on a GPU server. Amazon rates the attribution moderate confidence. MONAI's advisory (GHSA-qc22-rmgc-vg94, Nov 18) says auth is off by default, so anyone who can reach the server can exploit it.",
       "action": "Upgrade to MONAI Label 0.8.6 (pip install -U monailabel==0.8.6 or docker projectmonai/monailabel:0.8.6). Also keep servers (default port 8000) off untrusted networks, set MONAI_LABEL_AUTH_ENABLE=True and run as an unprivileged user. Because the bug was exploited since September, check for unexpected sitecustomize.py or .pth files, cron entries or authorized_keys, and connections from 142.4.98.145 or 142.4.107.34; upgrading does not remove an attacker already in. More broadly, alert on high-volume automated probing of upload, path and API endpoints and auto-block it.",
       "url": "https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/",
       "ai_angle": [
@@ -760,7 +761,7 @@
       "ai_note": "Triple Whale markets itself as an AI platform; no AI use in the attacks reported."
     },
     {
-      "title": "CISA KEV Nov 20 (federal deadline today, Nov 23): VMware vCenter CVE-2026-123890 (zero-day since September, Armory Castle), Cisco Expressway CVE-2026-76466 (root RCE, break-ins reported), Apache Roller CVE-2026-129448 (unauthenticated RCE), SAP NetWeaver Portal CVE-2025-42884; earlier: Apache Axis, REDCap, Synology DSM, Puppet, Chrome, OpenSSH 'SSHole', Outlook",
+      "title": "CISA KEV Nov 20 (federal deadline was Nov 23): VMware vCenter CVE-2026-123890 (zero-day since September, Armory Castle), Cisco Expressway CVE-2026-76466 (root RCE, break-ins reported), Apache Roller CVE-2026-129448 (unauthenticated RCE), SAP NetWeaver Portal CVE-2025-42884; earlier: Apache Axis, REDCap, Synology DSM, Puppet, Chrome, OpenSSH 'SSHole', Outlook",
       "severity": "critical",
       "exploited": true,
       "cves": [
@@ -775,10 +776,11 @@
         "CVE-2026-125350",
         "CVE-2026-123158",
         "CVE-2026-124194",
-        "CVE-2026-123218"
+        "CVE-2026-123218",
+        "CVE-2026-134624"
       ],
       "vendor": "Broadcom VMware vCenter; Cisco Expressway; Apache Roller; SAP NetWeaver Enterprise Portal; Perforce Puppet Enterprise; Google Chrome; Apache Axis 1.x in Atlassian Confluence and N-able N-central; OpenSSH on musl-based Linux (Alpine); Microsoft Outlook; IBM Aspera Faspex",
-      "why": "New Nov 20: CISA added vCenter CVE-2026-123890, Expressway CVE-2026-76466, Apache Roller CVE-2026-129448 and SAP NetWeaver Enterprise Portal CVE-2025-42884 to KEV. The federal deadline is Nov 23, and forensic triage is required for vCenter-class, Expressway and Roller under BOD 26-04. The SAP flaw (CVSS 6.5, EP-BASIS/EP-RUNTIME 7.50) lets an unauthenticated attacker inject JNDI lookup properties to read or change server information. New: Broadcom's VMSA-2026-0009 (Nov 19) fixes vCenter CVE-2026-123890 (CVSS 9.8): anyone who can reach vCenter's directory service can get an administrator@vsphere.local session. It affects 8.0, 9.0 and 9.1 and the builds inside VCF and vSphere Foundation; 6.5, 6.7 and 7.0 should be presumed affected, and there is no workaround. Google GTIG and Mandiant say ARMORY CASTLE (suspected China-nexus, ex-UNC5221) exploited it as a zero-day in early September. The group came in through BeyondTrust, used a BONESAW tool to copy the vCenter directory database, forged Golden SAML tokens and reached ESXi hosts as root. New: Russian firm F6 reports the first exploitation of Cisco Expressway CVE-2026-76466 (Cisco advisory: static-credential RCE) shortly after a PoC: attackers took root on internet-exposed Expressway X15.5.3 and moved to internal cluster nodes. CISA added (Nov 18) Apache Axis CVE-2026-90436 (CVSS 9.8, unauthenticated RCE in end-of-life Axis 1.x, used against Confluence Data Center and N-able N-central), REDCap CVE-2026-90817 (CVSS 9.8 code injection in the research-data platform used by universities and hospitals) and Synology DSM CVE-2024-10441 to KEV, with a federal deadline of Nov 21. Still exploited: Apache Roller CVE-2026-129448 (CVSS 9.8 unauthenticated deserialization RCE; disabling XML-RPC does not protect), Puppet Enterprise CVE-2026-115731 (CVSS 9.9, any signed agent can run code on Puppet Server), Chrome CVE-2026-125350, OpenSSH CVE-2026-123158 (password login on musl/Alpine without PAM), Outlook CVE-2026-124194 (NTLM leak; found with Claude) and IBM Aspera Faspex CVE-2026-123218. Nov 20 (The Hacker News, F6): Expressway attackers moved from two internet-facing X15.5.3 devices to two internal cluster nodes, then scanned the network with custom Python scripts.",
+      "why": "New Nov 23: CISA added N-able Mail Assure SSRF CVE-2026-134624 (the flaw found in N-able's Hosted Cloud breach investigation; fixed in build 20261121.1943) to KEV. New Nov 20: CISA added vCenter CVE-2026-123890, Expressway CVE-2026-76466, Apache Roller CVE-2026-129448 and SAP NetWeaver Enterprise Portal CVE-2025-42884 to KEV. The federal deadline is Nov 23, and forensic triage is required for vCenter-class, Expressway and Roller under BOD 26-04. The SAP flaw (CVSS 6.5, EP-BASIS/EP-RUNTIME 7.50) lets an unauthenticated attacker inject JNDI lookup properties to read or change server information. New: Broadcom's VMSA-2026-0009 (Nov 19) fixes vCenter CVE-2026-123890 (CVSS 9.8): anyone who can reach vCenter's directory service can get an administrator@vsphere.local session. It affects 8.0, 9.0 and 9.1 and the builds inside VCF and vSphere Foundation; 6.5, 6.7 and 7.0 should be presumed affected, and there is no workaround. Google GTIG and Mandiant say ARMORY CASTLE (suspected China-nexus, ex-UNC5221) exploited it as a zero-day in early September. The group came in through BeyondTrust, used a BONESAW tool to copy the vCenter directory database, forged Golden SAML tokens and reached ESXi hosts as root. New: Russian firm F6 reports the first exploitation of Cisco Expressway CVE-2026-76466 (Cisco advisory: static-credential RCE) shortly after a PoC: attackers took root on internet-exposed Expressway X15.5.3 and moved to internal cluster nodes. CISA added (Nov 18) Apache Axis CVE-2026-90436 (CVSS 9.8, unauthenticated RCE in end-of-life Axis 1.x, used against Confluence Data Center and N-able N-central), REDCap CVE-2026-90817 (CVSS 9.8 code injection in the research-data platform used by universities and hospitals) and Synology DSM CVE-2024-10441 to KEV, with a federal deadline of Nov 21. Still exploited: Apache Roller CVE-2026-129448 (CVSS 9.8 unauthenticated deserialization RCE; disabling XML-RPC does not protect), Puppet Enterprise CVE-2026-115731 (CVSS 9.9, any signed agent can run code on Puppet Server), Chrome CVE-2026-125350, OpenSSH CVE-2026-123158 (password login on musl/Alpine without PAM), Outlook CVE-2026-124194 (NTLM leak; found with Claude) and IBM Aspera Faspex CVE-2026-123218. Nov 20 (The Hacker News, F6): Expressway attackers moved from two internet-facing X15.5.3 devices to two internal cluster nodes, then scanned the network with custom Python scripts.",
       "action": "vCenter: install the VMSA-2026-0009 fixed build now. Quick Patch is not supported, so do a full update. Watch the 8.0 U3m / 9.0.2.0200 vs VCF 9.1.1 upgrade conflict. Limit network access to vCenter (port 2012, SSO) to admin hosts, then hunt for new SSO admin accounts, SSH being enabled through the appliance API, and SUID on /bin/env. Cisco Expressway: upgrade to X15.5.20 (X14 and earlier must migrate); check erlang.log for nodeup 'wombat@127.0.0.1', Python files under /mnt/harddisk/i* and connections from 66.179.31.32 or 18.130.47.116. Confluence Data Center: upgrade to 9.2.28 or turn off Remote API (XML-RPC & SOAP); patch N-central to 2026.4 HF3. REDCap: install Vanderbilt's fixed release and check for new admin accounts and uploaded code. Synology DSM: update to the current DSM release. Roller: 6.1.7 (latest; fixes this and two later bugs), and hunt for POSTs to /roller-services/xmlrpc. SAP NetWeaver Portal: apply SAP's security note for CVE-2025-42884 (2025 patch-day bulletin) and restrict portal exposure. Puppet: 2023.8.13, 2025.12.1 or 2026.0.1 and restrict autosigning. Chrome 157.0.8103.50+. OpenSSH 10.6p2 or distro fix (or PasswordAuthentication no). Outlook: November updates, block outbound SMB. Faspex 5.0.19 PL1.",
       "url": "https://www.cisa.gov/news-events/alerts/2026/11/20/cisa-adds-four-known-exploited-vulnerabilities-catalog",
       "ai_angle": [],
@@ -838,55 +840,63 @@
   ],
   "news": [
     {
+      "title": "Chinese-nexus actor's Cairn AI agents found a zero-day on their own",
+      "source": "AWS Security Blog (Amazon Threat Intelligence)",
+      "url": "https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/",
+      "blurb": "Autonomous agents found and exploited a MONAI Label path traversal for root; CISA added CVE-2026-133968 to KEV on Nov 23. Upgrade to 0.8.6."
+    },
+    {
       "title": "Agentic Attacks: In The Wild",
       "source": "Wiz Blog",
       "url": "https://www.wiz.io/blog/agentic-attacks-artex-offensive-ai-frameworks",
-      "blurb": "Wiz Research: about 20 more agentic-attack incidents in three weeks, the ARTEX-Harvester campaign at a dozen-plus organizations, and detections for these noisy machine-speed attacks."
+      "blurb": "About 20 more agentic-attack incidents in three weeks, an ARTEX-Harvester campaign and a CyberStrikeAI intrusion across AWS and EKS."
     },
     {
       "title": "Anatomy of an AI-driven attack: Bitrise security incident report",
       "source": "Bitrise",
       "url": "https://bitrise.io/artex-incident-report",
-      "blurb": "ARTEX probed Bitrise for 25 days and got in through a dormant test-bot account without 2FA; cloud key in use within about 11 minutes."
+      "blurb": "ARTEX probed for 25 days and got in through a dormant test-bot account without 2FA; finish rotating stored secrets."
     },
     {
-      "title": "Chinese-nexus actor's Cairn AI agents found a zero-day on their own",
-      "source": "AWS Security Blog (Amazon Threat Intelligence)",
-      "url": "https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/",
-      "blurb": "Autonomous Cairn agents told only to 'obtain shell access' found a MONAI Label path traversal and used it for root in September. The operator then pointed them at a second university. Fix merged, release pending."
+      "title": "AI Supply Chain Security: What Canary Tokens Found",
+      "source": "Dragos",
+      "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+      "blurb": "Canary credentials in about 2M prompts were used against Dragos's test AWS accounts, showing at least three AI providers were compromised; OpenRouter dropped providers. Rotate secrets you sent in prompts."
+    },
+    {
+      "title": "Microsoft Azure flaw exploited to steal customers' API credentials",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials/",
+      "blurb": "APIM Classic-tier flaw used to steal stored API credentials; rotate APIM secrets and named values."
     },
     {
       "title": "Hackers Exploit Critical ScreenConnect Flaw to Hijack MSP Technician PCs Without Warning",
       "source": "The Hacker News",
       "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-screenconnect.html",
-      "blurb": "Huntress: CVE-2026-84869 lets a session guest run a payload on the technician's host; mass spraying since Oct 20. Update host clients to 26.6.5+."
+      "blurb": "CVE-2026-84869 lets a guest in a support session run code on the technician's PC."
     },
     {
-      "title": "Hackers exploit GL.iNet cloud flaw to infect routers, KVM devices",
+      "title": "EU Commission confirms personal data leak after cyberattack, warns of further disruption",
+      "source": "POLITICO Europe",
+      "url": "https://www.politico.eu/article/european-commission-personal-data-leak-cyberattack-disruption/",
+      "blurb": "EU Academy users' names and emails leaked; platform offline; officials say the campaign is 'not over yet'."
+    },
+    {
+      "title": "South Korea's power giant KEPCO confirms data breach impacting 1.5 million",
       "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-glinet-cloud-flaw-to-infect-routers-kvm-devices/",
-      "blurb": "GL.iNet confirms its GoodCloud remote-management service was abused to install malware and reverse shells on customer routers and KVMs; cloud hole fixed, firmware updates due Nov 22, infected devices need reflashing."
-    },
-    {
-      "title": "N-able Discloses Critical Mail Assure Vulnerability Found During Breach Investigation",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/n-able-discloses-critical-mail-assure.html",
-      "blurb": "SSRF CVE-2026-134624 fixed in build 20261121.1943; API and OAuth tokens revoked after a Hosted Cloud server was accessed. Re-issue tokens for integrations."
-    },
-    {
-      "title": "AI-Assisted Cyberattacks Trigger Unauthorized Payments at Indian Banks and Fintech Firms",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/ai-assisted-cyberattacks-trigger.html",
-      "blurb": "CERT-In (Nov 20 advisory, reported Nov 23): attackers altered business records and approval chains to push unauthorized payments through legitimate systems; agentic offensive frameworks cut access-to-impact from days to hours."
-    },
-    {
-      "title": "Azure Flaw Exploited to Target Secrets at Norwegian Energy Firms",
-      "source": "SecurityWeek",
-      "url": "https://www.securityweek.com/azure-flaw-exploited-to-target-secrets-at-norwegian-energy-firms/",
-      "blurb": "Microsoft confirms the APIM Classic flaw could expose stored secrets; it closed the access path Nov 19. Rotate APIM secrets."
+      "url": "https://www.bleepingcomputer.com/news/security/south-koreas-power-giant-kepco-confirms-data-breach-impacting-15-million/",
+      "blurb": "Billing (KEPCO ON) and procurement (SRM) systems breached; found Nov 20."
     }
   ],
   "watch": [
+    "European Commission (POLITICO, Nov 23): the EU Academy course platform was hit in the ongoing cyber campaign against the Commission; users' names and emails leaked, the platform is offline, users were not contacted individually and an official says 'it's not over yet'. EU Academy users: expect phishing that uses the breach.",
+    "LaLiga (Spain, BleepingComputer Nov 23): an attacker took personal data of users of LaLiga's and some clubs' fan digital services from one platform between Nov 14 and 16; competition systems not affected; reported to Spain's AEPD. Expect LaLiga- or club-themed phishing.",
+    "MSIG Hong Kong (notice Nov 23): unauthorised access to the MediGo Member and Employer portals exposed some group medical customers' personal data; both portals suspended. Watch for fake MSIG calls or texts asking for passwords or OTPs.",
+    "Pomerium CVE-2026-135300 (CVSS 9.1, MCP token endpoint): 0.30.0 to before 0.34.0 skips client-secret checks, so a stolen auth code or refresh token can be redeemed for the victim's tokens. Upgrade to 0.34.0.",
+    "Xen Orchestra xo-server CVE-2026-133469 (CVSS 9.8, GitHub advisory GHSA-2r3w-c2vx-fv5g, Nov 23): an empty-object login token can bypass authentication. Update xo-server and keep the console off the internet.",
+    "Microsoft research 'Lazarus' (per X, Nov 23, not yet checked against the paper): an AI agent's model can be backdoored by editing fewer than ten neurons in its weights, with no retraining. Verify model weights' integrity (hashes, signed artifacts) when you pull models.",
+    "Unverified (X, Nov 23): a post says the US Justice Department opened an investigation into use of stolen payment credentials on X Money; no official source found yet.",
+    "OX Security (per X, Nov 23): of 542,207 npm, PyPI, MCP and Agent Skills components scanned, 22% of flagged MCP servers had prompt injection or tool poisoning. Review MCP servers and skills before installing them.",
     "GlobeTopper (B2B mobile top-up and gift-card provider, BleepingComputer Nov 23): a cyberattack disrupted operations, costing about $2.5M in lost revenue; the attacker redeemed about $70,000 of digital gift cards. https://www.bleepingcomputer.com/news/security/globetopper-loses-25-million-after-hackers-steal-70k-in-gift-cards/",
     "binary-parser CVE-2026-134814 (CVSS 9.2, The Hacker News Nov 23): code injection when an attacker controls parser definitions; no exploitation reported. Upgrade the npm package to 2.3.1. https://thehackernews.com/2026/11/critical-binary-parser-flaw-enables.html",
     "Unverified (single X post, Nov 23): AWS's InfluxDB MCP server CVE-2026-126681 can be steered by prompt injection into sending its API token to an attacker URL; reportedly fixed in 0.0.19. If you run it, update and rotate the InfluxDB token.",
