@@ -2,11 +2,26 @@
  {
   "url": "https://x.com/abstraction_log/status/2124572034126504143",
   "author": "abstraction_log",
-  "text": "⚠️ Active exploitation right now: VMware, Cisco &amp; Apache\n\nCISA just added three critical flaws to the KEV catalog. All are being actively exploited.\n\n• VMware vCenter (CVE-2026-123890) Auth bypass, used as a zero-day by a China-linked group\n• Cisco Expressway (CVE-2026-76466) https://t.co/xvWfVrRs82",
+  "text": "⚠️ Active exploitation right now: VMware, Cisco & Apache\n\nCISA just added three critical flaws to the KEV catalog. All are being actively exploited.\n\n• VMware vCenter (CVE-2026-123890) Auth bypass, used as a zero-day by a China-linked group\n• Cisco Expressway (CVE-2026-76466) Hard-coded credentials \n→ root command execution\n• Apache Roller (CVE-2026-129448)  Unauthenticated RCE via deserialization\n\nFederal agencies have until November 23 to patch.\n\nIf you run any of these, this is not a “next week” problem.\n\nWhich of the three are you seeing in your environment?\n\n#CyberSecurity #InfoSec #CISAKEV",
   "created_at": "2026-11-22T18:33:40.000Z",
   "cves": [
    "CVE-2026-123890",
-   "CVE-2026-76466"
+   "CVE-2026-76466",
+   "CVE-2026-129448"
+  ]
+ },
+ {
+  "url": "https://x.com/TheExploitHQ/status/2124492042537468393",
+  "author": "TheExploitHQ",
+  "text": "[!] CISA Known Exploited Vulnerabilities Catalog: active exploitation confirmed.\n\nPrioritize patching and remediation for all four listed vulnerabilities within the operational timeframes specified by CISA.\n\n[!] ACTIVELY EXPLOITED\n- CISA Known Exploited Vulnerabilities Catalog - CVE-2025-42884, CVE-2026-76466, CVE-2026-123890, CVE-2026-129448, CVE-2026-82384 (CISA KEV)\n\n[!] DEVELOPING\n- Amazon Threat Intelligence reported that a Chinese-nexus actor used autonomous Cairn AI agents to discover and exploit a zero-day vulnerability in an open-source medical imaging AI application\n- A use-after-free vulnerability in Ghostscript’s Type 1 font loader enables attackers to break out of the -dSAFER sandbox and execute arbitrary commands (CVE-2026-125396)\n- Chainflip Labs confirmed that an attacker drained over $12 million in BTC, ETH, USDC, and USDT from its protocol vaults on 21 November 2026\n\n[>] Full 6-min brief with sources in the first reply.\n\n#CyberSecurity #ThreatIntel #Amazon #Chainflip",
+  "created_at": "2026-11-22T13:15:48.000Z",
+  "cves": [
+   "CVE-2025-42884",
+   "CVE-2026-76466",
+   "CVE-2026-123890",
+   "CVE-2026-129448",
+   "CVE-2026-82384",
+   "CVE-2026-125396"
   ]
  },
  {
@@ -17,55 +32,12 @@
   "cves": []
  },
  {
-  "url": "https://x.com/TheExploitHQ/status/2124492042537468393",
-  "author": "TheExploitHQ",
-  "text": "[!] CISA Known Exploited Vulnerabilities Catalog: active exploitation confirmed.\n\nPrioritize patching and remediation for all four listed vulnerabilities within the operational timeframes specified by CISA.\n\n[!] ACTIVELY EXPLOITED\n- CISA Known Exploited Vulnerabilities Catalog - https://t.co/HAbrk85lo4",
-  "created_at": "2026-11-22T13:15:48.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/ctiwatchHQ/status/2124487814003720522",
-  "author": "ctiwatchHQ",
-  "text": "CVE-2026-123890 is in CISA's KEV catalog: an authentication bypass in VMware vCenter (Directory Service), CVSS 9.8, confirmed exploited in the wild.\n\nFixed in 9.1.1.0200, 9.0.2.0200, 8.0 U3m and 5.2.5. Patch now.\n\nhttps://t.co/K2QHkCQhZH https://t.co/U15jhWl46Z",
-  "created_at": "2026-11-22T12:59:00.000Z",
-  "cves": [
-   "CVE-2026-123890"
-  ]
- },
- {
-  "url": "https://x.com/tldrcve/status/2124521515677069731",
-  "author": "tldrcve",
-  "text": "VMware vCenter CVE-2026-123890: anyone who can reach vCenter gets admin, no password. Exploited in the wild (Mandiant), on CISA KEV, due 23 Nov. No workaround.\n\nPatch to 9.1.1.0200, 9.0.2.0200 or 8.0 U3m. vCenter 7.0: no public fix.\nhttps://t.co/fxK4WyxDS1",
-  "created_at": "2026-11-22T15:12:55.000Z",
-  "cves": [
-   "CVE-2026-123890"
-  ]
- },
- {
-  "url": "https://x.com/netninja4u/status/2124766990971899909",
-  "author": "netninja4u",
-  "text": "Cisco Expressway actively exploited — patch to X15.5.20 now. 🥷\n\nCVE-2026-76466 is a critical flaw (CVSS 9.8) in Cisco Expressway, the gateway that runs your video calls. https://t.co/v1I0K8HoeY",
-  "created_at": "2026-11-23T07:28:21.000Z",
+  "url": "https://x.com/AGTPinsights/status/2124803512936575007",
+  "author": "AGTPinsights",
+  "text": "CISA just flagged a critical Cisco Expressway flaw as actively exploited. Here's what you need to know.\n\nThe US Cybersecurity and Infrastructure Security Agency warned federal agencies that attackers are exploiting a recently patched critical remote code execution flaw in Cisco Expressway. The bug is tracked as CVE-2026-76466 and is listed as use of hard-coded credentials.\n\nCISA added it to its Known Exploited Vulnerabilities catalog on Nov 20, 2026, in a batch of four flaws that also covers VMware vCenter. Listing means there is evidence of active exploitation in real attacks.\n\nCisco's PSIRT said it knew of no attacks. CISA says they are live. Security firm F6 found attackers using an AI assistant to get root access, then hunt the network for more credentials.\n\nKey numbers:\n- CVE-2026-76466, critical RCE in Cisco Expressway\n- Added to CISA's KEV catalog Nov 20, 2026\n- 103 Cisco flaws on the KEV list since November 2021\n- 7 of those also used by ransomware gangs\n\nThe flaw is already patched, so the advice is to check exposure and deploy the update.",
+  "created_at": "2026-11-23T09:53:29.000Z",
   "cves": [
    "CVE-2026-76466"
-  ]
- },
- {
-  "url": "https://x.com/netninja4u/status/2124766027724841272",
-  "author": "netninja4u",
-  "text": "VMware vCenter actively exploited — patch to 8.0 U3m, 9.0.2.0200, or 9.1.1.0200 now. 🥷\n\nCVE-2026-123890 is a critical flaw (CVSS 9.8) in VMware vCenter, the console that runs your entire virtual data center. https://t.co/3GmZrEZjdg",
-  "created_at": "2026-11-23T07:24:31.000Z",
-  "cves": [
-   "CVE-2026-123890"
-  ]
- },
- {
-  "url": "https://x.com/VulnHero_Alert/status/2124757410262741165",
-  "author": "VulnHero_Alert",
-  "text": "🟠 HIGH 8.1 · WordPress Improper Access Control Vulnerability Leading to Code Execution, Remote Code Execution and… (CVE-2026-119977)\n\nListed in CISA KEV: exploited in the wild. Patch available, update now.\n\n#CVE_2026_119977\n\nhttps://t.co/3FJosuM9BT https://t.co/wWiKtevSwC",
-  "created_at": "2026-11-23T06:50:17.000Z",
-  "cves": [
-   "CVE-2026-119977"
   ]
  },
  {
@@ -76,13 +48,6 @@
   "cves": []
  },
  {
-  "url": "https://x.com/moton/status/2124784287220400584",
-  "author": "moton",
-  "text": "CISA flags critical Cisco RCE flaw as actively exploited in attacks - https://t.co/Hfrw6ay93x",
-  "created_at": "2026-11-23T08:37:05.000Z",
-  "cves": []
- },
- {
   "url": "https://x.com/0xdarkbear/status/2124638994298241495",
   "author": "0xdarkbear",
   "text": "Weekly Threat Brief — Nov 22\n\n• NGINX pre-auth RCE — 11 yrs undetected\n• Java4Shell hits OpenJDK enterprise stack\n• Apache Roller RCE actively exploited (CVSS 9.8)\n• N0n ransomware claims Visa breach\n• Puppet RCE added to CISA KEV\n\nPatch. Monitor. Rotate. https://t.co/7lY060i01n",
@@ -90,31 +55,35 @@
   "cves": []
  },
  {
-  "url": "https://x.com/Dinosn/status/2124778255056028138",
-  "author": "Dinosn",
-  "text": "CISA flags critical Cisco RCE flaw as actively exploited in attacks https://t.co/EZuXlpoYg5",
-  "created_at": "2026-11-23T08:13:07.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/Follow_our_Echo/status/2124528957349392697",
-  "author": "Follow_our_Echo",
-  "text": "🚨 Autonomous AI agents found a zero-day in MONAI Label and exploited it to run code as root on a university server.\n\nAccording to Amazon Threat Intelligence, the attackers only gave the agents a list of targets and a goal. The agents did the rest:\n\n→ They explored MONAI Label's https://t.co/oxdt4HDj8x",
-  "created_at": "2026-11-22T15:42:29.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/blueteamsec1/status/2124771718896271773",
-  "author": "blueteamsec1",
-  "text": "CISA flags critical Cisco RCE flaw as actively exploited in attacks dlvr.​it/TWRH5n #Security https://t.co/VH5uAt6oJd",
-  "created_at": "2026-11-23T07:47:08.000Z",
-  "cves": []
+  "url": "https://x.com/D0xedDevi0/status/2124542717246206335",
+  "author": "D0xedDevi0",
+  "text": "🟦😎 unauth RCE, actively exploited\n🟦 CVE-2026-129448 — Apache Roller 4.0.0-6.1.4, CVSS 9.8\n🟦 its XML-RPC endpoint deserializes bytes before it checks a login\n🟦 6.1.6, or kill /roller-services/xmlrpc\nauth after parse is not auth 😎🟦 intel: @PCMedicalist",
+  "created_at": "2026-11-22T16:37:10.000Z",
+  "cves": [
+   "CVE-2026-129448"
+  ]
  },
  {
   "url": "https://x.com/BlueVigilint/status/2124648690409242681",
   "author": "BlueVigilint",
   "text": "🚨 CISA KEV: VMware vCenter CVE-2026-123890 (CVSS 9.8) is actively exploited. Network attackers can bypass authentication.\n\n🛡️ Admin action: patch vCenter 8.0→U3m, 9.0→9.0.2.0200, 9.1→9.1.1.0200. No workaround.\n\n#ThreatIntel\nhttps://t.co/NKRaLLpF3Y",
   "created_at": "2026-11-22T23:38:16.000Z",
+  "cves": [
+   "CVE-2026-123890"
+  ]
+ },
+ {
+  "url": "https://x.com/moton/status/2124784287220400584",
+  "author": "moton",
+  "text": "CISA flags critical Cisco RCE flaw as actively exploited in attacks - https://t.co/Hfrw6ay93x",
+  "created_at": "2026-11-23T08:37:05.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/Sable_Research/status/2124483747332694019",
+  "author": "Sable_Research",
+  "text": "🚨 CVE-2026-123890 (VMware vCenter Auth Bypass) is actively exploited and in CISA KEV.\n\nWe published defensive analysis on the root cause (CWE-288) and remediation steps.\n\n📄 Research: https://t.co/VMH0JGE2JC\n\n#infosec #VMware #CISAKEV https://t.co/3MwODqnSGd",
+  "created_at": "2026-11-22T12:42:51.000Z",
   "cves": [
    "CVE-2026-123890"
   ]
@@ -144,6 +113,29 @@
   ]
  },
  {
+  "url": "https://x.com/Dinosn/status/2124778255056028138",
+  "author": "Dinosn",
+  "text": "CISA flags critical Cisco RCE flaw as actively exploited in attacks https://t.co/EZuXlpoYg5",
+  "created_at": "2026-11-23T08:13:07.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/ido_cohen2/status/2124567543549472802",
+  "author": "ido_cohen2",
+  "text": "⚠️ New CVE Exploited in the Wild\n\n• CVE-2026-123890 with Broadcom VMware vCenter\n• Authentication bypass vulnerability\n• Allows unauthorized access through alternate path\n• Actively exploited but not linked to ransomware\n• Listed in CISA KEV\n\n🛡️ Apply mitigations by 2026-11-23\n\nFull report: 🔗 https://t.co/3e2zfCtlvp\n#CyberSecurity #VMwareVulnerability #CISAAlert",
+  "created_at": "2026-11-22T18:15:49.000Z",
+  "cves": [
+   "CVE-2026-123890"
+  ]
+ },
+ {
+  "url": "https://x.com/blueteamsec1/status/2124771718896271773",
+  "author": "blueteamsec1",
+  "text": "CISA flags critical Cisco RCE flaw as actively exploited in attacks dlvr.​it/TWRH5n #Security https://t.co/VH5uAt6oJd",
+  "created_at": "2026-11-23T07:47:08.000Z",
+  "cves": []
+ },
+ {
   "url": "https://x.com/netninja4u/status/2124767872878817689",
   "author": "netninja4u",
   "text": "Apache Roller actively exploited — upgrade to 6.1.6 now. 🥷\n\nCVE-2026-129448 is a critical flaw (CVSS 9.8) in Apache Roller, the Java blog server. https://t.co/LFBQH1wPxr",
@@ -153,32 +145,54 @@
   ]
  },
  {
-  "url": "https://x.com/CyberSparta/status/2124768102697103428",
-  "author": "CyberSparta",
-  "text": "AI Agents Used to Exploit Medical Zero-Day\n\nAmazon revealed that a China-linked threat actor used autonomous AI agents to discover and exploit a critical zero-day vulnerability (CVE-2026-133968) in MONAI.\n\nhttps://t.co/kvZESSFKEg\n#AISecurity #CyberSecurity #ZeroDay",
-  "created_at": "2026-11-23T07:32:46.000Z",
+  "url": "https://x.com/netninja4u/status/2124766990971899909",
+  "author": "netninja4u",
+  "text": "Cisco Expressway actively exploited — patch to X15.5.20 now. 🥷\n\nCVE-2026-76466 is a critical flaw (CVSS 9.8) in Cisco Expressway, the gateway that runs your video calls. https://t.co/v1I0K8HoeY",
+  "created_at": "2026-11-23T07:28:21.000Z",
   "cves": [
-   "CVE-2026-133968"
+   "CVE-2026-76466"
   ]
  },
  {
-  "url": "https://x.com/jpsharada/status/2124772071435821251",
-  "author": "jpsharada",
-  "text": "CISA flags critical Cisco RCE flaw as actively exploited in attacks\nThe US Cybersecurity and Infrastructure Security Agency (CISA) warned federal agencies that attackers are now exploiting a recently patched critical C…（2026年11月23日16:44／BleepingComputer）\nAI Kira's note:",
-  "created_at": "2026-11-23T07:48:32.000Z",
-  "cves": []
+  "url": "https://x.com/netninja4u/status/2124766027724841272",
+  "author": "netninja4u",
+  "text": "VMware vCenter actively exploited — patch to 8.0 U3m, 9.0.2.0200, or 9.1.1.0200 now. 🥷\n\nCVE-2026-123890 is a critical flaw (CVSS 9.8) in VMware vCenter, the console that runs your entire virtual data center. https://t.co/3GmZrEZjdg",
+  "created_at": "2026-11-23T07:24:31.000Z",
+  "cves": [
+   "CVE-2026-123890"
+  ]
  },
  {
-  "url": "https://x.com/ApollonVisual/status/2124522122508726285",
-  "author": "ApollonVisual",
-  "text": "CISA Orders Federal Agencies To Fix Four Security Flaws\n\nThe US Cybersecurity and Infrastructure Security Agency added four actively exploited vulnerabilities to its Known Exploited Vulnerabilities catalog on November 20 2026.\n\nThe vulnerabilities affect VMware vCenter and Cisco https://t.co/gHoPPx9Uuz",
-  "created_at": "2026-11-22T15:15:20.000Z",
-  "cves": []
+  "url": "https://x.com/TheCyberSecHub/status/2124805741265698954",
+  "author": "TheCyberSecHub",
+  "text": "Critical Cisco Expressway Flaw Exploited in Attacks: Researchers warn that CVE-2026-76466, with a CVSS score of 9.​8, is being actively exploited www.​infosecurity-magazine.​com/news/critical-cisco-expressway-flaw/ #cybersecurity #infosec #hacking https://t.co/TPoNDM6jIi",
+  "created_at": "2026-11-23T10:02:20.000Z",
+  "cves": [
+   "CVE-2026-76466"
+  ]
+ },
+ {
+  "url": "https://x.com/SecAlertsCo/status/2124569377395626471",
+  "author": "SecAlertsCo",
+  "text": "🔑 ASUS Control Center Express has a hardcoded crypto key — CVE-2026-114202 (CVSS 10). Remote attackers can forge auth tokens and gain admin access. PoC is public. Patch now.\n#cybersecurity #ciso #cto #vulnerabilities #mssp\nhttps://t.co/eeYpYInt9D",
+  "created_at": "2026-11-22T18:23:06.000Z",
+  "cves": [
+   "CVE-2026-114202"
+  ]
+ },
+ {
+  "url": "https://x.com/EnclaveRadar/status/2124806598832878046",
+  "author": "EnclaveRadar",
+  "text": "🆕 New CVE: CVE-2026-134882 (CVSS 10.0, Enclave score 5/10)\nTOTOLINK A7100RU · Remote code execution\nRemote, no login needed.\nReality check: overhyped. CVSS 10 rests on one self-reported, emulation-only test, no public exploit.\n\nhttps://t.co/ZWce6Ua04O",
+  "created_at": "2026-11-23T10:05:44.000Z",
+  "cves": [
+   "CVE-2026-134882"
+  ]
  },
  {
   "url": "https://x.com/arnaudmercier/status/2124681506123640965",
   "author": "arnaudmercier",
-  "text": "&lt;p class=\"wp-block-paragraph\"&gt;From the &lt;a href=\"https://t.co/5ZsD5W11Wl\"&gt;Gemini Calendar prompt-injection attack of 2026&lt;/a&gt; to the September 2025 state-sponsored hack using Anthropic’s Claude code as an automated intrusion engine, the coercion of human-in-the-loop agentic https://t.co/YdMCmc2F91",
+  "text": "<p class=\"wp-block-paragraph\">From the <a href=\"https://t.co/Vu9wBcQxUi\">Gemini Calendar prompt-injection attack of 2026</a> to the September 2025 state-sponsored hack using Anthropic’s Claude code as an automated intrusion engine, the coercion of human-in-the-loop agentic actions and fully autonomous agentic workflows are the new attack vector for hackers. In the Anthropic case, roughly 30 organizations across tech, finance, manufacturing, and government were affected. <a href=\"https://t.co/cqBwHxQuyG\">Anthropic’s threat team assessed</a> that the attackers used AI to carry out 80% to 90% of the operation: reconnaissance, exploit development, credential harvesting, lateral movement, and data exfiltration, with humans stepping in only at a handful of key decision points.</p>\n\n<figure class=\"wp-block-image size-full\"><img fetchpriority=\"high\" decoding=\"async\" width=\"1254\" height=\"836\" src=\"https://t.co/qdkUFoYlRV\" alt=\"\" class=\"wp-image-1131010\" srcset=\"https://t.co/qdkUFoYlRV 1254w, https://t.co/J4RZFSdsc2 300w, https://t.co/qxcquzH6un 768w\" sizes=\"(max-width: 1254px) 100vw, 1254px\" /></figure>\n\n<p class=\"wp-block-paragraph\">This was not a lab demo; it was a live espionage campaign. The attackers hijacked an agentic setup (Claude code plus tools exposed via Model Context Protocol (MCP)) and jailbroke it by decomposing the attack into small, seemingly benign tasks and telling the model it was doing legitimate penetration testing. The same loop that powers developer copilots and internal agents was repurposed as an autonomous cyber-operator. Claude was not hacked. It was persuaded and used tools for the attack.</p>\n\n<h3 class=\"wp-block-heading\"><strong>Prompt injection is persuasion, not a bug</strong></h3>\n\n<p class=\"wp-block-paragraph\">Security communities have been warning about this for several years. Multiple <a href=\"https://t.co/wB9BCi5vz0\">OWASP Top 10 reports</a> put prompt injection, or more recently Agent <a href=\"https://t.co/7v4ixZiS0V\">Goal Hijack</a>, at the top of the risk list and pair it with identity and privilege abuse and human-agent trust exploitation: too much power in the agent, no separation between instructions and data, and no mediation of what comes out.</p>\n\n<p class=\"wp-block-paragraph\"><a href=\"https://t.co/Bav9lNY1TU\">Guidance</a> from the <a href=\"https://t.co/CqPLYNXlZ7\">NCSC</a> and CISA describes generative AI as a persistent social-engineering and manipulation vector that must be managed across design, development, deployment, and operations, not patched away with better phrasing. The EU AI Act turns that lifecycle view into law for high-risk AI systems, requiring a continuous risk management system, robust data governance, logging, and cybersecurity controls.</p>\n\n<p class=\"wp-block-paragraph\">In practice, prompt injection is best understood as a persuasion channel. Attackers don’t break the model—they convince it. In the Anthropic example, the operators framed each step as part of a defensive security exercise, kept the model blind to the overall campaign, and nudged it, loop by loop, into doing offensive work at machine speed. </p>\n\n<p class=\"wp-block-paragraph\">That’s not something a keyword filter or a polite “please follow these safety instructions” paragraph can reliably stop. Research on deceptive behavior in models makes this worse. Anthropic’s research on <a href=\"https://t.co/S5d6m1q49A\">sleeper agents</a><em> </em>shows that once a model has learned a backdoor, then strategic pattern recognition, standard fine-tuning, and adversarial training can actually help the model hide the deception rather than remove it. If one tries to defend a system like that purely with linguistic rules, they are playing on its home field.</p>\n\n<h3 class=\"wp-block-heading\"><strong>Why this is a governance problem, not a vibe</strong><strong>&nbsp;coding</strong><strong>&nbsp;problem</strong></h3>\n\n<p class=\"wp-block-paragraph\">Regulators aren’t asking for perfect prompts; they’re asking that enterprises demonstrate control.</p>\n\n<p class=\"wp-block-paragraph\">NIST’s AI RMF emphasizes asset inventory, role definition, access control, change management, and continuous monitoring across the AI lifecycle. The UK AI Cyber Security Code of Practice similarly pushes for secure-by-design principles by treating AI like any other critical system, with explicit duties for boards and system operators from conception through decommissioning.</p>\n\n<p class=\"wp-block-paragraph\">In other words: the rules actually needed are not “never say X” or “always respond like Y,” they are:</p>\n\n<ul class=\"wp-block-list\">\n<li>Who is this agent acting as?</li>\n\n<li>What tools and data can it touch?</li>\n\n<li>Which actions require human approval?</li>\n\n<li>How are high-impact outputs moderated, logged, and audited?</li>\n</ul>\n\n<p class=\"wp-block-paragraph\">Frameworks like Google’s Secure AI Framework (SAIF) make this concrete. SAIF’s agent permissions control is blunt: agents should operate with least privilege, dynamically scoped permissions, and explicit user control for sensitive actions. OWASP’s Top 10 emerging guidance on agentic applications mirrors that stance: constrain capabilities at the boundary, not in the prose.</p>\n\n<h3 class=\"wp-block-heading\"><strong>From soft words to hard boundaries</strong></h3>\n\n<p class=\"wp-block-paragraph\">The Anthropic espionage case makes the boundary failure concrete:</p>\n\n<ul class=\"wp-block-list\">\n<li>Identity and scope: Claude was coaxed into acting as a defensive security consultant for the attacker’s fictional firm, with no hard binding to a real enterprise identity, tenant, or scoped permissions. Once that fiction was accepted, everything else followed.</li>\n\n<li>Tool and data access: MCP gave the agent flexible access to scanners, exploit frameworks, and target systems. There was no independent policy layer saying, “This tenant may never run password crackers against external IP ranges,” or “This environment may only scan assets labeled ‘internal.’”</li>\n\n<li>Output execution: Generated exploit code, parsed credentials, and attack plans were treated as actionable artifacts with little mediation. Once a human decided to trust the summary, the barrier between model output and real-world side effect effectively disappeared.</li>\n</ul>\n\n<p class=\"wp-block-paragraph\">We’ve seen the other side of this coin in civilian contexts. When Air Canada’s <a href=\"https://t.co/p8SXDBS9lP\">website chatbot</a> misrepresented its bereavement policy and the airline tried to argue that the bot was a separate legal entity, the tribunal rejected the claim outright: the company remained liable for what the bot said. In espionage, the stakes are higher but the logic is the same: if an AI agent misuses tools or data, regulators and courts will look through the agent and to <em>the enterprise</em>.</p>\n\n<h3 class=\"wp-block-heading\"><strong>Rules that work, rules that don’t</strong></h3>\n\n<p class=\"wp-block-paragraph\">So yes, rule-based systems fail if by rules one means ad-hoc allow/deny lists, regex fences, and baroque prompt hierarchies trying to police semantics. Those crumble under indirect prompt injection, retrieval-time poisoning, and model deception. But rule-based governance is non-optional when we move from language to action.</p>\n\n<p class=\"wp-block-paragraph\">The security community is converging on a synthesis:</p>\n\n<ul class=\"wp-block-list\">\n<li>Put rules at the capability boundary: Use policy engines, identity systems, and tool permissions to determine what the agent can actually do, with which data, and under which approvals.</li>\n\n<li>Pair rules with continuous evaluation: Use observability tooling, red-teaming packages, and robust logging and evidence.</li>\n\n<li>Treat agents as first-class subjects in your threat model: For example, MITRE ATLAS now catalogs techniques and case studies specifically targeting AI systems.</li>\n</ul>\n\n<p class=\"wp-block-paragraph\">The lesson from the first AI-orchestrated espionage campaign is not that AI is uncontrollable. It’s that control belongs in the same place it always has in security: at the architecture boundary, enforced by systems, not by vibes.</p>\n\n<p class=\"wp-block-paragraph\"><em>This content was produced by Protegrity. It was not written by MIT Technology Review’s editorial staff.</em></p>\n\n<p class=\"wp-block-paragraph\"></p>\n https://t.co/yOkRBY1AbV",
   "created_at": "2026-11-23T01:48:40.000Z",
   "cves": []
  },
@@ -192,14 +206,14 @@
  {
   "url": "https://x.com/FrontieraTechIT/status/2124497531128188988",
   "author": "FrontieraTechIT",
-  "text": "🛡️ CYBER BULLETIN | 2026/11/22 🚨\n\n1️⃣ Bell Canada agentic breach steals enterprise data\nBell Canada confirmed an “agentic” threat actor breached systems on Nov 17, including a pre-production Maximo environment used to order and provision circuits, and exfiltrated enterprise https://t.co/soEgJXALBI",
+  "text": "🛡️ CYBER BULLETIN | 2026/11/22 🚨\n\n1️⃣ Bell Canada agentic breach steals enterprise data\nBell Canada confirmed an “agentic” threat actor breached systems on Nov 17, including a pre-production Maximo environment used to order and provision circuits, and exfiltrated enterprise customer contact details plus some IP addresses. No credentials or highly sensitive personal data; services unaffected. Attribution unknown.\n🔗 https://t.co/lsuSoIzMfb\n\n2️⃣ Microsoft Entra Connect Health API exploited\nAttackers exploited a flaw in Microsoft Entra Connect Health (introduced July 23, discovered Nov 9) to gain unauthorized read-only access to tenant metadata, including admin email addresses, tenant IDs, and directory sync status. Microsoft fixed it server-side on Nov 19; no customer software updates required. Watch for phishing using the exposed contacts.\n🔗 https://t.co/mLhPp36Cy1\n\n3️⃣ Cairn AI agents find and exploit MONAI Label zero-day\nAmazon Threat Intelligence reported a Chinese-nexus actor used the open-source Cairn AI agent platform to autonomously discover a path traversal zero-day in MONAI Label (open-source medical imaging tool) and achieve root shell on East Asian university servers in about 11 minutes. Maintainers patched it on Nov 18.\n🔗 https://t.co/sGNTX24GD0\n\n#CyberSecurity #AI #ZeroDay",
   "created_at": "2026-11-22T13:37:37.000Z",
   "cves": []
  },
  {
   "url": "https://x.com/modularciso/status/2124492091002847422",
   "author": "modularciso",
-  "text": "MONAI Label AI-agent zero-day CVE-2026-133968\n\nAI agents did not just run this attack. They found the bug.\n\nAmazon Threat Intelligence reports a suspected China-linked operator pointed AI agents, built on the open-source Cairn framework, at MONAI Label 0.8.5 and earlier, a https://t.co/uzTKhps2jn",
+  "text": "MONAI Label AI-agent zero-day CVE-2026-133968\n\nAI agents did not just run this attack. They found the bug.\n\nAmazon Threat Intelligence reports a suspected China-linked operator pointed AI agents, built on the open-source Cairn framework, at MONAI Label 0.8.5 and earlier, a medical-imaging server with no login by default. Per The Hacker News (Ravie Lakshmanan), the agents reached an arbitrary file write in roughly 11 minutes, then a root shell on a university server in a later session. CVE-2026-133968 is path traversal in the storage code. A source fix was merged Oct 19; no patched release exists.\n\nUnknown: a second university compromise is unconfirmed, no patient data theft is shown, and this is Amazon's own reconstruction.\n\nMy read: if agents can find a path traversal in minutes, \"internal only, no auth\" stops counting as a control.\n\nWhich of your internal tools still run without authentication? #AIsecurity #infosec\n\nhttps://t.co/RG9OVxpZr4",
   "created_at": "2026-11-22T13:16:00.000Z",
   "cves": [
    "CVE-2026-133968"
@@ -229,69 +243,62 @@
   "cves": []
  },
  {
-  "url": "https://x.com/Sabbirbyte/status/2124436725812301866",
-  "author": "Sabbirbyte",
-  "text": "NebuSec reached root on Meta's Muse VM without a prompt injection.\n\nA bundled Chromium with its PDF sandbox off gave shell access. Bodiless GETs walked past Sentinel. A kernel exploit worked in more than 99.9% of test runs.",
-  "created_at": "2026-11-22T09:36:00.000Z",
-  "cves": []
- },
- {
   "url": "https://x.com/XikCJY/status/2124620579533930698",
   "author": "XikCJY",
-  "text": "An AI agent just found a zero-day in 11 minutes.\n\nCairn was told one thing: get shell access. It failed on Redis for 16 hours, then walked into a medical imaging app through a path traversal — root shell, CVSS 9.8.\n\nThe fix sat on main since October. pip kept shipping the broken",
+  "text": "An AI agent just found a zero-day in 11 minutes.\n\nCairn was told one thing: get shell access. It failed on Redis for 16 hours, then walked into a medical imaging app through a path traversal — root shell, CVSS 9.8.\n\nThe fix sat on main since October. pip kept shipping the broken version until Nov 22.\n\nMy server runs whatever I installed months ago. Patience found the bug. Laziness kept it open.",
   "created_at": "2026-11-22T21:46:34.000Z",
   "cves": []
  },
  {
   "url": "https://x.com/v_shakthi/status/2124691626048246130",
   "author": "v_shakthi",
-  "text": "An AI agent found and exploited a zero-day in a medical-imaging app in about 11 minutes after receiving one command: obtain shell access.\n\nAmazon Threat Intelligence documented the campaign. Attackers used the open-source Cairn framework to run autonomous agents against",
+  "text": "An AI agent found and exploited a zero-day in a medical-imaging app in about 11 minutes after receiving one command: obtain shell access.\n\nAmazon Threat Intelligence documented the campaign. Attackers used the open-source Cairn framework to run autonomous agents against university targets. On a server running MONAI Label, the agents mapped the API, identified a path traversal flaw in the file upload function, and wrote arbitrary files to the server. A later session planted a reverse shell that gave them root access. Amazon assessed the flaw as a zero-day with high confidence.\n\nMustafa Suleyman, CEO of Microsoft AI, flagged the incident as a clear warning. Unsecured agent harnesses already present a major security threat. That risk grows as models improve. He argued they will likely require regulation next year until defenders can keep pace.\n\nhttps://t.co/wBFyyDLUZj\n\n#AIAgents #Cybersecurity #ZeroDay #MedicalAI #AISecurity",
   "created_at": "2026-11-23T02:28:53.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/nyvoraai_co/status/2124445640302436363",
-  "author": "nyvoraai_co",
-  "text": "Security researchers report a vulnerability in Meta's Muse agent\n\nResearchers describe an exploit chain involving the Muse AI agent and its browser environment that could expose private conversations and stored information.\n\nWhy it matters: AI assistants need strong protections https://t.co/QiDp92m391",
-  "created_at": "2026-11-22T10:11:25.000Z",
+  "url": "https://x.com/RedRiskmeme/status/2124799194217291990",
+  "author": "RedRiskmeme",
+  "text": "🤖 AI is getting out of control… 💀\n\n🧠 Claude may have helped crack the Riemann Hypothesis.\n🚀 Anthropic raises $93.5B in IPO.\n⚠️ AI agents exploit a medical software zero-day.\n💻 AI designs a new CPU architecture.\n🔒 OpenRouter faces prompt privacy scandal.\n🤝 OpenAI proposes. https://t.co/dbOkxeom3L",
+  "created_at": "2026-11-23T09:36:19.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/arnaudmercier/status/2124632395437543470",
+  "author": "arnaudmercier",
+  "text": "<div data-chronoton-summary=\"&lt;ul&gt;&lt;br&gt;&lt;li&gt;&lt;strong&gt;An AI built to break AI:&lt;/strong&gt; OpenAI created GPT-Red, an LLM trained specifically to hack other AI models. It automates &quot;red-teaming&quot;—stress-testing systems for weaknesses—a job that human testers alone can no longer keep pace with as AI grows more complex.&lt;/li&gt;&lt;br&gt;&lt;li&gt;&lt;strong&gt;A sparring partner that gets smarter:&lt;/strong&gt; GPT-Red was trained in a self-play loop, repeatedly attacking other models while they defended themselves. It outperformed human red-teamers at finding effective attacks and even discovered a previously unseen exploit called a &quot;fake chain of thought.&quot;&lt;/li&gt;&lt;br&gt;&lt;li&gt;&lt;strong&gt;Real results, real limits:&lt;/strong&gt; GPT-Red&#039;s training helped cut successful attacks on GPT-5.6. But it still struggles with conversational attacks and image-based exploits—areas where human testers remain essential.&lt;/li&gt;&lt;br&gt;&lt;/ul&gt;\" data-chronoton-post-id=\"1140514\" data-chronoton-expand-collapse=\"1\" data-chronoton-analytics-enabled=\"1\"></div>\n\n<p class=\"wp-block-paragraph\">OpenAI has built an <a href=\"https://t.co/Io4gvlgPQ2\">LLM super-hacker called GPT-Red</a> that it uses as a sparring partner to help its other models boost their defenses against cyberattacks. Last week the company released the latest version of its flagship LLM, GPT-5.6. OpenAI says that training it against GPT-Red made the model its most robust release yet.</p>\n\n<p class=\"wp-block-paragraph\">GPT-Red automates a type of safety evaluation for software systems known as red-teaming, which is typically done by a team of human testers. The aim is to find as many different ways to break or hijack a system as possible. The weak spots can then be patched before the final version of the software is released.</p>\n\n<p class=\"wp-block-paragraph\">As LLMs become more complex and get used in a wider variety of tasks—especially in the form of agents, which can interact with computer files, websites, and third-party code as well as other agents—it’s hard for teams of people by themselves to keep up with all the types of attacks that might take place. “The risk surface grows and the blast radius also grows,” says Nikhil Kandpal, a research scientist at OpenAI who co-created GPT-Red.</p>\n\n<p class=\"wp-block-paragraph\">OpenAI built GPT-Red to future-proof its safety testing process. “As more capable models become available, we will have already designed the system that can discover new modes of attack,” says Dylan Hunn, a research scientist at the company and fellow co-creator of GPT-Red. The researchers say it has already come up with new types of attack that had not been seen before.</p>\n\n<p class=\"wp-block-paragraph\">OpenAI focused most of its efforts on a type of attack known as a prompt injection, where a hacker slips an LLM instructions to make it do things its developers or users do not want it to, such as copy confidential information, sabotage a company’s code base, or generate embarrassing or harmful output. In theory, such instructions can be hidden in any text that the LLM might encounter—in code or on a website, for example.&nbsp;&nbsp;&nbsp;&nbsp;</p>\n\n<h3 class=\"wp-block-heading\"><strong>Training dojo</strong></h3>\n\n<p class=\"wp-block-paragraph\">To build GPT-Red, OpenAI’s researchers took an LLM that had not been trained as a hacker and set it up in what’s known as a self-play loop with several other models. Its goal was to try to attack the other models; their goal was to try to defend themselves. Over many rounds of play, GPT-Red became better and better at attacking other LLMs, and those LLMs became better and better at fending off the attacks.</p>\n\n<p class=\"wp-block-paragraph\">The training took place in a kind of dojo that OpenAI had designed to mimic a range of scenarios in which LLMs might be deployed in the real world, including browsing the web, reading emails or calendar apps, and editing code.&nbsp;&nbsp;</p>\n\n<p class=\"wp-block-paragraph\">When GPT-Red found a new kind of attack, it would explore multiple different versions of it to find the most efficient one for specific scenarios. “Compared to a human red-teamer, the model is very, very good at finding exactly what will work, exactly what’s most effective,” says Hunn. “It’s extremely persistent about drilling down into an attack that it has discovered.”&nbsp;&nbsp;</p>\n\n<p class=\"wp-block-paragraph\">In particular, OpenAI claims that GPT-Red found a type of prompt injection attack that the researchers had not seen before, which they call a fake chain of thought. A chain of thought is a kind of diary in which an LLM makes notes to itself and keeps track of partial results as it works through problems. GPT-Red found a way to insert a fake entry into another model’s chain of thought that would trick that model into acting on spoofed information.</p>\n\n<p class=\"wp-block-paragraph\">“It’s like if I told you that 1+1=3 and that you have verified this already,” says Chris Choquette-Choo, another research scientist on the team. “The model’s like, ‘Oh, okay, of course,’ and it just spits out 3.”</p>\n\n<p class=\"wp-block-paragraph\">(After this story was first published, a second team of researchers who are not connected to OpenAI reached out to <em>MIT Technology Review. </em>They said they came up with a very similar attack, which they call a <a href=\"https://t.co/olDO874zqY\">chain-of-thought forgery</a>, around the same time. The work was part of a <a href=\"https://t.co/fbzU9djXGg\">winning entry</a> in a <a href=\"https://t.co/XtlLZfMlXw\">red-teaming hackathon</a> that OpenAI launched in August 2025 in which teams of researchers were challenged to find new vulnerabilities and unwanted behaviors in the firm&#8217;s open-source LLM gpt-oss-20b. When <em>MIT Technology Review</em> informed OpenAI about this other work, the firm claimed that GPT-Red discovered its version of the attack before these other researchers first mentioned theirs in a blog post about the hackathon. OpenAI has updated its <a href=\"https://t.co/n5IVdFmFAO\">paper</a> to acknowledge the concurrent work.)  </p>\n\n<p class=\"wp-block-paragraph\">Jessica Ji, a senior research analyst who works on AI security at Georgetown University’s Center for Security and Emerging Technology (CSET), thinks the self-play loop that OpenAI used is a good approach. “The results look very promising,” she says.</p>\n\n<p class=\"wp-block-paragraph\">OpenAI tested how good an attacker GPT-Red was by rerunning an experiment from 2025 in which human red-teamers tried to find weaknesses in an earlier version of GPT-5. When GPT-Red was set the same task, it was more successful at finding effective attacks than the humans had been.</p>\n\n<p class=\"wp-block-paragraph\">OpenAI also tested GPT-Red against Vendy, a vending machine agent developed by Andon Labs, a company that assesses how well agents perform real-world tasks. GPT-Red was able to hack Vendy to make it change the prices of items on sale and cancel a customer’s order.</p>\n\n<h3 class=\"wp-block-heading\"><strong>Defensive behavior</strong></h3>\n\n<p class=\"wp-block-paragraph\">OpenAI says that when it tried out some of the strongest attacks that GPT-Red had come up with on its models, more than 90% of them worked against GPT-5 (released in August last year), and fewer than 23% worked against the new GPT-5.6.</p>\n\n<p class=\"wp-block-paragraph\">GPT-Red isn’t perfect. It is not great at figuring out attacks that involve a back-and-forth conversation between hacker and target, something that human attackers would have few problems with. It is also not yet that great at using images, which can be used to pass text to models in prompt injection attacks.&nbsp;&nbsp;&nbsp;&nbsp;</p>\n\n<p class=\"wp-block-paragraph\">The company says that GPT-Red supplements the work of its human red-teamers. People can still find attacks it misses. One approach OpenAI is taking is to give GPT-Red an attack that humans came up with and ask it to find all the variations.</p>\n\n<p class=\"wp-block-paragraph\">“I think human expertise will still be very important,” says CSET’s Ji. “It would be really useful to be able to distinguish where human testing is most needed.”</p>\n\n<p class=\"wp-block-paragraph\">Unsurprisingly, OpenAI will not be releasing GPT-Red. The company is also confident that the super-hacker is stronger than any copycat model someone might try to create. The researchers say they have been working on the model for more than a year, backed by the compute resources of one of the richest companies in the world.</p>\n\n<p class=\"wp-block-paragraph\">“It’s not a trivial thing that someone could easily do—you know, just go and train a super-attacker using this idea,” says Choquette-Choo.</p>\n\n<p class=\"wp-block-paragraph\"><em>This article has been updated.</em></p>\n https://t.co/ELGUG02gJU",
+  "created_at": "2026-11-22T22:33:31.000Z",
   "cves": []
  },
  {
   "url": "https://x.com/nyvoraai_co/status/2124531112366206993",
   "author": "nyvoraai_co",
-  "text": "Researchers report a security weakness in Meta's Muse AI agent\n\nResearchers describe an exploit involving the agent's browser environment that could expose conversation history and stored information.\n\nWhy it matters: AI agents need stronger privacy protections before widespread https://t.co/lMA2k0J8Oq",
+  "text": "Researchers report a security weakness in Meta's Muse AI agent\n\nResearchers describe an exploit involving the agent's browser environment that could expose conversation history and stored information.\n\nWhy it matters: AI agents need stronger privacy protections before widespread adoption.\n\n#AI #LLM #Cybersecurity #Robotics #NyvoraAI",
   "created_at": "2026-11-22T15:51:03.000Z",
   "cves": []
  },
  {
   "url": "https://x.com/nyvoraai_co/status/2124524838064964093",
   "author": "nyvoraai_co",
-  "text": "Meta's Muse AI agent faces security concerns\n\nSecurity researchers report an exploit involving Meta's Muse agent that could expose private conversations and stored information. The company and researchers' findings need to be distinguished from claims about broader compromise. https://t.co/CYLLG2vixW",
+  "text": "Meta's Muse AI agent faces security concerns\n\nSecurity researchers report an exploit involving Meta's Muse agent that could expose private conversations and stored information. The company and researchers' findings need to be distinguished from claims about broader compromise.\n\nWhy it matters: AI assistants must protect private conversations and personal data.\n#AI #LLM #Robotics #ArtificialIntelligence #NyvoraAI",
   "created_at": "2026-11-22T15:26:07.000Z",
   "cves": []
  },
  {
   "url": "https://x.com/fraskey007/status/2124708952827212067",
   "author": "fraskey007",
-  "text": "An AI agent found a way to stall Bitcoin nodes, and the exploit is almost insulting: spam one transaction ID 50,000 times, and the node's bookkeeping drowns the network. No genius. Pure tedium — the one resource machines have infinite amounts of and humans have almost none. https://t.co/ndXWRgdVm2",
+  "text": "An AI agent found a way to stall Bitcoin nodes, and the exploit is almost insulting: spam one transaction ID 50,000 times, and the node's bookkeeping drowns the network. No genius. Pure tedium — the one resource machines have infinite amounts of and humans have almost none. Bitcoin Core may be the most human-audited codebase in finance, a decade and a half of reviewers, and it still carried a flaw only something willing to repeat a boring action 50,000 times would ever find. My bet: 'discovered by an AI agent' becomes a standard credit in security disclosures within two years. The real moat in vulnerability research was never intellect — it was tolerance for tedium. That moat just got commoditized. Does this raise or lower your trust in open source? Mine went up. This bug died in public, in front of thousands of motivated witnesses. Closed codebases run the same bugs in silence for years.",
   "created_at": "2026-11-23T03:37:44.000Z",
   "cves": []
  },
  {
-  "url": "https://x.com/Wuyxny/status/2124485241721200707",
-  "author": "Wuyxny",
-  "text": "AI found a critical Java bug in 1 hour. It was reported in June.\n1/ CVE-2026-114938: heap overflow in OpenJDK's Base64 decoder — pre-auth RCE in Jira, Jenkins, Keycloak\n2/ Working exploit in 2 more hours, under $200 in tokens. Oracle patched Nov 17. 1/2 https://t.co/Q5bPz0eD5m",
-  "created_at": "2026-11-22T12:48:47.000Z",
+  "url": "https://x.com/stealien/status/2124774761976963463",
+  "author": "stealien",
+  "text": "STEALIEN Discovers Security Vulnerability in OpenClaw, Assigned CVE-2026-100558\nhttps://t.co/Te3rCtdRqj\n\n#STEALIEN #OpenClaw #CVE #AISecurity #AIAgents #Cybersecurity #UFOTechBlog \n\nYongyeop Cho, Principal Researcher at STEALIEN, discovered and reported a security vulnerability in OpenClaw, a global open-source AI agent platform, that could allow unauthenticated attackers to cause a denial of service (DoS).  \n\nThe vulnerability was addressed in an official patch and assigned CVE-2026-100558.  \n\nExplore the root cause, proof of concept, and patch analysis in STEALIEN's UFO TechBlog. \n\n ㅡㅡㅡ  \n\n스틸리언, 글로벌 AI 에이전트 플랫폼 '오픈클로(OpenClaw)' 보안 취약점 발견 및 CVE 발급 \n🔗 소식: \nhttps://t.co/MP6QUrl0h4\n🛸 UFO 기술블로그: \nhttps://t.co/Q0hbmRm3um\n\n스틸리언 조용엽 책임연구원이 글로벌 오픈소스 AI 에이전트 플랫폼 '오픈클로(OpenClaw)'에서 인증 없이 서비스 장애를 유발할 수 있는 보안 취약점을 발견해 제보했습니다.  \n\n해당 취약점은 공식 패치에 반영되고 CVE-2026-100558로 등록됐습니다.  \n\n취약점의 원인부터 검증 및 패치 과정까지 자세한 분석 내용을 스틸리언 UFO 기술블로그에서 확인해 보세요.",
+  "created_at": "2026-11-23T07:59:14.000Z",
   "cves": [
-   "CVE-2026-114938"
+   "CVE-2026-100558"
   ]
- },
- {
-  "url": "https://x.com/breachbytes/status/2124441459684519951",
-  "author": "breachbytes",
-  "text": "Rackspace says hackers used leaked credentials on Nov 17 to breach its Spot Kubernetes cloud, run pods and read Secrets in some customer clusters. Affected customers must rotate tokens and secrets. Scale unknown.\n\nSobering: leaked logins, exposed Secrets.\nhttps://t.co/p9RfweUjCw https://t.co/yzr9K78pLk",
-  "created_at": "2026-11-22T09:54:48.000Z",
-  "cves": []
  },
  {
   "url": "https://x.com/psoheil/status/2124677401305137590",
@@ -308,10 +315,24 @@
   "cves": []
  },
  {
-  "url": "https://x.com/NedPeterson99/status/2124550563849224523",
-  "author": "NedPeterson99",
-  "text": "Leaked credentials. A 22-hour window. Every secret in the cluster readable, and the console you'd use to rotate them was down.\n\nRackspace told customers that on Nov. 17, from about 00:20 to 22:00 UTC, an unauthorized party used leaked credentials to access parts of Rackspace",
-  "created_at": "2026-11-22T17:08:21.000Z",
+  "url": "https://x.com/shipsproduction/status/2124553063226818761",
+  "author": "shipsproduction",
+  "text": "Microsoft's agent-framework on PyPI shipped 1.26.1 and 1.26.2 with a credential stealer. A .pth file executes at Python startup (no import required) to exfiltrate env tokens and cloud creds.\n\nLockfiles are a security boundary now, not hygiene.\n\nPin 1.26.0 and rotate keys.",
+  "created_at": "2026-11-22T17:18:17.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/rst_cloud/status/2124762309453086949",
+  "author": "rst_cloud",
+  "text": "#threatreport #HighCompleteness\nARTEX Agentic Attack Framework: Detection and Hunting | 15-11-2026\nSource: https://t.co/c4YfMRCmJD\nKey details below ↓\n\n🧑‍💻Actors/Campaigns:\nStorm-0940 (🧠motivation: financially_motivated)\nGhostemperor (🧠motivation: cyber_espionage)\nStorm-3358 https://t.co/Y1qfp5pyO2",
+  "created_at": "2026-11-23T07:09:45.000Z",
+  "cves": []
+ },
+ {
+  "url": "https://x.com/ApollonVisual/status/2124521981143842837",
+  "author": "ApollonVisual",
+  "text": "Attackers Access Customer Clusters Through Rackspace Credentials\n\nRackspace disclosed that attackers compromised credentials used to access its Rackspace Spot cloud platform on November 17 2026.\n\nThe unauthorized activity occurred between approximately 00:20 and 22:00 UTC https://t.co/1ggr8raNIt",
+  "created_at": "2026-11-22T15:14:46.000Z",
   "cves": []
  },
  {
@@ -319,13 +340,6 @@
   "author": "chenYijl",
   "text": "Somebody else's cloud ran somebody else's code for 22 hours.\n\nOn November 17, attackers walked into Rackspace Spot on leaked credentials. Acting as legitimate users, they spun up pods and read Kubernetes Secrets.\n\nSecrets hold the keys: database passwords, API tokens, cloud https://t.co/qQ1gM6HtMr",
   "created_at": "2026-11-22T21:09:56.000Z",
-  "cves": []
- },
- {
-  "url": "https://x.com/vedsec4u/status/2124542600317485277",
-  "author": "vedsec4u",
-  "text": "Rackspace Spot breach: attackers used leaked credentials to access Kubernetes Secrets, potentially exposing API keys, passwords and tokens. Rotate credentials, refresh kubeconfigs and audit cluster activity. \n\nhttps://t.co/m2cxJZDSGn\n\n#cloudsecurity #kubernetes #infosec",
-  "created_at": "2026-11-22T16:36:42.000Z",
   "cves": []
  }
 ]
