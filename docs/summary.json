@@ -1,19 +1,40 @@
 {
-  "updated_at": "2026-11-24T13:35:00Z",
-  "next_update_note": "Next summary update around 17:30 UTC Nov 24; the feed itself refreshes hourly.",
-  "headline": "Since 09:35 UTC Nov 24: no new CVE added to CISA's exploited list (KEV) and no new AI-run attack disclosed. New: the European Commission now confirms the attackers used an AI-assisted hacking tool and stole EU Academy users' names and emails (The Register, Nov 24); KEPCO (Korea's state power utility) says attackers took data on about 1.5 million people, including card and bank-account details of 650,487 customers (SecurityWeek, Nov 24); McDonald's Japan app database breach (purchase history and device location, no names or cards); Peninsula Energy halted trading after a cyber incident at its Wyoming uranium mine; and a critical c-icap-server out-of-bounds write CVE-2026-136126. Still most important: MONAI Label CVE-2026-133968 (Cairn AI zero-day, KEV deadline Nov 26, fix 0.8.6), ARTEX-driven intrusions (Wiz, Bitrise, European Commission), AI-found Drupal and Apache mod_http2 bugs exploited, AI inference provider prompt leaks, Azure API Management secret theft (rotate stored secrets), Rackspace Spot Kubernetes Secrets, ScreenConnect against MSPs, vCenter and Cisco Expressway on KEV, and the hijacked agent-framework PyPI package and LiteLLM.",
-  "ai_headline": "New since 09:35 UTC: the European Commission has confirmed an AI-assisted hacking tool was used in its breach and that EU Academy users' names and emails were stolen (The Register, Nov 24; ARTEX suspected, not formally attributed). KEPCO cited 'AI-driven attacks' in its 1.5M-person breach notice but did not say AI was used, so it is not counted as AI-caused. Still leading: Cairn's autonomous MONAI Label zero-day (CVE-2026-133968, KEV, fix 0.8.6); Wiz's ~20 agentic-attack incidents and Bitrise's ARTEX breach; AI-found Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 exploited. AI impact: rotate secrets sent to breached inference providers and any keys stored in Azure API Management.",
+  "updated_at": "2026-11-24T17:35:00Z",
+  "next_update_note": "Next summary update around 21:30 UTC Nov 24; the feed itself refreshes hourly.",
+  "headline": "Since 13:35 UTC Nov 24: one new AI-run attack disclosed and no new CVE on CISA's exploited list (KEV). New: GreyNoise says an actor it calls GT13 used agentic AI tools to break into Check Point Security Management servers at 22 organizations in 17 countries (Oct-Nov, likely still ongoing), stealing firewall databases, credentials and CA files; Palo Alto Unit 42 reports 10+ agentic-AI attack campaigns (Jul-Sep); Broadcom patched 23 VMware flaws incl. vCenter auth bypass CVE-2026-123903 and ESX code-execution CVE-2026-123910/123911 (CVSS 9.8, not reported exploited); breaches at LaLiga (fan platform, Nov 14-16) and Gatwick's AutoPay drop-off payment system; ShinyHunters claims a comeback with a new leak site. Still most important: MONAI Label CVE-2026-133968 (Cairn AI zero-day, KEV deadline Nov 26, fix 0.8.6), ARTEX-driven intrusions (Wiz, Bitrise, European Commission), AI-found Drupal and Apache mod_http2 bugs exploited, AI inference provider prompt leaks, Azure API Management secret theft, ScreenConnect against MSPs, and the hijacked agent-framework PyPI package and LiteLLM.",
+  "ai_headline": "New since 13:35 UTC: GreyNoise (via SecurityWeek and BleepingComputer, Nov 24) says GT13 used agentic harnesses to find, weaponize and exploit flaws, with hands-on-keyboard follow-up, compromising Check Point management servers at 22 organizations; Unit 42 tracked 10+ campaigns using autonomous AI agents (Jul-Sep), all starting from web shells. Still leading: Cairn's autonomous MONAI Label zero-day (CVE-2026-133968, KEV, fix 0.8.6); the European Commission's confirmed AI-assisted breach; Wiz's ~20 agentic-attack incidents and Bitrise's ARTEX breach; AI-found Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 exploited. AI impact: rotate secrets sent to breached inference providers and keys stored in Azure API Management.",
   "ai_activity": {
-    "overview": "Nov 24, 13:35 UTC. New since 09:35 UTC: the European Commission confirmed an AI-assisted hacking tool was used and EU Academy data was stolen; no new AI-related KEV entry and no new AI-product exploitation. Shirudo (OpenAI-Cisco) coverage continues (SecurityWeek Nov 24; defensive, pre-release). The week's picture: Cairn AI agents found and exploited MONAI Label CVE-2026-133968 (CISA KEV Nov 23, deadline Nov 26, fix 0.8.6); Wiz counts about 20 more vendor-disclosed agentic-attack incidents in three weeks; Bitrise's report confirms ARTEX ran its Nov 13 breach; ARTEX is suspected in the ongoing European Commission breach (Euronews, not formally attributed); CERT-In, the FBI and CERT-EU report agentic attack frameworks in live intrusions; Bell Canada calls its breach 'agentic'. AI-found bugs Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 are exploited (the latter reported). AI impact: Dragos canaries show at least three AI inference providers breached; rotate secrets sent in prompts. AI products: LiteLLM on CISA KEV, the hijacked Microsoft agent-framework PyPI package, malicious MCP packages, Pomerium and Jupyter MCP bugs. Counts: 28 AI-cause, 20 AI-product, 10 AI-impact items (older than 7 days dropped).",
+    "overview": "Nov 24, 17:35 UTC. New since 13:35 UTC: GreyNoise reports GT13's agentic-AI campaign against Check Point Security Management servers (22 organizations, 17 countries, likely ongoing), and Unit 42 documents 10+ autonomous-agent campaigns from Jul-Sep; no new AI-related KEV entry and no new AI-product exploitation. The week's picture: Cairn AI agents found and exploited MONAI Label CVE-2026-133968 (CISA KEV Nov 23, deadline Nov 26, fix 0.8.6); the European Commission confirmed an AI-assisted tool in its breach (ARTEX suspected); Wiz counts about 20 more vendor-disclosed agentic-attack incidents in three weeks; Bitrise confirms ARTEX ran its Nov 13 breach; CERT-In, the FBI and CERT-EU report agentic frameworks in live intrusions. AI-found bugs Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 are exploited (the latter reported). AI impact: Dragos canaries show at least three AI inference providers breached; rotate secrets sent in prompts. AI products: LiteLLM on CISA KEV, the hijacked Microsoft agent-framework PyPI package, malicious MCP packages. Counts: 28 AI-cause, 20 AI-product, 8 AI-impact items (older than 7 days dropped).",
     "counts": {
       "ai_cause": 28,
       "ai_product_exploited": 20,
-      "ai_impact": 10
+      "ai_impact": 8
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "GreyNoise: GT13 used agentic AI harnesses to hack Check Point Security Management servers at 22 organizations in 17 countries",
+            "date": "2026-11-24T14:21:00Z",
+            "summary": "Seen Oct 2-Nov 2 and likely ongoing. Agentic tools found targets and weaponized and exploited flaws automatically, with hands-on-keyboard follow-up; the actor stole firewall databases, credentials and CA files and disabled policies. Used Check Point SmartConsole auth bypass CVE-2026-16232 after entry and a hacked Rejetto HFS (CVE-2026-61500) as relay; initial access to Check Point servers unknown.",
+            "status": "exploited",
+            "cves": [
+              "CVE-2026-16232",
+              "CVE-2026-61500"
+            ],
+            "url": "https://www.securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign/",
+            "source": "SecurityWeek / GreyNoise"
+          },
+          {
+            "title": "Unit 42: 10+ real-world campaigns used autonomous AI agents (Jul-Sep 2026)",
+            "date": "2026-11-24T12:00:00Z",
+            "summary": "Targets in government, logistics, hospitality, manufacturing, agriculture and education. Every campaign started from web shells on vulnerable web apps; agents ran hundreds of commands in minutes, compressing attacks to hours, but left clear machine fingerprints (structured output, adaptive retries).",
+            "status": "reported",
+            "cves": [],
+            "url": "https://unit42.paloaltonetworks.com/autonomous-ai-agent-threat-campaigns/",
+            "source": "Palo Alto Networks Unit 42"
+          },
           {
             "title": "European Commission confirms AI-assisted hacking tool used in its breach; EU Academy users' names and emails stolen",
             "date": "2026-11-24T11:32:00Z",
@@ -271,29 +292,6 @@
             "cves": [],
             "url": "https://x.com/botnewsnetwork/status/2122761544798965923",
             "source": "X"
-          },
-          {
-            "title": "Forbes: Calif used OpenAI's GPT-6 Cyber to find about 35 Apple vulnerabilities (some web-to-takeover of iPhone/Mac) and write a Lockdown Mode bypass exploit",
-            "date": "2026-11-17T17:00:00Z",
-            "summary": "Calif says Apple fixed many after notification; OpenAI confirmed Apple credits. Apple's public notes credit OpenAI on 4 CVEs in the 27.2 releases (3 WebKit via Codex Security, 1 kernel with STAR Labs); the 35 count is not independently confirmed. No in-the-wild use.",
-            "status": "reported",
-            "cves": [
-              "CVE-2026-112697",
-              "CVE-2026-112659",
-              "CVE-2026-113903",
-              "CVE-2026-112698"
-            ],
-            "url": "https://mlq.ai/news/openais-gpt-6-cyber-found-about-35-flaws-in-apples-iphone-and-mac-software-forbes-reports/",
-            "source": "Forbes via MLQ.ai"
-          },
-          {
-            "title": "Unverified: incident responder reports 110 custom malicious Python scripts in one client intrusion, almost certainly AI-generated",
-            "date": "2026-11-17T15:16:00Z",
-            "summary": "Single Reddit account; no vendor or victim named.",
-            "status": "unverified",
-            "cves": [],
-            "url": "https://www.reddit.com/r/cybersecurity/comments/1xyn1am/were_currently_looking_at_110_malicious_python/",
-            "source": "r/cybersecurity"
           }
         ]
       },
@@ -591,29 +589,11 @@
             "cves": [],
             "url": "https://www.bleepingcomputer.com/news/security/fireworks-ai-discloses-new-breach-after-cloud-provider-hack/",
             "source": "BleepingComputer / Fireworks AI"
-          },
-          {
-            "title": "Trigram campaign impersonates about 50 AI and blockchain brands to trick developers into running an infostealer",
-            "date": "2026-11-17T15:17:00Z",
-            "summary": "Stormshield report via The Hacker News; fake job offers, invitations and parcel notices target AI, blockchain and logistics staff in Europe and the US (linked by Stormshield posts to Kimsuky/APT43 infrastructure).",
-            "status": "reported",
-            "cves": [],
-            "url": "https://thehackernews.com/2026/11/trigram-campaign-impersonates-about-50.html",
-            "source": "The Hacker News"
-          },
-          {
-            "title": "Operation ArgonHunt: attacker's open server held 44,096 stolen AI API keys (2,686 working) and a crypto-exchange breach toolkit",
-            "date": "2026-11-17T12:15:00Z",
-            "summary": "SOCradar found a staging server (176.65.148.2) serving its /tmp over HTTP: an automated pipeline harvesting and validating keys for Gemini (26,633), OpenAI (14,504), OpenRouter (1,873), Anthropic (983) and xAI (107); 2,686 passed the operator's latest check, including admin and service-account keys. The same operator had production database access at an unnamed Türkiye crypto exchange and forged 200+ withdrawals (largest 76,000 USDT).",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://malware.news/t/operation-argonhunt-open-directory-exposes-a-crypto-exchange-breach-and-44-000-stolen-ai-api-keys/127367",
-            "source": "SOCradar via Malware News (Nov 17)"
           }
         ]
       }
     ],
-    "trend_note": "AI-run intrusions keep being disclosed at a steady pace, and defenders are answering in kind (Shirudo's AI-written stop-gap shields against AI-speed exploit writing). New AI-product flaws are still mostly credential leaks in MCP and agent tooling. This 4-hour window brought no new AI attack, only follow-up reporting."
+    "trend_note": "Disclosures of AI-run intrusions are accelerating: two more today (GreyNoise GT13, Unit 42) on top of Amazon, Wiz and the European Commission. The pattern is the same everywhere: agents exploit known or easy edge-device and web-app flaws at machine speed, so fast patching of internet-facing management and security appliances matters most. AI-product flaws are still mostly credential leaks in MCP and agent tooling."
   },
   "focus": [
     {
@@ -632,6 +612,23 @@
         "product"
       ],
       "ai_note": "AI as the cause: an autonomous agent framework found and exploited a previously unknown bug with little human input, per Amazon's own forensics. The victim software is also an AI product."
+    },
+    {
+      "title": "GreyNoise: actor GT13 used agentic AI tools to hack Check Point Security Management servers at 22 organizations in 17 countries (Oct 2-Nov 2 seen, likely ongoing)",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-16232",
+        "CVE-2026-61500"
+      ],
+      "vendor": "Check Point Security Management / SmartConsole; Rejetto HTTP File Server (relay)",
+      "why": "New Nov 24 (GreyNoise via SecurityWeek and BleepingComputer): GT13 used agentic harnesses to weaponize flaws, find vulnerable hosts and exploit them automatically, plus hands-on-keyboard work. Victims include government, finance, energy, transport, mining and manufacturing in the US, UK, Australia, Germany, France, South Korea and more. The actor stole firewall databases, credentials, config data and internal CA files, generated a new certificate and unloaded security policies. After entry it used Check Point SmartConsole auth bypass CVE-2026-16232 (an exploited zero-day since July); a Rejetto HFS server hacked via CVE-2026-61500 served as relay. Traffic came from 99 IPs (ExpressVPN exits and hacked Check Point devices). How the Check Point servers were first breached is unknown. GreyNoise also saw attempts on Citrix CVE-2025-5777, Ivanti CVE-2024-21893 and Windows NetLogon CVE-2026-41089.",
+      "action": "Confirm Check Point management servers have the July fix for CVE-2026-16232 and are not reachable from the internet; hunt for unknown admin sessions, new certificates, unloaded policies and outbound SSH/Chisel tunnels; if in doubt, rotate admin credentials and re-issue internal CA certificates. Patch or remove Rejetto HFS.",
+      "url": "https://www.securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign/",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "GreyNoise attributes automated weaponization, discovery and exploitation to agentic AI harnesses."
     },
     {
       "title": "Autonomous AI attack tools in real intrusions: Wiz counts about 20 more agentic-attack incidents in three weeks (Nov 23); Bitrise says ARTEX ran its breach (report Nov 19); CERT-In's 'agentic offensive frameworks' advisory; SOCRadar's BabidiGhost; Bell Canada; European Commission (AI-assisted tool confirmed Nov 24; ARTEX suspected); GTIG's 'exploit_agent'",
@@ -704,18 +701,6 @@
       "why": "Rackspace told customers that on Nov 17 (about 00:20-22:00 UTC) attackers using compromised credentials acted as legitimate users, created unauthorized pods, read Kubernetes Secrets and listed nodes and volumes in some customer clusters. It learned of it Nov 18 from a customer report, revoked sessions and tokens, removed the pods and rotated keys (BleepingComputer, Nov 21). Update Nov 23 (per X posts summarizing Rackspace): the intruder had access on Nov 17 for most of a day.",
       "action": "Rackspace Spot customers: reissue Spot API and refresh tokens, regenerate kubeconfigs, rotate every credential stored in Kubernetes Secrets (cloud keys, database passwords, AI API keys), and review cluster audit logs for unknown pods since Nov 17.",
       "url": "https://www.bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets/",
-      "ai_angle": [],
-      "ai_note": ""
-    },
-    {
-      "title": "GL.iNet GoodCloud cloud flaw exploited to plant malware on routers and KVM devices (advisory Nov 20, BleepingComputer Nov 22)",
-      "severity": "critical",
-      "exploited": true,
-      "cves": [],
-      "vendor": "GL.iNet",
-      "why": "GL.iNet confirms an attacker abused a vulnerability in its GoodCloud remote-management service to install malware on customer routers and KVMs; users report root reverse shells (nc to 170.39.226[.]219) and a 'crond -i /tmp/.log' process. One consultancy reports suspicious activity on 152 of 183 managed routers (X, unverified). KVM infections may reach the computers they control. No CVE yet; GL.iNet has not said how many devices were hit.",
-      "action": "Check GL.iNet devices for 'crond -i /tmp/.log' and unknown files, run the community scanner GL.iNet links, install the latest security firmware (KVM: 1.10.3+ for RM10/RM1/RM1V2/RM1PE/RM4PE, 1.8.7+ for RMQ1). If infected, reflash without restoring settings, check attached computers, and rotate credentials and keys used on or through the device. Consider disabling GoodCloud if unused.",
-      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-glinet-cloud-flaw-to-infect-routers-kvm-devices/",
       "ai_angle": [],
       "ai_note": ""
     },
@@ -837,24 +822,46 @@
       "ai_note": "AI product: LLM gateway that stores AI provider keys; two bugs exploited this week."
     },
     {
-      "title": "New critical patches (Nov 23-24): Chrome sandbox escape CVE-2026-134401, Apache Jena Fuseki SSRF CVE-2026-86155, AWS SSM Agent shared key CVE-2026-134069, simple-git command injection CVE-2026-134815",
+      "title": "New critical patches (Nov 23-24): VMware vCenter auth bypass CVE-2026-123903 and ESX CVE-2026-123910/123911, Chrome sandbox escape CVE-2026-134401, Apache Jena Fuseki SSRF CVE-2026-86155, AWS SSM Agent shared key CVE-2026-134069, simple-git command injection CVE-2026-134815",
       "severity": "critical",
       "exploited": false,
       "cves": [
+        "CVE-2026-123903",
+        "CVE-2026-123910",
+        "CVE-2026-123911",
+        "CVE-2026-123912",
         "CVE-2026-134401",
         "CVE-2026-86155",
         "CVE-2026-134069",
         "CVE-2026-134815"
       ],
       "vendor": "Google Chrome; Apache Jena Fuseki; AWS (Amazon SSM Agent on AWS Windows Server AMIs)",
-      "why": "Chrome CVE-2026-134401 (CVSS 9.6): improper input validation in Variations lets a crafted page run code outside the sandbox; no exploitation reported. Apache Jena Fuseki through 6.2.0 CVE-2026-86155 (CVSS 10): SHACL validation can make the server send requests to SPARQL SERVICE targets (unauthenticated SSRF), part of an Apache batch of 33 fixes. AWS bulletin 2026-197 CVE-2026-134069 (CVSS 7.3, local): Windows instances launched from the same AWS Windows Server AMI released before 2026-09-09 share one SSM registration key, so a local non-admin user on a Default Host Management Configuration instance may get the instance role credentials. New Nov 24: simple-git (widely used Node.js git wrapper) before 4.1.0 lets an attacker who can influence arguments to listRemote() or raw() inject --exec for ls-remote, archive, fetch-pack or send-pack and run commands on the host (bypasses the allowUnsafePack guard; GitHub GHSA-24pq-g7mp-w876, Red Hat); no exploitation reported.",
-      "action": "Update Chrome to 158.0.8127.88 (Windows/macOS also .89) and relaunch. Upgrade Jena Fuseki to 6.3.0. For AWS: replace affected Windows instances with ones launched from AMIs dated 2026-09-09 or later (an in-place agent upgrade keeps the shared key; do not delete the agent Vault); until then limit local non-admin access. simple-git: upgrade to 4.1.0 or later (brings @simple-git/argv-parser 3.0.0); never pass user-controlled strings as git options.",
+      "why": "New Nov 24 (Broadcom via SecurityWeek): 23 VMware fixes, incl. vCenter Directory Service auth bypass CVE-2026-123903 (CVSS 9.8), ESX I/O filter heap overflow and use-after-free CVE-2026-123910/123911 (CVSS 9.8, code execution as the VMX process) and XHCI USB CVE-2026-123912 (9.3, needs VM admin; can escape on Workstation/Fusion), plus eight Avi Load Balancer root-level flaws. None reported exploited yet; vCenter was hit by another zero-day this month. Chrome CVE-2026-134401 (CVSS 9.6): improper input validation in Variations lets a crafted page run code outside the sandbox; no exploitation reported. Apache Jena Fuseki through 6.2.0 CVE-2026-86155 (CVSS 10): SHACL validation can make the server send requests to SPARQL SERVICE targets (unauthenticated SSRF), part of an Apache batch of 33 fixes. AWS bulletin 2026-197 CVE-2026-134069 (CVSS 7.3, local): Windows instances launched from the same AWS Windows Server AMI released before 2026-09-09 share one SSM registration key, so a local non-admin user on a Default Host Management Configuration instance may get the instance role credentials. New Nov 24: simple-git (widely used Node.js git wrapper) before 4.1.0 lets an attacker who can influence arguments to listRemote() or raw() inject --exec for ls-remote, archive, fetch-pack or send-pack and run commands on the host (bypasses the allowUnsafePack guard; GitHub GHSA-24pq-g7mp-w876, Red Hat); no exploitation reported.",
+      "action": "Apply Broadcom's Nov 24 VMware updates (vCenter fixes partly in 8.0 U3m from last week) to vCenter, ESX, Workstation/Fusion and Avi. Update Chrome to 158.0.8127.88 (Windows/macOS also .89) and relaunch. Upgrade Jena Fuseki to 6.3.0. For AWS: replace affected Windows instances with ones launched from AMIs dated 2026-09-09 or later (an in-place agent upgrade keeps the shared key; do not delete the agent Vault); until then limit local non-admin access. simple-git: upgrade to 4.1.0 or later (brings @simple-git/argv-parser 3.0.0); never pass user-controlled strings as git options.",
       "url": "https://aws.amazon.com/security/security-bulletins/2026-197-aws/",
       "ai_angle": [],
       "ai_note": ""
     }
   ],
   "news": [
+    {
+      "title": "Check Point Security Management Servers Hacked in AI-Assisted Campaign",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign/",
+      "blurb": "Nov 24: GreyNoise says GT13 used agentic AI tools to breach Check Point management servers at 22 organizations in 17 countries."
+    },
+    {
+      "title": "Recent Trends and Tactics of Agentic AI Attacks",
+      "source": "Palo Alto Networks Unit 42",
+      "url": "https://unit42.paloaltonetworks.com/autonomous-ai-agent-threat-campaigns/",
+      "blurb": "Nov 24: 10+ real campaigns (Jul-Sep) used autonomous AI agents, cutting attacks from days to hours; all began with web shells on vulnerable web apps."
+    },
+    {
+      "title": "VMware Updates Patch Critical ESX, vCenter Vulnerabilities",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/vmware-updates-patch-critical-esx-vcenter-vulnerabilities/",
+      "blurb": "Nov 24: 23 fixes incl. vCenter auth bypass CVE-2026-123903 and ESX code execution CVE-2026-123910/123911 (CVSS 9.8)."
+    },
     {
       "title": "European Commission confirms personal data stolen in AI-assisted cyberattack",
       "source": "The Register",
@@ -874,12 +881,6 @@
       "blurb": "Customer portal KEPCO ON and the supplier platform breached; card and bank-account details of 650,487 customers plus data on 869,761 supplier users taken."
     },
     {
-      "title": "OpenAI and Cisco introduce Shirudo",
-      "source": "OpenAI",
-      "url": "https://openai.com/index/introducing-shirudo/",
-      "blurb": "Nov 23: open-source Linux runtime (BSD-2, pre-release) where AI agents build signed eBPF 'shields' that block a vulnerable code path on a running system until the patch is deployed; a Codex-made shield blocked a Java4Shell exploit on live Elasticsearch."
-    },
-    {
       "title": "Agentic Attacks: In The Wild",
       "source": "Wiz Blog",
       "url": "https://www.wiz.io/blog/agentic-attacks-artex-offensive-ai-frameworks",
@@ -890,21 +891,15 @@
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials/",
       "blurb": "APIM Classic-tier flaw used to steal stored API credentials; rotate APIM secrets and named values."
-    },
-    {
-      "title": "Hackers Exploit Critical ScreenConnect Flaw to Hijack MSP Technician PCs Without Warning",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-screenconnect.html",
-      "blurb": "CVE-2026-84869 lets a guest in a support session run code on the technician's PC."
-    },
-    {
-      "title": "EU Commission confirms personal data leak after cyberattack, warns of further disruption",
-      "source": "POLITICO Europe",
-      "url": "https://www.politico.eu/article/european-commission-personal-data-leak-cyberattack-disruption/",
-      "blurb": "EU Academy users' names and emails leaked; platform offline; officials say the campaign is 'not over yet'."
     }
   ],
   "watch": [
+    "LaLiga (TechRadar, Nov 24): an attacker reached a fan-services platform Nov 14-16 and took personal data of LaLiga and some clubs' registered users; scope unknown. Expect phishing aimed at fans.",
+    "Gatwick Airport (BBC, Nov 24): Times24's AutoPay drop-off payment system was breached; login credentials, emails, home addresses, vehicle details and in some cases card information exposed. Affected users should change their AutoPay password.",
+    "ShinyHunters (BleepingComputer, Nov 24): a new leak site claims the gang is back after FBI-linked arrests, signed with old ShinyHunters PGP keys; the keys have circulated, so the operators' identity is unconfirmed.",
+    "hexpm (Hex.pm, Erlang/Elixir package server) CVE-2026-129514: unauthenticated RCE via Erlang term request-body deserialization (per X, Nov 24; not checked). Self-hosted hexpm users should update.",
+    "Barracuda ESG CVE-2026-116606 + CVE-2026-111560: per X (Nov 24), chaining an unauthenticated crafted-backup restore with a root command injection gives unauthenticated root; confirm appliances are updated.",
+    "GL.iNet GoodCloud (moved from focus): a cloud flaw was exploited to plant malware on routers and KVM devices (advisory Nov 20); update firmware and review GoodCloud-linked devices.",
     "KEPCO (Korea Electric Power; SecurityWeek Nov 24): attackers took data from the KEPCO ON customer portal (650,487 people: names, ID numbers, card and bank-account details) and the supplier SRM platform (869,761 people). KEPCO mentioned AI-driven attacks generally but did not say AI was used. Expect phishing and card fraud.",
     "McDonald's Japan (notice Nov 20, The Record Nov 24): unauthorized access to part of the official app database exposed purchase history, internal customer IDs, IP addresses and device location; no names, emails or card data. Credentials used were revoked; no password change asked.",
     "Peninsula Energy (ASX, SecurityWeek Nov 24): trading halted after a cyber incident at its Wyoming uranium project that temporarily affects operations; few details yet.",
