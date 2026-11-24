@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-11-24T05:27:59Z",
-  "next_update_note": "Next summary rewrite in about 4 hours (around 09:30 UTC Nov 24); the feed itself refreshes hourly.",
-  "headline": "Since 01:30 UTC Nov 24: another quiet window, with no new CVE added to CISA's exploited list (KEV) and no new AI-run attack disclosed. New: OpenAI and Cisco open-sourced Shirudo (Nov 23), a Linux runtime where AI agents write and test temporary eBPF 'shields' that block an exploit path until the patch is in (a Codex-made shield stopped a Java4Shell exploit on a running Elasticsearch). New patches to apply: Chrome sandbox escape CVE-2026-134401 (CVSS 9.6, update to 158.0.8127.88, not reported exploited), Apache Jena Fuseki SSRF CVE-2026-86155 (CVSS 10, fix 6.3.0) and AWS SSM Agent CVE-2026-134069 (Windows instances from AMIs before Sep 9, 2026 share a key; replace them, an agent upgrade is not enough). Still most important: MONAI Label CVE-2026-133968 (Cairn AI zero-day, KEV deadline Nov 26, fix 0.8.6), ARTEX-driven intrusions (Wiz, Bitrise, European Commission), AI-found Drupal and Apache mod_http2 bugs exploited, AI inference provider prompt leaks, Azure API Management secret theft, ScreenConnect against MSPs, vCenter and Cisco Expressway on KEV, and the hijacked agent-framework PyPI package and LiteLLM.",
-  "ai_headline": "New since 01:30 UTC: no new AI-run attack. OpenAI's Oct kernel run with GPT-6 Cyber (1,724 Linux bugs reproduced, 948 working local-root exploits, patches sent to maintainers; report Nov 4) is being widely reshared, alongside the OpenAI-Cisco Shirudo launch that uses AI agents to write stop-gap exploit shields. Small AI-product additions: Lightdash CVE-2026-134827 (AI agent leaks the org's GitLab token, fix 3.212.0) and sdcb Chats CVE-2026-135432 (MCP bearer tokens visible to other users, fix 1.17.1). Still leading: Cairn's autonomous MONAI Label zero-day (CVE-2026-133968, KEV, fix 0.8.6); Wiz's ~20 agentic-attack incidents and Bitrise's ARTEX breach; ARTEX suspected in the European Commission breach; AI-found Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 exploited. AI impact: rotate secrets sent to breached inference providers.",
+  "updated_at": "2026-11-24T09:35:00Z",
+  "next_update_note": "Next summary update around 13:30 UTC Nov 24; the feed itself refreshes hourly.",
+  "headline": "Since 05:30 UTC Nov 24: quiet overnight window, with no new CVE added to CISA's exploited list (KEV) and no new AI-run attack disclosed. New: simple-git CVE-2026-134815 (Node.js; attacker-influenced listRemote()/raw() arguments can inject --exec and run commands; upgrade to 4.1.0), a public PoC (nuclei template) for Chamilo LMS unauthenticated RCE CVE-2026-45140, and Bromcom (UK school software) added to Have I Been Pwned with 355,051 staff and pupil emails from its September breach. Reminder on Azure API Management: Microsoft closed the access path Nov 19, but secrets already stolen stay valid until you rotate them. Still most important: MONAI Label CVE-2026-133968 (Cairn AI zero-day, KEV deadline Nov 26, fix 0.8.6), ARTEX-driven intrusions (Wiz, Bitrise, European Commission), AI-found Drupal and Apache mod_http2 bugs exploited, AI inference provider prompt leaks, ScreenConnect against MSPs, N-able Mail Assure SSRF on KEV, vCenter and Cisco Expressway on KEV, new Chrome/Jena/AWS SSM Agent patches, and the hijacked agent-framework PyPI package and LiteLLM.",
+  "ai_headline": "New since 05:30 UTC: no new AI-run attack. Coverage of the Cairn/MONAI Label case keeps spreading (The Hacker News roundup Nov 24), along with the OpenAI-Cisco Shirudo launch and OpenAI's GPT-6 Cyber kernel run (948 working local-root exploits, report Nov 4). Still leading: Cairn's autonomous MONAI Label zero-day (CVE-2026-133968, KEV, fix 0.8.6); Wiz's ~20 agentic-attack incidents and Bitrise's ARTEX breach; ARTEX suspected in the European Commission breach; AI-found Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 exploited. AI impact: rotate secrets sent to breached inference providers and any keys stored in Azure API Management.",
   "ai_activity": {
-    "overview": "Nov 24, 05:30 UTC. New since 01:30 UTC: no new AI-run attack and no new AI-related KEV entry. OpenAI and Cisco released Shirudo (Nov 23), where AI agents write temporary eBPF shields against exploits; OpenAI's earlier GPT-6 Cyber kernel run (948 working local-root exploits, report Nov 4) is being reshared; small AI-product fixes in Lightdash (CVE-2026-134827) and sdcb Chats (CVE-2026-135432); the phishing campaign that impersonates AI-lab staff on X to take over accounts is still active. The week's picture: Cairn AI agents found and exploited MONAI Label CVE-2026-133968 (CISA KEV Nov 23, deadline Nov 26, fix 0.8.6); Wiz counts about 20 more vendor-disclosed agentic-attack incidents in three weeks; Bitrise's report confirms ARTEX ran its Nov 13 breach; ARTEX is suspected in the ongoing European Commission breach (Euronews, not formally attributed); CERT-In, the FBI and CERT-EU report agentic attack frameworks in live intrusions; Bell Canada calls its breach 'agentic'. AI-found bugs Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 are exploited (the latter reported). AI impact: Dragos canaries show at least three AI inference providers breached; rotate secrets sent in prompts. AI products: LiteLLM on CISA KEV, the hijacked Microsoft agent-framework PyPI package, malicious MCP packages, Pomerium and Jupyter MCP bugs. Counts: 28 AI-cause, 20 AI-product, 11 AI-impact items (older than 7 days dropped).",
+    "overview": "Nov 24, 09:35 UTC. New since 05:30 UTC: no new AI-run attack, no new AI-related KEV entry and no new AI-product exploitation; only follow-up coverage of Cairn/MONAI Label, Shirudo and OpenAI's kernel run. The week's picture: Cairn AI agents found and exploited MONAI Label CVE-2026-133968 (CISA KEV Nov 23, deadline Nov 26, fix 0.8.6); Wiz counts about 20 more vendor-disclosed agentic-attack incidents in three weeks; Bitrise's report confirms ARTEX ran its Nov 13 breach; ARTEX is suspected in the ongoing European Commission breach (Euronews, not formally attributed); CERT-In, the FBI and CERT-EU report agentic attack frameworks in live intrusions; Bell Canada calls its breach 'agentic'. AI-found bugs Drupal CVE-2026-132165 and Apache mod_http2 CVE-2026-119618 are exploited (the latter reported). AI impact: Dragos canaries show at least three AI inference providers breached; rotate secrets sent in prompts. AI products: LiteLLM on CISA KEV, the hijacked Microsoft agent-framework PyPI package, malicious MCP packages, Pomerium and Jupyter MCP bugs. Counts: 27 AI-cause, 20 AI-product, 10 AI-impact items (older than 7 days dropped).",
     "counts": {
-      "ai_cause": 28,
+      "ai_cause": 27,
       "ai_product_exploited": 20,
-      "ai_impact": 11
+      "ai_impact": 10
     },
     "groups": [
       {
@@ -285,18 +285,6 @@
             "cves": [],
             "url": "https://www.reddit.com/r/cybersecurity/comments/1xyn1am/were_currently_looking_at_110_malicious_python/",
             "source": "r/cybersecurity"
-          },
-          {
-            "title": "Reported: many viral PHP2Shell (CVE-2026-109618/109619) 'proof-of-concept' exploits shared after the Oct 21 PHP fixes did not work and were likely AI-generated",
-            "date": "2026-11-17T08:06:00Z",
-            "summary": "Posts citing Google (Nov 17) say researchers sifted through a wave of non-working exploit demos after October's PHP patches that were likely AI-generated; independent researchers (UMBRASEC) describe them as 'hallucinated exploits', and PHP's security engineer Volker Dusch says many viral demos were fake. Real exploitation of PHP2Shell continues (Check Point gateways). Verify PoCs before relying on them for testing or triage; patch PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35.",
-            "status": "reported",
-            "cves": [
-              "CVE-2026-109618",
-              "CVE-2026-109619"
-            ],
-            "url": "https://umbrasec.dev/research/php2shell-hallucinated-exploits",
-            "source": "X (citing Google) / UMBRASEC / RescuePHP"
           }
         ]
       },
@@ -612,20 +600,11 @@
             "cves": [],
             "url": "https://malware.news/t/operation-argonhunt-open-directory-exposes-a-crypto-exchange-breach-and-44-000-stolen-ai-api-keys/127367",
             "source": "SOCradar via Malware News (Nov 17)"
-          },
-          {
-            "title": "Uber: Fireworks AI-linked breach hit 149,346 drivers (names, license numbers, birth dates, addresses), per Maine filing",
-            "date": "2026-11-17T08:35:00Z",
-            "status": "exploited",
-            "summary": "Uber told Maine's attorney general that 149,346 drivers were affected; letters went out Nov 10. A service provider (reported as AI inference provider Fireworks) told Uber on Oct 9 that its internal credentials were stolen and used to access Uber's account; Uber cut data links to the provider. Same breach chain as the Cursor key theft and trojanized Claude Code extension.",
-            "cves": [],
-            "url": "https://www.bleepingcomputer.com/news/security/uber-notifies-drivers-of-data-breach-affecting-nearly-150-000-people/",
-            "source": "BleepingComputer (Nov 17)"
           }
         ]
       }
     ],
-    "trend_note": "AI-run intrusions keep being disclosed at a steady pace, and defenders are now answering in kind: the OpenAI-Cisco Shirudo launch pairs AI-speed exploit writing (OpenAI's 948 kernel exploits) with AI-written stop-gap shields. New AI-product flaws are still mostly credential leaks in MCP and agent tooling. This 4-hour window brought no new attack, only follow-up reporting."
+    "trend_note": "AI-run intrusions keep being disclosed at a steady pace, and defenders are answering in kind (Shirudo's AI-written stop-gap shields against AI-speed exploit writing). New AI-product flaws are still mostly credential leaks in MCP and agent tooling. This 4-hour window brought no new AI attack, only follow-up reporting."
   },
   "focus": [
     {
@@ -737,7 +716,7 @@
       "exploited": true,
       "cves": [],
       "vendor": "Microsoft Azure",
-      "why": "Norway's NSM (Nov 20) says an unknown actor actively targeted access tokens, secrets and named values in APIM; the flaw is now closed by Microsoft, but how widely it was used is still unclear. Update Nov 23 (SecurityWeek): Microsoft is notifying customers; it found the issue Nov 18 and closed the access path Nov 19, and says secrets in APIM Classic instances (named values, identity-provider client secrets, subscription keys, management API tokens) could have been accessed; v2 tiers are not affected. No CVE. Equinor says its attack was stopped with no sign of data theft or alteration.",
+      "why": "Norway's NSM (Nov 20) says an unknown actor actively targeted access tokens, secrets and named values in APIM; the flaw is now closed by Microsoft, but how widely it was used is still unclear. Update Nov 23 (SecurityWeek): Microsoft is notifying customers; it found the issue Nov 18 and closed the access path Nov 19, and says secrets in APIM Classic instances (named values, identity-provider client secrets, subscription keys, management API tokens) could have been accessed; v2 tiers are not affected. No CVE. Equinor says its attack was stopped with no sign of data theft or alteration. Note (Nov 24): Microsoft closed the access path on Nov 19, but credentials already stolen remain valid until rotated.",
       "action": "Assume all APIM secrets, tokens and named values are exposed: rotate them and the backend credentials they hold. Check the instance's RuntimeVersion via /internal-status-0123456789abcdef: 0.52.x is patched at build 31936+, 0.53.x at 31938+ (v2 and Consumption tiers are not affected); if lower, contact Microsoft. Review what sits behind APIM and its logs for misuse.",
       "url": "https://www.securityweek.com/azure-flaw-exploited-to-target-secrets-at-norwegian-energy-firms/",
       "ai_angle": [],
@@ -849,17 +828,18 @@
       "ai_note": "AI product: LLM gateway that stores AI provider keys; two bugs exploited this week."
     },
     {
-      "title": "New critical patches (Nov 23): Chrome sandbox escape CVE-2026-134401, Apache Jena Fuseki SSRF CVE-2026-86155, AWS SSM Agent shared key CVE-2026-134069",
+      "title": "New critical patches (Nov 23-24): Chrome sandbox escape CVE-2026-134401, Apache Jena Fuseki SSRF CVE-2026-86155, AWS SSM Agent shared key CVE-2026-134069, simple-git command injection CVE-2026-134815",
       "severity": "critical",
       "exploited": false,
       "cves": [
         "CVE-2026-134401",
         "CVE-2026-86155",
-        "CVE-2026-134069"
+        "CVE-2026-134069",
+        "CVE-2026-134815"
       ],
       "vendor": "Google Chrome; Apache Jena Fuseki; AWS (Amazon SSM Agent on AWS Windows Server AMIs)",
-      "why": "Chrome CVE-2026-134401 (CVSS 9.6): improper input validation in Variations lets a crafted page run code outside the sandbox; no exploitation reported. Apache Jena Fuseki through 6.2.0 CVE-2026-86155 (CVSS 10): SHACL validation can make the server send requests to SPARQL SERVICE targets (unauthenticated SSRF), part of an Apache batch of 33 fixes. AWS bulletin 2026-197 CVE-2026-134069 (CVSS 7.3, local): Windows instances launched from the same AWS Windows Server AMI released before 2026-09-09 share one SSM registration key, so a local non-admin user on a Default Host Management Configuration instance may get the instance role credentials.",
-      "action": "Update Chrome to 158.0.8127.88 (Windows/macOS also .89) and relaunch. Upgrade Jena Fuseki to 6.3.0. For AWS: replace affected Windows instances with ones launched from AMIs dated 2026-09-09 or later (an in-place agent upgrade keeps the shared key; do not delete the agent Vault); until then limit local non-admin access.",
+      "why": "Chrome CVE-2026-134401 (CVSS 9.6): improper input validation in Variations lets a crafted page run code outside the sandbox; no exploitation reported. Apache Jena Fuseki through 6.2.0 CVE-2026-86155 (CVSS 10): SHACL validation can make the server send requests to SPARQL SERVICE targets (unauthenticated SSRF), part of an Apache batch of 33 fixes. AWS bulletin 2026-197 CVE-2026-134069 (CVSS 7.3, local): Windows instances launched from the same AWS Windows Server AMI released before 2026-09-09 share one SSM registration key, so a local non-admin user on a Default Host Management Configuration instance may get the instance role credentials. New Nov 24: simple-git (widely used Node.js git wrapper) before 4.1.0 lets an attacker who can influence arguments to listRemote() or raw() inject --exec for ls-remote, archive, fetch-pack or send-pack and run commands on the host (bypasses the allowUnsafePack guard; GitHub GHSA-24pq-g7mp-w876, Red Hat); no exploitation reported.",
+      "action": "Update Chrome to 158.0.8127.88 (Windows/macOS also .89) and relaunch. Upgrade Jena Fuseki to 6.3.0. For AWS: replace affected Windows instances with ones launched from AMIs dated 2026-09-09 or later (an in-place agent upgrade keeps the shared key; do not delete the agent Vault); until then limit local non-admin access. simple-git: upgrade to 4.1.0 or later (brings @simple-git/argv-parser 3.0.0); never pass user-controlled strings as git options.",
       "url": "https://aws.amazon.com/security/security-bulletins/2026-197-aws/",
       "ai_angle": [],
       "ai_note": ""
@@ -916,6 +896,9 @@
     }
   ],
   "watch": [
+    "Chamilo LMS CVE-2026-45140 (X, Nov 24): unauthenticated RCE through the CStudio upload flow now has a public PoC (nuclei template). Update Chamilo LMS to the vendor's fixed release and keep upload paths restricted.",
+    "Bromcom (UK school MIS supplier; The Register Nov 24, Have I Been Pwned Nov 23): the September breach of a legacy SSO registration component exposed 355,051 staff and pupil email addresses plus SSO registration reference numbers; Bromcom says no passwords, tokens or MIS data were taken. Schools: warn staff and parents about Bromcom-themed phishing.",
+    "Hana Savings Bank (Korea, Seoul Economic Daily Nov 24): hackers leaked identity and address data of 552 customers. Expect targeted phishing.",
     "Kenya eCitizen (unverified, Nov 23-24): a seller advertises an alleged eCitizen government-portal dump (claimed ~600GB of KYC data, 100GB database, 40GB code); no samples verified and no government confirmation yet.",
     "FFmpeg CVE-2026-135736 (CVSS 9.2 per X, Nov 24): heap out-of-bounds write in the deband filter; fixed in FFmpeg 9.1. Update apps and servers that process untrusted media.",
     "Acer Connect M6E 5G portable router (Nov 24): unauthenticated API flaws CVE-2026-9790 (SIM/device data leak) and CVE-2026-128791 (any Wi-Fi client can delete files), both rated 10.0 per X; firmware M6E_GBL_1.00.000107 listed as the fix for CVE-2026-9790.",
@@ -928,7 +911,6 @@
     "Pomerium CVE-2026-135300 (CVSS 9.1, MCP token endpoint): 0.30.0 to before 0.34.0 skips client-secret checks, so a stolen auth code or refresh token can be redeemed for the victim's tokens. Upgrade to 0.34.0.",
     "Xen Orchestra xo-server CVE-2026-133469 (CVSS 9.8, GitHub advisory GHSA-2r3w-c2vx-fv5g, Nov 23): an empty-object login token can bypass authentication. Update xo-server and keep the console off the internet.",
     "Microsoft research 'Lazarus' (per X, Nov 23, not yet checked against the paper): an AI agent's model can be backdoored by editing fewer than ten neurons in its weights, with no retraining. Verify model weights' integrity (hashes, signed artifacts) when you pull models.",
-    "Unverified (X, Nov 23): a post says the US Justice Department opened an investigation into use of stolen payment credentials on X Money; no official source found yet.",
     "OX Security (per X, Nov 23): of 542,207 npm, PyPI, MCP and Agent Skills components scanned, 22% of flagged MCP servers had prompt injection or tool poisoning. Review MCP servers and skills before installing them.",
     "GlobeTopper (B2B mobile top-up and gift-card provider, BleepingComputer Nov 23): a cyberattack disrupted operations, costing about $2.5M in lost revenue; the attacker redeemed about $70,000 of digital gift cards. https://www.bleepingcomputer.com/news/security/globetopper-loses-25-million-after-hackers-steal-70k-in-gift-cards/",
     "binary-parser CVE-2026-134814 (CVSS 9.2, The Hacker News Nov 23): code injection when an attacker controls parser definitions; no exploitation reported. Upgrade the npm package to 2.3.1. https://thehackernews.com/2026/11/critical-binary-parser-flaw-enables.html",
