@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-11-25T09:35:00Z",
-  "next_update_note": "Next summary update around 13:30 UTC Nov 25; the feed itself refreshes hourly.",
-  "headline": "Quiet again since 05:35 UTC Nov 25: no new AI-run attack reported. Changes: SecurityWeek (Nov 25) says the China-linked PAN-OS campaign that chained PHP2Shell with the Linux root bug Fragnesia CVE-2026-46300 was AI-assisted and hit 25 servers (24 firewalls, one management server); Palo Alto's fixed builds are out, so that item now counts as AI-cause. WordPress.org closed six backdoored WP Connect plugins (CVE-2026-135202, about 3,600 sites; the developer account was likely hijacked) before the bad versions went live. Unit 42 details Com-affiliated (ShinyHunters and others) vishing waves that take over Microsoft 365 and SaaS accounts for data theft and extortion. Deadlines: MONAI Label CVE-2026-133968 (Cairn AI zero-day, fix 0.8.6) and N-able MailAssure are due on CISA KEV tomorrow, Nov 26; Drupal CVE-2026-132165, Optimizely and Idunno AntiCsrf on Nov 27. Still leading: the reported ARTEX-linked CIA/ODNI/NGA breach, GreyNoise's GT13 agentic campaign on Check Point servers (The Hacker News counts 24 servers), the NCSC's AI-attack warning, the Radware key leak and Azure API Management secret theft.",
-  "ai_headline": "No new AI-run attack since 05:35 UTC. One addition: SecurityWeek (Nov 25) calls the China-linked PHP2Shell + Fragnesia campaign against PAN-OS firewalls AI-assisted (25 servers hit); patch PAN-OS and keep management interfaces off the internet. Still leading: Cairn's autonomous MONAI Label zero-day (KEV due tomorrow, fix 0.8.6), the ARTEX-linked CIA/ODNI/NGA breach (sources only), AI-found Drupal CVE-2026-132165 on KEV (due Nov 27), GreyNoise's GT13 Check Point campaign, the NCSC's 'marked rise' and Wiz's ~20 agentic incidents. AI products: a malicious npm package posing as an MCP server, @apexfdn/copilot-mcp (Nov 24). AI impact: GMI Cloud's notice says an attacker searched stored prompts for keys (Oct 18-Nov 18); rotate secrets sent to breached inference providers and keys in Azure API Management or LiteLLM.",
+  "updated_at": "2026-11-25T13:35:00Z",
+  "next_update_note": "Next summary update around 17:30 UTC Nov 25; the feed itself refreshes hourly.",
+  "headline": "Since 09:35 UTC Nov 25: Switzerland's NCSC (Nov 24) confirmed its first cyberattacks carried out with AI agents ('agentic offensive frameworks'), which successfully compromised organisations and critical-infrastructure operators in at least two sectors; it says internet-reachable tools such as ARTEX and CyberStrikeAI have nearly doubled since October. New breaches and exploitation: Hex.pm, the Elixir/Erlang package registry, had six production servers hit through an unauthenticated RCE (CVE-2026-129514, present since 2016); no packages were changed, but account data and the registry signing key may have been read, so hex.pm users must change passwords and reset 2FA. watchTowr sees attackers exploiting two GeoServer flaws patched Nov 24 (CVE-2026-120705, CVE-2026-129243; update to 2.27.7, 2.28.6 or 3.0.2). The US Treasury's FinCEN took some systems offline after unauthorized access (Nov 24; attacker and data unknown). Deadlines: MONAI Label CVE-2026-133968 and N-able MailAssure are due on CISA KEV tomorrow, Nov 26; Drupal CVE-2026-132165 (now widely exploited), Optimizely and Idunno AntiCsrf on Nov 27. Still leading: the reported ARTEX-linked CIA/ODNI/NGA breach, GreyNoise's GT13 agentic Check Point campaign, the AI-assisted PAN-OS campaign, the Radware key leak and Azure API Management secret theft.",
+  "ai_headline": "New since 09:35 UTC: Switzerland's NCSC confirmed its first successful AI-agent cyberattacks on Swiss organisations and critical infrastructure (Nov 24), joining the UK NCSC's 'marked rise' warning; both point at known flaws, weak passwords and exposed systems being hit at machine speed. Still leading: Cairn's autonomous MONAI Label zero-day (KEV due tomorrow, fix 0.8.6), the ARTEX-linked CIA/ODNI/NGA breach (sources only), AI-found Drupal CVE-2026-132165 now broadly exploited (KEV due Nov 27), GreyNoise's GT13 Check Point campaign and the AI-assisted PAN-OS PHP2Shell + Fragnesia campaign. AI products: malicious MCP npm package @apexfdn/copilot-mcp. AI impact: breached inference providers (GMI Cloud, Phala and others); rotate secrets sent in prompts.",
   "ai_activity": {
-    "overview": "Nov 25, 09:35 UTC. Quiet since 05:35 UTC: no new AI-run intrusion. One re-classified item: SecurityWeek says the China-linked campaign that chained PHP2Shell and Fragnesia to root 24 PAN-OS firewalls and a management server was AI-assisted (Palo Alto fixes out). The week's picture: sources tell the NYT that ARTEX was used to breach an unclassified CIA/ODNI/NGA intelligence system (not officially confirmed); the UK NCSC reports a marked rise in AI-assisted attacks since September; GreyNoise says GT13 used agentic AI harnesses against Check Point management servers at 22 organizations; Unit 42 documents 10+ autonomous-agent campaigns; Cairn AI agents found and exploited MONAI Label CVE-2026-133968 (KEV, deadline Nov 26, fix 0.8.6); the European Commission confirmed an AI-assisted tool in its breach; Wiz counts about 20 more agentic incidents; Volant Manticore used AI-made personas in fake CVs. AI-found Drupal CVE-2026-132165 (KEV, due Nov 27) and Apache mod_http2 CVE-2026-119618 (reported) are exploited. AI impact: at least three AI inference providers breached (GMI Cloud, Phala, MiniMax routes); rotate secrets sent in prompts. AI products: LiteLLM on KEV, MONAI Label, malicious MCP npm/PyPI packages and fake TorchServe builds. Counts: 31 AI-cause, 17 AI-product, 6 AI-impact items (items older than 7 days dropped).",
+    "overview": "Nov 25, 13:35 UTC. New since 09:35 UTC: Switzerland's NCSC confirmed its first successful AI-agent cyberattacks against Swiss organisations and critical-infrastructure operators (Nov 24). The week's picture: sources tell the NYT that ARTEX was used to breach an unclassified CIA/ODNI/NGA intelligence system (not officially confirmed); the UK NCSC reports a marked rise in AI-assisted attacks since September; GreyNoise says GT13 used agentic AI harnesses against Check Point management servers at 22 organizations; SecurityWeek calls the PHP2Shell + Fragnesia PAN-OS campaign (25 servers) AI-assisted; Unit 42 documents 10+ autonomous-agent campaigns; Cairn AI agents found and exploited MONAI Label CVE-2026-133968 (KEV, deadline Nov 26, fix 0.8.6); the European Commission confirmed an AI-assisted tool in its breach; Wiz counts about 20 more agentic incidents. AI-found Drupal CVE-2026-132165 (KEV, due Nov 27) is now exploited at scale. AI impact: several AI inference providers breached (GMI Cloud, Phala, MiniMax routes); rotate secrets sent in prompts. AI products: LiteLLM on KEV, MONAI Label, malicious MCP npm/PyPI packages. Counts: 32 AI-cause, 16 AI-product, 5 AI-impact items (items older than 7 days dropped).",
     "counts": {
-      "ai_cause": 31,
-      "ai_product_exploited": 17,
-      "ai_impact": 6
+      "ai_cause": 32,
+      "ai_product_exploited": 16,
+      "ai_impact": 5
     },
     "groups": [
       {
@@ -67,6 +67,15 @@
             ],
             "url": "https://www.securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign/",
             "source": "SecurityWeek / GreyNoise"
+          },
+          {
+            "title": "Switzerland's NCSC confirms its first cyberattacks carried out with AI agents; victims include critical-infrastructure operators in at least two sectors",
+            "date": "2026-11-24T12:00:00Z",
+            "summary": "NCSC/BACS (Nov 24): attackers used 'agentic offensive frameworks' that find flaws, pick tools and plan next steps on their own, exploiting default or weak passwords and known flaws in internet-facing systems; every case it knows of ended in a compromise. It says internet-reachable agents such as ARTEX and CyberStrikeAI have nearly doubled since October and expects more fast, successful attacks. Victims not named.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.bacs.admin.ch/en/26-ki-agenten-1-en",
+            "source": "Swiss NCSC (BACS)"
           },
           {
             "title": "UK NCSC: marked rise in AI-assisted cyberattacks since September from 'agentic offensive frameworks'",
@@ -490,17 +499,6 @@
             ],
             "url": "https://www.cisa.gov/news-events/alerts/2026/11/18/cisa-adds-four-known-exploited-vulnerabilities-catalog",
             "source": "CISA / GitHub advisory / Corgea / Google GTIG"
-          },
-          {
-            "title": "Unverified: ToolHive MCP servers run without network isolation, exposing host services and unauthenticated APIs (CVE-2026-58197, CVSS 8.8); patch under review",
-            "date": "2026-11-18T07:09:00Z",
-            "summary": "Single X report; restrict exposure until a fix ships.",
-            "status": "unverified",
-            "cves": [
-              "CVE-2026-58197"
-            ],
-            "url": "https://x.com/HugoValters/status/2122950180693545121",
-            "source": "X"
           }
         ]
       },
@@ -551,23 +549,11 @@
             "cves": [],
             "url": "https://www.bleepingcomputer.com/news/security/nvidia-investigating-gentlemen-ransomware-breach-claims/",
             "source": "BleepingComputer"
-          },
-          {
-            "title": "React2STEAL: automated campaign on 44 hijacked GitHub accounts exploits unpatched React/Next.js servers and steals .env files, AWS credentials and AI provider keys (which it tests live)",
-            "date": "2026-11-18T12:00:00Z",
-            "summary": "OpenSourceMalware and Chainguard (Nov 18): 45 'ci-wk-' repos use GitHub Actions runners to scan for React2Shell (CVE-2025-55182) and Next.js middleware bypass (CVE-2025-29927), run a stealer on the victim's Node.js process and commit the loot to the public repos; at least 1,281 victim hostnames, new results every ~11 minutes on Nov 17. Database URLs, Stripe keys and AI provider keys are the most common finds. Most repo owners were also hit by wfx-loot. Operator unknown (best lead GitHub account 'dascxzcw').",
-            "status": "exploited",
-            "cves": [
-              "CVE-2025-55182",
-              "CVE-2025-29927"
-            ],
-            "url": "https://opensourcemalware.com/blog/react2steal-github-actions",
-            "source": "OpenSourceMalware / Chainguard"
           }
         ]
       }
     ],
-    "trend_note": "Two quiet holiday-week updates in a row, but the picture keeps filling in backwards: older edge-device campaigns (PAN-OS, Check Point) are now being described as AI-assisted. Agents mostly exploit known flaws in internet-facing management interfaces and web apps at machine speed, so fast patching, keeping admin panels off the internet and rotating exposed keys remain the best defence; AI-found bugs now reach CISA KEV within days."
+    "trend_note": "A second national cyber agency (Switzerland, after the UK) now confirms real AI-agent intrusions, and its count of internet-reachable attack agents nearly doubled since October. Agents mostly exploit known flaws, default passwords and exposed management interfaces at machine speed, so fast patching, MFA, keeping admin panels off the internet and rotating exposed keys remain the best defence; AI-found bugs now reach CISA KEV within days."
   },
   "focus": [
     {
@@ -619,7 +605,7 @@
       "ai_note": "GreyNoise attributes automated weaponization, discovery and exploitation to agentic AI harnesses."
     },
     {
-      "title": "Autonomous AI attack tools in real intrusions: UK NCSC sees a 'marked rise' since September (Nov 24); Wiz counts about 20 more agentic-attack incidents (Nov 23); Bitrise (ARTEX); European Commission (AI-assisted tool confirmed); CERT-In advisory; SOCRadar's BabidiGhost; Bell Canada; GTIG's 'exploit_agent'",
+      "title": "Autonomous AI attack tools in real intrusions: UK NCSC sees a 'marked rise' since September (Nov 24); Swiss NCSC confirms its first successful AI-agent attacks, incl. critical infrastructure (Nov 24); Wiz counts about 20 more agentic-attack incidents (Nov 23); Bitrise (ARTEX); European Commission (AI-assisted tool confirmed); CERT-In advisory; SOCRadar's BabidiGhost; Bell Canada; GTIG's 'exploit_agent'",
       "severity": "critical",
       "exploited": true,
       "cves": [],
@@ -631,7 +617,7 @@
         "cause",
         "impact"
       ],
-      "ai_note": "CERT-In is now another government agency (after the FBI and CERT-EU) reporting agentic attack frameworks in live attacks. SOCRadar's BabidiGhost report adds a second, independently reconstructed case of an AI agent doing the hacking for a weak operator. AI-run attacks are now reported by victims (European Commission, Barracuda, Bell Canada), vendors (Amazon, Google, Symantec, Darktrace) and incident responders. The 14-minute case rests on one responder's account, and Bell gave no detail on the AI use."
+      "ai_note": "CERT-In is now another government agency (after the FBI and CERT-EU) reporting agentic attack frameworks in live attacks. SOCRadar's BabidiGhost report adds a second, independently reconstructed case of an AI agent doing the hacking for a weak operator. AI-run attacks are now reported by victims (European Commission, Barracuda, Bell Canada), vendors (Amazon, Google, Symantec, Darktrace) and incident responders. The 14-minute case rests on one responder's account, and Bell gave no detail on the AI use. New: Switzerland's NCSC (Nov 24) confirmed AI-agent intrusions at Swiss organisations in at least two critical sectors, all successful, and says tools like ARTEX and CyberStrikeAI nearly doubled since October."
     },
     {
       "title": "Drupal installer RCE CVE-2026-132165, found by Anthropic's AI scanner, is exploited and now on CISA KEV (added Nov 24, federal deadline Nov 27)",
@@ -641,7 +627,7 @@
         "CVE-2026-132165"
       ],
       "vendor": "Drupal core before 10.6.22, 11.0-11.3.21 and 11.4.0-11.4.12",
-      "why": "Under some conditions an attacker can use a reachable install.php to reinstall Drupal, take over the site or run code. Drupal fixed it Nov 18 and reported exploitation on live sites from Nov 19, 19:00 UTC. New since the last summary: CISA added it to KEV on Nov 24 with a Nov 27 deadline.",
+      "why": "Under some conditions an attacker can use a reachable install.php to reinstall Drupal, take over the site or run code. Drupal fixed it Nov 18 and reported exploitation on live sites from Nov 19, 19:00 UTC. New since the last summary: CISA added it to KEV on Nov 24 with a Nov 27 deadline. Update Nov 25: Drupal's security team and BleepingComputer confirm attackers now use it to hijack sites; exploit details are public (The Hacker News).",
       "action": "Upgrade to Drupal 10.6.22, 11.3.22 or 11.4.13 now. Block or delete core/install.php in production, and make settings.php read-only to the web server. Check for unexpected reinstalls, new admin accounts or changed settings.php since Nov 19.",
       "url": "https://www.drupal.org/sa-core-2026-017",
       "ai_angle": [
@@ -707,6 +693,36 @@
       "ai_note": ""
     },
     {
+      "title": "Hex.pm (Elixir/Erlang package registry) breached: attacker ran commands on six production servers via unauthenticated RCE CVE-2026-129514 (Nov 23)",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-129514"
+      ],
+      "vendor": "Hex.pm",
+      "why": "The flaw had been in the registry code since 2016; servers were patched within about 15 minutes. No package changes found, but account emails, bcrypt password hashes, 2FA secrets and the registry signing key may have been read. All sessions were revoked.",
+      "action": "If you have a hex.pm account: change the password, reset 2FA (new authenticator entry and recovery codes), then log back in with mix hex.user auth or rebar3 hex user auth. Fetch only from repo.hex.pm (no third-party mirrors) and update the Hex client when the new signing release ships. API keys do not need rotation per Hex. Self-hosted hexpm: update. Watch for Hex-themed phishing.",
+      "url": "https://thehackernews.com/2026/11/hackers-exploited-cvss-100-hexpm-rce.html",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
+      "title": "GeoServer flaws patched Nov 24 already exploited (watchTowr): unauthenticated file read/SSRF CVE-2026-120705 and auth bypass CVE-2026-129243; RCE chain possible",
+      "severity": "high",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-120705",
+        "CVE-2026-129243",
+        "CVE-2026-129245"
+      ],
+      "vendor": "GeoServer",
+      "why": "watchTowr sees exploit probes against GeoServer WFS. Eye Security says the file read combines with a hard-coded 'remember me' signing key (CVE-2026-129245) and another flaw for unauthenticated RCE.",
+      "action": "Update to GeoServer 2.27.7, 2.28.6 or 3.0.2 (GeoTools 33.7/34.6/35.2) now; keep GeoServer off the internet where possible; after patching, change admin passwords, since a leaked password digest allows login.",
+      "url": "https://thehackernews.com/2026/11/hackers-exploit-two-geoserver-flaws-as.html",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
       "title": "CISA KEV Nov 24 (due Nov 27): Optimizely Web Experimentation CVE-2026-132224 and Idunno AntiCsrf CVE-2026-131914 (plus Drupal, above); Nov 23: N-able MailAssure CVE-2026-134624; Nov 20: VMware vCenter CVE-2026-123890, Cisco Expressway CVE-2026-76466, Apache Roller CVE-2026-129448, SAP NetWeaver CVE-2025-42884",
       "severity": "critical",
       "exploited": true,
@@ -737,10 +753,10 @@
   ],
   "news": [
     {
-      "title": "Palo Alto Networks Patches Fragnesia Flaw Used to Root Firewalls",
-      "source": "SecurityWeek",
-      "url": "https://www.securityweek.com/palo-alto-networks-patches-fragnesia-flaw-used-to-root-firewalls/",
-      "blurb": "A China-linked group chained PHP2Shell with Fragnesia in AI-assisted attacks that hit 25 servers; new PAN-OS builds fix the kernel bug."
+      "title": "Cyberattacks involving AI agents: First confirmed cases in Switzerland",
+      "source": "Swiss NCSC (BACS)",
+      "url": "https://www.bacs.admin.ch/en/26-ki-agenten-1-en",
+      "blurb": "Agentic offensive frameworks were used to compromise Swiss organisations and critical-infrastructure operators; ARTEX-style tools nearly doubled since October."
     },
     {
       "title": "CIA, DNI probe hack of unclassified intelligence system",
@@ -755,10 +771,22 @@
       "blurb": "NCSC says agentic offensive frameworks (ARTEX, Cairn, PentAGI and others) are behind incidents across sectors since September, exploiting old weaknesses faster."
     },
     {
+      "title": "Hackers Exploited CVSS 10.0 Hex.pm RCE Flaw to Compromise 6 Package Registry Servers",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/hackers-exploited-cvss-100-hexpm-rce.html",
+      "blurb": "No packages altered, but account data and the signing key may have been read; reset password and 2FA."
+    },
+    {
       "title": "Radware discloses breach exposing customer cloud access keys",
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/radware-discloses-breach-exposing-customer-cloud-access-keys/",
       "blurb": "Unauthenticated internal Cloud WAF API exposed customer contacts and some log-export keys for S3, Azure Blob and SFTP on Nov 19; rotate them."
+    },
+    {
+      "title": "Hackers Exploit Two GeoServer Flaws as Researchers Warn of Unauthenticated RCE Chains",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/hackers-exploit-two-geoserver-flaws-as.html",
+      "blurb": "Fixes from Nov 24 already targeted; update to 2.27.7, 2.28.6 or 3.0.2."
     },
     {
       "title": "Amazon says hackers' AI agents found and exploited 0-day with little human input",
@@ -771,21 +799,11 @@
       "source": "SecurityWeek",
       "url": "https://www.securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign/",
       "blurb": "GreyNoise: GT13 used agentic harnesses plus hands-on follow-up to compromise management servers at 22 organizations in 17 countries."
-    },
-    {
-      "title": "WordPress Blocks Six Backdoored WP Connect Plugins Before Malicious Releases Go Live",
-      "source": "The Hacker News / Wordfence",
-      "url": "https://thehackernews.com/2026/11/wordpress-blocks-six-backdoored-wp.html",
-      "blurb": "A likely hijacked developer account pushed a remote-control backdoor into six plugins (CVE-2026-135202); WordPress.org's new cooldown stopped the release."
-    },
-    {
-      "title": "Com-Affiliated Hackers Hijack Cloud Accounts via Vishing for Data Theft and Extortion",
-      "source": "The Hacker News / Unit 42",
-      "url": "https://thehackernews.com/2026/11/com-affiliated-hackers-hijack-cloud.html",
-      "blurb": "Phone phishing plus AiTM kits give ShinyHunters-linked clusters Microsoft 365 and SaaS access; data theft and extortion without encryption."
     }
   ],
   "watch": [
+    "US Treasury FinCEN (Nov 24-25; ABC, The Record, CyberScoop): unauthorized access to a limited subset of systems, some taken offline; BSA E-Filing still works, filing deadlines from Nov 18 moved to Dec 30. Attacker, entry point and data access not disclosed.",
+    "Microsoft (BleepingComputer, Nov 25): confirms authentication issues for some customers after installing the November security updates; check sign-in problems before blaming an attack, and watch for Microsoft's fix.",
     "WP Connect WordPress plugins (The Hacker News/Wordfence, Nov 25): six plugins (Air WP Sync 2.9.1-2.9.4, WP Sync for Notion 1.7.4, Brevo for Gravity Forms 2.6.3, CF7 to Airtable 2.5.4, CF7 to Notion 1.6.4, Orders Sync to Airtable 1.0.2) were backdoored Nov 22 via a likely hijacked developer account (CVE-2026-135202, CVSS 9.8, ~3,600 sites). WordPress.org blocked the releases before they went live and closed the plugins; check you are not running those versions and remove them.",
     "Com-affiliated vishing (Unit 42 via The Hacker News, Nov 25): ShinyHunters and six newer clusters call staff posing as IT, steal sessions with AiTM kits (Doko's Panel), enroll their own MFA devices and pull Microsoft 365, SharePoint, Salesforce and Slack data for extortion; one cluster sideloads a fake 'Google Chrome' extension. Alert on new MFA device registrations and unapproved OAuth apps.",
     "Microsoft (BleepingComputer, Nov 25) confirms authentication issues after installing November security updates; check Microsoft's release health page before wide rollout.",
@@ -796,7 +814,6 @@
     "Turnitin (moved from news; BleepingComputer, Nov 24): unauthorized activity in some customer-facing systems; scope and data taken still not disclosed.",
     "OpenAI/Cisco Shirudo (Nov 23-24): open-source, pre-release eBPF 'shield' runtime where AI agents write temporary exploit blocks; needs bpf-next kernel patches and TPM 2.0. Worth testing, not a patch replacement.",
     "Rackspace Spot (BleepingComputer, Nov 24): Rackspace is shutting the platform down after the breach in which attackers with stolen credentials ran pods and read Kubernetes Secrets in some customer clusters. Migrate workloads and download data by Dec 8, and rotate every Secret that lived in a Spot cluster.",
-    "Microsoft agent-framework PyPI hijack (moved from focus; Nov 17): versions 1.26.1 and 1.26.2 steal Azure, GitHub Actions and cloud secrets; also malicious MCP packages karma365-mcp (npm) and my-mcp-server-driving-license-ocr (PyPI). If installed, remove, rebuild and rotate secrets.",
     "New critical patches (moved from focus; Nov 23-24): VMware vCenter CVE-2026-123903 and ESX CVE-2026-123910/123911, Chrome CVE-2026-134401, Apache Jena Fuseki CVE-2026-86155, AWS SSM Agent CVE-2026-134069, simple-git CVE-2026-134815. Apply vendor updates.",
     "Amazon ECS MCP Server CVE-2026-135614 (per X, Nov 24): sensitive-data redaction bypass via prompt injection in versions before 0.1.36; update.",
     "ruflo MCP bridge CVE-2026-59726 (CVSS 10; GitHub advisory from July, CVE record now published): default Docker Compose exposes unauthenticated /mcp endpoints that run commands and leak LLM provider keys. Upgrade to 3.16.3+, firewall ports 3001/27017, rotate LLM API keys if exposed.",
@@ -810,7 +827,6 @@
     "LaLiga (TechRadar, Nov 24): an attacker reached a fan-services platform Nov 14-16 and took personal data of LaLiga and some clubs' registered users; scope unknown. Expect phishing aimed at fans.",
     "Gatwick Airport (BBC, Nov 24): Times24's AutoPay drop-off payment system was breached; login credentials, emails, home addresses, vehicle details and in some cases card information exposed. Affected users should change their AutoPay password.",
     "ShinyHunters (BleepingComputer, Nov 24): a new leak site claims the gang is back after FBI-linked arrests, signed with old ShinyHunters PGP keys; the keys have circulated, so the operators' identity is unconfirmed.",
-    "hexpm (Hex.pm, Erlang/Elixir package server) CVE-2026-129514: unauthenticated RCE via Erlang term request-body deserialization (per X, Nov 24; not checked). Self-hosted hexpm users should update.",
     "Barracuda ESG CVE-2026-116606 + CVE-2026-111560: per X (Nov 24), chaining an unauthenticated crafted-backup restore with a root command injection gives unauthenticated root; confirm appliances are updated.",
     "GL.iNet GoodCloud (moved from focus): a cloud flaw was exploited to plant malware on routers and KVM devices (advisory Nov 20); update firmware and review GoodCloud-linked devices.",
     "KEPCO (Korea Electric Power; SecurityWeek Nov 24): attackers took data from the KEPCO ON customer portal (650,487 people: names, ID numbers, card and bank-account details) and the supplier SRM platform (869,761 people). KEPCO mentioned AI-driven attacks generally but did not say AI was used. Expect phishing and card fraud.",
