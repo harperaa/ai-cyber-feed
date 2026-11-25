@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-25T01:35:00Z",
-  "next_update_note": "Next summary update around 05:30 UTC Nov 25; the feed itself refreshes hourly.",
-  "headline": "Since 21:35 UTC Nov 24: the New York Times, AP and ISMG report that hackers breached an unclassified open-source-intelligence system shared by the CIA, ODNI and NGA; sources say the attackers used the AI hacking tool ARTEX and early signs point to China (no classified systems hit; officials call it resolved). The UK NCSC says it has seen a marked rise in AI-assisted attacks since September, driven by 'agentic offensive frameworks' (ARTEX first, plus Cairn, PentAGI, RedAmon, Xalgorix, Darkmoon) that exploit old, known weaknesses at speed. Rackspace is shutting down Rackspace Spot after its Kubernetes-secrets breach; customers must migrate and download data by Dec 8. Still most important: MONAI Label CVE-2026-133968 (Cairn AI zero-day, KEV deadline Nov 26, fix 0.8.6), AI-found Drupal CVE-2026-132165 (KEV, due Nov 27), GreyNoise's GT13 agentic campaign on Check Point servers, the Radware Cloud WAF key leak, Azure API Management secret theft and ScreenConnect attacks on MSPs.",
-  "ai_headline": "New since 21:35 UTC: an AI attack tool is now tied to a breach at US intelligence agencies: sources told the NYT the CIA/ODNI/NGA open-source-intelligence system was hacked using ARTEX, the same framework behind the European Commission and Bitrise breaches. The UK NCSC confirms a marked rise in AI-driven intrusions since September and stresses that the bugs being hit are old ones, so basic hygiene on internet-facing systems is the defence. Still leading: Cairn's autonomous MONAI Label zero-day (KEV, fix 0.8.6), AI-found Drupal CVE-2026-132165 on KEV, GreyNoise's GT13 Check Point campaign, Wiz's ~20 agentic incidents. AI impact: rotate secrets sent to breached inference providers and keys stored in Azure API Management.",
+  "updated_at": "2026-11-25T05:35:00Z",
+  "next_update_note": "Next summary update around 09:30 UTC Nov 25; the feed itself refreshes hourly.",
+  "headline": "Quiet overnight (since 01:35 UTC Nov 25): no new AI-run attack was reported. New: Palo Alto (PAN-SA-2026-0015, Nov 24) confirms attackers are using the Linux kernel root bug Fragnesia CVE-2026-46300 on PAN-OS firewalls whose management interface faces the internet, chained after PHP2Shell; fixed PAN-OS builds are out. Check Point says Iran-aligned Volant Manticore used AI-generated fake CVs to plant its KuboShell backdoor at a Cyprus airline and telecoms. OpenAI and Cisco released Shirudo, a pre-release open-source tool that lets AI agents write temporary eBPF 'shields' against exploits. Deadlines: MONAI Label CVE-2026-133968 (Cairn AI zero-day, fix 0.8.6) is due on CISA KEV tomorrow, Nov 26; Drupal CVE-2026-132165, Optimizely and Idunno AntiCsrf on Nov 27. Still leading: the ARTEX-linked CIA/ODNI/NGA OSINT-system breach (per sources), GreyNoise's GT13 agentic campaign on Check Point servers, the NCSC's warning about AI-assisted attacks, the Radware key leak and Azure API Management secret theft.",
+  "ai_headline": "No new AI-run attack since 01:35 UTC. One small addition: Check Point says Iran-aligned Volant Manticore used AI-generated job-seeker personas in fake CVs to deliver its KuboShell backdoor (Cyprus airline, telecoms). On defence, OpenAI and Cisco open-sourced Shirudo, in which agents write signed eBPF shields that block an exploit until the patch lands (pre-release; tested against Java4Shell and PHP2Shell). Still leading: Cairn's autonomous MONAI Label zero-day (KEV deadline tomorrow, fix 0.8.6), the ARTEX-linked CIA/ODNI/NGA breach (sources, unconfirmed), AI-found Drupal CVE-2026-132165 on KEV (due Nov 27), GreyNoise's GT13 Check Point campaign, the NCSC's 'marked rise', and Wiz's ~20 agentic incidents. AI impact: rotate secrets sent to breached inference providers and keys stored in Azure API Management or LiteLLM.",
   "ai_activity": {
-    "overview": "Nov 25, 01:35 UTC. New since 21:35 UTC: sources tell the NYT that ARTEX was used to breach an unclassified CIA/ODNI/NGA intelligence system (not officially confirmed), and the UK NCSC reports a marked rise in AI-assisted attacks since September driven by agentic offensive frameworks. The week's picture: GreyNoise says GT13 used agentic AI harnesses against Check Point management servers at 22 organizations; Unit 42 documents 10+ autonomous-agent campaigns; Cairn AI agents found and exploited MONAI Label CVE-2026-133968 (KEV, deadline Nov 26, fix 0.8.6); the European Commission confirmed an AI-assisted tool in its breach; Wiz counts about 20 more agentic incidents; Bitrise confirms ARTEX ran its breach. AI-found Drupal CVE-2026-132165 (KEV) and Apache mod_http2 CVE-2026-119618 (reported) are exploited. AI impact: Dragos canaries show at least three AI inference providers breached; rotate secrets sent in prompts. AI products: LiteLLM on KEV, MONAI Label, malicious MCP packages. Counts: 29 AI-cause, 16 AI-product, 6 AI-impact items (items older than 7 days dropped).",
+    "overview": "Nov 25, 05:35 UTC. Quiet overnight: no new AI-run intrusion reported since 01:35 UTC. Only addition: Check Point says Iran-aligned Volant Manticore used AI-generated personas in fake CVs to deliver its KuboShell backdoor. The week's picture: sources tell the NYT that ARTEX was used to breach an unclassified CIA/ODNI/NGA intelligence system (not officially confirmed); the UK NCSC reports a marked rise in AI-assisted attacks since September; GreyNoise says GT13 used agentic AI harnesses against Check Point management servers at 22 organizations; Unit 42 documents 10+ autonomous-agent campaigns; Cairn AI agents found and exploited MONAI Label CVE-2026-133968 (KEV, deadline Nov 26, fix 0.8.6); the European Commission confirmed an AI-assisted tool in its breach; Wiz counts about 20 more agentic incidents; Bitrise confirms ARTEX ran its breach. AI-found Drupal CVE-2026-132165 (KEV, due Nov 27) and Apache mod_http2 CVE-2026-119618 (reported) are exploited. AI impact: Dragos canaries show at least three AI inference providers breached; rotate secrets sent in prompts. AI products: LiteLLM on KEV, MONAI Label, malicious MCP and fake TorchServe packages. Counts: 30 AI-cause, 16 AI-product, 6 AI-impact items (items older than 7 days dropped).",
     "counts": {
-      "ai_cause": 29,
+      "ai_cause": 30,
       "ai_product_exploited": 16,
       "ai_impact": 6
     },
@@ -33,6 +33,15 @@
             ],
             "url": "https://www.drupal.org/sa-core-2026-017",
             "source": "CISA KEV / Drupal.org"
+          },
+          {
+            "title": "Check Point: Iran-aligned Volant Manticore (ex-MuddyWater operators) used AI-generated personas in fake CVs to deliver the IPFS-based KuboShell backdoor to a Cyprus airline, telecoms and critical infrastructure",
+            "date": "2026-11-24T16:00:00Z",
+            "summary": "Reported Nov 24 (Check Point via The Hacker News). The AI part is the lure only: fake job-seeker CVs with AI-made personas link to a 'full resume' download that installs KuboShell, which uses IPFS for command and control and drops the Homa framework plus MeshCentral/NetLock RMM. Also credential-phishing pages. Treat CV download links with care and alert on new RMM tools.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/11/iran-aligned-volant-manticore-uses-ipfs.html",
+            "source": "The Hacker News / Check Point"
           },
           {
             "title": "GreyNoise: GT13 used agentic AI harnesses to hack Check Point Security Management servers at 22 organizations in 17 countries",
@@ -536,7 +545,7 @@
         ]
       }
     ],
-    "trend_note": "AI attack tooling has moved from businesses to government targets (European Commission, now US intelligence per press sources), and the NCSC confirms the trend nationally. The common thread is unchanged: agents exploit known web-app and edge-device flaws at machine speed, so fast patching and reducing internet exposure matter most; AI-found bugs now reach CISA KEV within days."
+    "trend_note": "Overnight was quiet, which fits the US holiday week rather than a slowdown: attacker AI use now spans fully agentic intrusions (ARTEX, Cairn, GT13) down to AI-made lures (Volant Manticore). Defenders are answering with AI too (OpenAI/Cisco Shirudo), but the lesson is unchanged: agents exploit known web-app and edge-device flaws at machine speed, so fast patching, keeping management interfaces off the internet and rotating exposed keys matter most; AI-found bugs now reach CISA KEV within days."
   },
   "focus": [
     {
@@ -674,16 +683,18 @@
       "ai_note": ""
     },
     {
-      "title": "ConnectWise ScreenConnect CVE-2026-84869 (CVSS 9.9) exploited against MSPs: a guest in a support session pushes and runs a payload on the technician's PC (Huntress via The Hacker News, Nov 23)",
-      "severity": "critical",
+      "title": "Palo Alto confirms Linux kernel root bug Fragnesia CVE-2026-46300 is being used on PAN-OS firewalls with internet-exposed management interfaces, after PHP2Shell; fixed PAN-OS builds released (PAN-SA-2026-0015, Nov 24)",
+      "severity": "high",
       "exploited": true,
       "cves": [
-        "CVE-2026-84869"
+        "CVE-2026-46300",
+        "CVE-2026-109618",
+        "CVE-2026-109619"
       ],
-      "vendor": "ConnectWise",
-      "why": "Huntress saw a technician workstation hijacked in about 9 seconds on Nov 12 (batch file, Telegram bot check-in, rogue ScreenConnect client to the attacker's relay) and at least 688,000 guest 'run file' requests against 42 servers between Oct 20 and Nov 16. A technician's PC usually reaches every client an MSP manages.",
-      "action": "Update ScreenConnect technician host clients to 26.6.5 or later; hunt for update.bat / update_<hex>.bat and unexpected ScreenConnect clients; isolate affected workstations and rotate all credentials reachable from them.",
-      "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-screenconnect.html",
+      "vendor": "Palo Alto Networks PAN-OS 10.2, 11.1, 11.2, 12.1, 12.2",
+      "why": "New Nov 24: Palo Alto's bulletin says exploitation of CVE-2026-46300 has been observed against PAN-OS management interfaces exposed to the internet. Attackers first get in with PHP2Shell (CVE-2026-109618/109619, on CISA KEV since Oct 26) and then use Fragnesia, a Linux XFRM ESP-in-TCP logic bug with a public PoC (on KEV since Oct 28), to become root. Palo Alto knows of no other way to reach it on PAN-OS.",
+      "action": "Upgrade PAN-OS to a fixed build (e.g. 10.2.18-h15, 11.1.16-h6, 11.2.16-h3, 12.1.10-h6, 12.2.4-h3 or the listed hotfix for your train) now if the management interface or any interface with a management profile is reachable from the internet; restrict management to trusted internal IPs. Also confirm the PHP2Shell fix (CVE-2026-109618 advisory) is installed, and patch Linux servers' kernels for Fragnesia.",
+      "url": "https://security.paloaltonetworks.com/PAN-SA-2026-0015",
       "ai_angle": [],
       "ai_note": ""
     },
@@ -709,7 +720,7 @@
         "CVE-2026-134624"
       ],
       "vendor": "Optimizely; Idunno.AntiCsrf (.NET); Broadcom VMware vCenter; Cisco Expressway; Apache Roller; SAP NetWeaver Enterprise Portal; Perforce Puppet Enterprise; Google Chrome; Apache Axis 1.x in Atlassian Confluence and N-able N-central; OpenSSH on musl-based Linux (Alpine); Microsoft Outlook; IBM Aspera Faspex",
-      "why": "New Nov 24: CISA added Optimizely Web Experimentation CVE-2026-132224 (CVSS 8.7; the account signup flow before the Nov 17 fix let attackers control critical state and, per public alerts, inject JavaScript) and Idunno AntiCsrf CVE-2026-131914 (CVSS 9.8 deserialization of untrusted data in the double-submit cookie check of this .NET anti-CSRF library). New Nov 23: CISA added N-able Mail Assure SSRF CVE-2026-134624 (the flaw found in N-able's Hosted Cloud breach investigation; fixed in build 20261121.1943) to KEV. New Nov 20: CISA added vCenter CVE-2026-123890, Expressway CVE-2026-76466, Apache Roller CVE-2026-129448 and SAP NetWeaver Enterprise Portal CVE-2025-42884 to KEV. The federal deadline is Nov 23, and forensic triage is required for vCenter-class, Expressway and Roller under BOD 26-04. The SAP flaw (CVSS 6.5, EP-BASIS/EP-RUNTIME 7.50) lets an unauthenticated attacker inject JNDI lookup properties to read or change server information. New: Broadcom's VMSA-2026-0009 (Nov 19) fixes vCenter CVE-2026-123890 (CVSS 9.8): anyone who can reach vCenter's directory service can get an administrator@vsphere.local session. It affects 8.0, 9.0 and 9.1 and the builds inside VCF and vSphere Foundation; 6.5, 6.7 and 7.0 should be presumed affected, and there is no workaround. Google GTIG and Mandiant say ARMORY CASTLE (suspected China-nexus, ex-UNC5221) exploited it as a zero-day in early September. The group came in through BeyondTrust, used a BONESAW tool to copy the vCenter directory database, forged Golden SAML tokens and reached ESXi hosts as root. New: Russian firm F6 reports the first exploitation of Cisco Expressway CVE-2026-76466 (Cisco advisory: static-credential RCE) shortly after a PoC: attackers took root on internet-exposed Expressway X15.5.3 and moved to internal cluster nodes. CISA added (Nov 18) Apache Axis CVE-2026-90436 (CVSS 9.8, unauthenticated RCE in end-of-life Axis 1.x, used against Confluence Data Center and N-able N-central), REDCap CVE-2026-90817 (CVSS 9.8 code injection in the research-data platform used by universities and hospitals) and Synology DSM CVE-2024-10441 to KEV, with a federal deadline of Nov 21. Still exploited: Apache Roller CVE-2026-129448 (CVSS 9.8 unauthenticated deserialization RCE; disabling XML-RPC does not protect), Puppet Enterprise CVE-2026-115731 (CVSS 9.9, any signed agent can run code on Puppet Server), Chrome CVE-2026-125350, OpenSSH CVE-2026-123158 (password login on musl/Alpine without PAM), Outlook CVE-2026-124194 (NTLM leak; found with Claude) and IBM Aspera Faspex CVE-2026-123218. Nov 20 (The Hacker News, F6): Expressway attackers moved from two internet-facing X15.5.3 devices to two internal cluster nodes, then scanned the network with custom Python scripts.",
+      "why": "Deadlines: MONAI Label CVE-2026-133968 (above) is due Nov 26; Drupal, Optimizely and Idunno AntiCsrf are due Nov 27. No new KEV additions since Nov 24. New Nov 24: CISA added Optimizely Web Experimentation CVE-2026-132224 (CVSS 8.7; the account signup flow before the Nov 17 fix let attackers control critical state and, per public alerts, inject JavaScript) and Idunno AntiCsrf CVE-2026-131914 (CVSS 9.8 deserialization of untrusted data in the double-submit cookie check of this .NET anti-CSRF library). New Nov 23: CISA added N-able Mail Assure SSRF CVE-2026-134624 (the flaw found in N-able's Hosted Cloud breach investigation; fixed in build 20261121.1943) to KEV. New Nov 20: CISA added vCenter CVE-2026-123890, Expressway CVE-2026-76466, Apache Roller CVE-2026-129448 and SAP NetWeaver Enterprise Portal CVE-2025-42884 to KEV. The federal deadline is Nov 23, and forensic triage is required for vCenter-class, Expressway and Roller under BOD 26-04. The SAP flaw (CVSS 6.5, EP-BASIS/EP-RUNTIME 7.50) lets an unauthenticated attacker inject JNDI lookup properties to read or change server information. New: Broadcom's VMSA-2026-0009 (Nov 19) fixes vCenter CVE-2026-123890 (CVSS 9.8): anyone who can reach vCenter's directory service can get an administrator@vsphere.local session. It affects 8.0, 9.0 and 9.1 and the builds inside VCF and vSphere Foundation; 6.5, 6.7 and 7.0 should be presumed affected, and there is no workaround. Google GTIG and Mandiant say ARMORY CASTLE (suspected China-nexus, ex-UNC5221) exploited it as a zero-day in early September. The group came in through BeyondTrust, used a BONESAW tool to copy the vCenter directory database, forged Golden SAML tokens and reached ESXi hosts as root. New: Russian firm F6 reports the first exploitation of Cisco Expressway CVE-2026-76466 (Cisco advisory: static-credential RCE) shortly after a PoC: attackers took root on internet-exposed Expressway X15.5.3 and moved to internal cluster nodes. CISA added (Nov 18) Apache Axis CVE-2026-90436 (CVSS 9.8, unauthenticated RCE in end-of-life Axis 1.x, used against Confluence Data Center and N-able N-central), REDCap CVE-2026-90817 (CVSS 9.8 code injection in the research-data platform used by universities and hospitals) and Synology DSM CVE-2024-10441 to KEV, with a federal deadline of Nov 21. Still exploited: Apache Roller CVE-2026-129448 (CVSS 9.8 unauthenticated deserialization RCE; disabling XML-RPC does not protect), Puppet Enterprise CVE-2026-115731 (CVSS 9.9, any signed agent can run code on Puppet Server), Chrome CVE-2026-125350, OpenSSH CVE-2026-123158 (password login on musl/Alpine without PAM), Outlook CVE-2026-124194 (NTLM leak; found with Claude) and IBM Aspera Faspex CVE-2026-123218. Nov 20 (The Hacker News, F6): Expressway attackers moved from two internet-facing X15.5.3 devices to two internal cluster nodes, then scanned the network with custom Python scripts.",
       "action": "Optimizely: it is a hosted service fixed Nov 17; review your account's users, snippets and experiments for anything added you did not make. Idunno.AntiCsrf: update the NuGet package to the fixed release and redeploy apps that use it. vCenter: install the VMSA-2026-0009 fixed build now. Quick Patch is not supported, so do a full update. Watch the 8.0 U3m / 9.0.2.0200 vs VCF 9.1.1 upgrade conflict. Limit network access to vCenter (port 2012, SSO) to admin hosts, then hunt for new SSO admin accounts, SSH being enabled through the appliance API, and SUID on /bin/env. Cisco Expressway: upgrade to X15.5.20 (X14 and earlier must migrate); check erlang.log for nodeup 'wombat@127.0.0.1', Python files under /mnt/harddisk/i* and connections from 66.179.31.32 or 18.130.47.116. Confluence Data Center: upgrade to 9.2.28 or turn off Remote API (XML-RPC & SOAP); patch N-central to 2026.4 HF3. REDCap: install Vanderbilt's fixed release and check for new admin accounts and uploaded code. Synology DSM: update to the current DSM release. Roller: 6.1.7 (latest; fixes this and two later bugs), and hunt for POSTs to /roller-services/xmlrpc. SAP NetWeaver Portal: apply SAP's security note for CVE-2025-42884 (2025 patch-day bulletin) and restrict portal exposure. Puppet: 2023.8.13, 2025.12.1 or 2026.0.1 and restrict autosigning. Chrome 157.0.8103.50+. OpenSSH 10.6p2 or distro fix (or PasswordAuthentication no). Outlook: November updates, block outbound SMB. Faspex 5.0.19 PL1.",
       "url": "https://www.cisa.gov/news-events/alerts/2026/11/20/cisa-adds-four-known-exploited-vulnerabilities-catalog",
       "ai_angle": [],
@@ -761,31 +772,34 @@
       "blurb": "Unauthenticated internal Cloud WAF API exposed customer contacts and some log-export keys for S3, Azure Blob and SFTP on Nov 19; rotate them."
     },
     {
+      "title": "OpenAI and Cisco Unveil AI-Assisted Linux Security Tool to Block Exploits Before Patching",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/openai-and-cisco-unveil-ai-assisted.html",
+      "blurb": "Shirudo, an open-source pre-release eBPF runtime, lets AI agents write signed temporary 'shields'; a Codex-made shield blocked a Java4Shell exploit on a running Elasticsearch. Needs a patched bpf-next kernel and TPM 2.0, so not for production yet."
+    },
+    {
       "title": "Amazon says hackers' AI agents found and exploited 0-day with little human input",
       "source": "Ars Technica",
       "url": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input/",
       "blurb": "Cairn agents told to 'obtain shell access' found MONAI Label CVE-2026-133968 and rooted a university server; CISA deadline Nov 26."
     },
     {
+      "title": "Iran-Aligned Volant Manticore Uses IPFS-Based KuboShell Backdoor in Espionage Campaigns",
+      "source": "The Hacker News / Check Point",
+      "url": "https://thehackernews.com/2026/11/iran-aligned-volant-manticore-uses-ipfs.html",
+      "blurb": "Ex-MuddyWater operators target a Cyprus airline, telecoms and critical infrastructure using AI-generated personas in fake CVs."
+    },
+    {
       "title": "Check Point Security Management Servers Hacked in AI-Assisted Campaign",
       "source": "SecurityWeek",
       "url": "https://www.securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign/",
       "blurb": "GreyNoise: GT13 used agentic harnesses plus hands-on follow-up to compromise management servers at 22 organizations in 17 countries."
-    },
-    {
-      "title": "New Inception extortion gang launches large-scale vishing campaign",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/new-inception-extortion-gang-launches-large-scale-vishing-campaign/",
-      "blurb": "Phone-based SSO phishing with fake Okta pages; Okta ties it to the ShinyHunters-linked O-UNC-053 cluster."
-    },
-    {
-      "title": "Turnitin discloses cyberattack affecting customer-facing systems",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/turnitin-discloses-cyberattack-affecting-customer-facing-systems/",
-      "blurb": "Ed-tech platform used by 16,000 institutions is investigating unauthorized access; scope not yet known."
     }
   ],
   "watch": [
+    "ConnectWise ScreenConnect CVE-2026-84869 (moved from focus; Huntress, Nov 23): exploited against MSPs; a guest in a support session can push and run a payload on the technician's PC. Update ScreenConnect to the fixed release and limit who can start guest sessions.",
+    "Turnitin (moved from news; BleepingComputer, Nov 24): unauthorized activity in some customer-facing systems; scope and data taken still not disclosed.",
+    "OpenAI/Cisco Shirudo (Nov 23-24): open-source, pre-release eBPF 'shield' runtime where AI agents write temporary exploit blocks; needs bpf-next kernel patches and TPM 2.0. Worth testing, not a patch replacement.",
     "Rackspace Spot (BleepingComputer, Nov 24): Rackspace is shutting the platform down after the breach in which attackers with stolen credentials ran pods and read Kubernetes Secrets in some customer clusters. Migrate workloads and download data by Dec 8, and rotate every Secret that lived in a Spot cluster.",
     "Microsoft agent-framework PyPI hijack (moved from focus; Nov 17): versions 1.26.1 and 1.26.2 steal Azure, GitHub Actions and cloud secrets; also malicious MCP packages karma365-mcp (npm) and my-mcp-server-driving-license-ocr (PyPI). If installed, remove, rebuild and rotate secrets.",
     "New critical patches (moved from focus; Nov 23-24): VMware vCenter CVE-2026-123903 and ESX CVE-2026-123910/123911, Chrome CVE-2026-134401, Apache Jena Fuseki CVE-2026-86155, AWS SSM Agent CVE-2026-134069, simple-git CVE-2026-134815. Apply vendor updates.",
