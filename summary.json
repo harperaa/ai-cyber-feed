@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-26T01:40:00Z",
-  "next_update_note": "Next summary update around 05:30 UTC Nov 26; the feed itself refreshes hourly.",
-  "headline": "Quiet since 21:35 UTC Nov 25: no new KEV additions or AI-found zero-days. New: FIFA confirmed (Nov 25) that hackers took a 'limited set of personal and business information' (no count or entry point given); Todoist's own notice says a stolen version-control credential let the attacker change CI workflows in three repos Nov 22-23 and harvest more credentials, the same GitHub/CI path as the 1Password breach, so lock down CI secrets and repo tokens. Cisco updated its nginx advisory (NGINX2Root CVE-2026-123007/-123633 and related fixes) for affected Cisco products. Still leading: 1Password breach (customer names, emails, metadata; vaults safe), Mitel MiCollab CVE-2026-133323 (CVSS 10, KEV) and the AI-agent attack wave. Deadlines: MONAI Label CVE-2026-133968 and N-able MailAssure due today, Nov 26; Drupal CVE-2026-132165 Nov 27; Juniper, Mitel, Xen Orchestra and Danfoss Nov 28.",
-  "ai_headline": "No new AI-run attack since 21:35 UTC; Microsoft's ARTEX report (Nov 25) is drawing attention for its example of an AI agent going from leaked GitHub credentials to data in Azure Key Vault in about five minutes. Still leading: Cairn's autonomous MONAI Label zero-day (KEV due today, fix 0.8.6), Italy, Swiss and UK NCSC confirmations of AI-agent intrusions, the ARTEX-linked CIA/ODNI/NGA breach (sources only), AI-found Drupal CVE-2026-132165 exploited (KEV due Nov 27), GreyNoise's GT13 Check Point campaign and the AI-assisted PAN-OS campaign. AI impact: Novu Cloud and breached inference providers. AI products: llama.cpp and DeepSeek-Reasonix fixes (no exploitation reported).",
+  "updated_at": "2026-11-26T05:35:00Z",
+  "next_update_note": "Next summary update around 09:30 UTC Nov 26; the feed itself refreshes hourly.",
+  "headline": "Quiet overnight (since 01:40 UTC): no new CISA KEV additions or AI-found zero-days. New: VirtueMart for Joomla CVE-2026-133335 (unauthenticated RCE, versions 4.0.0-4.8.7) is marked exploited in the wild by the Joomla CNA; update to 4.8.8. Flight Centre (ASX notice Nov 26) says a third-party accommodation booking system was hit; some records include limited passport details. The Hacker News reports 13 malicious NuGet packages hidden in fake .NET job take-home tests. Still leading: 1Password breach via a hijacked GitHub account (names, emails, metadata; vaults safe), Todoist's CI credential theft, Mitel MiCollab CVE-2026-133323 (CVSS 10, KEV) and the AI-agent attack wave. Deadlines: MONAI Label CVE-2026-133968 and N-able MailAssure due today, Nov 26; Drupal CVE-2026-132165 Nov 27; Juniper, Mitel, Xen Orchestra and Danfoss Nov 28.",
+  "ai_headline": "No new AI-run attack since 01:40 UTC. Still leading: Cairn's autonomous MONAI Label zero-day (KEV due today, fix 0.8.6), Italy, Swiss and UK NCSC confirmations of AI-agent intrusions, Microsoft's ARTEX report (AI agent from leaked GitHub credentials to Azure Key Vault in about five minutes), the ARTEX-linked CIA/ODNI/NGA breach (sources only), AI-found Drupal CVE-2026-132165 exploited (KEV due Nov 27), GreyNoise's GT13 Check Point campaign and the AI-assisted PAN-OS campaign. AI impact: Novu Cloud and breached inference providers. AI products: llama.cpp and DeepSeek-Reasonix fixes (no exploitation reported).",
   "ai_activity": {
-    "overview": "Nov 26, 01:40 UTC. Nothing new since 21:35 UTC Nov 25; Microsoft's ARTEX blog (Nov 25) cites an AI agent going from leaked GitHub credentials to Azure Key Vault data in about five minutes. The week's picture: Swiss, UK and now Italian national agencies confirm real AI-agent intrusions; sources tell the NYT that ARTEX was used to breach an unclassified CIA/ODNI/NGA system (not officially confirmed); GreyNoise says GT13 used agentic harnesses against Check Point management servers at 22 organizations; SecurityWeek calls the PHP2Shell + Fragnesia PAN-OS campaign AI-assisted; Cairn AI agents found and exploited MONAI Label CVE-2026-133968 (KEV, due today Nov 26, fix 0.8.6); the European Commission confirmed an AI-assisted tool in its breach; AI-found Drupal CVE-2026-132165 (KEV, due Nov 27) is exploited at scale. AI impact: Novu Cloud breach exposed stored provider keys; several AI inference providers breached (GMI Cloud, Phala); rotate secrets sent in prompts. AI products: LiteLLM on KEV, MONAI Label, malicious MCP packages, new llama.cpp and DeepSeek-Reasonix fixes. Counts: 34 AI-cause, 15 AI-product, 6 AI-impact items (items older than 7 days dropped).",
+    "overview": "Nov 26, 05:35 UTC. Nothing new since 01:40 UTC; Microsoft's ARTEX blog (Nov 25) cites an AI agent going from leaked GitHub credentials to Azure Key Vault data in about five minutes. The week's picture: Swiss, UK and now Italian national agencies confirm real AI-agent intrusions; sources tell the NYT that ARTEX was used to breach an unclassified CIA/ODNI/NGA system (not officially confirmed); GreyNoise says GT13 used agentic harnesses against Check Point management servers at 22 organizations; SecurityWeek calls the PHP2Shell + Fragnesia PAN-OS campaign AI-assisted; Cairn AI agents found and exploited MONAI Label CVE-2026-133968 (KEV, due today Nov 26, fix 0.8.6); the European Commission confirmed an AI-assisted tool in its breach; AI-found Drupal CVE-2026-132165 (KEV, due Nov 27) is exploited at scale. AI impact: Novu Cloud breach exposed stored provider keys; several AI inference providers breached (GMI Cloud, Phala); rotate secrets sent in prompts. AI products: LiteLLM on KEV, MONAI Label, malicious MCP packages, new llama.cpp and DeepSeek-Reasonix fixes. Counts: 32 AI-cause, 15 AI-product, 6 AI-impact items (items older than 7 days dropped).",
     "counts": {
-      "ai_cause": 34,
+      "ai_cause": 32,
       "ai_product_exploited": 15,
       "ai_impact": 6
     },
@@ -332,24 +332,6 @@
             ],
             "url": "https://www.securityweek.com/java4shell-exploitation-attempts-begin-as-vendors-rush-out-advisories/",
             "source": "SecurityWeek"
-          },
-          {
-            "title": "Ukraine and the FBI arrest four alleged key members of a ransomware gang that used an AI voice platform to pose as IT support; at least 28 companies, $40.5M+ in ransoms",
-            "date": "2026-11-19T00:00:00Z",
-            "summary": "Per Ukraine's cyber police, AI-generated voice calls tricked employees into giving credentials or installing remote-access tools while a second member broke into the network; victims included US oil and healthcare firms.",
-            "status": "reported",
-            "cves": [],
-            "url": "https://www.bleepingcomputer.com/news/security/ukraine-fbi-arrest-ransomware-gang-members-tied-to-40m-in-ransoms/",
-            "source": "BleepingComputer / Ukraine Cyber Police / Help Net Security"
-          },
-          {
-            "title": "Symantec: major African stock exchange hit with a likely AI-written 41-module PowerShell toolkit that hunted secrets and tested them against the exchange's investment API and securities-depository gateway",
-            "date": "2026-11-19T00:00:00Z",
-            "summary": "On Sep 20, 2026 the 41 modules ran under a webshell on an IIS server for just over three minutes, a new module every few seconds, harvesting cloud and database secrets, enumerating SharePoint/SCCM/TFS and exfiltrating results as hex-encoded DNS lookups to a public out-of-band testing service. Six persistence implants on the server are tied to China-linked Witchetty, but Symantec does not attribute the toolkit itself. Earliest malicious activity dates to April 2026.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://www.security.com/threat-intelligence/african-stock-exchange-ai-assisted-attack",
-            "source": "Symantec Threat Hunter Team"
           }
         ]
       },
@@ -729,6 +711,20 @@
       "ai_note": ""
     },
     {
+      "title": "VirtueMart for Joomla CVE-2026-133335: unauthenticated remote code execution, exploited in the wild",
+      "severity": "high",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-133335"
+      ],
+      "vendor": "VirtueMart (Joomla e-commerce extension) 4.0.0-4.8.7",
+      "why": "New Nov 26: the Joomla CNA record marks CVE-2026-133335 as exploited (CVSS 'Attacked'). An unfiltered controller fallback lets an unauthenticated attacker include files via path traversal in the 'view' parameter and run code on Joomla shops. Not on CISA KEV yet.",
+      "action": "Update VirtueMart to 4.8.8 or later now. Check web logs for '../' in VirtueMart view requests and look for unfamiliar PHP files or changed site files.",
+      "url": "https://www.cve.org/CVERecord?id=CVE-2026-133335",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
       "title": "CISA KEV Nov 25 (mostly due Nov 28): Mitel MiCollab CVE-2026-133323 (CVSS 10) + 4 more MiCollab flaws, Xen Orchestra CVE-2026-133469, Danfoss AK-SM 800A CVE-2023-25915/-25914/CVE-2025-41450, Juniper Session Smart CVE-2026-103406; Nov 24: Optimizely, Idunno AntiCsrf; Nov 23: N-able MailAssure; Nov 20: vCenter, Expressway, Roller, SAP",
       "severity": "critical",
       "exploited": true,
@@ -818,6 +814,9 @@
     }
   ],
   "watch": [
+    "Flight Centre (ASX notice, Nov 26): unusual activity in a third-party accommodation booking system; most affected records hold names and travel details, a small share also email, phone, birth date and limited passport details. Flights, corporate travel and payment data not identified as affected. Customers: watch for travel-themed phishing.",
+    "13 malicious NuGet packages (The Hacker News, Nov 26) posing as WinUI/WPF controls in fake .NET job take-home assessments drop executables and sideload DLLs for remote code execution. Developers: do not run job-test projects on work machines; audit recent NuGet installs.",
+    "New malicious packages (GitHub/OpenSSF, Nov 25): npm @prime0/piomatch 1.0.0 (postinstall beacon plus remote command 'stealth agent', removed), PyPI alogithms 1.0.1-1.0.3 (.pth startup hook), plusinpath 2.4.5, py2ops 2.3.1. Remove and rotate secrets on any host that installed them.",
     "FIFA (The Record, Nov 25): confirms hackers accessed a 'limited set of personal and business information'; no count, data types or entry point disclosed. Expect FIFA- and World Cup-themed phishing. https://therecord.media/fifa-data-breach-limited",
     "Radware Cloud WAF breach (moved from focus; Nov 19, disclosed Nov 24): an exposed, no-login internal management API leaked customer contacts and some customers' AWS S3, Azure Blob and SFTP log-export keys. If you use log export, rotate those keys, scope them write-only and review storage access logs since Nov 19.",
     "GeoServer CVE-2026-120705 (unauthenticated file read/SSRF) and CVE-2026-129243 (auth bypass), moved from focus: patched Nov 24 and already exploited per watchTowr. Update to 2.27.7, 2.28.6 or 3.0.2, keep GeoServer off the internet and change admin passwords.",
