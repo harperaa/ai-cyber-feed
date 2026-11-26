@@ -1,19 +1,28 @@
 {
-  "updated_at": "2026-11-26T13:40:00Z",
-  "next_update_note": "Next summary update around 17:40 UTC Nov 26; the feed itself refreshes hourly.",
-  "headline": "New since 09:40 UTC: Accenture APEX Labs says the five Mitel MiCollab flaws CISA added to KEV yesterday were exploited as zero-days before Mitel's Nov 16 advisory, likely with AI-assisted tooling, reaching root and a domain controller within 32 minutes; patched sites must hunt for prior compromise. SecurityWeek confirms Juniper Session Smart Conductor CVE-2026-103406 (root RCE) is exploited. New breaches: Standard Chartered's Zodia Custody (client contact data, B2B API taken offline) and Denmark's CPR registry (11,000 people, suspect arrested). Still leading: Drupal's exploited installer follow-up CVE-2026-136716, the 1Password GitHub-account breach (vaults safe), VirtueMart CVE-2026-133335 and the AI-agent attack wave. Deadlines: MONAI Label CVE-2026-133968 and N-able MailAssure due today, Nov 26; Drupal CVE-2026-132165 Nov 27; Mitel, Juniper, Xen Orchestra and Danfoss Nov 28.",
-  "ai_headline": "New AI-cause case: Accenture says a suspected extortion actor used AI-assisted tooling to exploit Mitel MiCollab zero-days before disclosure (its server called two commercial AI APIs at the exact second of the auth-bypass request, then ran a steady command stream with no operator traffic). Still leading: Cairn's autonomous MONAI Label zero-day (KEV due today, fix 0.8.6), Italy, Swiss and UK NCSC confirmations of AI-agent intrusions, Microsoft's ARTEX report, the ARTEX-linked CIA/ODNI/NGA breach (sources only), GreyNoise's GT13 Check Point campaign, the AI-assisted PAN-OS campaign and the AI-found Drupal installer bugs. AI impact: Novu Cloud and breached inference providers (MiniMax link access).",
+  "updated_at": "2026-11-26T17:26:39Z",
+  "next_update_note": "Next summary update around 21:40 UTC Nov 26; the feed itself refreshes hourly.",
+  "headline": "New since 13:40 UTC: Rackspace is permanently shutting down Rackspace Spot on Dec 8 after a Nov 17 breach in which intruders with stolen credentials reached customer Kubernetes clusters and could read secrets; Spot users must migrate and rotate every token, kubeconfig and cluster secret. Switzerland's BACS now counts five AI-agent attacks in recent days, four successful, three against critical-infrastructure operators (electricity, water, telecom per SRF). SafeDep/The Hacker News: North Korea-linked PolinRider has planted a Python loader in over 7,600 GitHub repositories. Still leading: Mitel MiCollab zero-days (suspected AI-assisted), Juniper Session Smart CVE-2026-103406, Drupal CVE-2026-136716, the 1Password breach and the AI-agent attack wave. Deadlines: MONAI Label CVE-2026-133968 and N-able MailAssure due today, Nov 26; Drupal CVE-2026-132165 Nov 27; Mitel, Juniper, Xen Orchestra and Danfoss Nov 28.",
+  "ai_headline": "Update: Switzerland's BACS (Nov 26, via Reuters/CNA) says five recent attacks used AI agents and four compromised systems, including three critical-infrastructure operators. No new AI-cause case beyond that since 13:40 UTC. Still leading: Accenture's suspected AI-assisted Mitel MiCollab zero-day campaign, Cairn's autonomous MONAI Label zero-day (KEV due today, fix 0.8.6), Italy and UK NCSC AI-agent warnings, Microsoft's ARTEX report, the ARTEX-linked CIA/ODNI/NGA breach (sources only), GreyNoise's GT13 Check Point campaign, the AI-assisted PAN-OS campaign and the AI-found Drupal installer bugs. New AI-product flaws: llama.cpp RPC server CVE-2026-137567 (CVSS 9.8) and Langflow Smart Transform prompt injection to code execution CVE-2026-7700.",
   "ai_activity": {
-    "overview": "Nov 26, 13:40 UTC. New since 09:40 UTC: Accenture APEX Labs reports Mitel MiCollab zero-days exploited before disclosure, likely with AI-assisted tooling (AI API calls timed to the exploit request, commands with no operator traffic), moving from MiCollab to a domain controller in 32 minutes; CISA has all five flaws on KEV. The week's picture: Amazon's Cairn case (an AI agent found and exploited a MONAI Label zero-day on its own); Swiss, UK and Italian national agencies confirm real AI-agent intrusions; Microsoft ties ARTEX to six state and criminal groups; sources tell the NYT that ARTEX was used to breach an unclassified CIA/ODNI/NGA system (not officially confirmed); GreyNoise's GT13 used agentic harnesses against Check Point management servers at 22 organizations; an AI-assisted campaign rooted PAN-OS firewalls; and Drupal's AI-found installer bug plus its exploited follow-up. AI impact: Novu Cloud key theft and breached or prompt-logging inference providers (MiniMax link access via OpenRouter). Items older than 7 days dropped. Counts: 29 AI-cause, 15 exploited AI-product, 4 AI-impact.",
+    "overview": "Nov 26, 17:26 UTC. New since 13:40 UTC: Switzerland's BACS says five recent attacks used AI agents and four compromised systems, three at critical-infrastructure operators; new AI-product flaws in llama.cpp's RPC server (CVE-2026-137567) and Langflow (CVE-2026-7700), not reported exploited. The week's picture: Accenture's suspected AI-assisted Mitel MiCollab zero-day campaign (domain controller in 32 minutes); Amazon's Cairn case (an AI agent found and exploited a MONAI Label zero-day on its own); Swiss, UK and Italian national agencies confirm real AI-agent intrusions; Microsoft ties ARTEX to six state and criminal groups; sources tell the NYT that ARTEX was used to breach an unclassified CIA/ODNI/NGA system (not officially confirmed); GreyNoise's GT13 used agentic harnesses against Check Point management servers at 22 organizations; an AI-assisted campaign rooted PAN-OS firewalls; and Drupal's AI-found installer bug plus its exploited follow-up. AI impact: breached or prompt-logging inference providers. Items older than 7 days dropped (incl. Novu Cloud, phpAfterShell). Counts: 28 AI-cause, 1 exploited AI-product, 4 AI-impact.",
     "counts": {
-      "ai_cause": 29,
-      "ai_product_exploited": 15,
+      "ai_cause": 28,
+      "ai_product_exploited": 17,
       "ai_impact": 4
     },
     "groups": [
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Switzerland's BACS (NCSC): five recent attacks used AI agents, four compromised systems, three hit critical-infrastructure operators",
+            "date": "2026-11-26T12:00:00Z",
+            "summary": "First confirmed AI-agent attacks in Switzerland (Nov 24), updated Nov 26 via Reuters: five attacks in recent days used 'agentic offensive frameworks' that found flaws, picked tools and adapted to defenses; four succeeded; three targets were critical-infrastructure operators (electricity, water and telecom per SRF). No attacker named, no major outage reported.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.channelnewsasia.com/business/ai-agents-used-in-five-cyber-attacks-in-switzerland-government-says-6585191",
+            "source": "Swiss NCSC (BACS)"
+          },
           {
             "title": "Mitel MiCollab zero-days exploited before disclosure in a suspected AI-assisted campaign (Accenture APEX Labs)",
             "date": "2026-11-26T11:35:00Z",
@@ -121,15 +130,6 @@
             ],
             "url": "https://www.securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign/",
             "source": "SecurityWeek / GreyNoise"
-          },
-          {
-            "title": "Switzerland's NCSC confirms its first cyberattacks carried out with AI agents; victims include critical-infrastructure operators in at least two sectors",
-            "date": "2026-11-24T12:00:00Z",
-            "summary": "NCSC/BACS (Nov 24): attackers used 'agentic offensive frameworks' that find flaws, pick tools and plan next steps on their own, exploiting default or weak passwords and known flaws in internet-facing systems; every case it knows of ended in a compromise. It says internet-reachable agents such as ARTEX and CyberStrikeAI have nearly doubled since October and expects more fast, successful attacks. Victims not named.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://www.bacs.admin.ch/en/26-ki-agenten-1-en",
-            "source": "Swiss NCSC (BACS)"
           },
           {
             "title": "UK NCSC: marked rise in AI-assisted cyberattacks since September from 'agentic offensive frameworks'",
@@ -293,23 +293,34 @@
             "cves": [],
             "url": "https://www.ibtimes.co.uk/ai-attack-bypassed-two-factor-authentication-14-minutes-1833605",
             "source": "CNN (Erin Burnett OutFront) / IBTimes / India Today"
-          },
-          {
-            "title": "phpAfterShell: critical PHP session RCE CVE-2026-126714 (CVSS 9.2) found with depthfirst's own AI models; fixed in PHP 8.5.13/8.4.28/8.3.37/8.2.36 on Nov 19",
-            "date": "2026-11-19T15:00:00Z",
-            "summary": "depthfirst says its cyber-focused AI models found the partly overwritten session-file deserialization bug (Forbes). PHP fixed it with 17 other CVEs on Nov 19. Critical issues need non-default setups; no exploitation reported. Update (Nov 22): X posts say exploit code is on GitHub (unverified); Cloudflare and CERT Sante report no attacks seen and it is not on CISA KEV.",
-            "status": "patched",
-            "cves": [
-              "CVE-2026-126714"
-            ],
-            "url": "https://www.bleepingcomputer.com/news/security/php-security-updates-fix-18-flaws-including-critical-rce-bugs/",
-            "source": "BleepingComputer / Forbes"
           }
         ]
       },
       {
         "label": "AI products being exploited",
         "items": [
+          {
+            "title": "Langflow Smart Transform prompt injection can lead to code execution (CVE-2026-7700, CVSS 8.8)",
+            "date": "2026-11-26T15:00:00Z",
+            "summary": "Affects langflow 1.3.0 up to before 1.10; crafted input to the Smart Transform component can make the LLM produce code that Langflow runs. Update Langflow.",
+            "status": "patched",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7700",
+            "cves": [
+              "CVE-2026-7700"
+            ],
+            "source": "NVD / VibeIncidents on X"
+          },
+          {
+            "title": "llama.cpp ggml RPC server CVE-2026-137567 (CVSS 9.8): unauthenticated out-of-bounds heap write",
+            "date": "2026-11-26T14:00:00Z",
+            "summary": "Builds b11450 up to before b12658: attackers learn buffer bases with BUFFER_GET_BASE and use zero-element tensors in RPC_CMD_COPY_TENSOR to write arbitrary heap addresses. Update to b12658 or later and never expose the RPC server.",
+            "status": "patched",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137567",
+            "cves": [
+              "CVE-2026-137567"
+            ],
+            "source": "NVD"
+          },
           {
             "title": "llama.cpp CVE-2026-137057 (CVSS 8.7): integer underflow in the grammar parser reachable by unauthenticated remote requests; fixed in build b12604",
             "date": "2026-11-25T20:00:00Z",
@@ -581,7 +592,7 @@
       "ai_note": "GreyNoise attributes automated weaponization, discovery and exploitation to agentic AI harnesses."
     },
     {
-      "title": "Autonomous AI attack tools in real intrusions: Italy's CSIRT reports AI-agent campaigns (Nov 25); Microsoft names six state and criminal groups using ARTEX (Nov 25); Swiss NCSC first confirmed AI-agent attacks incl. critical infrastructure (Nov 24); UK NCSC 'marked rise' (Nov 24); Wiz ~20 more incidents; Bitrise; European Commission; CERT-In; BabidiGhost; Bell Canada",
+      "title": "Autonomous AI attack tools in real intrusions: Italy's CSIRT reports AI-agent campaigns (Nov 25); Microsoft names six state and criminal groups using ARTEX (Nov 25); Swiss BACS: five AI-agent attacks, four successful, three on critical-infrastructure operators (Nov 24, updated Nov 26); UK NCSC 'marked rise' (Nov 24); Wiz ~20 more incidents; Bitrise; European Commission; CERT-In; BabidiGhost; Bell Canada",
       "severity": "critical",
       "exploited": true,
       "cves": [],
@@ -646,6 +657,18 @@
       "ai_note": "SecurityWeek/Dream describe the campaign as AI-assisted; no detail yet on which AI tooling."
     },
     {
+      "title": "Rackspace Spot (managed Kubernetes cloud) breached and being shut down Dec 8: intruders with stolen credentials reached customer clusters, could create pods and read Kubernetes secrets, API tokens and volume files",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Rackspace",
+      "why": "Breach began Nov 16-17 (Spot offline until Nov 21); Rackspace says it will permanently end the service at 23:00 UTC Dec 8 and delete remaining workloads. Anything stored as a cluster secret should be treated as stolen.",
+      "action": "If you used Spot: rotate Spot API and refresh tokens, kubeconfigs and every credential held in cluster secrets or volumes; review logs from Nov 16 for Rackspace's listed IOCs; export data and migrate before Dec 8.",
+      "url": "https://www.bleepingcomputer.com/news/security/rackspace-shuts-down-spot-cloud-platform-after-security-breach/",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
       "title": "1Password breached through an employee's corporate GitHub account: attacker copied private source code, reached CI/CD and pushed malicious code to backend services that downloaded customer names, emails and account metadata; vaults and keys not affected",
       "severity": "high",
       "exploited": true,
@@ -656,20 +679,6 @@
       "url": "https://1password.com/blog/update-on-nov-2026-security-incident",
       "ai_angle": [],
       "ai_note": ""
-    },
-    {
-      "title": "Novu Cloud (notification platform) breached: environment API keys and stored provider credentials of 23,534 organizations read (Nov 19)",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "Novu",
-      "why": "Novu's incident report says an attacker read environment API keys and the integration-provider credentials customers stored in Novu (email, SMS, push, chat providers and any other keys saved there) for about 56% of its cloud customers on Nov 19. Novu found no access to subscriber data or message content and has revoked unrotated Novu keys. No CVE; a code fix strips credentials from API-key responses. New on the Summary this run (it was alerted earlier).",
-      "action": "Rotate every Novu environment key and, at each provider, every credential stored in a Novu integration (SendGrid, Twilio, Slack, AI and other API keys). Check those providers' logs for use since Nov 18.",
-      "url": "https://novuhq.notion.site/Novu-Incident-report-November-19th-420d03ad838f80ae916fee0d55bc802f",
-      "ai_angle": [
-        "impact"
-      ],
-      "ai_note": "Any AI provider keys kept in Novu integrations should be treated as exposed."
     },
     {
       "title": "VirtueMart for Joomla CVE-2026-133335: unauthenticated remote code execution, exploited in the wild",
@@ -726,6 +735,18 @@
   ],
   "news": [
     {
+      "title": "Rackspace shuts down Spot cloud platform after security breach",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/rackspace-shuts-down-spot-cloud-platform-after-security-breach/",
+      "blurb": "Stolen credentials gave access to customer Kubernetes clusters and secrets; Spot ends Dec 8. Migrate and rotate all tokens and secrets."
+    },
+    {
+      "title": "AI agents used in five cyber attacks in Switzerland, government says",
+      "source": "Reuters via CNA",
+      "url": "https://www.channelnewsasia.com/business/ai-agents-used-in-five-cyber-attacks-in-switzerland-government-says-6585191",
+      "blurb": "BACS: four of five attacks compromised systems; three critical-infrastructure operators targeted (electricity, water, telecom per SRF). No attacker named."
+    },
+    {
       "title": "When patch day comes too late: MiCollab flaws exploited before disclosure",
       "source": "Accenture APEX Labs",
       "url": "https://accenture.github.io/cyber-intelligence/micollab-exploitation/",
@@ -756,25 +777,18 @@
       "blurb": "Five Mitel MiCollab flaws (led by CVSS 10 CVE-2026-133323), Xen Orchestra CVE-2026-133469, three Danfoss AK-SM 800A flaws and Juniper Session Smart CVE-2026-103406."
     },
     {
-      "title": "What defenders need to know about ARTEX, the agentic AI framework threat actors abuse",
-      "source": "Microsoft Security Blog",
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/",
-      "blurb": "Salt Typhoon, Onyx Sleet, Pearl Sleet and others use ARTEX; Microsoft explains its architecture and gives hunting queries."
-    },
-    {
-      "title": "Italy and Switzerland warn of autonomous AI-driven cyberattacks",
-      "source": "BleepingComputer",
-      "url": "https://www.bleepingcomputer.com/news/security/italy-and-switzerland-warn-of-autonomous-ai-driven-cyberattacks/",
-      "blurb": "CSIRT Italia saw parallel AI agents compromise many systems within hours; Swiss NCSC says every AI-agent attack it knows of succeeded."
-    },
-    {
-      "title": "Drupal Flaw Found by Anthropic Scanner Exploited in Attacks",
-      "source": "SecurityWeek",
-      "url": "https://www.securityweek.com/drupal-flaw-found-by-anthropic-scanner-exploited-in-attacks/",
-      "blurb": "Fail2Install CVE-2026-132165 exploited since Nov 19; fixed in 11.4.13, 11.3.22, 10.6.22; KEV due Nov 27."
+      "title": "North Korea-Linked PolinRider Poisons Over 7,600 GitHub Repositories to Spread Malware",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/north-korea-linked-polinrider-poisons.html",
+      "blurb": "A Python loader hidden in conftest.py or a small utils package runs on import (e.g. under pytest), pulls JavaScript from Ethereum transaction data and runs it with Node.js."
     }
   ],
   "watch": [
+    "PolinRider (SafeDep, Nov 26): North Korea-linked loader planted in 7,600+ GitHub repos, hidden in conftest.py or a utils package, so running pytest executes it; it fetches JavaScript from an Ethereum wallet's latest transaction. Check cloned third-party repos before running tests. https://safedep.io/blog/polinrider-python-loader-ethereum-calldata.md",
+    "Remus infostealer (BleepingComputer, Nov 26): a fake Google Sheets Chrome extension reads Gmail messages; operators marketed it as a Gmail 'zero-day'. Review installed extensions.",
+    "New critical CVEs (NVD, Nov 26, no exploitation reported): Coder CVE-2026-137547 (CVSS 9.2, unauthenticated leak of temporary AWS IAM database password; fixed 2.29.27/2.34.19/2.37.11/2.38.7/2.39.1), Traefik CVE-2026-137481 (CVSS 9.3, router/middleware bypass via /..;x/ paths; fixed 2.11.62/3.7.18), Budibase auth bypass CVE-2026-137499 (fixed 4.0.0), ToolJet OAuth SSO bypass CVE-2026-137536, Twenty CVE-2026-137584.",
+    "AI products (no exploitation reported): llama.cpp ggml RPC server out-of-bounds write CVE-2026-137567 (CVSS 9.8, unauthenticated; fixed b12658, never expose the RPC server); Langflow Smart Transform prompt injection to code execution CVE-2026-7700 (CVSS 8.8, 1.3.0 up to before 1.10).",
+    "Novu Cloud breach (moved from focus; Nov 19): environment API keys and stored provider credentials of 23,534 organizations read. If you use Novu Cloud, rotate Novu keys and every provider credential stored there.",
     "Zodia Custody (Standard Chartered's crypto custodian; Reuters/CoinDesk, Nov 26): detected probing Nov 23, took its B2B API offline; limited client and staff data exposed (organisation details, some business contact names and emails); no unauthorised transactions. Clients: expect targeted phishing. https://zodia-custody.com/statement-on-recent-security-incident/",
     "Denmark CPR registry (DR/Euronews, Nov 26): an unauthorised user accessed data on 11,000 people on Nov 23, the second incident since October; new monitoring stopped it and an 18-year-old was arrested.",
     "SYS01 infostealer (BleepingComputer, Nov 26): new version spread through Meta ads enrolls victims' browsers in enterprise-style management to force-install an extension that reads Gmail and Outlook mail. Check chrome://management on unmanaged PCs.",
@@ -784,10 +798,8 @@
     "Flight Centre (ASX notice, Nov 26): unusual activity in a third-party accommodation booking system; most affected records hold names and travel details, a small share also email, phone, birth date and limited passport details. Flights, corporate travel and payment data not identified as affected. Customers: watch for travel-themed phishing.",
     "13 malicious NuGet packages (The Hacker News, Nov 26) posing as WinUI/WPF controls in fake .NET job take-home assessments drop executables and sideload DLLs for remote code execution. Developers: do not run job-test projects on work machines; audit recent NuGet installs.",
     "New malicious packages (GitHub/OpenSSF, Nov 25): npm @prime0/piomatch 1.0.0 (postinstall beacon plus remote command 'stealth agent', removed), PyPI alogithms 1.0.1-1.0.3 (.pth startup hook), plusinpath 2.4.5, py2ops 2.3.1. Remove and rotate secrets on any host that installed them.",
-    "FIFA (The Record, Nov 25): confirms hackers accessed a 'limited set of personal and business information'; no count, data types or entry point disclosed. Expect FIFA- and World Cup-themed phishing. https://therecord.media/fifa-data-breach-limited",
+    "FIFA (The Record Nov 25, BBC Nov 26): confirms hackers accessed a 'limited set of personal and business information'; BBC says criminals got in by impersonating staff, not a systems failure; a group called Handsome Boy Hacking Club claimed it. Expect FIFA- and World Cup-themed phishing. https://therecord.media/fifa-data-breach-limited",
     "Radware Cloud WAF breach (moved from focus; Nov 19, disclosed Nov 24): an exposed, no-login internal management API leaked customer contacts and some customers' AWS S3, Azure Blob and SFTP log-export keys. If you use log export, rotate those keys, scope them write-only and review storage access logs since Nov 19.",
-    "GeoServer CVE-2026-120705 (unauthenticated file read/SSRF) and CVE-2026-129243 (auth bypass), moved from focus: patched Nov 24 and already exploited per watchTowr. Update to 2.27.7, 2.28.6 or 3.0.2, keep GeoServer off the internet and change admin passwords.",
-    "Korea Investment Savings Bank (MoneyToday, Nov 25): abnormal external transactions on its mobile website (Nov 22-23) leaked personal data of about 86,000 customers.",
-    "Bithumb (Yonhap, Nov 25): the exchange says its October breach leaked more than first reported, incl. passport and account numbers (about 7,100 customers and employees initially)."
+    "GeoServer CVE-2026-120705 (unauthenticated file read/SSRF) and CVE-2026-129243 (auth bypass), moved from focus: patched Nov 24 and already exploited per watchTowr. Update to 2.27.7, 2.28.6 or 3.0.2, keep GeoServer off the internet and change admin passwords."
   ]
 }
