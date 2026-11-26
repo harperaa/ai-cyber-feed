@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-26T05:35:00Z",
-  "next_update_note": "Next summary update around 09:30 UTC Nov 26; the feed itself refreshes hourly.",
-  "headline": "Quiet overnight (since 01:40 UTC): no new CISA KEV additions or AI-found zero-days. New: VirtueMart for Joomla CVE-2026-133335 (unauthenticated RCE, versions 4.0.0-4.8.7) is marked exploited in the wild by the Joomla CNA; update to 4.8.8. Flight Centre (ASX notice Nov 26) says a third-party accommodation booking system was hit; some records include limited passport details. The Hacker News reports 13 malicious NuGet packages hidden in fake .NET job take-home tests. Still leading: 1Password breach via a hijacked GitHub account (names, emails, metadata; vaults safe), Todoist's CI credential theft, Mitel MiCollab CVE-2026-133323 (CVSS 10, KEV) and the AI-agent attack wave. Deadlines: MONAI Label CVE-2026-133968 and N-able MailAssure due today, Nov 26; Drupal CVE-2026-132165 Nov 27; Juniper, Mitel, Xen Orchestra and Danfoss Nov 28.",
-  "ai_headline": "No new AI-run attack since 01:40 UTC. Still leading: Cairn's autonomous MONAI Label zero-day (KEV due today, fix 0.8.6), Italy, Swiss and UK NCSC confirmations of AI-agent intrusions, Microsoft's ARTEX report (AI agent from leaked GitHub credentials to Azure Key Vault in about five minutes), the ARTEX-linked CIA/ODNI/NGA breach (sources only), AI-found Drupal CVE-2026-132165 exploited (KEV due Nov 27), GreyNoise's GT13 Check Point campaign and the AI-assisted PAN-OS campaign. AI impact: Novu Cloud and breached inference providers. AI products: llama.cpp and DeepSeek-Reasonix fixes (no exploitation reported).",
+  "updated_at": "2026-11-26T09:40:00Z",
+  "next_update_note": "Next summary update around 13:30 UTC Nov 26; the feed itself refreshes hourly.",
+  "headline": "New since 05:35 UTC: Drupal published SA-CORE-2026-019 (CVE-2026-136716, highly critical, Nov 25): the earlier Fail2Install installer fix left some sites in unusual or incomplete install states open to takeover, and this is already exploited in the wild; update to Drupal 10.6.23, 11.3.23 or 11.4.14, run update.php, and check the user 1 account. Also new: an unverified claim (Cybernews) that hackers took 166M USA Today records; Korea Investment Savings Bank revised its count to 86,611 customers. Still leading: 1Password breach via a hijacked GitHub account (vaults safe), Todoist's CI credential theft, Mitel MiCollab CVE-2026-133323 (CVSS 10, KEV), VirtueMart CVE-2026-133335 and the AI-agent attack wave. Deadlines: MONAI Label CVE-2026-133968 and N-able MailAssure due today, Nov 26; Drupal CVE-2026-132165 Nov 27; Juniper, Mitel, Xen Orchestra and Danfoss Nov 28.",
+  "ai_headline": "No new AI-run attack since 05:35 UTC. Follow-up on the AI-found Drupal installer bug: a second, exploited installer gap (CVE-2026-136716) needs another Drupal update. Still leading: Cairn's autonomous MONAI Label zero-day (KEV due today, fix 0.8.6), Italy, Swiss and UK NCSC confirmations of AI-agent intrusions, Microsoft's ARTEX report, the ARTEX-linked CIA/ODNI/NGA breach (sources only), GreyNoise's GT13 Check Point campaign and the AI-assisted PAN-OS campaign. AI impact: Novu Cloud and breached inference providers. AI products: llama.cpp and DeepSeek-Reasonix fixes (no exploitation reported).",
   "ai_activity": {
-    "overview": "Nov 26, 05:35 UTC. Nothing new since 01:40 UTC; Microsoft's ARTEX blog (Nov 25) cites an AI agent going from leaked GitHub credentials to Azure Key Vault data in about five minutes. The week's picture: Swiss, UK and now Italian national agencies confirm real AI-agent intrusions; sources tell the NYT that ARTEX was used to breach an unclassified CIA/ODNI/NGA system (not officially confirmed); GreyNoise says GT13 used agentic harnesses against Check Point management servers at 22 organizations; SecurityWeek calls the PHP2Shell + Fragnesia PAN-OS campaign AI-assisted; Cairn AI agents found and exploited MONAI Label CVE-2026-133968 (KEV, due today Nov 26, fix 0.8.6); the European Commission confirmed an AI-assisted tool in its breach; AI-found Drupal CVE-2026-132165 (KEV, due Nov 27) is exploited at scale. AI impact: Novu Cloud breach exposed stored provider keys; several AI inference providers breached (GMI Cloud, Phala); rotate secrets sent in prompts. AI products: LiteLLM on KEV, MONAI Label, malicious MCP packages, new llama.cpp and DeepSeek-Reasonix fixes. Counts: 32 AI-cause, 15 AI-product, 6 AI-impact items (items older than 7 days dropped).",
+    "overview": "Nov 26, 09:40 UTC. New since 05:35 UTC: Drupal's SA-CORE-2026-019 (CVE-2026-136716) says the fix for the AI-found Fail2Install bug left some sites in odd install states open to takeover, and that gap is exploited; no source credits AI for the new finding. Earlier: Microsoft's ARTEX blog (Nov 25) cites an AI agent going from leaked GitHub credentials to Azure Key Vault data in about five minutes. The week's picture: Swiss, UK and now Italian national agencies confirm real AI-agent intrusions; sources tell the NYT that ARTEX was used to breach an unclassified CIA/ODNI/NGA system (not officially confirmed); GreyNoise says GT13 used agentic harnesses against Check Point management servers at 22 organizations; SecurityWeek calls the PHP2Shell + Fragnesia PAN-OS campaign AI-assisted; Cairn AI agents found and exploited MONAI Label CVE-2026-133968 (KEV, due today Nov 26, fix 0.8.6); the European Commission confirmed an AI-assisted tool in its breach; AI-found Drupal CVE-2026-132165 (KEV, due Nov 27) is exploited at scale. AI impact: Novu Cloud breach exposed stored provider keys; several AI inference providers breached (GMI Cloud, Phala); rotate secrets sent in prompts. AI products: LiteLLM on KEV, MONAI Label, malicious MCP packages, new llama.cpp and DeepSeek-Reasonix fixes. Counts: 32 AI-cause, 15 AI-product, 6 AI-impact items (items older than 7 days dropped).",
     "counts": {
       "ai_cause": 32,
       "ai_product_exploited": 15,
@@ -14,6 +14,18 @@
       {
         "label": "AI as the cause",
         "items": [
+          {
+            "title": "Drupal SA-CORE-2026-019 (CVE-2026-136716): the fix for the AI-found installer bug left a gap, now exploited",
+            "date": "2026-11-25T22:00:00Z",
+            "summary": "Drupal says sites in unusual or incomplete install states stayed open to takeover after SA-CORE-2026-017 (CVE-2026-132165, found by Anthropic's OSS Scanner), including production sites, and this is exploited in the wild. Fixed in 10.6.23, 11.3.23, 11.4.14; run update.php afterwards and check the user 1 account. No source says AI found the new gap.",
+            "status": "exploited",
+            "cves": [
+              "CVE-2026-136716",
+              "CVE-2026-132165"
+            ],
+            "url": "https://www.drupal.org/sa-core-2026-019",
+            "source": "Drupal.org / The Hacker News / SecurityWeek"
+          },
           {
             "title": "Microsoft: state and criminal groups incl. Salt Typhoon, Onyx Sleet, Pearl Sleet and Crystal Typhoon now use the ARTEX AI attack framework",
             "date": "2026-11-25T18:00:00Z",
@@ -622,20 +634,21 @@
       "ai_note": "New Nov 25: Italy becomes the third national agency in two days to report AI-agent intrusions, and Microsoft links ARTEX to major state actors. CERT-In is now another government agency (after the FBI and CERT-EU) reporting agentic attack frameworks in live attacks. SOCRadar's BabidiGhost report adds a second, independently reconstructed case of an AI agent doing the hacking for a weak operator. AI-run attacks are now reported by victims (European Commission, Barracuda, Bell Canada), vendors (Amazon, Google, Symantec, Darktrace) and incident responders. The 14-minute case rests on one responder's account, and Bell gave no detail on the AI use. New: Switzerland's NCSC (Nov 24) confirmed AI-agent intrusions at Swiss organisations in at least two critical sectors, all successful, and says tools like ARTEX and CyberStrikeAI nearly doubled since October."
     },
     {
-      "title": "Drupal installer RCE CVE-2026-132165, found by Anthropic's AI scanner, is exploited and now on CISA KEV (added Nov 24, federal deadline Nov 27)",
+      "title": "Drupal installer takeover: AI-found CVE-2026-132165 (KEV, due Nov 27) plus new exploited follow-up CVE-2026-136716 (SA-CORE-2026-019, Nov 25)",
       "severity": "critical",
       "exploited": true,
       "cves": [
+        "CVE-2026-136716",
         "CVE-2026-132165"
       ],
-      "vendor": "Drupal core before 10.6.22, 11.0-11.3.21 and 11.4.0-11.4.12",
-      "why": "Under some conditions an attacker can use a reachable install.php to reinstall Drupal, take over the site or run code. Drupal fixed it Nov 18 and reported exploitation on live sites from Nov 19, 19:00 UTC. New since the last summary: CISA added it to KEV on Nov 24 with a Nov 27 deadline. Update Nov 25: Drupal's security team and BleepingComputer confirm attackers now use it to hijack sites; exploit details are public (The Hacker News).",
-      "action": "Upgrade to Drupal 10.6.22, 11.3.22 or 11.4.13 now. Block or delete core/install.php in production, and make settings.php read-only to the web server. Check for unexpected reinstalls, new admin accounts or changed settings.php since Nov 19.",
-      "url": "https://www.drupal.org/sa-core-2026-017",
+      "vendor": "Drupal core before 10.6.23, 11.0-11.3.22 and 11.4.0-11.4.13",
+      "why": "A reachable install.php can let an attacker reinstall Drupal, take over the site or run code. The first fix (Nov 18, SA-CORE-2026-017) was exploited from Nov 19 and is on CISA KEV (deadline Nov 27). New since the last summary: Drupal says that fix left sites in unusual or incomplete install states, including production sites, still open to takeover (CVE-2026-136716), and this is exploited in the wild. The vulnerable state is not visible in the UI, and already-compromised sites may no longer show it.",
+      "action": "Upgrade to Drupal 10.6.23, 11.3.23 or 11.4.14 now, then run update.php or drush updatedb. Block or delete core/install.php in production. Check logs for changes to or by user 1, make sure user 1's email is yours and reset its password; look for unexpected reinstalls or new admins since Nov 19.",
+      "url": "https://www.drupal.org/sa-core-2026-019",
       "ai_angle": [
         "cause"
       ],
-      "ai_note": "AI-found flaw (Anthropic OSS Scanner) exploited in the wild and now on CISA KEV."
+      "ai_note": "Original flaw found by Anthropic's OSS Scanner and exploited (KEV); the follow-up gap has no AI credit in sources."
     },
     {
       "title": "AI inference providers breached and prompts read: Dragos canary study; OpenRouter off-boards three providers and pulls 125 endpoints from Zero Data Retention (updated Nov 22); Together AI, Phala, Novita and GMI Cloud confirm or are reported",
@@ -771,6 +784,12 @@
       "blurb": "A hijacked employee GitHub account led to source-code theft, CI/CD access and malicious backend code that copied customer names, emails and metadata; vaults safe; beware of phishing."
     },
     {
+      "title": "Drupal core - Highly critical - Access bypass - SA-CORE-2026-019",
+      "source": "Drupal.org",
+      "url": "https://www.drupal.org/sa-core-2026-019",
+      "blurb": "CVE-2026-136716: sites left in odd install states after the Fail2Install fix can still be taken over; exploited in the wild. Update to 10.6.23/11.3.23/11.4.14 and run update.php."
+    },
+    {
       "title": "CISA Adds 10 Known Exploited Vulnerabilities to Catalog (Nov 25)",
       "source": "CISA",
       "url": "https://www.cisa.gov/news-events/alerts/2026/11/25/cisa-adds-10-known-exploited-vulnerabilities-catalog",
@@ -805,15 +824,10 @@
       "source": "SecurityWeek",
       "url": "https://www.securityweek.com/drupal-flaw-found-by-anthropic-scanner-exploited-in-attacks/",
       "blurb": "Fail2Install CVE-2026-132165 exploited since Nov 19; fixed in 11.4.13, 11.3.22, 10.6.22; KEV due Nov 27."
-    },
-    {
-      "title": "Korea Investment Savings Bank leaks data of 86,433 customers",
-      "source": "MoneyToday",
-      "url": "https://www.mt.co.kr/en/finance/2026/11/25/2026112517474212900",
-      "blurb": "Abnormal external transactions on its mobile website (Nov 22-23) exposed customer data; largest savings-bank breach in Korea."
     }
   ],
   "watch": [
+    "Unverified (Cybernews, Nov 26): hackers who claimed a JPMorgan breach now claim 166 million USA Today records; no confirmation from USA Today or Gannett.",
     "Flight Centre (ASX notice, Nov 26): unusual activity in a third-party accommodation booking system; most affected records hold names and travel details, a small share also email, phone, birth date and limited passport details. Flights, corporate travel and payment data not identified as affected. Customers: watch for travel-themed phishing.",
     "13 malicious NuGet packages (The Hacker News, Nov 26) posing as WinUI/WPF controls in fake .NET job take-home assessments drop executables and sideload DLLs for remote code execution. Developers: do not run job-test projects on work machines; audit recent NuGet installs.",
     "New malicious packages (GitHub/OpenSSF, Nov 25): npm @prime0/piomatch 1.0.0 (postinstall beacon plus remote command 'stealth agent', removed), PyPI alogithms 1.0.1-1.0.3 (.pth startup hook), plusinpath 2.4.5, py2ops 2.3.1. Remove and rotate secrets on any host that installed them.",
