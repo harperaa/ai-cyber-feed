@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-11-26T17:26:39Z",
-  "next_update_note": "Next summary update around 21:40 UTC Nov 26; the feed itself refreshes hourly.",
-  "headline": "New since 13:40 UTC: Rackspace is permanently shutting down Rackspace Spot on Dec 8 after a Nov 17 breach in which intruders with stolen credentials reached customer Kubernetes clusters and could read secrets; Spot users must migrate and rotate every token, kubeconfig and cluster secret. Switzerland's BACS now counts five AI-agent attacks in recent days, four successful, three against critical-infrastructure operators (electricity, water, telecom per SRF). SafeDep/The Hacker News: North Korea-linked PolinRider has planted a Python loader in over 7,600 GitHub repositories. Still leading: Mitel MiCollab zero-days (suspected AI-assisted), Juniper Session Smart CVE-2026-103406, Drupal CVE-2026-136716, the 1Password breach and the AI-agent attack wave. Deadlines: MONAI Label CVE-2026-133968 and N-able MailAssure due today, Nov 26; Drupal CVE-2026-132165 Nov 27; Mitel, Juniper, Xen Orchestra and Danfoss Nov 28.",
-  "ai_headline": "Update: Switzerland's BACS (Nov 26, via Reuters/CNA) says five recent attacks used AI agents and four compromised systems, including three critical-infrastructure operators. No new AI-cause case beyond that since 13:40 UTC. Still leading: Accenture's suspected AI-assisted Mitel MiCollab zero-day campaign, Cairn's autonomous MONAI Label zero-day (KEV due today, fix 0.8.6), Italy and UK NCSC AI-agent warnings, Microsoft's ARTEX report, the ARTEX-linked CIA/ODNI/NGA breach (sources only), GreyNoise's GT13 Check Point campaign, the AI-assisted PAN-OS campaign and the AI-found Drupal installer bugs. New AI-product flaws: llama.cpp RPC server CVE-2026-137567 (CVSS 9.8) and Langflow Smart Transform prompt injection to code execution CVE-2026-7700.",
+  "updated_at": "2026-11-26T21:35:07Z",
+  "next_update_note": "Next summary update around 01:40 UTC Nov 27; the feed itself refreshes hourly.",
+  "headline": "Quiet Thanksgiving-afternoon update (since 17:26 UTC): no new KEV additions on Nov 26 and no new confirmed breach of a major platform. Back in focus because secrets may still be unrotated: the exploited Azure API Management (Classic) flaw that let an attacker read stored secrets, tokens and subscription keys (Norway NSM; Equinor, Skagerak Energi affected). New but lower priority: KEPCO breach of 1.52 million people (bank and card details), markdownify-mcp SSRF via prompt injection (CVE-2026-137308, fix 1.2.0), and the 'GoodGuys' fake expert-interview phishing for Google/Okta logins. Still leading: Mitel MiCollab zero-days (suspected AI-assisted), Juniper Session Smart CVE-2026-103406, Drupal CVE-2026-136716, Rackspace Spot, 1Password and the AI-agent attack wave. Deadlines: MONAI Label CVE-2026-133968 and N-able MailAssure were due today; Drupal CVE-2026-132165 Nov 27; Mitel, Juniper, Xen Orchestra and Danfoss Nov 28.",
+  "ai_headline": "No new AI-run attack reported since 17:26 UTC. The week's AI-cause picture stands: Switzerland's BACS (five AI-agent attacks, four successful, three on critical infrastructure), Accenture's suspected AI-assisted Mitel MiCollab zero-day campaign, Amazon's Cairn agent that found and exploited a MONAI Label zero-day by itself, Italy and UK NCSC warnings, Microsoft's ARTEX report, the ARTEX-linked CIA/ODNI/NGA breach (sources only), GreyNoise's GT13 Check Point campaign, the AI-assisted PAN-OS campaign and the AI-found Drupal installer bugs. New AI-product flaws (not reported exploited): markdownify-mcp SSRF reachable through prompt injection (CVE-2026-137308) and an unauthenticated memory-exhaustion bug in InternLM LMDeploy's DistServe proxy (CVE-2026-137657).",
   "ai_activity": {
-    "overview": "Nov 26, 17:26 UTC. New since 13:40 UTC: Switzerland's BACS says five recent attacks used AI agents and four compromised systems, three at critical-infrastructure operators; new AI-product flaws in llama.cpp's RPC server (CVE-2026-137567) and Langflow (CVE-2026-7700), not reported exploited. The week's picture: Accenture's suspected AI-assisted Mitel MiCollab zero-day campaign (domain controller in 32 minutes); Amazon's Cairn case (an AI agent found and exploited a MONAI Label zero-day on its own); Swiss, UK and Italian national agencies confirm real AI-agent intrusions; Microsoft ties ARTEX to six state and criminal groups; sources tell the NYT that ARTEX was used to breach an unclassified CIA/ODNI/NGA system (not officially confirmed); GreyNoise's GT13 used agentic harnesses against Check Point management servers at 22 organizations; an AI-assisted campaign rooted PAN-OS firewalls; and Drupal's AI-found installer bug plus its exploited follow-up. AI impact: breached or prompt-logging inference providers. Items older than 7 days dropped (incl. Novu Cloud, phpAfterShell). Counts: 28 AI-cause, 17 AI-product (exploited or reported), 4 AI-impact.",
+    "overview": "Nov 26, 21:35 UTC. Quiet since 17:26 UTC: no new AI-run attack; two new AI-product flaws (markdownify-mcp SSRF via prompt injection, LMDeploy memory exhaustion), neither reported exploited. The week's picture: Accenture's suspected AI-assisted Mitel MiCollab zero-day campaign (domain controller in 32 minutes); Amazon's Cairn case (an AI agent found and exploited a MONAI Label zero-day on its own); Swiss, UK and Italian national agencies confirm real AI-agent intrusions, Switzerland's including three critical-infrastructure operators; Microsoft ties ARTEX to six state and criminal groups; sources tell the NYT that ARTEX was used to breach an unclassified CIA/ODNI/NGA system (not officially confirmed); GreyNoise's GT13 used agentic harnesses against Check Point management servers at 22 organizations; an AI-assisted campaign rooted PAN-OS firewalls; and Drupal's AI-found installer bug plus its exploited follow-up. AI impact: breached or prompt-logging inference providers. Items older than 7 days dropped. Counts: 28 AI-cause, 18 AI-product (exploited or reported), 4 AI-impact.",
     "counts": {
       "ai_cause": 28,
-      "ai_product_exploited": 17,
+      "ai_product_exploited": 18,
       "ai_impact": 4
     },
     "groups": [
@@ -300,6 +300,28 @@
         "label": "AI products being exploited",
         "items": [
           {
+            "title": "markdownify-mcp CVE-2026-137308 (CVSS 8.3): SSRF filter bypass via DNS names and IPv6 forms, reachable through prompt injection, lets the agent fetch loopback, internal hosts and cloud metadata; fixed in 1.2.0",
+            "date": "2026-11-26T20:44:00Z",
+            "summary": "NVD Nov 26; no exploitation reported. Update mcp-markdownify-server to 1.2.0.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-137308"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137308",
+            "source": "NVD"
+          },
+          {
+            "title": "InternLM LMDeploy CVE-2026-137657 (CVSS 8.7): unauthenticated memory exhaustion in the DistServe proxy /distserve/connection_warmup endpoint (0.9.0-0.18.0)",
+            "date": "2026-11-26T18:00:00Z",
+            "summary": "NVD Nov 26; no exploitation reported. Restrict access to the LMDeploy proxy.",
+            "status": "reported",
+            "cves": [
+              "CVE-2026-137657"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137657",
+            "source": "NVD"
+          },
+          {
             "title": "Langflow Smart Transform prompt injection can lead to code execution (CVE-2026-7700, CVSS 8.8)",
             "date": "2026-11-26T15:00:00Z",
             "summary": "Affects langflow 1.3.0 up to before 1.10; crafted input to the Smart Transform component can make the LLM produce code that Langflow runs. Update Langflow.",
@@ -466,15 +488,6 @@
             "cves": [],
             "url": "https://github.com/advisories/GHSA-72xc-q3v8-7grp",
             "source": "GitHub Advisory Database / Snyk / X"
-          },
-          {
-            "title": "UK AI Security Institute built a universal jailbreak against pre-release GPT-6.2 Astra in half the queries it needed for GPT-6 Astra; OpenAI says the regression is fixed",
-            "date": "2026-11-19T18:47:00Z",
-            "summary": "AISI reported a 'substantial regression in jailbreak robustness' in two pre-release versions. OpenAI says GPT-6.2 Astra and Sol meet its Critical cybersecurity threshold and that it fixed the regression before release. No misuse reported.",
-            "status": "patched",
-            "cves": [],
-            "url": "https://thehackernews.com/2026/11/threatsday-gpt-62-jailbreak-flaws.html",
-            "source": "The Hacker News / UK AISI"
           }
         ]
       },
@@ -669,6 +682,18 @@
       "ai_note": ""
     },
     {
+      "title": "Microsoft Azure API Management (Classic tier) flaw exploited to read customers' stored secrets: named values, identity-provider/OpenID Connect client secrets, subscription keys and management tokens (Norway NSM: Equinor, Skagerak Energi among victims)",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Microsoft",
+      "why": "Microsoft closed the access path around Nov 19, but anything stored in an APIM Classic instance before then should be treated as stolen, including backend API credentials it holds. Re-listed because rotation is the fix and it is easy to miss.",
+      "action": "If you run APIM Classic (Developer/Basic/Standard/Premium): confirm runtime 0.52.31936+ or 0.53.31938+; rotate every secret at its issuing service (named values, IdP client secrets, subscription keys, backend keys), update APIM, then revoke the old ones; review APIM and backend logs since early November. v2 and Consumption tiers were not affected.",
+      "url": "https://www.bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials/",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
       "title": "1Password breached through an employee's corporate GitHub account: attacker copied private source code, reached CI/CD and pushed malicious code to backend services that downloaded customer names, emails and account metadata; vaults and keys not affected",
       "severity": "high",
       "exploited": true,
@@ -677,20 +702,6 @@
       "why": "New Nov 25 (1Password blog): investigation began Nov 19. Taken for a subset of users: names, emails, account and user IDs, creation and last sign-in times, public keys, SRP parameters (cannot unlock accounts) and tokens in some invitation, provisioning and recovery emails (useless alone; they need SSO or an emailed code, now lengthened from 6 digits to 10 characters). CI/CD held infrastructure secrets; 1Password says it rotated every credential that may have been exposed. Users do not need to change anything.",
       "action": "Expect targeted phishing: ignore unexpected 1Password invitations or account-recovery emails you did not start, and sign in only by typing the address or using the app. Admins: review recent invitations, recovery requests and SCIM provisioning in your 1Password account. Everyone: treat this as another reminder to require phishing-resistant MFA and short-lived tokens on GitHub and CI/CD accounts.",
       "url": "https://1password.com/blog/update-on-nov-2026-security-incident",
-      "ai_angle": [],
-      "ai_note": ""
-    },
-    {
-      "title": "VirtueMart for Joomla CVE-2026-133335: unauthenticated remote code execution, exploited in the wild",
-      "severity": "high",
-      "exploited": true,
-      "cves": [
-        "CVE-2026-133335"
-      ],
-      "vendor": "VirtueMart (Joomla e-commerce extension) 4.0.0-4.8.7",
-      "why": "New Nov 26: the Joomla CNA record marks CVE-2026-133335 as exploited (CVSS 'Attacked'). An unfiltered controller fallback lets an unauthenticated attacker include files via path traversal in the 'view' parameter and run code on Joomla shops. Not on CISA KEV yet.",
-      "action": "Update VirtueMart to 4.8.8 or later now. Check web logs for '../' in VirtueMart view requests and look for unfamiliar PHP files or changed site files.",
-      "url": "https://www.cve.org/CVERecord?id=CVE-2026-133335",
       "ai_angle": [],
       "ai_note": ""
     },
@@ -759,16 +770,16 @@
       "blurb": "CVE-2026-103406 lets remote attackers run commands as root; on CISA KEV since Nov 25 (due Nov 28)."
     },
     {
+      "title": "Microsoft Azure flaw exploited to steal customers' API credentials",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials/",
+      "blurb": "An APIM Classic flaw let an attacker read stored secrets and tokens; Microsoft says rotate them. Norway's NSM reports energy firms hit."
+    },
+    {
       "title": "Update on a security incident involving 1Password's backend systems",
       "source": "1Password",
       "url": "https://1password.com/blog/update-on-nov-2026-security-incident",
       "blurb": "A hijacked employee GitHub account led to source-code theft, CI/CD access and malicious backend code that copied customer names, emails and metadata; vaults safe; beware of phishing."
-    },
-    {
-      "title": "Drupal core - Highly critical - Access bypass - SA-CORE-2026-019",
-      "source": "Drupal.org",
-      "url": "https://www.drupal.org/sa-core-2026-019",
-      "blurb": "CVE-2026-136716: sites left in odd install states after the Fail2Install fix can still be taken over; exploited in the wild. Update to 10.6.23/11.3.23/11.4.14 and run update.php."
     },
     {
       "title": "CISA Adds 10 Known Exploited Vulnerabilities to Catalog (Nov 25)",
@@ -784,7 +795,14 @@
     }
   ],
   "watch": [
-    "PolinRider (SafeDep, Nov 26): North Korea-linked loader planted in 7,600+ GitHub repos, hidden in conftest.py or a utils package, so running pytest executes it; it fetches JavaScript from an Ethereum wallet's latest transaction. Check cloned third-party repos before running tests. https://safedep.io/blog/polinrider-python-loader-ethereum-calldata.md",
+    "No CISA KEV additions on Nov 26 (US holiday); the latest batch is still the 10 entries of Nov 25.",
+    "KEPCO (South Korea's power utility; Yonhap/BleepingComputer, disclosed Nov 22-24): breach of 1.52 million people across its KEPCO ON billing and SRM procurement systems, incl. IDs, addresses, bank and card details; services suspended after detection Nov 20.",
+    "markdownify-mcp CVE-2026-137308 (CVSS 8.3, NVD Nov 26; no exploitation reported): SSRF filter bypass reachable through prompt injection lets an agent fetch internal hosts and cloud metadata; update to 1.2.0.",
+    "InternLM LMDeploy CVE-2026-137657 (CVSS 8.7, NVD Nov 26; not exploited): unauthenticated memory exhaustion through the DistServe proxy warmup endpoint (0.9.0-0.18.0); keep the proxy off untrusted networks.",
+    "'GoodGuys' phishing (BleepingComputer, Nov 26): fake paid expert-interview and webinar invites impersonating Google, Nvidia, Accenture and SpaceX steal corporate Google and Okta logins.",
+    "NGINX2Root (CVE-2026-123007, CVE-2026-123633; found with Wiz's AI scanner): The Hacker News (Nov 26) says more than 10 million exposed NGINX services run affected HTTP/2 builds; PoCs public, no confirmed exploitation. Install F5's fixed builds or disable HTTP/2.",
+    "Exposed self-hosted AI (Rapid7, Nov 18, highlighted by The Hacker News Nov 26): of 7,675 unauthenticated AI/notebook servers, mostly Ollama, over half carry artifacts left by outsiders and 79% list cloud-routed models that can be abused on the owner's paid account. Put Ollama behind auth and off the internet.",
+    "VirtueMart for Joomla CVE-2026-133335 (moved from focus): unauthenticated RCE exploited in the wild; update VirtueMart.",
     "Remus infostealer (BleepingComputer, Nov 26): a fake Google Sheets Chrome extension reads Gmail messages; operators marketed it as a Gmail 'zero-day'. Review installed extensions.",
     "New critical CVEs (NVD, Nov 26, no exploitation reported): Coder CVE-2026-137547 (CVSS 9.2, unauthenticated leak of temporary AWS IAM database password; fixed 2.29.27/2.34.19/2.37.11/2.38.7/2.39.1), Traefik CVE-2026-137481 (CVSS 9.3, router/middleware bypass via /..;x/ paths; fixed 2.11.62/3.7.18), Budibase auth bypass CVE-2026-137499 (fixed 4.0.0), ToolJet OAuth SSO bypass CVE-2026-137536, Twenty CVE-2026-137584.",
     "AI products (no exploitation reported): llama.cpp ggml RPC server out-of-bounds write CVE-2026-137567 (CVSS 9.8, unauthenticated; fixed b12658, never expose the RPC server); Langflow Smart Transform prompt injection to code execution CVE-2026-7700 (CVSS 8.8, 1.3.0 up to before 1.10).",
@@ -799,7 +817,6 @@
     "13 malicious NuGet packages (The Hacker News, Nov 26) posing as WinUI/WPF controls in fake .NET job take-home assessments drop executables and sideload DLLs for remote code execution. Developers: do not run job-test projects on work machines; audit recent NuGet installs.",
     "New malicious packages (GitHub/OpenSSF, Nov 25): npm @prime0/piomatch 1.0.0 (postinstall beacon plus remote command 'stealth agent', removed), PyPI alogithms 1.0.1-1.0.3 (.pth startup hook), plusinpath 2.4.5, py2ops 2.3.1. Remove and rotate secrets on any host that installed them.",
     "FIFA (The Record Nov 25, BBC Nov 26): confirms hackers accessed a 'limited set of personal and business information'; BBC says criminals got in by impersonating staff, not a systems failure; a group called Handsome Boy Hacking Club claimed it. Expect FIFA- and World Cup-themed phishing. https://therecord.media/fifa-data-breach-limited",
-    "Radware Cloud WAF breach (moved from focus; Nov 19, disclosed Nov 24): an exposed, no-login internal management API leaked customer contacts and some customers' AWS S3, Azure Blob and SFTP log-export keys. If you use log export, rotate those keys, scope them write-only and review storage access logs since Nov 19.",
-    "GeoServer CVE-2026-120705 (unauthenticated file read/SSRF) and CVE-2026-129243 (auth bypass), moved from focus: patched Nov 24 and already exploited per watchTowr. Update to 2.27.7, 2.28.6 or 3.0.2, keep GeoServer off the internet and change admin passwords."
+    "PolinRider (SafeDep, Nov 26): North Korea-linked loader planted in 7,600+ GitHub repos, hidden in conftest.py or a utils package, so running pytest executes it; it fetches JavaScript from an Ethereum wallet's latest transaction. Check cloned third-party repos before running tests. https://safedep.io/blog/polinrider-python-loader-ethereum-calldata.md"
   ]
 }
