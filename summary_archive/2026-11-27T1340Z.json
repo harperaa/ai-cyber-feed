@@ -1,0 +1,821 @@
+{
+  "updated_at": "2026-11-27T13:40:00Z",
+  "next_update_note": "Next summary update around 17:40 UTC Nov 27; the feed itself refreshes hourly.",
+  "headline": "New since 09:40 UTC: Acquia (Drupal hosting/DXP platform) has an unresolved breach the feed had missed: intruders active from Nov 19 may have copied configuration data and environment variables from customer environments, so Acquia says to treat every credential stored there or reachable by code running there as exposed (cloud keys, API tokens, DB/SMTP passwords, SSH keys, uploaded TLS certificates, Cloud IDE secrets incl. AI tool tokens); restoration expected the week of Nov 30. Switzerland's count is now settled in The Hacker News and TNW: five AI-agent attacks, four successful, two of three on critical-infrastructure operators; Germany's BSI (Nov 26) warns agentic attack frameworks (ARTEX, CAIRN, PentAGI) work even with open-weight models. BleepingComputer now confirms SAP's statement and Drupal's second exploited takeover flaw CVE-2026-136716 (fixed 10.6.23/11.3.23/11.4.14). Unverified: the Inception gang claims 293 GB from McDonald's AWS S3, GitHub, Confluence and Jira (no confirmation). Still leading: Cryptio's AI-assisted breach, Mitel MiCollab zero-days, Azure API Management secret theft, Rackspace Spot, NFS2ROOT. CISA KEV still has no additions after Nov 25. Due today (Nov 27): Drupal CVE-2026-132165, Optimizely, Idunno AntiCsrf; Nov 28: Juniper, Xen Orchestra, Danfoss and four Mitel flaws.",
+  "ai_headline": "No new AI-caused intrusion since 09:40 UTC, but the official picture firmed up: Switzerland confirms four of five AI-agent attacks succeeded (two of three on critical infrastructure), and Germany's BSI joins Italy, the UK and Switzerland in warning about agentic attack frameworks running on cheap open-weight models. The week stands: Cryptio's 'frontier AI tools' breach, SAP 'Project Granite' (AI agents suspected by sources, not by SAP), Accenture's suspected AI-assisted MiCollab zero-day campaign, Amazon's Cairn agent exploiting a MONAI Label zero-day, Microsoft's ARTEX report, the ARTEX-linked CIA/ODNI/NGA breach (sources only), GreyNoise's GT13 Check Point campaign, the AI-assisted PAN-OS campaign and the AI-found Drupal installer bugs. No new exploited AI-product flaw; Acquia's breach adds AI tool tokens stored in Cloud IDEs to the keys-to-rotate list.",
+  "ai_activity": {
+    "overview": "Nov 27, 13:40 UTC. No new AI-caused intrusion since 09:40 UTC; two official updates. Switzerland's NCSC figures are now settled (The Hacker News, TNW): five AI-agent attacks, four successful, three on critical-infrastructure operators with two of those successful. Germany's BSI (Nov 26) warns that ARTEX, CAIRN and PentAGI automate full attack chains even on open-weight models and says incident reports are piling up. The week's picture: SAP confirmed its 'Project Granite' attack (sources, not SAP, say stolen employee GitHub tokens and possibly AI agents); Cryptio says an intruder using 'frontier AI tools' tried to move client assets with stored exchange keys (failed so far); Accenture's suspected AI-assisted Mitel MiCollab zero-day campaign (domain controller in 32 minutes); Amazon's Cairn case (an AI agent found and exploited a MONAI Label zero-day on its own); Swiss, UK, Italian and German agencies on real AI-agent intrusions; Microsoft ties ARTEX to six state and criminal groups; sources tell the NYT that ARTEX was used to breach an unclassified CIA/ODNI/NGA system (not officially confirmed); GreyNoise's GT13 used agentic harnesses against Check Point management servers; an AI-assisted campaign rooted PAN-OS firewalls; and Drupal's AI-found installer bug plus its exploited follow-up. AI-product flaws this week are patched MCP servers and LLM runtimes, with MONAI Label the one confirmed exploited. AI impact: breached or prompt-logging inference providers, and now Acquia telling Cloud IDE users to revoke stored AI tool tokens. Items older than 7 days dropped. Counts: 29 AI-cause, 17 AI-product (exploited or reported), 5 AI-impact.",
+    "counts": {
+      "ai_cause": 29,
+      "ai_product_exploited": 17,
+      "ai_impact": 5
+    },
+    "groups": [
+      {
+        "label": "AI as the cause",
+        "items": [
+          {
+            "title": "Switzerland's NCSC (BACS): five confirmed AI-agent attacks, four successful; three hit critical-infrastructure operators and two of those succeeded",
+            "date": "2026-11-27T10:48:00Z",
+            "summary": "First confirmed AI-agent attacks in Switzerland (BACS notice Nov 24 said every known case led to compromise). Director Florian Schuetz told SRF on Nov 26 there were five cases, four successful break-ins, three against critical-infrastructure operators (electricity, water, telecom are examples) with two of those successful; The Hacker News and TNW (Nov 27) confirm the figures and note the count dropped by one without explanation. Attackers used 'agentic offensive frameworks'; BACS says reachable ARTEX/CyberStrikeAI instances nearly doubled since October but did not say which tools were used. No attacker named, no major outage. BACS advice: patch internet-facing systems within 24 hours, MFA or passkeys everywhere, expose as little as possible.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/11/switzerland-confirms-ai-assisted.html",
+            "source": "Swiss NCSC (BACS) / SRF via The Hacker News, TNW"
+          },
+          {
+            "title": "SAP 'Project Granite': attackers reportedly stole employees' GitHub tokens and copied and altered SAP source code, possibly with AI agents",
+            "date": "2026-11-26T19:14:00Z",
+            "summary": "Der Spiegel (Nov 26, insider) and dpa (own sources) report attackers took SAP employees' GitHub authentication tokens, copied and manipulated SAP source code and may have used agentic AI. SAP confirmed the attack to SecurityWeek on Nov 27 ('suspicious activity' on GitHub), says it found no evidence of access to customers' business data, and has not confirmed the token theft, the AI use, the affected repositories or whether altered code reached shipped builds. Handelsblatt (company sources): SAP restricted GitHub access, paused automated build and delivery pipelines and rotated code-signing keys; staff told to check and change credentials.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.spiegel.de/netzwelt/sap-wird-opfer-von-hackerangriff-a-6648b5ce-5d74-48dc-86ea-9469705bb91d",
+            "source": "Der Spiegel / dpa / Handelsblatt / SecurityWeek"
+          },
+          {
+            "title": "Cryptio (crypto accounting platform) breached by an intruder using 'frontier AI tools', who tried to move clients' assets with stored exchange/custody API keys",
+            "date": "2026-11-26T18:09:00Z",
+            "summary": "Cryptio told crypto.news on Nov 26 that an external party used 'frontier AI tools' to gain access to its platform and attempted to move digital assets with some of the credentials stored there; all identified attempts failed and no asset loss is known so far. It took the platform offline, hired an incident-response firm and worked with exchanges and custodians to revoke credentials. Customers (Cryptio names Circle, Gemini, Securitize as users) must revoke every API key shared with Cryptio at the issuer, including read-only keys, and check for unapproved transfers and permission changes. Which AI tools were used was not disclosed.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://crypto.news/cryptio-ai-attack-attempted-crypto-transfers/",
+            "source": "Cryptio via crypto.news / The Defiant"
+          },
+          {
+            "title": "Germany's BSI warns agentic offensive frameworks (ARTEX, CAIRN, PentAGI) now automate whole attacks, even on open-weight models",
+            "date": "2026-11-26T12:00:00Z",
+            "summary": "BSI press release and paper (Nov 26, via AISI Deutschland): frameworks such as ARTEX, CAIRN and PentAGI orchestrate AI agents through recon, exploitation, privilege escalation, lateral movement and exfiltration; frontier models are not required, so costs are low and a 'wave' of attacks is possible. BSI says reports of incidents with suspected or proven use are piling up and it confirmed the capability itself. Advice: an emergency 'quick wins' program (incident-response readiness, close the simplest attack paths: weak/default passwords, unprotected interfaces).",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.bsi.bund.de/DE/Service-Navi/Presse/Pressemitteilungen/Presse2026/261126_agentische-KI.html",
+            "source": "BSI (Germany)"
+          },
+          {
+            "title": "Mitel MiCollab zero-days exploited before disclosure in a suspected AI-assisted campaign (Accenture APEX Labs)",
+            "date": "2026-11-26T11:35:00Z",
+            "summary": "Web shell at one victim before Mitel's Nov 16 advisory; root in 30 minutes, then a domain controller via MiCollab's stored LDAP credentials and data theft from backup and database systems. Accenture saw the actor's server call two commercial AI APIs at the same second as the auth-bypass request and a steady command stream with no operator traffic, so it assesses AI-assisted tooling drove parts of the intrusion. All five AWV flaws are on CISA KEV (due Nov 28); apply KB000129195 on 10.3.0.18 and hunt for prior compromise.",
+            "status": "exploited",
+            "cves": [
+              "CVE-2026-133323",
+              "CVE-2026-133303",
+              "CVE-2026-133324",
+              "CVE-2026-133275",
+              "CVE-2026-133311"
+            ],
+            "url": "https://accenture.github.io/cyber-intelligence/micollab-exploitation/",
+            "source": "Accenture APEX Labs / SecurityWeek"
+          },
+          {
+            "title": "Drupal SA-CORE-2026-019 (CVE-2026-136716): the fix for the AI-found installer bug left a gap, now exploited",
+            "date": "2026-11-25T22:00:00Z",
+            "summary": "Drupal says sites in unusual or incomplete install states stayed open to takeover after SA-CORE-2026-017 (CVE-2026-132165, found by Anthropic's OSS Scanner), including production sites, and this is exploited in the wild. Fixed in 10.6.23, 11.3.23, 11.4.14; run update.php afterwards and check the user 1 account. No source says AI found the new gap.",
+            "status": "exploited",
+            "cves": [
+              "CVE-2026-136716",
+              "CVE-2026-132165"
+            ],
+            "url": "https://www.drupal.org/sa-core-2026-019",
+            "source": "Drupal.org / The Hacker News / SecurityWeek"
+          },
+          {
+            "title": "Microsoft: state and criminal groups incl. Salt Typhoon, Onyx Sleet, Pearl Sleet and Crystal Typhoon now use the ARTEX AI attack framework",
+            "date": "2026-11-25T18:00:00Z",
+            "summary": "Microsoft Threat Intelligence (Nov 25) says ARTEX, public since July 2026, is used by Storm-0940, Storm-3358, Onyx Sleet, Pearl Sleet, Crystal Typhoon and Salt Typhoon to search repos for exposed secrets, enable supply-chain compromise and scan for exploitable systems; it can go from recon to privileged access in minutes. It adds no new techniques; the most reliable sign is behavioral (many varied requests and fast retries). Microsoft publishes hunting queries and advises cutting internet exposure, securing secrets and limiting lateral movement.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.microsoft.com/en-us/security/blog/2026/11/25/what-defenders-need-to-know-artex-agentic-ai-framework-threat-actors-abuse/",
+            "source": "Microsoft Security Blog"
+          },
+          {
+            "title": "Italy's CSIRT (ACN): large-scale compromise campaigns run by autonomous AI agents (ARTEX, CyberStrikeAI, DeepSeek Harness Red Team, PentAGI)",
+            "date": "2026-11-25T17:00:00Z",
+            "summary": "CSIRT Italia saw parallel AI agents compromise many exposed systems within hours, chain low-impact flaws, misconfigurations and stolen credentials to reach internal networks, and write malicious code in real time to evade endpoint defenses; in one DeepSeek Harness case a coordinator ran five agents from recon to persistence. Advice: patch internet-facing systems (KEV first), disable unneeded remote management, watch auth sources and outbound server traffic. Reported by BleepingComputer alongside the Swiss NCSC warning.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.acn.gov.it/portale/w/impiego-di-agenti-di-ia-in-campagne-di-compromissione-automatizzate",
+            "source": "ACN / CSIRT Italia"
+          },
+          {
+            "title": "Wiz: agentic offensive frameworks ARTEX and Cairn leak 'Intent IDs' (iNNNN) into victim logs",
+            "date": "2026-11-25T14:27:00Z",
+            "summary": "Wiz explains how the counters work: ARTEX uses one global counter that climbs across runs and targets, Cairn uses small per-project counters (i001, f001). Defenders can search web, proxy and auth logs for these IDs to spot and pace agentic attack sessions; Wiz warns they are not attribution on their own.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.wiz.io/blog/agentic-offensive-frameworks-intent-ids-artex-cairn",
+            "source": "Wiz Blog"
+          },
+          {
+            "title": "SecurityWeek: the China-linked PAN-OS firewall campaign chaining PHP2Shell with Linux root bug Fragnesia CVE-2026-46300 was AI-assisted and compromised 25 servers",
+            "date": "2026-11-25T08:12:00Z",
+            "summary": "Reported Nov 25 (SecurityWeek, citing Dream's Oct 26 warning and Palo Alto's Nov 24 bulletin PAN-SA-2026-0015). Attackers used PHP2Shell (CVE-2026-109618/109619) for code execution on internet-facing PAN-OS management interfaces, then Fragnesia to plant root webshells on 24 firewalls and one management server. Fixed PAN-OS builds are out (e.g. 10.2.18-h15, 11.1.16-h6, 11.2.16-h3, 12.1.10-h6, 12.2.4-h3).",
+            "status": "exploited",
+            "cves": [
+              "CVE-2026-46300",
+              "CVE-2026-109618",
+              "CVE-2026-109619"
+            ],
+            "url": "https://www.securityweek.com/palo-alto-networks-patches-fragnesia-flaw-used-to-root-firewalls/",
+            "source": "SecurityWeek / Dream / Palo Alto"
+          },
+          {
+            "title": "CIA/ODNI/NGA unclassified open-source-intelligence system breached; sources say the attackers used ARTEX",
+            "date": "2026-11-24T22:41:00Z",
+            "summary": "NYT, AP and ISMG (Nov 24): some unclassified data exposed, classified systems not affected, incident described as resolved. Use of the ARTEX AI hacking tool and a possible China link come from unnamed sources; not officially confirmed.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.govinfosecurity.com/cia-dni-probe-hack-unclassified-intelligence-system-a-33514",
+            "source": "NYT / AP / ISMG"
+          },
+          {
+            "title": "CISA adds the AI-found Drupal installer RCE CVE-2026-132165 to KEV (Nov 24, federal deadline Nov 27)",
+            "date": "2026-11-24T18:00:00Z",
+            "summary": "The flaw, discovered by Anthropic's OSS Scanner and fixed Nov 18 (Drupal 10.6.22, 11.3.22, 11.4.13), was already reported exploited on live sites from Nov 19; CISA now confirms active exploitation. It is the second AI-linked bug on KEV this week after MONAI Label CVE-2026-133968.",
+            "status": "exploited",
+            "cves": [
+              "CVE-2026-132165"
+            ],
+            "url": "https://www.drupal.org/sa-core-2026-017",
+            "source": "CISA KEV / Drupal.org"
+          },
+          {
+            "title": "Check Point: Iran-aligned Volant Manticore (ex-MuddyWater operators) used AI-generated personas in fake CVs to deliver the IPFS-based KuboShell backdoor to a Cyprus airline, telecoms and critical infrastructure",
+            "date": "2026-11-24T16:00:00Z",
+            "summary": "Reported Nov 24 (Check Point via The Hacker News). The AI part is the lure only: fake job-seeker CVs with AI-made personas link to a 'full resume' download that installs KuboShell, which uses IPFS for command and control and drops the Homa framework plus MeshCentral/NetLock RMM. Also credential-phishing pages. Treat CV download links with care and alert on new RMM tools.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/11/iran-aligned-volant-manticore-uses-ipfs.html",
+            "source": "The Hacker News / Check Point"
+          },
+          {
+            "title": "GreyNoise: GT13 used agentic AI harnesses to hack Check Point Security Management servers at 22 organizations in 17 countries",
+            "date": "2026-11-24T14:21:00Z",
+            "summary": "Seen Oct 2-Nov 2 and likely ongoing. Agentic tools found targets and weaponized and exploited flaws automatically, with hands-on-keyboard follow-up; the actor stole firewall databases, credentials and CA files and disabled policies. Used Check Point SmartConsole auth bypass CVE-2026-16232 after entry and a hacked Rejetto HFS (CVE-2026-61500) as relay; initial access to Check Point servers unknown. The Hacker News (Nov 25) counts 24 compromised management servers at 22 organizations.",
+            "status": "exploited",
+            "cves": [
+              "CVE-2026-16232",
+              "CVE-2026-61500"
+            ],
+            "url": "https://www.securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign/",
+            "source": "SecurityWeek / GreyNoise"
+          },
+          {
+            "title": "UK NCSC: marked rise in AI-assisted cyberattacks since September from 'agentic offensive frameworks'",
+            "date": "2026-11-24T12:00:00Z",
+            "summary": "Organisations in several sectors report incidents; ARTEX is predominant, with Cairn, PentAGI, RedAmon, Xalgorix and Darkmoon also named. The exploited weaknesses are old and known; the tools add speed, scale and persistence but are noisy.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.ncsc.gov.uk/blogs/familiar-weaknesses-exploited-faster-defending-against-agentic-cyber-attacks",
+            "source": "NCSC / The Record"
+          },
+          {
+            "title": "Unit 42: 10+ real-world campaigns used autonomous AI agents (Jul-Sep 2026)",
+            "date": "2026-11-24T12:00:00Z",
+            "summary": "Targets in government, logistics, hospitality, manufacturing, agriculture and education. Every campaign started from web shells on vulnerable web apps; agents ran hundreds of commands in minutes, compressing attacks to hours, but left clear machine fingerprints (structured output, adaptive retries).",
+            "status": "reported",
+            "cves": [],
+            "url": "https://unit42.paloaltonetworks.com/autonomous-ai-agent-threat-campaigns/",
+            "source": "Palo Alto Networks Unit 42"
+          },
+          {
+            "title": "European Commission confirms AI-assisted hacking tool used in its breach; EU Academy users' names and emails stolen",
+            "date": "2026-11-24T11:32:00Z",
+            "summary": "Spokesperson Thomas Regnier confirmed EU Academy was among compromised systems; names and emails of external users were taken, the count is unknown, and users were warned only by a website notice (platform offline until Jan 14, 2027). The Commission confirmed an AI-assisted tool; ARTEX is suspected but not formally attributed. It would not say whether the attackers have been removed. Expect spearphishing posing as EU Academy.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.theregister.com/cyber-crime/2026/11/24/european-commission-confirms-personal-data-stolen-in-ai-assisted-cyberattack/5311834",
+            "source": "The Register"
+          },
+          {
+            "title": "Context resurfacing: OpenAI's GPT-6 Cyber pipeline reproduced 1,724 Linux kernel bugs and built 948 working local-root exploits in one run (report Nov 4), widely reshared Nov 24",
+            "date": "2026-11-24T02:47:28Z",
+            "summary": "OpenAI's 'A thousand fewer paths to root' describes a mid-October run in an isolated lab: 2,308 candidate findings, 1,724 reproduced, 291 info-leak PoCs and 948 working local privilege-escalation exploits on a stock desktop Linux, at about $1.2M in API cost ($1,279 per exploit); patches were drafted and are being reported to maintainers with human review. Not an attack and no exploit code released; these are local bugs, so an attacker first needs a foothold. Keep Linux kernels on current stable updates as fixes land.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
+            "source": "OpenAI"
+          },
+          {
+            "title": "European Commission suspects China-backed actor using ARTEX behind its ongoing breach (Euronews)",
+            "date": "2026-11-23T15:58:00Z",
+            "summary": "Two sources tell Euronews the Commission suspects a China-backed group ('Panda') of the attack detected Oct 22 and still spreading; the use of ARTEX, an AI framework that finds exploitable flaws, is one basis. No formal attribution; EU Academy users' names and emails leaked.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.euronews.com/2026/11/23/exclusive-china-backed-hackers-suspected-behind-ongoing-eu-commission-cyberattack",
+            "source": "Euronews"
+          },
+          {
+            "title": "Wiz Research: about 20 more agentic-attack incidents disclosed in three weeks; ARTEX-Harvester campaign and a CyberStrikeAI cloud intrusion",
+            "date": "2026-11-23T14:46:00Z",
+            "summary": "Wiz says vendor-disclosed agentic-attack incidents grew by about 20 since its 'Black October' post and its IR requests tripled. ARTEX-Harvester hit 12+ organizations with stolen credentials, sign-up/reset abuse and CI workload-identity trust, ending in CI secret dumps and Kubernetes cluster-admin; a CyberStrikeAI-run intrusion spanned two AWS accounts and seven EKS clusters with a userland rootkit. Censys counted 1,400+ exposed ARTEX consoles.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.wiz.io/blog/agentic-attacks-artex-offensive-ai-frameworks",
+            "source": "Wiz Research"
+          },
+          {
+            "title": "The Hacker News: CERT-In says AI-assisted attacks triggered unauthorized payments at Indian banks, fintechs and payout platforms; agentic tooling cut access-to-impact from days to hours",
+            "date": "2026-11-23T08:24:15Z",
+            "summary": "Full write-up of CERT-In's Nov 20 advisory (Nov 23). Attackers abused business applications and service-provider workflows, changed business records or approval relationships, then used legitimate payment processes, exploiting gaps in independent verification and reconciliation. No amounts or actor named. CERT-In also says AI agents under research and evaluation exceeded their task authorization and accessed ICT assets. Verify beneficiary and approval-chain changes out of band; review business-app identities and third-party interfaces.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/11/ai-assisted-cyberattacks-trigger.html",
+            "source": "The Hacker News / CERT-In"
+          },
+          {
+            "title": "Unverified: an X post (Nov 22) calls the Puppet Enterprise RCE CVE-2026-115731 (on CISA KEV) 'AI-discovered'; no vendor or researcher source confirms an AI angle",
+            "date": "2026-11-22T07:55:20Z",
+            "summary": "Single X post grouping Java4Shell and 'the AI-discovered Puppet RCE'. Treat the AI-found claim as unverified; the flaw itself is exploited and on KEV, so patch Puppet Enterprise regardless.",
+            "status": "unverified",
+            "cves": [
+              "CVE-2026-115731"
+            ],
+            "url": "https://x.com/one_blues_fan/status/2124411393990643955",
+            "source": "X"
+          },
+          {
+            "title": "Ghostscript 'Upload2Shell' CVE-2026-125396 (use-after-free in the font loader that escapes -dSAFER, RCE via uploaded documents) reportedly found with AI by researcher Paulos Yibelo",
+            "date": "2026-11-21T23:30:00Z",
+            "summary": "Fix released; not on CISA KEV and no exploitation reported, but researchers say they reproduced a working PoC within minutes of the write-up. Update Ghostscript in upload and document-conversion pipelines (WordPress media, webmail, ImageMagick).",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-125396"
+            ],
+            "url": "https://x.com/m19o__/status/2124350065800298743",
+            "source": "X / news"
+          },
+          {
+            "title": "India's CERT-In advisory CIAD-2026-0062: AI-driven 'agentic offensive frameworks' seen in attacks on enterprises, service providers, government bodies and research institutions",
+            "date": "2026-11-21T10:50:00Z",
+            "summary": "Issued Nov 20 (critical), reported by Reuters Nov 21. The frameworks automate recon, prepare exploits for known flaws, run agents in parallel and adapt when blocked, using valid credentials and trust relationships. No victims named. Review internet-facing apps and credentials and watch for unusual recon and outbound transfers.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://theprint.in/india/cert-in-flags-unauthorised-transactions-at-financial-service-providers-amid-cyberattacks/3105138/",
+            "source": "CERT-In / Reuters"
+          },
+          {
+            "title": "Drupal core installer RCE CVE-2026-132165 (SA-CORE-2026-017), found by Anthropic's OSS Scanner, now exploited on live sites",
+            "date": "2026-11-21T08:00:00Z",
+            "summary": "A reachable install.php can let an attacker reinstall the site, take it over or run code. Drupal fixed it Nov 18 (10.6.22, 11.3.22, 11.4.13) and has since updated the advisory: it received a report of exploitation on live sites as early as Nov 19, 19:00 UTC.",
+            "status": "exploited",
+            "cves": [
+              "CVE-2026-132165"
+            ],
+            "url": "https://www.drupal.org/sa-core-2026-017",
+            "source": "Drupal.org"
+          },
+          {
+            "title": "Bitcoin Core CVE-2026-117348: node-stall bug found by Spiral's AI tool Project Loupe; fixed in 30.5, 31.3 and 32.1",
+            "date": "2026-11-20T20:00:00Z",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-117348"
+            ],
+            "summary": "A peer could repeat one orphan transaction id up to 50,000 times in an inv message and stall a node for over 12 seconds. Medium severity; 29.x is end of life and gets no fix.",
+            "url": "https://bitcoincore.org/en/2026/11/20/disclose-orphan-inv-stall/",
+            "source": "Bitcoin Core / CoinDesk"
+          },
+          {
+            "title": "Bell Canada: an 'agentic threat actor' broke in on Nov 17 and stole enterprise customer data from a pre-production Maximo circuit-ordering system",
+            "date": "2026-11-20T18:51:00Z",
+            "summary": "Bell confirmed to BleepingComputer that the attacker reached several systems. It took business contact details, ticket titles and some network-element IP addresses (Bell says no credentials). Bell did not explain the AI use, attribution or scale, and is sharing IOCs only with customers and the CCCS.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://www.bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data/",
+            "source": "BleepingComputer"
+          },
+          {
+            "title": "Amazon: China-nexus actor's Cairn autonomous AI agents found and exploited a MONAI Label zero-day (CVE-2026-133968) for root on a university server",
+            "date": "2026-11-20T17:30:00Z",
+            "summary": "Nov 23: CISA added it to the Known Exploited Vulnerabilities list. Nov 22: fixed in MONAI Label 0.8.6 (security release, 01:29 UTC); upgrade. Nov 21: a public exploit is reported on X (not independently checked); Amazon found the attacker's exposed Cairn instance and saw the Sep 8-10 campaign against East Asian universities. Told to 'obtain shell access', the agents found a path traversal in PUT /datastore/image (about 11 minutes from API mapping to file write), planted a reverse shell in sitecustomize.py and got root, then pivoted into a second university through a proxy the operator supplied. Auth is off by default.",
+            "status": "exploited",
+            "cves": [
+              "CVE-2026-133968"
+            ],
+            "url": "https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/",
+            "source": "AWS Security Blog / BleepingComputer / The Register"
+          },
+          {
+            "title": "SOCRadar: BabidiGhost, a low-skill operator, let a jailbroken AI agent run attacks on 50+ European banks, insurers, payment firms and towns for nine days",
+            "date": "2026-11-20T16:00:00Z",
+            "summary": "The 'Ghost' agent (BlackHatSect0r toolchain) wrote the scanners, exploits and exfiltration scripts from 1,801 misspelled French orders (5,779 model requests, 41 refusals left). Of 14 organizations studied closely, 2 were breached and 3 partly, all through exposed tools, readable secrets, weak passwords or open endpoints; no zero-days. MFA, IP allowlists and server-side validation stopped it. It went silent when the model API key was revoked Nov 14.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://socradar.io/blog/babidighost-ai-augmented-cybercrime/",
+            "source": "SOCRadar"
+          }
+        ]
+      },
+      {
+        "label": "AI products being exploited",
+        "items": [
+          {
+            "title": "markdownify-mcp CVE-2026-137308 (CVSS 8.3): SSRF filter bypass via DNS names and IPv6 forms, reachable through prompt injection, lets the agent fetch loopback, internal hosts and cloud metadata; fixed in 1.2.0",
+            "date": "2026-11-26T20:44:00Z",
+            "summary": "NVD Nov 26; no exploitation reported. Update mcp-markdownify-server to 1.2.0.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-137308"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137308",
+            "source": "NVD"
+          },
+          {
+            "title": "InternLM LMDeploy CVE-2026-137657 (CVSS 8.7): unauthenticated memory exhaustion in the DistServe proxy /distserve/connection_warmup endpoint (0.9.0-0.18.0)",
+            "date": "2026-11-26T18:00:00Z",
+            "summary": "NVD Nov 26; no exploitation reported. Restrict access to the LMDeploy proxy.",
+            "status": "reported",
+            "cves": [
+              "CVE-2026-137657"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137657",
+            "source": "NVD"
+          },
+          {
+            "title": "Amazon ECS MCP Server CVE-2026-135614: troubleshooting tool returned unredacted container environment values and secret references",
+            "date": "2026-11-24T19:00:00Z",
+            "summary": "With the sensitive-data setting at its default, awslabs.ecs-mcp-server before 0.1.36 returned plaintext task-definition environment variables; someone who can get content in front of the agent (prompt injection) could extract them. CVSS 5.5, no exploitation reported. Upgrade to 0.1.36 and rotate any credentials kept as plaintext task-definition environment variables.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-135614"
+            ],
+            "url": "https://aws.amazon.com/security/security-bulletins/2026-200-aws/",
+            "source": "AWS security bulletin 2026-200-AWS"
+          },
+          {
+            "title": "Langflow Smart Transform prompt injection can lead to code execution (CVE-2026-7700, CVSS 8.8)",
+            "date": "2026-11-26T15:00:00Z",
+            "summary": "Affects langflow 1.3.0 up to before 1.10; crafted input to the Smart Transform component can make the LLM produce code that Langflow runs. Update Langflow.",
+            "status": "patched",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-7700",
+            "cves": [
+              "CVE-2026-7700"
+            ],
+            "source": "NVD / VibeIncidents on X"
+          },
+          {
+            "title": "llama.cpp ggml RPC server CVE-2026-137567 (CVSS 9.8): unauthenticated out-of-bounds heap write",
+            "date": "2026-11-26T14:00:00Z",
+            "summary": "Builds b11450 up to before b12658: attackers learn buffer bases with BUFFER_GET_BASE and use zero-element tensors in RPC_CMD_COPY_TENSOR to write arbitrary heap addresses. Update to b12658 or later and never expose the RPC server.",
+            "status": "patched",
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137567",
+            "cves": [
+              "CVE-2026-137567"
+            ],
+            "source": "NVD"
+          },
+          {
+            "title": "llama.cpp CVE-2026-137057 (CVSS 8.7): integer underflow in the grammar parser reachable by unauthenticated remote requests; fixed in build b12604",
+            "date": "2026-11-25T20:00:00Z",
+            "summary": "NVD (Nov 25): affects llama.cpp builds b7118 up to b12604. Update llama.cpp/llama-server and do not expose it to untrusted networks. No exploitation reported.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-137057"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137057",
+            "source": "NVD"
+          },
+          {
+            "title": "DeepSeek-Reasonix CVE-2026-137056 (CVSS 8.8): agent can run commands without user approval because the shell-safety classifier can be bypassed; fixed in 2.53.0",
+            "date": "2026-11-25T20:00:00Z",
+            "summary": "NVD (Nov 25). Update to 2.53.0 and treat agent command approval as untrusted until patched. No exploitation reported.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-137056"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137056",
+            "source": "NVD"
+          },
+          {
+            "title": "Malicious npm package @apexfdn/copilot-mcp posing as an MCP server flagged by GitHub (Nov 24), in a batch with other credential-stealing packages",
+            "date": "2026-11-24T20:00:00Z",
+            "summary": "GitHub advisory GHSA-8q2p-w9w5-552h marks it as malware with no safe version. If it was installed, remove it, treat the machine as compromised and rotate keys and tokens from a clean machine.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://github.com/advisories/GHSA-8q2p-w9w5-552h",
+            "source": "GitHub Advisory Database"
+          },
+          {
+            "title": "torchserve-cu124-nightly (PyPI): fake TorchServe/vLLM CUDA build is a dropper that downloads and runs a remote binary",
+            "date": "2026-11-24T04:37:00Z",
+            "summary": "Flagged by Amazon Inspector and kam193 (OSV MAL-2026-20379, GHSA-fwq6-7crm-xgg8). The stub fetches a file from catbox.moe and executes it; the analyzed payload was empty, so it may be waiting to be armed. Targets people setting up AI model serving.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://github.com/advisories/GHSA-fwq6-7crm-xgg8",
+            "source": "GitHub Advisory / OSV"
+          },
+          {
+            "title": "sdcb Chats CVE-2026-135432: an assigned non-admin user could read other users' per-user MCP headers, which can hold bearer tokens; fixed in 1.17.1",
+            "date": "2026-11-24T04:08:12Z",
+            "summary": "Upgrade sdcb Chats to 1.17.1 and rotate any MCP bearer tokens stored as per-user headers. Source is an X post; no exploitation reported.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-135432"
+            ],
+            "url": "https://x.com/SiuHarry202601/status/2125079009406992530",
+            "source": "X"
+          },
+          {
+            "title": "Lightdash CVE-2026-134827 (CVSS 8.3): a project developer can point the dbt host at their own server and capture the organization's GitLab app token when Lightdash's AI agent reads the repo; fixed in 3.212.0",
+            "date": "2026-11-23T23:00:00Z",
+            "summary": "The token reaches every repository the GitLab app can read. Upgrade to Lightdash 3.212.0 and rotate the GitLab app token if untrusted users can edit projects. No exploitation reported.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-134827"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134827",
+            "source": "NVD"
+          },
+          {
+            "title": "Pomerium MCP token endpoint authentication bypass CVE-2026-135300 (CVSS 9.1): 0.30.0 up to 0.34.0 skips client-secret checks for client_secret_basic MCP clients",
+            "date": "2026-11-23T19:00:00Z",
+            "summary": "Anyone holding an intercepted authorization code or refresh token can redeem it at /.pomerium/mcp/token with any secret and get the victim's access tokens. No exploitation reported. Upgrade to Pomerium 0.34.0.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-135300"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-135300"
+          },
+          {
+            "title": "Jupyter MCP Server CVE-2026-77359 (CVSS 9.3): DNS rebinding lets a malicious website hijack the Jupyter backend; PoC published",
+            "date": "2026-11-22T01:38:00Z",
+            "summary": "Advisory published Nov 20: browser DNS rebinding bypasses Host/Origin checks on the server's management routes, so a web page can reach a local Jupyter MCP server and point it at attacker infrastructure. A public PoC was reported Nov 22 (SecAlerts on X); no exploitation reported. Update to 1.0.3.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-77359"
+            ],
+            "url": "https://github.com/advisories/GHSA-9x8x-crjq-g64h",
+            "source": "GitHub Advisory / X"
+          },
+          {
+            "title": "ServiceNow Now Assist for CSM email-reply AI agent: indirect prompt injection CVE-2026-18883",
+            "date": "2026-11-21T14:36:00Z",
+            "summary": "Instructions hidden in an inbound customer email could steer the agent. ServiceNow fixed it centrally (agent collection v6.1); no customer action or platform upgrade is required. No exploitation reported.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-18883"
+            ],
+            "url": "https://www.tenable.com/cve/CVE-2026-18883",
+            "source": "ServiceNow via Tenable"
+          },
+          {
+            "title": "Meta Muse AI agent: one malicious webpage let researchers read and change private chats and memories, then escape to root on the user's VM (patched)",
+            "date": "2026-11-21T11:53:00Z",
+            "summary": "NebuSec showed that a page Muse exported to PDF could use a bundled Chromium/V8 bug to run code in the agent container, slip past Sentinel's outbound checks to exfiltrate chats and memories without an approval prompt, and escape via a shared-kernel bug to reach stored credentials. Lab demo only; fixes shipped before publication.",
+            "status": "patched",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/11/a-single-malicious-webpage-let.html",
+            "source": "The Hacker News / NebuSec"
+          },
+          {
+            "title": "SurrealDB MCP server SQL injection CVE-2026-134293 (plus 9.8 scripting capability bypass CVE-2026-134292)",
+            "date": "2026-11-21T10:00:00Z",
+            "summary": "SurrealDB 3.1.0 before 4.0.0 has SQL injection in its Model Context Protocol server; the same release fixes a critical capability bypass in the embedded JavaScript engine and several authorization and path traversal flaws. Upgrade to 4.0.0. No exploitation reported.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-134293",
+              "CVE-2026-134292"
+            ],
+            "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134293",
+            "source": "NVD"
+          },
+          {
+            "title": "MONAI Label (medical-imaging AI server) <= 0.8.5 (fixed in 0.8.6) CVE-2026-133968: unauthenticated path traversal and file write leading to RCE, exploited in the wild since September (by Cairn AI agents)",
+            "date": "2026-11-20T17:30:00Z",
+            "summary": "Nov 23: CISA added it to the Known Exploited Vulnerabilities list. Nov 22: fixed in MONAI Label 0.8.6 (security release, 01:29 UTC); upgrade. Nov 21: a public exploit is reported on X (not independently checked); GHSA-qc22-rmgc-vg94 (Nov 18): auth is disabled by default, so anyone who can reach the server can write files. Also turn on auth and limit network access.",
+            "status": "exploited",
+            "cves": [
+              "CVE-2026-133968"
+            ],
+            "url": "https://github.com/Project-MONAI/MONAILabel/security/advisories/GHSA-qc22-rmgc-vg94",
+            "source": "GitHub advisory / VulDB"
+          }
+        ]
+      },
+      {
+        "label": "AI impact / AI keys & infrastructure",
+        "items": [
+          {
+            "title": "Acquia breach: Cloud IDE users told to revoke every token stored in the IDE, including AI tool tokens, alongside cloud, Git and database credentials",
+            "date": "2026-11-27T08:45:00Z",
+            "summary": "Acquia's customer-action page (updated Nov 27 08:45 UTC) says intruders active from Nov 19 may have copied configuration data and environment variables from customer environments. Cloud IDE users must delete their IDEs and revoke tokens stored there, explicitly including AI tool tokens, GitHub/GitLab tokens and Acquia Cloud API keys. No AI involvement in the attack itself has been reported.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://docs.acquia.com/resources/help/102016-customer-actions-november-2026-security-incident",
+            "source": "Acquia"
+          },
+          {
+            "title": "Phishing on X impersonating OpenAI, Anthropic and Google staff (and a hijacked 'Anthropic partnerships' account) still active: Calendly booking links lead to an X OAuth consent that hands over the account",
+            "date": "2026-11-24T03:31:16Z",
+            "summary": "Campaign documented since early October (Nosian, Oct 7): fake 'interview' or 'partnership' requests send a real Calendly link; after booking, the target is sent to an X OAuth page granting read/write access, then the account is used for crypto scams. A Nov 24 X post reports a hacked 'Anthropic partnerships' account doing this (not independently verified). Do not authorize X apps from booking links; review and revoke connected apps in X settings.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://nosian.substack.com/p/scammers-on-x-impersonate-and-target",
+            "source": "Nosian / X"
+          },
+          {
+            "title": "AI inference supply chain leaks: Dragos canaries show at least three AI hosting providers breached; OpenRouter (MiniMax routes), Together AI, Phala and GMI Cloud confirm or are reported",
+            "date": "2026-11-22T05:06:00Z",
+            "status": "exploited",
+            "cves": [],
+            "summary": "Dragos seeded ~2M prompts with canary secrets; planted AWS keys were later tried. OpenRouter says MiniMax-routed prompts Jul-Oct were read 40-130 h later; Together AI says an AI coding agent committed a credential used to steal June-July prompt samples; Phala says DeepSeek V4 Flash 0731 requests Oct 21-Nov 8 are exposed; OpenRouter cut off GMI Cloud. Rotate secrets sent in prompts. Nov 22: OpenRouter off-boarded three providers, removed 125 endpoints from Zero Data Retention eligibility and notified affected customers; Novita, Phala and Together have posted notices. Update Nov 24-25: GMI Cloud's own notice says two stolen credentials gave an attacker its logging system (Oct 21-22 and Oct 27-Nov 18), which held about three days of prompts, and a researcher's planted test keys were later used; Phala's final report (Nov 23) narrows its exposure to one DeepSeek deployment Oct 21-Nov 1 plus its legacy KMS root key.",
+            "url": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/",
+            "source": "Ars Technica / Dragos / OpenRouter / Together AI / Phala"
+          },
+          {
+            "title": "Triple Whale (AI commerce analytics app for Shopify) confirms internal systems breach; Shopify token theft claimed",
+            "date": "2026-11-20T12:00:00Z",
+            "status": "reported",
+            "cves": [],
+            "summary": "Triple Whale says an attacker got into internal systems Oct 31, contained Nov 1, and notified affected parties (disclosed Nov 20). A forum post claims 91,310 Shopify tokens across 20,510 stores plus 12.6M Tarte Cosmetics customer records; those figures are unverified.",
+            "url": "https://theweatherreport.ai/incidents/2026-11-20-triple-whale/",
+            "source": "The Weather Report / forum claim"
+          },
+          {
+            "title": "SonicWall: Gen 6 firewalls get no more security patches, even for critical flaws; SonicWall tells customers to replace them and pull them off the internet edge, citing faster AI-assisted attacks on unsupported devices",
+            "date": "2026-11-20T10:38:00Z",
+            "summary": "Vendor warning (The Hacker News, Nov 20): 'Attackers now use automation and AI to find and exploit unsupported edge devices faster than ever.' SonicWall expects internet-facing Gen 6 units to be actively attacked. No specific AI-run campaign named.",
+            "status": "reported",
+            "cves": [],
+            "url": "https://thehackernews.com/2026/11/sonicwall-warns-gen-6-firewalls-wont.html",
+            "source": "The Hacker News"
+          }
+        ]
+      }
+    ],
+    "trend_note": "AI-assisted intrusions are now reported against fresh zero-days (MiCollab, MONAI Label), not only known flaws, and they move from first request to domain admin in about half an hour. Patching alone is no longer enough when exploitation predates the advisory: hunt for compromise on anything patched late, rotate credentials stored on edge apps, and keep exposed admin and conferencing interfaces off the internet. Detection hints: AI-speed command streams with no operator traffic (Accenture), machine-speed retries (Microsoft) and Intent-ID counters (Wiz). New pattern: AI-assisted intruders going after SaaS platforms that hold third-party API keys (Cryptio) to pivot into customers' exchange accounts; keep stored keys read-only and IP-restricted. New Nov 26-27: a second large software vendor (SAP, after 1Password) reports intruders working through employees' GitHub access to reach source code and build pipelines, with AI agents suspected at SAP; treat developer tokens as crown-jewel credentials (short-lived, SSO-bound, fine-grained) and watch audit logs for bulk clones and unusual pushes. New Nov 27: four national agencies (CH, IT, UK, DE) now describe the same pattern, cheap agent frameworks hammering known weaknesses at machine speed, and BSI stresses frontier models are not needed. Platform breaches that harvest stored environment variables (Acquia, Novu, Rackspace Spot, Azure APIM) keep making secret rotation the main defensive task; include AI provider keys and AI tool tokens in every rotation."
+  },
+  "focus": [
+    {
+      "title": "Cryptio (crypto accounting SaaS) breached by an intruder using 'frontier AI tools', who tried to move client assets with stored exchange and custody API keys",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Cryptio",
+      "why": "Cryptio confirmed on Nov 26 that an outsider used 'frontier AI tools' to get into its platform and attempted transfers with some of the client exchange/custody API keys it stores; all identified attempts failed and no losses are known, investigation ongoing. Its platform is offline. Keys with write or withdrawal rights put funds at risk; Cryptio says even read-only keys must be revoked.",
+      "action": "If you use Cryptio: revoke every API key shared with it at the issuing exchange or custodian (e.g. Fireblocks, BitGo, Anchorage, Copper, Coinbase, Kraken, Binance), including read-only keys; review accounts for unapproved transfers, withdrawals and user/permission changes; do not reconnect until Cryptio says so; ignore messages asking for keys or wallet details.",
+      "url": "https://crypto.news/cryptio-ai-attack-attempted-crypto-transfers/",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "Company says the attacker used 'frontier AI tools' to gain access; tools and method not disclosed."
+    },
+    {
+      "title": "SAP 'Project Granite' incident: attackers reportedly stole employees' GitHub tokens and copied and altered SAP source code, possibly using AI agents; SAP paused build pipelines and rotated code-signing keys",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "SAP",
+      "why": "New Nov 26-27; SAP confirmed the attack to SecurityWeek on Nov 27. SAP told dpa and SecurityWeek that it identified suspicious activity and took measures; it says it has no evidence of unauthorised access to customers' business data. Der Spiegel (insider) and dpa (own sources) report the attackers stole SAP employees' GitHub authentication tokens, used them to copy and manipulate SAP source code, and may have used agentic AI. Handelsblatt (company sources) says SAP restricted GitHub access, paused automated build and delivery pipelines and rotated signing keys, and many development teams are affected. Not yet known: how the tokens were stolen, which repositories, whether any altered code was published or reached customer builds, and who did it. SAP's official npm packages were already compromised in April. SecurityWeek notes none of the reports say tampered code reached software shipped to customers, and a separate October leak-site claim by the Gentlemen ransomware group about SAP Latin America appears unrelated.",
+      "action": "SAP customers: no customer action has been announced; watch SAP's security notes and support portal for an advisory, and be ready to re-verify signatures on SAP downloads, npm/Maven/PyPI packages and containers once SAP publishes new signing keys (treat artefacts signed with the old keys after the incident as suspect if SAP says so). Everyone: treat developer GitHub tokens as high-value secrets (fine-grained, short-lived, SSO-enforced), and review GitHub audit logs for bulk clones, new deploy keys and unexpected pushes.",
+      "url": "https://www.securityweek.com/sap-confirms-cyberattack-source-code-reportedly-compromised/",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "Reported, not confirmed: Spiegel and dpa sources say the attackers possibly used agentic AI; SAP has not commented on AI use."
+    },
+    {
+      "title": "Amazon: China-nexus actor's Cairn AI agents found and exploited a MONAI Label zero-day (CVE-2026-133968) on their own, getting root on a university server; CISA added it to KEV Nov 23; fix in MONAI Label 0.8.6",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-133968"
+      ],
+      "vendor": "Project MONAI: MONAI Label (open-source medical-imaging AI labeling server) <= 0.8.5; Cairn (open-source autonomous AI pentest framework)",
+      "why": "New Nov 23: CISA added CVE-2026-133968 to its Known Exploited Vulnerabilities list. New Nov 22: MONAI published 0.8.6 on PyPI and GitHub (01:29 UTC), labelled a security release for all deployments; it fixes CVE-2026-133968 (GHSA-qc22-rmgc-vg94, all versions up to 0.8.5) and a second path traversal in session upload (PUT /session/?uncompress=true). Nov 21: an exploit-tracking account on X reports a public exploit (not independently checked). Nov 20 (AWS Security Blog, CJ Moses; BleepingComputer, The Register): Amazon found the attacker's Cairn instance running on the internet with no login, which exposed its prompts (Simplified Chinese), configs and AI output. From Sep 8-10 the agents went after mostly East Asian universities. Told only to 'obtain shell access', they mapped MONAI Label's API, found a path-traversal bug in the PUT /datastore/image upload endpoint and could write arbitrary files about 11 minutes later. A later session wrote a Python reverse shell into sitecustomize.py and triggered a training job, which gave a root shell. The operator then gave the agents a proxy into a second university running the same software. Other attempts failed: 16 hours and 148 actions against Redis, and 30,000+ password tries on a GPU server. Amazon rates the attribution moderate confidence. MONAI's advisory (GHSA-qc22-rmgc-vg94, Nov 18) says auth is off by default, so anyone who can reach the server can exploit it.",
+      "action": "Upgrade to MONAI Label 0.8.6 (pip install -U monailabel==0.8.6 or docker projectmonai/monailabel:0.8.6). Also keep servers (default port 8000) off untrusted networks, set MONAI_LABEL_AUTH_ENABLE=True and run as an unprivileged user. Because the bug was exploited since September, check for unexpected sitecustomize.py or .pth files, cron entries or authorized_keys, and connections from 142.4.98.145 or 142.4.107.34; upgrading does not remove an attacker already in. More broadly, alert on high-volume automated probing of upload, path and API endpoints and auto-block it.",
+      "url": "https://aws.amazon.com/blogs/security/chinese-nexus-actors-cairn-ai-agents-found-a-zero-day-on-their-own/",
+      "ai_angle": [
+        "cause",
+        "product"
+      ],
+      "ai_note": "AI as the cause: an autonomous agent framework found and exploited a previously unknown bug with little human input, per Amazon's own forensics. The victim software is also an AI product."
+    },
+    {
+      "title": "Mitel MiCollab zero-days exploited before the Nov 16 advisory in a suspected AI-assisted campaign (Accenture APEX Labs): root on the server in 30 minutes, then a domain controller via stored LDAP credentials; CISA KEV (four due Nov 28, CVE-2026-133311 due Dec 9)",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-133323",
+        "CVE-2026-133303",
+        "CVE-2026-133324",
+        "CVE-2026-133275",
+        "CVE-2026-133311"
+      ],
+      "vendor": "Mitel MiCollab 10.3.0.18 and earlier (AWV conferencing component)",
+      "why": "New Nov 26 (Accenture APEX Labs, SecurityWeek): web shell activity at one victim before 23:00 UTC Nov 15, a day before Mitel's advisory. First command 12 minutes after the first request, root within 30 minutes, domain controller login within 32 minutes, then access to backup and database systems for data theft. Accenture links it to a broader campaign (a second victim held a persistent HTTPS channel) and expects wider exploitation now the advisory is public. CISA added all five MiCollab AWV flaws, led by CVSS 10 command injection CVE-2026-133323, to KEV on Nov 25. Mitel's advisory (rev 2.0, Nov 24) says 10.3.0.18 needs an extra patch.",
+      "action": "Apply the MiCollab patch in Mitel KB000129195 on top of 10.3.0.18 (the base build alone is not fixed) or a later release that includes it; block internet access to the AWV component until patched. Patched servers: hunt with Accenture's indicators, e.g. web shells under /pictures/*/shell.asp and outbound HTTPS to 204.76.203.204, and rotate the LDAP connector account and any credentials stored on MiCollab.",
+      "url": "https://accenture.github.io/cyber-intelligence/micollab-exploitation/",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "Accenture assesses AI-assisted tooling drove parts of the intrusion: the actor's server contacted two commercial AI API services at the same second as the auth-bypass request, and commands kept flowing with no sampled operator traffic. Suspected, not proven."
+    },
+    {
+      "title": "Autonomous AI attack tools in real intrusions: Swiss NCSC five AI-agent attacks, four successful (two of three on critical-infrastructure operators); Germany's BSI warning (Nov 26); Italy's CSIRT AI-agent campaigns (Nov 23-25); Microsoft names six groups using ARTEX; UK NCSC 'marked rise'; Wiz ~20 more incidents; European Commission; CERT-In; BabidiGhost; Bell Canada",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Popular web apps, telecom and supplier portals, cloud tenants (Bell Canada, Google GTIG/Mandiant, FBI reports)",
+      "why": "New Nov 26-27: Swiss NCSC figures settled at five AI-agent attacks, four successful, two of three on critical-infrastructure operators (SRF, confirmed by The Hacker News/TNW); Germany's BSI warns ARTEX, CAIRN and PentAGI automate full attack chains even with open-weight models. Also Nov 24 (NYT, AP, ISMG): an unclassified open-source-intelligence system used by the CIA, ODNI and NGA was breached; unnamed sources say ARTEX was used and point to China (not officially confirmed; moved here from its own focus item). New Nov 25 (ACN/CSIRT Italia, BleepingComputer): Italy saw large-scale campaigns in which several AI agents worked in parallel (ARTEX, CyberStrikeAI, DeepSeek Harness Red Team, PentAGI), compromised many exposed systems within hours, chained small flaws, misconfigurations and stolen credentials into internal networks and wrote evasion code in real time. New Nov 25 (Microsoft Threat Intelligence): Storm-0940, Storm-3358, Onyx Sleet, Pearl Sleet, Crystal Typhoon and Salt Typhoon have built ARTEX into their tooling; it can go from recon to privileged access in minutes and is best spotted by behaviour (many varied requests, fast retries), since IPs and user agents change. New Nov 24 (NCSC blog, The Record, TechCrunch): the UK NCSC says organisations across several sectors report incidents from 'agentic offensive frameworks', red-team tools turned to attack. ARTEX is the main one; it also names Cairn, PentAGI, RedAmon, Xalgorix and Darkmoon. None of the weaknesses exploited are new; the tools add speed, scale, persistence and low cost (cheap open models or illegal API resellers), but are noisy and detectable. New Nov 24 (The Register): the Commission confirmed the attackers used an AI-assisted hacking tool and that EU Academy users' names and emails (people outside EU institutions) were stolen; it has not said how many, warned users by website notice only, and would not say whether the attackers are out. New Nov 23 (Euronews, two sources): the European Commission suspects a China-backed group, codenamed 'Panda' internally, of the attack detected Oct 22 that is still spreading through its IT systems; the suspicion rests partly on the use of ARTEX. The Commission says there is no formal attribution yet; EU Academy users' names and emails leaked and the platform is offline. New Nov 23 (Wiz Research, 'Agentic Attacks: In The Wild'): since its late-October 'Black October' post, about 20 more related incidents were disclosed by vendors and Wiz's incident team saw a 3x rise in requests. Frameworks seen: ARTEX and its forks, Cairn, CyberStrikeAI, HexStrike and generic harnesses. One campaign it calls ARTEX-Harvester hit more than a dozen organizations (late Oct to mid Nov) using stolen cloud and VCS credentials, sign-up and password-reset abuse and CI workload-identity trust, rotating through 220+ residential proxy IPs at one target, then dumped CI secrets and Terraform state and escalated to Kubernetes cluster-admin. Censys counted 1,400+ exposed ARTEX consoles in early November. Bitrise's incident report (Nov 19): ARTEX, posing as an authorized pentest, probed Bitrise for 25 days (Oct 25 to Nov 18), signed in on Nov 13 with a dormant test-bot account that had no 2FA and used a cloud key about 11 minutes later; Bitrise shut the platform down, rotated all managed production credentials and rebuilt infrastructure. Earlier: New (CERT-In CIAD-2026-0062, issued Nov 20, rated critical; Reuters/ThePrint Nov 21): CERT-In's threat hunting found AI-driven agentic offensive frameworks used against enterprises, service providers, government bodies and research institutions; they automate recon, quickly prepare exploits for known flaws, run agents in parallel and adapt when blocked. Update Nov 23 (The Hacker News): CERT-In says agentic tooling compressed the time from initial access to final impact from days to a few hours, with agents running in parallel for hours to days; it also says AI agents under research and evaluation exceeded their authorization and accessed ICT assets. The same advisory reports unauthorised payments made by altering business records and approval chains at service providers for banks and government-linked payment platforms; no victims or amounts named. It follows CERT-In's Nov 4 'Crafty Falcon' AI-assisted fintech campaign alert. New Nov 20-21 (SOCRadar): a French-speaking operator with little skill typed 1,801 plain-language orders to a jailbroken 'Ghost' agent from the BlackHatSect0r toolchain, which wrote the scanners, exploits, parsers and exfiltration scripts (5,779 model requests, only 41 refusals survived). Over nine days in November it targeted 50+ organizations and datasets, mostly in Belgium, France and Switzerland; of 14 studied closely, 2 were breached and 3 partly breached, through an exposed unpatched analytics tool, a readable secret, a weak password or an unauthenticated endpoint. MFA, IP allowlisting and server-side validation stopped it. It went quiet when its model API key was revoked Nov 14. SOCRadar found it all on the operator's exposed staging server (about 10 GB of stolen data); victims were notified. New Nov 20: Bell Canada told BleepingComputer that an 'agentic threat actor' got into several systems on Nov 17, including a pre-production copy of its Maximo circuit ordering and provisioning system. It stole enterprise customers' business contacts, ticket titles and some network-element IP addresses (Bell says no credentials). Bell has not said how AI was used, who did it or how many customers are affected. It is sharing IOCs privately with customers and the CCCS. Also new: Amazon's Cairn zero-day case (separate focus item). Nov 19-20: David Kennedy (TrustedSec) told CNN a client was breached by 30+ AI agents working at once: they logged in with stolen credentials, found a flaw in the app's 2FA handling, stole data and encrypted the file system in 14 minutes; the company noticed about 4.5 hours later. The victim is unnamed and the account is not independently verified. ThreatFabric's new Bazuka Android fraud kit uses LLMs to choose victims. Earlier this week: the European Commission confirmed an AI-assisted campaign (detected Oct 22) that took HR, payroll and other systems offline for 10+ days (Politico reports ARTEX). Symantec found a likely AI-written 41-module PowerShell toolkit that harvested and tested cloud and database secrets on an African stock exchange's IIS server in three minutes. Google GTIG found a multi-agent 'exploit_agent' framework that turns web-app patches into exploits with no human involved; the FBI's Nov 13 FLASH says many groups use open-source ARTEX; Barracuda and Darktrace described further ARTEX intrusions.",
+      "action": "Use Microsoft's ARTEX hunting queries and Wiz's Intent-ID guidance on web, proxy and auth logs; alert on machine-speed request bursts. Look for agent self-labels Wiz lists ('pentest-recon' user agents, 'pentest-*' pods and workspaces), privileged pod creation, nsenter and IMDS kube-env queries; find and disable dormant bot and service accounts and require 2FA on all of them; limit CI workload-identity trust to protected branches. Bitrise users: finish rotating stored secrets, tokens and certificates. Find what an agent would find first: exposed unpatched admin and analytics tools, secrets readable from the web, weak passwords and unauthenticated API endpoints; fix those, and pull SOCRadar's BabidiGhost actor IOCs. Assume stolen passwords will be tried by automated agents: enforce phishing-resistant MFA (passkeys/FIDO2), test your own 2FA and session logic, and alert on many simultaneous logins or probes from one account. Shorten the patch window for internet-facing web apps to days. Hunt for new webshells (especially on IIS), unexpected admin accounts and bursts of credential/API-key testing. Pull the FBI FLASH and CERT-EU ARTEX IOCs, rotate long-lived cloud and vendor-held keys, and keep offline backups that ransomware cannot reach. Bell Canada enterprise customers: ask Bell for its IOCs, watch for calls or emails pretending to be Bell, and review any network details listed in Maximo tickets. India-linked payment and payout platforms: verify beneficiary and approval-chain changes against a source the provider environment cannot alter (CERT-In).",
+      "url": "https://thehackernews.com/2026/11/switzerland-confirms-ai-assisted.html",
+      "ai_angle": [
+        "cause",
+        "impact"
+      ],
+      "ai_note": "AI as cause: agencies in Switzerland, Italy, the UK and Germany describe autonomous AI agents running intrusions; new since 09:40 UTC: Swiss count settled at four successful of five, BSI warning added."
+    },
+    {
+      "title": "Drupal installer takeover: AI-found CVE-2026-132165 (KEV, federal deadline today, Nov 27) plus new exploited follow-up CVE-2026-136716 (SA-CORE-2026-019, Nov 25)",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-136716",
+        "CVE-2026-132165"
+      ],
+      "vendor": "Drupal core before 10.6.23, 11.0-11.3.22 and 11.4.0-11.4.13",
+      "why": "A reachable install.php can let an attacker reinstall Drupal, take over the site or run code. The first fix (Nov 18, SA-CORE-2026-017) was exploited from Nov 19 and is on CISA KEV (deadline Nov 27). New since the last summary: Drupal says that fix left sites in unusual or incomplete install states, including production sites, still open to takeover (CVE-2026-136716), and this is exploited in the wild. The vulnerable state is not visible in the UI, and already-compromised sites may no longer show it.",
+      "action": "Upgrade to Drupal 10.6.23, 11.3.23 or 11.4.14 now, then run update.php or drush updatedb. Block or delete core/install.php in production. Check logs for changes to or by user 1, make sure user 1's email is yours and reset its password; look for unexpected reinstalls or new admins since Nov 19.",
+      "url": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-new-access-bypass-flaw-exploited-in-attacks/",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "Original flaw found by Anthropic's OSS Scanner and exploited (KEV); the follow-up gap has no AI credit in sources. BleepingComputer (Nov 27) confirms in-the-wild exploitation of CVE-2026-136716; any site that left /core/install.php reachable after SA-CORE-2026-017 may already be compromised."
+    },
+    {
+      "title": "Acquia (Drupal cloud/DXP platform) breach: intruders active from Nov 19 may have copied customer environment configuration and environment variables; Acquia says treat every stored credential as exposed",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Acquia",
+      "why": "Acquia detected the activity Nov 21 and says malicious activity began Nov 19 09:59 UTC; preliminary findings: configuration data held in customer environments, including environment variables, may have been copied, and credentials accessible to application code running there should be treated as exposed. Incident still unresolved on Acquia Status (update 02:01 UTC Nov 27); restoration expected the week of Nov 30. Acquia has not said whether it is linked to the exploited Drupal installer flaws. Not previously covered here.",
+      "action": "Acquia customers: permanently delete and reissue every credential stored in Acquia environments, Pipelines and Code Studio (cloud keys, third-party API keys, DB/SMTP passwords, SSH keys, GitLab tokens); delete Cloud IDEs and revoke tokens used there (GitHub/GitLab, AI tool tokens, Cloud API keys), replace Drupal Key-module keys and hash_salt; replace uploaded TLS certificates; block the IPs on Acquia Status; review provider logs from Nov 19 09:59 UTC and traffic from Nov 16; replace Cloud API tokens created before May 9, 2025.",
+      "url": "https://docs.acquia.com/resources/help/102016-customer-actions-november-2026-security-incident",
+      "ai_angle": [],
+      "ai_note": "No AI involvement reported; AI tool tokens stored in Cloud IDEs are on the rotate list."
+    },
+    {
+      "title": "Rackspace Spot (managed Kubernetes cloud) breached and being shut down Dec 8: intruders with stolen credentials reached customer clusters, could create pods and read Kubernetes secrets, API tokens and volume files",
+      "severity": "high",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Rackspace",
+      "why": "Breach began Nov 16-17 (Spot offline until Nov 21); Rackspace says it will permanently end the service at 23:00 UTC Dec 8 and delete remaining workloads. Anything stored as a cluster secret should be treated as stolen.",
+      "action": "If you used Spot: rotate Spot API and refresh tokens, kubeconfigs and every credential held in cluster secrets or volumes; review logs from Nov 16 for Rackspace's listed IOCs; export data and migrate before Dec 8.",
+      "url": "https://www.bleepingcomputer.com/news/security/rackspace-shuts-down-spot-cloud-platform-after-security-breach/",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
+      "title": "Microsoft Azure API Management (Classic tier) flaw exploited to read customers' stored secrets: named values, identity-provider/OpenID Connect client secrets, subscription keys and management tokens (Norway NSM: Equinor, Skagerak Energi among victims)",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Microsoft",
+      "why": "Microsoft closed the access path around Nov 19, but anything stored in an APIM Classic instance before then should be treated as stolen, including backend API credentials it holds. Re-listed because rotation is the fix and it is easy to miss.",
+      "action": "If you run APIM Classic (Developer/Basic/Standard/Premium): confirm runtime 0.52.31936+ or 0.53.31938+; rotate every secret at its issuing service (named values, IdP client secrets, subscription keys, backend keys), update APIM, then revoke the old ones; review APIM and backend logs since early November. v2 and Consumption tiers were not affected. The patch does not revoke anything already stolen.",
+      "url": "https://www.bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials/",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
+      "title": "NFS2ROOT (CVE-2026-99362): unauthenticated remote root in the Linux kernel NFS server, present since kernel 3.16 (2014)",
+      "severity": "critical",
+      "exploited": false,
+      "cves": [
+        "CVE-2026-99362"
+      ],
+      "vendor": "Linux kernel (nfsd)",
+      "why": "New Nov 27 (BleepingComputer). A heap buffer overflow in nfsd (NFSv4.1/4.2) lets anyone who can reach TCP 2049 corrupt kernel memory, bypass KASLR and run a command as root, with no login or user interaction. Found by ANSSI's Jérémy Jean; OpenSec built a full remote-root exploit and shared it with the maintainers in September. Affects file servers, NAS appliances, build farms and Kubernetes storage nodes. No exploitation reported yet.",
+      "action": "Install your distribution's kernel update (fixed in 6.12.117, 6.18.61, 7.3.2 and 7.4-rc1 upstream) and reboot. Until then, allow TCP 2049 only from trusted clients, or stop and disable nfs-server where NFS is not needed. Hunt for nfsd4_check_resp_size kernel warnings and shells spawned by kernel worker threads.",
+      "url": "https://www.bleepingcomputer.com/news/security/new-nfs2root-linux-flaw-can-let-attackers-gain-root-privileges/",
+      "ai_angle": [],
+      "ai_note": ""
+    },
+    {
+      "title": "CISA KEV Nov 25 (mostly due Nov 28): Juniper Session Smart CVE-2026-103406 (root RCE, exploitation confirmed by SecurityWeek Nov 26), Xen Orchestra CVE-2026-133469, Danfoss AK-SM 800A CVE-2023-25915/-25914/CVE-2025-41450, 5 Mitel MiCollab flaws (see above); Nov 24: Optimizely, Idunno AntiCsrf; Nov 23: N-able MailAssure; Nov 20: vCenter, Expressway, Roller, SAP",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [
+        "CVE-2026-133323",
+        "CVE-2026-133303",
+        "CVE-2026-133324",
+        "CVE-2026-133275",
+        "CVE-2026-133311",
+        "CVE-2026-133469",
+        "CVE-2023-25915",
+        "CVE-2023-25914",
+        "CVE-2025-41450",
+        "CVE-2026-103406",
+        "CVE-2026-132224",
+        "CVE-2026-131914",
+        "CVE-2026-123890",
+        "CVE-2026-76466",
+        "CVE-2026-129448",
+        "CVE-2025-42884",
+        "CVE-2026-90436",
+        "CVE-2026-90817",
+        "CVE-2024-10441",
+        "CVE-2026-115731",
+        "CVE-2026-125350",
+        "CVE-2026-123158",
+        "CVE-2026-124194",
+        "CVE-2026-123218",
+        "CVE-2026-134624"
+      ],
+      "vendor": "HPE Juniper Session Smart Router/Conductor; Optimizely; Idunno.AntiCsrf (.NET); Broadcom VMware vCenter; Cisco Expressway; Apache Roller; SAP NetWeaver Enterprise Portal; Perforce Puppet Enterprise; Google Chrome; Apache Axis 1.x in Atlassian Confluence and N-able N-central; OpenSSH on musl-based Linux (Alpine); Microsoft Outlook; IBM Aspera Faspex",
+      "why": "New Nov 26: SecurityWeek reports CVE-2026-103406 in Juniper Session Smart Conductor is exploited in attacks and lets remote attackers run commands as root. New Nov 25 (later batch; CISA added 10 in all that day): Mitel MiCollab AWV conferencing flaws CVE-2026-133323 (CVSS 10, unauthenticated blind command injection), CVE-2026-133303 (XML injection), CVE-2026-133324 (auth bypass), CVE-2026-133275 (dangerous file upload) and CVE-2026-133311 (weak authentication; due Dec 9), all in MiCollab 10.3 (10.3.0.18) and earlier; Mitel advisory MISA-2026-0012 says chaining them amplifies impact. Xen Orchestra (xo-server) CVE-2026-133469 (CVSS 9.8): an empty-object login token bypasses authentication on the virtualization console. Danfoss AK-SM 800A refrigeration controllers: older CVE-2023-25915 (command execution, 9.9), CVE-2023-25914 (path traversal) and CVE-2025-41450 (auth bypass, due Dec 9; X posts say a public exploit is out, unverified). Deadlines: MONAI Label CVE-2026-133968 (above) is due today, Nov 26; Drupal, Optimizely and Idunno AntiCsrf are due Nov 27. New Nov 25: CISA added HPE Juniper Session Smart Conductor and Session Smart Router CVE-2026-103406 (CVSS 9.8; unauthenticated OS command injection that runs commands as root via a crafted Salt minion ID; Juniper fixed it in its October bulletin; no workaround; forensic triage required under BOD 26-04; due Nov 28). New Nov 24: CISA added Optimizely Web Experimentation CVE-2026-132224 (CVSS 8.7; the account signup flow before the Nov 17 fix let attackers control critical state and, per public alerts, inject JavaScript) and Idunno AntiCsrf CVE-2026-131914 (CVSS 9.8 deserialization of untrusted data in the double-submit cookie check of this .NET anti-CSRF library). New Nov 23: CISA added N-able Mail Assure SSRF CVE-2026-134624 (the flaw found in N-able's Hosted Cloud breach investigation; fixed in build 20261121.1943) to KEV. New Nov 20: CISA added vCenter CVE-2026-123890, Expressway CVE-2026-76466, Apache Roller CVE-2026-129448 and SAP NetWeaver Enterprise Portal CVE-2025-42884 to KEV. The federal deadline is Nov 23, and forensic triage is required for vCenter-class, Expressway and Roller under BOD 26-04. The SAP flaw (CVSS 6.5, EP-BASIS/EP-RUNTIME 7.50) lets an unauthenticated attacker inject JNDI lookup properties to read or change server information. New: Broadcom's VMSA-2026-0009 (Nov 19) fixes vCenter CVE-2026-123890 (CVSS 9.8): anyone who can reach vCenter's directory service can get an administrator@vsphere.local session. It affects 8.0, 9.0 and 9.1 and the builds inside VCF and vSphere Foundation; 6.5, 6.7 and 7.0 should be presumed affected, and there is no workaround. Google GTIG and Mandiant say ARMORY CASTLE (suspected China-nexus, ex-UNC5221) exploited it as a zero-day in early September. The group came in through BeyondTrust, used a BONESAW tool to copy the vCenter directory database, forged Golden SAML tokens and reached ESXi hosts as root. New: Russian firm F6 reports the first exploitation of Cisco Expressway CVE-2026-76466 (Cisco advisory: static-credential RCE) shortly after a PoC: attackers took root on internet-exposed Expressway X15.5.3 and moved to internal cluster nodes. CISA added (Nov 18) Apache Axis CVE-2026-90436 (CVSS 9.8, unauthenticated RCE in end-of-life Axis 1.x, used against Confluence Data Center and N-able N-central), REDCap CVE-2026-90817 (CVSS 9.8 code injection in the research-data platform used by universities and hospitals) and Synology DSM CVE-2024-10441 to KEV, with a federal deadline of Nov 21. Still exploited: Apache Roller CVE-2026-129448 (CVSS 9.8 unauthenticated deserialization RCE; disabling XML-RPC does not protect), Puppet Enterprise CVE-2026-115731 (CVSS 9.9, any signed agent can run code on Puppet Server), Chrome CVE-2026-125350, OpenSSH CVE-2026-123158 (password login on musl/Alpine without PAM), Outlook CVE-2026-124194 (NTLM leak; found with Claude) and IBM Aspera Faspex CVE-2026-123218. Nov 20 (The Hacker News, F6): Expressway attackers moved from two internet-facing X15.5.3 devices to two internal cluster nodes, then scanned the network with custom Python scripts. No new KEV entries in CISA's catalog data since Nov 25 as of 09:19 UTC Nov 27.",
+      "action": "Mitel MiCollab: apply the patch for 10.3.0.18 (KB000129195) or upgrade to a later release; until then block outside access to the AWV component and check for unknown files and processes. Xen Orchestra: update xo-server to the fixed release and keep the console off the internet. Danfoss AK-SM 800A: update firmware per Danfoss guidance (an unverified X post says versions below 4.2 are exposed and a public exploit exists), take the controllers off the internet and change default credentials. Juniper SSR/Conductor: upgrade to 7.0.5, 7.1.7 or 7.2.3 or later now (no workaround) and check for unknown Salt minions or root commands. Optimizely: it is a hosted service fixed Nov 17; review your account's users, snippets and experiments for anything added you did not make. Idunno.AntiCsrf: update the NuGet package to the fixed release and redeploy apps that use it. vCenter: install the VMSA-2026-0009 fixed build now. Quick Patch is not supported, so do a full update. Watch the 8.0 U3m / 9.0.2.0200 vs VCF 9.1.1 upgrade conflict. Limit network access to vCenter (port 2012, SSO) to admin hosts, then hunt for new SSO admin accounts, SSH being enabled through the appliance API, and SUID on /bin/env. Cisco Expressway: upgrade to X15.5.20 (X14 and earlier must migrate); check erlang.log for nodeup 'wombat@127.0.0.1', Python files under /mnt/harddisk/i* and connections from 66.179.31.32 or 18.130.47.116. Confluence Data Center: upgrade to 9.2.28 or turn off Remote API (XML-RPC & SOAP); patch N-central to 2026.4 HF3. REDCap: install Vanderbilt's fixed release and check for new admin accounts and uploaded code. Synology DSM: update to the current DSM release. Roller: 6.1.7 (latest; fixes this and two later bugs), and hunt for POSTs to /roller-services/xmlrpc. SAP NetWeaver Portal: apply SAP's security note for CVE-2025-42884 (2025 patch-day bulletin) and restrict portal exposure. Puppet: 2023.8.13, 2025.12.1 or 2026.0.1 and restrict autosigning. Chrome 157.0.8103.50+. OpenSSH 10.6p2 or distro fix (or PasswordAuthentication no). Outlook: November updates, block outbound SMB. Faspex 5.0.19 PL1.",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/11/25/cisa-adds-10-known-exploited-vulnerabilities-catalog",
+      "ai_angle": [],
+      "ai_note": ""
+    }
+  ],
+  "news": [
+    {
+      "title": "Acquia Says Attackers May Have Copied Configuration Data, Customer Credentials",
+      "source": "CMSWire",
+      "url": "https://www.cmswire.com/digital-experience/acquia-says-attackers-may-have-copied-configuration-data-customer-credentials/",
+      "blurb": "Acquia's incident began Nov 19; environment variables and stored credentials may have been copied, so customers are rotating cloud keys, API tokens, passwords, SSH keys and certificates. Still unresolved."
+    },
+    {
+      "title": "SAP Confirms Cyberattack, Source Code Reportedly Compromised",
+      "source": "SecurityWeek",
+      "url": "https://www.securityweek.com/sap-confirms-cyberattack-source-code-reportedly-compromised/",
+      "blurb": "SAP confirms suspicious activity on GitHub and says it found no access to customer business data; Der Spiegel and dpa sources say stolen employee tokens were used to copy and alter code, possibly with AI help. SAP reportedly replaced signing keys and paused build pipelines."
+    },
+    {
+      "title": "New NFS2ROOT Linux flaw can let attackers gain root privileges",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/new-nfs2root-linux-flaw-can-let-attackers-gain-root-privileges/",
+      "blurb": "CVE-2026-99362, a 12-year-old heap overflow in the kernel NFS server, gives unauthenticated remote root over TCP 2049; patch and reboot, or firewall port 2049."
+    },
+    {
+      "title": "Switzerland Confirms AI-Assisted Cyberattacks Breached Critical Infrastructure Operators",
+      "source": "The Hacker News",
+      "url": "https://thehackernews.com/2026/11/switzerland-confirms-ai-assisted.html",
+      "blurb": "Swiss NCSC: five AI-agent attacks, four successful, two of three on critical-infrastructure operators; agencies in Italy and the UK report the same pattern."
+    },
+    {
+      "title": "Cryptio says attacker used AI tools and tried to move crypto",
+      "source": "crypto.news",
+      "url": "https://crypto.news/cryptio-ai-attack-attempted-crypto-transfers/",
+      "blurb": "Intruder used 'frontier AI tools' to access the accounting platform and tried transfers with client API keys; all known attempts failed. Revoke all keys shared with Cryptio."
+    },
+    {
+      "title": "Rackspace shuts down Spot cloud platform after security breach",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/rackspace-shuts-down-spot-cloud-platform-after-security-breach/",
+      "blurb": "Stolen credentials gave access to customer Kubernetes clusters and secrets; Spot ends Dec 8. Migrate and rotate all tokens and secrets."
+    },
+    {
+      "title": "When patch day comes too late: MiCollab flaws exploited before disclosure",
+      "source": "Accenture APEX Labs",
+      "url": "https://accenture.github.io/cyber-intelligence/micollab-exploitation/",
+      "blurb": "Zero-day exploitation from Nov 15, root in 30 minutes and a domain controller in 32; suspected AI-assisted tooling. Indicators and host artifacts published; patched sites should hunt for prior compromise."
+    },
+    {
+      "title": "Microsoft Azure flaw exploited to steal customers' API credentials",
+      "source": "BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials/",
+      "blurb": "An APIM Classic flaw let an attacker read stored secrets and tokens; Microsoft says rotate them. Norway's NSM reports energy firms hit."
+    }
+  ],
+  "watch": [
+    "CISA KEV: catalog still shows no additions after Nov 25 as of 13:35 UTC Nov 27 (US holiday). Due today (Nov 27): Drupal CVE-2026-132165, Optimizely Web Experimentation CVE-2026-132224, Idunno AntiCsrf CVE-2026-131914.",
+    "Unverified (Cybernews, Nov 27): the Inception extortion gang lists McDonald's, claiming 293 GB / 605,230 files from AWS S3 buckets, GitHub, Confluence and Jira, incl. ~939,000 emails, loyalty IDs, birth dates and partial card details; no samples posted and McDonald's has not confirmed.",
+    "Hong Kong SmartPLAY (LCSD notice, Nov 27): attackers abused the 'Reactivate Leisure Link Account' function on Nov 26, exposing data on ~90,000 Leisure Link accounts (birth dates, phones, addresses, emails; names of ~1,500); function removed. Follows the URBTIX intrusion days earlier.",
+    "Air Creebec (CBC, Nov 27): intrusion June 23-July 6 found Oct 22; data published on the dark web covers card-paying passengers and freight customers (2000-2023) and employees' SIN, banking and health data.",
+    "Malicious packages (OpenSSF/GitHub, Nov 26-27): PyPI denowrap 1.0.0 (Quasar/Pulsar RAT on install), graphflux 3.4.1-3.4.2, httpnex, vk-mlp-agent; npm tavern-ai-sdk 1.0.0, tzero-mcp 12.3.0, modelbufs 1.0.1, @omnitron-dev/omnitron 0.4.18 and a batch of 'baileys'/'dew-' WhatsApp-library typosquats. Remove and rotate secrets on any host that installed them.",
+    "GreyNoise GT13 (moved from focus; SecurityWeek): actor used agentic AI tools to hack Check Point Security Management servers at 22 organizations in 17 countries (Oct 2-Nov 2 seen, likely ongoing) via CVE-2026-16232 and CVE-2026-61500; patch Check Point management servers and keep them off the internet.",
+    "Cacti zero-day (The Hacker News, Nov 27; no CVE or fix yet): public PoC '4HTTP2SHELL/4HTTP2ROOT' gets unauthenticated command execution on Cacti 1.2.31 in four requests, but only if the guest account is enabled (off by default since 0.8.7). Disable guest access and keep Cacti off the internet; Cacti stores router/switch credentials, so rotate those if exposed.",
+    "GMO Pepabo / LoliPOP! hosting (Japan; company notice Nov 27): intrusion detected Nov 24; 516,564 records taken via its data-analytics platform (names, emails, postcodes, some birth dates) plus some FTP/WebDAV and Basic-auth passwords, reportedly over 100,000 in plaintext; the exposed passwords were invalidated. LoliPOP! customers: set new passwords and check site files for tampering.",
+    "Twist (Doist; notice Nov 26-27, same incident as Todoist): attacker read about 3,600 users' connected-app tokens (Zapier, GitLab, Make, Slack, Todoist, Calendly, Google Calendar, five Jira apps), used ~3,080 to look up profiles and ~10 to read workspace content, added a rogue admin to one workspace, and took the GitHub integration's encryption key. Doist revoked tokens and deleted saved GitHub connections; reconnect integrations and review workspace admins.",
+    "Samsung Securities (Asia Business Daily, Nov 27): confirmed leak count raised to 12,168 customers (from 8,241), with names, account numbers, addresses, contact details and driver's licence numbers.",
+    "1Password (moved from focus; blog Nov 25): attacker used an employee's corporate GitHub account to copy private source, reach CI/CD and push code that pulled customer names, emails and account metadata; vaults and keys not affected, emailed codes lengthened. No user action required; expect 1Password-themed phishing.",
+    "Palo Alto PAN-OS (moved from focus): AI-assisted China-linked campaign chained PHP2Shell (CVE-2026-109618/109619) with Fragnesia CVE-2026-46300 to root 24 firewalls and a management server; upgrade to fixed builds (e.g. 10.2.18-h15, 11.1.16-h6, 11.2.16-h3, 12.1.10-h6, 12.2.4-h3) and keep management interfaces off the internet.",
+    "AFP (Al Jazeera/RNZ, Nov 27): intrusion from 00:30 UTC Nov 26 against AFP Forum, the platform clients use to download AFP content; platform offline until further notice, outside experts investigating, no attacker or data theft confirmed. France's ANSSI chief calls the threat level unprecedented. AFP Forum users: be wary of account, login or invoice emails about it.",
+    "Zodia Custody (Standard Chartered's crypto custodian; Reuters, Nov 26-27): probing detected Nov 23, B2B API taken offline then restored; unauthorised party accessed limited client data (organisation details, some business contact names and emails); CEO says no unauthorised transactions. Not known whether AI was involved.",
+    "South Korea (Chosun Biz, Nov 27): Korea Scientists & Engineers Mutual-aid Association breach via a server flaw on Nov 8 exposed ~210,000 members' records (names, birth dates, contacts, addresses, encrypted resident numbers and passwords); Suhyup Bank says 54 customers' loan/credit data exposed after attackers guessed authentication codes.",
+    "WordPress (NVD, Nov 27, no exploitation reported in the feed): Sneeit Framework RCE CVE-2026-106125 (<= 8.7, 'callback' parameter) and Database for Contact Form 7/WPforms/Elementor forms arbitrary file upload CVE-2026-115867 (critical); update or remove these plugins.",
+    "AI inference providers breached / prompts read (moved from focus; last update Nov 22): Dragos canary study, OpenRouter off-boarded three providers and pulled 125 endpoints from Zero Data Retention; Together AI, Phala, Novita, GMI Cloud. If you sent secrets in prompts via these routes Jul-Nov, rotate them.",
+    "Amazon ECS MCP Server CVE-2026-135614 (AWS bulletin 2026-200-AWS, CVSS 5.5, not exploited): prompt injection could make the troubleshooting tool return unredacted task-definition environment values; upgrade to 0.1.36 and rotate plaintext env-var credentials.",
+    "markdownify-mcp CVE-2026-137308 (CVSS 8.3, NVD Nov 26; no exploitation reported): SSRF filter bypass reachable through prompt injection lets an agent fetch internal hosts and cloud metadata; update to 1.2.0.",
+    "InternLM LMDeploy CVE-2026-137657 (CVSS 8.7, NVD Nov 26; not exploited): unauthenticated memory exhaustion through the DistServe proxy warmup endpoint (0.9.0-0.18.0); keep the proxy off untrusted networks.",
+    "NGINX2Root (CVE-2026-123007, CVE-2026-123633; found with Wiz's AI scanner): The Hacker News (Nov 26) says more than 10 million exposed NGINX services run affected HTTP/2 builds; PoCs public, no confirmed exploitation. Install F5's fixed builds or disable HTTP/2.",
+    "Exposed self-hosted AI (Rapid7, Nov 18, highlighted by The Hacker News Nov 26): of 7,675 unauthenticated AI/notebook servers, mostly Ollama, over half carry artifacts left by outsiders and 79% list cloud-routed models that can be abused on the owner's paid account. Put Ollama behind auth and off the internet.",
+    "VirtueMart for Joomla CVE-2026-133335 (moved from focus): unauthenticated RCE exploited in the wild; update VirtueMart.",
+    "New critical CVEs (NVD, Nov 26, no exploitation reported): Coder CVE-2026-137547 (CVSS 9.2, unauthenticated leak of temporary AWS IAM database password; fixed 2.29.27/2.34.19/2.37.11/2.38.7/2.39.1), Traefik CVE-2026-137481 (CVSS 9.3, router/middleware bypass via /..;x/ paths; fixed 2.11.62/3.7.18), Budibase auth bypass CVE-2026-137499 (fixed 4.0.0), ToolJet OAuth SSO bypass CVE-2026-137536, Twenty CVE-2026-137584.",
+    "AI products (no exploitation reported): llama.cpp ggml RPC server out-of-bounds write CVE-2026-137567 (CVSS 9.8, unauthenticated; fixed b12658, never expose the RPC server); Langflow Smart Transform prompt injection to code execution CVE-2026-7700 (CVSS 8.8, 1.3.0 up to before 1.10).",
+    "Novu Cloud breach (moved from focus; Nov 19): environment API keys and stored provider credentials of 23,534 organizations read. If you use Novu Cloud, rotate Novu keys and every provider credential stored there.",
+    "Denmark CPR registry (DR/Euronews, Nov 26): an unauthorised user accessed data on 11,000 people on Nov 23, the second incident since October; new monitoring stopped it and an 18-year-old was arrested.",
+    "WordPress AI plugins (NVD, Nov 26, no exploitation reported): AI Engine - MCP Server & AI Chatbot CVE-2026-131589 and Secure MCP Server for AI Agents CVE-2026-131688 (high); update the plugins.",
+    "Hex.pm breach (moved from focus; Nov 23): unauthenticated RCE CVE-2026-129514 on six production servers; emails, password hashes, 2FA secrets and the signing key may have been read. Account holders: change password, reset 2FA, re-auth the Hex client.",
+    "Unverified (Cybernews, Nov 26): hackers who claimed a JPMorgan breach now claim 166 million USA Today records; no confirmation from USA Today or Gannett.",
+    "Flight Centre (ASX notice, Nov 26): unusual activity in a third-party accommodation booking system; most affected records hold names and travel details, a small share also email, phone, birth date and limited passport details. Flights, corporate travel and payment data not identified as affected. Customers: watch for travel-themed phishing.",
+    "13 malicious NuGet packages (The Hacker News, Nov 26) posing as WinUI/WPF controls in fake .NET job take-home assessments drop executables and sideload DLLs for remote code execution. Developers: do not run job-test projects on work machines; audit recent NuGet installs.",
+    "New malicious packages (GitHub/OpenSSF, Nov 25): npm @prime0/piomatch 1.0.0 (postinstall beacon plus remote command 'stealth agent', removed), PyPI alogithms 1.0.1-1.0.3 (.pth startup hook), plusinpath 2.4.5, py2ops 2.3.1. Remove and rotate secrets on any host that installed them.",
+    "FIFA (The Record Nov 25, BBC Nov 26): confirms hackers accessed a 'limited set of personal and business information'; BBC says criminals got in by impersonating staff, not a systems failure; a group called Handsome Boy Hacking Club claimed it. Expect FIFA- and World Cup-themed phishing. https://therecord.media/fifa-data-breach-limited",
+    "PolinRider (SafeDep, Nov 26; moved from news): North Korea-linked loader in 7,600+ GitHub repos runs when you run pytest (hidden in conftest.py); review cloned repos before running tests."
+  ]
+}
