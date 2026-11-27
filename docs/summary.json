@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-11-26T21:35:07Z",
-  "next_update_note": "Next summary update around 01:40 UTC Nov 27; the feed itself refreshes hourly.",
-  "headline": "Quiet Thanksgiving-afternoon update (since 17:26 UTC): no new KEV additions on Nov 26 and no new confirmed breach of a major platform. Back in focus because secrets may still be unrotated: the exploited Azure API Management (Classic) flaw that let an attacker read stored secrets, tokens and subscription keys (Norway NSM; Equinor, Skagerak Energi affected). New but lower priority: KEPCO breach of 1.52 million people (bank and card details), markdownify-mcp SSRF via prompt injection (CVE-2026-137308, fix 1.2.0), and the 'GoodGuys' fake expert-interview phishing for Google/Okta logins. Still leading: Mitel MiCollab zero-days (suspected AI-assisted), Juniper Session Smart CVE-2026-103406, Drupal CVE-2026-136716, Rackspace Spot, 1Password and the AI-agent attack wave. Deadlines: MONAI Label CVE-2026-133968 and N-able MailAssure were due today; Drupal CVE-2026-132165 Nov 27; Mitel, Juniper, Xen Orchestra and Danfoss Nov 28.",
-  "ai_headline": "No new AI-run attack reported since 17:26 UTC. The week's AI-cause picture stands: Switzerland's BACS (five AI-agent attacks, four successful, three on critical infrastructure), Accenture's suspected AI-assisted Mitel MiCollab zero-day campaign, Amazon's Cairn agent that found and exploited a MONAI Label zero-day by itself, Italy and UK NCSC warnings, Microsoft's ARTEX report, the ARTEX-linked CIA/ODNI/NGA breach (sources only), GreyNoise's GT13 Check Point campaign, the AI-assisted PAN-OS campaign and the AI-found Drupal installer bugs. New AI-product flaws (not reported exploited): markdownify-mcp SSRF reachable through prompt injection (CVE-2026-137308) and an unauthenticated memory-exhaustion bug in InternLM LMDeploy's DistServe proxy (CVE-2026-137657).",
+  "updated_at": "2026-11-27T01:40:00Z",
+  "next_update_note": "Next summary update around 05:40 UTC Nov 27; the feed itself refreshes hourly.",
+  "headline": "New since 21:35 UTC: crypto accounting platform Cryptio says an outsider used 'frontier AI tools' to get into its platform and tried to move customers' assets with exchange and custody API keys stored there; all known attempts failed and no losses are known, but every customer should revoke every key shared with Cryptio (even read-only) at the exchange or custodian. Still no new CISA KEV additions (US holiday). Also new: Amazon ECS MCP Server CVE-2026-135614 (prompt injection could pull unredacted task-definition secrets; fix 0.1.36). Correction: Swiss sources differ on how many of the five AI-agent attacks succeeded. Still leading: Mitel MiCollab zero-days (suspected AI-assisted), Drupal CVE-2026-136716, Azure API Management secret theft, Rackspace Spot, 1Password, Juniper CVE-2026-103406. Deadlines: Drupal CVE-2026-132165 today (Nov 27); Mitel, Juniper, Xen Orchestra and Danfoss Nov 28.",
+  "ai_headline": "New AI-cause case: Cryptio (crypto accounting SaaS) says the intruder used 'frontier AI tools' to access its platform and attempted asset transfers with stored client API keys (Nov 26; failed so far). The week's picture stands: Swiss BACS AI-agent attacks on critical infrastructure, Accenture's suspected AI-assisted Mitel MiCollab zero-day campaign, Amazon's Cairn agent finding and exploiting a MONAI Label zero-day, Italy and UK NCSC warnings, Microsoft's ARTEX report, the ARTEX-linked CIA/ODNI/NGA breach (sources only), GreyNoise's GT13 Check Point campaign, the AI-assisted PAN-OS campaign and the AI-found Drupal installer bugs. New AI-product flaw: Amazon ECS MCP Server secret-redaction bypass via prompt injection (CVE-2026-135614, patched).",
   "ai_activity": {
-    "overview": "Nov 26, 21:35 UTC. Quiet since 17:26 UTC: no new AI-run attack; two new AI-product flaws (markdownify-mcp SSRF via prompt injection, LMDeploy memory exhaustion), neither reported exploited. The week's picture: Accenture's suspected AI-assisted Mitel MiCollab zero-day campaign (domain controller in 32 minutes); Amazon's Cairn case (an AI agent found and exploited a MONAI Label zero-day on its own); Swiss, UK and Italian national agencies confirm real AI-agent intrusions, Switzerland's including three critical-infrastructure operators; Microsoft ties ARTEX to six state and criminal groups; sources tell the NYT that ARTEX was used to breach an unclassified CIA/ODNI/NGA system (not officially confirmed); GreyNoise's GT13 used agentic harnesses against Check Point management servers at 22 organizations; an AI-assisted campaign rooted PAN-OS firewalls; and Drupal's AI-found installer bug plus its exploited follow-up. AI impact: breached or prompt-logging inference providers. Items older than 7 days dropped. Counts: 28 AI-cause, 18 AI-product (exploited or reported), 4 AI-impact.",
+    "overview": "Nov 27, 01:40 UTC. New since 21:35 UTC: Cryptio says an intruder using 'frontier AI tools' got into its crypto accounting platform and tried to move client assets with stored exchange API keys (failed so far); new patched AI-product flaw in Amazon's ECS MCP Server (prompt injection can extract secrets); Swiss figures corrected (sources differ on how many attacks succeeded). The week's picture: Accenture's suspected AI-assisted Mitel MiCollab zero-day campaign (domain controller in 32 minutes); Amazon's Cairn case (an AI agent found and exploited a MONAI Label zero-day on its own); Swiss, UK and Italian national agencies confirm real AI-agent intrusions, Switzerland's including critical-infrastructure operators; Microsoft ties ARTEX to six state and criminal groups; sources tell the NYT that ARTEX was used to breach an unclassified CIA/ODNI/NGA system (not officially confirmed); GreyNoise's GT13 used agentic harnesses against Check Point management servers at 22 organizations; an AI-assisted campaign rooted PAN-OS firewalls; and Drupal's AI-found installer bug plus its exploited follow-up. AI impact: breached or prompt-logging inference providers. Items older than 7 days dropped. Counts: 27 AI-cause, 17 AI-product (exploited or reported), 4 AI-impact.",
     "counts": {
-      "ai_cause": 28,
-      "ai_product_exploited": 18,
+      "ai_cause": 27,
+      "ai_product_exploited": 17,
       "ai_impact": 4
     },
     "groups": [
@@ -15,13 +15,22 @@
         "label": "AI as the cause",
         "items": [
           {
-            "title": "Switzerland's BACS (NCSC): five recent attacks used AI agents, four compromised systems, three hit critical-infrastructure operators",
-            "date": "2026-11-26T12:00:00Z",
-            "summary": "First confirmed AI-agent attacks in Switzerland (Nov 24), updated Nov 26 via Reuters: five attacks in recent days used 'agentic offensive frameworks' that found flaws, picked tools and adapted to defenses; four succeeded; three targets were critical-infrastructure operators (electricity, water and telecom per SRF). No attacker named, no major outage reported.",
+            "title": "Cryptio (crypto accounting platform) breached by an intruder using 'frontier AI tools', who tried to move clients' assets with stored exchange/custody API keys",
+            "date": "2026-11-26T18:09:00Z",
+            "summary": "Cryptio told crypto.news on Nov 26 that an external party used 'frontier AI tools' to gain access to its platform and attempted to move digital assets with some of the credentials stored there; all identified attempts failed and no asset loss is known so far. It took the platform offline, hired an incident-response firm and worked with exchanges and custodians to revoke credentials. Customers (Cryptio names Circle, Gemini, Securitize as users) must revoke every API key shared with Cryptio at the issuer, including read-only keys, and check for unapproved transfers and permission changes. Which AI tools were used was not disclosed.",
             "status": "exploited",
             "cves": [],
-            "url": "https://www.channelnewsasia.com/business/ai-agents-used-in-five-cyber-attacks-in-switzerland-government-says-6585191",
-            "source": "Swiss NCSC (BACS)"
+            "url": "https://crypto.news/cryptio-ai-attack-attempted-crypto-transfers/",
+            "source": "Cryptio via crypto.news / The Defiant"
+          },
+          {
+            "title": "Switzerland's BACS (NCSC): five confirmed attacks used AI agents, three on critical-infrastructure operators; sources differ on how many succeeded",
+            "date": "2026-11-26T12:00:00Z",
+            "summary": "First confirmed AI-agent attacks in Switzerland (BACS notice Nov 24: all known cases led to compromise). On Nov 26 director Florian Schuetz told SRF there were five confirmed cases, three against critical-infrastructure operators; swissinfo reports two of those three succeeded, other reports said four of five. Attackers used 'agentic offensive frameworks' (BACS says exposed ARTEX/CyberStrikeAI instances nearly doubled since October). No attacker named, no major outage. BACS advice: cut exposed systems, patch internet-facing systems within 24 hours, MFA or passkeys everywhere.",
+            "status": "exploited",
+            "cves": [],
+            "url": "https://www.swissinfo.ch/eng/swiss-ai/switzerland-reports-first-ai-based-cyberattacks-on-critical-infrastructure/92440400",
+            "source": "Swiss NCSC (BACS) / SRF / swissinfo"
           },
           {
             "title": "Mitel MiCollab zero-days exploited before disclosure in a suspected AI-assisted campaign (Accenture APEX Labs)",
@@ -275,24 +284,6 @@
             "cves": [],
             "url": "https://socradar.io/blog/babidighost-ai-augmented-cybercrime/",
             "source": "SOCRadar"
-          },
-          {
-            "title": "Bazuka: new Android banking-fraud framework (23 modules: overlays, keylogging, SMS/2FA interception, remote control, crypto-address swapping) whose control panel uses LLMs to score and pick high-value victims",
-            "date": "2026-11-20T00:00:00Z",
-            "summary": "ThreatFabric found it in late October while investigating an NFC-relay banking trojan. The panel can use a local or API-hosted LLM to rank victims and suggest how to get past permission prompts; a new overlay trick shows a screenshot of the home or lock screen to hide fraud in progress.",
-            "status": "exploited",
-            "cves": [],
-            "url": "https://www.threatfabric.com/blogs/bazuka-the-fraud-framework-that-can-do-it-all",
-            "source": "ThreatFabric / The Hacker News"
-          },
-          {
-            "title": "Reported (not independently verified): a 'swarm' of 30+ AI agents breached a company, bypassed its two-factor login, stole data and deployed ransomware in 14 minutes, per TrustedSec's David Kennedy on CNN",
-            "date": "2026-11-20T00:00:00Z",
-            "summary": "Kennedy said the attackers started with valid usernames and passwords, the agents probed the infrastructure at once and found a flaw in how the application handled 2FA; the victim noticed only about 4.5 hours later when systems crashed. The company is unnamed and no technical details are public.",
-            "status": "reported",
-            "cves": [],
-            "url": "https://www.ibtimes.co.uk/ai-attack-bypassed-two-factor-authentication-14-minutes-1833605",
-            "source": "CNN (Erin Burnett OutFront) / IBTimes / India Today"
           }
         ]
       },
@@ -320,6 +311,17 @@
             ],
             "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-137657",
             "source": "NVD"
+          },
+          {
+            "title": "Amazon ECS MCP Server CVE-2026-135614: troubleshooting tool returned unredacted container environment values and secret references",
+            "date": "2026-11-24T19:00:00Z",
+            "summary": "With the sensitive-data setting at its default, awslabs.ecs-mcp-server before 0.1.36 returned plaintext task-definition environment variables; someone who can get content in front of the agent (prompt injection) could extract them. CVSS 5.5, no exploitation reported. Upgrade to 0.1.36 and rotate any credentials kept as plaintext task-definition environment variables.",
+            "status": "patched",
+            "cves": [
+              "CVE-2026-135614"
+            ],
+            "url": "https://aws.amazon.com/security/security-bulletins/2026-200-aws/",
+            "source": "AWS security bulletin 2026-200-AWS"
           },
           {
             "title": "Langflow Smart Transform prompt injection can lead to code execution (CVE-2026-7700, CVSS 8.8)",
@@ -468,26 +470,6 @@
             ],
             "url": "https://github.com/Project-MONAI/MONAILabel/security/advisories/GHSA-qc22-rmgc-vg94",
             "source": "GitHub advisory / VulDB"
-          },
-          {
-            "title": "flyto-core (Flyto2 Core, an execution engine for automation and AI-agent workflows) CVE-2026-77312, CVSS 10: unauthenticated arbitrary file write through unguarded data.*/file.* modules; fixed in 2.26.8",
-            "date": "2026-11-20T00:09:02Z",
-            "summary": "GitHub advisory GHSA-p34x-fmph-9fjx (Nov 20) says versions up to 2.26.7 are affected because the fix for CVE-2026-67429 was incomplete. EnclaveRadar on X says a public exploit was released (unverified). No exploitation has been reported. Upgrade to 2.26.8.",
-            "status": "unverified",
-            "cves": [
-              "CVE-2026-77312"
-            ],
-            "url": "https://github.com/advisories/GHSA-p34x-fmph-9fjx",
-            "source": "GitHub Advisory / X"
-          },
-          {
-            "title": "Malicious MCP server packages flagged by GitHub: karma365-mcp 2.1.0 (npm) and my-mcp-server-driving-license-ocr 0.1.3 (PyPI)",
-            "date": "2026-11-19T23:03:00Z",
-            "summary": "GitHub's advisory (GHSA-72xc-q3v8-7grp, MAL-2026-19235) says any computer that installed or ran karma365-mcp 2.1.0 should be treated as fully compromised; the package was removed from npm. The PyPI package reportedly sends ID images users submit to an unknown server (per X). Remove both from MCP configs and rotate secrets from a clean machine.",
-            "status": "reported",
-            "cves": [],
-            "url": "https://github.com/advisories/GHSA-72xc-q3v8-7grp",
-            "source": "GitHub Advisory Database / Snyk / X"
           }
         ]
       },
@@ -533,9 +515,23 @@
         ]
       }
     ],
-    "trend_note": "AI-assisted intrusions are now reported against fresh zero-days (MiCollab, MONAI Label), not only known flaws, and they move from first request to domain admin in about half an hour. Patching alone is no longer enough when exploitation predates the advisory: hunt for compromise on anything patched late, rotate credentials stored on edge apps, and keep exposed admin and conferencing interfaces off the internet. Detection hints: AI-speed command streams with no operator traffic (Accenture), machine-speed retries (Microsoft) and Intent-ID counters (Wiz)."
+    "trend_note": "AI-assisted intrusions are now reported against fresh zero-days (MiCollab, MONAI Label), not only known flaws, and they move from first request to domain admin in about half an hour. Patching alone is no longer enough when exploitation predates the advisory: hunt for compromise on anything patched late, rotate credentials stored on edge apps, and keep exposed admin and conferencing interfaces off the internet. Detection hints: AI-speed command streams with no operator traffic (Accenture), machine-speed retries (Microsoft) and Intent-ID counters (Wiz). New pattern: AI-assisted intruders going after SaaS platforms that hold third-party API keys (Cryptio) to pivot into customers' exchange accounts; keep stored keys read-only and IP-restricted."
   },
   "focus": [
+    {
+      "title": "Cryptio (crypto accounting SaaS) breached by an intruder using 'frontier AI tools', who tried to move client assets with stored exchange and custody API keys",
+      "severity": "critical",
+      "exploited": true,
+      "cves": [],
+      "vendor": "Cryptio",
+      "why": "Cryptio confirmed on Nov 26 that an outsider used 'frontier AI tools' to get into its platform and attempted transfers with some of the client exchange/custody API keys it stores; all identified attempts failed and no losses are known, investigation ongoing. Its platform is offline. Keys with write or withdrawal rights put funds at risk; Cryptio says even read-only keys must be revoked.",
+      "action": "If you use Cryptio: revoke every API key shared with it at the issuing exchange or custodian (e.g. Fireblocks, BitGo, Anchorage, Copper, Coinbase, Kraken, Binance), including read-only keys; review accounts for unapproved transfers, withdrawals and user/permission changes; do not reconnect until Cryptio says so; ignore messages asking for keys or wallet details.",
+      "url": "https://crypto.news/cryptio-ai-attack-attempted-crypto-transfers/",
+      "ai_angle": [
+        "cause"
+      ],
+      "ai_note": "Company says the attacker used 'frontier AI tools' to gain access; tools and method not disclosed."
+    },
     {
       "title": "Amazon: China-nexus actor's Cairn AI agents found and exploited a MONAI Label zero-day (CVE-2026-133968) on their own, getting root on a university server; CISA added it to KEV Nov 23; fix in MONAI Label 0.8.6",
       "severity": "critical",
@@ -605,7 +601,7 @@
       "ai_note": "GreyNoise attributes automated weaponization, discovery and exploitation to agentic AI harnesses."
     },
     {
-      "title": "Autonomous AI attack tools in real intrusions: Italy's CSIRT reports AI-agent campaigns (Nov 25); Microsoft names six state and criminal groups using ARTEX (Nov 25); Swiss BACS: five AI-agent attacks, four successful, three on critical-infrastructure operators (Nov 24, updated Nov 26); UK NCSC 'marked rise' (Nov 24); Wiz ~20 more incidents; Bitrise; European Commission; CERT-In; BabidiGhost; Bell Canada",
+      "title": "Autonomous AI attack tools in real intrusions: Italy's CSIRT reports AI-agent campaigns (Nov 25); Microsoft names six state and criminal groups using ARTEX (Nov 25); Swiss BACS: five AI-agent attacks, three on critical-infrastructure operators, at least two of those successful (Nov 24, updated Nov 26); UK NCSC 'marked rise' (Nov 24); Wiz ~20 more incidents; Bitrise; European Commission; CERT-In; BabidiGhost; Bell Canada",
       "severity": "critical",
       "exploited": true,
       "cves": [],
@@ -635,21 +631,6 @@
         "cause"
       ],
       "ai_note": "Original flaw found by Anthropic's OSS Scanner and exploited (KEV); the follow-up gap has no AI credit in sources."
-    },
-    {
-      "title": "AI inference providers breached and prompts read: Dragos canary study; OpenRouter off-boards three providers and pulls 125 endpoints from Zero Data Retention (updated Nov 22); Together AI, Phala, Novita and GMI Cloud confirm or are reported",
-      "severity": "high",
-      "exploited": true,
-      "cves": [],
-      "vendor": "OpenRouter routes to MiniMax (direct, AtlasCloud, Novita, StreamLake); Together AI; Phala; GMI Cloud; Prime Intellect",
-      "why": "Dragos's HD Moore sent nearly 2 million prompts carrying unique canary secrets (AWS keys, URLs, passwords) Jul-Nov and found at least three AI hosting providers compromised, resellers logging prompts, and providers ignoring Zero Data Retention flags; planted AWS keys were later tried. OpenRouter emailed users Nov 21 that prompts sent to MiniMax models Jul-Oct were read 40-130 hours later and removed ZDR labels from those endpoints. Together AI (Nov 21) says someone downloaded stored June-July prompt samples (MiniMax M3, GLM-5.2, Kimi K2.6) using a credential an AI coding agent had committed to a public repo, then tested credentials found in them. Phala says DeepSeek V4 Flash 0731 requests routed to it Oct 21-Nov 8 05:35 UTC should be treated as exposed. RuntimeWire reports OpenRouter cut off GMI Cloud after an attacker searched its ~3 days of stored prompts for credentials. Prime Intellect says an intruder served a refusal-stripped DeepSeek model for 53 hours (Nov 8-10), with no prompt exposure reported. Update Nov 22: OpenRouter's incident post says it off-boarded three providers, removed 125 endpoints from ZDR eligibility (flagged ones plus precautionary removals), notified all potentially affected customers, and will require assurances before restoring ZDR; it found no breach of OpenRouter itself. It lists notices from Novita (MiniMax requests), Phala and Together; The Hacker News reports the removed providers are likely the MiniMax resellers AtlasCloud, Novita and StreamLake.",
-      "action": "If your apps or agents sent API keys, tokens or passwords in prompts through OpenRouter to MiniMax, Phala-hosted DeepSeek V4 Flash 0731, GMI Cloud or Together AI's serverless models in the stated windows, rotate those secrets now. Going forward: keep secrets out of prompts, pin providers you trust (or disable fallbacks to resellers) in your router, and enable ZDR where offered, but don't rely on it alone.",
-      "url": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/",
-      "ai_angle": [
-        "impact",
-        "cause"
-      ],
-      "ai_note": "AI impact: AI providers' prompt streams were the target. AI cause in part: Together AI says the leaked credential was committed by an AI coding agent."
     },
     {
       "title": "Palo Alto: China-linked, AI-assisted campaign (per SecurityWeek) chained PHP2Shell with Linux root bug Fragnesia CVE-2026-46300 to root 24 PAN-OS firewalls and a management server; fixed PAN-OS builds released (PAN-SA-2026-0015, Nov 24)",
@@ -688,7 +669,7 @@
       "cves": [],
       "vendor": "Microsoft",
       "why": "Microsoft closed the access path around Nov 19, but anything stored in an APIM Classic instance before then should be treated as stolen, including backend API credentials it holds. Re-listed because rotation is the fix and it is easy to miss.",
-      "action": "If you run APIM Classic (Developer/Basic/Standard/Premium): confirm runtime 0.52.31936+ or 0.53.31938+; rotate every secret at its issuing service (named values, IdP client secrets, subscription keys, backend keys), update APIM, then revoke the old ones; review APIM and backend logs since early November. v2 and Consumption tiers were not affected.",
+      "action": "If you run APIM Classic (Developer/Basic/Standard/Premium): confirm runtime 0.52.31936+ or 0.53.31938+; rotate every secret at its issuing service (named values, IdP client secrets, subscription keys, backend keys), update APIM, then revoke the old ones; review APIM and backend logs since early November. v2 and Consumption tiers were not affected. The patch does not revoke anything already stolen.",
       "url": "https://www.bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials/",
       "ai_angle": [],
       "ai_note": ""
@@ -746,6 +727,12 @@
   ],
   "news": [
     {
+      "title": "Cryptio says attacker used AI tools and tried to move crypto",
+      "source": "crypto.news",
+      "url": "https://crypto.news/cryptio-ai-attack-attempted-crypto-transfers/",
+      "blurb": "Intruder used 'frontier AI tools' to access the accounting platform and tried transfers with client API keys; all known attempts failed. Revoke all keys shared with Cryptio."
+    },
+    {
       "title": "Rackspace shuts down Spot cloud platform after security breach",
       "source": "BleepingComputer",
       "url": "https://www.bleepingcomputer.com/news/security/rackspace-shuts-down-spot-cloud-platform-after-security-breach/",
@@ -786,16 +773,12 @@
       "source": "CISA",
       "url": "https://www.cisa.gov/news-events/alerts/2026/11/25/cisa-adds-10-known-exploited-vulnerabilities-catalog",
       "blurb": "Five Mitel MiCollab flaws (led by CVSS 10 CVE-2026-133323), Xen Orchestra CVE-2026-133469, three Danfoss AK-SM 800A flaws and Juniper Session Smart CVE-2026-103406."
-    },
-    {
-      "title": "North Korea-Linked PolinRider Poisons Over 7,600 GitHub Repositories to Spread Malware",
-      "source": "The Hacker News",
-      "url": "https://thehackernews.com/2026/11/north-korea-linked-polinrider-poisons.html",
-      "blurb": "A Python loader hidden in conftest.py or a small utils package runs on import (e.g. under pytest), pulls JavaScript from Ethereum transaction data and runs it with Node.js."
     }
   ],
   "watch": [
-    "No CISA KEV additions on Nov 26 (US holiday); the latest batch is still the 10 entries of Nov 25.",
+    "No CISA KEV additions on Nov 26 (US holiday); the latest batch is still the 10 entries of Nov 25. Drupal CVE-2026-132165 federal deadline is today (Nov 27).",
+    "AI inference providers breached / prompts read (moved from focus; last update Nov 22): Dragos canary study, OpenRouter off-boarded three providers and pulled 125 endpoints from Zero Data Retention; Together AI, Phala, Novita, GMI Cloud. If you sent secrets in prompts via these routes Jul-Nov, rotate them.",
+    "Amazon ECS MCP Server CVE-2026-135614 (AWS bulletin 2026-200-AWS, CVSS 5.5, not exploited): prompt injection could make the troubleshooting tool return unredacted task-definition environment values; upgrade to 0.1.36 and rotate plaintext env-var credentials.",
     "KEPCO (South Korea's power utility; Yonhap/BleepingComputer, disclosed Nov 22-24): breach of 1.52 million people across its KEPCO ON billing and SRM procurement systems, incl. IDs, addresses, bank and card details; services suspended after detection Nov 20.",
     "markdownify-mcp CVE-2026-137308 (CVSS 8.3, NVD Nov 26; no exploitation reported): SSRF filter bypass reachable through prompt injection lets an agent fetch internal hosts and cloud metadata; update to 1.2.0.",
     "InternLM LMDeploy CVE-2026-137657 (CVSS 8.7, NVD Nov 26; not exploited): unauthenticated memory exhaustion through the DistServe proxy warmup endpoint (0.9.0-0.18.0); keep the proxy off untrusted networks.",
@@ -817,6 +800,6 @@
     "13 malicious NuGet packages (The Hacker News, Nov 26) posing as WinUI/WPF controls in fake .NET job take-home assessments drop executables and sideload DLLs for remote code execution. Developers: do not run job-test projects on work machines; audit recent NuGet installs.",
     "New malicious packages (GitHub/OpenSSF, Nov 25): npm @prime0/piomatch 1.0.0 (postinstall beacon plus remote command 'stealth agent', removed), PyPI alogithms 1.0.1-1.0.3 (.pth startup hook), plusinpath 2.4.5, py2ops 2.3.1. Remove and rotate secrets on any host that installed them.",
     "FIFA (The Record Nov 25, BBC Nov 26): confirms hackers accessed a 'limited set of personal and business information'; BBC says criminals got in by impersonating staff, not a systems failure; a group called Handsome Boy Hacking Club claimed it. Expect FIFA- and World Cup-themed phishing. https://therecord.media/fifa-data-breach-limited",
-    "PolinRider (SafeDep, Nov 26): North Korea-linked loader planted in 7,600+ GitHub repos, hidden in conftest.py or a utils package, so running pytest executes it; it fetches JavaScript from an Ethereum wallet's latest transaction. Check cloned third-party repos before running tests. https://safedep.io/blog/polinrider-python-loader-ethereum-calldata.md"
+    "PolinRider (SafeDep, Nov 26; moved from news): North Korea-linked loader in 7,600+ GitHub repos runs when you run pytest (hidden in conftest.py); review cloned repos before running tests."
   ]
 }
